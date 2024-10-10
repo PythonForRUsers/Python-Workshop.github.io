@@ -40,6 +40,10 @@ for file_path in session_qmd_files:
 
 # Step 1: Render the Quarto file
 print(f"Rendering {qmd_file} with Quarto...")
+subprocess.run(["quarto", "render", "about.qmd"])
+subprocess.run(["quarto", "render", "index.qmd"])
+subprocess.run(["quarto", "render", "link.qmd"])
+subprocess.run(["quarto", "render", "sessions.qmd"])
 subprocess.run(["quarto", "render", qmd_file])
 
 
