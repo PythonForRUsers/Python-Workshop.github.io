@@ -1,5 +1,6 @@
 ---
 title: "About"
+author: "Python Group"
 ---
 
 About this site

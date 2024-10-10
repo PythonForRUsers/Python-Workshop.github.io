@@ -1,6 +1,8 @@
 project:
   type: website
 
+output-dir: docs/
+
 website:
   title: "Intro to Python Workshops"
   navbar:
@@ -8,6 +10,7 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      
 
 format:
   html:
@@ -20,4 +23,7 @@ format:
     link-external-newwindow: true
 
 
-
+execute:
+  after-render: |
+    mv _site/* docs/
+    rm -r _site/

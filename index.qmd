@@ -9,11 +9,15 @@ format:
     code-line-numbers: true
     link-external-icon: false
     link-external-newwindow: true
-    css: main_website.css
-jupyter: python3
+    css: styles.css
+output-dir: docs/
     
 ---
 
 # Welcome to the Intro to Python Workshop
 
-This is the main webpage!!
+Explain what the website is and how to use it!
+
+## Here is a lvl 2 heading
+
+Maybe here we can put links to the different workshops. 
