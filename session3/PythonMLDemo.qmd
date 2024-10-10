@@ -13,8 +13,15 @@ format:
 
 ## Links
 
-[![](../icons/csv.png){width=50 fig-align="left"}](https://www.kaggle.com/datasets/erdemtaha/cancer-data/data) [Cancer Dataset](https://www.kaggle.com/datasets/erdemtaha/cancer-data/data)
+<a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data/data" class="link-block">
+    <img src="../icons/csv.png" alt="Dataset">
+    <p>Cancer Dataset</p>
+</a>
 
+<a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block">
+    <img src="../icons/code.png" alt="File">
+    <p>Download Follow Along File</p>
+</a>
 ## Getting Started
 
 Before doing anything else, we should first activate the conda environment we want to use. 
