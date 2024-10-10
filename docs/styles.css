@@ -84,6 +84,34 @@ pre,
     /* Customize the height */
 }
 
+/* style for fun blocks */
+
+.niceblock {
+    background-color: var(--tipbg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+/* Styling for the link block */
+.link-block {
+    text-decoration: none;
+    /* Remove underline from link */
+    color: black;
+    /* Text color */
+}
+
+.link-block img {
+    width: 150px;
+    /* Set the width of the image */
+    height: auto;
+    /* Maintain the aspect ratio */
+}
+
+.link-block:hover {
+    color: var(--hover);
+    /* Change text color on hover */
+}
+
 .terminal {
     background-color: #1e1e1e;
     border: 1px solid var(--border-color);

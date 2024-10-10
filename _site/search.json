@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Python Workshop: Intro to Python",
+    "section": "",
+    "text": "This is the main webpage for the intro to python workshops! We will upload session videos, python demos and other things here.\n\n\nMaybe here we can put links to the different workshops."
+  },
+  {
+    "objectID": "index.html#here-is-a-lvl-2-heading",
+    "href": "index.html#here-is-a-lvl-2-heading",
+    "title": "Python Workshop: Intro to Python",
+    "section": "",
+    "text": "Maybe here we can put links to the different workshops."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "link.html",
+    "href": "link.html",
+    "title": "Links",
+    "section": "",
+    "text": "Links for downloading and installing mentioned software.\n \n\nInstall Anaconda"
+  }
+]

@@ -10,6 +10,8 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - sessions.qmd
+      - link.qmd
       
 
 format:
@@ -23,7 +25,4 @@ format:
     link-external-newwindow: true
 
 
-execute:
-  after-render: |
-    mv _site/* docs/
-    rm -r _site/
+

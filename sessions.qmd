@@ -1,0 +1,15 @@
+---
+title: "Sessions"
+author: "Python Group"
+format: 
+  html:
+    toc: true
+    code-copy: true
+    code-line-numbers: true
+    link-external-icon: false
+    link-external-newwindow: true
+    css: styles.css
+output-dir: docs/ 
+---
+### Session links
+<a href="session3/session3.html">Go to ML Demo</a>
