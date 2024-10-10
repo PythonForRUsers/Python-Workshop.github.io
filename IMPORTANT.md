@@ -1,7 +1,7 @@
 # Important information for session development!
 
 If you're making a session:
-Put all needed files in a folder titled "session#" where # is the session number.  
+Put all needed files in a folder titled "session#" where # is the session number. **EXCEPT FOR FILL-IN-THE-BLANK quarto or jupyter files! Those go in the "FollowAlong" folder!!!**  
 In the YAML header, make sure you have `'output-file: "session#.html"'` under the `html:` section. Again, # is the session number, or it can be anything as long as the file name starts with "session". **If you don't want to mess with the YAML header, you can name the original Quarto or Jupyter document with "session_" and the HTML file should have the same name. If you want the style to look like mine, make sure to reference `"../styles.css"` in the YAML header (since it is in the directory above the `.qmd` file).**
 
 ### How to Modify the YAML Header:

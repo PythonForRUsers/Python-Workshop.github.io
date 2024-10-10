@@ -1,0 +1,208 @@
+---
+title: "Python Machine Learning Demo (BLANK)"
+author: "Python Group"
+format: 
+    html:
+        output-file: "session3blank.html"
+        toc: true
+        code-copy: true
+        code-line-numbers: true
+        link-external-icon: false
+        link-external-newwindow: true
+
+## Links
+
+[Cancer Dataset](https://www.kaggle.com/datasets/erdemtaha/cancer-data/data)
+
+## Getting Started
+
+Before doing anything else, we should first activate the conda environment we want to use.
+
+**Refresher: How to activate a conda environment**  
+From the terminal, type:  
+`> conda activate ENV`
+
+To make sure the environment is activated, you might get a message saying:  
+"Selected conda environment was successfully activated."
+
+If we want to make sure we have the packages we’ll need installed, we can use the terminal:
+
+```{bash}
+> conda list
+```
+
+If a package is missing, you can install it using either conda or pip:
+
+```{bash}
+> conda install _______  # Install a package using conda
+```
+
+or
+
+```{bash}
+> pip install _______  # Install a package using pip
+```
+
+## Step 1: Import Packages
+
+Similar to `library()` in R, we’ll use `import` in Python. Fill in the blanks to import the necessary packages:
+
+```{python}
+import pandas as ___
+import numpy as ___
+import seaborn as ___
+import matplotlib.pyplot as ___
+
+# Import from sklearn
+from sklearn.model_selection import __________
+from sklearn.preprocessing import __________
+
+from sklearn.linear_model import __________
+
+from sklearn.metrics import accuracy_score, roc_curve, auc
+```
+
+## Step 2: Read in Data and Perform Data Cleaning
+
+We will read in the dataset using pandas' `read_csv()` function.
+
+```{python}
+data = pd.read_csv("__________")
+```
+
+To get basic information about the dataset, we can use `.info()`:
+
+```{python}
+data._______()
+```
+
+We want to drop the column "Unnamed: 32" since it contains no useful information:
+
+```{python}
+data.drop(columns="Unnamed: 32", inplace=______)
+
+# Check that the column was removed
+print(data.info())
+```
+
+### Recoding a Variable
+
+We will recode the "diagnosis" column so that "B" becomes 0 and "M" becomes 1 using `.map()`.
+
+```{python}
+y_recode = {"B": ___, "M": ___}
+data["diagnosis"] = data["diagnosis"].map(________)
+
+data.head(5)
+```
+
+## Step 3: Exploratory Data Analysis
+
+Now that the data is cleaned, let’s get summary statistics:
+
+```{python}
+data.describe()
+```
+
+### Creating Descriptive Plots
+
+We will create a plot to visualize the distribution of diagnoses:
+
+```{python}
+sns.countplot(x="_________", hue="_________", data=______)
+plt.title("Distribution of Diagnoses")
+plt.show()
+```
+
+To make the plot more interpretable, change the plot to show percentages instead of counts, and customize the colors and labels:
+
+```{python}
+colors = {0: "green", 1: "yellow"}
+
+p = sns.countplot(
+    x="_________",
+    hue="_________",
+    stat="percent",
+    data=data,
+    palette=_________,
+    legend=False,
+)
+
+p.set_xticklabels(["Benign", "Malignant"])
+p.set(xlabel="Diagnosis", ylabel="Percent", title="Distribution of Diagnoses")
+
+plt.legend(title="Diagnosis", loc="upper right", labels=["Benign", "Malignant"])
+plt.show(p)
+```
+
+## Step 4: Data Setup
+
+### Splitting Training and Test Data
+
+We will split the data into X (features) and y (outcome) and then split these into training and test datasets.
+
+```{python}
+x = data.loc[:, '_________'::]
+y = data.loc[:, '_________']
+
+X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=_____, random_state=_____)
+```
+
+### Scaling/Normalizing Data
+
+We need to normalize the data using `StandardScaler`:
+
+```{python}
+scaler = StandardScaler()
+scaler.fit(_________)
+X_train = scaler.transform(_________)
+X_test = scaler.transform(_________)
+```
+
+## Step 5: Model Setup
+
+Create an instance of the logistic regression model:
+
+```{python}
+lr = __________()
+```
+
+Fit the model to the training data:
+
+```{python}
+lr.fit(_________, _________)
+```
+
+## Step 6: Look At Results
+
+### Store Results in a DataFrame
+
+We will use `pd.DataFrame()` to store the results of our predictions.
+
+```{python}
+results = pd.DataFrame()
+
+results.loc[:, 'Predicted'] = lr.predict(_________)
+results.loc[:, 'Truth'] = __________.values
+results.loc[:, 'Probability: Malignant'] = pd.DataFrame(lr.predict_proba(_________))[1]
+
+results.head(5)
+```
+
+### Create an ROC Curve
+
+Create a plot for the ROC curve:
+
+```{python}
+fpr, tpr, thresholds = roc_curve(_________["Truth"], _________["Predicted"])
+roc_auc = auc(fpr, tpr)
+
+plt.plot(fpr, tpr, label=f"ROC Curve (AUC = {roc_auc:.2f})")
+plt.plot([0, 1], [0, 1], linestyle="--", label="Random")
+plt.xlabel("False Positive Rate")
+plt.ylabel("True Positive Rate")
+plt.title("ROC Curve\nAccuracy: {:.2f}%".format(accuracy * 100))
+plt.legend(loc="lower right")
+plt.show()
+```
+
