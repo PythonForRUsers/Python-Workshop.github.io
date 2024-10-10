@@ -13,15 +13,19 @@ def find_session_qmd_files():
     # List to store the paths of found .qmd files
     session_qmd_files = []
 
-    # Walk through the directory
-    for root, dirs, files in os.walk(current_dir):
-        # Check if any folder in the current path contains 'session' (case-insensitive)
-        if any("session" in dir_name.lower() for dir_name in root.split(os.sep)):
-            # Look for .qmd files in the current folder containing 'session' in the name
-            for file in files:
-                if file.endswith(".qmd") and "session" in file.lower():
-                    # Get the full path of the .qmd file
-                    full_path = os.path.join(root, file)
+    # List directories in the current directory
+    for item in os.listdir(current_dir):
+        # print(item)
+        item_path = os.path.join(current_dir, item)
+        # print(item_path)
+        # Check if it's a directory and if 'session' is in the directory name
+        if os.path.isdir(item_path) and "session" in item.lower():
+            # List the files in this directory
+            for file in os.listdir(item_path):
+                # print(file)
+                # Check if the file is a .qmd file and contains 'session' in the name
+                if file.endswith(".qmd"):
+                    full_path = os.path.join(item_path, file)
                     session_qmd_files.append(full_path)
 
     return session_qmd_files
@@ -29,7 +33,9 @@ def find_session_qmd_files():
 
 # Run the function and print the results
 session_qmd_files = find_session_qmd_files()
+
 for file_path in session_qmd_files:
+    print(file_path)
     subprocess.run(["quarto", "render", file_path])
 
 # Step 1: Render the Quarto file

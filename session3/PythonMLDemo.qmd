@@ -9,7 +9,6 @@ format:
         code-line-numbers: true
         link-external-icon: false
         link-external-newwindow: true
-
 ---
 
 ## Links
