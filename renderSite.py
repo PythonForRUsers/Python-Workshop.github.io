@@ -22,9 +22,8 @@ def find_session_qmd_files():
         if os.path.isdir(item_path) and "session" in item.lower():
             # List the files in this directory
             for file in os.listdir(item_path):
-                # print(file)
-                # Check if the file is a .qmd file and contains 'session' in the name
-                if file.endswith(".qmd"):
+                # Check if the file is a .qmd file and does not contain 'ignore' in the name
+                if file.endswith(".qmd") and "ignore" not in file.lower():
                     full_path = os.path.join(item_path, file)
                     session_qmd_files.append(full_path)
 
@@ -38,13 +37,13 @@ for file_path in session_qmd_files:
     print(file_path)
     subprocess.run(["quarto", "render", file_path])
 
-# Step 1: Render the Quarto file
-print(f"Rendering {qmd_file} with Quarto...")
-subprocess.run(["quarto", "render", qmd_file])
-subprocess.run(["quarto", "render", "about.qmd"])
-subprocess.run(["quarto", "render", "index.qmd"])
-subprocess.run(["quarto", "render", "link.qmd"])
-subprocess.run(["quarto", "render", "sessions.qmd"])
+# Step 1: Render the Quarto file (except those with "ignore" in the title)
+files_to_render = ["index.qmd", "about.qmd", "link.qmd", "sessions.qmd"]
+
+for qmd_file in files_to_render:
+    if "ignore" not in qmd_file.lower():
+        print(f"Rendering {qmd_file} with Quarto...")
+        subprocess.run(["quarto", "render", qmd_file])
 
 
 # Step 2: Run the nosite.py script to move _site/ to docs/ and delete _site/
