@@ -1,0 +1,20 @@
+---
+title: "Links"
+author: "Python Group"
+format: 
+  html:
+    toc: true
+    code-copy: true
+    code-line-numbers: true
+    link-external-icon: false
+    link-external-newwindow: true
+    css: styles.css
+output-dir: docs/ 
+---
+
+Links for downloading and installing mentioned software. 
+
+<a href="https://www.anaconda.com/download/success" class="link-block">
+    <img src="icons/anaconda_secondary_logo.svg" alt="Anaconda Download">
+    <p>Install Anaconda</p>
+</a>
