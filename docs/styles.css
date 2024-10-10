@@ -110,7 +110,7 @@ pre,
     color: black;
     /* Text color */
     display: inline-block;
-    padding: 25px;
+    padding: 0 25px;
 }
 
 /* Style for the image */
