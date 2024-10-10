@@ -4,21 +4,21 @@
     "href": "index.html",
     "title": "Python Workshop: Intro to Python",
     "section": "",
-    "text": "Welcome to the Intro to Python Workshop\nThis is the main webpage for the intro to python workshops! We will upload session videos, python demos and other things here.\nLinks for downloading and installing mentioned software.\n \n\nInstall Anaconda\n\n\n\n\nSessions\nGo to ML Demo"
+    "text": "Welcome to the Intro to Python Workshop\nThis is the main webpage for the intro to python workshops! We will upload session videos, python demos and other things here.\nLinks:\n \n\nInstall Anaconda\n\n  \n\nDownload Follow Along Files\n\n\n\n\nSessions\nGo to ML Demo"
   },
   {
     "objectID": "session3/session3.html",
     "href": "session3/session3.html",
     "title": "Python Machine Learning Demo",
     "section": "",
-    "text": "Cancer Dataset\n\n\n \n\nDownload Follow Along File\n\n ## Getting Started\nBefore doing anything else, we should first activate the conda environment we want to use.\n\n\nRefresher: How to activate conda environment\n\n\n\n\nFrom terminal, type:\n\n&gt; conda activate ENVNAME\n\n\n\n\nWhen in VS code, you might get a popup message like the one below, confirming that the environment was activated:\n\nSelected conda environment was successfully activated, even though “(ENVNAME)” indicator may not be present in the terminal prompt.\n\n\nIf we want to make sure we have the packages we’ll need installed in the environment before we try to import them, we can either check on anaconda or use the terminal:\n\n&gt; conda list\n\n\n\n\nOtherwise, we will get an error message if we try to import packages that are not installed.\n\n\nRefresher: How to install packages\n\nTo install packages, we can either use the “anaconda” dashboard, or we can use the command line. Make sure your environment is active before installing packages or the packages will not be available in your environment.\nTo install from the command line, we open a terminal and type:\n\n&gt; conda install {package}\n\nor\n\n&gt; pip install {package}\n\nIf a package is not available via conda it might be available via pip."
+    "text": "Cancer Dataset\n\n  \n\nDownload Follow Along File"
   },
   {
     "objectID": "session3/session3.html#links",
     "href": "session3/session3.html#links",
     "title": "Python Machine Learning Demo",
     "section": "",
-    "text": "Cancer Dataset\n\n\n \n\nDownload Follow Along File\n\n ## Getting Started\nBefore doing anything else, we should first activate the conda environment we want to use.\n\n\nRefresher: How to activate conda environment\n\n\n\n\nFrom terminal, type:\n\n&gt; conda activate ENVNAME\n\n\n\n\nWhen in VS code, you might get a popup message like the one below, confirming that the environment was activated:\n\nSelected conda environment was successfully activated, even though “(ENVNAME)” indicator may not be present in the terminal prompt.\n\n\nIf we want to make sure we have the packages we’ll need installed in the environment before we try to import them, we can either check on anaconda or use the terminal:\n\n&gt; conda list\n\n\n\n\nOtherwise, we will get an error message if we try to import packages that are not installed.\n\n\nRefresher: How to install packages\n\nTo install packages, we can either use the “anaconda” dashboard, or we can use the command line. Make sure your environment is active before installing packages or the packages will not be available in your environment.\nTo install from the command line, we open a terminal and type:\n\n&gt; conda install {package}\n\nor\n\n&gt; pip install {package}\n\nIf a package is not available via conda it might be available via pip."
+    "text": "Cancer Dataset\n\n  \n\nDownload Follow Along File"
   },
   {
     "objectID": "session3/session3.html#getting-started",
@@ -74,7 +74,7 @@
     "href": "link.html",
     "title": "Links",
     "section": "",
-    "text": "Links for downloading and installing mentioned software.\n \n\nInstall Anaconda"
+    "text": "Links for downloading and installing mentioned software/files.\n \n\nInstall Anaconda\n\n\n \n\nDownload Follow Along File"
   },
   {
     "objectID": "about.html",
