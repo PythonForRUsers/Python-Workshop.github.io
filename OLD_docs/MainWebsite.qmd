@@ -1,0 +1,19 @@
+---
+title: "Python Workshop: Intro to Python"
+author: "Python Group"
+format: 
+  html:
+    output-file: "index.html"
+    toc: true
+    code-copy: true
+    code-line-numbers: true
+    link-external-icon: false
+    link-external-newwindow: true
+    css: main_website.css
+jupyter: python3
+    
+---
+
+# Welcome to the Intro to Python Workshop
+
+This is the main webpage!!
