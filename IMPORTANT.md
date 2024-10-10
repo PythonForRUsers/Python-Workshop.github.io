@@ -51,49 +51,85 @@ For example, if you want to link to `session3.html` from `sessions.qmd`, add:
 
 Within your `.qmd` file, you can use HTML `div` tags to make cool effects. Here are a couple of things you can do:
 
-### 1. Create "Terminal" Style Blocks
+---
 
-If you want to create a block that looks like a terminal, you can use a custom `div` with a specific class. Here’s how to do it:
+# How to Use the Custom Styles from `styles.css`
 
+### 1. **Creating "Terminal" Style Blocks**
+
+To create a block that mimics the appearance of a terminal, use the `terminal` class. This is useful for displaying code or terminal commands in a styled, preformatted block.
+
+#### Example:
 ```html
 <div class="terminal">
-  <pre><code>
   $ python script.py
   Output: Hello, World!
-  </code></pre>
 </div>
 ```
 
-- The `<div class="terminal">` sets up the block to look like a terminal (assuming you have terminal-style CSS).
-- The `<pre><code>` inside the div ensures that the content appears preformatted, like in a real terminal window.
+- **Appearance**: This block will have a dark background and monospace font, resembling a terminal window.
+- **When to use**: Use this for displaying terminal commands or code snippets in a stylized format.
 
-To ensure this works, your `../styles.css` file should have the following:
+### 2. **Creating "Nice Blocks" for Tips or Notes**
 
-```css
-.terminal {
-  background-color: #1e1e1e;
-  color: #ffffff;
-  padding: 10px;
-  font-family: monospace;
-  border-radius: 5px;
-  overflow: auto;
-}
+To create a block that has a light background, use the `niceblock` class. This can be used for highlighting important tips, notes, or warnings.
+
+#### Example:
+```html
+<div class="niceblock">
+  <p>This is a helpful tip or note!</p>
+</div>
 ```
 
-### 2. Create Hideable Information with a "Details" Block
+- **Appearance**: The block will have a light blue background with a border and rounded corners, perfect for highlighting key information.
+- **When to use**: Use this for highlighting tips, suggestions, or important reminders in your content.
 
-If you want to create collapsible/expandable content (useful for optional or additional information), you can use the `<details>` and `<summary>` HTML tags. Here’s how:
+### 3. **Creating Link Blocks with Images and Centered Text**
 
+If you want to create a clickable block that contains an image and centered text underneath the image, use the `link-block` class.
+
+#### Example:
+```html
+<a href="https://example.com" class="link-block">
+    <img src="path-to-image.jpg" alt="Image description">
+    <p>Click here for more information</p>
+</a>
+```
+
+- **Appearance**: This creates a clickable block where an image is displayed, and the text is centered beneath it.
+- **When to use**: Use this when you want to create a link that includes both an image and text, like a button or a visual call-to-action.
+
+### 4. **Creating Hideable Information with a "Details" Block**
+
+The `details` and `summary` elements allow you to create expandable/collapsible content. Use this to create sections that the user can expand to reveal more information.
+
+#### Example:
 ```html
 <details>
   <summary>Click to see more details</summary>
-  <p>Here is the additional information you can show or hide.</p>
+  <p>Here is some additional information that can be shown or hidden.</p>
 </details>
 ```
 
-- `<details>` creates a collapsible block.
-- `<summary>` is the clickable text that expands or collapses the block.
-- The content inside the `<details>` will be hidden until the user clicks to expand it.
+- **Appearance**: This creates a light blue block that the user can expand and collapse. The summary text will be bold, with a hover effect to indicate it's clickable.
+- **When to use**: Use this when you want to hide additional details or optional information that doesn’t need to be visible at first.
 
-This is great for optional information, tips, or explanations you don’t want to take up too much space on the page.
+### 5. **Styling Links**
+
+The `styles.css` file also defines styles for links. You don’t need to use any special class—these styles will apply to all links automatically.
+
+#### Link Styles:
+- **Normal state**: Links will appear in a dark blue color (`--links`).
+- **Hover state**: When a user hovers over a link, it will change to a lighter blue (`--hover`).
+- **Active state**: When a link is clicked, the color will remain the same as the hover state.
+- **Visited state**: Visited links will change to the hover color.
+
+#### Example:
+```markdown
+[Click here to visit the website](https://example.com)
+```
+
+This link will automatically inherit the styles defined in the CSS file.
+
+---
 
