@@ -13,7 +13,7 @@ format:
 
 ## Links
 
-[![](icons/csv.png){width=50 fig-align="left"}](https://www.kaggle.com/datasets/erdemtaha/cancer-data/data) [Cancer Dataset](https://www.kaggle.com/datasets/erdemtaha/cancer-data/data)
+[![](../icons/csv.png){width=50 fig-align="left"}](https://www.kaggle.com/datasets/erdemtaha/cancer-data/data) [Cancer Dataset](https://www.kaggle.com/datasets/erdemtaha/cancer-data/data)
 
 ## Getting Started
 
