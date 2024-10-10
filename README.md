@@ -7,3 +7,5 @@
 The workshop site can be found here: https://github.mskcc.org/pages/Python-Workshop/Python-Workshop.github.io/
 
 This workshop and associated website are a work in progress. 
+
+Please use the discussions tab here on github for any suggestions! 
