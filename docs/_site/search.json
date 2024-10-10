@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Python Workshop: Intro to Python",
+    "section": "",
+    "text": "Explain what the website is and how to use it!\n\n\nMaybe here we can put links to the different workshops."
+  },
+  {
+    "objectID": "index.html#here-is-a-lvl-2-heading",
+    "href": "index.html#here-is-a-lvl-2-heading",
+    "title": "Python Workshop: Intro to Python",
+    "section": "",
+    "text": "Maybe here we can put links to the different workshops."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  }
+]
