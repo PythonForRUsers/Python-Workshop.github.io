@@ -2,8 +2,10 @@ import shutil
 import os
 
 # Define source and destination directories
-source_dir = "_site"
-destination_dir = "docs"
+current_dir = os.path.dirname(os.path.realpath(__file__))
+
+source_dir = os.path.join(current_dir, "_site")
+destination_dir = "/docs"
 
 # Copy contents of _site to docs/
 if os.path.exists(source_dir):

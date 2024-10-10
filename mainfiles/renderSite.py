@@ -2,8 +2,9 @@ import subprocess
 import os
 
 # Define the paths
-qmd_file = "index.qmd"
-nosite_script = "nosite.py"
+current_dir = os.path.dirname(os.path.realpath(__file__))
+
+nosite_script = os.path.join(current_dir, "nosite.py")
 
 
 def find_session_qmd_files():
@@ -43,7 +44,7 @@ files_to_render = ["index.qmd", "about.qmd", "link.qmd", "sessions.qmd"]
 for qmd_file in files_to_render:
     if "ignore" not in qmd_file.lower():
         print(f"Rendering {qmd_file} with Quarto...")
-        subprocess.run(["quarto", "render", qmd_file])
+        subprocess.run(["quarto", "render", os.path.join(current_dir, qmd_file)])
 
 
 # Step 2: Run the nosite.py script to move _site/ to docs/ and delete _site/

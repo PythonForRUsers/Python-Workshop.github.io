@@ -1,0 +1,21 @@
+{
+  "index.qmd": {
+    "index.html": "b0da53ce"
+  },
+  "about.qmd": {
+    "about.html": "b49015be"
+  },
+  "link.qmd": {
+    "index.html": "b8502847",
+    "link.html": "7c1b644e"
+  },
+  "session3/PythonMLDemo.qmd": {
+    "session3.html": "45caee2b"
+  },
+  "IMPORTANT.md": {
+    "IMPORTANT.html": "1f55944b"
+  },
+  "sessions.qmd": {
+    "sessions.html": "a7b1268a"
+  }
+}
