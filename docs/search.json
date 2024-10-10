@@ -67,13 +67,6 @@
     "href": "index.html",
     "title": "Python Workshop: Intro to Python",
     "section": "",
-    "text": "This is the main webpage for the intro to python workshops! We will upload session videos, python demos and other things here.\n\n\nMaybe here we can put links to the different workshops."
-  },
-  {
-    "objectID": "index.html#here-is-a-lvl-2-heading",
-    "href": "index.html#here-is-a-lvl-2-heading",
-    "title": "Python Workshop: Intro to Python",
-    "section": "",
-    "text": "Maybe here we can put links to the different workshops."
+    "text": "Welcome to the Intro to Python Workshop\nThis is the main webpage for the intro to python workshops! We will upload session videos, python demos and other things here.\nLinks for downloading and installing mentioned software.\n \n\nInstall Anaconda\n\n\n\n\nSessions\nGo to ML Demo"
   }
 ]

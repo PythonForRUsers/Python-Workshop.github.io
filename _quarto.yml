@@ -10,8 +10,6 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-      - sessions.qmd
-      - link.qmd
       
 
 format:
