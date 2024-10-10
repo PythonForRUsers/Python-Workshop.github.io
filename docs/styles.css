@@ -92,8 +92,15 @@ pre,
 
 .niceblock {
     background-color: var(--tipbg);
-    border: 1px solid var(--border-color);
+    /* Light background for the block */
+    border: 1px solid var(--tipbg);
+    /* Optional border */
+    padding: 10px;
+    /* Padding inside the block */
     border-radius: var(--border-radius);
+    /* Rounded corners */
+    margin-bottom: 10px;
+    /* Space below the block */
 }
 
 /* Styling for the link block */
@@ -103,15 +110,17 @@ pre,
     color: black;
     /* Text color */
     display: inline-block;
+    padding: 25px;
 }
 
 /* Style for the image */
 .link-block img {
-    width: 150px;
+    height: 50px;
     /* Set the width of the image */
-    height: auto;
+    width: auto;
     /* Maintain aspect ratio */
     display: block;
+    margin: 0 auto;
     /* Ensures the image takes up full width of the element */
 }
 

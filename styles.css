@@ -110,15 +110,17 @@ pre,
     color: black;
     /* Text color */
     display: inline-block;
+    padding: 25px;
 }
 
 /* Style for the image */
 .link-block img {
-    width: 150px;
+    height: 50px;
     /* Set the width of the image */
-    height: auto;
+    width: auto;
     /* Maintain aspect ratio */
     display: block;
+    margin: 0 auto;
     /* Ensures the image takes up full width of the element */
 }
 

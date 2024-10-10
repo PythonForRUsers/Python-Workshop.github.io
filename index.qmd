@@ -18,11 +18,14 @@ output-dir: docs/
 
 This is the main webpage for the intro to python workshops! We will upload session videos, python demos and other things here. 
 
-Links for downloading and installing mentioned software. 
+Links: 
 
 <a href="https://www.anaconda.com/download/success" class="link-block">
     <img src="icons/anaconda_secondary_logo.svg" alt="Anaconda Download">
     <p>Install Anaconda</p>
+</a> <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block">
+    <img src="icons/code.png" alt="File">
+    <p>Download Follow Along Files</p>
 </a>
 
 # Sessions

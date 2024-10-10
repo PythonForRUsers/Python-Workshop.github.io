@@ -213,7 +213,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="links" class="level2">
 <h2 class="anchored" data-anchor-id="links">Links</h2>
-<p><a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data/data"><img src="../icons/csv.png" class="img-fluid quarto-figure quarto-figure-left" width="50"></a> <a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data/data">Cancer Dataset</a></p>
+<a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data/data" class="link-block"> <img src="../icons/csv.png" alt="Dataset">
+<p>
+Cancer Dataset
+</p>
+</a> <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block"> <img src="../icons/code.png" alt="File">
+<p>
+Download Follow Along File
+</p>
+</a><p><a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block"></a></p>
 </section>
 <section id="getting-started" class="level2">
 <h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
@@ -264,7 +272,7 @@ If a package is not available via conda it might be available via pip.
 <section id="step-1-import-packages" class="level2">
 <h2 class="anchored" data-anchor-id="step-1-import-packages">Step 1: Import Packages</h2>
 <p>Similar to <code>library()</code> in R.</p>
-<div id="fe2aee20" class="cell" data-execution_count="1">
+<div id="9b2dc77f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -283,7 +291,7 @@ If a package is not available via conda it might be available via pip.
 <section id="step-2-read-in-data-and-perform-data-cleaning" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-read-in-data-and-perform-data-cleaning">Step 2: Read in Data and Perform Data Cleaning</h2>
 <p>We can use the <code>read_csv()</code> function from the pandas package to read in the dataset.</p>
-<div id="ca1b95a6" class="cell" data-execution_count="2">
+<div id="2f7e11c8" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"example_data/Cancer_Data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can use the <code>.info()</code> function to show some basic information about the dataset like:<br>
@@ -292,7 +300,7 @@ If a package is not available via conda it might be available via pip.
 * column labels<br>
 * column type<br>
 * number of non-null values in each column</p>
-<div id="93e8e974" class="cell" data-execution_count="3">
+<div id="432dcdfa" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -339,7 +347,7 @@ memory usage: 146.8+ KB</code></pre>
 </div>
 <p>From the <em>info</em>, we can see that the column types make sense and most of the columns have no missing values.</p>
 <p>We do have this extra column called “Unnamed: 32” with 0 non-null values… so let’s drop it (remove it from the dataframe).</p>
-<div id="c02575ea" class="cell" data-execution_count="4">
+<div id="80261367" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">## `inplace` means that we modify the original dataframe</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>data.drop(columns<span class="op">=</span><span class="st">"Unnamed: 32"</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb5-3"><a href="#cb5-3"></a></span>
@@ -390,9 +398,9 @@ None</code></pre>
 </div>
 <p>The column was successfully removed!</p>
 <p>Now, we can use <code>.head(5)</code> to show the first 5 rows of the dataset (rows 0-4). Remember that the first row is “0” not “1”!</p>
-<div id="df4d99d0" class="cell" data-execution_count="5">
+<div id="e8cc579e" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>data.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="100">
+<div class="cell-output cell-output-display" data-execution_count="62">
 <div>
 
 
@@ -554,7 +562,7 @@ None</code></pre>
 <section id="recoding-a-variable" class="level3">
 <h3 class="anchored" data-anchor-id="recoding-a-variable">Recoding a Variable</h3>
 <p>For our logistic regression, the diagnosis column, which is our outcome of interest, should be 0, 1 not B, M. To fix this, we can use a <em>dictionary</em> and <code>.map()</code>.</p>
-<div id="2a398c0f" class="cell" data-execution_count="6">
+<div id="2f9ae721" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">## define a dictionary</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>y_recode <span class="op">=</span> {<span class="st">"B"</span>: <span class="dv">0</span>, <span class="st">"M"</span>: <span class="dv">1</span>}</span>
 <span id="cb8-3"><a href="#cb8-3"></a></span>
@@ -563,7 +571,7 @@ None</code></pre>
 <span id="cb8-6"><a href="#cb8-6"></a>data[<span class="st">"diagnosis"</span>] <span class="op">=</span> data[<span class="st">"diagnosis"</span>].<span class="bu">map</span>(y_recode)</span>
 <span id="cb8-7"><a href="#cb8-7"></a></span>
 <span id="cb8-8"><a href="#cb8-8"></a>data.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="101">
+<div class="cell-output cell-output-display" data-execution_count="63">
 <div>
 
 
@@ -727,9 +735,9 @@ None</code></pre>
 <section id="step-3-exploratory-data-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="step-3-exploratory-data-analysis">Step 3: Exploratory Data Analysis</h2>
 <p>Now that our data is cleaned and we have our outcome in numeric form, we can use <code>.describe()</code> to get summary statistics for each column of the dataset.</p>
-<div id="bb571f35" class="cell" data-execution_count="7">
+<div id="aae08715" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>data.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="102">
+<div class="cell-output cell-output-display" data-execution_count="64">
 <div>
 
 
@@ -965,7 +973,7 @@ None</code></pre>
 <h3 class="anchored" data-anchor-id="creating-descriptive-plots">Creating Descriptive Plots</h3>
 <p>We can also look at the number of each diagnosis reflected in the dataset in a plot using seaborn.</p>
 <p>You can also save a plot to a variable (ex: ‘p’) if you want to display it later with <code>plt.show(p)</code>.</p>
-<div id="c6039796" class="cell" data-dpi="600" data-execution_count="8">
+<div id="06cfa8d8" class="cell" data-dpi="600" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>sns.countplot(x<span class="op">=</span><span class="st">"diagnosis"</span>, hue<span class="op">=</span><span class="st">"diagnosis"</span>, data<span class="op">=</span>data)</span>
 <span id="cb10-2"><a href="#cb10-2"></a>plt.title(<span class="st">"Distribution of Diagnoses"</span>)</span>
 <span id="cb10-3"><a href="#cb10-3"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -979,15 +987,15 @@ None</code></pre>
 </div>
 <p>If we want, we can change the colors of the plot. To make the plot a bit more useful, we can also change the y-scale from “count” to “percentage” and add labels so it is clear what “0” and “1” mean.</p>
 <p>To help us pick colors, we can use <code>sns.color_palette()</code> which will display an image with the colors in the palette.</p>
-<div id="a41cf4cb" class="cell" data-execution_count="9">
+<div id="a6397c31" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>sns.color_palette(<span class="st">"colorblind"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="104">
+<div class="cell-output cell-output-display" data-execution_count="66">
 <svg width="550" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#0173b2;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="55" y="0" width="55" height="55" style="fill:#de8f05;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="110" y="0" width="55" height="55" style="fill:#029e73;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="165" y="0" width="55" height="55" style="fill:#d55e00;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="220" y="0" width="55" height="55" style="fill:#cc78bc;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="275" y="0" width="55" height="55" style="fill:#ca9161;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="330" y="0" width="55" height="55" style="fill:#fbafe4;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="385" y="0" width="55" height="55" style="fill:#949494;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="440" y="0" width="55" height="55" style="fill:#ece133;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="495" y="0" width="55" height="55" style="fill:#56b4e9;stroke-width:2;stroke:rgb(255,255,255)"></rect></svg>
 </div>
 </div>
 <p>To change the colors of our plot, we can make a dictionary with the values of ‘diagnosis’ as keys and the hexcodes of the colors we want to use as values.</p>
 <p>We can get the hex codes of colors from a seaborn palette using <code>sns.color_palette().as_hex()</code>.</p>
-<div id="c9b7e16f" class="cell" data-message="false" data-execution_count="10">
+<div id="80d83527" class="cell" data-message="false" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>color_hex <span class="op">=</span> sns.color_palette(<span class="st">"colorblind"</span>).as_hex()</span>
 <span id="cb12-2"><a href="#cb12-2"></a></span>
 <span id="cb12-3"><a href="#cb12-3"></a><span class="bu">print</span>(<span class="st">"The hexcodes for the 'colorblind' palette are:</span><span class="ch">\n</span><span class="st">"</span>, color_hex)</span>
@@ -1005,7 +1013,7 @@ None</code></pre>
 <p>We then create the plot and tell seaborn to use ‘colors’ as the palette for the graph. We can also change the ‘stat’ to be “percent”, which can be more interpretable than raw counts.</p>
 <p>We can also change the xtick labels to be “Benign” and “Malignant” instead of “0” and “1”. Because we assigned the plot to the variable ‘p’, we can use <code>p.{}</code> to change attributes of plot ‘p’.</p>
 <p>We will also change the axis labels and set a title. Once we make these changes, we can show the finished plot.</p>
-<div id="59d68fd7" class="cell" data-execution_count="11">
+<div id="8f0ab3cb" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>p <span class="op">=</span> sns.countplot(</span>
 <span id="cb14-2"><a href="#cb14-2"></a>    x<span class="op">=</span><span class="st">"diagnosis"</span>,</span>
 <span id="cb14-3"><a href="#cb14-3"></a>    hue<span class="op">=</span><span class="st">"diagnosis"</span>,</span>
@@ -1037,7 +1045,7 @@ None</code></pre>
 </div>
 <p>If we wanted to, we could also make a correlation heatmap of our features using <code>.corr()</code> and <code>sns.heatmap()</code>.</p>
 <p>For this, all of our columns must be numeric, and we should remove the ‘id’ column as it is not useful for correlation. We use <code>.select_dtypes()</code> to select only the numeric columns from the dataset.</p>
-<div id="ea4d0c04" class="cell" data-execution_count="12">
+<div id="ed8ea10d" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>numeric_data <span class="op">=</span> data.select_dtypes(include<span class="op">=</span>[np.number])</span>
 <span id="cb15-2"><a href="#cb15-2"></a></span>
 <span id="cb15-3"><a href="#cb15-3"></a><span class="co">## drop id column</span></span>
@@ -1076,7 +1084,7 @@ None</code></pre>
 <p>Unlike R, Python allows for multi-argument returns from functions. This lets us assign each returned object to a different variable to be used later.</p>
 <p>In R, a function typically returns a list and we use list indexing to access the individual objects.</p>
 </div>
-<div id="0898d03a" class="cell" data-execution_count="13">
+<div id="7309268a" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>x <span class="op">=</span> data.loc[:, <span class="st">'radius_mean'</span>::]</span>
 <span id="cb16-2"><a href="#cb16-2"></a></span>
 <span id="cb16-3"><a href="#cb16-3"></a><span class="co">## set only the diagnosis column as "y"</span></span>
@@ -1085,7 +1093,7 @@ None</code></pre>
 <span id="cb16-6"><a href="#cb16-6"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(x, y, test_size <span class="op">=</span> <span class="fl">0.2</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span>
 <span id="cb16-7"><a href="#cb16-7"></a></span>
 <span id="cb16-8"><a href="#cb16-8"></a>X_train.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="108">
+<div class="cell-output cell-output-display" data-execution_count="70">
 <div>
 
 
@@ -1200,7 +1208,7 @@ None</code></pre>
 <section id="scalingnormalizing-data" class="level3">
 <h3 class="anchored" data-anchor-id="scalingnormalizing-data">Scaling/Normalizing Data</h3>
 <p>Because all of our features have different scales, we need to standardize (normalize) our dataset. We can do this by creating an instance of the <code>StandardScaler</code> class called “scaler” and fitting that to the training data. We then use the same “scaler” to scale the test dataset.</p>
-<div id="ab3c4dd2" class="cell" data-execution_count="14">
+<div id="0dad73a8" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="co">## standardize dataset</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a>scaler <span class="op">=</span> StandardScaler()</span>
 <span id="cb17-3"><a href="#cb17-3"></a></span>
@@ -1214,15 +1222,15 @@ None</code></pre>
 <section id="step-5-model-setup" class="level2">
 <h2 class="anchored" data-anchor-id="step-5-model-setup">Step 5: Model Setup</h2>
 <p>Next we have to set up the model itself by creating an instance of the <code>LogisticRegression</code> model class.</p>
-<div id="2863f49a" class="cell" data-execution_count="15">
+<div id="97082760" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>lr <span class="op">=</span> LogisticRegression()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then, we can fit this model to the training data.</p>
-<div id="a10270b8" class="cell" data-execution_count="16">
+<div id="8a17e322" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="co">## fit to training data</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a>lr.fit(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="111">
-<style>#sk-container-id-6 {color: black;}#sk-container-id-6 pre{padding: 0;}#sk-container-id-6 div.sk-toggleable {background-color: white;}#sk-container-id-6 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-6 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-6 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-6 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-6 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-6 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-6 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-6 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-6 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-6 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-6 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-6 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-6 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-6 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-6 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-6 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-6 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-6 div.sk-item {position: relative;z-index: 1;}#sk-container-id-6 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-6 div.sk-item::before, #sk-container-id-6 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-6 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-6 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-6 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-6 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-6 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-6 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-6 div.sk-label-container {text-align: center;}#sk-container-id-6 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-6 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-6" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox" checked=""><label for="sk-estimator-id-6" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression()</pre></div></div></div></div></div>
+<div class="cell-output cell-output-display" data-execution_count="73">
+<style>#sk-container-id-4 {color: black;}#sk-container-id-4 pre{padding: 0;}#sk-container-id-4 div.sk-toggleable {background-color: white;}#sk-container-id-4 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-4 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-4 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-4 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-4 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-4 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-4 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-4 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-4 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-4 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-4 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-4 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-4 div.sk-item {position: relative;z-index: 1;}#sk-container-id-4 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-4 div.sk-item::before, #sk-container-id-4 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-4 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-4 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-4 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-4 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-4 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-4 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-4 div.sk-label-container {text-align: center;}#sk-container-id-4 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-4 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" checked=""><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression()</pre></div></div></div></div></div>
 </div>
 </div>
 </section>
@@ -1232,7 +1240,7 @@ None</code></pre>
 <section id="store-results-in-a-dataframe" class="level3">
 <h3 class="anchored" data-anchor-id="store-results-in-a-dataframe">Store Results in a Dataframe</h3>
 <p>We can use <code>pd.DataFrame()</code> to create an empty pandas dataframe that we can fill with our results.</p>
-<div id="5a4862ea" class="cell" data-execution_count="17">
+<div id="4e609c09" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="co">## use model to predict test data</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a><span class="co">## set up dataframe to review results</span></span>
 <span id="cb20-3"><a href="#cb20-3"></a>results <span class="op">=</span> pd.DataFrame()</span>
@@ -1250,7 +1258,7 @@ None</code></pre>
 <span id="cb20-15"><a href="#cb20-15"></a><span class="co">#results.replace({"Predicted": results_recode, 'Truth': results_recode}, inplace = True)</span></span>
 <span id="cb20-16"><a href="#cb20-16"></a></span>
 <span id="cb20-17"><a href="#cb20-17"></a>results.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="112">
+<div class="cell-output cell-output-display" data-execution_count="74">
 <div>
 
 
@@ -1301,7 +1309,7 @@ None</code></pre>
 </div>
 </div>
 <p>We can also get a quantitative “accuracy score” that will give us an idea of how well our model predicts our outcomes.</p>
-<div id="1ab3c43b" class="cell" data-execution_count="18">
+<div id="f7e2f196" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>accuracy <span class="op">=</span> accuracy_score(results[<span class="st">"Truth"</span>], results[<span class="st">"Predicted"</span>])</span>
 <span id="cb21-2"><a href="#cb21-2"></a></span>
 <span id="cb21-3"><a href="#cb21-3"></a><span class="bu">print</span>(<span class="st">"Accuracy: </span><span class="sc">{:.2f}</span><span class="st">%"</span>.<span class="bu">format</span>(accuracy <span class="op">*</span> <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1314,7 +1322,7 @@ None</code></pre>
 <h3 class="anchored" data-anchor-id="create-roc-curve">Create ROC curve</h3>
 <p>As a figure, we can create an ROC curve and use quarto chunk options to add a figure caption.</p>
 <p>In python, you can store</p>
-<div id="b141aeaf" class="cell" data-execution_count="19">
+<div id="45e22493" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="co">## make a plot to vizualize the ROC curve</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a></span>
 <span id="cb23-3"><a href="#cb23-3"></a><span class="co">## get false pos rate, true pos rate and thresholds</span></span>
