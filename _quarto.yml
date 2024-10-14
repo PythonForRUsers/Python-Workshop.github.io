@@ -2,6 +2,8 @@ project:
   type: website
   render:
     - "*.qmd"
+    - "!FollowAlong/*.qmd"
+
 
 output-dir: docs/
 
