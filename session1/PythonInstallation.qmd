@@ -1,0 +1,154 @@
+---
+title: "Session 1. Python Installation"
+author: "Python Group"
+format: 
+    html:
+        output-file: "session1.html"
+        toc: true
+        css: ../styles.css
+---
+
+Welcome to the first session of the Introduction to Python Workshop series!
+
+This guide will you walk through the steps to install Python to your computer and work interactively with it in Visual Studio Code. After the session, you will acquire basic knowledge of the following:
+
+-   Install Python via Anaconda distribution.
+
+-   Create, activate, and install packages to Python virtual environments.
+
+-   Create Quarto files and import and visualize data with Python libraries.
+
+# 1.1 Introduction to Tools
+
+## Anaconda
+
+![](images/Anaconda-Logo.png){fig-align="left" width="200"}
+
+**Anaconda** is an open-source distribution of Python, designed for scientific computing, data science, machine learning, and AI development.
+
+It comes with a desktop application Anaconda Navigator.
+
+It has the latest version of Python and \~150 **pre-downloaded libraries**.
+
+It also comes with `conda,` a cross-platform package and environment manager. Conda helps install packages from the Anaconda repositories (also called "channels"). It supports more than just Python packages but numerous other programming languages like R, Java, etc.
+
+![Difference between conda, miniconda, and Anaconda](images/anaconda-explained.png){fig-align="center" width="500"}
+
+In this tutorial, we are going to install the full Anaconda distribution and learn the features of its Anaconda Navigator desktop application. This allows us to manage packages and environments without needing to know the conda terminal commands.
+
+## Visual Studio Code
+
+\[image\]
+
+**Visual Studio Code (VS Code)** is one of the most popular open-source code editors.
+
+It supports multi-language programming and integration of project development features (e.g., Remote server connection, Git, debugging tools) via the Extensions Marketplace.
+
+\[comparison to other IDE\]
+
+## Quarto
+
+# 1.2 Install Anaconda
+
+1.  [Download Anaconda Installer](https://www.anaconda.com/download/success)
+
+2.  Choose the right installer for your computer's operating system (i.e., MacOS, Windows). Run the installer.
+
+3.  For Windows:
+
+    1.  Run the `.exe` installer.
+
+    2.  Click `Next >`. When asked to select the type of the installation, select the `Just Me` option.
+
+        ![](images/anaconda-install-1.png){width="400"}
+
+        ::: callout-warning
+        ## Select installing for "Just Me"
+
+        You don't need to install for all users most of the time. This option requires admin privileges which you might not have on your MSK laptop.
+        :::
+
+    3.  Choose installation location. You can keep the default location. E.g., `C:\Users\<user_name>\AppData\Local\anaconda3`.
+
+    4.  Now, going to the advanced installation options. **Do not add anaconda3 to my PATH environment variable in Windows**, as it might cause potential conflicts with your other Python installations.
+
+        ![](images/anaconda-install-2.png){width="400"}
+
+        ::: callout-warning
+        ## Do not add Anaconda to PATH
+
+        It is recommended that you do not add anaconda3 to system's PATH environment variable, as it might lead to conflict with your other Python installations.
+
+        Instead, later run `conda init` in Anaconda Prompt to configure the terminal shell (bash, zsh, and cmd) to recognize `conda` all the time.
+        :::
+
+4.  For MacOS:
+
+    1.  Run the `.pkg` installer.
+
+    2.  When asked for the installation location, keep the default location: `/home/<your_user>/miniconda3`.
+
+    3.  When asked if you want to initialize conda, answer `yes` (remember this because the default answer is set to no). This enables access to conda from the standard terminal (bash, cmd) every time you open it.
+
+    4.  Finish the installation.
+
+Finally, you can check that conda is properly installed:
+
+For Windows:
+
+1.  Open the Start Menu of Windows and look for **Anaconda Prompt**. Open it.
+2.  Type `conda info` into the Anaconda Prompt terminal. You should see details about your current conda installation. This means that conda is properly installed and initialized.
+
+For MacOS:
+
+1.  Open a new **terminal**.
+2.  You should see `(base)` in the beginning of the prompt. This means that conda is properly installed and the base environment is activated.
+3.  Similarly, write `canda info` in the terminal. You should see the info about the current conda installation returned.
+
+# 1.3 Virtual Environment
+
+### What is a virtual environment?
+
+Environments are **isolated, independent installations** of a programming language and groups of packages, that don't interfere with each other.
+
+For example, you may have a Python version 3.8 installed on your computer as the System Python. Meanwhile, you can install as many virtual environments as you want with the same or different Python versions and set of packages.
+
+### Why virual environments?
+
+You do not necessarily need environemnts. However, you may find it useful in many cases.
+
+-   **Avoid Conflicts**. When you need libraries that are not compatibles with your system settings, such as an older Python version or conflicting dependencies. Creating a virtual environment can resolve the conflicts and changing it won't affect your other environments.
+
+-   **Sharing Environment Setting**. You can also share your environment and the list of dependencies with someone with a copy of the `environment.yaml` file.
+
+-   **Easy Management**. When your work is temporary or that you simply want to experiment things without having to worry about things breaking, you can work within a virtual environemnt and later delete it when needed.
+
+## 1.3.1 Creating a Virtual Environment (with GUI)
+
+One option is to use the Anaconda Navigator which is a graphic user interface (GUI). This way is straightforward and does not require command line prompts.
+
+1.  
+
+## 1.3.2 Creating a Virutal Environment (with Command Line)
+
+1. Once you have ``conda`` installed. Open Anaconda Prompt (for both Windows and MacOS).
+
+    ```         
+    conda create --name <env-name>
+    ```
+    Replace ``<env-name>`` with the name you want to give your environment.
+
+2. You can also specify the Python version or packages you want to install.
+    
+    ```
+    conda create -n <env-name> python=3.10 
+    ```
+    
+    And the specific packages and their versions:
+
+    ```
+    conda create -n <env-name> python=3.10 scipy=0.17.3 pandas matplotlib
+    ```
+3. Activate your environment.
+
+4. Check your conda enviornment list.

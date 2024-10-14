@@ -164,3 +164,6 @@ cython_debug/
 #.idea/
 
 /.quarto/
+
+# VS Code
+.vscode/
