@@ -28,18 +28,18 @@
     "text": "Quarto"
   },
   {
-    "objectID": "session1/session1.html#virtual-environment",
-    "href": "session1/session1.html#virtual-environment",
+    "objectID": "session1/session1.html#creating-a-virtual-environment-with-gui",
+    "href": "session1/session1.html#creating-a-virtual-environment-with-gui",
     "title": "Session 1. Python Installation",
-    "section": "1.3 Virtual Environment",
-    "text": "1.3 Virtual Environment\n\n\n\n\n\n\nNote\n\n\n\n1"
+    "section": "1.3.1 Creating a Virtual Environment (with GUI)",
+    "text": "1.3.1 Creating a Virtual Environment (with GUI)\nOne option is to use the Anaconda Navigator which is a graphic user interface (GUI). This way is straightforward and does not require command line prompts."
   },
   {
-    "objectID": "session1/session1.html#footnotes",
-    "href": "session1/session1.html#footnotes",
+    "objectID": "session1/session1.html#creating-a-virutal-environment-with-command-line",
+    "href": "session1/session1.html#creating-a-virutal-environment-with-command-line",
     "title": "Session 1. Python Installation",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\ntext↩︎"
+    "section": "1.3.2 Creating a Virutal Environment (with Command Line)",
+    "text": "1.3.2 Creating a Virutal Environment (with Command Line)\n\nOnce you have conda installed. Open Anaconda Prompt (for both Windows and MacOS).\nconda create --name &lt;env-name&gt;\nReplace &lt;env-name&gt; with the name you want to give your environment.\nYou can also specify the Python version or packages you want to install.\nconda create -n &lt;env-name&gt; python=3.10 \nAnd the specific packages and their versions:\nconda create -n &lt;env-name&gt; python=3.10 scipy=0.17.3 pandas matplotlib\nActivate your environment.\nCheck your conda enviornment list."
   },
   {
     "objectID": "session3/session3.html",
@@ -105,11 +105,11 @@
     "text": "Step 6: Look At Results\nOnce the model is fit, we can use it to predict the outcome (diagnosis) based on the features of the test data.\n\nStore Results in a Dataframe\nWe can use pd.DataFrame() to create an empty pandas dataframe that we can fill with our results.\n\n## use model to predict test data\n## set up dataframe to review results\nresults = pd.DataFrame()\n\n## get predicted\nresults.loc[:, 'Predicted']= lr.predict(X_test)\n\n## get true y values for test dataset\nresults.loc[:, 'Truth'] = y_test.values\n\n## get probability of being malignant\nresults.loc[:, 'Probability: Malignant'] = pd.DataFrame(lr.predict_proba(X_test))[1]\n\n#results_recode = {0: \"B\", 1:\"M\"}\n#results.replace({\"Predicted\": results_recode, 'Truth': results_recode}, inplace = True)\n\nresults.head(5)\n\n\n\n\n\n\n\n\nPredicted\nTruth\nProbability: Malignant\n\n\n\n\n0\n0\n0\n0.113590\n\n\n1\n1\n1\n0.999991\n\n\n2\n1\n1\n0.996921\n\n\n3\n0\n0\n0.000510\n\n\n4\n0\n0\n0.000061\n\n\n\n\n\n\n\nWe can also get a quantitative “accuracy score” that will give us an idea of how well our model predicts our outcomes.\n\naccuracy = accuracy_score(results[\"Truth\"], results[\"Predicted\"])\n\nprint(\"Accuracy: {:.2f}%\".format(accuracy * 100))\n\nAccuracy: 97.37%\n\n\n\n\nCreate ROC curve\nAs a figure, we can create an ROC curve and use quarto chunk options to add a figure caption.\nIn python, you can store\n\n## make a plot to vizualize the ROC curve\n\n## get false pos rate, true pos rate and thresholds\nfpr, tpr, thresholds = roc_curve(results[\"Truth\"], results[\"Predicted\"])\n\n## get AUC data\nroc_auc = auc(fpr, tpr)\n\n## set up plot\nplt.figure(figsize=(8, 6))\n\n## using matplotlib this time, create line plot with 2pt line weight\n## add \"ROC Curve (AUC = AUC)\" as label for orange line\nplt.plot(fpr, tpr, color=\"darkorange\", lw=2, label=f\"ROC Curve (AUC = {roc_auc:.2f})\")\n\n## create another curve, this time blue with a dashed line labeled \"Random\"\n## as in random chance\nplt.plot([0, 1], [0, 1], color=\"navy\", lw=2, linestyle=\"--\", label=\"Random\")\n\n## add xlabel, ylabel and title\nplt.xlabel(\"False Positive Rate\")\nplt.ylabel(\"True Positive Rate\")\nplt.title(\n    \"Receiver Operating Characteristic (ROC) Curve\\nAccuracy: {:.2f}%\".format(\n        accuracy * 100\n    )\n)\n\n## add legend and show plot\nplt.legend(loc=\"lower right\")\nplt.show()\n\n\n\n\nAn ROC curve for our logistic regression model\n\n\n\n\nCongratulations! You have successfully done logistic regression in Python!\n\n\nCitations\n\nIcons\nCsv icons created by rizal2109 - Flaticon Ipynb icons created by JunGSa - Flaticon Coding icons created by juicy_fish - Flaticon"
   },
   {
-    "objectID": "sessions.html",
-    "href": "sessions.html",
-    "title": "Sessions",
+    "objectID": "link.html",
+    "href": "link.html",
+    "title": "Links",
     "section": "",
-    "text": "Session links\nTutorial: Get Started with Python \nGo to ML Demo"
+    "text": "Links for downloading and installing mentioned software/files.\n \n\nInstall Anaconda\n\n\n \n\nDownload Follow Along File"
   },
   {
     "objectID": "about.html",
@@ -119,31 +119,17 @@
     "text": "About this site"
   },
   {
+    "objectID": "sessions.html",
+    "href": "sessions.html",
+    "title": "Sessions",
+    "section": "",
+    "text": "Session links\nTutorial: Get Started with Python \nGo to ML Demo"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Python Workshop: Intro to Python",
     "section": "",
-    "text": "Welcome to the Intro to Python Workshop\nThis is the main webpage for the intro to python workshops! The workshops are geared towards R and SAS users who want to explore using Python. We will cover installing and setting up python with anaconda, basic python datastructures, and finally a demo logistic regression model with a cancer dataset. We will upload session videos, python demos and other things here.\nLinks:\n \n\nInstall Anaconda\n\n  \n\nDownload Follow Along Files\n\n\n\n\nSessions\nGo to ML Demo"
-  },
-  {
-    "objectID": "link.html",
-    "href": "link.html",
-    "title": "Links",
-    "section": "",
-    "text": "Links for downloading and installing mentioned software/files.\n \n\nInstall Anaconda\n\n\n \n\nDownload Follow Along File"
-  },
-  {
-    "objectID": "session1/session1.html#creating-a-virtual-environment-with-gui",
-    "href": "session1/session1.html#creating-a-virtual-environment-with-gui",
-    "title": "Session 1. Python Installation",
-    "section": "1.3.1 Creating a Virtual Environment (with GUI)",
-    "text": "1.3.1 Creating a Virtual Environment (with GUI)\nOne option is to use the Anaconda Navigator which is a graphic user interface (GUI). This way is straightforward and does not require command line prompts."
-  },
-  {
-    "objectID": "session1/session1.html#creating-a-virutal-environment-with-command-line",
-    "href": "session1/session1.html#creating-a-virutal-environment-with-command-line",
-    "title": "Session 1. Python Installation",
-    "section": "1.3.2 Creating a Virutal Environment (with Command Line)",
-    "text": "1.3.2 Creating a Virutal Environment (with Command Line)\n\nOnce you have conda installed. Open Anaconda Prompt (for both Windows and MacOS).\nconda create --name &lt;env-name&gt;\nReplace &lt;env-name&gt; with the name you want to give your environment.\nYou can also specify the Python version or packages you want to install.\nconda create -n &lt;env-name&gt; python=3.10 \nAnd the specific packages and their versions:\nconda create -n &lt;env-name&gt; python=3.10 scipy=0.17.3 pandas matplotlib\nActivate your environment.\nCheck your conda enviornment list."
+    "text": "Welcome to the Intro to Python Workshop\nThis is the main webpage for the intro to python workshops! The workshops are geared towards R and SAS users who want to explore using Python. We will cover installing and setting up python with anaconda, basic python datastructures, and finally a demo logistic regression model with a cancer dataset. We will upload session videos, python demos and other things here.\nLinks:\n \n\nInstall Anaconda\n\n  \n\nDownload Follow Along Files\n\n\n\n\nSessions\nTutorial: Get Started with Python \nGo to ML Demo"
   }
 ]

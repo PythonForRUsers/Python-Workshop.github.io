@@ -30,5 +30,8 @@ Links:
 
 # Sessions
 
+<a href="session1/session1.html">Tutorial: Get Started with Python
+  </a>
+  
 <a href="session3/session3.html">Go to ML Demo</a>
 
