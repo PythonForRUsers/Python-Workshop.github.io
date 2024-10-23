@@ -12,4 +12,8 @@ format:
 output-dir: docs/ 
 ---
 ### Session links
-<a href="session3/session3.html">Go to ML Demo</a>
+<a href="session1/session1.html">Tutorial: Get Started with Python
+  </a>
+
+<a href="session3/session3.html">Go to ML Demo
+  </a>

@@ -1,5 +1,47 @@
 [
   {
+    "objectID": "session1/session1.html",
+    "href": "session1/session1.html",
+    "title": "Session 1. Python Installation",
+    "section": "",
+    "text": "Welcome to the first session of the Introduction to Python Workshop series!\nThis guide will you walk through the steps to install Python to your computer and work interactively with it in Visual Studio Code. After the session, you will acquire basic knowledge of the following:"
+  },
+  {
+    "objectID": "session1/session1.html#anaconda",
+    "href": "session1/session1.html#anaconda",
+    "title": "Session 1. Python Installation",
+    "section": "Anaconda",
+    "text": "Anaconda\n\n\n\n\n\nAnaconda is an open-source distribution of Python, designed for scientific computing, data science, machine learning, and AI development.\nIt comes with a desktop application Anaconda Navigator.\nIt has the latest version of Python and ~150 pre-downloaded libraries.\nIt also comes with conda, a cross-platform package and environment manager. Conda helps install packages from the Anaconda repositories (also called “channels”). It supports more than just Python packages but numerous other programming languages like R, Java, etc.\n\n\n\nDifference between conda, miniconda, and Anaconda\n\n\nIn this tutorial, we are going to install the full Anaconda distribution and learn the features of its Anaconda Navigator desktop application. This allows us to manage packages and environments without needing to know the conda terminal commands."
+  },
+  {
+    "objectID": "session1/session1.html#visual-studio-code",
+    "href": "session1/session1.html#visual-studio-code",
+    "title": "Session 1. Python Installation",
+    "section": "Visual Studio Code",
+    "text": "Visual Studio Code\n[image]\nVisual Studio Code (VS Code) is one of the most popular open-source code editors.\nIt supports multi-language programming and integration of project development features (e.g., Remote server connection, Git, debugging tools) via the Extensions Marketplace.\n[comparison to other IDE]"
+  },
+  {
+    "objectID": "session1/session1.html#quarto",
+    "href": "session1/session1.html#quarto",
+    "title": "Session 1. Python Installation",
+    "section": "Quarto",
+    "text": "Quarto"
+  },
+  {
+    "objectID": "session1/session1.html#creating-a-virtual-environment-with-gui",
+    "href": "session1/session1.html#creating-a-virtual-environment-with-gui",
+    "title": "Session 1. Python Installation",
+    "section": "1.3.1 Creating a Virtual Environment (with GUI)",
+    "text": "1.3.1 Creating a Virtual Environment (with GUI)\nOne option is to use the Anaconda Navigator which is a graphic user interface (GUI). This way is straightforward and does not require command line prompts."
+  },
+  {
+    "objectID": "session1/session1.html#creating-a-virutal-environment-with-command-line",
+    "href": "session1/session1.html#creating-a-virutal-environment-with-command-line",
+    "title": "Session 1. Python Installation",
+    "section": "1.3.2 Creating a Virutal Environment (with Command Line)",
+    "text": "1.3.2 Creating a Virutal Environment (with Command Line)\n\nOnce you have conda installed. Open Anaconda Prompt (for both Windows and MacOS).\nconda create --name &lt;env-name&gt;\nReplace &lt;env-name&gt; with the name you want to give your environment.\nYou can also specify the Python version or packages you want to install.\nconda create -n &lt;env-name&gt; python=3.10 \nAnd the specific packages and their versions:\nconda create -n &lt;env-name&gt; python=3.10 scipy=0.17.3 pandas matplotlib\nActivate your environment.\nCheck your conda enviornment list."
+  },
+  {
     "objectID": "session3/session3.html",
     "href": "session3/session3.html",
     "title": "Python Machine Learning Demo",
@@ -53,28 +95,14 @@
     "href": "session3/session3.html#step-5-model-setup",
     "title": "Python Machine Learning Demo",
     "section": "Step 5: Model Setup",
-    "text": "Step 5: Model Setup\nNext we have to set up the model itself by creating an instance of the LogisticRegression model class.\n\nlr = LogisticRegression()\n\nThen, we can fit this model to the training data.\n\n## fit to training data\nlr.fit(X_train, y_train)\n\nLogisticRegression()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.LogisticRegressionLogisticRegression()"
+    "text": "Step 5: Model Setup\nNext we have to set up the model itself by creating an instance of the LogisticRegression model class.\n\nlr = LogisticRegression()\n\nThen, we can fit this model to the training data.\n\n## fit to training data\nlr.fit(X_train, y_train)\n\nLogisticRegression()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  LogisticRegression?Documentation for LogisticRegressioniFittedLogisticRegression()"
   },
   {
     "objectID": "session3/session3.html#step-6-look-at-results",
     "href": "session3/session3.html#step-6-look-at-results",
     "title": "Python Machine Learning Demo",
     "section": "Step 6: Look At Results",
-    "text": "Step 6: Look At Results\nOnce the model is fit, we can use it to predict the outcome (diagnosis) based on the features of the test data.\n\nStore Results in a Dataframe\nWe can use pd.DataFrame() to create an empty pandas dataframe that we can fill with our results.\n\n## use model to predict test data\n## set up dataframe to review results\nresults = pd.DataFrame()\n\n## get predicted\nresults.loc[:, 'Predicted']= lr.predict(X_test)\n\n## get true y values for test dataset\nresults.loc[:, 'Truth'] = y_test.values\n\n## get probability of being malignant\nresults.loc[:, 'Probability: Malignant'] = pd.DataFrame(lr.predict_proba(X_test))[1]\n\n#results_recode = {0: \"B\", 1:\"M\"}\n#results.replace({\"Predicted\": results_recode, 'Truth': results_recode}, inplace = True)\n\nresults.head(5)\n\n\n\n\n\n\n\n\nPredicted\nTruth\nProbability: Malignant\n\n\n\n\n0\n0\n0\n0.114327\n\n\n1\n1\n1\n0.999991\n\n\n2\n1\n1\n0.996902\n\n\n3\n0\n0\n0.000511\n\n\n4\n0\n0\n0.000061\n\n\n\n\n\n\n\nWe can also get a quantitative “accuracy score” that will give us an idea of how well our model predicts our outcomes.\n\naccuracy = accuracy_score(results[\"Truth\"], results[\"Predicted\"])\n\nprint(\"Accuracy: {:.2f}%\".format(accuracy * 100))\n\nAccuracy: 97.37%\n\n\n\n\nCreate ROC curve\nAs a figure, we can create an ROC curve and use quarto chunk options to add a figure caption.\nIn python, you can store\n\n## make a plot to vizualize the ROC curve\n\n## get false pos rate, true pos rate and thresholds\nfpr, tpr, thresholds = roc_curve(results[\"Truth\"], results[\"Predicted\"])\n\n## get AUC data\nroc_auc = auc(fpr, tpr)\n\n## set up plot\nplt.figure(figsize=(8, 6))\n\n## using matplotlib this time, create line plot with 2pt line weight\n## add \"ROC Curve (AUC = AUC)\" as label for orange line\nplt.plot(fpr, tpr, color=\"darkorange\", lw=2, label=f\"ROC Curve (AUC = {roc_auc:.2f})\")\n\n## create another curve, this time blue with a dashed line labeled \"Random\"\n## as in random chance\nplt.plot([0, 1], [0, 1], color=\"navy\", lw=2, linestyle=\"--\", label=\"Random\")\n\n## add xlabel, ylabel and title\nplt.xlabel(\"False Positive Rate\")\nplt.ylabel(\"True Positive Rate\")\nplt.title(\n    \"Receiver Operating Characteristic (ROC) Curve\\nAccuracy: {:.2f}%\".format(\n        accuracy * 100\n    )\n)\n\n## add legend and show plot\nplt.legend(loc=\"lower right\")\nplt.show()\n\n\n\n\nAn ROC curve for our logistic regression model\n\n\n\n\nCongratulations! You have successfully done logistic regression in Python!\n\n\nCitations\n\nIcons\nCsv icons created by rizal2109 - Flaticon Ipynb icons created by JunGSa - Flaticon Coding icons created by juicy_fish - Flaticon"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Python Workshop: Intro to Python",
-    "section": "",
-    "text": "Welcome to the Intro to Python Workshop\nThis is the main webpage for the intro to python workshops! The workshops are geared towards R and SAS users who want to explore using Python. We will cover installing and setting up python with anaconda, basic python datastructures, and finally a demo logistic regression model with a cancer dataset. We will upload session videos, python demos and other things here.\nLinks:\n \n\nInstall Anaconda\n\n  \n\nDownload Follow Along Files\n\n\n\n\nSessions\nGo to ML Demo"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
+    "text": "Step 6: Look At Results\nOnce the model is fit, we can use it to predict the outcome (diagnosis) based on the features of the test data.\n\nStore Results in a Dataframe\nWe can use pd.DataFrame() to create an empty pandas dataframe that we can fill with our results.\n\n## use model to predict test data\n## set up dataframe to review results\nresults = pd.DataFrame()\n\n## get predicted\nresults.loc[:, 'Predicted']= lr.predict(X_test)\n\n## get true y values for test dataset\nresults.loc[:, 'Truth'] = y_test.values\n\n## get probability of being malignant\nresults.loc[:, 'Probability: Malignant'] = pd.DataFrame(lr.predict_proba(X_test))[1]\n\n#results_recode = {0: \"B\", 1:\"M\"}\n#results.replace({\"Predicted\": results_recode, 'Truth': results_recode}, inplace = True)\n\nresults.head(5)\n\n\n\n\n\n\n\n\nPredicted\nTruth\nProbability: Malignant\n\n\n\n\n0\n0\n0\n0.113590\n\n\n1\n1\n1\n0.999991\n\n\n2\n1\n1\n0.996921\n\n\n3\n0\n0\n0.000510\n\n\n4\n0\n0\n0.000061\n\n\n\n\n\n\n\nWe can also get a quantitative “accuracy score” that will give us an idea of how well our model predicts our outcomes.\n\naccuracy = accuracy_score(results[\"Truth\"], results[\"Predicted\"])\n\nprint(\"Accuracy: {:.2f}%\".format(accuracy * 100))\n\nAccuracy: 97.37%\n\n\n\n\nCreate ROC curve\nAs a figure, we can create an ROC curve and use quarto chunk options to add a figure caption.\nIn python, you can store\n\n## make a plot to vizualize the ROC curve\n\n## get false pos rate, true pos rate and thresholds\nfpr, tpr, thresholds = roc_curve(results[\"Truth\"], results[\"Predicted\"])\n\n## get AUC data\nroc_auc = auc(fpr, tpr)\n\n## set up plot\nplt.figure(figsize=(8, 6))\n\n## using matplotlib this time, create line plot with 2pt line weight\n## add \"ROC Curve (AUC = AUC)\" as label for orange line\nplt.plot(fpr, tpr, color=\"darkorange\", lw=2, label=f\"ROC Curve (AUC = {roc_auc:.2f})\")\n\n## create another curve, this time blue with a dashed line labeled \"Random\"\n## as in random chance\nplt.plot([0, 1], [0, 1], color=\"navy\", lw=2, linestyle=\"--\", label=\"Random\")\n\n## add xlabel, ylabel and title\nplt.xlabel(\"False Positive Rate\")\nplt.ylabel(\"True Positive Rate\")\nplt.title(\n    \"Receiver Operating Characteristic (ROC) Curve\\nAccuracy: {:.2f}%\".format(\n        accuracy * 100\n    )\n)\n\n## add legend and show plot\nplt.legend(loc=\"lower right\")\nplt.show()\n\n\n\n\nAn ROC curve for our logistic regression model\n\n\n\n\nCongratulations! You have successfully done logistic regression in Python!\n\n\nCitations\n\nIcons\nCsv icons created by rizal2109 - Flaticon Ipynb icons created by JunGSa - Flaticon Coding icons created by juicy_fish - Flaticon"
   },
   {
     "objectID": "link.html",
@@ -84,10 +112,24 @@
     "text": "Links for downloading and installing mentioned software/files.\n \n\nInstall Anaconda\n\n\n \n\nDownload Follow Along File"
   },
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
     "objectID": "sessions.html",
     "href": "sessions.html",
     "title": "Sessions",
     "section": "",
-    "text": "Session links\nGo to ML Demo"
+    "text": "Session links\nTutorial: Get Started with Python \nGo to ML Demo"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Python Workshop: Intro to Python",
+    "section": "",
+    "text": "Welcome to the Intro to Python Workshop\nThis is the main webpage for the intro to python workshops! The workshops are geared towards R and SAS users who want to explore using Python. We will cover installing and setting up python with anaconda, basic python datastructures, and finally a demo logistic regression model with a cancer dataset. We will upload session videos, python demos and other things here.\nLinks:\n \n\nInstall Anaconda\n\n  \n\nDownload Follow Along Files\n\n\n\n\nSessions\nTutorial: Get Started with Python \nGo to ML Demo"
   }
 ]
