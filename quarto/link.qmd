@@ -12,6 +12,8 @@ format:
 output-dir: docs/ 
 ---
 
+<a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/discussions"> Discussions Page </a>
+
 Links for downloading and installing mentioned software/files. 
 
 <a href="https://www.anaconda.com/download/success" class="link-block">
