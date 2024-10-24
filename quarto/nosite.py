@@ -3,7 +3,7 @@ import os
 
 # Define source and destination directories
 source_dir = "_site"
-destination_dir = "docs"
+destination_dir = "../docs"
 
 # Copy contents of _site to docs/
 if os.path.exists(source_dir):
