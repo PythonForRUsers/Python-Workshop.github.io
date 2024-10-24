@@ -1,5 +1,5 @@
 ---
-title: "Python Workshop: Intro to Python"
+title: "Python Workshops: Intro to Python"
 author: "Python Group"
 format: 
   html:
@@ -14,11 +14,15 @@ output-dir: docs/
     
 ---
 
-# Welcome to the Intro to Python Workshop
+# Welcome to the Intro to Python Workshops
 
-This is the main webpage for the intro to python workshops! The workshops are geared towards R and SAS users who want to explore using Python. We will cover installing and setting up python with anaconda, basic python datastructures, and finally a demo logistic regression model with a cancer dataset. We will upload session videos, python demos and other things here. 
+Our workshops are geared towards R and SAS users who want to explore using Python, a veratile programming language that is especially powerful for tasks like machine learning and working with large datasets. 
 
-Links: 
+In our first three sessions, we will cover installing and setting up python with anaconda, basic python datastructures, and finally a demo logistic regression model with a cancer dataset. Session videos and slides, example code, and other resources will be added to this website periodicially. 
+
+We value your feedback and aim to continually improve these workshops. If you have any suggestions, questions, or ideas, please feel free to share them on our <a href ="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/discussions">GitHub Discussions</a> page. We look forward to hearing from you!
+
+**Links:** 
 
 <a href="https://www.anaconda.com/download/success" class="link-block">
     <img src="icons/anaconda_secondary_logo.svg" alt="Anaconda Download">
@@ -30,8 +34,8 @@ Links:
 
 # Sessions
 
-<a href="session1/session1.html">Tutorial: Get Started with Python
+<a href="session1/session1.html">Session 1: Get Started with Python
   </a>
   
-<a href="session3/session3.html">Go to ML Demo</a>
+<a href="session3/session3.html">Session 3: Logistic Regression Demo</a>
 

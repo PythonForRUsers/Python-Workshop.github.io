@@ -1,5 +1,5 @@
 ---
-title: "Python Machine Learning Demo"
+title: "Python Logistic Regression Demo"
 author: "Python Group"
 format: 
     html:
@@ -252,7 +252,7 @@ plt.show()
 ```
 
 </details>
-</div
+</div>
 
 If we want, we can change the colors of the plot. To make the plot a bit more useful, we can also change the y-scale from "count" to "percentage" and add labels so it is clear what "0" and "1" mean. 
 
