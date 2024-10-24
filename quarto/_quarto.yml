@@ -1,11 +1,12 @@
 project:
   type: website
+  output-dir: ../docs
   render:
     - "*.qmd"
     - "!FollowAlong/*.qmd"
-
-
-output-dir: docs/
+    - "!ignore*.qmd"
+    - "!ignore*.ipynb"
+    - session3/*.ipynb
 
 website:
   title: "Intro to Python Workshops"

@@ -167,3 +167,7 @@ cython_debug/
 
 # VS Code
 .vscode/*
+
+# just testing things
+quarto/session3/renderme.ipynb
+quarto/session3/ignore_testsomething.ipynb

@@ -1,7 +1,10 @@
 # Important information for session development!
 
+### All website files are now in 'quarto' folder! Please put your sessions there!
+
 If you're making a session:
-Put all needed files in a folder titled "session#" where # is the session number. **EXCEPT FOR FILL-IN-THE-BLANK quarto or jupyter files! Those go in the "FollowAlong" folder!!!**  
+Put all needed files in a folder titled "session#" where # is the session number. **EXCEPT FOR FILL-IN-THE-BLANK quarto or jupyter files! Those go in the "FollowAlong" folder!!!** Anything else you want to add but not render can be indicated by starting the file name with 'ignore'.
+
 In the YAML header, make sure you have `'output-file: "session#.html"'` under the `html:` section. Again, # is the session number, or it can be anything as long as the file name starts with "session". **If you don't want to mess with the YAML header, you can name the original Quarto or Jupyter document with "session_" and the HTML file should have the same name. If you want the style to look like mine, make sure to reference `"../styles.css"` in the YAML header (since it is in the directory above the `.qmd` file).**
 
 ### How to Modify the YAML Header:
@@ -41,15 +44,30 @@ For example, if you want to link to `session3.html` from `sessions.qmd`, add:
 - [Session 3](session3.html)
 ```
 
-3. Run the `renderSite.py` script to render the site.  
+3. To render, go to terminal and naviage to the 'quarto' folder. Then type 'quarto render'. This will render all necessary website files. (If this doesn't work, renderSite.py is a backup option.)
 4. To make sure everything looks good, you can open `index.html` from the `docs` subfolder.
 5. If everything looks good, make a pull request.
+
+# If you want to use and render a jupyter notebook
+
+To add a jupyter notebook to be rendered automatically, you can add it to the _quarto.yml file under 'render'. 
+
+```yaml
+project:
+  type: website
+  output-dir: ../docs
+  render:
+    - "*.qmd"
+    - "!FollowAlong/*.qmd"
+    - "!ignore*.qmd"
+    - relative/path/from/'quarto'/new_notebook.ipynb
+```
 
 ---
 
 # Extra information for making things look good
 
-Within your `.qmd` file, you can use HTML `div` tags to make cool effects. Here are a couple of things you can do:
+Within your `.qmd` file, you can use HTML `div` tags to make cool effects. You can also do this within `markdown` chunks in a jupyter notebook. Here are a couple of things you can do:
 
 ---
 
@@ -114,7 +132,27 @@ The `details` and `summary` elements allow you to create expandable/collapsible 
 - **Appearance**: This creates a light blue block that the user can expand and collapse. The summary text will be bold, with a hover effect to indicate it's clickable.
 - **When to use**: Use this when you want to hide additional details or optional information that doesn’t need to be visible at first.
 
-### 5. **Styling Links**
+### 5. **Creating Hideable Answers with a "Details" Block**
+
+By adding a specific div style, you can create a different looking details block that works well for answers to questions or fill-in-the-blank code. Code within the details block can still be run!
+
+#### Example:
+```html
+<div style = "ans">
+<details>
+  <summary>Click for answer!</summary>
+  <p>Here is some additional information that can be shown or hidden.</p>
+  ```python
+  And you can put some code in the details block too!
+  ```
+</details>
+</div>
+```
+
+- **Appearance**: This creates a light grey that the user can expand and collapse. The summary text will be bold, with a hover effect to indicate it's clickable.
+- **When to use**: Use this when you want to hide additional details or optional information that doesn’t need to be visible at first.
+
+### 6. **Styling Links**
 
 The `styles.css` file also defines styles for links. You don’t need to use any special class—these styles will apply to all links automatically.
 

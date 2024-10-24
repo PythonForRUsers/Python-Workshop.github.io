@@ -181,3 +181,37 @@ summary:hover {
     color: var(--hover);
     /* Darken the color on hover */
 }
+
+/* Show/reveal answers code details block */
+.ans details {
+    background-color: var(--codebg);
+    /* Light background for the details block */
+    border: 1px solid var(--border-color);
+    /* Optional border */
+    padding: 10px;
+    /* Padding inside the details block */
+    border-radius: var(--border-radius);
+    /* Rounded corners */
+    margin-bottom: 10px;
+    /* Space below the block */
+}
+
+/* Style for the summary portion */
+.ans summary {
+    font-weight: bold;
+    /* Make the summary text bold */
+    font-size: 16px;
+    /* Increase font size */
+    color: #040404;
+    /* Custom text color */
+    cursor: pointer;
+    /* Show pointer cursor on hover */
+    padding: 5px 0;
+    /* Add padding */
+}
+
+/* Hover effect for the summary */
+.ans summary:hover {
+    color: var(--hover);
+    /* Darken the color on hover */
+}
