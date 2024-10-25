@@ -3,7 +3,7 @@ title: "Python Machine Learning Demo"
 author: "Python Group"
 format: 
     html:
-        output-file: "session3.html"
+        output-file: "ignore_session3.html"
         toc: true
         code-copy: true
         code-line-numbers: true
