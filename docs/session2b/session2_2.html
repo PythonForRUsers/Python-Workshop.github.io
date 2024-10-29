@@ -219,7 +219,7 @@ It can handle missing data, making it easy to filter or fill gaps in datasets.</
 
 Integrates well with other libraries, making it easy to move data between libraries like NumPy for numerical computations and Matplotlib or Seaborn for visualization.</code></pre>
 <p>Loading the Dataset</p>
-<div id="f33487bc" class="cell" data-execution_count="1">
+<div id="146fa3fe" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="co"># Load the dataset</span></span>
@@ -388,7 +388,7 @@ Integrates well with other libraries, making it easy to move data between librar
 </div>
 <p>Viewing Basic Information a. Checking the Dataset’s Shape</p>
 <p>.shape returns a tuple with (number of rows, number of columns), which provides a basic overview of the dataset size.</p>
-<div id="78ff1a28" class="cell" data-execution_count="2">
+<div id="30bf5b49" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Display the shape of the dataset</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="bu">print</span>(<span class="st">"Dataset Shape:"</span>, cancer_data.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -399,7 +399,7 @@ Integrates well with other libraries, making it easy to move data between librar
 <li>Summarizing Column Information</li>
 </ol>
 <p>.info() lists all columns, their data types, and counts of non-null values, helping identify any columns that may have missing data.</p>
-<div id="071a1883" class="cell" data-execution_count="3">
+<div id="4be397cf" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Display column names, data types, and non-null counts</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>cancer_data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -449,7 +449,7 @@ memory usage: 146.8+ KB</code></pre>
 <li>Viewing Column Names</li>
 </ol>
 <p>.columns lists column headers, while .tolist() converts it into a standard Python list for easier viewing.</p>
-<div id="a41d4d70" class="cell" data-execution_count="4">
+<div id="8e67c7f3" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Display column names</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="bu">print</span>(<span class="st">"Column Names:"</span>, cancer_data.columns.tolist())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -458,7 +458,7 @@ memory usage: 146.8+ KB</code></pre>
 </div>
 <p>Summary Statistics</p>
 <p>.describe() generates essential statistics (mean, std, min, max, percentiles) for numeric columns, useful for identifying data distributions.</p>
-<div id="57fa0be1" class="cell" data-execution_count="5">
+<div id="4f0250e9" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Generate summary statistics for numeric columns</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a>cancer_data.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -694,7 +694,7 @@ memory usage: 146.8+ KB</code></pre>
 </div>
 <p>Using value_counts() on a Single Column</p>
 <p>This method is straightforward if you want to check the frequency distribution of one specific categorical column. Returns a pandas series object</p>
-<div id="7e3cb69f" class="cell" data-execution_count="6">
+<div id="66f1e39c" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Count occurrences of each unique value in the 'diagnosis' column</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>diagnosis_counts <span class="op">=</span> cancer_data[<span class="st">'diagnosis'</span>].value_counts()</span>
 <span id="cb12-3"><a href="#cb12-3"></a><span class="bu">print</span>(<span class="st">"Diagnosis Counts:</span><span class="ch">\n</span><span class="st">"</span>, diagnosis_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -707,7 +707,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>To see summary statistics grouped by a categorical variable in pandas, you can use the groupby() method along with describe() or specific aggregation functions like mean(), sum(), etc.</p>
-<div id="7a666d88" class="cell" data-execution_count="7">
+<div id="35e220fa" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Group by 'diagnosis' and get summary statistics for each group</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>grouped_summary <span class="op">=</span> cancer_data.groupby(<span class="st">'diagnosis'</span>).mean()</span>
 <span id="cb14-3"><a href="#cb14-3"></a><span class="bu">print</span>(grouped_summary)</span>
@@ -755,7 +755,7 @@ Name: radius_mean, dtype: float64</code></pre>
 </div>
 </div>
 <p>Renaming Columns To make column names more readable or consistent, you can use rename() to change specific names. Here’s how to rename columns like radius_mean to Radius Mean.</p>
-<div id="b90d3a02" class="cell" data-execution_count="8">
+<div id="d1f4b84b" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Rename specific columns for readability</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a></span>
 <span id="cb16-3"><a href="#cb16-3"></a>new_columns<span class="op">=</span>{</span>
@@ -774,7 +774,7 @@ Updated Column Names: ['id', 'diagnosis', 'Radius Mean', 'Texture Mean', 'Perime
 </div>
 </div>
 <p>To find missing values, you can use isnull() with sum() to calculate the total number of missing values in each column.</p>
-<div id="19d1fca7" class="cell" data-execution_count="9">
+<div id="0bab0111" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Count missing values in each column</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>missing_values <span class="op">=</span> cancer_data.isnull().<span class="bu">sum</span>()</span>
 <span id="cb18-3"><a href="#cb18-3"></a><span class="bu">print</span>(<span class="st">"Missing Values per Column:"</span>)</span>
@@ -818,7 +818,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>Dropping Columns with Excessive Missing Data Since Unnamed: 32 has no data, it can be dropped from the DataFrame using .drop().</p>
-<div id="79219e9f" class="cell" data-execution_count="10">
+<div id="5f41a765" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Drop the 'Unnamed: 32' column if it contains no data</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a>cancer_data <span class="op">=</span> cancer_data.drop(columns<span class="op">=</span>[<span class="st">'Unnamed: 32'</span>])</span>
 <span id="cb20-3"><a href="#cb20-3"></a></span>
@@ -830,7 +830,7 @@ Columns after dropping 'Unnamed: 32': ['id', 'diagnosis', 'Radius Mean', 'Textur
 </div>
 </div>
 <p>Column Selection Selecting specific columns is essential for focusing on particular aspects of the dataset. Here are some examples of both single and multiple column selections.</p>
-<div id="fcaad68b" class="cell" data-execution_count="11">
+<div id="ec9f3542" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Select the 'diagnosis' column - diagnosis_column will be a series</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a>diagnosis_column <span class="op">=</span> cancer_data[<span class="st">'diagnosis'</span>]</span>
 <span id="cb22-3"><a href="#cb22-3"></a><span class="bu">print</span>(<span class="st">"Diagnosis Column:</span><span class="ch">\n</span><span class="st">"</span>, diagnosis_column.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -845,7 +845,7 @@ Name: diagnosis, dtype: object</code></pre>
 </div>
 </div>
 <p>Alternatively, you can select multiple columns.</p>
-<div id="7f07f94a" class="cell" data-execution_count="12">
+<div id="1bd8917f" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Select multiple columns: 'diagnosis', 'radius_mean', and 'area_mean' - selected_columns will be a pandas DataFrame</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a></span>
 <span id="cb24-3"><a href="#cb24-3"></a>selected_columns <span class="op">=</span> cancer_data[[<span class="st">'diagnosis'</span>, <span class="st">'Radius Mean'</span>, <span class="st">'area_mean'</span>]]</span>
@@ -864,7 +864,7 @@ Name: diagnosis, dtype: object</code></pre>
 <ol type="a">
 <li>Label-Based Indexing with loc loc allows selection based on labels (e.g., column names or index labels) and is particularly useful for data subsets.</li>
 </ol>
-<div id="7257bab5" class="cell" data-execution_count="13">
+<div id="558482f0" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Select rows by labels (assuming integer index here) and specific columns</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a>selected_rows_labels <span class="op">=</span> cancer_data.loc[<span class="dv">0</span>:<span class="dv">4</span>, [<span class="st">'diagnosis'</span>, <span class="st">'Radius Mean'</span>, <span class="st">'area_mean'</span>]]</span>
 <span id="cb26-3"><a href="#cb26-3"></a><span class="bu">print</span>(<span class="st">"Selected Rows with loc:</span><span class="ch">\n</span><span class="st">"</span>, selected_rows_labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -881,7 +881,7 @@ Name: diagnosis, dtype: object</code></pre>
 <ol start="2" type="a">
 <li>Integer-Based Indexing with iloc iloc allows selection based purely on integer positions, making it convenient for slicing and position-based operations.</li>
 </ol>
-<div id="1da732cf" class="cell" data-execution_count="14">
+<div id="d6407295" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Select rows by integer position and specific columns</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a>selected_rows_position <span class="op">=</span> cancer_data.iloc[<span class="dv">0</span>:<span class="dv">5</span>, [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]]  <span class="co"># Select first 5 rows and columns at position 1, 2, 3</span></span>
 <span id="cb28-3"><a href="#cb28-3"></a><span class="bu">print</span>(<span class="st">"Selected Rows with iloc:</span><span class="ch">\n</span><span class="st">"</span>, selected_rows_position)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -896,7 +896,7 @@ Name: diagnosis, dtype: object</code></pre>
 </div>
 </div>
 <p>Filtering enables you to create subsets of data that match specific conditions. For example, we can filter by diagnosis to analyze only malignant (M) or benign (B) cases.</p>
-<div id="7e972a6c" class="cell" data-execution_count="15">
+<div id="75b57a74" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Filter rows where 'diagnosis' is "M" (Malignant)</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a>malignant_cases <span class="op">=</span> cancer_data[cancer_data[<span class="st">'diagnosis'</span>] <span class="op">==</span> <span class="st">'M'</span>]</span>
 <span id="cb30-3"><a href="#cb30-3"></a><span class="bu">print</span>(<span class="st">"Malignant Cases:</span><span class="ch">\n</span><span class="st">"</span>, malignant_cases.head(<span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1017,7 +1017,7 @@ Name: diagnosis, dtype: object</code></pre>
 </div>
 <p>You can also filter based on multiple conditions, such as finding rows where the diagnosis is “M” and radius_mean is greater than 15.</p>
 <p>Note: You can’t use ‘and’ python operator here, because ‘and’ is a keyword for Python’s boolean operations, which work with single True or False values, not arrays or Series.</p>
-<div id="928ba1d5" class="cell" data-execution_count="16">
+<div id="a0020ba4" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Filter for Malignant cases with radius_mean &gt; 15</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a>large_malignant_cases <span class="op">=</span> cancer_data[(cancer_data[<span class="st">'diagnosis'</span>] <span class="op">==</span> <span class="st">'M'</span>) <span class="op">&amp;</span> (cancer_data[<span class="st">'Radius Mean'</span>] <span class="op">&gt;</span> <span class="dv">15</span>)]</span>
 <span id="cb32-3"><a href="#cb32-3"></a><span class="bu">print</span>(<span class="st">"Large Malignant Cases (Radius Mean &gt; 15):</span><span class="ch">\n</span><span class="st">"</span>, large_malignant_cases.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1063,7 +1063,7 @@ Name: diagnosis, dtype: object</code></pre>
 </div>
 <p>Adding and Modifying Columns</p>
 <p>Adding New Columns You can create new columns in a DataFrame based on calculations using existing columns. For example, we can calculate the area_ratio by dividing area_worst by area_mean.</p>
-<div id="5f1a5c1c" class="cell" data-execution_count="17">
+<div id="d7537a79" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Add a new column 'area_ratio' by dividing 'area_worst' by 'area_mean'</span></span>
 <span id="cb34-2"><a href="#cb34-2"></a>cancer_data[<span class="st">'area_ratio'</span>] <span class="op">=</span> cancer_data[<span class="st">'area_worst'</span>] <span class="op">/</span> cancer_data[<span class="st">'area_mean'</span>]</span>
 <span id="cb34-3"><a href="#cb34-3"></a><span class="bu">print</span>(<span class="st">"New Column 'area_ratio':</span><span class="ch">\n</span><span class="st">"</span>, cancer_data[[<span class="st">'area_worst'</span>, <span class="st">'area_mean'</span>, <span class="st">'area_ratio'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1078,7 +1078,7 @@ Name: diagnosis, dtype: object</code></pre>
 </div>
 </div>
 <p>Changing a Value Using .at Suppose you have a DataFrame and want to update the value in the radius_mean column for a particular index.</p>
-<div id="47534f8e" class="cell" data-execution_count="18">
+<div id="79005fb7" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Access and print the original value at index 0 and column 'radius_mean'</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a>original_value <span class="op">=</span> cancer_data.at[<span class="dv">0</span>, <span class="st">'Radius Mean'</span>]</span>
 <span id="cb36-3"><a href="#cb36-3"></a><span class="bu">print</span>(<span class="st">"Original Radius Mean at index 0:"</span>, original_value)</span>
@@ -1097,7 +1097,7 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 </div>
 </div>
 <p>Sorting by Columns You can sort a dataset by columns. Here’s how to sort by diagnosis first and then by area_mean in ascending order.</p>
-<div id="119818e1" class="cell" data-execution_count="19">
+<div id="f95e34ca" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Sort by 'diagnosis' first, then by 'area_mean' within each diagnosis group</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a>sorted_by_diagnosis_area <span class="op">=</span> cancer_data.sort_values(by<span class="op">=</span>[<span class="st">'diagnosis'</span>, <span class="st">'area_mean'</span>], ascending<span class="op">=</span>[<span class="va">True</span>, <span class="va">True</span>])</span>
 <span id="cb38-3"><a href="#cb38-3"></a><span class="bu">print</span>(<span class="st">"Data sorted by Diagnosis and Area Mean:</span><span class="ch">\n</span><span class="st">"</span>, sorted_by_diagnosis_area[[<span class="st">'diagnosis'</span>, <span class="st">'area_mean'</span>, <span class="st">'Radius Mean'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1112,7 +1112,7 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 </div>
 </div>
 <p>Reordering Columns to Move a Column to the End You might also want to move a specific column to the end of the DataFrame, such as moving area_ratio to the last position.</p>
-<div id="f439c10e" class="cell" data-execution_count="20">
+<div id="ec867e71" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># Move 'area_ratio' to the end of the DataFrame</span></span>
 <span id="cb40-2"><a href="#cb40-2"></a>columns_reordered <span class="op">=</span> [col <span class="cf">for</span> col <span class="kw">in</span> cancer_data.columns <span class="cf">if</span> col <span class="op">!=</span> <span class="st">'area_ratio'</span>] <span class="op">+</span> [<span class="st">'area_ratio'</span>]</span>
 <span id="cb40-3"><a href="#cb40-3"></a>cancer_data_with_area_ratio_last <span class="op">=</span> cancer_data[columns_reordered]</span>
@@ -1162,7 +1162,7 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 <p>Applying Functions to Columns</p>
 <p>Using apply() to Apply Custom Functions The .apply() method in pandas lets you apply a custom function to each element in a Series (column) or DataFrame. Here’s how to use it to categorize tumors based on area_mean.</p>
 <p>Example: Categorizing Tumors by Size Let’s create a custom function to categorize tumors as “Small”, “Medium”, or “Large” based on area_mean.</p>
-<div id="91c918f3" class="cell" data-execution_count="21">
+<div id="736fa5a5" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># Define a custom function to categorize tumors by area_mean</span></span>
 <span id="cb42-2"><a href="#cb42-2"></a><span class="kw">def</span> categorize_tumor(size):</span>
 <span id="cb42-3"><a href="#cb42-3"></a>    <span class="cf">if</span> size <span class="op">&lt;</span> <span class="dv">500</span>:</span>
@@ -1188,7 +1188,7 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 </div>
 </div>
 <p>Using Lambda Functions for Quick Transformations Lambda functions are useful for simple, one-line operations. For example, we can use a lambda function to convert diagnosis into numerical codes (0 for Benign, 1 for Malignant).</p>
-<div id="b0eb9968" class="cell" data-execution_count="22">
+<div id="608de822" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Apply a lambda function to classify 'diagnosis' into numerical codes</span></span>
 <span id="cb44-2"><a href="#cb44-2"></a>cancer_data[<span class="st">'diagnosis_code'</span>] <span class="op">=</span> cancer_data[<span class="st">'diagnosis'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="dv">1</span> <span class="cf">if</span> x <span class="op">==</span> <span class="st">'M'</span> <span class="cf">else</span> <span class="dv">0</span>)</span>
 <span id="cb44-3"><a href="#cb44-3"></a></span>
@@ -1208,7 +1208,7 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 <p>You can also use apply() with a lambda function for more complex, multi-condition classifications.</p>
 <p>Example: Adding a Column with Risk Levels Suppose we want to create a new column, risk_level, based on both diagnosis and area_mean:</p>
 <p>“High Risk” for Malignant tumors with area_mean above 1000. “Moderate Risk” for Malignant tumors with area_mean below 1000. “Low Risk” for Benign tumors.</p>
-<div id="0d5f78c6" class="cell" data-execution_count="23">
+<div id="07932ced" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Apply a lambda function with multiple conditions to create a 'risk_level' column</span></span>
 <span id="cb46-2"><a href="#cb46-2"></a>cancer_data[<span class="st">'risk_level'</span>] <span class="op">=</span> cancer_data.<span class="bu">apply</span>(</span>
 <span id="cb46-3"><a href="#cb46-3"></a>    <span class="kw">lambda</span> row: <span class="st">'High Risk'</span> <span class="cf">if</span> row[<span class="st">'diagnosis'</span>] <span class="op">==</span> <span class="st">'M'</span> <span class="kw">and</span> row[<span class="st">'area_mean'</span>] <span class="op">&gt;</span> <span class="dv">1000</span> </span>
