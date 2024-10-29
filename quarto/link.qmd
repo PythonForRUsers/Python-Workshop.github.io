@@ -23,3 +23,9 @@ Links for downloading and installing mentioned software/files.
     <img src="icons/code.png" alt="File">
     <p>Download Follow Along File</p>
 </a>
+
+
+ <a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block">
+    <img src="icons/code.png" alt="File">
+    <p>Download Dataset for Intro to Pandas</p>
+</a>

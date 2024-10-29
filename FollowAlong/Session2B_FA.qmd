@@ -1,0 +1,95 @@
+---
+title: "Data Structures Activity Session 2 #2"
+author: "Python Group"
+format: 
+    html:
+        output-file: "session2_2blank.html"
+        toc: true
+        code-copy: true
+        code-line-numbers: true
+        link-external-icon: false
+        link-external-newwindow: true
+---
+
+
+## Try It Yourself 3:
+
+Exercise: Exploring and Manipulating Cancer Data
+
+
+1 Load and Explore the Data
+
+Load the Dataset: Load the cancer dataset and display the first five rows.
+View Basic Information: Check the shape of the dataset, column names, and summary statistics to understand the structure and types of data.
+```{python}
+
+
+
+
+```
+
+
+2 Column Selection and Row Selection
+
+Select Columns: Select the columns texture_mean, smoothness_mean, and symmetry_mean and create a new DataFrame called texture_smoothness_symmetry.
+
+Select Rows by Index: Use loc to select the rows with indexes 100 to 105 from texture_smoothness_symmetry and display them.
+```{python}
+
+
+
+
+```
+
+
+3 Filtering Data
+
+Filter by Condition: Filter the original DataFrame to include only rows where compactness_mean is greater than 0.2 and create a new DataFrame called high_compactness_data.
+
+Count the Results: Display the number of rows in high_compactness_data to see how many rows meet this condition.
+```{python}
+
+
+
+
+```
+
+
+4 Selecting Data with .loc and .iloc
+
+Using .loc for Label-Based Selection: Use .loc to select rows with indexes 10 to 15 and columns radius_mean, texture_mean, and smoothness_mean. Save this as subset_loc.
+
+Using .iloc for Position-Based Selection: Use .iloc to select the first 10 rows and the first 3 columns of the dataset. Save this as subset_iloc.
+```{python}
+
+
+
+
+```
+
+
+5 Adding and Modifying Columns
+
+Add a New Column: Calculate the texture_area_ratio by dividing texture_mean by area_mean. 
+
+Add this as a new column in the original DataFrame.
+```{python}
+
+
+
+
+```
+
+
+Applying Functions to Columns
+Create a Risk Category: Use apply() to create a new column, risk_category, based on radius_mean:
+If radius_mean is less than 10, label it as "Low Risk".
+If radius_mean is between 10 and 15, label it as "Moderate Risk".
+If radius_mean is greater than 15, label it as "High Risk".
+```{python}
+
+
+
+
+```
+
