@@ -1,0 +1,411 @@
+---
+title: "Python Machine Learning Demo"
+author: "Python Group"
+format: 
+    html:
+        output-file: "session2_2.html"
+        toc: true
+        code-copy: true
+        code-line-numbers: true
+        link-external-icon: false
+        link-external-newwindow: true
+---
+
+## Links
+
+<a href="https://docs.python.org/3/tutorial/datastructures.html" class="link-block">
+    <img src="../icons/csv.png" alt="Dataset">
+    <p>Guide to Python Data Structures</p>
+</a> <a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block">
+    <img src="../icons/code.png" alt="File">
+    <p>Cancer Dataset</p>
+</a>
+
+
+## Topic 5: Intro to Pandas
+
+Pandas is a powerful open-source data analysis and manipulation library in Python. It provides data structures, primarily the DataFrame and Series, which are optimized for handling and analyzing large datasets efficiently.
+
+Data Structures:
+
+    Series: A one-dimensional labeled array, suitable for handling single columns or rows of data.
+
+    DataFrame: A two-dimensional table with labeled axes (rows and columns), much like a spreadsheet or SQL table, allowing you to work with data in rows and columns simultaneously.
+
+Data Manipulation:
+
+    Pandas has functions for merging, reshaping, and aggregating datasets, which helps streamline data cleaning and preparation.
+
+    It can handle missing data, making it easy to filter or fill gaps in datasets.
+
+Data Analysis:
+
+    It provides extensive functionality for descriptive statistics, grouping data, and handling time series.
+
+    Integrates well with other libraries, making it easy to move data between libraries like NumPy for numerical computations and Matplotlib or Seaborn for visualization.
+
+
+Loading the Dataset
+```{python}
+
+import pandas as pd
+
+# Load the dataset
+cancer_data = pd.read_csv('C:\\Users\\augellp1\\Desktop\\Cancer_Data.csv')
+
+# Display the first few rows of the dataset
+cancer_data.head()
+
+
+```
+
+Viewing Basic Information
+a. Checking the Dataset’s Shape
+
+.shape returns a tuple with (number of rows, number of columns), which provides a basic overview of the dataset size.
+
+```{python}
+
+# Display the shape of the dataset
+print("Dataset Shape:", cancer_data.shape)
+
+
+
+
+```
+
+
+b. Summarizing Column Information
+
+.info() lists all columns, their data types, and counts of non-null values, helping identify any columns that may have missing data.
+```{python}
+
+# Display column names, data types, and non-null counts
+cancer_data.info()
+
+
+
+```
+
+
+c. Viewing Column Names
+
+.columns lists column headers, while .tolist() converts it into a standard Python list for easier viewing.
+```{python}
+
+# Display column names
+print("Column Names:", cancer_data.columns.tolist())
+
+
+
+```
+
+
+Summary Statistics
+
+.describe() generates essential statistics (mean, std, min, max, percentiles) for numeric columns, useful for identifying data distributions.
+```{python}
+
+# Generate summary statistics for numeric columns
+cancer_data.describe()
+
+
+
+
+```
+
+
+Using value_counts() on a Single Column
+
+This method is straightforward if you want to check the frequency distribution of one specific categorical column. Returns a pandas series object
+```{python}
+
+# Count occurrences of each unique value in the 'diagnosis' column
+diagnosis_counts = cancer_data['diagnosis'].value_counts()
+print("Diagnosis Counts:\n", diagnosis_counts)
+
+
+
+```
+
+
+To see summary statistics grouped by a categorical variable in pandas, you can use the groupby() method along with describe() or specific aggregation functions like mean(), sum(), etc.
+```{python}
+
+# Group by 'diagnosis' and get summary statistics for each group
+grouped_summary = cancer_data.groupby('diagnosis').mean()
+print(grouped_summary)
+
+
+#Group by 'diagnosis' and get summary statistics for only one variable
+grouped_radius_mean = cancer_data.groupby('diagnosis')['radius_mean'].mean()
+print(grouped_radius_mean)
+
+
+```
+
+
+Renaming Columns
+To make column names more readable or consistent, you can use rename() to change specific names. Here’s how to rename columns like radius_mean to Radius Mean.
+```{python}
+
+# Rename specific columns for readability
+
+new_columns={
+    'radius_mean': 'Radius Mean',
+    'texture_mean': 'Texture Mean',
+    'perimeter_mean': 'Perimeter Mean'
+}
+
+cancer_data = cancer_data.rename(columns=new_columns)
+
+# Display the new column names to verify the changes
+print("\nUpdated Column Names:", cancer_data.columns.tolist())
+
+
+```
+
+
+To find missing values, you can use isnull() with sum() to calculate the total number of missing values in each column.
+```{python}
+# Count missing values in each column
+missing_values = cancer_data.isnull().sum()
+print("Missing Values per Column:")
+print(missing_values)
+
+
+
+
+```
+
+
+Dropping Columns with Excessive Missing Data
+Since Unnamed: 32 has no data, it can be dropped from the DataFrame using .drop().
+```{python}
+# Drop the 'Unnamed: 32' column if it contains no data
+cancer_data = cancer_data.drop(columns=['Unnamed: 32'])
+
+# Verify the column has been dropped
+print("\nColumns after dropping 'Unnamed: 32':", cancer_data.columns.tolist())
+
+
+
+
+```
+
+
+Column Selection
+Selecting specific columns is essential for focusing on particular aspects of the dataset. Here are some examples of both single and multiple column selections.
+```{python}
+
+# Select the 'diagnosis' column - diagnosis_column will be a series
+diagnosis_column = cancer_data['diagnosis']
+print("Diagnosis Column:\n", diagnosis_column.head())
+
+
+```
+
+
+Alternatively, you can select multiple columns.
+```{python}
+# Select multiple columns: 'diagnosis', 'radius_mean', and 'area_mean' - selected_columns will be a pandas DataFrame
+
+selected_columns = cancer_data[['diagnosis', 'radius_mean', 'area_mean']]
+print("Selected Columns:\n", selected_columns.head())
+
+
+
+```
+
+
+Row Selection
+Selecting rows based on labels or positions is helpful for inspecting specific data points or subsets.
+
+a. Label-Based Indexing with loc
+loc allows selection based on labels (e.g., column names or index labels) and is particularly useful for data subsets.
+```{python}
+
+# Select rows by labels (assuming integer index here) and specific columns
+selected_rows_labels = cancer_data.loc[0:4, ['diagnosis', 'radius_mean', 'area_mean']]
+print("Selected Rows with loc:\n", selected_rows_labels)
+
+
+
+```
+
+
+b. Integer-Based Indexing with iloc
+iloc allows selection based purely on integer positions, making it convenient for slicing and position-based operations.
+```{python}
+
+# Select rows by integer position and specific columns
+selected_rows_position = cancer_data.iloc[0:5, [1, 2, 3]]  # Select first 5 rows and columns at position 1, 2, 3
+print("Selected Rows with iloc:\n", selected_rows_position)
+
+
+
+
+```
+
+
+Filtering enables you to create subsets of data that match specific conditions. For example, we can filter by diagnosis to analyze only malignant (M) or benign (B) cases.
+```{python}
+
+# Filter rows where 'diagnosis' is "M" (Malignant)
+malignant_cases = cancer_data[cancer_data['diagnosis'] == 'M']
+print("Malignant Cases:\n", malignant_cases.head(20))
+
+
+
+
+```
+
+
+You can also filter based on multiple conditions, such as finding rows where the diagnosis is "M" and radius_mean is greater than 15.
+
+Note: You can't use 'and' python operator here, because 'and' is a keyword for Python's boolean operations, which work with single True or False values, not arrays or Series.
+```{python}
+
+# Filter for Malignant cases with radius_mean > 15
+large_malignant_cases = cancer_data[(cancer_data['diagnosis'] == 'M') & (cancer_data['radius_mean'] > 15)]
+print("Large Malignant Cases (radius_mean > 15):\n", large_malignant_cases.head())
+
+
+
+```
+
+
+Adding and Modifying Columns
+
+Adding New Columns
+You can create new columns in a DataFrame based on calculations using existing columns. For example, we can calculate the area_ratio by dividing area_worst by area_mean.
+```{python}
+
+# Add a new column 'area_ratio' by dividing 'area_worst' by 'area_mean'
+cancer_data['area_ratio'] = cancer_data['area_worst'] / cancer_data['area_mean']
+print("New Column 'area_ratio':\n", cancer_data[['area_worst', 'area_mean', 'area_ratio']].head())
+
+
+
+
+```
+
+
+Changing a Value Using .at
+Suppose you have a DataFrame and want to update the value in the radius_mean column for a particular index.
+```{python}
+
+# Access and print the original value at index 0 and column 'radius_mean'
+original_value = cancer_data.at[0, 'radius_mean']
+print("Original Radius Mean at index 0:", original_value)
+
+
+# Change the value at index 0 and column 'radius_mean' to 18.5
+cancer_data.at[0, 'radius_mean'] = 18.5
+
+
+# Verify the updated value
+updated_value = cancer_data.at[0, 'radius_mean']
+print("Updated Radius Mean at index 0:", updated_value)
+
+
+```
+
+
+Sorting by Columns
+You can sort a dataset by columns. Here’s how to sort by diagnosis first and then by area_mean in ascending order.
+```{python}
+
+# Sort by 'diagnosis' first, then by 'area_mean' within each diagnosis group
+sorted_by_diagnosis_area = cancer_data.sort_values(by=['diagnosis', 'area_mean'], ascending=[True, True])
+print("Data sorted by Diagnosis and Area Mean:\n", sorted_by_diagnosis_area[['diagnosis', 'area_mean', 'radius_mean']].head())
+
+
+
+```
+
+
+Reordering Columns to Move a Column to the End
+You might also want to move a specific column to the end of the DataFrame, such as moving area_ratio to the last position.
+```{python}
+
+# Move 'area_ratio' to the end of the DataFrame
+columns_reordered = [col for col in cancer_data.columns if col != 'area_ratio'] + ['area_ratio']
+cancer_data_with_area_ratio_last = cancer_data[columns_reordered]
+
+# Display the reordered columns
+print("Data with 'area_ratio' at the end:\n", cancer_data_with_area_ratio_last.head())
+
+
+
+
+```
+
+
+Applying Functions to Columns
+
+
+Using apply() to Apply Custom Functions
+The .apply() method in pandas lets you apply a custom function to each element in a Series (column) or DataFrame. Here’s how to use it to categorize tumors based on area_mean.
+
+Example: Categorizing Tumors by Size
+Let’s create a custom function to categorize tumors as "Small", "Medium", or "Large" based on area_mean.
+```{python}
+
+# Define a custom function to categorize tumors by area_mean
+def categorize_tumor(size):
+    if size < 500:
+        return 'Small'
+    elif 500 <= size < 1000:
+        return 'Medium'
+    else:
+        return 'Large'
+
+# Apply the function to the 'area_mean' column and create a new column 'tumor_size_category'
+cancer_data['tumor_size_category'] = cancer_data['area_mean'].apply(categorize_tumor)
+
+# Display the new column to verify the transformation
+print("Tumor Size Categories:\n", cancer_data[['area_mean', 'tumor_size_category']].head())
+
+
+
+```
+
+
+Using Lambda Functions for Quick Transformations
+Lambda functions are useful for simple, one-line operations. For example, we can use a lambda function to convert diagnosis into numerical codes (0 for Benign, 1 for Malignant).
+```{python}
+# Apply a lambda function to classify 'diagnosis' into numerical codes
+cancer_data['diagnosis_code'] = cancer_data['diagnosis'].apply(lambda x: 1 if x == 'M' else 0)
+
+# Display the new column to verify the transformation
+print("Diagnosis Codes:\n", cancer_data[['diagnosis', 'diagnosis_code']].head())
+
+
+```
+
+
+Applying Multiple Conditions with apply()
+
+You can also use apply() with a lambda function for more complex, multi-condition classifications.
+
+Example: Adding a Column with Risk Levels
+Suppose we want to create a new column, risk_level, based on both diagnosis and area_mean:
+
+"High Risk" for Malignant tumors with area_mean above 1000.
+"Moderate Risk" for Malignant tumors with area_mean below 1000.
+"Low Risk" for Benign tumors.
+```{python}
+# Apply a lambda function with multiple conditions to create a 'risk_level' column
+cancer_data['risk_level'] = cancer_data.apply(
+    lambda row: 'High Risk' if row['diagnosis'] == 'M' and row['area_mean'] > 1000 
+    else ('Moderate Risk' if row['diagnosis'] == 'M' else 'Low Risk'), axis=1
+)
+
+# Display the new column to verify the transformation
+print("Risk Levels:\n", cancer_data[['diagnosis', 'area_mean', 'risk_level']].head())
+
+#Axis=1 tells the function to apply it to the rows. axis=0 (default) applies function to the columns
+
+
+```
