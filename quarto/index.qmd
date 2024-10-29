@@ -27,11 +27,24 @@ Links:
     <img src="icons/code.png" alt="File">
     <p>Download Follow Along Files</p>
 </a>
+ <a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block">
+    <img src="icons/code.png" alt="File">
+    <p>Download Dataset for Intro to Pandas</p>
+</a>
+
 
 # Sessions
 
 <a href="session1/session1.html">Tutorial: Get Started with Python
   </a>
   
+<a href="session2a/session2a.html">Go to Session2a: Intro to Python Data Structures
+  </a> 
+
+
+<a href="session2b/session2b.html">Go to Session2b: Intro to Pandas
+  </a>
+
+
 <a href="session3/session3.html">Go to ML Demo</a>
 
