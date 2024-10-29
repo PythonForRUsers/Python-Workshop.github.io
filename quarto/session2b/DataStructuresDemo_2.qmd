@@ -210,7 +210,7 @@ Alternatively, you can select multiple columns.
 ```{python}
 # Select multiple columns: 'diagnosis', 'radius_mean', and 'area_mean' - selected_columns will be a pandas DataFrame
 
-selected_columns = cancer_data[['diagnosis', 'radius_mean', 'area_mean']]
+selected_columns = cancer_data[['diagnosis', 'Radius Mean', 'area_mean']]
 print("Selected Columns:\n", selected_columns.head())
 
 
@@ -226,7 +226,7 @@ loc allows selection based on labels (e.g., column names or index labels) and is
 ```{python}
 
 # Select rows by labels (assuming integer index here) and specific columns
-selected_rows_labels = cancer_data.loc[0:4, ['diagnosis', 'radius_mean', 'area_mean']]
+selected_rows_labels = cancer_data.loc[0:4, ['diagnosis', 'Radius Mean', 'area_mean']]
 print("Selected Rows with loc:\n", selected_rows_labels)
 
 
@@ -267,8 +267,8 @@ Note: You can't use 'and' python operator here, because 'and' is a keyword for P
 ```{python}
 
 # Filter for Malignant cases with radius_mean > 15
-large_malignant_cases = cancer_data[(cancer_data['diagnosis'] == 'M') & (cancer_data['radius_mean'] > 15)]
-print("Large Malignant Cases (radius_mean > 15):\n", large_malignant_cases.head())
+large_malignant_cases = cancer_data[(cancer_data['diagnosis'] == 'M') & (cancer_data['Radius Mean'] > 15)]
+print("Large Malignant Cases (Radius Mean > 15):\n", large_malignant_cases.head())
 
 
 
@@ -296,16 +296,16 @@ Suppose you have a DataFrame and want to update the value in the radius_mean col
 ```{python}
 
 # Access and print the original value at index 0 and column 'radius_mean'
-original_value = cancer_data.at[0, 'radius_mean']
+original_value = cancer_data.at[0, 'Radius Mean']
 print("Original Radius Mean at index 0:", original_value)
 
 
 # Change the value at index 0 and column 'radius_mean' to 18.5
-cancer_data.at[0, 'radius_mean'] = 18.5
+cancer_data.at[0, 'Radius Mean'] = 18.5
 
 
 # Verify the updated value
-updated_value = cancer_data.at[0, 'radius_mean']
+updated_value = cancer_data.at[0, 'Radius Mean']
 print("Updated Radius Mean at index 0:", updated_value)
 
 
@@ -318,7 +318,7 @@ You can sort a dataset by columns. Here’s how to sort by diagnosis first and t
 
 # Sort by 'diagnosis' first, then by 'area_mean' within each diagnosis group
 sorted_by_diagnosis_area = cancer_data.sort_values(by=['diagnosis', 'area_mean'], ascending=[True, True])
-print("Data sorted by Diagnosis and Area Mean:\n", sorted_by_diagnosis_area[['diagnosis', 'area_mean', 'radius_mean']].head())
+print("Data sorted by Diagnosis and Area Mean:\n", sorted_by_diagnosis_area[['diagnosis', 'area_mean', 'Radius Mean']].head())
 
 
 
