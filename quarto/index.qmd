@@ -18,15 +18,22 @@ output-dir: docs/
 
 This is the main webpage for the intro to python workshops! The workshops are geared towards R and SAS users who want to explore using Python. We will cover installing and setting up python with anaconda, basic python datastructures, and finally a demo logistic regression model with a cancer dataset. We will upload session videos, python demos and other things here. 
 
-Links: 
+# Links: 
 
 <a href="https://www.anaconda.com/download/success" class="link-block">
     <img src="icons/anaconda_secondary_logo.svg" alt="Anaconda Download">
     <p>Install Anaconda</p>
+
+<a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml" class="link-block">
+    <img src="icons/YAML.png" alt="File">
+    <p>Download Environment YAML file </p>
+</a>
+
 </a> <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block">
     <img src="icons/code.png" alt="File">
     <p>Download Follow Along Files</p>
 </a>
+
  <a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block">
     <img src="icons/code.png" alt="File">
     <p>Download Dataset for Intro to Pandas</p>

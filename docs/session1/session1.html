@@ -171,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#work-with-jupyterquarto-in-vs-code" id="toc-work-with-jupyterquarto-in-vs-code" class="nav-link" data-scroll-target="#work-with-jupyterquarto-in-vs-code">1.4 Work with Jupyter/Quarto in VS Code</a>
   <ul class="collapse">
-  <li><a href="#prerequisite-install-everything" id="toc-prerequisite-install-everything" class="nav-link" data-scroll-target="#prerequisite-install-everything">Prerequisite: Install Everything</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites:</a></li>
   <li><a href="#setting-up-vs-code" id="toc-setting-up-vs-code" class="nav-link" data-scroll-target="#setting-up-vs-code">Setting up VS Code</a></li>
   <li><a href="#create-a-quarto-file" id="toc-create-a-quarto-file" class="nav-link" data-scroll-target="#create-a-quarto-file">Create a Quarto File</a></li>
   </ul></li>
@@ -211,7 +211,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>Install Python via Anaconda distribution.</p></li>
 <li><p>Create, activate, and install packages to Python virtual environments.</p></li>
-<li><p>Create Quarto files and import and visualize data with Python libraries.</p></li>
+<li><p>Create Quarto files and execute some Python code.</p></li>
 </ul>
 <section id="introduction-to-tools" class="level1">
 <h1>1.1 Introduction to Tools</h1>
@@ -225,25 +225,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <blockquote class="blockquote">
 <p><strong>Anaconda</strong> is an open-source distribution of Python, designed for scientific computing, data science, machine learning, and AI development.</p>
 </blockquote>
-<p>The Anaconda distribution comes with the desktop <strong>Anaconda Navigator</strong> application, the <strong>latest version of Python</strong>, and ~150 <strong>pre-downloaded libraries</strong>.</p>
-<p>It also comes with <strong><code>conda</code></strong>, a cross-platform package and environment manager. Conda is the virtual environment manager that helps install packages from the Anaconda repositories (also called “channels”). It supports more than just Python packages but numerous other programming languages like R, Java, etc.</p>
+<p>The Anaconda distribution comes with the desktop <strong>Anaconda Navigator</strong> application, the <strong>latest version of Python</strong>, and <strong>~150</strong> <strong>pre-downloaded libraries</strong>.</p>
+<p>It also comes with <strong><code>conda</code></strong>, a cross-platform package and environment manager.</p>
+<p><strong>Conda</strong> is the virtual environment manager that helps install packages from the Anaconda repositories (also called <strong><em>channels</em></strong>). It supports more than just Python packages but numerous other programming languages like R, Java, etc.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Difference Between Conda and Pip
+Difference Between <strong>Conda</strong> and <strong>Pip</strong>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Long story short–Pip is for Python libraries only, while conda can install packages for any software (including python).</p>
+<p>Long story short: <strong><em>Pip is for Python libraries only, while conda can install packages for any software (including python).</em></strong></p>
 <p>It is generally recommended that you only use <code>conda install</code> when in a conda environment, as anything installed via pip won’t be recognized by conda and vice versa. Using the two interchangeably might overwrite or break packages and mess up the environment.</p>
 <p><strong>What if the Python package is unavailable through conda?</strong></p>
-<p>In these scenarios where the package you need is not built under conda, it makes sense to use pip to install packages within the conda environment. The best practice is to <strong>install everything with conda first, then use pip if needed</strong>.</p>
-<p>Check out the <a href="https://www.anaconda.com/blog/using-pip-in-a-conda-environment">blog</a> for more information on using pip in a conda environment.</p>
+<p>In these scenarios where the package you need is not built under conda, it makes sense to use pip to install packages within the conda environment. The best practice is to <em><strong>install everything with conda first, then use pip if needed</strong>.</em></p>
+<p>Check out this <a href="https://www.anaconda.com/blog/using-pip-in-a-conda-environment">blog</a> for more information on using pip in a conda environment.</p>
 </div>
 </div>
+<section id="conda-miniconda-and-anaconda" class="level4">
+<h4 class="anchored" data-anchor-id="conda-miniconda-and-anaconda">Conda, Miniconda, and Anaconda</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/anaconda-explained.png" class="img-fluid figure-img" width="500"></p>
@@ -252,10 +255,13 @@ Difference Between Conda and Pip
 </div>
 <p>In this tutorial, we are going to install the <strong>full Anaconda distribution</strong> and learn to use the features of its Anaconda Navigator desktop application. This allows us to manage packages and environments without necessarily needing to know the conda terminal commands.</p>
 </section>
+</section>
 <section id="visual-studio-code" class="level2">
 <h2 class="anchored" data-anchor-id="visual-studio-code">Visual Studio Code</h2>
-<p><img src="images/vs-code-icon.png" class="img-fluid" width="120"></p>
+<p><img src="images/vs-code-icon.png" class="img-fluid" width="100"></p>
+<blockquote class="blockquote">
 <p><strong>Visual Studio Code (VS Code)</strong> is one of the most popular open-source code editors with many features.</p>
+</blockquote>
 <ul>
 <li>Multi-Language Programming. You can code in almost any major programming languages in VS Code including Python, R, C/C++, JavaScript, etc.</li>
 <li>Build-In Git Source Control. VS Code automatically recognizes and uses the computer’s Git installation to allow project version control. You can easily track changes, stage, and commit changes to your working branch.</li>
@@ -269,7 +275,7 @@ Difference Between Conda and Pip
 <blockquote class="blockquote">
 <p><strong>Quarto</strong> is an open-source scientific and technical publishing system.</p>
 </blockquote>
-<p>Think of Quarto <code>.qmd</code> as similar to R Markdown <code>.Rmd</code> files that combines executable code chunks with text components and figures and allows generating outputs as PDF, HTML, Docx, and slideshow presentations.</p>
+<p>Think of Quarto <code>.qmd</code> as similar to R Markdown <code>.Rmd</code> files. Both combine executable code chunks with text components and figures and allow generating outputs as PDF, HTML, Docx, and even slideshow presentations.</p>
 <p>But Quarto has more:</p>
 <ul>
 <li><p>Compatibility with multiple IDEs. You can not only work with Quarto <code>.qmd</code> in RStudio, but also VS Code, Jupyter Lab, etc.</p></li>
@@ -331,32 +337,31 @@ Do not add Anaconda to PATH
 </ol>
 <p>Finally, you can check that conda is properly installed.</p>
 <ul>
-<li>For Windows</li>
-</ul>
+<li><p>For Windows</p>
 <ol type="1">
 <li>Open the Start Menu of Windows and look for <strong>Anaconda Prompt</strong>. Open it.</li>
 <li>Type <code>conda info</code> into the Anaconda Prompt terminal. You should see details about your current conda installation. This means that conda is properly installed and initialized.</li>
-</ol>
-<ul>
-<li>For MacOS:</li>
-</ul>
+</ol></li>
+<li><p>For MacOS:</p>
 <ol type="1">
-<li><p>Open a new <strong>terminal</strong>.</p></li>
-<li><p>You should see <code>(base)</code> in the beginning of the prompt. This means that conda is properly installed and the base environment is activated.</p></li>
-<li><p>Similarly, write <code>canda info</code> in the terminal. You should see the info about the current conda installation returned.</p></li>
-</ol>
+<li>Open a new <strong>terminal</strong>.</li>
+<li>You should see <code>(base)</code> in the beginning of the prompt. This means that conda is properly installed and the base environment is activated.</li>
+<li>Similarly, write <code>canda info</code> in the terminal. You should see the info about the current conda installation returned.</li>
+</ol></li>
+</ul>
 </section>
 </section>
 <section id="virtual-environments" class="level1">
 <h1>1.3 Virtual Environments</h1>
 <section id="what-is-a-virtual-environment" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-virtual-environment">What is a virtual environment?</h2>
-<p>Environments are <strong>isolated, independent installations</strong> of a programming language and groups of packages, that don’t interfere with each other.</p>
+<p>Environments are <strong>isolated, independent installations</strong> of a programming language and groups of packages that don’t interfere with each other.</p>
 <p>For example, you may have a Python version 3.8 installed on your computer as the System Python. Meanwhile, you can install as many virtual environments as you want with the same or different Python versions and set of packages.</p>
+<p>You can switch between environments for different projects, create environment files and share them with others.</p>
 </section>
 <section id="why-virtual-environments" class="level2">
 <h2 class="anchored" data-anchor-id="why-virtual-environments">Why virtual environments?</h2>
-<p>You do not necessarily need environemnts. However, you may find it useful in many cases.</p>
+<p>You may find the flexibility of environments useful in many cases.</p>
 <ul>
 <li><p><strong>Avoid Conflicts</strong>. When you need libraries that are not compatibles with your system settings, such as an older Python version or conflicting dependencies. Creating a virtual environment can resolve the conflicts and changing it won’t affect your other environments.</p></li>
 <li><p><strong>Sharing Environment Setting</strong>. You can also share your environment and the list of dependencies with someone with a copy of the <code>environment.yaml</code> file.</p></li>
@@ -365,7 +370,7 @@ Do not add Anaconda to PATH
 </section>
 <section id="creating-a-virtual-environment-with-gui" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-virtual-environment-with-gui">1.3.1 Creating a Virtual Environment (with GUI)</h2>
-<p>One option is to create the environment in the Anaconda Navigator graphical user interface (GUI). This way is straightforward and does not require command line skills.</p>
+<p>One option to create an environment in through the Anaconda Navigator <strong>graphical user interface (GUI)</strong>. This approach is straightforward and does not require command line skills.</p>
 <ol type="1">
 <li><p>Open the Anaconda Navigator application.</p>
 <p><img src="images/anaconda-nav-application.png" class="img-fluid" width="900"></p>
@@ -387,7 +392,7 @@ Do not add Anaconda to PATH
 <p>By default, the Navigator shows packages under the <code>defaults</code> channel. There are many more channels available in Anaconda.org and Anaconda.cloud with a wider range of packages to install.</p>
 <p>For example, if we want to install a package from the <code>conda-forge</code> channel, we will first need to add it to Navigator.</p>
 <ul>
-<li><p>Click Channels</p>
+<li><p>Click <strong>Channels</strong></p>
 <p><img src="images/anaconda-nav-add-channel.png" class="img-fluid" width="800"></p></li>
 <li><p>Click <strong>Add…</strong>.</p></li>
 <li><p>Type <code>conda-forge</code> in the text box and press Enter.</p></li>
@@ -418,7 +423,8 @@ Tip
 <ol type="1">
 <li><p>Create the virtual environment.</p>
 <pre><code>conda create --name &lt;env-name&gt;</code></pre>
-<p>Replace <code>&lt;env-name&gt;</code> with the name you want to give your environment.</p></li>
+<p>Replace <code>&lt;env-name&gt;</code> with the name you want to give your environment.</p>
+<p><em>Note: you can use <code>-n</code> (shorthand) and <code>--name</code> interchangeably.</em></p></li>
 <li><p>You can also specify the Python version and packages you want to install to your environment.</p>
 <pre><code>conda create -n &lt;env-name&gt; python=3.10 scipy=0.17.3 pandas matplotlib</code></pre>
 <p>Or:</p>
@@ -427,15 +433,10 @@ conda install -n &lt;env-name&gt; scipy pandas matplotlib</code></pre>
 <p>You can also specify channel other than the <code>defaults</code> channel (for multiple channels, pass the argument multiple times):</p>
 <pre><code>conda install -n &lt;env-name&gt; scipy --channel conda-forge --channel bioconda</code></pre></li>
 <li><p>Now, activate your environment.</p>
-<ul>
-<li><p>On Windows:</p>
 <pre><code>conda activate &lt;env-name&gt;</code></pre></li>
-<li><p>On MacOS:</p>
-<pre><code>source activate &lt;env-name&gt;</code></pre></li>
-</ul></li>
 <li><p>You can also verify that your installation was successful by looking up the list of all current environments on your computer.</p>
 <pre><code>conda env list</code></pre>
-<p>The default location for the installed conda environments (except for the base conda environment) is <code>..\Anaconda3\envs\&lt;env-name&gt;</code></p></li>
+<p>The default location for the installed conda environments (except for the base conda environment) is <code>..\anaconda3\envs\&lt;env-name&gt;</code></p></li>
 <li><p>Deactivate the conda environment.</p>
 <p>Simply use <code>conda deactivate</code>.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -451,18 +452,28 @@ Note: Avoid activating on top of another virtual environment!
 <p>Be careful when activating environments. Remember to always <strong>deactivate the current environment before going into another one</strong> because environments can be <strong>stacked</strong>. This can lead to chaos in the packages in both environments. So make sure that you see <code>(base)</code> at the beginning of the terminal prompt line when you are about to activate an environment.</p>
 </div>
 </div></li>
+<li><p>Removing an environment.</p>
+<ul>
+<li><p>Remove by environment name:</p>
+<pre><code>conda env remove -n &lt;env-name&gt;</code></pre></li>
+<li><p>Remove by environment folder path:</p>
+<pre><code>conda env remove --prefix &lt;/path/to/your/env&gt;</code></pre></li>
+</ul></li>
 </ol>
 </section>
 </section>
 <section id="work-with-jupyterquarto-in-vs-code" class="level1">
 <h1>1.4 Work with Jupyter/Quarto in VS Code</h1>
-<section id="prerequisite-install-everything" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisite-install-everything">Prerequisite: Install Everything</h2>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites:</h2>
+<section id="install-everything" class="level4">
+<h4 class="anchored" data-anchor-id="install-everything">Install Everything</h4>
 <ol type="1">
 <li>Install <strong>VS Code</strong>: <a href="https://code.visualstudio.com/download">Download and install VS Code</a></li>
 <li>Install <strong>Quarto</strong>: <a href="https://quarto.org/docs/get-started/">Install from the official website</a></li>
 <li>Install <strong>Conda</strong>: Go to previous section <a href="#install-anaconda">1.2 Install Anaconda</a>.</li>
 </ol>
+</section>
 </section>
 <section id="setting-up-vs-code" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up-vs-code">Setting up VS Code</h2>
@@ -479,42 +490,65 @@ Note: Avoid activating on top of another virtual environment!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>You still need to install Conda (Python) and Quarto to your computer to enable these extensions.</p>
+<p>You still need to install conda (Python) and Quarto to your computer to enable these extensions.</p>
 </div>
 </div>
 </div></li>
 <li><p><strong>Create a Conda Virtual Environment.</strong> You may also use existing ones you created.</p></li>
 <li><p><strong>Configure the Environment in VS Code.</strong></p>
 <ol type="1">
-<li>Open Comman Palette by pressing <code>Ctrl+Shift+P</code> (or <code>Cmd+Shift+X</code> on Mac).</li>
-<li>Type “<code>Python: Select Interpreter</code>”.</li>
-<li>Choose the Conda python environment you created. If you don’t see its name pop up, choose <code>Enter interpreter path...</code> and manually type in the location to your conda virtual environment.</li>
+<li><p>Open Comman Palette by pressing <code>Ctrl+Shift+P</code> (or <code>Cmd+Shift+X</code> on Mac).</p></li>
+<li><p>Type “<strong>Python: Select Interpreter</strong>”.</p></li>
+<li><p>Choose the Conda python environment you created. If you don’t see its name pop up, choose <strong>Enter interpreter path…</strong> and manually type in the location of your conda virtual environment python executable. E.g., <code>C:\Users\&lt;username&gt;\AppData\Local\anaconda3\envs\&lt;env-name&gt;\python.exe</code> for Windows <strong>or</strong> <code>Users/&lt;username&gt;/anaconda/envs/&lt;env-name&gt;/python</code> for macOS.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Find your conda Python executable path
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can search for the conda Python interpreter location on your computer. Here is an example of how to do it using command line.</p>
+<p>For both Windows and macOS, open the <strong>Anaconda Prompt</strong> or <strong>terminal</strong> and activate the conda Python environment with <code>conda activate &lt;env-name&gt;</code>.</p>
+<p>Then, locate your Python executable by typing the following:</p>
+<ul>
+<li><p>Windows: <code>where python</code></p></li>
+<li><p>macOS: <code>which python</code></p></li>
+</ul>
+</div>
+</div></li>
 </ol></li>
 </ol>
 <p>Now you are ready to go. Let’s start with creating a new Quarto file.</p>
 </section>
 <section id="create-a-quarto-file" class="level2">
 <h2 class="anchored" data-anchor-id="create-a-quarto-file">Create a Quarto File</h2>
-<p>Go to <code>File &gt; New File</code> and select Quarto Document. This will generate an empty <code>.qmd</code> file with the following YAML metadata. You can change the title and file output format as needed.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="an">title:</span><span class="co"> "Untitled"</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Go to <strong><code>File &gt; New File</code></strong> and select Quarto Document. This will generate an empty <code>.qmd</code> file with the following YAML metadata. You can change the title and file output format as needed.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "First Day"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In Quarto files, you can mix Markdown with code blocks just like in R Markdown. For example:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu"># Heading 1</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">## Heading 2</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a></span>
-<span id="cb9-4"><a href="#cb9-4"></a>This is a demo Quarto file. Here is the text section.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Heading 1</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>This is a demo Quarto file. Here is the text section.</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">## Heading 2</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>This is a subsection.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To add an executable code block, specify the language name inside two curly braces (e.g., <code>{python}</code>, <code>{r}</code>, etc.). For example, let’s print something:</p>
-<div id="8985a8e8" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">print</span>(<span class="st">"This is some Python output."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="in">print("This is some Python output.")</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2e064ced" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>This is some Python output.</code></pre>
 </div>
 </div>
-<p>Now, render the html output using the <strong>Quarto Preview</strong> button in the top right (or press <code>Ctrl+Shift+K</code>). Alternatively, run <code>quarto render</code> in your terminal to generate the output.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="ex">quarto</span> render yourfilename.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This is what you’ll see.</p>
+<p>To render or preview the html output, click on the <strong>Quarto Preview</strong> button at the top right (or press <code>Ctrl+Shift+K</code>).</p>
+<p>Alternatively, run <code>quarto render</code> in your terminal to generate the output.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="op">&lt;</span>yourfilename<span class="op">&gt;</span>.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This is an example of the html output preview showing next to the source <code>.qmd</code> file.</p>
 <p><img src="images/quarto-demo.png" class="img-fluid"></p>
 <p>We are done with setting everything up.</p>
 
