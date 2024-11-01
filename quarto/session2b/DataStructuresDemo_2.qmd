@@ -48,10 +48,11 @@ Data Analysis:
 Loading the Dataset
 ```{python}
 
+import os
 import pandas as pd
 
 # Load the dataset
-cancer_data = pd.read_csv('C:\\Users\\augellp1\\Desktop\\Cancer_Data.csv')
+cancer_data = pd.read_csv(os.path.join('example_data', 'Cancer_Data.csv'))
 
 # Display the first few rows of the dataset
 cancer_data.head()
