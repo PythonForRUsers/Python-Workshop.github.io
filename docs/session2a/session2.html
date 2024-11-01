@@ -256,7 +256,7 @@ If a package is not available via conda it might be available via pip.
 <p>In Python, lists are mutable, meaning their elements can be changed after the list is created, allowing for modification such as adding, removing, or updating items. This flexibility makes lists powerful for handling dynamic collections of data.</p>
 <p>We will learn how to do things such as: Create lists Modify lists Sort lists, Loop over elements of a list with a for-loop or using list comprehension, Slice a list, Append to a list</p>
 <p>To create a list:</p>
-<div id="9a44229d" class="cell" data-execution_count="1">
+<div id="00f610f3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>my_list<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">3.2</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, [<span class="dv">4</span>, <span class="st">'z'</span>]]</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="bu">print</span>(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -264,7 +264,7 @@ If a package is not available via conda it might be available via pip.
 </div>
 </div>
 <p>A list is simply a collection of objects. We can find the length of a list using the len() function</p>
-<div id="a36bb8b4" class="cell" data-execution_count="2">
+<div id="4c9bc9eb" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>my_list<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">3.2</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, [<span class="dv">4</span>, <span class="st">'z'</span>]]</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="bu">len</span>(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -273,7 +273,7 @@ If a package is not available via conda it might be available via pip.
 </div>
 <p>In Python, lists are objects like all other data types, and the class for lists is named ‘list’ with a lowercase ‘L’. To transform another Python object into a list, you can use the list() function, which is essentially the constructor of the list class. This function accepts a single argument: an iterable. So, you can use it to turn any iterable, such as a range, set, or tuple, into a list of concrete values.</p>
 <p>Aside: Python indices begin at 0. In addition, certain built-in python functions such as range will terminate at n-1 in the second argument.</p>
-<div id="ee1df998" class="cell" data-execution_count="3">
+<div id="c1c934ec" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>first_range<span class="op">=</span><span class="bu">range</span>(<span class="dv">5</span>)</span>
 <span id="cb5-2"><a href="#cb5-2"></a>first_range_list<span class="op">=</span><span class="bu">list</span>(first_range)</span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="bu">print</span>(first_range_list)</span>
@@ -289,7 +289,7 @@ If a package is not available via conda it might be available via pip.
 <p>Accessing Python list elements</p>
 <p>To access an individual list element, you need to know its position. Since python starts counting at 0, the first element is in position 0, and the second element is in position 1. You can also access nested elements within a list, or access the list in reverse.</p>
 <p>Examples using my_list from above</p>
-<div id="fa7ec16c" class="cell" data-execution_count="4">
+<div id="9c80d9f2" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">print</span>(my_list)</span>
 <span id="cb7-2"><a href="#cb7-2"></a></span>
 <span id="cb7-3"><a href="#cb7-3"></a>example_1<span class="op">=</span>my_list[<span class="dv">0</span>]</span>
@@ -306,7 +306,7 @@ If a package is not available via conda it might be available via pip.
 </div>
 <p>Mutability of lists</p>
 <p>Since lists are mutable objects, we can directly change their elements.</p>
-<div id="af8cd1cd" class="cell" data-execution_count="5">
+<div id="4083ca3f" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>some_list<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="bu">print</span>(some_list)</span>
 <span id="cb9-3"><a href="#cb9-3"></a></span>
@@ -319,7 +319,7 @@ If a package is not available via conda it might be available via pip.
 </div>
 <p>Appending an element to a list</p>
 <p>When calling append on a list, we append an object to the end of the list:</p>
-<div id="3a475918" class="cell" data-execution_count="6">
+<div id="a9f46af7" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="bu">print</span>(my_list)</span>
 <span id="cb11-2"><a href="#cb11-2"></a></span>
 <span id="cb11-3"><a href="#cb11-3"></a>my_list.append(<span class="dv">5</span>)</span>
@@ -332,7 +332,7 @@ If a package is not available via conda it might be available via pip.
 </div>
 <p>Combining lists</p>
 <p>We can combine lists with the “+” operator. This keeps the original lists intact</p>
-<div id="2277a85d" class="cell" data-execution_count="7">
+<div id="438d7e7e" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>list_1<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb13-2"><a href="#cb13-2"></a></span>
 <span id="cb13-3"><a href="#cb13-3"></a>list_2<span class="op">=</span>[<span class="st">'a'</span>,<span class="st">'b'</span>,<span class="st">'c'</span>]</span>
@@ -345,7 +345,7 @@ If a package is not available via conda it might be available via pip.
 </div>
 </div>
 <p>Another method is to extend one list onto another.</p>
-<div id="e931f4c7" class="cell" data-execution_count="8">
+<div id="cdca840c" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>list_1<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb15-2"><a href="#cb15-2"></a></span>
 <span id="cb15-3"><a href="#cb15-3"></a>list_2<span class="op">=</span>[<span class="st">'a'</span>,<span class="st">'b'</span>,<span class="st">'c'</span>]</span>
@@ -358,7 +358,7 @@ If a package is not available via conda it might be available via pip.
 </div>
 </div>
 <p>The pop() method removes and returns the last item by default unless you give it an index argument. If you’re familiar with stacks, this method as well as .append() can be used to create one!</p>
-<div id="81efdaa8" class="cell" data-execution_count="9">
+<div id="4d7da292" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>list_1<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb17-2"><a href="#cb17-2"></a></span>
 <span id="cb17-3"><a href="#cb17-3"></a>element_1<span class="op">=</span>list_1.pop()</span>
@@ -371,7 +371,7 @@ If a package is not available via conda it might be available via pip.
 </div>
 <p>Deleting items by index</p>
 <p>del removes an item without returning anything. In fact, you can delete any object, including the entire list, using del:</p>
-<div id="fd95086a" class="cell" data-execution_count="10">
+<div id="e3613666" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>list_1<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb19-2"><a href="#cb19-2"></a></span>
 <span id="cb19-3"><a href="#cb19-3"></a><span class="kw">del</span> list_1[<span class="dv">0</span>]</span>
@@ -383,7 +383,7 @@ If a package is not available via conda it might be available via pip.
 </div>
 <p>Deleting items by value</p>
 <p>The .remove() method deletes a specific value from the list. This method will remove the first occurrence of the given object in a list.</p>
-<div id="7b31e7cc" class="cell" data-execution_count="11">
+<div id="801866b3" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>list_1<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb21-2"><a href="#cb21-2"></a></span>
 <span id="cb21-3"><a href="#cb21-3"></a>list_1.remove(<span class="dv">1</span>)</span>
@@ -395,7 +395,7 @@ If a package is not available via conda it might be available via pip.
 </div>
 <p>Lists vs.&nbsp;sets, and deleting duplicates from a list:</p>
 <p>The difference between a list and a set is that a set is an unordered collection of distinct elements, while a list is ordered and can contain repeats of an element. Sets are denoted by curly brackets {}. We can use this knowledge to easily delete duplicates from a list, since there is no built-in method to do so.</p>
-<div id="2922aa80" class="cell" data-execution_count="12">
+<div id="635dad6d" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>list_1<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>]</span>
 <span id="cb23-2"><a href="#cb23-2"></a><span class="bu">print</span>(list_1)</span>
 <span id="cb23-3"><a href="#cb23-3"></a></span>
@@ -414,7 +414,7 @@ If a package is not available via conda it might be available via pip.
 <p>There are two ways to sort a list in Python:</p>
 <p>.sort() modifies the original list itself. Nothing is returned. sorted() returns a new list, which is a sorted version of the original list.</p>
 <p>reverse=True: Use this parameter to sort the list in reverse order.</p>
-<div id="b0995b30" class="cell" data-execution_count="13">
+<div id="e860ac44" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>number_list_1<span class="op">=</span>[<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">19</span>]</span>
 <span id="cb25-2"><a href="#cb25-2"></a>number_list_1.sort()</span>
 <span id="cb25-3"><a href="#cb25-3"></a><span class="bu">print</span>(number_list_1)</span>
@@ -435,7 +435,7 @@ If a package is not available via conda it might be available via pip.
 ['z', 'e', 'b', 'a']</code></pre>
 </div>
 </div>
-<div id="5465a6cb" class="cell" data-execution_count="14">
+<div id="d6d45542" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>mixed_list_1<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="st">'a'</span>,<span class="st">'c'</span>,<span class="st">'b'</span>]</span>
 <span id="cb27-2"><a href="#cb27-2"></a><span class="cf">try</span>:</span>
 <span id="cb27-3"><a href="#cb27-3"></a>    mixed_list_1.sort()</span>
@@ -448,7 +448,7 @@ If a package is not available via conda it might be available via pip.
 </div>
 <p>List comprehension</p>
 <p>List comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list (or other object)</p>
-<div id="71744ad8" class="cell" data-execution_count="15">
+<div id="e4f09fda" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="co">#Longer syntax with for loop</span></span>
 <span id="cb29-2"><a href="#cb29-2"></a></span>
 <span id="cb29-3"><a href="#cb29-3"></a></span>
@@ -486,7 +486,7 @@ If a package is not available via conda it might be available via pip.
 ['a', 't']</code></pre>
 </div>
 </div>
-<div id="cfd2a85f" class="cell" data-execution_count="16">
+<div id="d585fa0b" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="co">#Shorter syntax with list comprehension</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a></span>
 <span id="cb31-3"><a href="#cb31-3"></a></span>
@@ -520,7 +520,7 @@ If a package is not available via conda it might be available via pip.
 <p>A tuple is similar to a list, but with one key difference: tuples are immutable. This means that once you create a tuple, you cannot modify its elements. Tuples are useful for storing data that should not be changed after creation, such as coordinates, days of the week, or fixed pairs.</p>
 <p>Just like lists, tuples are objects, and the class for tuples is tuple. To transform another Python object into a tuple, you can use the tuple() constructor. It accepts a single iterable, such as a list, range, or string.</p>
 <p>To create a tuple, you use parentheses () rather than square brackets [].</p>
-<div id="05f8eed7" class="cell" data-execution_count="17">
+<div id="ac564a77" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Creating a tuple</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a>my_tuple <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)</span>
 <span id="cb33-3"><a href="#cb33-3"></a></span>
@@ -533,7 +533,7 @@ Last element: 30</code></pre>
 </div>
 </div>
 <p>Tuples are immutable, so you can’t modify their elements. Attempting to change a tuple will result in an error.</p>
-<div id="dbcd60b9" class="cell" data-execution_count="18">
+<div id="ab5962b7" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Trying to modify a tuple element (this will raise an error)</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a><span class="cf">try</span>:</span>
 <span id="cb35-3"><a href="#cb35-3"></a>    my_tuple[<span class="dv">1</span>] <span class="op">=</span> <span class="dv">99</span></span>
@@ -544,7 +544,7 @@ Last element: 30</code></pre>
 </div>
 </div>
 <p>Functions can return multiple values as a tuple. This is useful for returning multiple results in a single function call.</p>
-<div id="b2617835" class="cell" data-execution_count="19">
+<div id="4fea3b95" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Function that returns multiple values as a tuple</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a><span class="kw">def</span> min_max(nums):</span>
 <span id="cb37-3"><a href="#cb37-3"></a>    <span class="cf">return</span> <span class="bu">min</span>(nums), <span class="bu">max</span>(nums)  <span class="co"># Returns a tuple of (min, max)</span></span>
@@ -570,7 +570,7 @@ Max: 7</code></pre>
 <section id="topic-3-strings" class="level2">
 <h2 class="anchored" data-anchor-id="topic-3-strings">Topic 3: Strings</h2>
 <p>Creating a string - You can use single or double quotes to define a string (but keep it consistent!)</p>
-<div id="84a3a784" class="cell" data-execution_count="20">
+<div id="a22a5e69" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>my_string <span class="op">=</span> <span class="st">"Hello, World!"</span></span>
 <span id="cb39-2"><a href="#cb39-2"></a><span class="bu">print</span>(my_string)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -578,7 +578,7 @@ Max: 7</code></pre>
 </div>
 </div>
 <p>You can also create a multiline string using triple quotes:</p>
-<div id="b4f19e4c" class="cell" data-execution_count="21">
+<div id="f50c8be9" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>multi_line_string <span class="op">=</span> <span class="st">"""This is</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a><span class="st">a multiline</span></span>
 <span id="cb41-3"><a href="#cb41-3"></a><span class="st">string."""</span></span>
@@ -590,7 +590,7 @@ string.</code></pre>
 </div>
 </div>
 <p>You can find the length of a string using the len() funtion, just like with lists.</p>
-<div id="36278274" class="cell" data-execution_count="22">
+<div id="7aba74ce" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>my_string <span class="op">=</span> <span class="st">"Hello, World!"</span></span>
 <span id="cb43-2"><a href="#cb43-2"></a><span class="bu">print</span>(<span class="bu">len</span>(my_string))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -599,7 +599,7 @@ string.</code></pre>
 </div>
 <p>Accessing characters in a string</p>
 <p>Strings are indexed like lists, with the first character having index 0. You can access individual characters using their index.</p>
-<div id="c9eab380" class="cell" data-execution_count="23">
+<div id="58613b89" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>my_string <span class="op">=</span> <span class="st">"Hello, World!"</span></span>
 <span id="cb45-2"><a href="#cb45-2"></a></span>
 <span id="cb45-3"><a href="#cb45-3"></a><span class="co"># First character</span></span>
@@ -618,7 +618,7 @@ string.</code></pre>
 </div>
 <p>Strings are immutable!</p>
 <p>Unlike lists, strings cannot be changed after creation. If you try to change an individual character, you’ll get an error.</p>
-<div id="8677a536" class="cell" data-execution_count="24">
+<div id="383f65f9" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>my_string <span class="op">=</span> <span class="st">"Hello"</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a><span class="cf">try</span>:</span>
 <span id="cb47-3"><a href="#cb47-3"></a>    my_string[<span class="dv">0</span>] <span class="op">=</span> <span class="st">"h"</span>  <span class="co"># This will raise an error</span></span>
@@ -630,7 +630,7 @@ string.</code></pre>
 </div>
 <p>Concatenating Strings</p>
 <p>You can concatenate (combine) strings using the + operator:</p>
-<div id="f9e2e713" class="cell" data-execution_count="25">
+<div id="fac1294a" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>greeting <span class="op">=</span> <span class="st">"Hello"</span></span>
 <span id="cb49-2"><a href="#cb49-2"></a>name <span class="op">=</span> <span class="st">"Patrick"</span></span>
 <span id="cb49-3"><a href="#cb49-3"></a>combined_string <span class="op">=</span> greeting <span class="op">+</span> <span class="st">", "</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">"!"</span></span>
@@ -642,7 +642,7 @@ string.</code></pre>
 <p>String methods</p>
 <p>Python provides many built-in methods for manipulating strings. Some common ones are:</p>
 <p>upper() and lower() These methods convert a string to uppercase or lowercase.</p>
-<div id="90a46934" class="cell" data-execution_count="26">
+<div id="07f353c5" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>my_string <span class="op">=</span> <span class="st">"Hello, World!"</span></span>
 <span id="cb51-2"><a href="#cb51-2"></a><span class="bu">print</span>(my_string.upper())</span>
 <span id="cb51-3"><a href="#cb51-3"></a><span class="bu">print</span>(my_string.lower())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -652,7 +652,7 @@ hello, world!</code></pre>
 </div>
 </div>
 <p>strip() This method removes any leading or trailing whitespace from the string.</p>
-<div id="98f0431e" class="cell" data-execution_count="27">
+<div id="a4181f97" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>my_string <span class="op">=</span> <span class="st">"   Hello, World!   "</span></span>
 <span id="cb53-2"><a href="#cb53-2"></a><span class="bu">print</span>(my_string.strip())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -660,7 +660,7 @@ hello, world!</code></pre>
 </div>
 </div>
 <p>replace() You can replace parts of a string with another string.</p>
-<div id="8f4683b9" class="cell" data-execution_count="28">
+<div id="113c95aa" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>my_string <span class="op">=</span> <span class="st">"Hello, World!"</span></span>
 <span id="cb55-2"><a href="#cb55-2"></a>new_string <span class="op">=</span> my_string.replace(<span class="st">"World"</span>, <span class="st">"Patrick"</span>)</span>
 <span id="cb55-3"><a href="#cb55-3"></a><span class="bu">print</span>(new_string)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -669,7 +669,7 @@ hello, world!</code></pre>
 </div>
 </div>
 <p>The split() method divides a string into a list of substrings based on a delimiter (default is whitespace).</p>
-<div id="6d078d10" class="cell" data-execution_count="29">
+<div id="260f26b1" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>my_string <span class="op">=</span> <span class="st">"Hello, World!"</span></span>
 <span id="cb57-2"><a href="#cb57-2"></a>words <span class="op">=</span> my_string.split()</span>
 <span id="cb57-3"><a href="#cb57-3"></a><span class="bu">print</span>(words)</span>
@@ -684,7 +684,7 @@ hello, world!</code></pre>
 </div>
 </div>
 <p>The join() method takes an iterable (like a list) and concatenates its elements into a string with a specified separator between them.</p>
-<div id="24f7ae1b" class="cell" data-execution_count="30">
+<div id="ea96a902" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>my_list<span class="op">=</span>[<span class="st">'Hello,'</span>, <span class="st">'my'</span>, <span class="st">'name'</span>, <span class="st">'is'</span>, <span class="st">'Patrick'</span>]</span>
 <span id="cb59-2"><a href="#cb59-2"></a></span>
 <span id="cb59-3"><a href="#cb59-3"></a>my_string<span class="op">=</span><span class="st">' '</span>.join(my_list)</span>
@@ -695,7 +695,7 @@ hello, world!</code></pre>
 </div>
 </div>
 <p>f-strings (Python 3.6+) You can insert variables directly into strings using f-strings.</p>
-<div id="406b8170" class="cell" data-execution_count="31">
+<div id="448c0894" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>name <span class="op">=</span> <span class="st">"Patrick"</span></span>
 <span id="cb61-2"><a href="#cb61-2"></a>age <span class="op">=</span> <span class="dv">30</span></span>
 <span id="cb61-3"><a href="#cb61-3"></a>formatted_string <span class="op">=</span> <span class="ss">f"My name is </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> and I am </span><span class="sc">{</span>age<span class="sc">}</span><span class="ss"> years old."</span></span>
@@ -704,7 +704,7 @@ hello, world!</code></pre>
 <pre><code>My name is Patrick and I am 30 years old.</code></pre>
 </div>
 </div>
-<div id="3e69588b" class="cell" data-execution_count="32">
+<div id="3b2c06cf" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>my_string <span class="op">=</span> <span class="st">"Hello, World!"</span></span>
 <span id="cb63-2"><a href="#cb63-2"></a></span>
 <span id="cb63-3"><a href="#cb63-3"></a><span class="co"># Extract all vowels from the string</span></span>
@@ -715,7 +715,7 @@ hello, world!</code></pre>
 </div>
 </div>
 <p>In this last example, we will slice a string using different combinations of start, end, and step to extract different parts of the string.</p>
-<div id="5b7e2558" class="cell" data-execution_count="33">
+<div id="52272bd7" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a><span class="co">#To slice a string, follow the string[start:end:step] format</span></span>
 <span id="cb65-2"><a href="#cb65-2"></a></span>
 <span id="cb65-3"><a href="#cb65-3"></a><span class="co"># Original string</span></span>
@@ -762,7 +762,7 @@ Substring 5 (11:6:-1): wa si</code></pre>
 <h2 class="anchored" data-anchor-id="topic-4-dictionaries">Topic 4: Dictionaries</h2>
 <p>A dictionary is a collection in Python that stores data as key-value pairs. It’s similar to a real-world dictionary where you look up a word (the key) to get its definition (the value). In Python, dictionaries are mutable, meaning you can add, remove, and change items.</p>
 <p>To create a dictionary, use curly braces {}, with each key-value pair separated by a colon (:), and pairs separated by commas.</p>
-<div id="de21f016" class="cell" data-execution_count="34">
+<div id="2437a740" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Creating a dictionary</span></span>
 <span id="cb67-2"><a href="#cb67-2"></a>my_dictionary <span class="op">=</span> {</span>
 <span id="cb67-3"><a href="#cb67-3"></a>    <span class="st">'name'</span>: <span class="st">'Alice'</span>,</span>
@@ -775,7 +775,7 @@ Substring 5 (11:6:-1): wa si</code></pre>
 </div>
 </div>
 <p>Accessing dictionary values To access a specific value in a dictionary, use the key in square brackets. You can also use the .get() method, which returns None if the key does not exist, instead of raising an error.</p>
-<div id="fc41b06d" class="cell" data-execution_count="35">
+<div id="52a7941e" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a><span class="bu">print</span>(my_dictionary[<span class="st">'name'</span>])      <span class="co"># Using key</span></span>
 <span id="cb69-2"><a href="#cb69-2"></a><span class="bu">print</span>(my_dictionary.get(<span class="st">'age'</span>))   <span class="co"># Using .get() method</span></span>
 <span id="cb69-3"><a href="#cb69-3"></a><span class="bu">print</span>(my_dictionary.get(<span class="st">'gender'</span>, <span class="st">'Not specified'</span>))  <span class="co"># Providing a default value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -787,7 +787,7 @@ Not specified</code></pre>
 </div>
 <p>Adding and updating dictionary items</p>
 <p>Dictionaries are mutable, so you can add new items or update existing ones using assignment.</p>
-<div id="e97f3f0c" class="cell" data-execution_count="36">
+<div id="f4e27911" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>my_dictionary[<span class="st">'job'</span>] <span class="op">=</span> <span class="st">'Engineer'</span>        <span class="co"># Adding a new key-value pair</span></span>
 <span id="cb71-2"><a href="#cb71-2"></a>my_dictionary[<span class="st">'age'</span>] <span class="op">=</span> <span class="dv">26</span>                <span class="co"># Updating an existing value</span></span>
 <span id="cb71-3"><a href="#cb71-3"></a><span class="bu">print</span>(my_dictionary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -798,7 +798,7 @@ Not specified</code></pre>
 <p>Dictionary Methods</p>
 <p>Python dictionaries have several useful methods for managing data:</p>
 <p>keys(): Returns a list of all the keys in the dictionary. values(): Returns a list of all values in the dictionary. items(): Returns a list of key-value pairs as tuples.</p>
-<div id="0259d9bd" class="cell" data-execution_count="37">
+<div id="f6cd74f4" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a><span class="co"># Getting all keys</span></span>
 <span id="cb73-2"><a href="#cb73-2"></a><span class="bu">print</span>(my_dictionary.keys())</span>
 <span id="cb73-3"><a href="#cb73-3"></a></span>
@@ -815,7 +815,7 @@ dict_items([('name', 'Alice'), ('age', 26), ('city', 'New York'), ('job', 'Engin
 </div>
 <p>Python Dictionaries for Cancer Research Data</p>
 <p>In cancer research, dictionaries can be used to store patient data, genetic mutations, and statistical results as key-value pairs. This allows for easy lookup, organization, and analysis of data.</p>
-<div id="a567d014" class="cell" data-execution_count="38">
+<div id="790ca68e" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a><span class="co">#Let’s create a dictionary to store basic patient information, where each patient has a unique ID, and each ID maps to a dictionary containing information about the patient’s age, cancer type, and stage.</span></span>
 <span id="cb75-2"><a href="#cb75-2"></a></span>
 <span id="cb75-3"><a href="#cb75-3"></a><span class="co"># Dictionary of patients with nested dictionaries</span></span>
@@ -831,7 +831,7 @@ dict_items([('name', 'Alice'), ('age', 26), ('city', 'New York'), ('job', 'Engin
 </div>
 </div>
 <p>You can access a patient’s information using their unique ID. To access nested data, chain the keys. For example, to retrieve the cancer type of a specific patient, you’d use the following:</p>
-<div id="e54e2f95" class="cell" data-execution_count="39">
+<div id="e2eb957a" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a><span class="co"># Accessing specific information</span></span>
 <span id="cb77-2"><a href="#cb77-2"></a></span>
 <span id="cb77-3"><a href="#cb77-3"></a>patient_id <span class="op">=</span> <span class="st">'P002'</span></span>
@@ -847,7 +847,7 @@ Updated stage for P003: IV</code></pre>
 </div>
 </div>
 <p>Adding and Removing Data New patient data can be added using assignment, and pop() or del can remove a patient’s data.</p>
-<div id="f6409f8f" class="cell" data-execution_count="40">
+<div id="9a7959f5" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># Adding a new patient</span></span>
 <span id="cb79-2"><a href="#cb79-2"></a>patient_data[<span class="st">'P004'</span>] <span class="op">=</span> {<span class="st">'age'</span>: <span class="dv">70</span>, <span class="st">'cancer_type'</span>: <span class="st">'Prostate Cancer'</span>, <span class="st">'stage'</span>: <span class="st">'II'</span>}</span>
 <span id="cb79-3"><a href="#cb79-3"></a><span class="bu">print</span>(<span class="st">"Added new patient:"</span>, patient_data[<span class="st">'P004'</span>])</span>
@@ -862,7 +862,7 @@ Removed patient: {'age': 50, 'cancer_type': 'Lung Cancer', 'stage': 'II'}</code>
 </div>
 <p>Dictionary Methods: Data Summary Dictionaries allow you to retrieve keys, values, or entire key-value pairs. Here’s how to use these methods to get an overview of the data.</p>
 <p>keys(): Retrieves all patient IDs. values(): Retrieves all patient records. items(): Retrieves patient records as key-value pairs</p>
-<div id="48f7f185" class="cell" data-execution_count="41">
+<div id="09b98164" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a><span class="co"># Getting all patient IDs</span></span>
 <span id="cb81-2"><a href="#cb81-2"></a><span class="bu">print</span>(<span class="st">"Patient IDs:"</span>, patient_data.keys())</span>
 <span id="cb81-3"><a href="#cb81-3"></a></span>
