@@ -2,7 +2,7 @@ name: python-intro-env
 channels:
   - defaults
 dependencies:
-  - python=3.10
+  - python==3.10
   - pandas
   - numpy
   - seaborn
