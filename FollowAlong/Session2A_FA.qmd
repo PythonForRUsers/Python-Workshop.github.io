@@ -1,0 +1,190 @@
+---
+title: "Data Structures Activity Session 2 #1"
+author: "Python Group"
+format: 
+    html:
+        output-file: "session2blank.html"
+        toc: true
+        code-copy: true
+        code-line-numbers: true
+        link-external-icon: false
+        link-external-newwindow: true
+---
+
+## Try it yourself 1: Working with Strings and Lists in Python
+Objective:
+
+Apply your knowledge of Python strings and lists to solve the following problems. These tasks will test your understanding of string manipulation, list operations, and basic Python programming.
+
+Part 1: String Manipulation
+Create a string variable called sentence that contains the following text:
+
+"Python is a powerful and easy to learn programming language."
+
+```{python}
+
+
+```
+
+
+a. Use string slicing to extract and print the word "powerful".
+
+```{python}
+
+
+```
+
+
+b. Convert the entire sentence to uppercase and print the result.
+
+```{python}
+
+
+```
+
+c. Replace the word "powerful" with "versatile" and print the new sentence.
+```{python}
+
+
+```
+
+
+
+Part 2: Working with Lists
+List Creation:
+
+a. Convert the sentence you created in Part 1 into a list of words (split by spaces) and store it in a variable called words_list. Print the list to verify the result.
+
+```{python}
+
+
+```
+
+
+b. Print the length of the list.
+
+```{python}
+
+
+```
+
+
+c. Print the first and last words from the list.
+
+```{python}
+
+
+```
+
+
+
+Part 3: List Operations and String Comprehension
+Combining Strings and Lists:
+
+
+a. Use list comprehension to create a new list called short_words that contains only the words from words_list that are 4 characters or shorter.
+
+```{python}
+
+
+```
+
+
+b. Join all the words in short_words into a single string, where the words are separated by commas, and print the result.
+
+```{python}
+
+
+```
+
+
+Part 4: Challenge Task (Optional)
+Reversing and Sorting:
+
+
+a. Create a reversed version of words_list and print it.
+
+```{python}
+
+
+```
+
+b. Sort the list alphabetically and print the sorted list.
+
+```{python}
+
+
+```
+
+c. Using list comprehension, create a new list called vowel_words that contains only the words from words_list that start with a vowel (a, e, i, o, u). Print the result.
+
+```{python}
+
+
+```
+
+
+## Try It Yourself 2: Counting Genetic Mutations Across Patients
+
+
+In this exercise, you’ll use Python dictionaries to count the number of patients with specific genetic mutations. This is a common data analysis task in cancer research, where we often want to identify the frequency of mutations across a patient cohort.
+
+
+1 Define a dictionary named mutation_data where each key is a patient ID and the value is a list of mutations observed in that patient.
+```{python}
+
+# Create a dictionary to store mutation data for each patient
+mutation_data = {
+    'P001': ['BRAF', 'TP53'],
+    'P002': ['BRCA1'],
+    'P003': ['EGFR', 'ALK'],
+    'P004': ['BRAF', 'BRCA1']
+}
+
+# Print the dictionary to check your data
+print("Mutation data:", mutation_data)
+
+
+
+```
+
+
+2 Create an empty dictionary called mutation_counts that will be used to store each mutation as a key and the number of occurrences as the value.
+```{python}
+
+
+
+
+```
+
+
+3 Now, loop through each patient’s mutations in mutation_data. For each mutation:
+
+If it already exists in mutation_counts, increase its count by 1.
+If it doesn’t exist in mutation_counts, add it with an initial count of 1.
+```{python}
+
+
+
+
+
+
+
+
+
+
+# Print the mutation counts to verify your results
+print("Mutation Counts:", mutation_counts)
+```
+
+
+Expected Output
+After completing this exercise, your output should look like this:
+```{python}
+
+print("Mutation Counts: {'BRAF': 2, 'TP53': 1, 'BRCA1': 2, 'EGFR': 1, 'ALK': 1}")
+
+
+
+```
+
