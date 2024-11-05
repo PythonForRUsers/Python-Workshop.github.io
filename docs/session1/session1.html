@@ -171,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#work-with-jupyterquarto-in-vs-code" id="toc-work-with-jupyterquarto-in-vs-code" class="nav-link" data-scroll-target="#work-with-jupyterquarto-in-vs-code">1.4 Work with Jupyter/Quarto in VS Code</a>
   <ul class="collapse">
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites:</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
   <li><a href="#setting-up-vs-code" id="toc-setting-up-vs-code" class="nav-link" data-scroll-target="#setting-up-vs-code">Setting up VS Code</a></li>
   <li><a href="#create-a-quarto-file" id="toc-create-a-quarto-file" class="nav-link" data-scroll-target="#create-a-quarto-file">Create a Quarto File</a></li>
   </ul></li>
@@ -209,7 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Welcome to the first session of the Introduction to Python Workshop series!</p>
 <p>This guide will you walk through the steps to install Python to your computer and work interactively with it in Visual Studio Code. After the session, you will acquire basic knowledge of the following:</p>
 <ul>
-<li><p>Install Python via Anaconda distribution.</p></li>
+<li><p>Install Python via the Anaconda distribution.</p></li>
 <li><p>Create, activate, and install packages to Python virtual environments.</p></li>
 <li><p>Create Quarto files and execute some Python code.</p></li>
 </ul>
@@ -226,8 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Anaconda</strong> is an open-source distribution of Python, designed for scientific computing, data science, machine learning, and AI development.</p>
 </blockquote>
 <p>The Anaconda distribution comes with the desktop <strong>Anaconda Navigator</strong> application, the <strong>latest version of Python</strong>, and <strong>~150</strong> <strong>pre-downloaded libraries</strong>.</p>
-<p>It also comes with <strong><code>conda</code></strong>, a cross-platform package and environment manager.</p>
-<p><strong>Conda</strong> is the virtual environment manager that helps install packages from the Anaconda repositories (also called <strong><em>channels</em></strong>). It supports more than just Python packages but numerous other programming languages like R, Java, etc.</p>
+<p>It also comes with <strong>conda</strong>, a cross-platform package and environment manager. <strong>Conda</strong> is the virtual environment manager that helps install packages from the Anaconda repositories (also called <strong><em>channels</em></strong>). It supports more than just Python packages but numerous other programming languages like R, Java, etc.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -263,9 +262,9 @@ Difference Between <strong>Conda</strong> and <strong>Pip</strong>
 <p><strong>Visual Studio Code (VS Code)</strong> is one of the most popular open-source code editors with many features.</p>
 </blockquote>
 <ul>
-<li>Multi-Language Programming. You can code in almost any major programming languages in VS Code including Python, R, C/C++, JavaScript, etc.</li>
-<li>Build-In Git Source Control. VS Code automatically recognizes and uses the computer’s Git installation to allow project version control. You can easily track changes, stage, and commit changes to your working branch.</li>
-<li>Variety of Project Development Support. You can add extra features such as language packs, debugging tools, Git/Github features, and remote server connector by installing extensions from the Extension Marketplace.</li>
+<li><strong>Multi-Language Programming.</strong> You can code in almost any major programming languages in VS Code including Python, R, C/C++, JavaScript, etc.</li>
+<li><strong>Build-In Git Source Control.</strong> VS Code automatically recognizes and uses the computer’s Git installation to allow project version control. You can easily track changes, stage, and commit changes to your working branch.</li>
+<li><strong>Variety of Project Development Support</strong>. You can add extra features such as language packs, debugging tools, Git/Github features, and remote server connector by installing extensions from the Extension Marketplace.</li>
 </ul>
 <p>Go to <a href="#work-with-jupyterquarto-in-vs-code">1.4 Work with Jupyter/Quarto in VS Code</a> for guide on how to get started with VS Code.</p>
 </section>
@@ -278,9 +277,9 @@ Difference Between <strong>Conda</strong> and <strong>Pip</strong>
 <p>Think of Quarto <code>.qmd</code> as similar to R Markdown <code>.Rmd</code> files. Both combine executable code chunks with text components and figures and allow generating outputs as PDF, HTML, Docx, and even slideshow presentations.</p>
 <p>But Quarto has more:</p>
 <ul>
-<li><p>Compatibility with multiple IDEs. You can not only work with Quarto <code>.qmd</code> in RStudio, but also VS Code, Jupyter Lab, etc.</p></li>
-<li><p>Mutli-lingual support. Unlike R Markdown which is dependent on R, Quarto does not require R. It supports embedded Python, JavaScript, and Julia executable code by simply specifying the language name in the braces on top of a code chunk (e.g., <code>```{python}</code>).</p></li>
-<li><p>Multi-engine support. Don’t worry if you are an R Markdown or Jupyter Notebook user! Qurato also works with <code>.Rmd</code> and <code>.ipynb</code> files and will automatically deploy either the knitr or jupyter engine depending on the file type that you are rendering.</p></li>
+<li><p><strong>Compatibility with multiple IDEs</strong>. You can not only work with Quarto <code>.qmd</code> in RStudio, but also VS Code, Jupyter Lab, etc.</p></li>
+<li><p><strong>Mutli-lingual support</strong>. Unlike R Markdown which is dependent on R, Quarto does not require R. It supports embedded Python, JavaScript, and Julia executable code by simply specifying the language name in the braces on top of a code chunk (e.g., <code>```{python}</code>).</p></li>
+<li><p><strong>Multi-engine support</strong>. Don’t worry if you are an R Markdown or Jupyter Notebook user! Qurato also works with <code>.Rmd</code> and <code>.ipynb</code> files and will automatically deploy either the knitr or jupyter engine depending on the file type that you are rendering.</p></li>
 </ul>
 <p>In summary, Quarto is easy for R users to transition into due to similarities with the R Markdown. It also includes more functionality and flexibility, making it a great tool for learning Python.</p>
 </section>
@@ -308,7 +307,7 @@ Installing for current user only
 <p>You don’t need to install for all users most of the time. This option requires admin privileges which you might not have on your MSK laptop.</p>
 </div>
 </div></li>
-<li><p>Choose installation location. You can keep the default location. E.g., <code>C:\Users\&lt;user_name&gt;\AppData\Local\Anaconda3</code>.</p></li>
+<li><p>Choose installation location. You can keep the default location. E.g., <code>C:\Users\&lt;user_name&gt;\AppData\Local\anaconda3</code>.</p></li>
 <li><p>Now, going to the advanced installation options. <strong>Do not add anaconda3 to my PATH environment variable in Windows</strong>, as it might cause potential conflicts with your other Python installations.</p>
 <p><img src="images/anaconda-install-2.png" class="img-fluid" width="500"></p>
 <div class="callout callout-style-default callout-caution callout-titled">
@@ -401,7 +400,8 @@ Do not add Anaconda to PATH
 <p>Now your package search will also include packages on the <code>conda-forge</code> channel.</p></li>
 <li><p>Removing an environment.</p>
 <p>On the Environments page, select the environment you want to remove. Click <strong>Remove</strong>.</p>
-<p><img src="images/anaconda-nav-env-remove1.png" class="img-fluid" width="850"></p></li>
+<p><img src="images/anaconda-nav-env-remove1.png" class="img-fluid" width="850"></p>
+<p>The entire environment, including the packages installed to it, will be deleted.</p></li>
 </ol>
 </section>
 <section id="creating-a-virutal-environment-with-command-line" class="level2">
@@ -460,12 +460,31 @@ Note: Avoid activating on top of another virtual environment!
 <pre><code>conda env remove --prefix &lt;/path/to/your/env&gt;</code></pre></li>
 </ul></li>
 </ol>
+<details>
+<summary>
+<strong>Creating an environment from an environment.yml file</strong>
+</summary>
+<p>We can also create a virtual environment from a <code>.yml</code> file.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Similarly, after installation, activate the new environment:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate <span class="op">&lt;</span>env-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This way, we can easily recreate an environment that is shared by others or share our environment settings with others.</p>
+<p>For example, a simple environment file that has information about the environment name and dependencies:</p>
+<pre><code>name: python310
+channels:
+  - defaults
+dependencies:
+  - python==3.10
+  - pandas
+  - numpy</code></pre>
+<p>Download the YML file for this Python workshop series <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml">here</a>.</p>
+</details>
 </section>
 </section>
 <section id="work-with-jupyterquarto-in-vs-code" class="level1">
 <h1>1.4 Work with Jupyter/Quarto in VS Code</h1>
 <section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites:</h2>
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
 <section id="install-everything" class="level4">
 <h4 class="anchored" data-anchor-id="install-everything">Install Everything</h4>
 <ol type="1">
@@ -484,14 +503,17 @@ Note: Avoid activating on top of another virtual environment!
 <li><p><strong>Python</strong>: To support Python language, debugging, documentations, etc.</p></li>
 <li><p><strong>Quarto</strong>: To support Quarto document editing and previewing.</p></li>
 </ul>
-<div class="callout callout-style-simple callout-important">
-<div class="callout-body d-flex">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
-<p>You still need to install conda (Python) and Quarto to your computer to enable these extensions.</p>
+<div class="callout-title-container flex-fill">
+Important
 </div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You still need to install conda (Python) and Quarto to your computer to enable these extensions.</p>
 </div>
 </div></li>
 <li><p><strong>Create a Conda Virtual Environment.</strong> You may also use existing ones you created.</p></li>
@@ -499,7 +521,8 @@ Note: Avoid activating on top of another virtual environment!
 <ol type="1">
 <li><p>Open Comman Palette by pressing <code>Ctrl+Shift+P</code> (or <code>Cmd+Shift+X</code> on Mac).</p></li>
 <li><p>Type “<strong>Python: Select Interpreter</strong>”.</p></li>
-<li><p>Choose the Conda python environment you created. If you don’t see its name pop up, choose <strong>Enter interpreter path…</strong> and manually type in the location of your conda virtual environment python executable. E.g., <code>C:\Users\&lt;username&gt;\AppData\Local\anaconda3\envs\&lt;env-name&gt;\python.exe</code> for Windows <strong>or</strong> <code>Users/&lt;username&gt;/anaconda/envs/&lt;env-name&gt;/python</code> for macOS.</p>
+<li><p>Choose the Conda python environment you created. If you don’t see its name pop up, choose <strong>Enter interpreter path…</strong> and manually type in the location of your conda virtual environment python executable.</p>
+<p>E.g., <code>C:\Users\&lt;username&gt;\AppData\Local\anaconda3\envs\&lt;env-name&gt;\python.exe</code> for Windows <strong>or</strong> <code>Users/&lt;username&gt;/anaconda/envs/&lt;env-name&gt;/python</code> for macOS.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -526,28 +549,28 @@ Find your conda Python executable path
 <section id="create-a-quarto-file" class="level2">
 <h2 class="anchored" data-anchor-id="create-a-quarto-file">Create a Quarto File</h2>
 <p>Go to <strong><code>File &gt; New File</code></strong> and select Quarto Document. This will generate an empty <code>.qmd</code> file with the following YAML metadata. You can change the title and file output format as needed.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "First Day"</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "First Day"</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In Quarto files, you can mix Markdown with code blocks just like in R Markdown. For example:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Heading 1</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>This is a demo Quarto file. Here is the text section.</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">## Heading 2</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>This is a subsection.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Heading 1</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>This is a demo Quarto file. Here is the text section.</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">## Heading 2</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>This is a subsection.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To add an executable code block, specify the language name inside two curly braces (e.g., <code>{python}</code>, <code>{r}</code>, etc.). For example, let’s print something:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="in">print("This is some Python output.")</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="faf92ab7" class="cell" data-execution_count="1">
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="in">print("This is some Python output.")</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cfb29a33" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>This is some Python output.</code></pre>
 </div>
 </div>
 <p>To render or preview the html output, click on the <strong>Quarto Preview</strong> button at the top right (or press <code>Ctrl+Shift+K</code>).</p>
 <p>Alternatively, run <code>quarto render</code> in your terminal to generate the output.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="op">&lt;</span>yourfilename<span class="op">&gt;</span>.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="op">&lt;</span>yourfilename<span class="op">&gt;</span>.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This is an example of the html output preview showing next to the source <code>.qmd</code> file.</p>
 <p><img src="images/quarto-demo.png" class="img-fluid"></p>
 <p>We are done with setting everything up.</p>

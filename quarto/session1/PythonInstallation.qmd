@@ -21,7 +21,7 @@ Welcome to the first session of the Introduction to Python Workshop series!
 This guide will you walk through the steps to install Python to your computer and work interactively with it in Visual Studio Code.
 After the session, you will acquire basic knowledge of the following:
 
--   Install Python via Anaconda distribution.
+-   Install Python via the Anaconda distribution.
 
 -   Create, activate, and install packages to Python virtual environments.
 
@@ -37,8 +37,7 @@ After the session, you will acquire basic knowledge of the following:
 
 The Anaconda distribution comes with the desktop **Anaconda Navigator** application, the **latest version of Python**, and **\~150** **pre-downloaded libraries**.
 
-It also comes with **`conda`**, a cross-platform package and environment manager.
-
+It also comes with **conda**, a cross-platform package and environment manager.
 **Conda** is the virtual environment manager that helps install packages from the Anaconda repositories (also called ***channels***).
 It supports more than just Python packages but numerous other programming languages like R, Java, etc.
 
@@ -71,9 +70,9 @@ This allows us to manage packages and environments without necessarily needing t
 
 > **Visual Studio Code (VS Code)** is one of the most popular open-source code editors with many features.
 
--   Multi-Language Programming. You can code in almost any major programming languages in VS Code including Python, R, C/C++, JavaScript, etc.
--   Build-In Git Source Control. VS Code automatically recognizes and uses the computer's Git installation to allow project version control. You can easily track changes, stage, and commit changes to your working branch.
--   Variety of Project Development Support. You can add extra features such as language packs, debugging tools, Git/Github features, and remote server connector by installing extensions from the Extension Marketplace.
+-   **Multi-Language Programming.** You can code in almost any major programming languages in VS Code including Python, R, C/C++, JavaScript, etc.
+-   **Build-In Git Source Control.** VS Code automatically recognizes and uses the computer's Git installation to allow project version control. You can easily track changes, stage, and commit changes to your working branch.
+-   **Variety of Project Development Support**. You can add extra features such as language packs, debugging tools, Git/Github features, and remote server connector by installing extensions from the Extension Marketplace.
 
 Go to [1.4 Work with Jupyter/Quarto in VS Code] for guide on how to get started with VS Code.
 
@@ -88,14 +87,14 @@ Both combine executable code chunks with text components and figures and allow g
 
 But Quarto has more:
 
--   Compatibility with multiple IDEs.
+-   **Compatibility with multiple IDEs**.
     You can not only work with Quarto `.qmd` in RStudio, but also VS Code, Jupyter Lab, etc.
 
--   Mutli-lingual support.
+-   **Mutli-lingual support**.
     Unlike R Markdown which is dependent on R, Quarto does not require R.
     It supports embedded Python, JavaScript, and Julia executable code by simply specifying the language name in the braces on top of a code chunk (e.g., ```` ```{python} ````).
 
--   Multi-engine support.
+-   **Multi-engine support**.
     Don't worry if you are an R Markdown or Jupyter Notebook user!
     Qurato also works with `.Rmd` and `.ipynb` files and will automatically deploy either the knitr or jupyter engine depending on the file type that you are rendering.
 
@@ -127,7 +126,7 @@ Run the installer and follow the steps.
 
 3.  Choose installation location.
     You can keep the default location.
-    E.g., `C:\Users\<user_name>\AppData\Local\Anaconda3`.
+    E.g., `C:\Users\<user_name>\AppData\Local\anaconda3`.
 
 4.  Now, going to the advanced installation options.
     **Do not add anaconda3 to my PATH environment variable in Windows**, as it might cause potential conflicts with your other Python installations.
@@ -264,6 +263,8 @@ This approach is straightforward and does not require command line skills.
 
     ![](images/anaconda-nav-env-remove1.png){width="850"}
 
+    The entire environment, including the packages installed to it, will be deleted.
+
 ## 1.3.2 Creating a Virutal Environment (with Command Line)
 
 Alternatively, you can use the `conda` command line interface (CLI) to create virtual environments.
@@ -342,9 +343,43 @@ For users comfortable with command line, this approach is generally more recomme
         conda env remove --prefix </path/to/your/env>
         ```
 
+<details>
+
+<summary>**Creating an environment from an environment.yml file**</summary>
+
+We can also create a virtual environment from a `.yml` file.
+
+``` bash
+conda env create -f environment.yml
+```
+
+Similarly, after installation, activate the new environment:
+
+``` bash
+conda activate <env-name>
+```
+
+This way, we can easily recreate an environment that is shared by others or share our environment settings with others.
+
+For example, a simple environment file that has information about the environment name and dependencies:
+
+```         
+name: python310
+channels:
+  - defaults
+dependencies:
+  - python==3.10
+  - pandas
+  - numpy
+```
+
+Download the YML file for this Python workshop series [here](https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml).
+
+</details>
+
 # 1.4 Work with Jupyter/Quarto in VS Code
 
-## Prerequisites:
+## Prerequisites
 
 #### Install Everything
 
@@ -362,7 +397,7 @@ For users comfortable with command line, this approach is generally more recomme
 
     -   **Quarto**: To support Quarto document editing and previewing.
 
-    ::: {.callout-important appearance="simple"}
+    ::: callout-important
     You still need to install conda (Python) and Quarto to your computer to enable these extensions.
     :::
 
@@ -376,6 +411,7 @@ For users comfortable with command line, this approach is generally more recomme
 
     3.  Choose the Conda python environment you created.
         If you don't see its name pop up, choose **Enter interpreter path...** and manually type in the location of your conda virtual environment python executable.
+        
         E.g., `C:\Users\<username>\AppData\Local\anaconda3\envs\<env-name>\python.exe` for Windows **or** `Users/<username>/anaconda/envs/<env-name>/python` for macOS.
 
         ::: callout-note
