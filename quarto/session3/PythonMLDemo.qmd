@@ -205,6 +205,7 @@ data["diagnosis"] = data["diagnosis"].map(y_recode)
 
 data.head(5)
 ```
+
 </details>
 </div>
 

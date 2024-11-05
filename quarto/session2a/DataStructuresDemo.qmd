@@ -1,5 +1,5 @@
 ---
-title: "Python Machine Learning Demo"
+title: "Introduction to Python Data Structures"
 author: "Python Group"
 format: 
     html:

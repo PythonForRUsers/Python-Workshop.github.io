@@ -1,5 +1,5 @@
 ---
-title: "Python Machine Learning Demo"
+title: "Introduction to Pandas"
 author: "Python Group"
 format: 
     html:
