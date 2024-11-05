@@ -22,6 +22,10 @@ website:
             href: sessions.qmd
           - text: "Session 1: Get Started with Python"
             href: session1/PythonInstallation.qmd
+          - text: "Session 2a: Intro to Python Data Structures"
+            href: session2a/DataStructuresDemo.qmd
+          - text: "Session 2b: Intro to Pandas"
+            href: session2b/DataStructuresDemo_2.qmd
           - text: "Session 3: Logistic Regression Demo"
             href: session3/PythonMLDemo.qmd
       - text: "Discussion"
