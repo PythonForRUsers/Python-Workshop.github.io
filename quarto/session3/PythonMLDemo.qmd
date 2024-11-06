@@ -74,10 +74,10 @@ Similar to `library()` in R, we’ll use `import` in Python. Fill in the blanks 
 
 ```{python}
 # | eval: false
-import pandas as ___
-import numpy as ___
-import seaborn as ___
-import matplotlib.pyplot as ___
+import ___ as pd
+import ___ as np
+import ___ as sns
+import ___ as plt
 
 # Import from sklearn
 from sklearn.model_selection import __________
@@ -181,7 +181,7 @@ data.head(5)
 
 ### Recoding a Variable
 
-For our logistic regression, the diagnosis column, which is our outcome of interest, should be 0, 1 not B, M. To fix this, we can use a *dictionary* and `.map()`.
+For our logistic regression, the diagnosis column, which is our outcome of interest, should be 0, 1 not B, M. To fix this, we can use a *dictionary* and `.map()`. We could also use a lambda function as described in session 2b, but dictionaries can be more convenient for replacing multiple values.
 
 ```{python}
 #| eval: false
