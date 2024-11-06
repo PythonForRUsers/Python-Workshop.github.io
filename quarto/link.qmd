@@ -21,7 +21,18 @@ Links for downloading and installing mentioned software/files.
     <p>Install Anaconda</p>
 </a>
 
+<a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml" class="link-block">
+    <img src="icons/yaml.png" alt="File">
+    <p>Download environment YML file </p>
+</a>
+
  <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block">
     <img src="icons/code.png" alt="File">
     <p>Download Follow Along File</p>
+</a>
+
+
+ <a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block">
+    <img src="icons/code.png" alt="File">
+    <p>Download Dataset for Intro to Pandas</p>
 </a>

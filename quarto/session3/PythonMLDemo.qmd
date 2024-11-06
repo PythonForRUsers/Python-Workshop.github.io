@@ -13,59 +13,75 @@ format:
 
 ## Links
 
-<a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data/data" class="link-block">
-    <img src="../icons/csv.png" alt="Dataset">
-    <p>Cancer Dataset</p>
-</a> <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block">
-    <img src="../icons/code.png" alt="File">
-    <p>Download Follow Along File</p>
+<a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data/data" class="link-block"> <img src="../icons/csv.png" alt="Dataset"/>
+
+<p>Cancer Dataset</p>
+
+</a> <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block"> <img src="../icons/code.png" alt="File"/>
+
+<p>Download Follow Along File</p>
+
 </a>
 
 ## Getting Started
 
-Before doing anything else, we should first activate the conda environment we want to use. 
-<details>
-<summary> Refresher: How to activate conda environment </summary>
-<div style="sp"></div>
-From terminal, type: 
-  
-<div class="terminal">
-\> conda activate ENVNAME
-</div>
-  <div style="margin: 10px 0;"></div>
-When in VS code, you might get a popup message like the one below, confirming that the environment was activated:  
+Before doing anything else, we should first activate the conda environment we want to use.
 
-<div style="border-left: 4px solid #007bff; background-color: #f8f9fa; padding: 5px; margin: 5px 0;">
-Selected conda environment was successfully activated, even though "(ENVNAME)" indicator may not be present in the terminal prompt. 
-</div>
+<details>
+
+<summary>Refresher: How to activate conda environment</summary>
+
+::: {style="sp"}
+:::
+
+From terminal, type:
+
+::: terminal
+\> conda activate ENVNAME
+:::
+
+::: {style="margin: 10px 0;"}
+:::
+
+When in VS code, you might get a popup message like the one below, confirming that the environment was activated:
+
+::: {style="border-left: 4px solid #007bff; background-color: #f8f9fa; padding: 5px; margin: 5px 0;"}
+Selected conda environment was successfully activated, even though "(ENVNAME)" indicator may not be present in the terminal prompt.
+:::
+
 </details>
 
-If we want to make sure we have the packages we'll need installed in the environment before we try to import them, we can either check on anaconda or use the terminal: 
+If we want to make sure we have the packages we'll need installed in the environment before we try to import them, we can either check on anaconda or use the terminal:
 
-<div class="terminal">
+::: terminal
 \> conda list
-</div>
-<div style="sp"></div>
-Otherwise, we will get an error message if we try to import packages that are not installed. 
+:::
+
+::: {style="sp"}
+:::
+
+Otherwise, we will get an error message if we try to import packages that are not installed.
 
 <details>
-<summary> Refresher: How to install packages </summary>
 
-To install packages, we can either use the "anaconda" dashboard, or we can use the command line. Make sure your environment is active before installing packages or the packages will not be available in your environment. 
+<summary>Refresher: How to install packages</summary>
 
-To install from the command line, we open a terminal and type: 
+To install packages, we can either use the "anaconda" dashboard, or we can use the command line. Make sure your environment is active before installing packages or the packages will not be available in your environment.
 
-<div class="terminal">
+To install from the command line, we open a terminal and type:
+
+::: terminal
 \> conda install {package}
-</div>
+:::
 
 or
 
-<div class="terminal">
+::: terminal
 \> pip install {package}
-</div>
+:::
 
-If a package is not available via conda it might be available via pip. 
+If a package is not available via conda it might be available via pip.
+
 </details>
 
 ## Step 1: Import Packages
@@ -74,10 +90,10 @@ Similar to `library()` in R, we’ll use `import` in Python. Fill in the blanks 
 
 ```{python}
 # | eval: false
-import pandas as ___
-import numpy as ___
-import seaborn as ___
-import matplotlib.pyplot as ___
+import ___ as pd
+import ___ as np
+import ___ as sns
+import ___ as plt
 
 # Import from sklearn
 from sklearn.model_selection import __________
@@ -88,8 +104,11 @@ from sklearn.linear_model import __________
 from sklearn.metrics import accuracy_score, roc_curve, auc
 ```
 
-<div class = "ans"> 
-<details><summary> Click to reveal answers </summary>
+::: ans
+<details>
+
+<summary>Click to reveal answers</summary>
+
 ```{python}
 import pandas as pd
 import numpy as np
@@ -105,50 +124,58 @@ from sklearn.linear_model import LogisticRegression
 
 from sklearn.metrics import accuracy_score, roc_curve, auc
 ```
+
 </details>
-</div>
+:::
 
 ## Step 2: Read in Data and Perform Data Cleaning
 
-We can use the `read_csv()` function from the pandas package to read in the dataset. 
+We can use the `read_csv()` function from the pandas package to read in the dataset.
 
 ```{python}
 #| eval: false
 data = pd.read_csv("__________")
 ```
 
-<div class = "ans"> 
-<details><summary> Click to reveal answers </summary>
+::: ans
+<details>
+
+<summary>Click to reveal answers</summary>
 
 ```{python}
 data = pd.read_csv("example_data/Cancer_Data.csv")
 ```
-</details>
-</div>
 
-We can use the `.info()` function to show some basic information about the dataset like:  
-* the number of rows  
-* number of columns  
-* column labels  
-* column type  
-* number of non-null values in each column
+</details>
+:::
+
+We can use the `.info()` function to show some basic information about the dataset like:\
+\* the number of rows\
+\* number of columns\
+\* column labels\
+\* column type\
+\* number of non-null values in each column
 
 ```{python}
 #| eval: false
 data._______()
 ```
 
-<div class = "ans"> 
-<details><summary> Click to reveal answers </summary>
+::: ans
+<details>
+
+<summary>Click to reveal answers</summary>
+
 ```{python}
 data.info()
 ```
-</details>
-</div>
-From the *info*, we can see that the column types make sense and most of the columns have no missing values. 
 
-We do have this extra column called "Unnamed: 32" with 0 non-null values...
-so let's drop it (remove it from the dataframe). 
+</details>
+:::
+
+From the *info*, we can see that the column types make sense and most of the columns have no missing values.
+
+We do have this extra column called "Unnamed: 32" with 0 non-null values... so let's drop it (remove it from the dataframe).
 
 ```{python}
 #| eval: false
@@ -158,8 +185,11 @@ data.drop(columns="Unnamed: 32", inplace=______)
 print(data.info())
 ```
 
-<div class = "ans"> 
-<details><summary> Click to reveal answers </summary>
+::: ans
+<details>
+
+<summary>Click to reveal answers</summary>
+
 ```{python}
 ## `inplace` means that we modify the original dataframe
 data.drop(columns="Unnamed: 32", inplace=True)
@@ -168,8 +198,9 @@ data.drop(columns="Unnamed: 32", inplace=True)
 print(data.info())
 
 ```
+
 </details>
-</div>
+:::
 
 The column was successfully removed!
 
@@ -181,7 +212,7 @@ data.head(5)
 
 ### Recoding a Variable
 
-For our logistic regression, the diagnosis column, which is our outcome of interest, should be 0, 1 not B, M. To fix this, we can use a *dictionary* and `.map()`.
+For our logistic regression, the diagnosis column, which is our outcome of interest, should be 0, 1 not B, M. To fix this, we can use a *dictionary* and `.map()`. We could also use a lambda function as described in session 2b, but dictionaries can be more convenient for replacing multiple values.
 
 ```{python}
 #| eval: false
@@ -193,8 +224,12 @@ data["diagnosis"] = data["diagnosis"].map(________)
 
 data.head(5)
 ```
-<div class = "ans"> 
-<details><summary> Click to reveal answers </summary>
+
+::: ans
+<details>
+
+<summary>Click to reveal answers</summary>
+
 ```{python}
 ## define a dictionary
 y_recode = {"B": 0, "M": 1}
@@ -205,12 +240,13 @@ data["diagnosis"] = data["diagnosis"].map(y_recode)
 
 data.head(5)
 ```
+
 </details>
-</div>
+:::
 
 ## Step 3: Exploratory Data Analysis
 
-Now that our data is cleaned and we have our outcome in numeric form, we can use `.describe()` to get summary statistics for each column of the dataset. 
+Now that our data is cleaned and we have our outcome in numeric form, we can use `.describe()` to get summary statistics for each column of the dataset.
 
 ```{python}
 #| eval: false
@@ -218,19 +254,23 @@ Now that our data is cleaned and we have our outcome in numeric form, we can use
 ___.___()
 ```
 
-<div class = "ans"> 
-<details><summary> Click to reveal answers </summary>
+::: ans
+<details>
+
+<summary>Click to reveal answers</summary>
+
 ```{python}
 data.describe()
 ```
-</details>
-</div>
 
-The count column tells us the number of non-null (non-missing) values in a column. 
+</details>
+:::
+
+The count column tells us the number of non-null (non-missing) values in a column.
 
 ### Creating Descriptive Plots
 
-We can also look at the number of each diagnosis reflected in the dataset in a plot using seaborn. 
+We can also look at the number of each diagnosis reflected in the dataset in a plot using seaborn.
 
 You can also save a plot to a variable (ex: 'p') if you want to display it later with `plt.show(p)`.
 
@@ -241,8 +281,10 @@ plt.title("Distribution of Diagnoses")
 _____
 ```
 
-<div class = "ans"> 
-<details><summary> Click to reveal answers </summary>
+::: ans
+<details>
+
+<summary>Click to reveal answers</summary>
 
 ```{python}
 #| dpi: 600
@@ -252,36 +294,11 @@ plt.show()
 ```
 
 </details>
-</div
+:::
 
-If we want, we can change the colors of the plot. To make the plot a bit more useful, we can also change the y-scale from "count" to "percentage" and add labels so it is clear what "0" and "1" mean. 
+<details>
 
-To help us pick colors, we can use `sns.color_palette()` which will display an image with the colors in the palette. 
-
-```{python}
-sns.color_palette("colorblind")
-```
-
-To change the colors of our plot, we can make a dictionary with the values of 'diagnosis' as keys and the hexcodes of the colors we want to use as values. 
-
-We can get the hex codes of colors from a seaborn palette using `sns.color_palette().as_hex()`.
-
-```{python}
-# | message: false
-#| eval: false
-color_hex = sns.color_palette("colorblind")._____
-
-print("The hexcodes for the 'colorblind' palette are:\n", ____)
-
-## if we want to make the columns green for benign and yellow for malignant
-
-## the "-" lets us index from the end of the list rather than the front. However, the '-1'th position is the last position (there is no '-0')
-
-colors = {0: color_hex[__], 1: color_hex[__]}
-```
-
-<div class = "ans"> 
-<details><summary> Click to reveal answers </summary>
+<summary>Click to reveal answers</summary>
 
 ```{python}
 # | message: False
@@ -297,13 +314,14 @@ colors = {0: color_hex[2], 1: color_hex[-2]}
 ```
 
 </details>
+
 </div>
 
-We then create the plot and tell seaborn to use 'colors' as the palette for the graph. We can also change the 'stat' to be "percent", which can be more interpretable than raw counts. 
+We then create the plot and tell seaborn to use 'colors' as the palette for the graph. We can also change the 'stat' to be "percent", which can be more interpretable than raw counts.
 
 We can also change the xtick labels to be "Benign" and "Malignant" instead of "0" and "1". Because we assigned the plot to the variable 'p', we can use `p.{}` to change attributes of plot 'p'.
 
-We will also change the axis labels and set a title. Once we make these changes, we can show the finished plot. 
+We will also change the axis labels and set a title. Once we make these changes, we can show the finished plot.
 
 ```{python}
 #| eval: false
@@ -330,8 +348,10 @@ plt.legend(title="Diagnosis", loc="upper right", labels=["Benign", "Malignant"])
 plt.show(p)
 ```
 
-<div class = "ans"> 
-<details><summary> Click to reveal answers </summary>
+::: ans
+<details>
+
+<summary>Click to reveal answers</summary>
 
 ```{python}
 p = sns.countplot(
@@ -358,9 +378,9 @@ plt.show(p)
 ```
 
 </details>
-</div>
+:::
 
-If we wanted to, we could also make a correlation heatmap of our features using `.corr()` and `sns.heatmap()`. 
+If we wanted to, we could also make a correlation heatmap of our features using `.corr()` and `sns.heatmap()`.
 
 For this, all of our columns must be numeric, and we should remove the 'id' column as it is not useful for correlation. We use `.select_dtypes()` to select only the numeric columns from the dataset.
 
@@ -385,8 +405,10 @@ plt.title("Feature Correlation Heatmap")
 plt.___
 ```
 
-<div class = "ans"> 
-<details><summary> Click to reveal answers </summary>
+::: ans
+<details>
+
+<summary>Click to reveal answers</summary>
 
 ```{python}
 numeric_data = data.select_dtypes(include=[np.number])
@@ -407,24 +429,25 @@ plt.title("Feature Correlation Heatmap")
 
 plt.show()
 ```
+
 </details>
-</div>
+:::
 
 ## Step 4: Data Setup
 
 ### Splitting Training and Test Data
 
-We first need to split the dataset into X (predictors/features) and y (outcomes). Then we use the `train_test_split()` function to split these datasets into a training dataset and a test dataset. 
+We first need to split the dataset into X (predictors/features) and y (outcomes). Then we use the `train_test_split()` function to split these datasets into a training dataset and a test dataset.
 
-We use the .loc function and ":" to select all rows and any columns including and after "radius_mean", and we assign these columns to x. This excludes the "diagnosis" and "id" columns. 
+We use the .loc function and ":" to select all rows and any columns including and after "radius_mean", and we assign these columns to x. This excludes the "diagnosis" and "id" columns.
 
-We set y as simply the diagnosis column. 
+We set y as simply the diagnosis column.
 
-When splitting our dataset, we can define 'test_size' which is the proportion of the data that will be set aside for testing the model. We can also set a random_state. 
+When splitting our dataset, we can define 'test_size' which is the proportion of the data that will be set aside for testing the model. We can also set a random_state.
 
-<div style="border-left: 4px solid #007bff; background-color: #f8f9fa; padding: 5px; margin: 5px 0;">
+::: {style="border-left: 4px solid #007bff; background-color: #f8f9fa; padding: 5px; margin: 5px 0;"}
 Unlike R, Python allows for multi-argument returns from functions. This lets us assign each returned object to a different variable to be used later!
-</div>
+:::
 
 ```{python}
 #| eval: false
@@ -441,8 +464,11 @@ X_?, X_?, y_?, y_? = train_test_split(
 
 X_train.head(3)
 ```
-<div class = "ans"> 
-<details><summary> Click to reveal answers </summary>
+
+::: ans
+<details>
+
+<summary>Click to reveal answers</summary>
 
 ```{python}
 x = data.loc[:, "radius_mean"::]
@@ -457,8 +483,9 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 X_train.head(3)
 ```
+
 </details>
-</div>
+:::
 
 ### Scaling/Normalizing Data
 
@@ -476,8 +503,11 @@ scaler.fit(___)
 X_train = scaler.transform(___)
 X_test = scaler.transform(___)
 ```
-<div class = "ans"> 
-<details><summary> Click to reveal answers </summary>
+
+::: ans
+<details>
+
+<summary>Click to reveal answers</summary>
 
 ```{python}
 ## standardize dataset
@@ -490,23 +520,31 @@ scaler.fit(X_train)
 X_train = scaler.transform(X_train)
 X_test = scaler.transform(X_test)
 ```
+
 </details>
-</div>
+:::
+
 ## Step 5: Model Setup
 
-Next we have to set up the model itself by creating an instance of the `LogisticRegression` model class. 
+Next we have to set up the model itself by creating an instance of the `LogisticRegression` model class.
 
 ```{python}
 #| eval: false
 lr = ___
 ```
-<div class = "ans"> 
-<details><summary> Click to reveal answers </summary>
+
+::: ans
+<details>
+
+<summary>Click to reveal answers</summary>
+
 ```{python}
 lr = LogisticRegression()
 ```
+
 </details>
-</div>
+:::
+
 Then, we can fit this model to the training data.
 
 ```{python}
@@ -515,22 +553,26 @@ Then, we can fit this model to the training data.
 lr.___(X_train, y_train)
 ```
 
-<div class = "ans"> 
-<details><summary> Click to reveal answers </summary>
+::: ans
+<details>
+
+<summary>Click to reveal answers</summary>
+
 ```{python}
 ## fit to training data
 lr.fit(X_train, y_train)
 ```
+
 </details>
-</div>
+:::
 
 ## Step 6: Look At Results
 
-Once the model is fit, we can use it to predict the outcome (diagnosis) based on the features of the test data. 
+Once the model is fit, we can use it to predict the outcome (diagnosis) based on the features of the test data.
 
 ### Store Results in a Dataframe
 
-We can use `pd.DataFrame()` to create an empty pandas dataframe that we can fill with our results. 
+We can use `pd.DataFrame()` to create an empty pandas dataframe that we can fill with our results.
 
 ```{python}
 #| eval: false
@@ -554,8 +596,10 @@ results.loc[:, 'Probability: Malignant'] = pd.DataFrame(lr.___(X_test))[_]
 results.head(5)
 ```
 
-<div class = "ans"> 
-<details><summary> Click to reveal answers </summary>
+::: ans
+<details>
+
+<summary>Click to reveal answers</summary>
 
 ```{python}
 ## use model to predict test data
@@ -577,10 +621,11 @@ results.loc[:, 'Probability: Malignant'] = pd.DataFrame(lr.predict_proba(X_test)
 
 results.head(5)
 ```
-</details>
-</div>
 
-We can also get a quantitative "accuracy score" that will give us an idea of how well our model predicts our outcomes. 
+</details>
+:::
+
+We can also get a quantitative "accuracy score" that will give us an idea of how well our model predicts our outcomes.
 
 ```{python}
 accuracy = accuracy_score(results["Truth"], results["Predicted"])
@@ -590,7 +635,7 @@ print("Accuracy: {:.2f}%".format(accuracy * 100))
 
 ### Create ROC curve
 
-As a figure, we can create an ROC curve and use quarto chunk options to add a figure caption. 
+As a figure, we can create an ROC curve and use quarto chunk options to add a figure caption.
 
 ```{python}
 # | fig-cap: An ROC curve for our logistic regression model
@@ -632,8 +677,10 @@ plt.show()
 
 ```
 
-<div class = "ans"> 
-<details><summary> Click to reveal answers </summary>
+::: ans
+<details>
+
+<summary>Click to reveal answers</summary>
 
 ```{python}
 # | fig-cap: An ROC curve for our logistic regression model
@@ -672,15 +719,17 @@ plt.legend(loc="lower right")
 plt.show()
 
 ```
+
 </details>
-</div>
+:::
 
 Congratulations! You have successfully done logistic regression in Python!
 
 <details>
-<summary> Citations </summary>
-Icons  
-<a href="https://www.flaticon.com/free-icons/csv" title="csv icons">Csv icons created by rizal2109 - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/ipynb" title="ipynb icons">Ipynb icons created by JunGSa - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/coding" title="coding icons">Coding icons created by juicy_fish - Flaticon</a>  
+
+<summary>Citations</summary>
+
+Icons\
+<a href="https://www.flaticon.com/free-icons/csv" title="csv icons">Csv icons created by rizal2109 - Flaticon</a> <a href="https://www.flaticon.com/free-icons/ipynb" title="ipynb icons">Ipynb icons created by JunGSa - Flaticon</a> <a href="https://www.flaticon.com/free-icons/coding" title="coding icons">Coding icons created by juicy_fish - Flaticon</a>
+
 </details>

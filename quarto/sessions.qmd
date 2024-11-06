@@ -15,5 +15,16 @@ output-dir: docs/
 <a href="session1/session1.html">Tutorial: Get Started with Python
   </a>
 
+ 
+<a href="session2a/session2.html">Go to Session2a: Intro to Python Data Structures
+  </a> 
+
+
+<a href="session2b/session2_2.html">Go to Session2b: Intro to Pandas
+  </a>
+
+
 <a href="session3/session3.html">Go to ML Demo
   </a>
+
+  
