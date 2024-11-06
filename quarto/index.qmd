@@ -30,7 +30,7 @@ This is the main webpage for the intro to python workshops! The workshops are ge
     <p>Download environment YML file </p>
 </a>
 
-</a> <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block">
+<a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block">
     <img src="icons/code.png" alt="File">
     <p>Download Follow Along Files</p>
 </a>
