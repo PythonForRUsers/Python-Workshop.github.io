@@ -21,6 +21,8 @@ format:
     <p>Download Follow Along File</p>
 </a>
 
+We are using the same dataset as in sesssion 3! There is no need to re-download it!
+
 ## Getting Started
 
 Before doing anything else, we should first activate the conda environment we want to use. 
@@ -38,6 +40,10 @@ When in VS code, you might get a popup message like the one below, confirming th
 <div style="border-left: 4px solid #007bff; background-color: #f8f9fa; padding: 5px; margin: 5px 0;">
 Selected conda environment was successfully activated, even though "(ENVNAME)" indicator may not be present in the terminal prompt. 
 </div>
+
+or
+
+In Anaconda Navagator, click on the **Environments** tab on the left and select the environment you want to activate. Just selecting the environment should activate it. 
 </details>
 
 If we want to make sure we have the packages we'll need installed in the environment before we try to import them, we can either check on anaconda or use the terminal: 
@@ -65,7 +71,7 @@ or
 \> pip install {package}
 </div>
 
-If a package is not available via conda it might be available via pip. 
+When working with conda environments, it's best practice to install everything with conda and only use pip for packages that are not available through conda!
 </details>
 
 ## Step 1: Import Packages
@@ -181,7 +187,7 @@ data.head(5)
 
 ### Recoding a Variable
 
-For our logistic regression, the diagnosis column, which is our outcome of interest, should be 0, 1 not B, M. To fix this, we can use a *dictionary* and `.map()`.
+For our logistic regression, the diagnosis column, which is our outcome of interest, should be 0, 1 not B, M. To fix this, we can use a *dictionary* and `.map()`. We could also use a lambda function like we did in Session 3, but dictionaries can be more convenient if there are more than 2 values to be recoded. 
 
 ```{python}
 #| eval: false
