@@ -44,24 +44,9 @@ For example, if you want to link to `session3.html` from `sessions.qmd`, add:
 - [Session 3](session3.html)
 ```
 
-3. Add your session link to `_quarto.yml` under the 'Sessions' menu. You can also add new links to the links menu similarly, except you put the url as the href instead of a filepath.
-
-```yaml
-text: "Sessions"
-        menu: 
-          - text: "All Sessions"
-            href: sessions.qmd
-          - text: "Session 1: Get Started with Python"
-            href: session1/PythonInstallation.qmd
-          - text: "Session 3: Logistic Regression Demo"
-            href: session3/PythonMLDemo.qmd
-          - text: "New session text"
-            href: path/to/session/session_new.qmd
-```
-
-4. To render, go to terminal and naviage to the 'quarto' folder. Then type 'quarto render'. This will render all necessary website files. (If this doesn't work, renderSite.py is a backup option.)
-5. To make sure everything looks good, you can open `index.html` from the `docs` subfolder.
-6. If everything looks good, make a pull request.
+3. To render, go to terminal and naviage to the 'quarto' folder. Then type 'quarto render'. This will render all necessary website files. (If this doesn't work, renderSite.py is a backup option.)
+4. To make sure everything looks good, you can open `index.html` from the `docs` subfolder.
+5. If everything looks good, make a pull request.
 
 # If you want to use and render a jupyter notebook
 
