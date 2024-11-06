@@ -23,6 +23,8 @@ format:
 
 </a>
 
+The dataset is the same one we used in session 2b! If you already downloaded it for that session, no need to do so again. 
+
 ## Getting Started
 
 Before doing anything else, we should first activate the conda environment we want to use.
@@ -50,6 +52,8 @@ Selected conda environment was successfully activated, even though "(ENVNAME)" i
 :::
 
 </details>
+
+We can also activate the environment using the Anaconda Navigator by selecting the ***Environments*** tab on the left and clicking on the environment you want to activate. 
 
 If we want to make sure we have the packages we'll need installed in the environment before we try to import them, we can either check on anaconda or use the terminal:
 
@@ -80,8 +84,7 @@ or
 \> pip install {package}
 :::
 
-If a package is not available via conda it might be available via pip.
-
+If a package is not available via conda it might be available via pip. However, when working with conda environments, is best practice to use conda install where possible, and only use pip install when necessary.
 </details>
 
 ## Step 1: Import Packages
@@ -93,7 +96,7 @@ Similar to `library()` in R, we’ll use `import` in Python. Fill in the blanks 
 import ___ as pd
 import ___ as np
 import ___ as sns
-import ___ as plt
+import ___.___ as plt
 
 # Import from sklearn
 from sklearn.model_selection import __________
@@ -212,7 +215,7 @@ data.head(5)
 
 ### Recoding a Variable
 
-For our logistic regression, the diagnosis column, which is our outcome of interest, should be 0, 1 not B, M. To fix this, we can use a *dictionary* and `.map()`. We could also use a lambda function as described in session 2b, but dictionaries can be more convenient for replacing multiple values.
+For our logistic regression, the diagnosis column, which is our outcome of interest, should be 0, 1 not B, M. To fix this, we can use a *dictionary* and `.map()`. We could also use a lambda function as we did in session 2b, however using a dictionary can be more convenient when you need to recode more than 2 vairables. 
 
 ```{python}
 #| eval: false
