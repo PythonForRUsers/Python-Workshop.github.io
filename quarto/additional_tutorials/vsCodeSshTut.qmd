@@ -1,0 +1,77 @@
+---
+title: "Tutorial: Connect VScode To HPC Cluster"
+author: "Python Group"
+format: 
+  html:
+    output-file: "vscodessh.html"
+    toc: true
+    code-copy: true
+    code-line-numbers: true
+    link-external-icon: false
+    link-external-newwindow: true
+    css: styles.css
+output-dir: docs/
+---
+
+This tutorial describes how to connect your local VS code to the HPC cluster using SSH. This allows you to open remote folders and edit and run scripts on the cluster using familiar VS code features without having to save files to your local machine. It can also make integration with git/github easier on the cluster if you are familiar with using git/github through VS code.
+
+If you do not have VS Code installed, please install it now! [Install VS Code](https://code.visualstudio.com/download "Download Visual Studio Code").
+
+Note: You must have server access for this tutorial to work. You can email Joey Kanik ([kanikj\@mskcc.org](mailto:kanikj@mskcc.org)) to get an account for the HPC cluster. Please see the [Biostatistics Resource Guide](https://rconnect.mskcc.org/resource-guide/105-linux_cluster.html "Biostatistics Resource Guide") for more information.
+
+There is a [guide](https://code.visualstudio.com/docs/remote/ssh "Remote Development using SSH") from Visual Studio for how to do remote development using SSH on VS Code, but we will walk through it here as well, with specific instructions for connecting to our cluster.
+
+# Step 1: Installation
+
+To get started, you need:
+
+1.  An OpenSSH compatible SSH client. If you can connect to the cluster using ssh from your terminal/PowerShell (see below), then you have an SSH client. If you cannot connect to the cluster via terminal, you may need to track down the 'ssh.exe' and add it to your system path. It may be in *`C:/Users/your.user.name/bin`*.
+
+    -   To verify that you can connect to the cluster run the following command from a terminal/PowerShell window.
+
+        ::: terminal
+        /\> ssh your.user.name\@omega00.mskcc.org
+        :::
+
+        If it works, you will see a prompt:
+
+        ::: terminal
+        your.user.name\@omega00.mskcc.org's password:
+        :::
+
+        Please enter your password for the cluster here. It will look like no text has been entered, that is normal.
+
+2.  In VS Code, install the Remote-SSH extension. This can be done by clicking on the "extensions" icon ![](images/paste-2.png){width="32"} on the left toolbar and typing "remote SSH" into the search bar. The first extension should be the correct one.
+
+    ![](images/paste-1.png){width="635"}
+
+    # Step 2: Connect to Remote Host (cluster)
+
+3.  Go back to VS Code and open the Command Pallet (`F1`, `Ctrl+Shift+P`). Select *Remote-SSH: Connect to Host...* and use the same `user@omega00.mskcc.org` to log in.
+
+4.  Select the server type as '*Linux*'. This information will be stored in your 'VS Code Settings' under the `remote.SSH.remotePlatform` property.
+
+5.  VS code should then open a new window connected to the cluster.
+
+### If that doesn't work...
+
+3.  Configure SSH:
+
+-   From VS code, open the Command Pallet (`F1`, `Ctrl+Shift+P`) and type 'Remote-SSH: Open Configuration File' and select it.
+
+-   Choose to open the `config` file for the ssh configuration. (Might be located in C:\\Users\\your.user.name\\.ssh\\config or C:\\ProgramData\\ssh\\ssh_config).
+
+-   Add your SSH configuration in this format
+
+    ```         
+    Host omega00.mskcc.org
+      HostName omega00.mskcc.org
+      User your.user.name
+    ```
+
+4.  Connect to server
+    -   open the Command Pallet (`F1`, `Ctrl+Shift+P`). Select *Remote-SSH: Connect to Host...*
+    -   select '*omega00.mskcc.org*'
+    -   VS code should open a new window connected to the server.
+
+# Now that VS code is connected...
