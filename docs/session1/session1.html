@@ -253,8 +253,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>Install Python via the Anaconda distribution.</p></li>
 <li><p>Create, activate, and install packages to Python virtual environments.</p></li>
-<li><p>Create Quarto files and execute some Python code.</p></li>
+<li><p>Create Quarto files and execute some Python code</p></li>
 </ul>
+<section id="what-do-i-need-before-the-session" class="level4">
+<h4 class="anchored" data-anchor-id="what-do-i-need-before-the-session">What do I need before the session?</h4>
+<ul>
+<li><p><strong>Download the installers</strong>–<em>You don’t need to install them yet. This tutorial will walk you through the steps for installation.</em></p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>We recommend that you install software and run through the tutorial on your MSK laptop or workstation. Using VDI is generally slow for downloading/installing large software files.</p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Download <strong>Anaconda Distribution</strong>: <a href="https://www.anaconda.com/download/success">Download the Anaconda Installer</a>.</p></li>
+<li><p>Download <strong>VS Code</strong>: <a href="https://code.visualstudio.com/download">Download and install VS Code</a>.</p></li>
+<li><p>Download <strong>Quarto</strong>: <a href="https://quarto.org/docs/get-started/">Install from the official website</a>.</p></li>
+</ul></li>
+<li><p><strong>Login to your GitHub Enterprise account.</strong></p></li>
+</ul>
+</section>
 <section id="introduction-to-tools" class="level1">
 <h1>1.1 Introduction to Tools</h1>
 <section id="anaconda" class="level2">
@@ -387,7 +409,7 @@ Do not add Anaconda to PATH
 <ol type="1">
 <li>Open a new <strong>terminal</strong>.</li>
 <li>You should see <code>(base)</code> in the beginning of the prompt. This means that conda is properly installed and the base environment is activated.</li>
-<li>Similarly, write <code>canda info</code> in the terminal. You should see the info about the current conda installation returned.</li>
+<li>Similarly, write <code>conda info</code> in the terminal. You should see the info about the current conda installation returned.</li>
 </ol></li>
 </ul>
 </section>
@@ -544,6 +566,7 @@ dependencies:
 <ul>
 <li><p><strong>Python</strong>: To support Python language, debugging, documentations, etc.</p></li>
 <li><p><strong>Quarto</strong>: To support Quarto document editing and previewing.</p></li>
+<li><p><strong>Jupyter</strong>: To support rendering Python documents from Jupyter Notebooks or Quarto files.</p></li>
 </ul>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -561,7 +584,7 @@ Important
 <li><p><strong>Create a Conda Virtual Environment.</strong> You may also use existing ones you created.</p></li>
 <li><p><strong>Configure the Environment in VS Code.</strong></p>
 <ol type="1">
-<li><p>Open Comman Palette by pressing <code>Ctrl+Shift+P</code> (or <code>Cmd+Shift+X</code> on Mac).</p></li>
+<li><p>Open Command Palette by pressing <code>Ctrl+Shift+P</code> (or <code>Cmd+Shift+X</code> on Mac).</p></li>
 <li><p>Type “<strong>Python: Select Interpreter</strong>”.</p></li>
 <li><p>Choose the Conda python environment you created. If you don’t see its name pop up, choose <strong>Enter interpreter path…</strong> and manually type in the location of your conda virtual environment python executable.</p>
 <p>E.g., <code>C:\Users\&lt;username&gt;\AppData\Local\anaconda3\envs\&lt;env-name&gt;\python.exe</code> for Windows <strong>or</strong> <code>Users/&lt;username&gt;/anaconda/envs/&lt;env-name&gt;/python</code> for macOS.</p>
@@ -605,19 +628,35 @@ Find your conda Python executable path
 <div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="in">print("This is some Python output.")</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="d80d9c65" class="cell" data-execution_count="1">
+<div id="6c3463e8" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>This is some Python output.</code></pre>
 </div>
 </div>
-<p>To render or preview the html output, click on the <strong>Quarto Preview</strong> button at the top right (or press <code>Ctrl+Shift+K</code>).</p>
-<p>Alternatively, run <code>quarto render</code> in your terminal to generate the output.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="op">&lt;</span>yourfilename<span class="op">&gt;</span>.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="file-previewing" class="level4">
+<h4 class="anchored" data-anchor-id="file-previewing">File Previewing</h4>
+<p>To preview the html output, click on the <strong>Quarto Preview</strong> button at the top right (or press <code>Ctrl+Shift+K</code>).</p>
+<p>Alternatively, run <code>quarto preview</code> in your terminal to view the output.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview <span class="op">&lt;</span>yourfilename<span class="op">&gt;</span>.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This is an example of the html output preview showing next to the source <code>.qmd</code> file.</p>
 <p><img src="images/quarto-demo.png" class="img-fluid"></p>
-<p>We are done with setting everything up.</p>
+</section>
+<section id="file-rendering-exporting-to-other-formats" class="level4">
+<h4 class="anchored" data-anchor-id="file-rendering-exporting-to-other-formats">File Rendering/ Exporting to other Formats</h4>
+<p>To save the output, use <strong>Quarto: Render Document</strong> from the command search bar (<code>Ctrl+Shift+P</code>).</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/quarto-render.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="900"></p>
+</figure>
+</div>
+<p>Then select the desired output format. For example, Render HTML.</p>
+<p><img src="images/quarto-render2.png" class="img-fluid" width="900"></p>
+<p>Similarly, you can use command line <code>quarto render</code> in the terminal to save the output.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="op">&lt;</span>yourfilename<span class="op">&gt;</span>.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now you should see a <code>&lt;yourfilename&gt;.html</code> file generated in your working directory.</p>
 
 
+</section>
 </section>
 </section>
 
