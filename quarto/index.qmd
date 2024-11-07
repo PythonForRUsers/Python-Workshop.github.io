@@ -38,7 +38,9 @@ We value your feedback and aim to continually improve these workshops. If you ha
 </a><a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block">
     <img src="icons/code.png" alt="File">
     <p>Download Follow Along Files</p>
-</a><a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block">
+</a>
+
+<a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block">
     <img src="icons/code.png" alt="File">
     <p>Download Intro to Pandas Dataset</p>
 </a>
