@@ -1,6 +1,7 @@
 name: python-intro-env
 channels:
   - defaults
+  - conda-forge
 dependencies:
   - python==3.10
   - pandas
@@ -8,4 +9,6 @@ dependencies:
   - seaborn
   - scikit-learn
   - jupyter
-  - yaml
+  - ipykernel
+  - pyyaml
+  - nbformat #optional
