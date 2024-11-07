@@ -172,6 +172,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#if-that-doesnt-work" id="toc-if-that-doesnt-work" class="nav-link" data-scroll-target="#if-that-doesnt-work">If that doesn’t work…</a></li>
   </ul></li>
+  <li><a href="#now-that-vs-code-is-connected" id="toc-now-that-vs-code-is-connected" class="nav-link" data-scroll-target="#now-that-vs-code-is-connected">Now that VS code is connected…</a></li>
   </ul>
 </nav>
     </div>
@@ -215,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p>To verify that you can connect to the cluster run the following command from a terminal/PowerShell window.</p>
 <div class="terminal">
-<p>ssh your.user.name@omega00.mskcc.org</p>
+<p>/&gt; ssh your.user.name@omega00.mskcc.org</p>
 </div>
 <p>If it works, you will see a prompt:</p>
 <div class="terminal">
@@ -228,7 +229,7 @@ ul.task-list li input[type="checkbox"] {
 <h1 id="step-2-connect-to-remote-host-cluster">Step 2: Connect to Remote Host (cluster)</h1></li>
 <li><p>Go back to VS Code and open the Command Pallet (<code>F1</code>, <code>Ctrl+Shift+P</code>). Select <em>Remote-SSH: Connect to Host…</em> and use the same <code>user@omega00.mskcc.org</code> to log in.</p></li>
 <li><p>Select the server type as ‘<em>Linux</em>’. This information will be stored in your ‘VS Code Settings’ under the <code>remote.SSH.remotePlatform</code> property.</p></li>
-<li><p>VS code should then connect to the SSH server.</p></li>
+<li><p>VS code should then open a new window connected to the cluster.</p></li>
 </ol>
 <section id="if-that-doesnt-work" class="level3">
 <h3 class="anchored" data-anchor-id="if-that-doesnt-work">If that doesn’t work…</h3>
@@ -237,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <ul>
 <li><p>From VS code, open the Command Pallet (<code>F1</code>, <code>Ctrl+Shift+P</code>) and type ‘Remote-SSH: Open Configuration File’ and select it.</p></li>
-<li><p>Choose to open the <code>config</code> file for the ssh configuration. (Might be located in C:\Users\user\.ssh\config or C:\ProgramData\ssh\ssh_config).</p></li>
+<li><p>Choose to open the <code>config</code> file for the ssh configuration. (Might be located in C:\Users\your.user.name\.ssh\config or C:\ProgramData\ssh\ssh_config).</p></li>
 <li><p>Add your SSH configuration in this format</p>
 <pre><code>Host omega00.mskcc.org
   HostName omega00.mskcc.org
@@ -248,12 +249,15 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>open the Command Pallet (<code>F1</code>, <code>Ctrl+Shift+P</code>). Select <em>Remote-SSH: Connect to Host…</em></li>
 <li>select ‘<em>omega00.mskcc.org</em>’</li>
-<li>VS code should open a new window connected to the server</li>
+<li>VS code should open a new window connected to the server.</li>
 </ul></li>
 </ol>
-
-
 </section>
+</section>
+<section id="now-that-vs-code-is-connected" class="level1">
+<h1>Now that VS code is connected…</h1>
+
+
 </section>
 
 </main> <!-- /main -->
