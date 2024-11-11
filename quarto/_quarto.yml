@@ -38,6 +38,7 @@ website:
             href: https://www.anaconda.com/download/success
           - text: "Follow Along Files"
             href: https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong
+      - FAQ.qmd
       
 
 format:

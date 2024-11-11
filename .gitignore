@@ -171,9 +171,6 @@ cython_debug/
 # just testing things
 quarto/session3/renderme.ipynb
 quarto/session3/ignore_testsomething.ipynb
-docs/index-LMSK63051.html
-docs/link-LMSK63051.html
-docs/session1/session1-LMSK63051.html
-docs/session2a/session2-LMSK63051.html
-docs/session2b/session2_2-LMSK63051.html
-docs/sessions-LMSK63051.html
+quarto/session1/pilot_notes.md
+quarto/session1/pilot_notes.md
+*LMSK63051.html
