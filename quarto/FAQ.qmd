@@ -1,0 +1,53 @@
+---
+title: "FAQ"
+author: "Python Group"
+format: 
+  html:
+    output-file: "FAQ.html"
+    toc: true
+    code-copy: true
+    code-line-numbers: true
+    link-external-icon: false
+    link-external-newwindow: true
+    code-overflow: wrap
+    css: styles.css
+output-dir: docs/
+---
+
+# Python Workshops: Frequently Asked Questions
+
+### Managing Virtual Environments with Conda
+
+1.  Is it possible (or recommended) to create a virtual environment in a specific project folder? Are there advantages or disadvantages to keeping the virtual environment in the default location versus a network drive (e.g., H drive)?
+
+    -   **Answer:** It is definitely possible to create an environment in a specific project folder/on the H drive (`using conda create --prefix /path/to/your/project_folder/env_name`)! Note: to activate the environment, you need to activate it by the path, not by a name (ex:`conda activate /path/to/your/project_folder/env_name`)
+
+        **Advantages:**
+
+        -   Backup and Portability: Keeping the environment with the project makes it easier to back up as a single unit and enables access on multiple devices without recreating the environment each time.
+
+            **Disadvantages:**
+
+        -   Performance: Access speed may be slower on a network drive, and network or permissions issues could make the environment temporarily inaccessible. If you typically work off a network drive, storing your environments within the project folder can be beneficial for organization and consistency.
+
+2.  Will creating a virtual environment for each project lead to memory or storage issues? What is the best practice for closing out a project environment?
+
+    -   **Answer:** In general, having a virtual environment for each active project shouldn’t cause memory issues. However, it’s good practice to clean up environments when a project concludes.
+
+    -   Here’s a recommended process:
+
+        1.  Activating the environment you want to export
+
+        2.  Exporting the environment to a .yaml file with `conda env export > environment.yaml`.
+
+        3.  After the .yaml file is created (make sure to check before deleting the environment!), you can delete the environment with `conda env remove --name env_name` (or `conda env remove --prefix path/to/env_name` if using a specific path).
+
+Tip: By exporting the environment before deletion, you can always recreate the environment later if needed by using:
+
+``` bash
+conda env create --prefix /path/to/your/project_folder/env_name -f environment.yaml
+```
+
+``` bash
+conda activate /path/to/your/project_folder/env_name
+```
