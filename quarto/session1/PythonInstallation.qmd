@@ -360,9 +360,7 @@ For users comfortable with command line, this approach is generally more recomme
         conda env remove --prefix </path/to/your/env>
         ```
 
-<details>
-
-<summary>**Creating an environment from an environment.yml file**</summary>
+## 1.3.3 Creating an Environment from an `environment.yml` File
 
 We can also create a virtual environment from a `.yml` file.
 
@@ -378,7 +376,7 @@ conda activate <env-name>
 
 This way, we can easily recreate an environment that is shared by others or share our environment settings with others.
 
-For example, a simple environment file that has information about the environment name and dependencies:
+For example, a simple environment file that has information about the environment name, channels, and dependencies:
 
 ```         
 name: python310
@@ -391,8 +389,7 @@ dependencies:
 ```
 
 Download the YML file for this Python workshop series [here](https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml).
-
-</details>
+This file includes the required channel and dependencies for completing the workshop sessions.
 
 # 1.4 Work with Jupyter/Quarto in VS Code
 
@@ -421,6 +418,16 @@ Download the YML file for this Python workshop series [here](https://github.mskc
     :::
 
 3.  **Create a Conda Virtual Environment.** You may also use existing ones you created.
+
+    -   Required packages/dependencies (to install, use `conda install <package-name> –channel conda-forge`):
+
+        -   jupyter
+        -   ipykernel
+        -   pyyaml
+
+    <!-- -->
+
+    -   **Note**: we recommend installing an environment from this [YML file](https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml). See [1.3.3 Creating an Environment from an environment.yml File] for detailed instructions.
 
 4.  **Configure the Environment in VS Code.**
 

@@ -1,5 +1,5 @@
 ---
-title: "Frequently Asked Questions"
+title: "FAQ"
 author: "Python Group"
 format: 
   html:
@@ -13,6 +13,7 @@ format:
     css: styles.css
 output-dir: docs/
 ---
+# Frequently Asked Questions
 
 ## Managing Virtual Environments with Conda
 
