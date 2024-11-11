@@ -103,7 +103,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
+
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -184,10 +187,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../FAQ.html"> 
-<span class="menu-text">FAQ</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -215,10 +214,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#creating-descriptive-plots" id="toc-creating-descriptive-plots" class="nav-link" data-scroll-target="#creating-descriptive-plots">Creating Descriptive Plots</a></li>
   </ul></li>
-  <li><a href="#step-4-data-setup" id="toc-step-4-data-setup" class="nav-link" data-scroll-target="#step-4-data-setup">Step 4: Data Setup</a>
+  <li><a href="#step-4-creating-a-logistic-regression-model" id="toc-step-4-creating-a-logistic-regression-model" class="nav-link" data-scroll-target="#step-4-creating-a-logistic-regression-model">Step 4: Creating a Logistic Regression Model</a>
   <ul class="collapse">
+  <li><a href="#method-1-statsmodels" id="toc-method-1-statsmodels" class="nav-link" data-scroll-target="#method-1-statsmodels">Method 1: Statsmodels</a></li>
+  <li><a href="#method-2-scikit-learn" id="toc-method-2-scikit-learn" class="nav-link" data-scroll-target="#method-2-scikit-learn">Method 2: Scikit-learn</a></li>
   <li><a href="#splitting-training-and-test-data" id="toc-splitting-training-and-test-data" class="nav-link" data-scroll-target="#splitting-training-and-test-data">Splitting Training and Test Data</a></li>
   <li><a href="#scalingnormalizing-data" id="toc-scalingnormalizing-data" class="nav-link" data-scroll-target="#scalingnormalizing-data">Scaling/Normalizing Data</a></li>
+  <li><a href="#after-scaling-the-data-we-can-perform-dimensional-reduction-with-pca" id="toc-after-scaling-the-data-we-can-perform-dimensional-reduction-with-pca" class="nav-link" data-scroll-target="#after-scaling-the-data-we-can-perform-dimensional-reduction-with-pca">After scaling the data, we can perform dimensional reduction with PCA</a></li>
   </ul></li>
   <li><a href="#step-5-model-setup" id="toc-step-5-model-setup" class="nav-link" data-scroll-target="#step-5-model-setup">Step 5: Model Setup</a></li>
   <li><a href="#step-6-look-at-results" id="toc-step-6-look-at-results" class="nav-link" data-scroll-target="#step-6-look-at-results">Step 6: Look At Results</a>
@@ -268,7 +270,7 @@ Cancer Dataset
 Download Follow Along File
 </p>
 </a><p><a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block"></a></p>
-<p>We are using the same dataset as in sesssion 3! There is no need to re-download it!</p>
+<p>We are using the same dataset as in session 3! There is no need to re-download it!</p>
 </section>
 <section id="getting-started" class="level2">
 <h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
@@ -321,39 +323,52 @@ When working with conda environments, it’s best practice to install everything
 <section id="step-1-import-packages" class="level2">
 <h2 class="anchored" data-anchor-id="step-1-import-packages">Step 1: Import Packages</h2>
 <p>Similar to <code>library()</code> in R, we’ll use <code>import</code> in Python. Fill in the blanks to import the necessary packages:</p>
-<div id="b234e54a" class="cell" data-execution_count="1">
+<div id="480800e1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> ___</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> ___</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> seaborn <span class="im">as</span> ___</span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> ___</span>
 <span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co"># Import from sklearn</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> __________</span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> __________</span>
-<span id="cb1-9"><a href="#cb1-9"></a></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> __________</span>
-<span id="cb1-11"><a href="#cb1-11"></a></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, roc_curve, auc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> __</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> ___</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co"># Import from sklearn</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> ___</span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> ____</span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> ___</span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> ___</span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline</span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, roc_curve, auc</span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="im">from</span> sklearn.feature_selection <span class="im">import</span> SelectKBest, f_classif</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="ans">
 <details>
 <summary>
 Click to reveal answers
 </summary>
-<div id="077f023b" class="cell" data-execution_count="2">
+<div id="a0b90b97" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-5"><a href="#cb2-5"></a></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">## import from sklearn (scikit-learn)</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<span id="cb2-8"><a href="#cb2-8"></a></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co">## import from sklearn (scikit-learn)</span></span>
 <span id="cb2-10"><a href="#cb2-10"></a></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
-<span id="cb2-12"><a href="#cb2-12"></a></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, roc_curve, auc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb2-14"><a href="#cb2-14"></a></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline</span>
+<span id="cb2-17"><a href="#cb2-17"></a></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, roc_curve, auc</span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="im">from</span> sklearn.feature_selection <span class="im">import</span> SelectKBest, f_classif</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 </div>
@@ -361,7 +376,7 @@ Click to reveal answers
 <section id="step-2-read-in-data-and-perform-data-cleaning" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-read-in-data-and-perform-data-cleaning">Step 2: Read in Data and Perform Data Cleaning</h2>
 <p>We can use the <code>read_csv()</code> function from the pandas package to read in the dataset.</p>
-<div id="01e8e1ea" class="cell" data-execution_count="3">
+<div id="a2f39230" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"__________"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="ans">
@@ -369,7 +384,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="a58f028b" class="cell" data-execution_count="4">
+<div id="9f33b6b3" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"example_data/Cancer_Data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
@@ -380,7 +395,7 @@ Click to reveal answers
 * column labels<br>
 * column type<br>
 * number of non-null values in each column</p>
-<div id="3d4cabb2" class="cell" data-execution_count="5">
+<div id="70310d0e" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>data._______()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="ans">
@@ -388,7 +403,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="d8bfedd8" class="cell" data-execution_count="6">
+<div id="12fe59e6" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -436,11 +451,11 @@ memory usage: 146.8+ KB</code></pre>
 </details>
 </div>
 <p>From the <em>info</em>, we can see that the column types make sense and most of the columns have no missing values.</p>
-<p>We do have this extra column called “Unnamed: 32” with 0 non-null values… so let’s drop it (remove it from the dataframe).</p>
-<div id="a417b8bd" class="cell" data-execution_count="7">
+<p>We do have this extra column called “Unnamed: 32” with 0 non-null values… so let’s drop it (remove it from the dataframe). We can also replace spaces in column names with “_“, which will be useful later.</p>
+<div id="6d3f48c7" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>data.drop(columns<span class="op">=</span><span class="st">"Unnamed: 32"</span>, inplace<span class="op">=</span>______)</span>
-<span id="cb8-2"><a href="#cb8-2"></a></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="co"># Check that the column was removed</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>data.columns <span class="op">=</span> data.columns.<span class="bu">str</span>.replace(<span class="st">"?"</span>, <span class="st">"?"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co"># Check that the column was removed and column names were changed.</span></span>
 <span id="cb8-4"><a href="#cb8-4"></a><span class="bu">print</span>(data.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="ans">
@@ -448,10 +463,10 @@ memory usage: 146.8+ KB</code></pre>
 <summary>
 Click to reveal answers
 </summary>
-<div id="0a27f361" class="cell" data-execution_count="8">
+<div id="5fd6576e" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">## `inplace` means that we modify the original dataframe</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>data.drop(columns<span class="op">=</span><span class="st">"Unnamed: 32"</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a>data.columns <span class="op">=</span> data.columns.<span class="bu">str</span>.replace(<span class="st">" "</span>, <span class="st">"_"</span>)</span>
 <span id="cb9-4"><a href="#cb9-4"></a><span class="co">## check that the column was removed</span></span>
 <span id="cb9-5"><a href="#cb9-5"></a><span class="bu">print</span>(data.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -469,7 +484,7 @@ Data columns (total 32 columns):
  6   smoothness_mean          569 non-null    float64
  7   compactness_mean         569 non-null    float64
  8   concavity_mean           569 non-null    float64
- 9   concave points_mean      569 non-null    float64
+ 9   concave_points_mean      569 non-null    float64
  10  symmetry_mean            569 non-null    float64
  11  fractal_dimension_mean   569 non-null    float64
  12  radius_se                569 non-null    float64
@@ -479,7 +494,7 @@ Data columns (total 32 columns):
  16  smoothness_se            569 non-null    float64
  17  compactness_se           569 non-null    float64
  18  concavity_se             569 non-null    float64
- 19  concave points_se        569 non-null    float64
+ 19  concave_points_se        569 non-null    float64
  20  symmetry_se              569 non-null    float64
  21  fractal_dimension_se     569 non-null    float64
  22  radius_worst             569 non-null    float64
@@ -489,7 +504,7 @@ Data columns (total 32 columns):
  26  smoothness_worst         569 non-null    float64
  27  compactness_worst        569 non-null    float64
  28  concavity_worst          569 non-null    float64
- 29  concave points_worst     569 non-null    float64
+ 29  concave_points_worst     569 non-null    float64
  30  symmetry_worst           569 non-null    float64
  31  fractal_dimension_worst  569 non-null    float64
 dtypes: float64(30), int64(1), object(1)
@@ -501,7 +516,7 @@ None</code></pre>
 </div>
 <p>The column was successfully removed!</p>
 <p>Now, we can use <code>.head(5)</code> to show the first 5 rows of the dataset (rows 0-4). Remember that the first row is “0” not “1”!</p>
-<div id="a1d164f7" class="cell" data-execution_count="9">
+<div id="408a0679" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>data.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
@@ -520,7 +535,7 @@ None</code></pre>
 <th data-quarto-table-cell-role="th">smoothness_mean</th>
 <th data-quarto-table-cell-role="th">compactness_mean</th>
 <th data-quarto-table-cell-role="th">concavity_mean</th>
-<th data-quarto-table-cell-role="th">concave points_mean</th>
+<th data-quarto-table-cell-role="th">concave_points_mean</th>
 <th data-quarto-table-cell-role="th">...</th>
 <th data-quarto-table-cell-role="th">radius_worst</th>
 <th data-quarto-table-cell-role="th">texture_worst</th>
@@ -529,7 +544,7 @@ None</code></pre>
 <th data-quarto-table-cell-role="th">smoothness_worst</th>
 <th data-quarto-table-cell-role="th">compactness_worst</th>
 <th data-quarto-table-cell-role="th">concavity_worst</th>
-<th data-quarto-table-cell-role="th">concave points_worst</th>
+<th data-quarto-table-cell-role="th">concave_points_worst</th>
 <th data-quarto-table-cell-role="th">symmetry_worst</th>
 <th data-quarto-table-cell-role="th">fractal_dimension_worst</th>
 </tr>
@@ -665,7 +680,7 @@ None</code></pre>
 <section id="recoding-a-variable" class="level3">
 <h3 class="anchored" data-anchor-id="recoding-a-variable">Recoding a Variable</h3>
 <p>For our logistic regression, the diagnosis column, which is our outcome of interest, should be 0, 1 not B, M. To fix this, we can use a <em>dictionary</em> and <code>.map()</code>. We could also use a lambda function like we did in Session 3, but dictionaries can be more convenient if there are more than 2 values to be recoded.</p>
-<div id="a902c913" class="cell" data-execution_count="10">
+<div id="6600f25a" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">## define a dictionary</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>y_recode <span class="op">=</span> {<span class="st">"B"</span>: ___, <span class="st">"M"</span>: ___}</span>
 <span id="cb12-3"><a href="#cb12-3"></a></span>
@@ -679,7 +694,7 @@ None</code></pre>
 <summary>
 Click to reveal answers
 </summary>
-<div id="4af38aa7" class="cell" data-execution_count="11">
+<div id="1dd7f1b4" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">## define a dictionary</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>y_recode <span class="op">=</span> {<span class="st">"B"</span>: <span class="dv">0</span>, <span class="st">"M"</span>: <span class="dv">1</span>}</span>
 <span id="cb13-3"><a href="#cb13-3"></a></span>
@@ -705,7 +720,7 @@ Click to reveal answers
 <th data-quarto-table-cell-role="th">smoothness_mean</th>
 <th data-quarto-table-cell-role="th">compactness_mean</th>
 <th data-quarto-table-cell-role="th">concavity_mean</th>
-<th data-quarto-table-cell-role="th">concave points_mean</th>
+<th data-quarto-table-cell-role="th">concave_points_mean</th>
 <th data-quarto-table-cell-role="th">...</th>
 <th data-quarto-table-cell-role="th">radius_worst</th>
 <th data-quarto-table-cell-role="th">texture_worst</th>
@@ -714,7 +729,7 @@ Click to reveal answers
 <th data-quarto-table-cell-role="th">smoothness_worst</th>
 <th data-quarto-table-cell-role="th">compactness_worst</th>
 <th data-quarto-table-cell-role="th">concavity_worst</th>
-<th data-quarto-table-cell-role="th">concave points_worst</th>
+<th data-quarto-table-cell-role="th">concave_points_worst</th>
 <th data-quarto-table-cell-role="th">symmetry_worst</th>
 <th data-quarto-table-cell-role="th">fractal_dimension_worst</th>
 </tr>
@@ -854,7 +869,7 @@ Click to reveal answers
 <section id="step-3-exploratory-data-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="step-3-exploratory-data-analysis">Step 3: Exploratory Data Analysis</h2>
 <p>Now that our data is cleaned and we have our outcome in numeric form, we can use <code>.describe()</code> to get summary statistics for each column of the dataset.</p>
-<div id="2b2335e8" class="cell" data-execution_count="12">
+<div id="94d14bd7" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>___.___()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="ans">
@@ -862,7 +877,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="429e420b" class="cell" data-execution_count="13">
+<div id="b0331adf" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>data.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
@@ -881,7 +896,7 @@ Click to reveal answers
 <th data-quarto-table-cell-role="th">smoothness_mean</th>
 <th data-quarto-table-cell-role="th">compactness_mean</th>
 <th data-quarto-table-cell-role="th">concavity_mean</th>
-<th data-quarto-table-cell-role="th">concave points_mean</th>
+<th data-quarto-table-cell-role="th">concave_points_mean</th>
 <th data-quarto-table-cell-role="th">...</th>
 <th data-quarto-table-cell-role="th">radius_worst</th>
 <th data-quarto-table-cell-role="th">texture_worst</th>
@@ -890,7 +905,7 @@ Click to reveal answers
 <th data-quarto-table-cell-role="th">smoothness_worst</th>
 <th data-quarto-table-cell-role="th">compactness_worst</th>
 <th data-quarto-table-cell-role="th">concavity_worst</th>
-<th data-quarto-table-cell-role="th">concave points_worst</th>
+<th data-quarto-table-cell-role="th">concave_points_worst</th>
 <th data-quarto-table-cell-role="th">symmetry_worst</th>
 <th data-quarto-table-cell-role="th">fractal_dimension_worst</th>
 </tr>
@@ -1102,7 +1117,7 @@ Click to reveal answers
 <h3 class="anchored" data-anchor-id="creating-descriptive-plots">Creating Descriptive Plots</h3>
 <p>We can also look at the number of each diagnosis reflected in the dataset in a plot using seaborn.</p>
 <p>You can also save a plot to a variable (ex: ‘p’) if you want to display it later with <code>plt.show(p)</code>.</p>
-<div id="50c18468" class="cell" data-execution_count="14">
+<div id="3bed6fbd" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>sns.countplot(x<span class="op">=</span><span class="st">"_________"</span>, hue<span class="op">=</span><span class="st">"_________"</span>, data<span class="op">=</span>______)</span>
 <span id="cb16-2"><a href="#cb16-2"></a>plt.title(<span class="st">"Distribution of Diagnoses"</span>)</span>
 <span id="cb16-3"><a href="#cb16-3"></a>_____</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1112,7 +1127,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="8813e259" class="cell" data-dpi="600" data-execution_count="15">
+<div id="b0d40b90" class="cell" data-dpi="600" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>sns.countplot(x<span class="op">=</span><span class="st">"diagnosis"</span>, hue<span class="op">=</span><span class="st">"diagnosis"</span>, data<span class="op">=</span>data)</span>
 <span id="cb17-2"><a href="#cb17-2"></a>plt.title(<span class="st">"Distribution of Diagnoses"</span>)</span>
 <span id="cb17-3"><a href="#cb17-3"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1128,7 +1143,7 @@ Click to reveal answers
 </div>
 <p>If we want, we can change the colors of the plot. To make the plot a bit more useful, we can also change the y-scale from “count” to “percentage” and add labels so it is clear what “0” and “1” mean.</p>
 <p>To help us pick colors, we can use <code>sns.color_palette()</code> which will display an image with the colors in the palette.</p>
-<div id="6864cf1c" class="cell" data-execution_count="16">
+<div id="64554de4" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>sns.color_palette(<span class="st">"colorblind"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <svg width="550" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#0173b2;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="55" y="0" width="55" height="55" style="fill:#de8f05;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="110" y="0" width="55" height="55" style="fill:#029e73;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="165" y="0" width="55" height="55" style="fill:#d55e00;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="220" y="0" width="55" height="55" style="fill:#cc78bc;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="275" y="0" width="55" height="55" style="fill:#ca9161;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="330" y="0" width="55" height="55" style="fill:#fbafe4;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="385" y="0" width="55" height="55" style="fill:#949494;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="440" y="0" width="55" height="55" style="fill:#ece133;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="495" y="0" width="55" height="55" style="fill:#56b4e9;stroke-width:2;stroke:rgb(255,255,255)"></rect></svg>
@@ -1136,7 +1151,7 @@ Click to reveal answers
 </div>
 <p>To change the colors of our plot, we can make a dictionary with the values of ‘diagnosis’ as keys and the hexcodes of the colors we want to use as values.</p>
 <p>We can get the hex codes of colors from a seaborn palette using <code>sns.color_palette().as_hex()</code>.</p>
-<div id="92638ee3" class="cell" data-message="false" data-execution_count="17">
+<div id="8aff2ba8" class="cell" data-message="false" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>color_hex <span class="op">=</span> sns.color_palette(<span class="st">"colorblind"</span>)._____</span>
 <span id="cb19-2"><a href="#cb19-2"></a></span>
 <span id="cb19-3"><a href="#cb19-3"></a><span class="bu">print</span>(<span class="st">"The hexcodes for the 'colorblind' palette are:</span><span class="ch">\n</span><span class="st">"</span>, ____)</span>
@@ -1152,7 +1167,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="b57850fd" class="cell" data-message="false" data-execution_count="18">
+<div id="1b840dc8" class="cell" data-message="false" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>color_hex <span class="op">=</span> sns.color_palette(<span class="st">"colorblind"</span>).as_hex()</span>
 <span id="cb20-2"><a href="#cb20-2"></a></span>
 <span id="cb20-3"><a href="#cb20-3"></a><span class="bu">print</span>(<span class="st">"The hexcodes for the 'colorblind' palette are:</span><span class="ch">\n</span><span class="st">"</span>, color_hex)</span>
@@ -1172,7 +1187,7 @@ Click to reveal answers
 <p>We then create the plot and tell seaborn to use ‘colors’ as the palette for the graph. We can also change the ‘stat’ to be “percent”, which can be more interpretable than raw counts.</p>
 <p>We can also change the xtick labels to be “Benign” and “Malignant” instead of “0” and “1”. Because we assigned the plot to the variable ‘p’, we can use <code>p.{}</code> to change attributes of plot ‘p’.</p>
 <p>We will also change the axis labels and set a title. Once we make these changes, we can show the finished plot.</p>
-<div id="32659126" class="cell" data-execution_count="19">
+<div id="58f7bf4c" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>p <span class="op">=</span> sns.countplot(</span>
 <span id="cb22-2"><a href="#cb22-2"></a>    x<span class="op">=</span><span class="st">"___"</span>,</span>
 <span id="cb22-3"><a href="#cb22-3"></a>    hue<span class="op">=</span><span class="st">"___"</span>,</span>
@@ -1200,7 +1215,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="3e077fe9" class="cell" data-execution_count="20">
+<div id="db2a622d" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>p <span class="op">=</span> sns.countplot(</span>
 <span id="cb23-2"><a href="#cb23-2"></a>    x<span class="op">=</span><span class="st">"diagnosis"</span>,</span>
 <span id="cb23-3"><a href="#cb23-3"></a>    hue<span class="op">=</span><span class="st">"diagnosis"</span>,</span>
@@ -1234,7 +1249,7 @@ Click to reveal answers
 </div>
 <p>If we wanted to, we could also make a correlation heatmap of our features using <code>.corr()</code> and <code>sns.heatmap()</code>.</p>
 <p>For this, all of our columns must be numeric, and we should remove the ‘id’ column as it is not useful for correlation. We use <code>.select_dtypes()</code> to select only the numeric columns from the dataset.</p>
-<div id="ab728302" class="cell" data-execution_count="21">
+<div id="a131e039" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>numeric_data <span class="op">=</span> data.select_dtypes(include<span class="op">=</span>___)</span>
 <span id="cb24-2"><a href="#cb24-2"></a></span>
 <span id="cb24-3"><a href="#cb24-3"></a><span class="co">## drop id column</span></span>
@@ -1258,7 +1273,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="8ac6c3c1" class="cell" data-execution_count="22">
+<div id="1253c2e6" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>numeric_data <span class="op">=</span> data.select_dtypes(include<span class="op">=</span>[np.number])</span>
 <span id="cb25-2"><a href="#cb25-2"></a></span>
 <span id="cb25-3"><a href="#cb25-3"></a><span class="co">## drop id column</span></span>
@@ -1288,10 +1303,116 @@ Click to reveal answers
 </div>
 </section>
 </section>
-<section id="step-4-data-setup" class="level2">
-<h2 class="anchored" data-anchor-id="step-4-data-setup">Step 4: Data Setup</h2>
+<section id="step-4-creating-a-logistic-regression-model" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-creating-a-logistic-regression-model">Step 4: Creating a Logistic Regression Model</h2>
+<p>Here we will explore two methods for creating a logistic regression model. The first, statsmodels, is more similar to R and is more user-friendly for statistical purposes. The second, scikit-learn, is more useful for machine learning and prediction models, but is a framework that is worth learning if you are going to use python often.</p>
+<section id="method-1-statsmodels" class="level3">
+<h3 class="anchored" data-anchor-id="method-1-statsmodels">Method 1: Statsmodels</h3>
+<p>The <a href="https://www.statsmodels.org/stable/index.html">statsmodels package</a> is a python package for creating statistical models, conducting tests and performing data exploration. It is similar to packages used in R and creates an r-like model summary.</p>
+<p>If we wanted to see if higher values of area_mean and texture_mean are associated with a higher probability of malignancy, we can use <code>smf.logit()</code> to fit a logistic regression model.</p>
+<div id="ba42c86a" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>logit <span class="op">=</span> smf.logit(<span class="st">"___ ~ ___ + ___"</span>, data<span class="op">=</span>data).fit()</span>
+<span id="cb26-2"><a href="#cb26-2"></a></span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="bu">print</span>(logit.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="ans">
+<details>
+<summary>
+Click to reveal answers
+</summary>
+<div id="5a638aab" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>logit <span class="op">=</span> smf.logit(<span class="st">"diagnosis ~ area_mean + texture_mean"</span>, data<span class="op">=</span>data).fit()</span>
+<span id="cb27-2"><a href="#cb27-2"></a></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="bu">print</span>(logit.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimization terminated successfully.
+         Current function value: 0.253932
+         Iterations 8
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:              diagnosis   No. Observations:                  569
+Model:                          Logit   Df Residuals:                      566
+Method:                           MLE   Df Model:                            2
+Date:                Mon, 11 Nov 2024   Pseudo R-squ.:                  0.6154
+Time:                        13:42:59   Log-Likelihood:                -144.49
+converged:                       True   LL-Null:                       -375.72
+Covariance Type:            nonrobust   LLR p-value:                3.776e-101
+================================================================================
+                   coef    std err          z      P&gt;|z|      [0.025      0.975]
+--------------------------------------------------------------------------------
+Intercept      -12.2437      1.151    -10.634      0.000     -14.500      -9.987
+area_mean        0.0120      0.001     10.172      0.000       0.010       0.014
+texture_mean     0.2115      0.037      5.745      0.000       0.139       0.284
+================================================================================</code></pre>
+</div>
+</div>
+From the summary, we can see that the area_mean and texture_mean are both associated with an increased probability of malignancy.
+</details>
+</div>
+<div>
+<details>
+<summary>
+<strong>Aside:</strong> We can also use feature selection tools from the scikit-learn package to select what features to use.
+</summary>
+<p>Scikit learn requires the outcome and predictor variables to be split into two data frames.</p>
+<div id="89f37360" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="im">from</span> sklearn.feature_selection <span class="im">import</span> SelectKBest, f_classif</span>
+<span id="cb29-2"><a href="#cb29-2"></a></span>
+<span id="cb29-3"><a href="#cb29-3"></a>X_raw <span class="op">=</span> data.loc[:, <span class="st">"radius_mean"</span>::]</span>
+<span id="cb29-4"><a href="#cb29-4"></a><span class="co">## set only the diagnosis column as "y"</span></span>
+<span id="cb29-5"><a href="#cb29-5"></a>y <span class="op">=</span> data.loc[:, <span class="st">"diagnosis"</span>]</span>
+<span id="cb29-6"><a href="#cb29-6"></a></span>
+<span id="cb29-7"><a href="#cb29-7"></a><span class="co"># Select top k features based on ANOVA F-value between feature and target</span></span>
+<span id="cb29-8"><a href="#cb29-8"></a>selector <span class="op">=</span> SelectKBest(f_classif, k<span class="op">=</span><span class="dv">5</span>)  <span class="co"># Choose 'k' to specify number of features</span></span>
+<span id="cb29-9"><a href="#cb29-9"></a>X_selected <span class="op">=</span> selector.fit_transform(X_raw, y)</span>
+<span id="cb29-10"><a href="#cb29-10"></a>selected_feature_names <span class="op">=</span> X_raw.columns[selector.get_support()]</span>
+<span id="cb29-11"><a href="#cb29-11"></a></span>
+<span id="cb29-12"><a href="#cb29-12"></a><span class="co">## make model eqn</span></span>
+<span id="cb29-13"><a href="#cb29-13"></a>formula <span class="op">=</span> <span class="st">"diagnosis ~"</span> <span class="op">+</span> <span class="st">"+"</span>.join(selected_feature_names)</span>
+<span id="cb29-14"><a href="#cb29-14"></a>sm_model <span class="op">=</span> smf.logit(formula, data<span class="op">=</span>data).fit()</span>
+<span id="cb29-15"><a href="#cb29-15"></a></span>
+<span id="cb29-16"><a href="#cb29-16"></a><span class="bu">print</span>(sm_model.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimization terminated successfully.
+         Current function value: 0.109447
+         Iterations 10
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:              diagnosis   No. Observations:                  569
+Model:                          Logit   Df Residuals:                      563
+Method:                           MLE   Df Model:                            5
+Date:                Mon, 11 Nov 2024   Pseudo R-squ.:                  0.8343
+Time:                        13:42:59   Log-Likelihood:                -62.275
+converged:                       True   LL-Null:                       -375.72
+Covariance Type:            nonrobust   LLR p-value:                3.129e-133
+========================================================================================
+                           coef    std err          z      P&gt;|z|      [0.025      0.975]
+----------------------------------------------------------------------------------------
+Intercept              -18.7401      2.741     -6.836      0.000     -24.113     -13.367
+perimeter_mean          -0.2537      0.073     -3.465      0.001      -0.397      -0.110
+concave_points_mean     66.7337     22.129      3.016      0.003      23.362     110.105
+radius_worst             1.8164      0.545      3.336      0.001       0.749       2.884
+perimeter_worst          0.0651      0.081      0.802      0.422      -0.094       0.224
+concave_points_worst    17.8708     11.007      1.624      0.104      -3.703      39.445
+========================================================================================
+
+Possibly complete quasi-separation: A fraction 0.21 of observations can be
+perfectly predicted. This might indicate that there is complete
+quasi-separation. In this case some parameters will not be identified.</code></pre>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="method-2-scikit-learn" class="level3">
+<h3 class="anchored" data-anchor-id="method-2-scikit-learn">Method 2: Scikit-learn</h3>
+<p>The <a href="https://scikit-learn.org/stable/index.html">scikit-learn pacakge</a> is geared towards machine-learning and prediction-related tasks like classification, clustering and dimensionality reduction.</p>
+<p>Fitting models with scikit-learn is a bit more complex than with statsmodels but is more along the lines of what most python projects will require.</p>
+<p>Instead of fitting a logistic regression model on the full dataset like we did with statsmodels, this time we are going to fit on a subset of our data and create a prediction model. We will test this prediction model on the remainder of the dataset.</p>
+</section>
 <section id="splitting-training-and-test-data" class="level3">
 <h3 class="anchored" data-anchor-id="splitting-training-and-test-data">Splitting Training and Test Data</h3>
+<p>To fit a prediction model with sci-kit learn…</p>
 <p>We first need to split the dataset into X (predictors/features) and y (outcomes). Then we use the <code>train_test_split()</code> function to split these datasets into a training dataset and a test dataset.</p>
 <p>We use the .loc function and “:” to select all rows and any columns including and after “radius_mean”, and we assign these columns to x. This excludes the “diagnosis” and “id” columns.</p>
 <p>We set y as simply the diagnosis column.</p>
@@ -1299,38 +1420,38 @@ Click to reveal answers
 <div style="border-left: 4px solid #007bff; background-color: #f8f9fa; padding: 5px; margin: 5px 0;">
 <p>Unlike R, Python allows for multi-argument returns from functions. This lets us assign each returned object to a different variable to be used later!</p>
 </div>
-<div id="94cf7f2f" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>x <span class="op">=</span> data.loc[:, <span class="st">"___"</span>::]</span>
-<span id="cb26-2"><a href="#cb26-2"></a></span>
-<span id="cb26-3"><a href="#cb26-3"></a><span class="co">## set only the diagnosis column as "y"</span></span>
-<span id="cb26-4"><a href="#cb26-4"></a>y <span class="op">=</span> data.loc[:, <span class="st">"___"</span>]</span>
-<span id="cb26-5"><a href="#cb26-5"></a></span>
-<span id="cb26-6"><a href="#cb26-6"></a><span class="co">## here we assign each object returned from `train_test_split` to a different variable</span></span>
-<span id="cb26-7"><a href="#cb26-7"></a><span class="co">## we can use test_size to set the proportion of the dataset reserved for testing</span></span>
-<span id="cb26-8"><a href="#cb26-8"></a>X_?, X_?, y_?, y_? <span class="op">=</span> train_test_split(</span>
-<span id="cb26-9"><a href="#cb26-9"></a>    x, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span></span>
-<span id="cb26-10"><a href="#cb26-10"></a>)</span>
-<span id="cb26-11"><a href="#cb26-11"></a></span>
-<span id="cb26-12"><a href="#cb26-12"></a>X_train.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ad147a81" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>X <span class="op">=</span> data.loc[:, <span class="st">"___"</span>::]</span>
+<span id="cb31-2"><a href="#cb31-2"></a></span>
+<span id="cb31-3"><a href="#cb31-3"></a><span class="co">## set only the diagnosis column as "y"</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a>y <span class="op">=</span> data.loc[:, <span class="st">"___"</span>]</span>
+<span id="cb31-5"><a href="#cb31-5"></a></span>
+<span id="cb31-6"><a href="#cb31-6"></a><span class="co">## here we assign each object returned from `train_test_split` to a different variable</span></span>
+<span id="cb31-7"><a href="#cb31-7"></a><span class="co">## we can use test_size to set the proportion of the dataset reserved for testing</span></span>
+<span id="cb31-8"><a href="#cb31-8"></a>X_?, X_?, y_?, y_? <span class="op">=</span> train_test_split(</span>
+<span id="cb31-9"><a href="#cb31-9"></a>    X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span></span>
+<span id="cb31-10"><a href="#cb31-10"></a>)</span>
+<span id="cb31-11"><a href="#cb31-11"></a></span>
+<span id="cb31-12"><a href="#cb31-12"></a>X_train.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="ans">
 <details>
 <summary>
 Click to reveal answers
 </summary>
-<div id="6def1226" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>x <span class="op">=</span> data.loc[:, <span class="st">"radius_mean"</span>::]</span>
-<span id="cb27-2"><a href="#cb27-2"></a></span>
-<span id="cb27-3"><a href="#cb27-3"></a><span class="co">## set only the diagnosis column as "y"</span></span>
-<span id="cb27-4"><a href="#cb27-4"></a>y <span class="op">=</span> data.loc[:, <span class="st">"diagnosis"</span>]</span>
-<span id="cb27-5"><a href="#cb27-5"></a></span>
-<span id="cb27-6"><a href="#cb27-6"></a><span class="co">## here we assign each object returned from `train_test_split` to a different variable</span></span>
-<span id="cb27-7"><a href="#cb27-7"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
-<span id="cb27-8"><a href="#cb27-8"></a>    x, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span></span>
-<span id="cb27-9"><a href="#cb27-9"></a>)</span>
-<span id="cb27-10"><a href="#cb27-10"></a></span>
-<span id="cb27-11"><a href="#cb27-11"></a>X_train.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div id="c828e952" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>X <span class="op">=</span> data.loc[:, <span class="st">"radius_mean"</span>::]</span>
+<span id="cb32-2"><a href="#cb32-2"></a></span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="co">## set only the diagnosis column as "y"</span></span>
+<span id="cb32-4"><a href="#cb32-4"></a>y <span class="op">=</span> data.loc[:, <span class="st">"diagnosis"</span>]</span>
+<span id="cb32-5"><a href="#cb32-5"></a></span>
+<span id="cb32-6"><a href="#cb32-6"></a><span class="co">## here we assign each object returned from `train_test_split` to a different variable</span></span>
+<span id="cb32-7"><a href="#cb32-7"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb32-8"><a href="#cb32-8"></a>    X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span></span>
+<span id="cb32-9"><a href="#cb32-9"></a>)</span>
+<span id="cb32-10"><a href="#cb32-10"></a></span>
+<span id="cb32-11"><a href="#cb32-11"></a>X_train.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
 
@@ -1345,7 +1466,7 @@ Click to reveal answers
 <th data-quarto-table-cell-role="th">smoothness_mean</th>
 <th data-quarto-table-cell-role="th">compactness_mean</th>
 <th data-quarto-table-cell-role="th">concavity_mean</th>
-<th data-quarto-table-cell-role="th">concave points_mean</th>
+<th data-quarto-table-cell-role="th">concave_points_mean</th>
 <th data-quarto-table-cell-role="th">symmetry_mean</th>
 <th data-quarto-table-cell-role="th">fractal_dimension_mean</th>
 <th data-quarto-table-cell-role="th">...</th>
@@ -1356,7 +1477,7 @@ Click to reveal answers
 <th data-quarto-table-cell-role="th">smoothness_worst</th>
 <th data-quarto-table-cell-role="th">compactness_worst</th>
 <th data-quarto-table-cell-role="th">concavity_worst</th>
-<th data-quarto-table-cell-role="th">concave points_worst</th>
+<th data-quarto-table-cell-role="th">concave_points_worst</th>
 <th data-quarto-table-cell-role="th">symmetry_worst</th>
 <th data-quarto-table-cell-role="th">fractal_dimension_worst</th>
 </tr>
@@ -1447,67 +1568,110 @@ Click to reveal answers
 <section id="scalingnormalizing-data" class="level3">
 <h3 class="anchored" data-anchor-id="scalingnormalizing-data">Scaling/Normalizing Data</h3>
 <p>Because all of our features have different scales, we need to standardize (normalize) our dataset. We can do this by creating an instance of the <code>StandardScaler</code> class called “scaler” and fitting that to the training data. We then use the same “scaler” to scale the test dataset.</p>
-<div id="462db293" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="co">## standardize dataset</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a>scaler <span class="op">=</span> ___()</span>
-<span id="cb28-3"><a href="#cb28-3"></a></span>
-<span id="cb28-4"><a href="#cb28-4"></a><span class="co">## fit the scaler to the _ data</span></span>
-<span id="cb28-5"><a href="#cb28-5"></a>scaler.fit(___)</span>
-<span id="cb28-6"><a href="#cb28-6"></a></span>
-<span id="cb28-7"><a href="#cb28-7"></a><span class="co">## apply the scaler to the _ data and _ data</span></span>
-<span id="cb28-8"><a href="#cb28-8"></a>X_train <span class="op">=</span> scaler.transform(___)</span>
-<span id="cb28-9"><a href="#cb28-9"></a>X_test <span class="op">=</span> scaler.transform(___)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="bfc2e0b1" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="co">## standardize dataset</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>scaler <span class="op">=</span> ___()</span>
+<span id="cb33-3"><a href="#cb33-3"></a></span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="co">## fit the scaler to the _ data</span></span>
+<span id="cb33-5"><a href="#cb33-5"></a>scaler.fit(___)</span>
+<span id="cb33-6"><a href="#cb33-6"></a></span>
+<span id="cb33-7"><a href="#cb33-7"></a><span class="co">## apply the scaler to the _ data and _ data</span></span>
+<span id="cb33-8"><a href="#cb33-8"></a>X_train <span class="op">=</span> scaler.transform(___)</span>
+<span id="cb33-9"><a href="#cb33-9"></a>X_test <span class="op">=</span> scaler.transform(___)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="ans">
 <details>
 <summary>
 Click to reveal answers
 </summary>
-<div id="598e16bc" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="co">## standardize dataset</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a>scaler <span class="op">=</span> StandardScaler()</span>
-<span id="cb29-3"><a href="#cb29-3"></a></span>
-<span id="cb29-4"><a href="#cb29-4"></a><span class="co">## fit the scaler to the TRAINING data</span></span>
-<span id="cb29-5"><a href="#cb29-5"></a>scaler.fit(X_train)</span>
-<span id="cb29-6"><a href="#cb29-6"></a></span>
-<span id="cb29-7"><a href="#cb29-7"></a><span class="co">## apply the scaler to BOTH the training and test data</span></span>
-<span id="cb29-8"><a href="#cb29-8"></a>X_train <span class="op">=</span> scaler.transform(X_train)</span>
-<span id="cb29-9"><a href="#cb29-9"></a>X_test <span class="op">=</span> scaler.transform(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="abfad62e" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="co">## standardize dataset</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb34-3"><a href="#cb34-3"></a></span>
+<span id="cb34-4"><a href="#cb34-4"></a><span class="co">## fit the scaler to the TRAINING data</span></span>
+<span id="cb34-5"><a href="#cb34-5"></a>scaler.fit(X_train)</span>
+<span id="cb34-6"><a href="#cb34-6"></a></span>
+<span id="cb34-7"><a href="#cb34-7"></a><span class="co">## apply the scaler to BOTH the training and test data</span></span>
+<span id="cb34-8"><a href="#cb34-8"></a>X_train <span class="op">=</span> scaler.transform(X_train)</span>
+<span id="cb34-9"><a href="#cb34-9"></a>X_test <span class="op">=</span> scaler.transform(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
+</div>
+</section>
+<section id="after-scaling-the-data-we-can-perform-dimensional-reduction-with-pca" class="level3">
+<h3 class="anchored" data-anchor-id="after-scaling-the-data-we-can-perform-dimensional-reduction-with-pca">After scaling the data, we can perform dimensional reduction with PCA</h3>
+<p>PCA is often used for dimensional reduction with machine learning methods so we will demonstrate it here. We can set up the PCA transformer in the same way that we set the scaler above.</p>
+<div id="445d2cc1" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="co">## set up PCA transformer with the number of components you want and fit to training dataset</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span>__)</span>
+<span id="cb35-3"><a href="#cb35-3"></a>pca <span class="op">=</span> pca.fit(___)</span>
+<span id="cb35-4"><a href="#cb35-4"></a></span>
+<span id="cb35-5"><a href="#cb35-5"></a><span class="co">## apply PCA transformer to training and test set</span></span>
+<span id="cb35-6"><a href="#cb35-6"></a>X_train_pca <span class="op">=</span> pca.transform(___)</span>
+<span id="cb35-7"><a href="#cb35-7"></a>X_test_pca <span class="op">=</span> pca.transform(___)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="ans">
+<details>
+<summary>
+Click to reveal answers
+</summary>
+<div id="22251286" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="co">## set up PCA transformer with the number of components you want and fit to training dataset</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb36-3"><a href="#cb36-3"></a>pca <span class="op">=</span> pca.fit(X_train)</span>
+<span id="cb36-4"><a href="#cb36-4"></a></span>
+<span id="cb36-5"><a href="#cb36-5"></a><span class="co">## apply PCA transformer to training and test set</span></span>
+<span id="cb36-6"><a href="#cb36-6"></a>X_train_pca <span class="op">=</span> pca.transform(X_train)</span>
+<span id="cb36-7"><a href="#cb36-7"></a>X_test_pca <span class="op">=</span> pca.transform(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
+</div>
+<div id="3e65fbe8" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="co">## we can look at the cumulative explained variance</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a>plt.plot(np.cumsum(pca.explained_variance_ratio_))</span>
+<span id="cb37-3"><a href="#cb37-3"></a>plt.xlabel(<span class="st">"Number of Components"</span>)</span>
+<span id="cb37-4"><a href="#cb37-4"></a>plt.ylabel(<span class="st">"Cumulative Explained Variance"</span>)</span>
+<span id="cb37-5"><a href="#cb37-5"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="PythonMLDemo_files/figure-html/cell-33-output-1.png" width="589" height="429" class="figure-img"></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 </section>
 <section id="step-5-model-setup" class="level2">
 <h2 class="anchored" data-anchor-id="step-5-model-setup">Step 5: Model Setup</h2>
 <p>Next we have to set up the model itself by creating an instance of the <code>LogisticRegression</code> model class.</p>
-<div id="d7f9116a" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>lr <span class="op">=</span> ___</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="06e80292" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>lr <span class="op">=</span> ___</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="ans">
 <details>
 <summary>
 Click to reveal answers
 </summary>
-<div id="24ab2fba" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>lr <span class="op">=</span> LogisticRegression()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="91864616" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>lr <span class="op">=</span> LogisticRegression()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 </div>
 <p>Then, we can fit this model to the training data.</p>
-<div id="065ecb58" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="co">## fit to training data</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a>lr.___(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9a65b97c" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="co">## fit to training data</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a>lr.___(X_train_pca, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="ans">
 <details>
 <summary>
 Click to reveal answers
 </summary>
-<div id="dcbfe9d9" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="co">## fit to training data</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a>lr.fit(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div id="285b45ab" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="co">## fit to training data</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a>lr.fit(X_train_pca, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
 <style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
   --sklearn-color-text: black;
@@ -1924,51 +2088,45 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <section id="store-results-in-a-dataframe" class="level3">
 <h3 class="anchored" data-anchor-id="store-results-in-a-dataframe">Store Results in a Dataframe</h3>
 <p>We can use <code>pd.DataFrame()</code> to create an empty pandas dataframe that we can fill with our results.</p>
-<div id="74779bf0" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="co">## use model to predict test data</span></span>
-<span id="cb34-2"><a href="#cb34-2"></a><span class="co">## set up dataframe to review results</span></span>
-<span id="cb34-3"><a href="#cb34-3"></a>results <span class="op">=</span> pd.___</span>
-<span id="cb34-4"><a href="#cb34-4"></a></span>
-<span id="cb34-5"><a href="#cb34-5"></a><span class="co">## get predicted</span></span>
-<span id="cb34-6"><a href="#cb34-6"></a>results.loc[:, <span class="st">'Predicted'</span>]<span class="op">=</span> lr.___(___)</span>
-<span id="cb34-7"><a href="#cb34-7"></a></span>
-<span id="cb34-8"><a href="#cb34-8"></a><span class="co">## get true y values for test dataset</span></span>
-<span id="cb34-9"><a href="#cb34-9"></a>results.loc[:, <span class="st">'Truth'</span>] <span class="op">=</span> ___.___</span>
-<span id="cb34-10"><a href="#cb34-10"></a></span>
-<span id="cb34-11"><a href="#cb34-11"></a><span class="co">## get probability of being malignant</span></span>
-<span id="cb34-12"><a href="#cb34-12"></a><span class="co">## the output is one probability per outcome, we only want the second outcome (malignant)</span></span>
-<span id="cb34-13"><a href="#cb34-13"></a>results.loc[:, <span class="st">'Probability: Malignant'</span>] <span class="op">=</span> pd.DataFrame(lr.___(X_test))[_]</span>
-<span id="cb34-14"><a href="#cb34-14"></a></span>
-<span id="cb34-15"><a href="#cb34-15"></a><span class="co">#results_recode = {0: "B", 1:"M"}</span></span>
-<span id="cb34-16"><a href="#cb34-16"></a><span class="co">#results.replace({"Predicted": results_recode, 'Truth': results_recode}, inplace = True)</span></span>
-<span id="cb34-17"><a href="#cb34-17"></a></span>
-<span id="cb34-18"><a href="#cb34-18"></a>results.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="855a5de9" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="co">## use model to predict test data</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a><span class="co">## set up dataframe to review results</span></span>
+<span id="cb42-3"><a href="#cb42-3"></a>results <span class="op">=</span> pd.___</span>
+<span id="cb42-4"><a href="#cb42-4"></a></span>
+<span id="cb42-5"><a href="#cb42-5"></a><span class="co">## get predicted</span></span>
+<span id="cb42-6"><a href="#cb42-6"></a>results.loc[:, <span class="st">'Predicted'</span>]<span class="op">=</span> lr.___(___)</span>
+<span id="cb42-7"><a href="#cb42-7"></a></span>
+<span id="cb42-8"><a href="#cb42-8"></a><span class="co">## get true y values for test dataset</span></span>
+<span id="cb42-9"><a href="#cb42-9"></a>results.loc[:, <span class="st">'Truth'</span>] <span class="op">=</span> ___.___</span>
+<span id="cb42-10"><a href="#cb42-10"></a></span>
+<span id="cb42-11"><a href="#cb42-11"></a><span class="co">## get probability of being malignant</span></span>
+<span id="cb42-12"><a href="#cb42-12"></a><span class="co">## the output is one probability per outcome, we only want the second outcome (malignant)</span></span>
+<span id="cb42-13"><a href="#cb42-13"></a>results.loc[:, <span class="st">'Probability: Malignant'</span>] <span class="op">=</span> pd.DataFrame(lr.___(X_test_pca))[_]</span>
+<span id="cb42-14"><a href="#cb42-14"></a></span>
+<span id="cb42-15"><a href="#cb42-15"></a>results.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="ans">
 <details>
 <summary>
 Click to reveal answers
 </summary>
-<div id="9e53fd81" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="co">## use model to predict test data</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a><span class="co">## set up dataframe to review results</span></span>
-<span id="cb35-3"><a href="#cb35-3"></a>results <span class="op">=</span> pd.DataFrame()</span>
-<span id="cb35-4"><a href="#cb35-4"></a></span>
-<span id="cb35-5"><a href="#cb35-5"></a><span class="co">## get predicted</span></span>
-<span id="cb35-6"><a href="#cb35-6"></a>results.loc[:, <span class="st">'Predicted'</span>]<span class="op">=</span> lr.predict(X_test)</span>
-<span id="cb35-7"><a href="#cb35-7"></a></span>
-<span id="cb35-8"><a href="#cb35-8"></a><span class="co">## get true y values for test dataset</span></span>
-<span id="cb35-9"><a href="#cb35-9"></a>results.loc[:, <span class="st">'Truth'</span>] <span class="op">=</span> y_test.values</span>
-<span id="cb35-10"><a href="#cb35-10"></a></span>
-<span id="cb35-11"><a href="#cb35-11"></a><span class="co">## get probability of being malignant</span></span>
-<span id="cb35-12"><a href="#cb35-12"></a><span class="co">## the output is one probability per outcome, we only want the second outcome (malignant). The second outcome uses index 1</span></span>
-<span id="cb35-13"><a href="#cb35-13"></a>results.loc[:, <span class="st">'Probability: Malignant'</span>] <span class="op">=</span> pd.DataFrame(lr.predict_proba(X_test))[<span class="dv">1</span>]</span>
-<span id="cb35-14"><a href="#cb35-14"></a></span>
-<span id="cb35-15"><a href="#cb35-15"></a><span class="co">#results_recode = {0: "B", 1:"M"}</span></span>
-<span id="cb35-16"><a href="#cb35-16"></a><span class="co">#results.replace({"Predicted": results_recode, 'Truth': results_recode}, inplace = True)</span></span>
-<span id="cb35-17"><a href="#cb35-17"></a></span>
-<span id="cb35-18"><a href="#cb35-18"></a>results.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div id="25592d62" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="co">## use model to predict test data</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="co">## set up dataframe to review results</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a>results <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb43-4"><a href="#cb43-4"></a></span>
+<span id="cb43-5"><a href="#cb43-5"></a><span class="co">## get predicted</span></span>
+<span id="cb43-6"><a href="#cb43-6"></a>results.loc[:, <span class="st">"Predicted"</span>] <span class="op">=</span> lr.predict(X_test_pca)</span>
+<span id="cb43-7"><a href="#cb43-7"></a></span>
+<span id="cb43-8"><a href="#cb43-8"></a><span class="co">## get true y values for test dataset</span></span>
+<span id="cb43-9"><a href="#cb43-9"></a>results.loc[:, <span class="st">"Truth"</span>] <span class="op">=</span> y_test.values</span>
+<span id="cb43-10"><a href="#cb43-10"></a></span>
+<span id="cb43-11"><a href="#cb43-11"></a><span class="co">## get probability of being malignant</span></span>
+<span id="cb43-12"><a href="#cb43-12"></a><span class="co">## the output is one probability per outcome, we only want the second outcome (malignant). The second outcome uses index 1</span></span>
+<span id="cb43-13"><a href="#cb43-13"></a>results.loc[:, <span class="st">"Probability: Malignant"</span>] <span class="op">=</span> pd.DataFrame(lr.predict_proba(X_test_pca))[<span class="dv">1</span>]</span>
+<span id="cb43-14"><a href="#cb43-14"></a></span>
+<span id="cb43-15"><a href="#cb43-15"></a>results.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
 <div>
 
 
@@ -1986,31 +2144,31 @@ Click to reveal answers
 <td data-quarto-table-cell-role="th">0</td>
 <td>0</td>
 <td>0</td>
-<td>0.113590</td>
+<td>0.098966</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>1</td>
 <td>1</td>
-<td>0.999991</td>
+<td>0.999987</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>1</td>
 <td>1</td>
-<td>0.996921</td>
+<td>0.997340</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>0</td>
 <td>0</td>
-<td>0.000510</td>
+<td>0.000974</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>0</td>
 <td>0</td>
-<td>0.000061</td>
+<td>0.000056</td>
 </tr>
 </tbody>
 </table>
@@ -2021,95 +2179,95 @@ Click to reveal answers
 </details>
 </div>
 <p>We can also get a quantitative “accuracy score” that will give us an idea of how well our model predicts our outcomes.</p>
-<div id="bdd3c60f" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>accuracy <span class="op">=</span> accuracy_score(results[<span class="st">"Truth"</span>], results[<span class="st">"Predicted"</span>])</span>
-<span id="cb36-2"><a href="#cb36-2"></a></span>
-<span id="cb36-3"><a href="#cb36-3"></a><span class="bu">print</span>(<span class="st">"Accuracy: </span><span class="sc">{:.2f}</span><span class="st">%"</span>.<span class="bu">format</span>(accuracy <span class="op">*</span> <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fb083b66" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>accuracy <span class="op">=</span> accuracy_score(results[<span class="st">"Truth"</span>], results[<span class="st">"Predicted"</span>])</span>
+<span id="cb44-2"><a href="#cb44-2"></a></span>
+<span id="cb44-3"><a href="#cb44-3"></a><span class="bu">print</span>(<span class="st">"Accuracy: </span><span class="sc">{:.2f}</span><span class="st">%"</span>.<span class="bu">format</span>(accuracy <span class="op">*</span> <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Accuracy: 97.37%</code></pre>
+<pre><code>Accuracy: 98.25%</code></pre>
 </div>
 </div>
 </section>
 <section id="create-roc-curve" class="level3">
 <h3 class="anchored" data-anchor-id="create-roc-curve">Create ROC curve</h3>
 <p>As a figure, we can create an ROC curve and use quarto chunk options to add a figure caption.</p>
-<div id="ebfe3c14" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="co">## make a plot to vizualize the ROC curve</span></span>
-<span id="cb38-2"><a href="#cb38-2"></a></span>
-<span id="cb38-3"><a href="#cb38-3"></a><span class="co">## get false pos rate, true pos rate and thresholds</span></span>
-<span id="cb38-4"><a href="#cb38-4"></a><span class="co">## there are 3 outputs so we need 3 variables to catch them</span></span>
-<span id="cb38-5"><a href="#cb38-5"></a>___, ___, ___ <span class="op">=</span> roc_curve(results[<span class="st">"Truth"</span>], results[<span class="st">"Predicted"</span>])</span>
-<span id="cb38-6"><a href="#cb38-6"></a></span>
-<span id="cb38-7"><a href="#cb38-7"></a><span class="co">## get AUC data</span></span>
-<span id="cb38-8"><a href="#cb38-8"></a>roc_auc <span class="op">=</span> auc(___, ___)</span>
-<span id="cb38-9"><a href="#cb38-9"></a></span>
-<span id="cb38-10"><a href="#cb38-10"></a><span class="co">## set up plot</span></span>
-<span id="cb38-11"><a href="#cb38-11"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
-<span id="cb38-12"><a href="#cb38-12"></a></span>
-<span id="cb38-13"><a href="#cb38-13"></a><span class="co">## using matplotlib this time, create line plot with 2pt line weight</span></span>
-<span id="cb38-14"><a href="#cb38-14"></a><span class="co">## add "ROC Curve (AUC = AUC)" as label for orange line</span></span>
-<span id="cb38-15"><a href="#cb38-15"></a><span class="co">## .2f is for display formatting, lw is linewidth</span></span>
-<span id="cb38-16"><a href="#cb38-16"></a>plt.plot(fpr, tpr, color<span class="op">=</span><span class="st">"darkorange"</span>, lw<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f"ROC Curve (AUC = </span><span class="sc">{</span>roc_auc<span class="sc">:.2f}</span><span class="ss">)"</span>)</span>
-<span id="cb38-17"><a href="#cb38-17"></a></span>
-<span id="cb38-18"><a href="#cb38-18"></a><span class="co">## create another curve, this time blue with a dashed line labeled "Random"</span></span>
-<span id="cb38-19"><a href="#cb38-19"></a><span class="co">## as in random chance.</span></span>
-<span id="cb38-20"><a href="#cb38-20"></a>plt.plot(___, ___, color<span class="op">=</span><span class="st">"navy"</span>, lw<span class="op">=</span><span class="dv">2</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, label<span class="op">=</span><span class="st">"Random"</span>)</span>
-<span id="cb38-21"><a href="#cb38-21"></a></span>
-<span id="cb38-22"><a href="#cb38-22"></a><span class="co">## add xlabel, ylabel and title</span></span>
-<span id="cb38-23"><a href="#cb38-23"></a>plt.xlabel(<span class="st">"False Positive Rate"</span>)</span>
-<span id="cb38-24"><a href="#cb38-24"></a>plt.ylabel(<span class="st">"True Positive Rate"</span>)</span>
-<span id="cb38-25"><a href="#cb38-25"></a>plt.title(</span>
-<span id="cb38-26"><a href="#cb38-26"></a>    <span class="st">"Receiver Operating Characteristic (ROC) Curve</span><span class="ch">\n</span><span class="st">Accuracy: </span><span class="sc">{:.2f}</span><span class="st">%"</span>.<span class="bu">format</span>(</span>
-<span id="cb38-27"><a href="#cb38-27"></a>        accuracy <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb38-28"><a href="#cb38-28"></a>    )</span>
-<span id="cb38-29"><a href="#cb38-29"></a>)</span>
-<span id="cb38-30"><a href="#cb38-30"></a></span>
-<span id="cb38-31"><a href="#cb38-31"></a><span class="co">## add legend and show plot</span></span>
-<span id="cb38-32"><a href="#cb38-32"></a>plt.legend(loc<span class="op">=</span><span class="st">"lower right"</span>)</span>
-<span id="cb38-33"><a href="#cb38-33"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0ce278a2" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="co">## make a plot to vizualize the ROC curve</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a></span>
+<span id="cb46-3"><a href="#cb46-3"></a><span class="co">## get false pos rate, true pos rate and thresholds</span></span>
+<span id="cb46-4"><a href="#cb46-4"></a><span class="co">## there are 3 outputs so we need 3 variables to catch them</span></span>
+<span id="cb46-5"><a href="#cb46-5"></a>___, ___, ___ <span class="op">=</span> roc_curve(results[<span class="st">"Truth"</span>], results[<span class="st">"Predicted"</span>])</span>
+<span id="cb46-6"><a href="#cb46-6"></a></span>
+<span id="cb46-7"><a href="#cb46-7"></a><span class="co">## get AUC data</span></span>
+<span id="cb46-8"><a href="#cb46-8"></a>roc_auc <span class="op">=</span> auc(___, ___)</span>
+<span id="cb46-9"><a href="#cb46-9"></a></span>
+<span id="cb46-10"><a href="#cb46-10"></a><span class="co">## set up plot</span></span>
+<span id="cb46-11"><a href="#cb46-11"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb46-12"><a href="#cb46-12"></a></span>
+<span id="cb46-13"><a href="#cb46-13"></a><span class="co">## using matplotlib this time, create line plot with 2pt line weight</span></span>
+<span id="cb46-14"><a href="#cb46-14"></a><span class="co">## add "ROC Curve (AUC = AUC)" as label for orange line</span></span>
+<span id="cb46-15"><a href="#cb46-15"></a><span class="co">## .2f is for display formatting, lw is linewidth</span></span>
+<span id="cb46-16"><a href="#cb46-16"></a>plt.plot(fpr, tpr, color<span class="op">=</span><span class="st">"darkorange"</span>, lw<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f"ROC Curve (AUC = </span><span class="sc">{</span>roc_auc<span class="sc">:.2f}</span><span class="ss">)"</span>)</span>
+<span id="cb46-17"><a href="#cb46-17"></a></span>
+<span id="cb46-18"><a href="#cb46-18"></a><span class="co">## create another curve, this time blue with a dashed line labeled "Random"</span></span>
+<span id="cb46-19"><a href="#cb46-19"></a><span class="co">## as in random chance.</span></span>
+<span id="cb46-20"><a href="#cb46-20"></a>plt.plot(___, ___, color<span class="op">=</span><span class="st">"navy"</span>, lw<span class="op">=</span><span class="dv">2</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, label<span class="op">=</span><span class="st">"Random"</span>)</span>
+<span id="cb46-21"><a href="#cb46-21"></a></span>
+<span id="cb46-22"><a href="#cb46-22"></a><span class="co">## add xlabel, ylabel and title</span></span>
+<span id="cb46-23"><a href="#cb46-23"></a>plt.xlabel(<span class="st">"False Positive Rate"</span>)</span>
+<span id="cb46-24"><a href="#cb46-24"></a>plt.ylabel(<span class="st">"True Positive Rate"</span>)</span>
+<span id="cb46-25"><a href="#cb46-25"></a>plt.title(</span>
+<span id="cb46-26"><a href="#cb46-26"></a>    <span class="st">"Receiver Operating Characteristic (ROC) Curve</span><span class="ch">\n</span><span class="st">Accuracy: </span><span class="sc">{:.2f}</span><span class="st">%"</span>.<span class="bu">format</span>(</span>
+<span id="cb46-27"><a href="#cb46-27"></a>        accuracy <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb46-28"><a href="#cb46-28"></a>    )</span>
+<span id="cb46-29"><a href="#cb46-29"></a>)</span>
+<span id="cb46-30"><a href="#cb46-30"></a></span>
+<span id="cb46-31"><a href="#cb46-31"></a><span class="co">## add legend and show plot</span></span>
+<span id="cb46-32"><a href="#cb46-32"></a>plt.legend(loc<span class="op">=</span><span class="st">"lower right"</span>)</span>
+<span id="cb46-33"><a href="#cb46-33"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="ans">
 <details>
 <summary>
 Click to reveal answers
 </summary>
-<div id="dc998d55" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="co">## make a plot to vizualize the ROC curve</span></span>
-<span id="cb39-2"><a href="#cb39-2"></a></span>
-<span id="cb39-3"><a href="#cb39-3"></a><span class="co">## get false pos rate, true pos rate and thresholds</span></span>
-<span id="cb39-4"><a href="#cb39-4"></a>fpr, tpr, thresholds <span class="op">=</span> roc_curve(results[<span class="st">"Truth"</span>], results[<span class="st">"Predicted"</span>])</span>
-<span id="cb39-5"><a href="#cb39-5"></a></span>
-<span id="cb39-6"><a href="#cb39-6"></a><span class="co">## get AUC data</span></span>
-<span id="cb39-7"><a href="#cb39-7"></a>roc_auc <span class="op">=</span> auc(fpr, tpr)</span>
-<span id="cb39-8"><a href="#cb39-8"></a></span>
-<span id="cb39-9"><a href="#cb39-9"></a><span class="co">## set up plot</span></span>
-<span id="cb39-10"><a href="#cb39-10"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
-<span id="cb39-11"><a href="#cb39-11"></a></span>
-<span id="cb39-12"><a href="#cb39-12"></a><span class="co">## using matplotlib this time, create line plot with 2pt line weight</span></span>
-<span id="cb39-13"><a href="#cb39-13"></a><span class="co">## add "ROC Curve (AUC = AUC)" as label for orange line</span></span>
-<span id="cb39-14"><a href="#cb39-14"></a><span class="co">## .2f is for display formatting, lw is linewidth</span></span>
-<span id="cb39-15"><a href="#cb39-15"></a>plt.plot(fpr, tpr, color<span class="op">=</span><span class="st">"darkorange"</span>, lw<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f"ROC Curve (AUC = </span><span class="sc">{</span>roc_auc<span class="sc">:.2f}</span><span class="ss">)"</span>)</span>
-<span id="cb39-16"><a href="#cb39-16"></a></span>
-<span id="cb39-17"><a href="#cb39-17"></a><span class="co">## create another curve, this time blue with a dashed line labeled "Random"</span></span>
-<span id="cb39-18"><a href="#cb39-18"></a><span class="co">## as in random chance</span></span>
-<span id="cb39-19"><a href="#cb39-19"></a>plt.plot([<span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>], color<span class="op">=</span><span class="st">"navy"</span>, lw<span class="op">=</span><span class="dv">2</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, label<span class="op">=</span><span class="st">"Random"</span>)</span>
-<span id="cb39-20"><a href="#cb39-20"></a></span>
-<span id="cb39-21"><a href="#cb39-21"></a><span class="co">## add xlabel, ylabel and title</span></span>
-<span id="cb39-22"><a href="#cb39-22"></a>plt.xlabel(<span class="st">"False Positive Rate"</span>)</span>
-<span id="cb39-23"><a href="#cb39-23"></a>plt.ylabel(<span class="st">"True Positive Rate"</span>)</span>
-<span id="cb39-24"><a href="#cb39-24"></a>plt.title(</span>
-<span id="cb39-25"><a href="#cb39-25"></a>    <span class="st">"Receiver Operating Characteristic (ROC) Curve</span><span class="ch">\n</span><span class="st">Accuracy: </span><span class="sc">{:.2f}</span><span class="st">%"</span>.<span class="bu">format</span>(</span>
-<span id="cb39-26"><a href="#cb39-26"></a>        accuracy <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb39-27"><a href="#cb39-27"></a>    )</span>
-<span id="cb39-28"><a href="#cb39-28"></a>)</span>
-<span id="cb39-29"><a href="#cb39-29"></a></span>
-<span id="cb39-30"><a href="#cb39-30"></a><span class="co">## add legend and show plot</span></span>
-<span id="cb39-31"><a href="#cb39-31"></a>plt.legend(loc<span class="op">=</span><span class="st">"lower right"</span>)</span>
-<span id="cb39-32"><a href="#cb39-32"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7586fd08" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="co">## make a plot to vizualize the ROC curve</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a></span>
+<span id="cb47-3"><a href="#cb47-3"></a><span class="co">## get false pos rate, true pos rate and thresholds</span></span>
+<span id="cb47-4"><a href="#cb47-4"></a>fpr, tpr, thresholds <span class="op">=</span> roc_curve(results[<span class="st">"Truth"</span>], results[<span class="st">"Predicted"</span>])</span>
+<span id="cb47-5"><a href="#cb47-5"></a></span>
+<span id="cb47-6"><a href="#cb47-6"></a><span class="co">## get AUC data</span></span>
+<span id="cb47-7"><a href="#cb47-7"></a>roc_auc <span class="op">=</span> auc(fpr, tpr)</span>
+<span id="cb47-8"><a href="#cb47-8"></a></span>
+<span id="cb47-9"><a href="#cb47-9"></a><span class="co">## set up plot</span></span>
+<span id="cb47-10"><a href="#cb47-10"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb47-11"><a href="#cb47-11"></a></span>
+<span id="cb47-12"><a href="#cb47-12"></a><span class="co">## using matplotlib this time, create line plot with 2pt line weight</span></span>
+<span id="cb47-13"><a href="#cb47-13"></a><span class="co">## add "ROC Curve (AUC = AUC)" as label for orange line</span></span>
+<span id="cb47-14"><a href="#cb47-14"></a><span class="co">## .2f is for display formatting, lw is linewidth</span></span>
+<span id="cb47-15"><a href="#cb47-15"></a>plt.plot(fpr, tpr, color<span class="op">=</span><span class="st">"darkorange"</span>, lw<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f"ROC Curve (AUC = </span><span class="sc">{</span>roc_auc<span class="sc">:.2f}</span><span class="ss">)"</span>)</span>
+<span id="cb47-16"><a href="#cb47-16"></a></span>
+<span id="cb47-17"><a href="#cb47-17"></a><span class="co">## create another curve, this time blue with a dashed line labeled "Random"</span></span>
+<span id="cb47-18"><a href="#cb47-18"></a><span class="co">## as in random chance</span></span>
+<span id="cb47-19"><a href="#cb47-19"></a>plt.plot([<span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>], color<span class="op">=</span><span class="st">"navy"</span>, lw<span class="op">=</span><span class="dv">2</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, label<span class="op">=</span><span class="st">"Random"</span>)</span>
+<span id="cb47-20"><a href="#cb47-20"></a></span>
+<span id="cb47-21"><a href="#cb47-21"></a><span class="co">## add xlabel, ylabel and title</span></span>
+<span id="cb47-22"><a href="#cb47-22"></a>plt.xlabel(<span class="st">"False Positive Rate"</span>)</span>
+<span id="cb47-23"><a href="#cb47-23"></a>plt.ylabel(<span class="st">"True Positive Rate"</span>)</span>
+<span id="cb47-24"><a href="#cb47-24"></a>plt.title(</span>
+<span id="cb47-25"><a href="#cb47-25"></a>    <span class="st">"Receiver Operating Characteristic (ROC) Curve</span><span class="ch">\n</span><span class="st">Accuracy: </span><span class="sc">{:.2f}</span><span class="st">%"</span>.<span class="bu">format</span>(</span>
+<span id="cb47-26"><a href="#cb47-26"></a>        accuracy <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb47-27"><a href="#cb47-27"></a>    )</span>
+<span id="cb47-28"><a href="#cb47-28"></a>)</span>
+<span id="cb47-29"><a href="#cb47-29"></a></span>
+<span id="cb47-30"><a href="#cb47-30"></a><span class="co">## add legend and show plot</span></span>
+<span id="cb47-31"><a href="#cb47-31"></a>plt.legend(loc<span class="op">=</span><span class="st">"lower right"</span>)</span>
+<span id="cb47-32"><a href="#cb47-32"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="PythonMLDemo_files/figure-html/cell-36-output-1.png" width="663" height="541" class="figure-img"></p>
+<p><img src="PythonMLDemo_files/figure-html/cell-42-output-1.png" width="663" height="541" class="figure-img"></p>
 <figcaption>An ROC curve for our logistic regression model</figcaption>
 </figure>
 </div>
@@ -2117,7 +2275,77 @@ Click to reveal answers
 </div>
 </details>
 </div>
-<p>Congratulations! You have successfully done logistic regression in Python!</p>
+Congratulations! You have successfully done logistic regression in Python!
+<div>
+<details>
+<summary>
+Create a Statsmodels-like model and summary with scikit-learn and statsmodels
+</summary>
+<p>It is also possible to fit a model with scikit-learn, extract the coefficients, and use them to create a statsmodels model and summary.</p>
+<p>Typically, you would want to pick which package (sklearn or statsmodels) you want to use and stick with it, but this is an option if necessary. Note: I am showing Lasso here as well because statsmodels will fail if there are highly correlated features like with this dataset, however this same method can be used on a scikit-learn logistic regression model without Lasso penalties.</p>
+<p>This time, we are going to fit on the full data.</p>
+<p>First, we can select features to use for model (statsmodels does not perform regularization and therefore will fail to converge when there are highly correlated features). Scikit-learn gives us multiple ways to do this. Let’s use LASSO.</p>
+<div id="1a22486a" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="co">## scale X</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a>X <span class="op">=</span> scaler.transform(X_raw)</span>
+<span id="cb48-3"><a href="#cb48-3"></a></span>
+<span id="cb48-4"><a href="#cb48-4"></a><span class="co">## set up model for Lasso and fit it</span></span>
+<span id="cb48-5"><a href="#cb48-5"></a>model <span class="op">=</span> LogisticRegression(penalty<span class="op">=</span><span class="st">"l1"</span>, solver<span class="op">=</span><span class="st">"liblinear"</span>, C<span class="op">=</span><span class="fl">0.01</span>)</span>
+<span id="cb48-6"><a href="#cb48-6"></a>model.fit(X, y)</span>
+<span id="cb48-7"><a href="#cb48-7"></a></span>
+<span id="cb48-8"><a href="#cb48-8"></a><span class="co"># Get non-zero coefficient features</span></span>
+<span id="cb48-9"><a href="#cb48-9"></a>selected_features <span class="op">=</span> X_raw.columns[model.coef_[<span class="dv">0</span>] <span class="op">!=</span> <span class="dv">0</span>]</span>
+<span id="cb48-10"><a href="#cb48-10"></a>X_selected <span class="op">=</span> X_raw[selected_features]</span>
+<span id="cb48-11"><a href="#cb48-11"></a><span class="bu">print</span>(X_selected.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['concave_points_mean', 'perimeter_worst', 'concave_points_worst'], dtype='object')</code></pre>
+</div>
+</div>
+<p><strong>Fit statsmodels model and get summary</strong></p>
+<div id="013e0fa2" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="co">## Get coefficients</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>intercept <span class="op">=</span> model.intercept_[<span class="dv">0</span>]</span>
+<span id="cb50-3"><a href="#cb50-3"></a>coefficients <span class="op">=</span> model.coef_[<span class="dv">0</span>][model.coef_[<span class="dv">0</span>] <span class="op">!=</span> <span class="dv">0</span>]</span>
+<span id="cb50-4"><a href="#cb50-4"></a></span>
+<span id="cb50-5"><a href="#cb50-5"></a><span class="co">## make model eqn</span></span>
+<span id="cb50-6"><a href="#cb50-6"></a>formula <span class="op">=</span> <span class="st">"diagnosis ~"</span> <span class="op">+</span> <span class="st">"+"</span>.join(X_selected.columns)</span>
+<span id="cb50-7"><a href="#cb50-7"></a>sm_model2 <span class="op">=</span> smf.logit(formula, data<span class="op">=</span>data).fit()</span>
+<span id="cb50-8"><a href="#cb50-8"></a></span>
+<span id="cb50-9"><a href="#cb50-9"></a>sm_model2.params[:] <span class="op">=</span> np.concatenate(</span>
+<span id="cb50-10"><a href="#cb50-10"></a>    ([intercept], coefficients)</span>
+<span id="cb50-11"><a href="#cb50-11"></a>)  <span class="co"># Set params from scikit-learn model</span></span>
+<span id="cb50-12"><a href="#cb50-12"></a></span>
+<span id="cb50-13"><a href="#cb50-13"></a><span class="co"># Display the summary</span></span>
+<span id="cb50-14"><a href="#cb50-14"></a><span class="bu">print</span>(sm_model2.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimization terminated successfully.
+         Current function value: 0.129410
+         Iterations 10
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:              diagnosis   No. Observations:                  569
+Model:                          Logit   Df Residuals:                      565
+Method:                           MLE   Df Model:                            3
+Date:                Mon, 11 Nov 2024   Pseudo R-squ.:                  -42.68
+Time:                        13:43:00   Log-Likelihood:                -16411.
+converged:                       True   LL-Null:                       -375.72
+Covariance Type:            nonrobust   LLR p-value:                     1.000
+========================================================================================
+                           coef    std err          z      P&gt;|z|      [0.025      0.975]
+----------------------------------------------------------------------------------------
+Intercept                     0      2.441          0      1.000      -4.785       4.785
+concave_points_mean      0.0902     16.311      0.006      0.996     -31.878      32.058
+perimeter_worst          0.5279      0.021     25.471      0.000       0.487       0.569
+concave_points_worst     0.4865      8.505      0.057      0.954     -16.184      17.157
+========================================================================================
+
+Possibly complete quasi-separation: A fraction 0.37 of observations can be
+perfectly predicted. This might indicate that there is complete
+quasi-separation. In this case some parameters will not be identified.</code></pre>
+</div>
+</div>
+</details>
+</div>
 <details>
 <summary>
 Citations
