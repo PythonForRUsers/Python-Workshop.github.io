@@ -1,0 +1,38 @@
+---
+title: "Python Workshops: Frequently Asked Questions"
+author: "Python Group"
+format: 
+  html:
+    output-file: "FAQ.html"
+    toc: true
+    code-copy: true
+    code-line-numbers: true
+    link-external-icon: false
+    link-external-newwindow: true
+    css: styles.css
+output-dir: docs/
+    
+---
+
+## Virtual Environments / Conda Environments
+
+	1. Is it possible/would you recommend that we create a virtual env and save the filepath to the specific project folder? Would there be any advantages and disadvantages of keeping the virtual env in the default location vs. on the network drives (H drive)? Some of us like myself save our project folders on the network drives and work off of there. 
+		
+	Answer: 
+		It is definitely possible to create an environment in a specific project folder/on the H drive (`using conda create --prefix /path/to/your/project_folder/env_name`)! 
+		Note: to activate the environment, you need to activate it by the path, not by a name (ex:`conda activate /path/to/your/project_folder/env_name`)
+		
+		The advantages would be making the project easy to back up as a single unit and it keeps the whole project portable (can access on multiple devices without needing to recreate the environment on each one). The main disadvantage would be that access speed could be slower and network/permissions issues could cause the environment to be inaccessible. 
+		
+		If you are used to working off the H drive, it makes sense to store your environments in the project folder. 
+		
+			
+	2. Would it be an issue in terms of memory/storage to have a virtual environment for almost every project and continually increase the number? What is the best practice if a project is completed for close out? Create the environment.yaml and delete the environment for example? 
+		
+	Answer: 
+        For the most part, having multiple environments (ex: one environment for each project in current progress) will not cause a memory issue. However, it is useful to close out environments when a project is closed out by:
+        1. Activating the environment you want to export
+        2. Exporting the environment to a .yaml file with `conda env export > environment.yaml`. 
+        3. After the .yaml file is created (make sure to check before deleting the environment!), you can delete the environment with `conda env remove --name env_name` (or `conda env remove --prefix path/to/env_name` if using a specific path). 
+	
+	    By exporting the environment before deletion, you can always recreate the environment later if needed by using `conda env create --prefix /path/to/your/project_folder/env_name -f environment.yaml` (activate w/ `conda activate /path/to/your/project_folder/env_name`)

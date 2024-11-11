@@ -171,3 +171,4 @@ cython_debug/
 # just testing things
 quarto/session3/renderme.ipynb
 quarto/session3/ignore_testsomething.ipynb
+quarto/session1/pilot_notes.md
