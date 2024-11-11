@@ -1,5 +1,5 @@
 ---
-title: "Python Workshops: Frequently Asked Questions"
+title: "FAQ"
 author: "Python Group"
 format: 
   html:
@@ -13,6 +13,8 @@ format:
     css: styles.css
 output-dir: docs/
 ---
+
+# Python Workshops: Frequently Asked Questions
 
 ### Managing Virtual Environments with Conda
 
