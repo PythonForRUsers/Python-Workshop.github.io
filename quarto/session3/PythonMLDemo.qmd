@@ -21,7 +21,7 @@ format:
     <p>Download Follow Along File</p>
 </a>
 
-We are using the same dataset as in sesssion 3! There is no need to re-download it!
+We are using the same dataset as in session 3! There is no need to re-download it!
 
 ## Getting Started
 
@@ -85,13 +85,20 @@ import numpy as ___
 import seaborn as ___
 import matplotlib.pyplot as ___
 
+import statsmodels.api as __
+import statsmodels.formula.api as ___
+
 # Import from sklearn
-from sklearn.model_selection import __________
-from sklearn.preprocessing import __________
+from sklearn.model_selection import ___
+from sklearn.preprocessing import ____
+from sklearn.decomposition import ___
 
-from sklearn.linear_model import __________
 
+from sklearn.linear_model import ___
+
+from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score, roc_curve, auc
+from sklearn.feature_selection import SelectKBest, f_classif
 ```
 
 <div class = "ans"> 
@@ -102,14 +109,21 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+
 ## import from sklearn (scikit-learn)
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
 
 from sklearn.linear_model import LogisticRegression
+from sklearn.pipeline import Pipeline
 
 from sklearn.metrics import accuracy_score, roc_curve, auc
+from sklearn.feature_selection import SelectKBest, f_classif
+
 ```
 </details>
 </div>
@@ -154,13 +168,13 @@ data.info()
 From the *info*, we can see that the column types make sense and most of the columns have no missing values. 
 
 We do have this extra column called "Unnamed: 32" with 0 non-null values...
-so let's drop it (remove it from the dataframe). 
+so let's drop it (remove it from the dataframe). We can also replace spaces in column names with "_", which will be useful later. 
 
 ```{python}
-#| eval: false
+# | eval: false
 data.drop(columns="Unnamed: 32", inplace=______)
-
-# Check that the column was removed
+data.columns = data.columns.str.replace("?", "?")
+# Check that the column was removed and column names were changed.
 print(data.info())
 ```
 
@@ -169,7 +183,7 @@ print(data.info())
 ```{python}
 ## `inplace` means that we modify the original dataframe
 data.drop(columns="Unnamed: 32", inplace=True)
-
+data.columns = data.columns.str.replace(" ", "_")
 ## check that the column was removed
 print(data.info())
 
@@ -417,9 +431,71 @@ plt.show()
 </details>
 </div>
 
-## Step 4: Data Setup
+## Step 4: Creating a Logistic Regression Model
+
+Here we will explore two methods for creating a logistic regression model. The first, statsmodels, is more similar to R and is more user-friendly for statistical purposes. The second, scikit-learn, is more useful for machine learning and prediction models, but is a framework that is worth learning if you are going to use python often. 
+
+### Method 1: Statsmodels
+
+The <a href="https://www.statsmodels.org/stable/index.html">statsmodels package</a> is a python package for creating statistical models, conducting tests and performing data exploration. It is similar to packages used in R and creates an r-like model summary. 
+
+If we wanted to see if higher values of area_mean and texture_mean are associated with a higher probability of malignancy, we can use `smf.logit()` to fit a logistic regression model.
+
+```{python}
+# | eval: false
+logit = smf.logit("___ ~ ___ + ___", data=data).fit()
+
+print(logit.summary())
+```
+
+<div class = "ans"> 
+<details><summary> Click to reveal answers </summary>
+```{python}
+logit = smf.logit("diagnosis ~ area_mean + texture_mean", data=data).fit()
+
+print(logit.summary())
+```
+From the summary, we can see that the area_mean and texture_mean are both associated with an increased probability of malignancy. 
+</details>
+</div>
+
+<div>
+<details><summary>**Aside:** We can also use feature selection tools from the scikit-learn package to select what features to use.</summary>
+
+Scikit learn requires the outcome and predictor variables to be split into two data frames.
+
+```{python}
+from sklearn.feature_selection import SelectKBest, f_classif
+
+X_raw = data.loc[:, "radius_mean"::]
+## set only the diagnosis column as "y"
+y = data.loc[:, "diagnosis"]
+
+# Select top k features based on ANOVA F-value between feature and target
+selector = SelectKBest(f_classif, k=5)  # Choose 'k' to specify number of features
+X_selected = selector.fit_transform(X_raw, y)
+selected_feature_names = X_raw.columns[selector.get_support()]
+
+## make model eqn
+formula = "diagnosis ~" + "+".join(selected_feature_names)
+sm_model = smf.logit(formula, data=data).fit()
+
+print(sm_model.summary())
+```
+</details>
+</div>
+
+### Method 2: Scikit-learn
+
+The <a href="https://scikit-learn.org/stable/index.html">scikit-learn pacakge</a> is geared towards machine-learning and prediction-related tasks like classification, clustering and dimensionality reduction. 
+
+Fitting models with scikit-learn is a bit more complex than with statsmodels but is more along the lines of what most python projects will require. 
+
+Instead of fitting a logistic regression model on the full dataset like we did with statsmodels, this time we are going to fit on a subset of our data and create a prediction model. We will test this prediction model on the remainder of the dataset. 
 
 ### Splitting Training and Test Data
+
+To fit a prediction model with sci-kit learn...
 
 We first need to split the dataset into X (predictors/features) and y (outcomes). Then we use the `train_test_split()` function to split these datasets into a training dataset and a test dataset. 
 
@@ -435,7 +511,7 @@ Unlike R, Python allows for multi-argument returns from functions. This lets us 
 
 ```{python}
 #| eval: false
-x = data.loc[:, "___"::]
+X = data.loc[:, "___"::]
 
 ## set only the diagnosis column as "y"
 y = data.loc[:, "___"]
@@ -443,7 +519,7 @@ y = data.loc[:, "___"]
 ## here we assign each object returned from `train_test_split` to a different variable
 ## we can use test_size to set the proportion of the dataset reserved for testing
 X_?, X_?, y_?, y_? = train_test_split(
-    x, y, test_size=0.2, random_state=42
+    X, y, test_size=0.2, random_state=42
 )
 
 X_train.head(3)
@@ -452,14 +528,14 @@ X_train.head(3)
 <details><summary> Click to reveal answers </summary>
 
 ```{python}
-x = data.loc[:, "radius_mean"::]
+X = data.loc[:, "radius_mean"::]
 
 ## set only the diagnosis column as "y"
 y = data.loc[:, "diagnosis"]
 
 ## here we assign each object returned from `train_test_split` to a different variable
 X_train, X_test, y_train, y_test = train_test_split(
-    x, y, test_size=0.2, random_state=42
+    X, y, test_size=0.2, random_state=42
 )
 
 X_train.head(3)
@@ -499,6 +575,46 @@ X_test = scaler.transform(X_test)
 ```
 </details>
 </div>
+
+### After scaling the data, we can perform dimensional reduction with PCA
+
+PCA is often used for dimensional reduction with machine learning methods so we will demonstrate it here. We can set up the PCA transformer in the same way that we set the scaler above. 
+
+```{python}
+# | eval: false
+## set up PCA transformer with the number of components you want and fit to training dataset
+pca = PCA(n_components=__)
+pca = pca.fit(___)
+
+## apply PCA transformer to training and test set
+X_train_pca = pca.transform(___)
+X_test_pca = pca.transform(___)
+```
+
+<div class = "ans"> 
+<details><summary> Click to reveal answers </summary>
+
+```{python}
+## set up PCA transformer with the number of components you want and fit to training dataset
+pca = PCA(n_components=10)
+pca = pca.fit(X_train)
+
+## apply PCA transformer to training and test set
+X_train_pca = pca.transform(X_train)
+X_test_pca = pca.transform(X_test)
+```
+</details>
+</div>
+
+```{python}
+## we can look at the cumulative explained variance
+plt.plot(np.cumsum(pca.explained_variance_ratio_))
+plt.xlabel("Number of Components")
+plt.ylabel("Cumulative Explained Variance")
+plt.show()
+```
+
+
 ## Step 5: Model Setup
 
 Next we have to set up the model itself by creating an instance of the `LogisticRegression` model class. 
@@ -519,14 +635,14 @@ Then, we can fit this model to the training data.
 ```{python}
 #| eval: false
 ## fit to training data
-lr.___(X_train, y_train)
+lr.___(X_train_pca, y_train)
 ```
 
 <div class = "ans"> 
 <details><summary> Click to reveal answers </summary>
 ```{python}
 ## fit to training data
-lr.fit(X_train, y_train)
+lr.fit(X_train_pca, y_train)
 ```
 </details>
 </div>
@@ -553,10 +669,7 @@ results.loc[:, 'Truth'] = ___.___
 
 ## get probability of being malignant
 ## the output is one probability per outcome, we only want the second outcome (malignant)
-results.loc[:, 'Probability: Malignant'] = pd.DataFrame(lr.___(X_test))[_]
-
-#results_recode = {0: "B", 1:"M"}
-#results.replace({"Predicted": results_recode, 'Truth': results_recode}, inplace = True)
+results.loc[:, 'Probability: Malignant'] = pd.DataFrame(lr.___(X_test_pca))[_]
 
 results.head(5)
 ```
@@ -570,17 +683,14 @@ results.head(5)
 results = pd.DataFrame()
 
 ## get predicted
-results.loc[:, 'Predicted']= lr.predict(X_test)
+results.loc[:, "Predicted"] = lr.predict(X_test_pca)
 
 ## get true y values for test dataset
-results.loc[:, 'Truth'] = y_test.values
+results.loc[:, "Truth"] = y_test.values
 
 ## get probability of being malignant
 ## the output is one probability per outcome, we only want the second outcome (malignant). The second outcome uses index 1
-results.loc[:, 'Probability: Malignant'] = pd.DataFrame(lr.predict_proba(X_test))[1]
-
-#results_recode = {0: "B", 1:"M"}
-#results.replace({"Predicted": results_recode, 'Truth': results_recode}, inplace = True)
+results.loc[:, "Probability: Malignant"] = pd.DataFrame(lr.predict_proba(X_test_pca))[1]
 
 results.head(5)
 ```
@@ -683,6 +793,53 @@ plt.show()
 </div>
 
 Congratulations! You have successfully done logistic regression in Python!
+<div>
+<details><summary>Create a Statsmodels-like model and summary with scikit-learn and statsmodels</summary>
+
+It is also possible to fit a model with scikit-learn, extract the coefficients, and use them to create a statsmodels model and summary. 
+
+Typically, you would want to pick which package (sklearn or statsmodels) you want to use and stick with it, but this is an option if necessary. Note: I am showing Lasso here as well because statsmodels will fail if there are highly correlated features like with this dataset, however this same method can be used on a scikit-learn logistic regression model without Lasso penalties.
+
+This time, we are going to fit on the full data. 
+
+First, we can select features to use for model (statsmodels does not perform regularization and therefore will fail to converge when there are highly correlated features). Scikit-learn gives us multiple ways to do this. Let's use LASSO. 
+
+```{python}
+## scale X
+X = scaler.transform(X_raw)
+
+## set up model for Lasso and fit it
+model = LogisticRegression(penalty="l1", solver="liblinear", C=0.01)
+model.fit(X, y)
+
+# Get non-zero coefficient features
+selected_features = X_raw.columns[model.coef_[0] != 0]
+X_selected = X_raw[selected_features]
+print(X_selected.columns)
+```
+
+**Fit statsmodels model and get summary**
+
+```{python}
+## Get coefficients
+intercept = model.intercept_[0]
+coefficients = model.coef_[0][model.coef_[0] != 0]
+
+## make model eqn
+formula = "diagnosis ~" + "+".join(X_selected.columns)
+sm_model2 = smf.logit(formula, data=data).fit()
+
+sm_model2.params[:] = np.concatenate(
+    ([intercept], coefficients)
+)  # Set params from scikit-learn model
+
+# Display the summary
+print(sm_model2.summary())
+```
+
+</details>
+</div>
+
 
 <details>
 <summary> Citations </summary>
