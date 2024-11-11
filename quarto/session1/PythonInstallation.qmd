@@ -25,7 +25,24 @@ After the session, you will acquire basic knowledge of the following:
 
 -   Create, activate, and install packages to Python virtual environments.
 
--   Create Quarto files and execute some Python code.
+-   Create Quarto files and execute some Python code
+
+#### What do I need before the session?
+
+-   **Download the installers**–*You don't need to install them yet. This tutorial will walk you through the steps for installation.*
+
+    ::: {.callout-tip appearance="simple"}
+    We recommend that you install software and run through the tutorial on your MSK laptop or workstation.
+    Using VDI is generally slow for downloading/installing large software files.
+    :::
+
+    -   Download **Anaconda Distribution**: [Download the Anaconda Installer](https://www.anaconda.com/download/success).
+
+    -   Download **VS Code**: [Download and install VS Code](https://code.visualstudio.com/download).
+
+    -   Download **Quarto**: [Install from the official website](https://quarto.org/docs/get-started/).
+
+-   **Login to your GitHub Enterprise account.**
 
 # 1.1 Introduction to Tools
 
@@ -163,7 +180,7 @@ Finally, you can check that conda is properly installed.
 
     1.  Open a new **terminal**.
     2.  You should see `(base)` in the beginning of the prompt. This means that conda is properly installed and the base environment is activated.
-    3.  Similarly, write `canda info` in the terminal. You should see the info about the current conda installation returned.
+    3.  Similarly, write `conda info` in the terminal. You should see the info about the current conda installation returned.
 
 # 1.3 Virtual Environments
 
@@ -397,6 +414,8 @@ Download the YML file for this Python workshop series [here](https://github.mskc
 
     -   **Quarto**: To support Quarto document editing and previewing.
 
+    -   **Jupyter**: To support rendering Python documents from Jupyter Notebooks or Quarto files.
+
     ::: callout-important
     You still need to install conda (Python) and Quarto to your computer to enable these extensions.
     :::
@@ -405,13 +424,13 @@ Download the YML file for this Python workshop series [here](https://github.mskc
 
 4.  **Configure the Environment in VS Code.**
 
-    1.  Open Comman Palette by pressing `Ctrl+Shift+P` (or `Cmd+Shift+X` on Mac).
+    1.  Open Command Palette by pressing `Ctrl+Shift+P` (or `Cmd+Shift+X` on Mac).
 
     2.  Type "**Python: Select Interpreter**".
 
     3.  Choose the Conda python environment you created.
         If you don't see its name pop up, choose **Enter interpreter path...** and manually type in the location of your conda virtual environment python executable.
-        
+
         E.g., `C:\Users\<username>\AppData\Local\anaconda3\envs\<env-name>\python.exe` for Windows **or** `Users/<username>/anaconda/envs/<env-name>/python` for macOS.
 
         ::: callout-note
@@ -470,16 +489,35 @@ print("This is some Python output.")
 print("This is some Python output.")
 ```
 
-To render or preview the html output, click on the **Quarto Preview** button at the top right (or press `Ctrl+Shift+K`).
+#### File Previewing
 
-Alternatively, run `quarto render` in your terminal to generate the output.
+To preview the html output, click on the **Quarto Preview** button at the top right (or press `Ctrl+Shift+K`).
+
+Alternatively, run `quarto preview` in your terminal to view the output.
 
 ``` bash
-quarto render <yourfilename>.qmd
+quarto preview <yourfilename>.qmd
 ```
 
 This is an example of the html output preview showing next to the source `.qmd` file.
 
 ![](images/quarto-demo.png)
 
-We are done with setting everything up.
+#### File Rendering/ Exporting to other Formats
+
+To save the output, use **Quarto: Render Document** from the command search bar (`Ctrl+Shift+P`).
+
+![](images/quarto-render.png){fig-align="left" width="900"}
+
+Then select the desired output format.
+For example, Render HTML.
+
+![](images/quarto-render2.png){width="900"}
+
+Similarly, you can use command line `quarto render` in the terminal to save the output.
+
+``` bash
+quarto render <yourfilename>.qmd
+```
+
+Now you should see a `<yourfilename>.html` file generated in your working directory.
