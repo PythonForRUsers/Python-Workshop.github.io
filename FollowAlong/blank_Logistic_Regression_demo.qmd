@@ -1,0 +1,446 @@
+---
+title: "Python Logistic Regression Demo"
+author: "Python Group"
+format: 
+    html:
+        output-file: "session3.html"
+        toc: true
+        code-copy: true
+        code-line-numbers: true
+        link-external-icon: false
+        link-external-newwindow: true
+---
+
+We are using the same dataset as in session 3! There is no need to re-download it!
+
+## Getting Started
+
+Before doing anything else, we should first activate the conda environment we want to use.
+
+**Refresher: How to activate conda environment**
+
+From terminal, type:
+
+```{bash}
+conda activate python-intro-env
+```
+
+
+When in VS code, you might get a popup message like the one below, confirming that the environment was activated:
+*Selected conda environment was successfully activated, even though "(ENVNAME)" indicator may not be present in the terminal prompt.*
+
+or
+
+In Anaconda Navagator, click on the **Environments** tab on the left and select the environment you want to activate. Just selecting the environment should activate it.
+
+If we want to make sure we have the packages we'll need installed in the environment before we try to import them, we can either check on anaconda or use the terminal:
+
+```{bash}
+conda list
+```
+
+Otherwise, we will get an error message if we try to import packages that are not installed.
+
+**Refresher: How to install packages**
+
+To install packages, we can either use the "anaconda" dashboard, or we can use the command line. Make sure your environment is active before installing packages or the packages will not be available in your environment.
+
+To install from the command line, we open a terminal and type:
+
+```{bash}
+conda install {package}
+```
+or
+
+```{bash}
+pip install {package}
+```
+When working with conda environments, it's best practice to install everything with conda and only use pip for packages that are not available through conda!
+
+
+## Step 1: Import Packages
+
+Similar to `library()` in R, we’ll use `import` in Python. Fill in the blanks to import the necessary packages:
+
+```{python}
+# | eval: false
+import pandas as ___
+import numpy as ___
+import seaborn as ___
+import matplotlib.pyplot as ___
+
+import statsmodels.api as __
+import statsmodels.formula.api as ___
+
+# Import from sklearn
+from sklearn.model_selection import ___
+from sklearn.preprocessing import ____
+from sklearn.decomposition import ___
+
+
+from sklearn.linear_model import ___
+
+from sklearn.pipeline import Pipeline
+from sklearn.metrics import accuracy_score, roc_curve, auc
+from sklearn.feature_selection import SelectKBest, f_classif
+```
+
+## Step 2: Read in Data and Perform Data Cleaning
+
+We can use the `read_csv()` function from the pandas package to read in the dataset.
+
+```{python}
+#| eval: false
+data = pd.read_csv("__________")
+```
+
+
+We can use the `.info()` function to show some basic information about the dataset like:\
+\* the number of rows\
+\* number of columns\
+\* column labels\
+\* column type\
+\* number of non-null values in each column
+
+```{python}
+#| eval: false
+data._______()
+```
+
+From the *info*, we can see that the column types make sense and most of the columns have no missing values.
+
+We do have this extra column called "Unnamed: 32" with 0 non-null values... so let's drop it (remove it from the dataframe). We can also replace spaces in column names with "\_", which will be useful later.
+
+```{python}
+# | eval: false
+data.drop(columns="Unnamed: 32", inplace=______)
+data.columns = data.columns.str.replace("?", "?")
+# Check that the column was removed and column names were changed.
+print(data.info())
+```
+
+The column was successfully removed!
+
+Now, we can use `.head(5)` to show the first 5 rows of the dataset (rows 0-4). Remember that the first row is "0" not "1"!
+
+```{python}
+data.head(5)
+```
+
+### Recoding a Variable
+
+For our logistic regression, the diagnosis column, which is our outcome of interest, should be 0, 1 not B, M. To fix this, we can use a *dictionary* and `.map()`. We could also use a lambda function like we did in Session 3, but dictionaries can be more convenient if there are more than 2 values to be recoded.
+
+```{python}
+#| eval: false
+## define a dictionary
+y_recode = {"B": ___, "M": ___}
+
+## use .map to locate the keys in the column and replace with values
+data["diagnosis"] = data["diagnosis"].map(________)
+
+data.head(5)
+```
+
+## Step 3: Exploratory Data Analysis
+
+Now that our data is cleaned and we have our outcome in numeric form, we can use `.describe()` to get summary statistics for each column of the dataset.
+
+```{python}
+#| eval: false
+
+___.___()
+```
+
+The count column tells us the number of non-null (non-missing) values in a column.
+
+### Creating Descriptive Plots
+
+We can also look at the number of each diagnosis reflected in the dataset in a plot using seaborn.
+
+You can also save a plot to a variable (ex: 'p') if you want to display it later with `plt.show(p)`.
+
+```{python}
+#| eval: false
+sns.countplot(x="_________", hue="_________", data=______)
+plt.title("Distribution of Diagnoses")
+_____
+```
+
+If we want, we can change the colors of the plot. To make the plot a bit more useful, we can also change the y-scale from "count" to "percentage" and add labels so it is clear what "0" and "1" mean.
+
+To help us pick colors, we can use `sns.color_palette()` which will display an image with the colors in the palette.
+
+```{python}
+sns.color_palette("colorblind")
+```
+
+To change the colors of our plot, we can make a dictionary with the values of 'diagnosis' as keys and the hexcodes of the colors we want to use as values.
+
+We can get the hex codes of colors from a seaborn palette using `sns.color_palette().as_hex()`.
+
+```{python}
+# | message: false
+#| eval: false
+color_hex = sns.color_palette("colorblind")._____
+
+print("The hexcodes for the 'colorblind' palette are:\n", ____)
+
+## if we want to make the columns green for benign and yellow for malignant
+
+## the "-" lets us index from the end of the list rather than the front. However, the '-1'th position is the last position (there is no '-0')
+
+colors = {0: color_hex[__], 1: color_hex[__]}
+```
+
+We then create the plot and tell seaborn to use 'colors' as the palette for the graph. We can also change the 'stat' to be "percent", which can be more interpretable than raw counts.
+
+We can also change the xtick labels to be "Benign" and "Malignant" instead of "0" and "1". Because we assigned the plot to the variable 'p', we can use `p.{}` to change attributes of plot 'p'.
+
+We will also change the axis labels and set a title. Once we make these changes, we can show the finished plot.
+
+```{python}
+#| eval: false
+p = sns.countplot(
+    x="___",
+    hue="___",
+    stat="___",
+    data=data,
+    palette=colors,
+    legend=False,
+)
+
+## change the xticklabels to benign and malignant
+p.set_xticks([0, 1])
+p.set_xticklabels(["___", ""])
+
+## change the axes labels and title
+p.set(xlabel="___", ylabel="___", title="Distribution of Diagnoses")
+
+## add legend
+plt.legend(title="Diagnosis", loc="upper right", labels=["Benign", "Malignant"])
+
+## show plot
+plt.show(p)
+```
+
+If we wanted to, we could also make a correlation heatmap of our features using `.corr()` and `sns.heatmap()`.
+
+For this, all of our columns must be numeric, and we should remove the 'id' column as it is not useful for correlation. We use `.select_dtypes()` to select only the numeric columns from the dataset.
+
+```{python}
+# | eval: false
+numeric_data = data.select_dtypes(include=___)
+
+## drop id column
+numeric_data.drop(columns=___, inplace=___)
+
+## set figure size
+plt.figure(figsize=(20, 20))
+
+## use corr function and seaborn heatmap to create correlation heatmap
+## 'fmt' allows us to choose the number display format for the heatmap
+
+sns.heatmap(numeric_data.___, annot=True, fmt=".2f", cmap="coolwarm")
+
+## set plot title and show plot
+plt.title("Feature Correlation Heatmap")
+
+plt.___
+```
+
+## Step 4: Creating a Logistic Regression Model
+
+Here we will explore two methods for creating a logistic regression model. The first, statsmodels, is more similar to R and is more user-friendly for statistical purposes. The second, scikit-learn, is more useful for machine learning and prediction models, but is a framework that is worth learning if you are going to use python often.
+
+### Method 1: Statsmodels
+
+The <a href="https://www.statsmodels.org/stable/index.html">statsmodels package</a> is a python package for creating statistical models, conducting tests and performing data exploration. It is similar to packages used in R and creates an r-like model summary.
+
+If we wanted to see if higher values of area_mean and texture_mean are associated with a higher probability of malignancy, we can use `smf.logit()` to fit a logistic regression model.
+
+```{python}
+# | eval: false
+logit = smf.logit("___ ~ ___ + ___", data=data).fit()
+
+print(logit.summary())
+```
+
+### Method 2: Scikit-learn
+
+The <a href="https://scikit-learn.org/stable/index.html">scikit-learn pacakge</a> is geared towards machine-learning and prediction-related tasks like classification, clustering and dimensionality reduction.
+
+Fitting models with scikit-learn is a bit more complex than with statsmodels but is more along the lines of what most python projects will require.
+
+Instead of fitting a logistic regression model on the full dataset like we did with statsmodels, this time we are going to fit on a subset of our data and create a prediction model. We will test this prediction model on the remainder of the dataset.
+
+### Splitting Training and Test Data
+
+To fit a prediction model with sci-kit learn...
+
+We first need to split the dataset into X (predictors/features) and y (outcomes). Then we use the `train_test_split()` function to split these datasets into a training dataset and a test dataset.
+
+We use the .loc function and ":" to select all rows and any columns including and after "radius_mean", and we assign these columns to x. This excludes the "diagnosis" and "id" columns.
+
+We set y as simply the diagnosis column.
+
+When splitting our dataset, we can define 'test_size' which is the proportion of the data that will be set aside for testing the model. We can also set a random_state.
+
+::: {style="border-left: 4px solid #007bff; background-color: #f8f9fa; padding: 5px; margin: 5px 0;"}
+Unlike R, Python allows for multi-argument returns from functions. This lets us assign each returned object to a different variable to be used later!
+:::
+
+```{python}
+#| eval: false
+X = data.loc[:, "___"::]
+
+## set only the diagnosis column as "y"
+y = data.loc[:, "___"]
+
+## here we assign each object returned from `train_test_split` to a different variable
+## we can use test_size to set the proportion of the dataset reserved for testing
+X_?, X_?, y_?, y_? = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+X_train.head(3)
+```
+
+### Scaling/Normalizing Data
+
+Because all of our features have different scales, we need to standardize (normalize) our dataset. We can do this by creating an instance of the `StandardScaler` class called "scaler" and fitting that to the training data. We then use the same "scaler" to scale the test dataset.
+
+```{python}
+#| eval: false
+## standardize dataset
+scaler = ___()
+
+## fit the scaler to the _ data
+scaler.fit(___)
+
+## apply the scaler to the _ data and _ data
+X_train = scaler.transform(___)
+X_test = scaler.transform(___)
+```
+
+### After scaling the data, we can perform dimensional reduction with PCA
+
+PCA is often used for dimensional reduction with machine learning methods so we will demonstrate it here. We can set up the PCA transformer in the same way that we set the scaler above.
+
+```{python}
+# | eval: false
+## set up PCA transformer with the number of components you want and fit to training dataset
+pca = PCA(n_components=__)
+pca = pca.fit(___)
+
+## apply PCA transformer to training and test set
+X_train_pca = pca.transform(___)
+X_test_pca = pca.transform(___)
+```
+
+```{python}
+## we can look at the cumulative explained variance
+plt.plot(np.cumsum(pca.explained_variance_ratio_))
+plt.xlabel("Number of Components")
+plt.ylabel("Cumulative Explained Variance")
+plt.show()
+```
+
+## Step 5: Model Setup
+
+Next we have to set up the model itself by creating an instance of the `LogisticRegression` model class.
+
+```{python}
+#| eval: false
+lr = ___
+```
+
+Then, we can fit this model to the training data.
+
+```{python}
+#| eval: false
+## fit to training data
+lr.___(X_train_pca, y_train)
+```
+
+## Step 6: Look At Results
+
+Once the model is fit, we can use it to predict the outcome (diagnosis) based on the features of the test data.
+
+### Store Results in a Dataframe
+
+We can use `pd.DataFrame()` to create an empty pandas dataframe that we can fill with our results.
+
+```{python}
+#| eval: false
+## use model to predict test data
+## set up dataframe to review results
+results = pd.___
+
+## get predicted
+results.loc[:, 'Predicted']= lr.___(___)
+
+## get true y values for test dataset
+results.loc[:, 'Truth'] = ___.___
+
+## get probability of being malignant
+## the output is one probability per outcome, we only want the second outcome (malignant)
+results.loc[:, 'Probability: Malignant'] = pd.DataFrame(lr.___(X_test_pca))[_]
+
+results.head(5)
+```
+
+We can also get a quantitative "accuracy score" that will give us an idea of how well our model predicts our outcomes.
+
+```{python}
+accuracy = accuracy_score(results["Truth"], results["Predicted"])
+
+print("Accuracy: {:.2f}%".format(accuracy * 100))
+```
+
+### Create ROC curve
+
+As a figure, we can create an ROC curve and use quarto chunk options to add a figure caption.
+
+```{python}
+# | fig-cap: An ROC curve for our logistic regression model
+# | eval: false
+
+## make a plot to vizualize the ROC curve
+
+## get false pos rate, true pos rate and thresholds
+## there are 3 outputs so we need 3 variables to catch them
+___, ___, ___ = roc_curve(results["Truth"], results["Predicted"])
+
+## get AUC data
+roc_auc = auc(___, ___)
+
+## set up plot
+plt.figure(figsize=(8, 6))
+
+## using matplotlib this time, create line plot with 2pt line weight
+## add "ROC Curve (AUC = AUC)" as label for orange line
+## .2f is for display formatting, lw is linewidth
+plt.plot(fpr, tpr, color="darkorange", lw=2, label=f"ROC Curve (AUC = {roc_auc:.2f})")
+
+## create another curve, this time blue with a dashed line labeled "Random"
+## as in random chance.
+plt.plot(___, ___, color="navy", lw=2, linestyle="--", label="Random")
+
+## add xlabel, ylabel and title
+plt.xlabel("False Positive Rate")
+plt.ylabel("True Positive Rate")
+plt.title(
+    "Receiver Operating Characteristic (ROC) Curve\nAccuracy: {:.2f}%".format(
+        accuracy * 100
+    )
+)
+
+## add legend and show plot
+plt.legend(loc="lower right")
+plt.show()
+
+```
+
+Congratulations! You have successfully done logistic regression in Python!
+
