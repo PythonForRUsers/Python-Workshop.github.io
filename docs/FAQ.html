@@ -8,7 +8,7 @@
 
 <meta name="author" content="Python Group">
 
-<title>FAQ – Intro to Python Workshops</title>
+<title>Frequently Asked Questions – Intro to Python Workshops</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -183,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
   <li class="nav-item">
     <a class="nav-link active" href="./FAQ.html" aria-current="page"> 
-<span class="menu-text">FAQ</span></a>
+<span class="menu-text">Frequently Asked Questions</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -201,10 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#python-workshops-frequently-asked-questions" id="toc-python-workshops-frequently-asked-questions" class="nav-link active" data-scroll-target="#python-workshops-frequently-asked-questions">Python Workshops: Frequently Asked Questions</a>
-  <ul class="collapse">
-  <li><a href="#managing-virtual-environments-with-conda" id="toc-managing-virtual-environments-with-conda" class="nav-link" data-scroll-target="#managing-virtual-environments-with-conda">Managing Virtual Environments with Conda</a></li>
-  </ul></li>
+  <li><a href="#managing-virtual-environments-with-conda" id="toc-managing-virtual-environments-with-conda" class="nav-link active" data-scroll-target="#managing-virtual-environments-with-conda">Managing Virtual Environments with Conda</a></li>
   </ul>
 </nav>
     </div>
@@ -213,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">FAQ</h1>
+<h1 class="title">Frequently Asked Questions</h1>
 </div>
 
 
@@ -236,38 +233,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="python-workshops-frequently-asked-questions" class="level1">
-<h1>Python Workshops: Frequently Asked Questions</h1>
-<section id="managing-virtual-environments-with-conda" class="level3">
-<h3 class="anchored" data-anchor-id="managing-virtual-environments-with-conda">Managing Virtual Environments with Conda</h3>
-<ol type="1">
-<li><p>Is it possible (or recommended) to create a virtual environment in a specific project folder? Are there advantages or disadvantages to keeping the virtual environment in the default location versus a network drive (e.g., H drive)?</p>
+<section id="managing-virtual-environments-with-conda" class="level2">
+<h2 class="anchored" data-anchor-id="managing-virtual-environments-with-conda">Managing Virtual Environments with Conda</h2>
+<p><em><strong>Question</strong>: Is it possible (or recommended) to create a virtual environment in a specific project folder? Are there advantages or disadvantages to keeping the virtual environment in the default location versus a network drive (e.g., H drive)?</em></p>
+<p><strong>Answer:</strong> It is definitely possible to create an environment in a specific project folder/on the H drive (<code>conda create --prefix /path/to/your/project_folder/env_name</code>)! Note that, to activate the environment, you need to activate it by the full path, not by a name–e.g., <code>conda activate /path/to/your/project_folder/env_name</code>.</p>
 <ul>
-<li><p><strong>Answer:</strong> It is definitely possible to create an environment in a specific project folder/on the H drive (<code>using conda create --prefix /path/to/your/project_folder/env_name</code>)! Note: to activate the environment, you need to activate it by the path, not by a name (ex:<code>conda activate /path/to/your/project_folder/env_name</code>)</p>
-<p><strong>Advantages:</strong></p>
+<li><p><strong>Advantages:</strong></p>
 <ul>
-<li><p>Backup and Portability: Keeping the environment with the project makes it easier to back up as a single unit and enables access on multiple devices without recreating the environment each time.</p>
-<p><strong>Disadvantages:</strong></p></li>
-<li><p>Performance: Access speed may be slower on a network drive, and network or permissions issues could make the environment temporarily inaccessible. If you typically work off a network drive, storing your environments within the project folder can be beneficial for organization and consistency.</p></li>
+<li><strong>Backup and Portability</strong>: Keeping the environment with the project makes it easier to back up as a single unit and enables access on multiple devices without recreating the environment each time.</li>
 </ul></li>
-</ul></li>
-<li><p>Will creating a virtual environment for each project lead to memory or storage issues? What is the best practice for closing out a project environment?</p>
+<li><p><strong>Disadvantages:</strong></p>
 <ul>
-<li><p><strong>Answer:</strong> In general, having a virtual environment for each active project shouldn’t cause memory issues. However, it’s good practice to clean up environments when a project concludes.</p></li>
+<li><strong>Performance</strong>: Access speed may be slower on a network drive, and network or permissions issues could make the environment temporarily inaccessible. If you typically work off a network drive, storing your environments within the project folder can be beneficial for organization and consistency.</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Activating environments with custom folder locations
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You need to activate the conda environment stored outside of the default location by the path, not by a name.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash basj code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate /path/to/your/project_folder/env_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You may also create a symbolic link in the default <code>envs</code> folder to point to your custom environment location.</p>
+<ul>
+<li><p>On macOS:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /path/to/your/project_folder/env_name /path/to/conda/envs/<span class="op">&lt;</span>custom_env_name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>On Windows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mklink</span> /J <span class="st">"C:\path\to\conda\envs\&lt;custom_env_name&gt;"</span> <span class="st">"H:\path\to\your\project_folder\env_name"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<p>Now, you will be able to activate the environment <strong><em>by name only</em></strong>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate <span class="op">&lt;</span>custom_env_name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<hr>
+<p><em><strong>Question</strong>: Will creating a virtual environment for each project lead to memory or storage issues? What is the best practice for closing out a project environment?</em></p>
+<p><strong>Answer:</strong> In general, having a virtual environment for each active project shouldn’t cause memory issues. However, it’s good practice to clean up environments when a project concludes.</p>
+<ul>
 <li><p>Here’s a recommended process:</p>
 <ol type="1">
-<li><p>Activating the environment you want to export</p></li>
+<li><p>Activating the environment you want to export.</p></li>
 <li><p>Exporting the environment to a .yaml file with <code>conda env export &gt; environment.yaml</code>.</p></li>
 <li><p>After the .yaml file is created (make sure to check before deleting the environment!), you can delete the environment with <code>conda env remove --name env_name</code> (or <code>conda env remove --prefix path/to/env_name</code> if using a specific path).</p></li>
 </ol></li>
-</ul></li>
-</ol>
-<p>Tip: By exporting the environment before deletion, you can always recreate the environment later if needed by using:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">conda</span> env create <span class="at">--prefix</span> /path/to/your/project_folder/env_name <span class="at">-f</span> environment.yaml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">conda</span> activate /path/to/your/project_folder/env_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<li><p><strong>Tip</strong>: By exporting the environment before deletion, you can always recreate the environment later if needed by using:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">--prefix</span> /path/to/your/project_folder/env_name <span class="at">-f</span> environment.yaml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate /path/to/your/project_folder/env_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
