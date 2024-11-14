@@ -12,3 +12,4 @@ dependencies:
   - ipykernel
   - pyyaml
   - nbformat #optional
+  - statsmodels
