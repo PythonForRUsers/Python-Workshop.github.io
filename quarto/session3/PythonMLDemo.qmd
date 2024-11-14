@@ -328,6 +328,8 @@ data.describe()
 
 The count column tells us the number of non-null (non-missing) values in a column. 
 
+<hr style="border: none; border-top: 2px solid #007bff; width: 100%; margin-top: 20px; margin-bottom: 20px;">
+
 ### Creating Descriptive Plots
 
 Creating plots in python is similar to using ggplot in R, but there are some syntactic differences. The two most popular plotting packages in python are `matplotlib` and `seaborn`.
@@ -956,6 +958,7 @@ First, we can select features to use for model (statsmodels does not perform reg
 
 ```{python}
 ## scale X
+X_raw = X  ## scaled dfs lose column names
 X = scaler.transform(X_raw)
 
 ## set up model for Lasso and fit it
