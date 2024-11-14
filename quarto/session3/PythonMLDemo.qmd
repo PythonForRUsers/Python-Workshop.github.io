@@ -451,7 +451,7 @@ colors = {0: color_hex[2], 1: color_hex[-2]}
 
 We then create the plot and tell seaborn to use 'colors' as the palette for the graph. We can also change the 'stat' to be "percent", which can be more interpretable than raw counts. 
 
-We can also change the xtick labels to be "Benign" and "Malignant" instead of "0" and "1". Because we assigned the plot to the variable 'p', we can use `p.{}` to change attributes of plot 'p'.
+We can also change the xtick labels to be "Benign" and "Malignant" instead of "0" and "1". 
 
 We will also change the axis labels and set a title. Once we make these changes, we can show the finished plot. 
 
@@ -506,6 +506,7 @@ ax2.legend(title="Diagnosis", loc="upper right", labels=["Benign", "Malignant"])
 
 ## show plot
 display(fig2)
+plt.close(fig2)
 ```
 
 </details>
@@ -562,6 +563,7 @@ sns.heatmap(numeric_data.corr(), annot=True, fmt=".2f", cmap="coolwarm", ax=ax3)
 ax3.set_title("Feature Correlation Heatmap")
 
 display(fig3)
+plt.close(fig3)
 ```
 </details>
 </div>
@@ -576,7 +578,7 @@ Here we will explore two methods for creating a logistic regression model. The f
 
 The <a href="https://www.statsmodels.org/stable/index.html">statsmodels package</a> is a python package for creating statistical models, conducting tests and performing data exploration. It is similar to packages used in R and creates an r-like model summary. 
 
-If we wanted to see if higher values of area_mean and texture_mean are associated with a higher probability of malignancy, we can use `smf.logit()` to fit a logistic regression model.
+If we wanted to see if higher values of area_mean and texture_mean are associated with increased odds of malignancy, we can use `smf.logit()` to fit a logistic regression model.
 
 ```{python}
 # | eval: false
@@ -592,7 +594,7 @@ logit = smf.logit("diagnosis ~ area_mean + texture_mean", data=data).fit()
 
 print(logit.summary())
 ```
-From the summary, we can see that the area_mean and texture_mean are both associated with an increased probability of malignancy. 
+From the summary, we can see that the area_mean and texture_mean are both associated with increased odds of malignancy. 
 </details>
 </div>
 
@@ -801,20 +803,20 @@ Once the model is fit, we can use it to predict the outcome (diagnosis) based on
 We can use `pd.DataFrame()` to create an empty pandas dataframe that we can fill with our results. 
 
 ```{python}
-#| eval: false
+# | eval: false
 ## use model to predict test data
 ## set up dataframe to review results
 results = pd.___
 
 ## get predicted
-results.loc[:, 'Predicted']= lr.___(___)
+results.loc[:, "Predicted"] = lr.___(___)
 
 ## get true y values for test dataset
-results.loc[:, 'Truth'] = ___.___
+results.loc[:, "Truth"] = ___.___
 
 ## get probability of being malignant
 ## the output is one probability per outcome, we only want the second outcome (malignant)
-results.loc[:, 'Probability: Malignant'] = pd.DataFrame(lr.___(X_test_pca))[_]
+results.loc[:, "Probability: Malignant"] = pd.DataFrame(lr.___(X_test_pca))[_]
 
 results.head(5)
 ```
