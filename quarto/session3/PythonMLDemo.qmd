@@ -21,11 +21,19 @@ format:
     <p>Download Follow Along File</p>
 </a>
 
-We are using the same dataset as in session 3! There is no need to re-download it!
+# Welcome to session 4!
+
+**In this session, we are going to walk through data cleaning, visualization and two different ways of building a logistic regression model.**
+
+We are using the **same dataset** as in session 3! There is no need to re-download it!
+
+Click on the 'Download Follow Along File' link above or visit the 'files' tab on the teams page to get the follow along file for this session. There is a jupyter notebook option and a quarto option. Please choose whichever you are comfortable with!
+
+<hr style="border: none; border-top: 2px solid #007bff; width: 100%;">
 
 ## Getting Started
 
-Before doing anything else, we should first activate the conda environment we want to use. 
+Before doing anything else, we should first activate the conda environment we want to use. If you created the 'python-intro-env' environment, please use that. 
 <details>
 <summary> Refresher: How to activate conda environment </summary>
 <div style="sp"></div>
@@ -45,14 +53,6 @@ or
 
 In Anaconda Navagator, click on the **Environments** tab on the left and select the environment you want to activate. Just selecting the environment should activate it. 
 </details>
-
-If we want to make sure we have the packages we'll need installed in the environment before we try to import them, we can either check on anaconda or use the terminal: 
-
-<div class="terminal">
-\> conda list
-</div>
-<div style="sp"></div>
-Otherwise, we will get an error message if we try to import packages that are not installed. 
 
 <details>
 <summary> Refresher: How to install packages </summary>
@@ -74,9 +74,74 @@ or
 When working with conda environments, it's best practice to install everything with conda and only use pip for packages that are not available through conda!
 </details>
 
+<div style="border-left: 4px solid #007bff; background-color: #f8f9fa; padding: 5px; margin: 5px 0;">
+If you are using the 'python-intro-env' environment, you may need to install the 'statsmodels' package if you have not already installed it. 
+</div>
+
+**Statsmodels can be installed via conda install so:**
+
+<div style="background-color: #1e1e1e;
+    border: 1px solid #f8f9fa;
+    /* Optional border */
+    color: #ffffff;
+    padding: 5px;
+    /* Top 10px, right 5px, bottom 5px, left 5px */
+    font-family: monospace;
+    border-radius: 5px;
+    max-width: 800px;">
+\> conda install statsmodels
+</div>
+
+### Checking installed packages
+If we want to make sure we have the packages we'll need installed in the environment before we try to import them, we can either check on anaconda or use the terminal: 
+
+<div style="background-color: #1e1e1e;
+    border: 1px solid #f8f9fa;
+    /* Optional border */
+    color: #ffffff;
+    padding: 5px;
+    /* Top 10px, right 5px, bottom 5px, left 5px */
+    font-family: monospace;
+    border-radius: 5px;
+    max-width: 800px;">
+\> conda list
+</div>
+<div style="sp"></div>
+
+Otherwise, we will get an error message if we try to import packages that are not installed. 
+
+We can also check for a specific package, like pandas, with `conda list {package}. See example below:
+<div style="background-color: #1e1e1e;
+    border: 1px solid #f8f9fa;
+    /* Optional border */
+    color: #ffffff;
+    padding: 5px;
+    /* Top 10px, right 5px, bottom 5px, left 5px */
+    font-family: monospace;
+    border-radius: 5px;
+    max-width: 800px;">
+\> conda list pandas  
+<br>
+# packages in environment at C:\\...\\anaconda3\\envs\\python-intro-env: 
+# Name                    Version                   Build  Channel
+<br>
+pandas                    2.2.2           py310h5da7b33_0
+</div>
+
+<hr style="border: none; border-top: 2px solid #007bff; width: 100%;margin-top: 20px; margin-bottom: 20px;">
+
+# Now we are ready to get started!
+
+Our goals for this session are:  
+1. Practice the **pandas** skills we covered last session  
+2. Get familiar with plotting in python using **seaborn** and **matplotlib**  
+3. Understand how to create and evaluate models using **Statsmodels** and **scikit-learn**  
+
 ## Step 1: Import Packages
 
-Similar to `library()` in R, we’ll use `import` in Python. Fill in the blanks to import the necessary packages:
+Similar to `library()` in R, we’ll use `import` in Python. Unlike R, however, python lets you set what 'nickname' you want to use for each package. There are some standard conventions for these import statements (like pandas typically being imported as pd) and following them helps make your code more readable.
+
+Fill in the blanks to import the necessary packages:
 
 ```{python}
 # | eval: false
@@ -99,7 +164,11 @@ from sklearn.linear_model import ___
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score, roc_curve, auc
 from sklearn.feature_selection import SelectKBest, f_classif
+
+# Import display from IPython to allow display of plots in notebook
+from IPython.display import display
 ```
+The answers can be found under the drop down below.
 
 <div class = "ans"> 
 <details><summary> Click to reveal answers </summary>
@@ -124,9 +193,13 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score, roc_curve, auc
 from sklearn.feature_selection import SelectKBest, f_classif
 
+# Import display from IPython to allow display of plots in notebook
+from IPython.display import display
 ```
 </details>
 </div>
+
+<hr style="border: none; border-top: 2px solid #007bff; width: 100%;margin-top: 20px; margin-bottom: 20px;">
 
 ## Step 2: Read in Data and Perform Data Cleaning
 
@@ -199,9 +272,13 @@ Now, we can use `.head(5)` to show the first 5 rows of the dataset (rows 0-4). R
 data.head(5)
 ```
 
+<hr style="border: none; border-top: 1px solid #f8f9fa; max-width: 950px;"> 
+
 ### Recoding a Variable
 
-For our logistic regression, the diagnosis column, which is our outcome of interest, should be 0, 1 not B, M. To fix this, we can use a *dictionary* and `.map()`. We could also use a lambda function like we did in Session 3, but dictionaries can be more convenient if there are more than 2 values to be recoded. 
+For our logistic regression, the diagnosis column, which is our outcome of interest, should be 0, 1 not B, M. To fix this, we can use a *dictionary* and `.map()`.   
+
+We could also use a lambda function like we did in Session 3, but dictionaries can be more convenient if there are more than 2 values to be recoded. 
 
 ```{python}
 #| eval: false
@@ -229,6 +306,8 @@ data.head(5)
 </details>
 </div>
 
+<hr style="border: none; border-top: 2px solid #007bff; width: 100%;margin-top: 20px; margin-bottom: 20px;">
+
 ## Step 3: Exploratory Data Analysis
 
 Now that our data is cleaned and we have our outcome in numeric form, we can use `.describe()` to get summary statistics for each column of the dataset. 
@@ -251,29 +330,79 @@ The count column tells us the number of non-null (non-missing) values in a colum
 
 ### Creating Descriptive Plots
 
-We can also look at the number of each diagnosis reflected in the dataset in a plot using seaborn. 
+Creating plots in python is similar to using ggplot in R, but there are some syntactic differences. The two most popular plotting packages in python are `matplotlib` and `seaborn`.
 
-You can also save a plot to a variable (ex: 'p') if you want to display it later with `plt.show(p)`.
+Matplotlib is a low-level plotting package, and seaborn is built on top of it. Therefore, you can use many matplotlib methods with seaborn plot objects.
 
+#### Building a plot
+
+When building a plot in python, you start with a 'figure' object and an 'axis' object. 
+
+Data is plotted onto 'axis' objects. Axis objects sit on top of figure objects, which can be saved to variables and displayed later. 
+
+Things like titles and legends are also associated with the 'axis' object, not the 'figure' object.
+
+You can create figures using `plt.figure()`, with additional arguments for things like figure size. Then, you can add an axis object to the figure using fig.add_subplot().
 ```{python}
 #| eval: false
-sns.countplot(x="_________", hue="_________", data=______)
-plt.title("Distribution of Diagnoses")
-_____
+fig = plt.figure()
+ax = fig.add_subplot()
+```
+
+#### Example: Building a count plot of diagnoses using seaborn
+
+We can look at the number of each diagnosis reflected in the dataset in a plot using `seaborn`. 
+
+To do this, we can first construct our 'figure' and 'axis' objects. 
+
+```{python}
+# | dpi: 600
+# | eval: false
+fig = ___
+ax = ___
 ```
 
 <div class = "ans"> 
 <details><summary> Click to reveal answers </summary>
 
 ```{python}
-#| dpi: 600
-sns.countplot(x="diagnosis", hue="diagnosis", data=data)
-plt.title("Distribution of Diagnoses")
-plt.show()
+# | dpi: 600
+fig = plt.figure()
+ax = fig.add_subplot()
 ```
 
 </details>
 </div>
+
+Then, we can create our 'count plot', which is similar to a barplot in ggplot, and assign it to the 'axis' object we just made. 
+
+We can also set the title of the axis object using the `.set_title()` method. 
+
+If we want to display the plot, we have to use `display()` if we are working with a quarto document or a jupyter notebook. If we are working with a regular python script, we use fig.show().
+
+```{python}
+# | eval: false
+sns.countplot(x="_________", hue="_________", data=______, ax=__)
+ax.set_title("Distribution of Diagnoses")
+
+___(___)
+```
+
+<div class = "ans"> 
+<details><summary> Click to reveal answers </summary>
+
+```{python}
+# | dpi: 600
+sns.countplot(x="diagnosis", hue="diagnosis", data=data, ax=ax)
+ax.set_title("Distribution of Diagnoses")
+
+display(fig)
+```
+
+</details>
+</div>
+
+#### Changing plot attributes
 
 If we want, we can change the colors of the plot. To make the plot a bit more useful, we can also change the y-scale from "count" to "percentage" and add labels so it is clear what "0" and "1" mean. 
 
@@ -327,59 +456,63 @@ We can also change the xtick labels to be "Benign" and "Malignant" instead of "0
 We will also change the axis labels and set a title. Once we make these changes, we can show the finished plot. 
 
 ```{python}
-#| eval: false
-p = sns.countplot(
-    x="___",
-    hue="___",
-    stat="___",
-    data=data,
-    palette=colors,
-    legend=False,
+# | eval: false
+fig2 = plt.figure()
+ax2 = fig2.add_subplot()
+
+sns.countplot(
+    x="___", hue="___", stat="___", data=data, palette=colors, legend=False, ax=ax2
 )
 
 ## change the xticklabels to benign and malignant
-p.set_xticks([0, 1])
-p.set_xticklabels(["___", ""])
+ax2.set_xticks([0, 1])
+ax2.set_xticklabels(["___", ""])
 
 ## change the axes labels and title
-p.set(xlabel="___", ylabel="___", title="Distribution of Diagnoses")
+ax2.set(xlabel="___", ylabel="___", title="Distribution of Diagnoses")
 
 ## add legend
-plt.legend(title="Diagnosis", loc="upper right", labels=["Benign", "Malignant"])
+ax2.legend(title="Diagnosis", loc="upper right", labels=["Benign", "Malignant"])
 
-## show plot
-plt.show(p)
+display(fig2)
 ```
 
 <div class = "ans"> 
 <details><summary> Click to reveal answers </summary>
 
 ```{python}
-p = sns.countplot(
+fig2 = plt.figure()
+ax2 = fig2.add_subplot()
+
+sns.countplot(
     x="diagnosis",
     hue="diagnosis",
     stat="percent",
     data=data,
     palette=colors,
     legend=False,
+    ax=ax2,
 )
 
 ## change the xticklabels to benign and malignant
-p.set_xticks([0, 1])
-p.set_xticklabels(["Benign", "Malignant"])
+ax2.set_xticks([0, 1])
+ax2.set_xticklabels(["Benign", "Malignant"])
 
 ## change the axes labels and title
-p.set(xlabel="Diagnosis", ylabel="Percent", title="Distribution of Diagnoses")
+ax2.set(xlabel="Diagnosis", ylabel="Percent", title="Distribution of Diagnoses")
 
 ## add legend
-plt.legend(title="Diagnosis", loc="upper right", labels=["Benign", "Malignant"])
+ax2.legend(title="Diagnosis", loc="upper right", labels=["Benign", "Malignant"])
 
 ## show plot
-plt.show(p)
+display(fig2)
 ```
 
 </details>
 </div>
+
+
+#### Correlation Heatmap
 
 If we wanted to, we could also make a correlation heatmap of our features using `.corr()` and `sns.heatmap()`. 
 
@@ -387,6 +520,8 @@ For this, all of our columns must be numeric, and we should remove the 'id' colu
 
 ```{python}
 # | eval: false
+fig3 = plt.figure()
+ax3 = fig3.add_subplot()
 numeric_data = data.select_dtypes(include=___)
 
 ## drop id column
