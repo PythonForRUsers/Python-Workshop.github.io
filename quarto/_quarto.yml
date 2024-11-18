@@ -28,6 +28,8 @@ website:
             href: session2b/DataStructuresDemo_2.qmd
           - text: "Session 3: Logistic Regression Demo"
             href: session3/PythonMLDemo.qmd
+          - text: "Extras: Regex Tutorial"
+            href: extra_tutorials/regex_tutorial.qmd
       - text: "Discussion"
         href: https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/discussions
       - text: "Links"

@@ -1,0 +1,217 @@
+---
+title: 'Extra Tutorial: Regular Expressions in Python'
+author: Python Group
+format: 
+    html:
+        output-file: "regex_tutorial.html"
+        toc: true
+        code-copy: true
+        code-line-numbers: true
+        link-external-icon: false
+        link-external-newwindow: true
+---
+
+The goal of this tutorial is to introduce regular expressions in python and how to use them similarly to grep in R. 
+
+<hr style="border: none; border-top: 2px solid #007bff; width: 100%;">
+
+```{python}
+import re
+import pandas as pd
+import numpy as np
+import seaborn as sns
+from tableone import TableOne
+
+
+mpg = sns.load_dataset("mpg")
+print(mpg.head())
+```
+
+```{python}
+mpg.info()
+```
+
+### Optional: Create a summary table using TableOne
+
+To get a better idea of our dataset, we can create a summary table using the 'tableone' package. 
+
+```{python}
+continuous = ["mpg", "displacement", "horsepower", "weight", "acceleration", "model_year"]
+categorical = ["origin", "cylinders"]
+
+print("Continuous:", continuous, "\nCategorical:", categorical, "\n\n")
+
+table = TableOne(data=mpg, categorical=categorical, continuous=continuous, label_suffix=True)
+print("MPG Summary:\n", table)
+```
+
+From the above summary table, we can see that we have both continuous and categorial variables, as well as some missing data. 
+<hr style="border: none; border-top: 1px solid #f8f9fa; max-width: 950px;">
+
+## 1. Filtering Rows with Matching Patterns using re.search()
+
+#### Get list of cars with make 'ford'
+
+If we want to get a list of the cars with make 'ford' (equivalent to grep("ford", mpg$name)):
+
+We can use mpg.loc[] plus a filter to select all names containing 'ford'. 
+
+We create the filter using mpg['name'].apply() and a lambda function. 
+
+```{python}
+mpg.loc[mpg['name'].apply(lambda x: re.search("ford", x) is not None), 
+        'name'][1:10]
+```
+
+#### OR
+
+We can define our own grep function and use that!
+
+There is a file called 'greppy.py' in the downloadables folder on github. You can import that to get an r-like grep function. The function details are also included below. 
+
+```{python}
+def grep(pattern, text, values=False, ignore_case=False):
+    # Compile the regex pattern with the ignore_case flag if enabled
+    flags = re.IGNORECASE if ignore_case else 0
+    regex = re.compile(pattern, flags)
+
+    if values:
+        # Return the matching lines
+        return [line for line in text if regex.search(line)]
+    else:
+        # Return a list of booleans indicating matches
+        return [bool(regex.search(line)) for line in text]
+```
+
+```{python}
+## or, if you put 'greppy.py' from the 'Downloadable' folder in your working directory
+from greppy import grep
+```
+
+You can also install greppy from github via: 
+```{bash}
+pip install git+https://github.com/daniv-20/greppy.git
+```
+
+```{python}
+matches = grep("ford", mpg['name'], values = True)
+print(matches[1:10])
+```
+
+<hr style="border: none; border-top: 1px solid #f8f9fa; max-width: 950px;">
+
+#### Filter Rows by Pattern
+
+If we wanted to look for the mpg information on all cars of make 'ford', we can filter for rows where the 'name' contains 'ford'
+
+```{python}
+filtered_rows = mpg[mpg['name'].apply(lambda x: bool(re.search('ford', x)))]
+print(filtered_rows.head())
+```
+
+#### OR
+
+```{python}
+filtered_rows = mpg[grep("ford", mpg['name'], values = False)]
+print(filtered_rows.head())
+```
+
+<hr style="border: none; border-top: 2px solid #007bff; width: 100%; margin-top: 20px; margin-bottom: 20px;">
+
+## 2. Substituting Values using re.sub()
+
+re.sub works like gsub to substitute values. For example, if we want to replace "usa" with "United States" in the 'origin' column: 
+
+```{python}
+# Replace 'usa' with 'United States' in the 'origin' column
+mpg['origin'] = mpg['origin'].apply(lambda x: re.sub('usa', 'United States', x))
+print(mpg.head())
+```
+
+<hr style="border: none; border-top: 2px solid #007bff; width: 100%; margin-top: 20px; margin-bottom: 20px;">
+
+## 3. Extracting words with re.findall()
+
+If we want to extract all words starting with 'chev' from the name column and put them in another column, we can use `re.findall()`.
+
+```{python}
+# Extract all words starting with 'chev' in the 'name' column
+mpg["chev"] = mpg["name"].apply(lambda x: re.findall(r"\bchev\w*", x))
+print(mpg[["name", "chev"]].head())
+```
+
+
+<strong><span style="color: #002569; font-size: 30px; font-weight: bold;">How did we get " </span><span style="color: #0074e0; font-size: 30px; font-weight: bold;">r</span><span style="color: red; font-size: 30px; font-weight: bold;">'\\b</span><span style="color: purple; font-size: 30px; font-weight: bold;">chev</span><span style="color: darkgreen; font-size: 30px; font-weight: bold;">\\w</span><span style="color: orange; font-size: 30px; font-weight: bold;">*\*'*</span><span style="color: #002569; font-size: 30px; font-weight: bold;"> " ?</span></strong>
+ 
+<span style="color: #0074e0; font-size:20px;font-weight: bold;">1. **r - Raw String** </span>   
+The r before the string indicates a raw string in Python. This tells Python not to treat backslashes (\) as escape characters.  
+For example, in a regular string, \n represents a newline. In a raw string (r"\n"), it is treated literally as backslash followed by n.
+Without the r, the regex would need to be written as '\\bchev\\w*'.  
+
+<span style="color: red; font-size:20px;font-weight: bold;">2. **\b - Word Boundary**</span>  
+\b matches a word boundary, which is the position between a word character (letters, digits, or underscore: [a-zA-Z0-9_]) and a non-word character.  
+It ensures the match starts at the beginning of a word.  
+Examples:  
+In "chevrolet", \bchev matches because "chev" is at the beginning of the word.  
+In "123chev", \bchev does not match because "chev" is not preceded by a word boundary.  
+In "superchev", \bchev does not match because "chev" is in the middle of a word.  
+
+<span style="color: purple; font-size:20px;font-weight: bold;">3. **chev - Literal Characters**</span>  
+The sequence chev matches the literal string "chev".  
+This part ensures the regex is looking specifically for words that begin with "chev".  
+
+<span style="color: darkgreen; font-size:20px;font-weight: bold;">4. **\w - Word Character**</span>  
+\w matches any word character, which includes:  
+Letters (a-z, A-Z)  
+Digits (0-9)  
+Underscore (_)  
+This ensures the regex continues matching after "chev" if there are valid word characters.      
+
+<span style="color: orange; font-size:20px;font-weight: bold;">5. **\* - Zero or More**</span>    
+\* is a quantifier that matches zero or more of the preceding character or group.  
+In this case, \w* means "match zero or more word characters after 'chev'".
+This allows the regex to match "chev" alone or "chevrolet", "chevalier", etc.  
+
+For more information on regular expression symbols, see <a href="https://www.pythoncheatsheet.org/cheatsheet/regular-expressions">the regular expressions cheatsheet</a>.
+
+<hr style="border: none; border-top: 1px solid #f8f9fa; max-width: 950px;">
+
+### We can also use expressions like this in our grep function
+
+If we want to get all names beginning with 'chev', we can...
+
+```{python}
+grep(r'\bchev\w*', mpg['name'], values = True)[1:10]
+```
+
+<hr style="border: none; border-top: 2px solid #007bff; width: 100%; margin-top: 20px; margin-bottom: 20px;">
+
+## 4. Splitting Strings with re.split()
+
+If we want to split the 'name' column into separate words, we can use `re.split()`.
+
+```{python}
+# Split 'name' into separate words
+mpg['name_split'] = mpg['name'].apply(lambda x: re.split(r'\s+', x))
+print(mpg[['name', 'name_split']].head())
+```
+
+<hr style="border: none; border-top: 2px solid #007bff; width: 100%; margin-top: 20px; margin-bottom: 20px;">
+
+## 5. Add Optional Flags To Ignore Case
+
+For case-insensitive matching (ignore.case = TRUE in R):
+
+
+```{python}
+filtered_rows = mpg[mpg['name'].apply(lambda x: bool(re.search('FORD', x, re.IGNORECASE)))]
+print(filtered_rows.head())
+```
+
+#### OR
+
+```{python}
+filtered_rows = mpg[grep('FORD', mpg['name'], ignore_case = True)]
+print(filtered_rows.head())
+```
+
