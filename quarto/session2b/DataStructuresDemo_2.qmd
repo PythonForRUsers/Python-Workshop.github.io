@@ -28,9 +28,10 @@ Pandas is a powerful open-source data analysis and manipulation library in Pytho
 
 Data Structures:
 
-    Series: A one-dimensional labeled array, suitable for handling single columns or rows of data.
+Series: A one-dimensional labeled array, suitable for handling single columns or rows of data.
 
-    DataFrame: A two-dimensional table with labeled axes (rows and columns), much like a spreadsheet or SQL table, allowing you to work with data in rows and columns simultaneously.
+DataFrame: A two-dimensional table with labeled axes (rows and columns), much like a spreadsheet or SQL table, allowing you to work with data in rows and columns simultaneously.
+
 
 Data Manipulation:
 
@@ -38,11 +39,57 @@ Data Manipulation:
 
     It can handle missing data, making it easy to filter or fill gaps in datasets.
 
+
 Data Analysis:
 
-    It provides extensive functionality for descriptive statistics, grouping data, and handling time series.
+It provides extensive functionality for descriptive statistics, grouping data, and handling time series.
 
-    Integrates well with other libraries, making it easy to move data between libraries like NumPy for numerical computations and Matplotlib or Seaborn for visualization.
+Integrates well with other libraries, making it easy to move data between libraries like NumPy for numerical computations and Matplotlib or Seaborn for visualization.
+
+
+
+
+Creating folders for project housekeeping
+
+```{python}
+
+###Example Folder Structure
+'''
+project_name/
+    data/
+        raw/
+        processed/
+    scripts/
+    results/
+    logs/
+'''
+
+#To Create folders
+
+import os
+
+#Defining working directory
+base_dir = "G:\\dir_demo"
+
+#Defining Project folder
+project_name = os.path.join(base_dir, "my_project")
+
+# Define the subdirectories
+subdirs = [
+    "data/raw",
+    "data/processed",
+    "scripts",
+    "results",
+    "logs",
+]
+
+# Create directories
+for subdir in subdirs:
+    path = os.path.join(project_name, subdir)
+    os.makedirs(path, exist_ok=True)  #ensures no error if the folder already exists
+    print(f"Created directory: {path}")
+
+```
 
 
 Loading the Dataset
@@ -408,5 +455,26 @@ print("Risk Levels:\n", cancer_data[['diagnosis', 'area_mean', 'risk_level']].he
 
 #Axis=1 tells the function to apply it to the rows. axis=0 (default) applies function to the columns
 
+
+```
+
+
+To export a Pandas dataframe to CSV or XLSX
+```{python}
+
+# Export to CSV
+'''
+
+df.to_csv('/path/to/directory/example.csv', index=False)  # index=False excludes the row indices
+
+
+'''
+#Export to xlsx
+
+'''
+
+df.to_excel('/path/to/directory/example.xlsx', index=False)
+
+'''
 
 ```

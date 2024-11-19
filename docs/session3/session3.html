@@ -386,7 +386,7 @@ We can also check for a specific package, like pandas, with `conda list {package
 <h2 class="anchored" data-anchor-id="step-1-import-packages">Step 1: Import Packages</h2>
 <p>Similar to <code>library()</code> in R, we’ll use <code>import</code> in Python. Unlike R, however, python lets you set what ‘nickname’ you want to use for each package. There are some standard conventions for these import statements (like pandas typically being imported as pd) and following them helps make your code more readable.</p>
 <p>Fill in the blanks to import the necessary packages:</p>
-<div id="7334ab5b" class="cell" data-execution_count="1">
+<div id="16fcbb4c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> ___</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> ___</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> seaborn <span class="im">as</span> ___</span>
@@ -416,7 +416,7 @@ We can also check for a specific package, like pandas, with `conda list {package
 <summary>
 Click to reveal answers
 </summary>
-<div id="9320f169" class="cell" data-execution_count="2">
+<div id="a24e06bf" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -447,7 +447,7 @@ Click to reveal answers
 <section id="step-2-read-in-data-and-perform-data-cleaning" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-read-in-data-and-perform-data-cleaning">Step 2: Read in Data and Perform Data Cleaning</h2>
 <p>We can use the <code>read_csv()</code> function from the pandas package to read in the dataset.</p>
-<div id="bf8bbdbc" class="cell" data-execution_count="3">
+<div id="2c4e1d4c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"__________"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="ans">
@@ -455,7 +455,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="53175bb0" class="cell" data-execution_count="4">
+<div id="01c5b529" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"example_data/Cancer_Data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
@@ -466,7 +466,7 @@ Click to reveal answers
 * column labels<br>
 * column type<br>
 * number of non-null values in each column</p>
-<div id="ec927ab0" class="cell" data-execution_count="5">
+<div id="9b8f8df8" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>data._______()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="ans">
@@ -474,7 +474,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="a23e7065" class="cell" data-execution_count="6">
+<div id="b93ceaf2" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -523,7 +523,7 @@ memory usage: 146.8+ KB</code></pre>
 </div>
 <p>From the <em>info</em>, we can see that the column types make sense and most of the columns have no missing values.</p>
 <p>We do have this extra column called “Unnamed: 32” with 0 non-null values… so let’s drop it (remove it from the dataframe). We can also replace spaces in column names with “_“, which will be useful later.</p>
-<div id="6c961cbc" class="cell" data-execution_count="7">
+<div id="cde3f2f7" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>data.drop(columns<span class="op">=</span><span class="st">"Unnamed: 32"</span>, inplace<span class="op">=</span>______)</span>
 <span id="cb8-2"><a href="#cb8-2"></a>data.columns <span class="op">=</span> data.columns.<span class="bu">str</span>.replace(<span class="st">"?"</span>, <span class="st">"?"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="co"># Check that the column was removed and column names were changed.</span></span>
@@ -534,7 +534,7 @@ memory usage: 146.8+ KB</code></pre>
 <summary>
 Click to reveal answers
 </summary>
-<div id="011d879c" class="cell" data-execution_count="8">
+<div id="8fb51c90" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">## `inplace` means that we modify the original dataframe</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>data.drop(columns<span class="op">=</span><span class="st">"Unnamed: 32"</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb9-3"><a href="#cb9-3"></a>data.columns <span class="op">=</span> data.columns.<span class="bu">str</span>.replace(<span class="st">" "</span>, <span class="st">"_"</span>)</span>
@@ -587,7 +587,7 @@ None</code></pre>
 </div>
 <p>The column was successfully removed!</p>
 <p>Now, we can use <code>.head(5)</code> to show the first 5 rows of the dataset (rows 0-4). Remember that the first row is “0” not “1”!</p>
-<div id="0147fe22" class="cell" data-execution_count="9">
+<div id="35707774" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>data.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
@@ -753,7 +753,7 @@ None</code></pre>
 <h3 class="anchored" data-anchor-id="recoding-a-variable">Recoding a Variable</h3>
 <p>For our logistic regression, the diagnosis column, which is our outcome of interest, should be 0, 1 not B, M. To fix this, we can use a <em>dictionary</em> and <code>.map()</code>.</p>
 <p>We could also use a lambda function like we did in Session 3, but dictionaries can be more convenient if there are more than 2 values to be recoded.</p>
-<div id="33f270ea" class="cell" data-execution_count="10">
+<div id="3ca0fc4a" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">## define a dictionary</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>y_recode <span class="op">=</span> {<span class="st">"B"</span>: ___, <span class="st">"M"</span>: ___}</span>
 <span id="cb12-3"><a href="#cb12-3"></a></span>
@@ -767,7 +767,7 @@ None</code></pre>
 <summary>
 Click to reveal answers
 </summary>
-<div id="90a22246" class="cell" data-execution_count="11">
+<div id="b29d1d7f" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">## define a dictionary</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>y_recode <span class="op">=</span> {<span class="st">"B"</span>: <span class="dv">0</span>, <span class="st">"M"</span>: <span class="dv">1</span>}</span>
 <span id="cb13-3"><a href="#cb13-3"></a></span>
@@ -943,7 +943,7 @@ Click to reveal answers
 <section id="step-3-exploratory-data-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="step-3-exploratory-data-analysis">Step 3: Exploratory Data Analysis</h2>
 <p>Now that our data is cleaned and we have our outcome in numeric form, we can use <code>.describe()</code> to get summary statistics for each column of the dataset.</p>
-<div id="e7919909" class="cell" data-execution_count="12">
+<div id="8109e768" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>___.___()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="ans">
@@ -951,7 +951,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="a62ec9db" class="cell" data-execution_count="13">
+<div id="7bb6dd42" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>data.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
@@ -1198,7 +1198,7 @@ Click to reveal answers
 <p>Data is plotted onto ‘axis’ objects. Axis objects sit on top of figure objects, which can be saved to variables and displayed later.</p>
 <p>Things like titles and legends are also associated with the ‘axis’ object, not the ‘figure’ object.</p>
 <p>You can create figures using <code>plt.figure()</code>, with additional arguments for things like figure size. Then, you can add an axis object to the figure using fig.add_subplot().</p>
-<div id="13786ede" class="cell" data-execution_count="14">
+<div id="8fbad0c9" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>fig <span class="op">=</span> plt.figure()</span>
 <span id="cb16-2"><a href="#cb16-2"></a>ax <span class="op">=</span> fig.add_subplot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1207,7 +1207,7 @@ Click to reveal answers
 <h4 class="anchored" data-anchor-id="example-building-a-count-plot-of-diagnoses-using-seaborn">Example: Building a count plot of diagnoses using seaborn</h4>
 <p>We can look at the number of each diagnosis reflected in the dataset in a plot using <code>seaborn</code>.</p>
 <p>To do this, we can first construct our ‘figure’ and ‘axis’ objects.</p>
-<div id="9e51fc8b" class="cell" data-dpi="600" data-execution_count="15">
+<div id="b244e60a" class="cell" data-dpi="600" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>fig <span class="op">=</span> ___</span>
 <span id="cb17-2"><a href="#cb17-2"></a>ax <span class="op">=</span> ___</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1216,7 +1216,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="d0fe2841" class="cell" data-dpi="600" data-execution_count="16">
+<div id="ae859555" class="cell" data-dpi="600" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>fig <span class="op">=</span> plt.figure()</span>
 <span id="cb18-2"><a href="#cb18-2"></a>ax <span class="op">=</span> fig.add_subplot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1232,7 +1232,7 @@ Click to reveal answers
 <p>Then, we can create our ‘count plot’, which is similar to a barplot in ggplot, and assign it to the ‘axis’ object we just made.</p>
 <p>We can also set the title of the axis object using the <code>.set_title()</code> method.</p>
 <p>If we want to display the plot, we have to use <code>display()</code> if we are working with a quarto document or a jupyter notebook. If we are working with a regular python script, we use fig.show().</p>
-<div id="82f64855" class="cell" data-execution_count="17">
+<div id="f2e5712a" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>sns.countplot(x<span class="op">=</span><span class="st">"_________"</span>, hue<span class="op">=</span><span class="st">"_________"</span>, data<span class="op">=</span>______, ax<span class="op">=</span>__)</span>
 <span id="cb19-2"><a href="#cb19-2"></a>ax.set_title(<span class="st">"Distribution of Diagnoses"</span>)</span>
 <span id="cb19-3"><a href="#cb19-3"></a></span>
@@ -1243,7 +1243,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="ad6d49d0" class="cell" data-dpi="600" data-execution_count="18">
+<div id="cd58b217" class="cell" data-dpi="600" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>sns.countplot(x<span class="op">=</span><span class="st">"diagnosis"</span>, hue<span class="op">=</span><span class="st">"diagnosis"</span>, data<span class="op">=</span>data, ax<span class="op">=</span>ax)</span>
 <span id="cb20-2"><a href="#cb20-2"></a>ax.set_title(<span class="st">"Distribution of Diagnoses"</span>)</span>
 <span id="cb20-3"><a href="#cb20-3"></a></span>
@@ -1263,7 +1263,7 @@ Click to reveal answers
 <h4 class="anchored" data-anchor-id="changing-plot-attributes">Changing plot attributes</h4>
 <p>If we want, we can change the colors of the plot. To make the plot a bit more useful, we can also change the y-scale from “count” to “percentage” and add labels so it is clear what “0” and “1” mean.</p>
 <p>To help us pick colors, we can use <code>sns.color_palette()</code> which will display an image with the colors in the palette.</p>
-<div id="c4b63718" class="cell" data-execution_count="19">
+<div id="7487c138" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>sns.color_palette(<span class="st">"colorblind"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <svg width="550" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#0173b2;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="55" y="0" width="55" height="55" style="fill:#de8f05;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="110" y="0" width="55" height="55" style="fill:#029e73;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="165" y="0" width="55" height="55" style="fill:#d55e00;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="220" y="0" width="55" height="55" style="fill:#cc78bc;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="275" y="0" width="55" height="55" style="fill:#ca9161;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="330" y="0" width="55" height="55" style="fill:#fbafe4;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="385" y="0" width="55" height="55" style="fill:#949494;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="440" y="0" width="55" height="55" style="fill:#ece133;stroke-width:2;stroke:rgb(255,255,255)"></rect><rect x="495" y="0" width="55" height="55" style="fill:#56b4e9;stroke-width:2;stroke:rgb(255,255,255)"></rect></svg>
@@ -1271,7 +1271,7 @@ Click to reveal answers
 </div>
 <p>To change the colors of our plot, we can make a dictionary with the values of ‘diagnosis’ as keys and the hexcodes of the colors we want to use as values.</p>
 <p>We can get the hex codes of colors from a seaborn palette using <code>sns.color_palette().as_hex()</code>.</p>
-<div id="6aa66038" class="cell" data-message="false" data-execution_count="20">
+<div id="dc5b427d" class="cell" data-message="false" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>color_hex <span class="op">=</span> sns.color_palette(<span class="st">"colorblind"</span>)._____</span>
 <span id="cb22-2"><a href="#cb22-2"></a></span>
 <span id="cb22-3"><a href="#cb22-3"></a><span class="bu">print</span>(<span class="st">"The hexcodes for the 'colorblind' palette are:</span><span class="ch">\n</span><span class="st">"</span>, ____)</span>
@@ -1287,7 +1287,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="ae6005e1" class="cell" data-message="false" data-execution_count="21">
+<div id="38a28a8e" class="cell" data-message="false" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>color_hex <span class="op">=</span> sns.color_palette(<span class="st">"colorblind"</span>).as_hex()</span>
 <span id="cb23-2"><a href="#cb23-2"></a></span>
 <span id="cb23-3"><a href="#cb23-3"></a><span class="bu">print</span>(<span class="st">"The hexcodes for the 'colorblind' palette are:</span><span class="ch">\n</span><span class="st">"</span>, color_hex)</span>
@@ -1307,7 +1307,7 @@ Click to reveal answers
 <p>We then create the plot and tell seaborn to use ‘colors’ as the palette for the graph. We can also change the ‘stat’ to be “percent”, which can be more interpretable than raw counts.</p>
 <p>We can also change the xtick labels to be “Benign” and “Malignant” instead of “0” and “1”.</p>
 <p>We will also change the axis labels and set a title. Once we make these changes, we can show the finished plot.</p>
-<div id="a1b3b24a" class="cell" data-execution_count="22">
+<div id="e24c689b" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>fig2 <span class="op">=</span> plt.figure()</span>
 <span id="cb25-2"><a href="#cb25-2"></a>ax2 <span class="op">=</span> fig2.add_subplot()</span>
 <span id="cb25-3"><a href="#cb25-3"></a></span>
@@ -1332,7 +1332,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="56b50d73" class="cell" data-execution_count="23">
+<div id="a2ab9f2f" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>fig2 <span class="op">=</span> plt.figure()</span>
 <span id="cb26-2"><a href="#cb26-2"></a>ax2 <span class="op">=</span> fig2.add_subplot()</span>
 <span id="cb26-3"><a href="#cb26-3"></a></span>
@@ -1374,7 +1374,7 @@ Click to reveal answers
 <h4 class="anchored" data-anchor-id="correlation-heatmap">Correlation Heatmap</h4>
 <p>If we wanted to, we could also make a correlation heatmap of our features using <code>.corr()</code> and <code>sns.heatmap()</code>.</p>
 <p>For this, all of our columns must be numeric, and we should remove the ‘id’ column as it is not useful for correlation. We use <code>.select_dtypes()</code> to select only the numeric columns from the dataset.</p>
-<div id="1c4c0297" class="cell" data-execution_count="24">
+<div id="2818bd62" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="co">## set figure size</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a>fig3 <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">20</span>))</span>
 <span id="cb27-3"><a href="#cb27-3"></a>ax3 <span class="op">=</span> fig3.add_subplot()</span>
@@ -1399,7 +1399,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="804e86dc" class="cell" data-execution_count="25">
+<div id="10b9187e" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>fig3 <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">20</span>))</span>
 <span id="cb28-2"><a href="#cb28-2"></a>ax3 <span class="op">=</span> fig3.add_subplot()</span>
 <span id="cb28-3"><a href="#cb28-3"></a></span>
@@ -1440,7 +1440,7 @@ Click to reveal answers
 <h3 class="anchored" data-anchor-id="method-1-statsmodels">Method 1: Statsmodels</h3>
 <p>The <a href="https://www.statsmodels.org/stable/index.html">statsmodels package</a> is a python package for creating statistical models, conducting tests and performing data exploration. It is similar to packages used in R and creates an r-like model summary.</p>
 <p>If we wanted to see if higher values of area_mean and texture_mean are associated with increased odds of malignancy, we can use <code>smf.logit()</code> to fit a logistic regression model.</p>
-<div id="5d83ef6b" class="cell" data-execution_count="26">
+<div id="06266db8" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>logit <span class="op">=</span> smf.logit(<span class="st">"___ ~ ___ + ___"</span>, data<span class="op">=</span>data).fit()</span>
 <span id="cb29-2"><a href="#cb29-2"></a></span>
 <span id="cb29-3"><a href="#cb29-3"></a><span class="bu">print</span>(logit.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1450,7 +1450,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="7dfd6cfa" class="cell" data-execution_count="27">
+<div id="73a24e3d" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>logit <span class="op">=</span> smf.logit(<span class="st">"diagnosis ~ area_mean + texture_mean"</span>, data<span class="op">=</span>data).fit()</span>
 <span id="cb30-2"><a href="#cb30-2"></a></span>
 <span id="cb30-3"><a href="#cb30-3"></a><span class="bu">print</span>(logit.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1463,8 +1463,8 @@ Click to reveal answers
 Dep. Variable:              diagnosis   No. Observations:                  569
 Model:                          Logit   Df Residuals:                      566
 Method:                           MLE   Df Model:                            2
-Date:                Thu, 14 Nov 2024   Pseudo R-squ.:                  0.6154
-Time:                        13:34:30   Log-Likelihood:                -144.49
+Date:                Tue, 19 Nov 2024   Pseudo R-squ.:                  0.6154
+Time:                        10:54:34   Log-Likelihood:                -144.49
 converged:                       True   LL-Null:                       -375.72
 Covariance Type:            nonrobust   LLR p-value:                3.776e-101
 ================================================================================
@@ -1485,7 +1485,7 @@ From the summary, we can see that the area_mean and texture_mean are both associ
 <strong>Aside:</strong> We can also use feature selection tools from the scikit-learn package to select what features to use.
 </summary>
 <p>Scikit learn requires the outcome and predictor variables to be split into two data frames.</p>
-<div id="f5139fd7" class="cell" data-execution_count="28">
+<div id="fa6e5624" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="im">from</span> sklearn.feature_selection <span class="im">import</span> SelectKBest, f_classif</span>
 <span id="cb32-2"><a href="#cb32-2"></a></span>
 <span id="cb32-3"><a href="#cb32-3"></a>X_raw <span class="op">=</span> data.loc[:, <span class="st">"radius_mean"</span>::]</span>
@@ -1511,8 +1511,8 @@ From the summary, we can see that the area_mean and texture_mean are both associ
 Dep. Variable:              diagnosis   No. Observations:                  569
 Model:                          Logit   Df Residuals:                      563
 Method:                           MLE   Df Model:                            5
-Date:                Thu, 14 Nov 2024   Pseudo R-squ.:                  0.8343
-Time:                        13:34:30   Log-Likelihood:                -62.275
+Date:                Tue, 19 Nov 2024   Pseudo R-squ.:                  0.8343
+Time:                        10:54:34   Log-Likelihood:                -62.275
 converged:                       True   LL-Null:                       -375.72
 Covariance Type:            nonrobust   LLR p-value:                3.129e-133
 ========================================================================================
@@ -1550,7 +1550,7 @@ quasi-separation. In this case some parameters will not be identified.</code></p
 <div style="border-left: 4px solid #007bff; background-color: #f8f9fa; padding: 5px; margin: 5px 0;">
 <p>Unlike R, Python allows for multi-argument returns from functions. This lets us assign each returned object to a different variable to be used later!</p>
 </div>
-<div id="8282b437" class="cell" data-execution_count="29">
+<div id="26f4687a" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>X <span class="op">=</span> data.loc[:, <span class="st">"___"</span>::]</span>
 <span id="cb34-2"><a href="#cb34-2"></a></span>
 <span id="cb34-3"><a href="#cb34-3"></a><span class="co">## set only the diagnosis column as "y"</span></span>
@@ -1569,7 +1569,7 @@ quasi-separation. In this case some parameters will not be identified.</code></p
 <summary>
 Click to reveal answers
 </summary>
-<div id="77c8f3aa" class="cell" data-execution_count="30">
+<div id="af29780b" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>X <span class="op">=</span> data.loc[:, <span class="st">"radius_mean"</span>::]</span>
 <span id="cb35-2"><a href="#cb35-2"></a></span>
 <span id="cb35-3"><a href="#cb35-3"></a><span class="co">## set only the diagnosis column as "y"</span></span>
@@ -1698,7 +1698,7 @@ Click to reveal answers
 <section id="scalingnormalizing-data" class="level3">
 <h3 class="anchored" data-anchor-id="scalingnormalizing-data">Scaling/Normalizing Data</h3>
 <p>Because all of our features have different scales, we need to standardize (normalize) our dataset. We can do this by creating an instance of the <code>StandardScaler</code> class called “scaler” and fitting that to the training data. We then use the same “scaler” to scale the test dataset.</p>
-<div id="c98b5d05" class="cell" data-execution_count="31">
+<div id="5688e1ac" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="co">## standardize dataset</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a>scaler <span class="op">=</span> ___()</span>
 <span id="cb36-3"><a href="#cb36-3"></a></span>
@@ -1714,7 +1714,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="a79c7c3e" class="cell" data-execution_count="32">
+<div id="cb59edbd" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="co">## standardize dataset</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a>scaler <span class="op">=</span> StandardScaler()</span>
 <span id="cb37-3"><a href="#cb37-3"></a></span>
@@ -1731,7 +1731,7 @@ Click to reveal answers
 <section id="after-scaling-the-data-we-can-perform-dimensional-reduction-with-pca" class="level3">
 <h3 class="anchored" data-anchor-id="after-scaling-the-data-we-can-perform-dimensional-reduction-with-pca">After scaling the data, we can perform dimensional reduction with PCA</h3>
 <p>PCA is often used for dimensional reduction with machine learning methods so we will demonstrate it here. We can set up the PCA transformer in the same way that we set the scaler above.</p>
-<div id="cb164125" class="cell" data-execution_count="33">
+<div id="dbdeb947" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="co">## set up PCA transformer with the number of components you want and fit to training dataset</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span>__)</span>
 <span id="cb38-3"><a href="#cb38-3"></a>pca <span class="op">=</span> pca.fit(___)</span>
@@ -1745,7 +1745,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="7c5d7344" class="cell" data-execution_count="34">
+<div id="6cebaa4f" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="co">## set up PCA transformer with the number of components you want and fit to training dataset</span></span>
 <span id="cb39-2"><a href="#cb39-2"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb39-3"><a href="#cb39-3"></a>pca <span class="op">=</span> pca.fit(X_train)</span>
@@ -1762,7 +1762,7 @@ Click to reveal answers
 <p>If we just want to make a quick plot that we do not plan on displaying multiple times, we can skip explicitly setting figure and axis objects.</p>
 <p>Here we use <code>plt.plot()</code> from matplotlib to create a plot of the cumulative explained variance. We can use <code>plt.xlabel()</code> and <code>plt.ylabel()</code> <strong>in the same code chunk</strong> to set the labels for this plot.</p>
 <p>If we try to set the labels in a later chunk, we will get a blank plot.</p>
-<div id="230bd1f1" class="cell" data-execution_count="35">
+<div id="9739a1e2" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="co">## we can look at the cumulative explained variance</span></span>
 <span id="cb40-2"><a href="#cb40-2"></a>plt.plot(np.cumsum(pca.explained_variance_ratio_))</span>
 <span id="cb40-3"><a href="#cb40-3"></a>plt.xlabel(<span class="st">"Number of Components"</span>)</span>
@@ -1784,7 +1784,7 @@ Click to reveal answers
 <section id="step-5-model-setup" class="level2">
 <h2 class="anchored" data-anchor-id="step-5-model-setup">Step 5: Model Setup</h2>
 <p>Next we have to set up the model itself by creating an instance of the <code>LogisticRegression</code> model class.</p>
-<div id="65609e59" class="cell" data-execution_count="36">
+<div id="43d218cd" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>lr <span class="op">=</span> ___</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="ans">
@@ -1792,13 +1792,13 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="44db8af0" class="cell" data-execution_count="37">
+<div id="8b6831e3" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>lr <span class="op">=</span> LogisticRegression()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 </div>
 <p>Then, we can fit this model to the training data.</p>
-<div id="b9661c8e" class="cell" data-execution_count="38">
+<div id="87be9647" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="co">## fit to training data</span></span>
 <span id="cb44-2"><a href="#cb44-2"></a>lr.___(X_train_pca, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1807,7 +1807,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="b0c85614" class="cell" data-execution_count="39">
+<div id="fc1aa587" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="co">## fit to training data</span></span>
 <span id="cb45-2"><a href="#cb45-2"></a>lr.fit(X_train_pca, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
@@ -2227,7 +2227,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <section id="store-results-in-a-dataframe" class="level3">
 <h3 class="anchored" data-anchor-id="store-results-in-a-dataframe">Store Results in a Dataframe</h3>
 <p>We can use <code>pd.DataFrame()</code> to create an empty pandas dataframe that we can fill with our results.</p>
-<div id="881194af" class="cell" data-execution_count="40">
+<div id="df1554af" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="co">## use model to predict test data</span></span>
 <span id="cb46-2"><a href="#cb46-2"></a><span class="co">## set up dataframe to review results</span></span>
 <span id="cb46-3"><a href="#cb46-3"></a>results <span class="op">=</span> pd.___</span>
@@ -2249,7 +2249,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <summary>
 Click to reveal answers
 </summary>
-<div id="ef550c85" class="cell" data-execution_count="41">
+<div id="43902a67" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="co">## use model to predict test data</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a><span class="co">## set up dataframe to review results</span></span>
 <span id="cb47-3"><a href="#cb47-3"></a>results <span class="op">=</span> pd.DataFrame()</span>
@@ -2318,7 +2318,7 @@ Click to reveal answers
 </details>
 </div>
 <p>We can also get a quantitative “accuracy score” that will give us an idea of how well our model predicts our outcomes.</p>
-<div id="83b082bc" class="cell" data-execution_count="42">
+<div id="58567273" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>accuracy <span class="op">=</span> accuracy_score(results[<span class="st">"Truth"</span>], results[<span class="st">"Predicted"</span>])</span>
 <span id="cb48-2"><a href="#cb48-2"></a></span>
 <span id="cb48-3"><a href="#cb48-3"></a><span class="bu">print</span>(<span class="st">"Accuracy: </span><span class="sc">{:.2f}</span><span class="st">%"</span>.<span class="bu">format</span>(accuracy <span class="op">*</span> <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2332,7 +2332,7 @@ Click to reveal answers
 <p>As a figure, we can create an ROC curve and use quarto chunk options to add a figure caption.</p>
 <p>Like we did for the cumulative variance plot, this time we will skip setting up named figure and axis objects. Instead, we will first create a ‘working figure’ of size 8x6 and add plots on top of that. Any ‘plt.plot()’ instances we create in this chunk will be overlayed on the working figure object.</p>
 <p>If we were working in a python script rather than a quarto document, we would need to use plt.show() at the end to display the figure.</p>
-<div id="e37e0d4f" class="cell" data-execution_count="43">
+<div id="5d984be6" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="co">## make a plot to vizualize the ROC curve</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a></span>
 <span id="cb50-3"><a href="#cb50-3"></a><span class="co">## get false pos rate, true pos rate and thresholds</span></span>
@@ -2371,7 +2371,7 @@ Click to reveal answers
 <summary>
 Click to reveal answers
 </summary>
-<div id="4f99d4b3" class="cell" data-execution_count="44">
+<div id="64dbb76f" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="co">## make a plot to vizualize the ROC curve</span></span>
 <span id="cb51-2"><a href="#cb51-2"></a></span>
 <span id="cb51-3"><a href="#cb51-3"></a><span class="co">## get false pos rate, true pos rate and thresholds</span></span>
@@ -2424,7 +2424,7 @@ Create a Statsmodels-like model and summary with scikit-learn and statsmodels
 <p>Typically, you would want to pick which package (sklearn or statsmodels) you want to use and stick with it, but this is an option if necessary. Note: I am showing Lasso here as well because statsmodels will fail if there are highly correlated features like with this dataset, however this same method can be used on a scikit-learn logistic regression model without Lasso penalties.</p>
 <p>This time, we are going to fit on the full data.</p>
 <p>First, we can select features to use for model (statsmodels does not perform regularization and therefore will fail to converge when there are highly correlated features). Scikit-learn gives us multiple ways to do this. Let’s use LASSO.</p>
-<div id="5550e59f" class="cell" data-execution_count="45">
+<div id="560c5715" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="co">## scale X</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a>X_raw <span class="op">=</span> X  <span class="co">## scaled dfs lose column names</span></span>
 <span id="cb52-3"><a href="#cb52-3"></a>X <span class="op">=</span> scaler.transform(X_raw)</span>
@@ -2442,7 +2442,7 @@ Create a Statsmodels-like model and summary with scikit-learn and statsmodels
 </div>
 </div>
 <p><strong>Fit statsmodels model and get summary</strong></p>
-<div id="3af5eb85" class="cell" data-execution_count="46">
+<div id="d6b3d91a" class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="co">## Get coefficients</span></span>
 <span id="cb54-2"><a href="#cb54-2"></a>intercept <span class="op">=</span> model.intercept_[<span class="dv">0</span>]</span>
 <span id="cb54-3"><a href="#cb54-3"></a>coefficients <span class="op">=</span> model.coef_[<span class="dv">0</span>][model.coef_[<span class="dv">0</span>] <span class="op">!=</span> <span class="dv">0</span>]</span>
@@ -2466,17 +2466,17 @@ Create a Statsmodels-like model and summary with scikit-learn and statsmodels
 Dep. Variable:              diagnosis   No. Observations:                  569
 Model:                          Logit   Df Residuals:                      565
 Method:                           MLE   Df Model:                            3
-Date:                Thu, 14 Nov 2024   Pseudo R-squ.:                  -42.68
-Time:                        13:34:30   Log-Likelihood:                -16413.
+Date:                Tue, 19 Nov 2024   Pseudo R-squ.:                  -42.68
+Time:                        10:54:35   Log-Likelihood:                -16413.
 converged:                       True   LL-Null:                       -375.72
 Covariance Type:            nonrobust   LLR p-value:                     1.000
 ========================================================================================
                            coef    std err          z      P&gt;|z|      [0.025      0.975]
 ----------------------------------------------------------------------------------------
 Intercept                     0      2.441          0      1.000      -4.785       4.785
-concave_points_mean      0.0901     16.311      0.006      0.996     -31.878      32.058
+concave_points_mean      0.0893     16.311      0.005      0.996     -31.879      32.058
 perimeter_worst          0.5280      0.021     25.474      0.000       0.487       0.569
-concave_points_worst     0.4864      8.505      0.057      0.954     -16.184      17.156
+concave_points_worst     0.4872      8.505      0.057      0.954     -16.183      17.157
 ========================================================================================
 
 Possibly complete quasi-separation: A fraction 0.37 of observations can be
