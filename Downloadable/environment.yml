@@ -4,11 +4,12 @@ channels:
   - conda-forge
 dependencies:
   - python==3.10
+  - jupyter
+  - ipykernel
+  - pyyaml
   - pandas
   - numpy
   - seaborn
   - scikit-learn
-  - jupyter
-  - ipykernel
-  - pyyaml
+  - statsmodels
   - nbformat #optional
