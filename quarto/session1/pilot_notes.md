@@ -12,6 +12,7 @@ We need to keep everyone on track and not get distracted ourselves. (Use sticky 
 ## On the question of "Will this break my R?"
 No it won't. R studio pretty much isolates itself. You can check what environment R studio is running on with the R Studio Terminal (and just use conda deactivate to get out of an environment if it is activated).
 
+
 # Updates 2025
 
 1. Utilize the previous Session 1: Python installation tutorial as a pre-session handout:
@@ -21,7 +22,7 @@ No it won't. R studio pretty much isolates itself. You can check what environmen
 
 2. Session 1: Goal is to set up a project folder from which people do their leanring practices for the workshop
     * Recap of main concepts: Python (language: the foundation) characteristics, VS code (the code editor where you *code*), **and** Anaconda/Conda (your virtual environment manager)
-    * Demonstrate steps of installing miniconda virtual env locally with command line (by then we will have )
+    * Demonstrate steps of installing miniconda virtual env locally with command line (by then we will have conda installed)
     * Setup Workflow: 
         * Github create repo -> clone repo to local (H/C drive) -> open folder in VS code ->  activate conda env -> create files/folders
 

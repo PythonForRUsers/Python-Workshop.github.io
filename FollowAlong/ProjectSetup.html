@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Python Group">
 
-<title>Session 1. Seting Up Data Analysis Project</title>
+<title>1. Python Installation and Reproducible Workflow</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -38,36 +37,21 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body>
+<body class="fullcontent">
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#before-we-start" id="toc-before-we-start" class="nav-link active" data-scroll-target="#before-we-start">Before we start</a></li>
-  <li><a href="#step-1-import-packages" id="toc-step-1-import-packages" class="nav-link" data-scroll-target="#step-1-import-packages">Step 1: Import Packages</a></li>
-  </ul>
-</nav>
-</div>
+
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Session 1. Seting Up Data Analysis Project</h1>
+<h1 class="title">1. Python Installation and Reproducible Workflow</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Python Group </p>
-          </div>
-  </div>
     
   
     
@@ -78,17 +62,96 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Welcome to the first session of the Introduction to Python Workshop series!</p>
-<p>This guide will you walk through the steps to install Python to your computer and work interactively with it in Visual Studio Code. After the session, you will acquire basic knowledge of the following:</p>
+<p>AUTHOR</p>
+<p>Python Group</p>
+<p>🙌 Welcome to the first session of the Introduction to Python Workshop series. This workshop is intended as a strating guide for those who want to learn Python as a practical tool for data manipulation, analysis, and computation.</p>
+<p>Here’s a breakdown of the workshop structure:</p>
+<ol type="1">
+<li><em>Python Installation and Reproducible Workflow</em></li>
+<li><em>Python Basics: Data Structure</em></li>
+<li><em>Data Manipulation and Analysis with Pandas</em></li>
+<li><em>Object-Oriented Programming and Machine Learning Libraries</em></li>
+</ol>
+<p>The goal of the workshop is to give people a flavor of data science in Python. We will start off with the very basic–i.e., installations (<strong>session 1</strong>). There are many ways to install Python and many choices of code editor (too many in our opinion!). For the scope of this workshop, we will show one way that we think is intuitive, efficient, and offers flexible and reproducible workflow, particularly from the perspective of R users and statisticians.</p>
+<p>Moving on to programming, we will talk about the fundamental concepts of the Python language such as data types and data structure (<strong>session 2 &amp; 3</strong>), which will help you understand how similarly/differently Python operates compared to R.</p>
+<p>Then, we will introduce the concept of classes/objects–the building blocks of Python object-oriented programming (OOP) and almost all Python libraries–and learn how to create and use them by following along coding practices in <strong>session 4</strong>.</p>
+<p><em>We assume you have basic programming knowledge, including concepts of libraries and functions, overall workflow of analytical projects, and basic command line skills.</em></p>
+<section id="session-1-toward-building-a-reproducible-analytical-project-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="session-1-toward-building-a-reproducible-analytical-project-in-python">Session 1: Toward building a reproducible analytical project in Python</h2>
+<p>We will start with the very basic, i.e., installations, and walk through the standard practices of reproducible workflows when working with Python.</p>
+<p>Due to time constraints, we put installation step by in this follow along <a href="https://github.mskcc.org/pages/Python-Workshop/Python-Workshop.github.io/session1/session1.html">installation</a> installation follow-along guide. We essential components of an <strong>interactive programming ecosystem</strong> for Python programming.</p>
+<p>In the second half of this session, we will walk through <strong>steps of building a reproducible Python data analysis project</strong>. We will create a GitHub repository to track project version updates and use virtual environments for reproducibility.</p>
+<section id="objectives" class="level3">
+<h3 class="anchored" data-anchor-id="objectives">Objectives</h3>
 <ul>
-<li><p>Install Python via the Anaconda distribution.</p></li>
-<li><p>Create, activate, and install packages to Python virtual environments.</p></li>
-<li><p>Create Quarto files and execute some Python code</p></li>
+<li><p>Have Python and conda installed locally.</p></li>
+<li><p>Set up Visual Studio Code (VS Code) and install extensions to let it recognize your local python installations and conda virtual environments.</p></li>
+<li><p>Clone the workshop project folder from GitHub (requires logging in to MSK Enterprise) and open it in VS code.</p></li>
+<li><p>Create a conda virtual environment for the workshop project, activate it, and create a data folder and python script from within the VS Code workspace.</p></li>
 </ul>
+</section>
+</section>
 <section id="before-we-start" class="level2">
-<h2 class="anchored" data-anchor-id="before-we-start">Before we start</h2>
-<p>Before doing anything else, we should first activate the conda environment we want to use.</p>
+<h2 class="anchored" data-anchor-id="before-we-start">Before we start…</h2>
+<section id="requirements" class="level3">
+<h3 class="anchored" data-anchor-id="requirements">Requirements</h3>
+<p>There is no restriction on the computer system for the series. You can work off of either Windows or MacOS system. Below is a list of the required software for the workshop. You should have them installed to your computer before this session.</p>
+<ul>
+<li><p><strong>Miniconda</strong>: <a href="https://www.anaconda.com/download/success">Download the Installer</a>.</p></li>
+<li><p><strong>VS Code</strong>: <a href="https://code.visualstudio.com/download">Download the Installer</a>.</p></li>
+<li><p><strong>Quarto</strong>: <a href="https://quarto.org/docs/get-started/">Install from the official website</a>. (<em>Do we still want it or stick to jupyter notebook in VS code since people have experienced bugs with the local installation of Quarto??</em>).</p></li>
+</ul>
+<p>👉We recommend you read our <a href="https://github.mskcc.org/pages/Python-Workshop/Python-Workshop.github.io/session1/session1.html">Python Installation article</a> for a more detailed installation guide.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We recommend that you install software and run through the tutorial on your MSK laptop or workstation. Using VDI is generally slow for downloading/installing large software files.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="software-bundle-python-miniconda-and-vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="software-bundle-python-miniconda-and-vs-code">Software Bundle: Python, Miniconda, and VS Code</h2>
+<section id="python-interpreter" class="level3">
+<h3 class="anchored" data-anchor-id="python-interpreter">Python (interpreter)</h3>
+<p>Python is a high-level programming language just like R. It allows a wide range of tasks including data manipulation and analysis, machine learning and artificial intelligence, software development, etc.</p>
+</section>
+<section id="miniconda-python-distributor-package-manager" class="level3">
+<h3 class="anchored" data-anchor-id="miniconda-python-distributor-package-manager">Miniconda (Python distributor + package manager)</h3>
+<p>Miniconda provides a lightweight way to manage Python environments, similar to renv in R, ensuring dependency isolation without cluttering the global system. It simplifies package management, much like CRAN + Bioconductor, while also handling system-level dependencies. VS Code, akin to RStudio, offers a powerful yet customizable IDE with Python-specific extensions, an interactive Jupyter notebook interface, and seamless Git integration. Together, Miniconda and VS Code provide an efficient, modular setup, making Python adoption intuitive while maintaining the reproducibility and project structure familiar to R users.</p>
+</section>
+<section id="vs-code-ide" class="level3">
+<h3 class="anchored" data-anchor-id="vs-code-ide">VS Code (IDE):</h3>
+<p>Integrated features such as multi-panel layout for interactive coding, terminal, Git/GitHub connection, SSH connection. There are many more add-on features available to be downloaded as Extensions</p>
+</section>
+</section>
+<section id="virtual-environments" class="level2">
+<h2 class="anchored" data-anchor-id="virtual-environments">Virtual Environments</h2>
+<section id="what-are-virtual-environments-why-do-we-need-them" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-virtual-environments-why-do-we-need-them">What are virtual environments? Why do we need them?</h3>
+<p>Similar to how <code>{renv}</code> works as a “time capsule” for R projects, we want . We use virtual environments but not resticted to R that allows sharing analysis and reproducing results, virtual environments</p>
 <p><strong>Refresher: How to activate conda environment</strong></p>
+</section>
+<section id="the-best-practice-for-working-with-conda-virtual-environments" class="level3">
+<h3 class="anchored" data-anchor-id="the-best-practice-for-working-with-conda-virtual-environments">The best practice for working with conda virtual environments</h3>
+<p>We recommended that you create a new conda environemnt whenever you start a new Python project. It keeps the python version and dependencies separate from other projects, therefore avoiding potential conflicts.</p>
+<p>To do this, first <strong>import or manually create a environment .yml file</strong>. In the file, specify the python interpreter version and list all the required conda channels and dependencies–an example is as follows:</p>
+<pre class="{code}"><code>name: myproj-python310
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python==3.10
+  - pandas
+  - numpy</code></pre>
+<p>Then, activate environment when you are ython project.</p>
 <p>From terminal, type:</p>
 <pre class="{bash}"><code>conda activate python-intro-env</code></pre>
 <p>When in VS code, you might get a popup message like the one below, confirming that the environment was activated:</p>
@@ -98,17 +161,44 @@ ul.task-list li input[type="checkbox"] {
 <p>If we want to make sure we have the packages we’ll need installed in the environment before we try to import them, we can either check on anaconda or use the terminal:</p>
 <pre class="{bash}"><code>conda list</code></pre>
 <p>Otherwise, we will get an error message if we try to import packages that are not installed.</p>
-<p><strong>Refresher: How to install packages</strong></p>
-<p>To install packages, we can either use the “anaconda” dashboard, or we can use the command line. Make sure your environment is active before installing packages or the packages will not be available in your environment.</p>
-<p>To install from the command line, we open a terminal and type:</p>
+<p>In many cases, we will want to install additional packages to the existing conda environment. The best way to do it is using command line</p>
 <pre class="{bash}"><code>conda install {package}</code></pre>
-<p>or</p>
+<p>Make sure your environment is active before installing packages or the packages will not be available in your environment.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While you can use pip use that you can</p>
 <pre class="{bash}"><code>pip install {package}</code></pre>
 <p>When working with conda environments, it’s best practice to install everything with conda and only use pip for packages that are not available through conda!</p>
+</div>
+</div>
 </section>
-<section id="step-1-import-packages" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-import-packages">Step 1: Import Packages</h2>
-<p>Similar to <code>library()</code> in R, we’ll use <code>import</code> in Python. Fill in the blanks to import the necessary packages:</p>
+</section>
+<section id="create-new-project" class="level2">
+<h2 class="anchored" data-anchor-id="create-new-project">Create New Project</h2>
+<p><strong>Setup Workflow:</strong></p>
+<p>Github create repo -&gt; clone repo to local (H/C drive) -&gt; open folder in VS code -&gt; activate conda env -&gt; create files/folders</p>
+<p>[<code>image</code>]</p>
+<pre class="{text}"><code>├── README.md
+├── environment.yaml
+├── data-date.txt
+├── .gitignore
+├── data/
+└── scr/</code></pre>
+</section>
+<section id="next" class="level2">
+<h2 class="anchored" data-anchor-id="next">Next</h2>
+<p>Python language basics:</p>
+<ul>
+<li><code>Numpy</code>: data structure Packages`</li>
+</ul>
 </section>
 
 </main>
@@ -219,11 +309,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          if (link.getAttribute("rel") === null) {
-            link.setAttribute("rel", "noopener");
-          }
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

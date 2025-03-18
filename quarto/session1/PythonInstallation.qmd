@@ -1,5 +1,5 @@
 ---
-title: "Session 1. Python Installation"
+title: "Installing Software for Python Programming"
 author: "Python Group"
 format: 
     html:
@@ -16,14 +16,15 @@ editor_options:
     canonical: true
 ---
 
-Welcome to the first session of the Introduction to Python Workshop series!
+This is a pre-sessoin reading that will guide you through the steps to installing Python to your computer and setting up everything else needed for starting your first python project.
 
-This guide will you walk through the steps to install Python to your computer and work interactively with it in Visual Studio Code.
-After the session, you will acquire basic knowledge of the following:
+By the end of this article, you will achieve the following:
 
--   Install Python via the Anaconda distribution.
+-   Know what are Miniconda and the Anaconda Distribution and their relationship with Python.
 
--   Create, activate, and install packages to Python virtual environments.
+-   Know what are Python virtual environments and how to use Conda to install and manage them.
+
+-   Know what are integrated development environments (IDE) .
 
 -   Create Quarto files and execute some Python code
 
@@ -31,9 +32,8 @@ After the session, you will acquire basic knowledge of the following:
 
 -   **Download the installers**–*You don't need to install them yet. This tutorial will walk you through the steps for installation.*
 
-    ::: {.callout-tip appearance="simple"}
-    We recommend that you install software and run through the tutorial on your MSK laptop or workstation.
-    Using VDI is generally slow for downloading/installing large software files.
+    ::: {.callout-tip}
+    We recommend that you install software and run through the tutorial on your MSK laptop or workstation. Downloading/installing software files on VDI is extremely slow and might not install at all if the software is too large.
     :::
 
     -   Download **Anaconda Distribution**: [Download the Anaconda Installer](https://www.anaconda.com/download/success).

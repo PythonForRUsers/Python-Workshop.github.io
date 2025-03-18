@@ -7415,6 +7415,7 @@ main {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7438,15 +7439,20 @@ main {
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<hr/>
-<p>title: "Session 1: Building Data Analysis Projects in Python"
-author: "Python Group"</p>
-<hr/>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Welcome to the first session of the Introduction to Python Workshop series.</p>
-<p>In this session, we will review fundamental concepts of the Python language and some key components of building an interactive progromming ecosystem for Python programming (or programming in general). In the second half of this session, we will walk through steps of a reproducible workflow for Python data analysis project. We will create github version control and virtual environment for reproducibility.</p>
-<p>::: {.note}</p>
+<p>In this session, we will review fundamental concepts of Python and some key components of building an <strong>interactive progromming ecosystem</strong> for Python programming (or programming in general). We recommend reading this guide before .</p>
+<p>In the second half of this session, we will walk through <strong>steps of building a reproducible Python data analysis project</strong>, which We will create github version control and virtual environment for reproducibility.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>:::{.callout-note}</p>
 <h3 id="Objectives">Objectives<a class="anchor-link" href="#Objectives">¶</a></h3><ul>
 <li><p>Have Python and conda installed locally</p>
 </li>
@@ -7466,31 +7472,49 @@ author: "Python Group"</p>
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Before-we-start...">Before we start...<a class="anchor-link" href="#Before-we-start...">¶</a></h2><p>Here is a list of the required software for the workshop. You need them installed to your computer for this session. <em>See this guide [Link] for details on the installation.</em></p>
-<pre><code>-   **Miniconda**: [Download the Miniconda Installer](https://www.anaconda.com/download/success).
-
--   **VS Code**: [Download and install VS Code](https://code.visualstudio.com/download).
-
--   **Quarto**: [Install from the official website](https://quarto.org/docs/get-started/). we should first activate the conda environment we want to use.
-
-</code></pre>
-<p>::: {.tip}</p>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Before-we-start...">Before we start...<a class="anchor-link" href="#Before-we-start...">¶</a></h2><p>Here is a list of the required software for the workshop. You need them installed to your computer for this session. See this guide [Link] for details on the installation.</p>
+<ul>
+<li><p><strong>Miniconda</strong>: <a href="https://www.anaconda.com/download/success">Download the Miniconda Installer</a>.</p>
+</li>
+<li><p><strong>VS Code</strong>: <a href="https://code.visualstudio.com/download">Download and install VS Code</a>.</p>
+</li>
+<li><p><strong>Quarto</strong>: <a href="https://quarto.org/docs/get-started/">Install from the official website</a>. we should first activate the conda environment we want to use.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>:::{.callout-tip}</p>
 <p>We recommend that you install software and run through the tutorial on your MSK laptop or workstation.
 Using VDI is generally slow for downloading/installing large software files.</p>
 <p>:::</p>
 </div>
 </div>
 </div>
-</div>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="1.-Virtual-Environments">1. Virtual Environments<a class="anchor-link" href="#1.-Virtual-Environments">¶</a></h2><p><strong>Refresher: How to activate conda environment</strong></p>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="1.-Virtual-Environments">1. Virtual Environments<a class="anchor-link" href="#1.-Virtual-Environments">¶</a></h2>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Refresher: How to activate conda environment</strong></p>
 <p>From terminal, type:</p>
 <pre><code class="language-{bash}">{bash}
 conda activate python-intro-env
@@ -7504,6 +7528,15 @@ conda activate python-intro-env
 conda list
 </code></pre>
 <p>Otherwise, we will get an error message if we try to import packages that are not installed.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>Refresher: How to install packages</strong></p>
 <p>To install packages, we can either use the "anaconda" dashboard, or we can use the command line. Make sure your environment is active before installing packages or the packages will not be available in your environment.</p>
 <p>To install from the command line, we open a terminal and type:</p>
