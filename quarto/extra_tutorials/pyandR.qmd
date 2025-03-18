@@ -1,0 +1,53 @@
+---
+title: "Extra: Python and R"
+author: "Python Group"
+format: 
+    html:
+        output-file: "pyAndR.html"
+        toc: true
+        code-copy: true
+        code-line-numbers: true
+        link-external-icon: false
+        link-external-newwindow: true
+---
+
+Let's have a look at python and R talking to each other. 
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(reticulate)
+
+use_condaenv("python-intro-env", required = TRUE)
+```
+```{python}
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import seaborn.objects as so
+import matplotlib.pyplot as plt
+
+penguins = sns.load_dataset("penguins")
+```
+
+### Use the 'py' object to pass things from python to R
+
+```{r}
+py$penguins %>% ggplot(aes(color = species, x = body_mass_g, y = bill_length_mm)) + facet_wrap(~island) + geom_point()
+```
+
+
+```{python}
+p = so.Plot(penguins, "bill_length_mm", "bill_depth_mm").add(so.Dots(), color ="species").facet("island")
+p.show()
+```
+
+### Use the 'r' object to pass things from R to python
+
+```{r}
+head(iris)
+```
+
+
+```{python}
+print(r.iris.head())
+```

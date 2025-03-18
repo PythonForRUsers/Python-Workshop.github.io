@@ -49,10 +49,10 @@ Integrates well with other libraries, making it easy to move data between librar
 
 
 
-Creating folders for project housekeeping
+### Aside: Creating folders for project housekeeping
 
-```{python}
-
+```{pythonn}
+#| eval: false
 ###Example Folder Structure
 '''
 project_name/
@@ -97,6 +97,7 @@ Loading the Dataset
 
 import os
 import pandas as pd
+from great_tables import GT
 
 # Load the dataset
 cancer_data = pd.read_csv(os.path.join('example_data', 'Cancer_Data.csv'))
@@ -153,12 +154,8 @@ Summary Statistics
 
 .describe() generates essential statistics (mean, std, min, max, percentiles) for numeric columns, useful for identifying data distributions.
 ```{python}
-
 # Generate summary statistics for numeric columns
 cancer_data.describe()
-
-
-
 
 ```
 
@@ -458,6 +455,107 @@ print("Risk Levels:\n", cancer_data[['diagnosis', 'area_mean', 'risk_level']].he
 
 ```
 
+While we use piping in R (%>%) to chain together a bunch of commands, in python we put the whole set of commands in parentheses and then can chain together methods on different lines. 
+
+For example:
+```
+(
+    GT(data)
+    .method1()
+    .method2()
+    .method3()
+)
+```
+
+### Creating tables for publications
+
+The <a href = "https://posit-dev.github.io/great-tables/articles/intro.html">great_tables</a> package is designed to be similar to `gt()` in R and allows us to make publication-ready tables in python. 
+
+If we want to make a simple table showing the counts for the tumor size categories, we can just use the GT function to make a table. 
+
+```{python}
+from great_tables import GT
+import numpy as np
+
+from great_tables import style, loc, html, md
+
+# Get counts for categorical columns
+
+grouped_summary = (
+    cancer_data.select_dtypes(include=["object", "string"])
+    .groupby("diagnosis")
+    .value_counts()
+    .reset_index() 
+## because the return object from the .value_counts() method is a pandas Series, we need to use .reset_index() to make it into a pandas dataframe, before using GT to make a table. 
+)
+print(grouped_summary)
+
+
+GT(grouped_summary)
+
+```
+
+If we want to make a more complex summary table, we can get summary statistics for the various columns of our dataset and use methods from the great_tables package to handle table formatting. 
+
+```{python}
+# Generate summary statistics for numeric columns
+# Select only numeric columns for aggregation
+numeric_columns = cancer_data.select_dtypes(include="number")
+
+
+# Group by "diagnosis" and calculate mean and std for numeric columns
+# Custom aggregation function to combine mean and std
+def mean_sd(series):
+    mean = series.mean()
+    std = series.std()
+    return f"{mean:.2f} ({std:.2f})"
+
+
+# Apply the custom function to each numeric column
+grouped_data = numeric_columns.groupby(cancer_data["diagnosis"]).agg(mean_sd)
+## UPDATE: if we want to make this into a nice looking table, we can use the function GT from great tables package
+mapping_dict = {
+    col: col.replace("_mean", "").replace("_se", "").replace("_worst", "")
+    for col in cancer_data.columns
+    if any(suffix in col for suffix in ["_mean", "_se", "_worst"])
+}
+
+
+(
+    GT(
+        cancer_data.drop(columns=["id"]).describe().reset_index(),
+        rowname_col="index",
+    )
+    .fmt_number(
+        columns=cancer_data.describe().columns.tolist(),
+        decimals=2,
+        drop_trailing_zeros=True,
+    )
+    .tab_header(title="Cancer Data Summary Statistics")
+    .tab_stubhead(label="Stat")
+    .tab_spanner(
+        label="Mean",
+        columns=[col for col in cancer_data.columns if col.endswith("mean")],
+    )
+    .tab_spanner(
+        label="Standard Error",
+        columns=[col for col in cancer_data.columns if col.endswith("se")],
+    )
+    .tab_spanner(
+        label="Worst",
+        columns=[col for col in cancer_data.columns if col.endswith("worst")],
+    )
+    .tab_style(
+        style=style.text(color="#84a1f0"),
+        locations=loc.spanner_labels(ids=["Mean", "Standard Error", "Worst"]),
+    )
+    .cols_label(cases=mapping_dict)
+    .opt_row_striping()
+    .opt_all_caps(locations=["stub", "column_labels"])
+)
+
+
+```
 
 To export a Pandas dataframe to CSV or XLSX
 ```{python}
