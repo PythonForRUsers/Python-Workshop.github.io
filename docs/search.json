@@ -121,77 +121,77 @@
   {
     "objectID": "session1/session1.html",
     "href": "session1/session1.html",
-    "title": "Installing Software for Python Programming",
+    "title": "Software for Python Programming",
     "section": "",
-    "text": "This guide will you walk through the steps to install Python to your computer and work interactively with it in Visual Studio Code. After the session, you will acquire basic knowledge of the following:"
+    "text": "Welcome! This is a required reading for session 1 of the Introduction to Python workshop.\nIn this article, you can find things you need to know to get started with Python programming: How do I install Python? What is the best way (if there is any)? What are some useful software tools to help make coding a better experience? This article will serve as a follow-along guide for installing the necessary programs to help you prepare for the upcoming sessions.\nOn the other hand, this handout will touch on some important questions–What is special about Python? And why do we want to learn it at all as biostatisticians? To answer these, we will first talk about the main features of Python, what it can do, and its applications in health sciences and research. Later in the workshop, we will go more in-depth into these topics and specific features and packages/libraries through hands-on programming practices."
   },
   {
     "objectID": "session1/session1.html#anaconda",
     "href": "session1/session1.html#anaconda",
-    "title": "Installing Software for Python Programming",
+    "title": "Software Installatoins for Python Programming",
     "section": "Anaconda",
     "text": "Anaconda\n\n\n\n\n\n\nAnaconda is an open-source distribution of Python, designed for scientific computing, data science, machine learning, and AI development.\n\nThe Anaconda distribution comes with the desktop Anaconda Navigator application, the latest version of Python, and ~150 pre-downloaded libraries.\nIt also comes with conda, a cross-platform package and environment manager. Conda is the virtual environment manager that helps install packages from the Anaconda repositories (also called channels). It supports more than just Python packages but numerous other programming languages like R, Java, etc.\n\n\n\n\n\n\nDifference Between Conda and Pip\n\n\n\nLong story short: Pip is for Python libraries only, while conda can install packages for any software (including python).\nIt is generally recommended that you only use conda install when in a conda environment, as anything installed via pip won’t be recognized by conda and vice versa. Using the two interchangeably might overwrite or break packages and mess up the environment.\nWhat if the Python package is unavailable through conda?\nIn these scenarios where the package you need is not built under conda, it makes sense to use pip to install packages within the conda environment. The best practice is to install everything with conda first, then use pip if needed.\nCheck out this blog for more information on using pip in a conda environment.\n\n\n\nConda, Miniconda, and Anaconda\n\n\n\nDifference between conda, miniconda, and Anaconda\n\n\nIn this tutorial, we are going to install the full Anaconda distribution and learn to use the features of its Anaconda Navigator desktop application. This allows us to manage packages and environments without necessarily needing to know the conda terminal commands."
   },
   {
     "objectID": "session1/session1.html#visual-studio-code",
     "href": "session1/session1.html#visual-studio-code",
-    "title": "Installing Software for Python Programming",
+    "title": "Software for Python Programming",
     "section": "Visual Studio Code",
     "text": "Visual Studio Code\n\n\nVisual Studio Code (VS Code) is one of the most popular open-source code editors with many features.\n\n\nMulti-Language Programming. You can code in almost any major programming languages in VS Code including Python, R, C/C++, JavaScript, etc.\nBuild-In Git Source Control. VS Code automatically recognizes and uses the computer’s Git installation to allow project version control. You can easily track changes, stage, and commit changes to your working branch.\nVariety of Project Development Support. You can add extra features such as language packs, debugging tools, Git/Github features, and remote server connector by installing extensions from the Extension Marketplace.\n\nGo to 1.4 Work with Jupyter/Quarto in VS Code for guide on how to get started with VS Code."
   },
   {
     "objectID": "session1/session1.html#quarto",
     "href": "session1/session1.html#quarto",
-    "title": "Installing Software for Python Programming",
+    "title": "Software for Python Programming",
     "section": "Quarto",
     "text": "Quarto\n\n\nQuarto is an open-source scientific and technical publishing system.\n\nThink of Quarto .qmd as similar to R Markdown .Rmd files. Both combine executable code chunks with text components and figures and allow generating outputs as PDF, HTML, Docx, and even slideshow presentations.\nBut Quarto has more:\n\nCompatibility with multiple IDEs. You can not only work with Quarto .qmd in RStudio, but also VS Code, Jupyter Lab, etc.\nMutli-lingual support. Unlike R Markdown which is dependent on R, Quarto does not require R. It supports embedded Python, JavaScript, and Julia executable code by simply specifying the language name in the braces on top of a code chunk (e.g., ```{python}).\nMulti-engine support. Don’t worry if you are an R Markdown or Jupyter Notebook user! Qurato also works with .Rmd and .ipynb files and will automatically deploy either the knitr or jupyter engine depending on the file type that you are rendering.\n\nIn summary, Quarto is easy for R users to transition into due to similarities with the R Markdown. It also includes more functionality and flexibility, making it a great tool for learning Python."
   },
   {
     "objectID": "session1/session1.html#what-is-a-virtual-environment",
     "href": "session1/session1.html#what-is-a-virtual-environment",
-    "title": "Installing Software for Python Programming",
+    "title": "Software for Python Programming",
     "section": "What is a virtual environment?",
     "text": "What is a virtual environment?\nEnvironments are isolated, independent installations of a programming language and groups of packages that don’t interfere with each other.\nFor example, you may have a Python version 3.8 installed on your computer as the System Python. Meanwhile, you can install as many virtual environments as you want with the same or different Python versions and set of packages.\nYou can switch between environments for different projects, create environment files and share them with others."
   },
   {
     "objectID": "session1/session1.html#why-virtual-environments",
     "href": "session1/session1.html#why-virtual-environments",
-    "title": "Installing Software for Python Programming",
+    "title": "Software for Python Programming",
     "section": "Why virtual environments?",
     "text": "Why virtual environments?\nYou may find the flexibility of environments useful in many cases.\n\nAvoid Conflicts. When you need libraries that are not compatibles with your system settings, such as an older Python version or conflicting dependencies. Creating a virtual environment can resolve the conflicts and changing it won’t affect your other environments.\nSharing Environment Setting. You can also share your environment and the list of dependencies with someone with a copy of the environment.yaml file.\nEasy Management. When your work is temporary or that you simply want to experiment things without having to worry about things breaking, you can work within a virtual environemnt and later delete it when needed."
   },
   {
     "objectID": "session1/session1.html#creating-a-virtual-environment-with-gui",
     "href": "session1/session1.html#creating-a-virtual-environment-with-gui",
-    "title": "Installing Software for Python Programming",
+    "title": "Software for Python Programming",
     "section": "1.3.1 Creating a Virtual Environment (with GUI)",
     "text": "1.3.1 Creating a Virtual Environment (with GUI)\nOne option to create an environment in through the Anaconda Navigator graphical user interface (GUI). This approach is straightforward and does not require command line skills.\n\nOpen the Anaconda Navigator application.\n\nThe Home page shows tabs for software available to be installed or launched in the Navigator (E.g., RStudio, VS Code, JupyterLab, and Jupyter Notebook). The first dropdown menu at the top allows filtering applications shown below.\nFrom the second dropdown menu, you may switch to other conda environments that you have created. Then you may launch applications from within the environment you selected.\nCreate the first virtual environment.\nSelect the Environments tab on the left. Click Create as shown below:\n\nCustomizing environment name and Python version.\nIn the environment Name field, type a descriptive name for your environment. Then choose the Python version you want (default is the latest version). For example, create an environment with Python 3.10 and name it python310.\nClick Create. Navigator creates the new environment and activates it.\nNow you have two environments: the default environment base (root) and the one you just created.\nInstalling packages.\n\nStay in the virtual environment you just created. Open the dropdown filter and select Not Installed. Type the name of the package you want to install into the upper right search box. E.g., seaborn.\nSelect the checkbox and click Apply. The selected package will be installed.\nNow you can see the package name listed under the Installed category.\nInstalling packages available outside of the default channel.\nBy default, the Navigator shows packages under the defaults channel. There are many more channels available in Anaconda.org and Anaconda.cloud with a wider range of packages to install.\nFor example, if we want to install a package from the conda-forge channel, we will first need to add it to Navigator.\n\nClick Channels\n\nClick Add….\nType conda-forge in the text box and press Enter.\nClick Update channels.\n\nNow your package search will also include packages on the conda-forge channel.\nRemoving an environment.\nOn the Environments page, select the environment you want to remove. Click Remove.\n\nThe entire environment, including the packages installed to it, will be deleted."
   },
   {
     "objectID": "session1/session1.html#creating-a-virutal-environment-with-command-line",
     "href": "session1/session1.html#creating-a-virutal-environment-with-command-line",
-    "title": "Installing Software for Python Programming",
+    "title": "Software for Python Programming",
     "section": "1.3.2 Creating a Virutal Environment (with Command Line)",
     "text": "1.3.2 Creating a Virutal Environment (with Command Line)\nAlternatively, you can use the conda command line interface (CLI) to create virtual environments.\n\n\n\n\n\n\nTip\n\n\n\nFor users comfortable with command line, this approach is generally more recommended than Anaconda Navigator, as it is faster, more robust to broken environments (reported by some who used the GUI), and offers greater flexibility and functionality for environment management.\n\n\n\nCreate the virtual environment.\nconda create --name &lt;env-name&gt;\nReplace &lt;env-name&gt; with the name you want to give your environment.\nNote: you can use -n (shorthand) and --name interchangeably.\nYou can also specify the Python version and packages you want to install to your environment.\nconda create -n &lt;env-name&gt; python=3.10 scipy=0.17.3 pandas matplotlib\nOr:\nconda create -n &lt;env-name&gt; python=3.10\nconda install -n &lt;env-name&gt; scipy pandas matplotlib\nYou can also specify channel other than the defaults channel (for multiple channels, pass the argument multiple times):\nconda install -n &lt;env-name&gt; scipy --channel conda-forge --channel bioconda\nNow, activate your environment.\nconda activate &lt;env-name&gt;\nYou can also verify that your installation was successful by looking up the list of all current environments on your computer.\nconda env list\nThe default location for the installed conda environments (except for the base conda environment) is ..\\anaconda3\\envs\\&lt;env-name&gt;\nDeactivate the conda environment.\nSimply use conda deactivate.\n\n\n\n\n\n\nNote: Avoid activating on top of another virtual environment!\n\n\n\nBe careful when activating environments. Remember to always deactivate the current environment before going into another one because environments can be stacked. This can lead to chaos in the packages in both environments. So make sure that you see (base) at the beginning of the terminal prompt line when you are about to activate an environment.\n\n\nRemoving an environment.\n\nRemove by environment name:\nconda env remove -n &lt;env-name&gt;\nRemove by environment folder path:\nconda env remove --prefix &lt;/path/to/your/env&gt;"
   },
   {
     "objectID": "session1/session1.html#prerequisites",
     "href": "session1/session1.html#prerequisites",
-    "title": "Installing Software for Python Programming",
+    "title": "Software for Python Programming",
     "section": "Prerequisites",
     "text": "Prerequisites\n\nInstall Everything\n\nInstall VS Code: Download and install VS Code\nInstall Quarto: Install from the official website\nInstall Conda: Go to previous section 1.2 Install Anaconda."
   },
   {
     "objectID": "session1/session1.html#setting-up-vs-code",
     "href": "session1/session1.html#setting-up-vs-code",
-    "title": "Installing Software for Python Programming",
+    "title": "Software for Python Programming",
     "section": "Setting up VS Code",
     "text": "Setting up VS Code\n\nOpen VS Code.\nInstall Extensions from Extension Marketplace. Click Extensions from the left toolbar or click Ctrl+Shift+X (or Cmd+Shift+X on Mac).\n\nPython: To support Python language, debugging, documentations, etc.\nQuarto: To support Quarto document editing and previewing.\nJupyter: To support rendering Python documents from Jupyter Notebooks or Quarto files.\n\n\n\n\n\n\n\nImportant\n\n\n\nYou still need to install conda (Python) and Quarto to your computer to enable these extensions.\n\n\nCreate a Conda Virtual Environment. You may also use existing ones you created.\n\nRequired packages/dependencies (to install, use conda install &lt;package-name&gt; –channel conda-forge):\n\njupyter\nipykernel\npyyaml\n\n\n\n\nNote: we recommend installing an environment from this YML file. See [1.3.3 Creating an Environment from an environment.yml File] for detailed instructions.\n\nConfigure the Environment in VS Code.\n\nOpen Command Palette by pressing Ctrl+Shift+P (or Cmd+Shift+X on Mac).\nType “Python: Select Interpreter”.\nChoose the Conda python environment you created. If you don’t see its name pop up, choose Enter interpreter path… and manually type in the location of your conda virtual environment python executable.\nE.g., C:\\Users\\&lt;username&gt;\\AppData\\Local\\anaconda3\\envs\\&lt;env-name&gt;\\python.exe for Windows or Users/&lt;username&gt;/anaconda/envs/&lt;env-name&gt;/python for macOS.\n\n\n\n\n\n\nFind your conda Python executable path\n\n\n\nYou can search for the conda Python interpreter location on your computer. Here is an example of how to do it using command line.\nFor both Windows and macOS, open the Anaconda Prompt or terminal and activate the conda Python environment with conda activate &lt;env-name&gt;.\nThen, locate your Python executable by typing the following:\n\nWindows: where python\nmacOS: which python\n\n\n\n\n\nNow you are ready to go. Let’s start with creating a new Quarto file."
   },
   {
     "objectID": "session1/session1.html#create-a-quarto-file",
     "href": "session1/session1.html#create-a-quarto-file",
-    "title": "Installing Software for Python Programming",
+    "title": "Software for Python Programming",
     "section": "Create a Quarto File",
     "text": "Create a Quarto File\nGo to File &gt; New File and select Quarto Document. This will generate an empty .qmd file with the following YAML metadata. You can change the title and file output format as needed.\n---\ntitle: \"First Day\"\nformat: html\n---\nIn Quarto files, you can mix Markdown with code blocks just like in R Markdown. For example:\n# Heading 1\nThis is a demo Quarto file. Here is the text section.\n\n## Heading 2\nThis is a subsection.\nTo add an executable code block, specify the language name inside two curly braces (e.g., {python}, {r}, etc.). For example, let’s print something:\n```{python}\nprint(\"This is some Python output.\")\n```\n\n\nThis is some Python output.\n\n\n\nFile Previewing\nTo preview the html output, click on the Quarto Preview button at the top right (or press Ctrl+Shift+K).\nAlternatively, run quarto preview in your terminal to view the output.\nquarto preview &lt;yourfilename&gt;.qmd\nThis is an example of the html output preview showing next to the source .qmd file.\n\n\n\nFile Rendering/ Exporting to other Formats\nTo save the output, use Quarto: Render Document from the command search bar (Ctrl+Shift+P).\n\n\n\n\n\nThen select the desired output format. For example, Render HTML.\n\nSimilarly, you can use command line quarto render in the terminal to save the output.\nquarto render &lt;yourfilename&gt;.qmd\nNow you should see a &lt;yourfilename&gt;.html file generated in your working directory."
   },
@@ -254,8 +254,22 @@
   {
     "objectID": "session1/session1.html#creating-an-environment-from-an-environment.yml-file",
     "href": "session1/session1.html#creating-an-environment-from-an-environment.yml-file",
-    "title": "Installing Software for Python Programming",
+    "title": "Software for Python Programming",
     "section": "1.3.3 Creating an Environment from an environment.yml File",
     "text": "1.3.3 Creating an Environment from an environment.yml File\nWe can also create a virtual environment from a .yml file.\nconda env create -f environment.yml\nSimilarly, after installation, activate the new environment:\nconda activate &lt;env-name&gt;\nThis way, we can easily recreate an environment that is shared by others or share our environment settings with others.\nFor example, a simple environment file that has information about the environment name, channels, and dependencies:\nname: python310\nchannels:\n  - defaults\ndependencies:\n  - python==3.10\n  - pandas\n  - numpy\nDownload the YML file for this Python workshop series here. This file includes the required channel and dependencies for completing the workshop sessions."
+  },
+  {
+    "objectID": "session1/session1.html#what-do-i-need-for-the-workshop",
+    "href": "session1/session1.html#what-do-i-need-for-the-workshop",
+    "title": "Software for Python Programming",
+    "section": "What do I need for the workshop?",
+    "text": "What do I need for the workshop?\n\nYour computer (Windows/MacOS) to download the software–You will need to follow this tutorial through the steps for installing required software.\n\n\n\n\n\n\nImportant\n\n\n\nWe recommend that you install software and run through the tutorial on your MSK laptop or workstation. Downloading/installing software files on VDI is extremely slow and might not install at all if the software is too large.\n\n\n\nDownload Anaconda Distribution: Download the Anaconda Installer.\nDownload VS Code: Download and install VS Code.\nDownload Quarto: Install from the official website.\n\nBasic GitHub knowledge & MSK GitHub Enterprise account.\nlearn_python/LearningPython.pdf at master · lpvcpp/learn_python · GitHub"
+  },
+  {
+    "objectID": "session1/session1.html#conda",
+    "href": "session1/session1.html#conda",
+    "title": "Software for Python Programming",
+    "section": "1.1 Conda",
+    "text": "1.1 Conda\n\n\n\n\n\n\nAnaconda is an open-source distribution of Python, designed for scientific computing, data science, machine learning, and AI development.\n\nThe Anaconda distribution comes with the desktop Anaconda Navigator application, the latest version of Python, and ~150 pre-downloaded libraries.\nIt also comes with conda, a cross-platform package and environment manager. Conda is the virtual environment manager that helps install packages from the Anaconda repositories (also called channels). It supports more than just Python packages but numerous other programming languages like R, Java, etc.\n\n\n\n\n\n\nDifference Between Conda and Pip\n\n\n\nLong story short: Pip is for Python libraries only, while conda can install packages for any software (including python).\nIt is generally recommended that you only use conda install when in a conda environment, as anything installed via pip won’t be recognized by conda and vice versa. Using the two interchangeably might overwrite or break packages and mess up the environment.\nWhat if the Python package is unavailable through conda?\nIn these scenarios where the package you need is not built under conda, it makes sense to use pip to install packages within the conda environment. The best practice is to install everything with conda first, then use pip if needed.\nCheck out this blog for more information on using pip in a conda environment.\n\n\n\nConda, Miniconda, and Anaconda\n\n\n\nDifference between conda, miniconda, and Anaconda\n\n\nIn this tutorial, we are going to install the full Anaconda distribution and learn to use the features of its Anaconda Navigator desktop application. This allows us to manage packages and environments without necessarily needing to know the conda terminal commands."
   }
 ]

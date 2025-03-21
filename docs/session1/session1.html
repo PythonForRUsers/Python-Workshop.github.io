@@ -8,7 +8,7 @@
 
 <meta name="author" content="Python Group">
 
-<title>Installing Software for Python Programming – Intro to Python Workshops</title>
+<title>Software for Python Programming – Intro to Python Workshops</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -201,9 +201,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction-to-tools" id="toc-introduction-to-tools" class="nav-link active" data-scroll-target="#introduction-to-tools">1.1 Introduction to Tools</a>
+  <li><a href="#what-do-i-need-for-the-workshop" id="toc-what-do-i-need-for-the-workshop" class="nav-link active" data-scroll-target="#what-do-i-need-for-the-workshop">What do I need for the workshop?</a></li>
+  <li><a href="#introduction-to-python" id="toc-introduction-to-python" class="nav-link" data-scroll-target="#introduction-to-python">1 Introduction to Python</a>
   <ul class="collapse">
-  <li><a href="#anaconda" id="toc-anaconda" class="nav-link" data-scroll-target="#anaconda">Anaconda</a></li>
+  <li><a href="#what-is-python" id="toc-what-is-python" class="nav-link" data-scroll-target="#what-is-python">What is Python?</a></li>
+  <li><a href="#what-can-python-do" id="toc-what-can-python-do" class="nav-link" data-scroll-target="#what-can-python-do">What can Python do?</a></li>
+  </ul></li>
+  <li><a href="#installating-tools" id="toc-installating-tools" class="nav-link" data-scroll-target="#installating-tools">2 Installating Tools</a>
+  <ul class="collapse">
+  <li><a href="#conda" id="toc-conda" class="nav-link" data-scroll-target="#conda">1.1 Conda</a></li>
   <li><a href="#visual-studio-code" id="toc-visual-studio-code" class="nav-link" data-scroll-target="#visual-studio-code">Visual Studio Code</a></li>
   <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
   </ul></li>
@@ -230,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Installing Software for Python Programming</h1>
+<h1 class="title">Software for Python Programming</h1>
 </div>
 
 
@@ -253,24 +259,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This guide will you walk through the steps to install Python to your computer and work interactively with it in Visual Studio Code. After the session, you will acquire basic knowledge of the following:</p>
+<p><strong>Welcome!</strong> This is a required reading for session 1 of the <strong><em>Introduction to Python</em></strong> workshop.</p>
+<p>In this article, you can find things you need to know to get started with Python programming: How do I install Python? What is the best way (if there is any)? What are some useful software tools to help make coding a better experience? This article will serve as a follow-along guide for installing the necessary programs to help you prepare for the upcoming sessions.</p>
+<p>On the other hand, this handout will touch on some important questions–What is special about Python? And why do we want to learn it at all as biostatisticians? To answer these, we will first talk about the main features of Python, what it can do, and its applications in health sciences and research. Later in the workshop, we will go more in-depth into these topics and specific features and packages/libraries through hands-on programming practices.</p>
+<section id="quick-overview-of-the-workshop" class="level4">
+<h4 class="anchored" data-anchor-id="quick-overview-of-the-workshop">Quick overview of the workshop:</h4>
+<p><strong>Session 2 and 3</strong> will focus on data structure and the <code>pandas</code> library for data manipulation and . <strong>Session 4 will introduce you to</strong> object-oriented programming (OOP) in Python through a demo data modeling practice.</p>
+<p>will classes of the Python language and its applications. Overall managing the software for , . why we would want to that will guide you through the steps to installing Python to your computer and setting up everything else needed for starting your first python project.</p>
+<p>By the end of this article, you will achieve the following:</p>
 <ul>
-<li><p>Install Python via the Anaconda distribution.</p></li>
-<li><p>Create, activate, and install packages to Python virtual environments.</p></li>
-<li><p>Create Quarto files and execute some Python code</p></li>
+<li>💡Know what Python is and key features of Python.</li>
 </ul>
-<section id="what-do-i-need-before-the-session" class="level4">
-<h4 class="anchored" data-anchor-id="what-do-i-need-before-the-session">What do I need before the session?</h4>
+<!-- -->
 <ul>
-<li><p><strong>Download the installers</strong>–<em>You don’t need to install them yet. This tutorial will walk you through the steps for installation.</em></p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
+<li><p>💡Know what are Miniconda and the Anaconda Distribution and their relationship with Python.</p></li>
+<li><p>💡Know what are Python virtual environments and how to use Conda to install and manage them.</p></li>
+<li><p>💡Know what are integrated development environments (IDE) .</p></li>
+<li><p>💡Create Quarto files and execute some Python code</p></li>
+</ul>
+</section>
+<section id="what-do-i-need-for-the-workshop" class="level2">
+<h2 class="anchored" data-anchor-id="what-do-i-need-for-the-workshop">What do I need for the workshop?</h2>
+<ul>
+<li><p><strong>Your computer (Windows/MacOS) to download the software</strong>–<em>You will need to follow this tutorial through the steps for installing required software.</em></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
-<p>We recommend that you install software and run through the tutorial on your MSK laptop or workstation. Using VDI is generally slow for downloading/installing large software files.</p>
+<div class="callout-title-container flex-fill">
+Important
 </div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We recommend that you install software and run through the tutorial on your MSK laptop or workstation. Downloading/installing software files on VDI is extremely slow and might not install at all if the software is too large.</p>
 </div>
 </div>
 <ul>
@@ -278,13 +300,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Download <strong>VS Code</strong>: <a href="https://code.visualstudio.com/download">Download and install VS Code</a>.</p></li>
 <li><p>Download <strong>Quarto</strong>: <a href="https://quarto.org/docs/get-started/">Install from the official website</a>.</p></li>
 </ul></li>
-<li><p><strong>Login to your GitHub Enterprise account.</strong></p></li>
+<li><p><strong>Basic GitHub knowledge &amp; MSK GitHub Enterprise account.</strong></p></li>
+<li><p>learn_python/LearningPython.pdf at master · lpvcpp/learn_python · GitHub</p></li>
 </ul>
 </section>
-<section id="introduction-to-tools" class="level1">
-<h1>1.1 Introduction to Tools</h1>
-<section id="anaconda" class="level2">
-<h2 class="anchored" data-anchor-id="anaconda">Anaconda</h2>
+<section id="introduction-to-python" class="level1">
+<h1>1 Introduction to Python</h1>
+<p><img src="images/python-logo.png" class="img-fluid" width="230"></p>
+<section id="what-is-python" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-python">What is Python?</h3>
+<p>Python is a <strong>high-level, interpreted, general-purpose programming</strong> <strong>language</strong>.</p>
+<p>Just like R, Python is open source and versatile enough to allow users perform a wide range of data analysis and computational tasks. It is supported by a large and powerful ecosystem of external packages (libraries). In Python, you can easily install packages with <code>pip</code> or <code>conda</code> just like you do with <code>install.packages()</code> in R.</p>
+</section>
+<section id="what-can-python-do" class="level3">
+<h3 class="anchored" data-anchor-id="what-can-python-do">What can Python do?</h3>
+<p>Python is powerful and not limited to statistical analysis. It has been widely used in areas like:</p>
+<ul>
+<li><p><strong>Machine Learning and Deep learning</strong></p></li>
+<li><p><strong>Bioinformatics &amp; Computational Biology</strong></p></li>
+<li><p><strong>Web Development</strong></p></li>
+<li><p><strong>Scripting &amp; Automation</strong></p></li>
+<li><p><strong>Cloud Computing</strong></p></li>
+<li><p><strong>Game Development</strong></p></li>
+<li><p><strong>Cybersecurity</strong></p></li>
+</ul>
+<section id="why-python-for-biostatisticians-bioinformaticians" class="level4">
+<h4 class="anchored" data-anchor-id="why-python-for-biostatisticians-bioinformaticians">🧬 Why Python for Biostatisticians &amp; Bioinformaticians?</h4>
+<ul>
+<li><p><strong>Machine learning</strong> (scikit-learn, TensorFlow, PyTorch)</p></li>
+<li><p><strong>Neural networks and deep learning</strong> (TensorFlow, PyTorch)</p></li>
+<li><p><strong>Natural language processing</strong> (NLP)</p></li>
+<li><p><strong>Image analysis</strong></p></li>
+<li><p><strong>Web scraping</strong> (BeautifulSoup, Scrapy)</p></li>
+<li><p><strong>Genomic and transcriptomic analysis</strong> (Biopython, Scanpy)</p></li>
+</ul>
+<p>One key difference</p>
+<p>that blends procedural, functional,and objected-oriented paradigms.</p>
+</section>
+</section>
+</section>
+<section id="installating-tools" class="level1">
+<h1>2 Installating Tools</h1>
+<section id="miniconda-python-distributor-package-manager" class="level4">
+<h4 class="anchored" data-anchor-id="miniconda-python-distributor-package-manager">Miniconda (Python distributor + package manager)</h4>
+<p>Miniconda provides a lightweight way to manage Python environments, similar to renv in R, ensuring dependency isolation without cluttering the global system. It simplifies package management, much like CRAN + Bioconductor, while also handling system-level dependencies. VS Code, akin to RStudio, offers a powerful yet customizable IDE with Python-specific extensions, an interactive Jupyter notebook interface, and seamless Git integration. Together, Miniconda and VS Code provide an efficient, modular setup, making Python adoption intuitive while maintaining the reproducibility and project structure familiar to R users.</p>
+</section>
+<section id="vs-code-ide" class="level4">
+<h4 class="anchored" data-anchor-id="vs-code-ide">VS Code (IDE)</h4>
+<p>Integrated features such as multi-panel layout for interactive coding, terminal, Git/GitHub connection, SSH connection. There are many more add-on features available to be downloaded as Extensions</p>
+</section>
+<section id="conda" class="level2">
+<h2 class="anchored" data-anchor-id="conda">1.1 Conda</h2>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="images/Anaconda-Logo.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="220"></p>
@@ -642,7 +708,7 @@ Find your conda Python executable path
 <div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="in">print("This is some Python output.")</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="5770ed9a" class="cell" data-execution_count="1">
+<div id="4d6e3e47" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>This is some Python output.</code></pre>
 </div>
