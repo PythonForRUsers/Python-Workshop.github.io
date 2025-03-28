@@ -101,6 +101,9 @@ import pandas as pd
 # Load the dataset
 cancer_data = pd.read_csv(os.path.join('example_data', 'Cancer_Data.csv'))
 
+print (type(cancer_data))
+
+
 # Display the first few rows of the dataset
 cancer_data.head()
 
@@ -212,6 +215,175 @@ print("\nUpdated Column Names:", cancer_data.columns.tolist())
 
 
 ```
+
+#How does Python handle missingness?
+
+---
+
+# Overview
+
+Missing values are common in data analysis. Python provides multiple ways to represent missing values, including `None`, `np.nan`, and `pd.NA`. Understanding their behavior is crucial for **data cleaning, processing, and analysis**.
+
+# 1. Missing Values in Python: `None`
+
+- **Definition**: `None` is a built-in Python object representing "no value."
+- **Use Cases**: Works with general Python objects but does **not** support mathematical operations.
+
+```{python}
+x = None
+if x is None:  # Best practice
+    print("x is missing")
+```
+
+- **Issue with `None` in arithmetic**:
+
+```{python}
+try: 
+    print(x + 1)
+except TypeError: 
+    print("TypeError: Unsupported operand type(s)")  # TypeError: unsupported operand type(s)
+print(x==x)
+```
+
+---
+
+# 2. Missing Values in NumPy: `np.nan`
+
+- **Definition**: `np.nan` represents missing values in **numerical** computations.
+- **Key Properties**:
+  - `np.nan` is **a floating-point value** (`float64`).
+  - **Cannot be checked with `==`** because `np.nan != np.nan`.
+
+```{python}
+import numpy as np
+x = np.nan
+if np.isnan(x):  # Correct way to check for np.nan
+    print("x is missing")
+```
+
+- **Behavior in Math Operations**:
+
+```{python}
+print(x + 10)  # Output: nan
+print(x == x)  # Output: False
+```
+
+---
+
+# 3. Missing Values in Pandas: `pd.NA`
+
+- **Definition**: `pd.NA` is **Pandas' missing value** representation, introduced in Pandas 1.0.
+- **Why `pd.NA`?**
+  - Works with **nullable** data types (`Int64`, `Float64`, `boolean`, `string`).
+  - Avoids automatic type conversion (e.g., integers remain integers).
+
+
+```{python}
+import pandas as pd
+x = pd.NA
+print(x+1)
+```
+
+
+```{python}
+x = pd.NA
+if pd.isna(x):  # Correct way
+    print("x is missing")
+
+try:   
+    if x==pd.na:
+        print(x)
+except AttributeError:
+    print('#Incorrect way: if x=pd.NA')
+
+print(x==x)
+#Incorrect way: if x=pd.NA
+```
+
+
+
+# 4. Comparing `None`, `np.nan`, and `pd.NA`
+
+| Feature               | `None`              | `np.nan`                  | `pd.NA`                  |
+|-----------------------|---------------------|---------------------------|--------------------------|
+| **Type**              | `NoneType`          | `float64`                 | Special Pandas scalar    |
+| **Use Case**          | General Python      | NumPy/Pandas numeric data | Pandas nullable types    |
+| **Arithmetic Ops**    | Fails (`None + 1`)  | Works but returns `nan`   | Works but returns `<NA>` |
+| **Comparison (`==`)** |`None == None → True`| `np.nan == np.nan → False`| `pd.NA == pd.NA → <NA> ` |
+| **Check Method**      | `if x is None:`     | `if np.isnan(x):`         | `if pd.isna(x):`         |
+
+---
+
+# 5. Handling Missing Values in Pandas
+
+## Finding Missing Values
+
+```{python}
+df = pd.DataFrame({"A": [1, np.nan, 3, None, pd.NA]})
+print(df.isna())  # Identifies missing values
+for x in df.iloc[:, 0]:
+    print(type(x))
+
+```
+
+## Filling Missing Values
+
+```{python}
+
+df["A"]=df["A"].fillna(pd.NA).astype('Float64')  # Replaces missing values with pd.NA, and then changes the column type to 'FLoat64, pandas' nullable float datatype.
+for value in df.iloc[:,0]:
+        print(value)
+        print(type(value))
+
+print(df["A"].dtype)
+```
+
+
+
+```{python}
+df["A"]=df["A"].astype('float64')  #typecasting as lowercase "float" changes all pd.NA back to np.nan because "float64" (lowercase) is not supported by pd.NA
+for value in df.iloc[:,0]:
+        print(value)
+        print(type(value))
+
+print(df["A"].dtype)
+```
+
+
+
+
+## Dropping Missing Values
+
+```{python}
+df.dropna()  # Removes rows with missing values
+```
+
+```{python}
+for value in df.iloc[:,0]:
+    if np.isnan(value):
+        print(value+1)
+
+```
+
+
+---
+
+# 6. Best Practices
+
+✅ **Use `None`** for general Python objects.  
+✅ **Use `np.nan`** for numerical missing values in NumPy.  
+✅ **Use `pd.NA`** for missing values in Pandas with nullable data types.  
+✅ **Always use `isna()` or `isnull()`** when working with missing data in Pandas.
+
+---
+
+# Conclusion
+
+- Handling missing values correctly ensures **cleaner data** and **better analysis**.
+- Choose the appropriate representation based on **your data structure**.
+- Always **use the right method to check for missing values**.
+
+
 
 
 To find missing values, you can use isnull() with sum() to calculate the total number of missing values in each column.
@@ -390,6 +562,137 @@ print("Data with 'area_ratio' at the end:\n", cancer_data_with_area_ratio_last.h
 ```
 
 
+
+## 🧠 Functions vs Methods in Python
+
+### 🔹 What’s the difference?
+
+| Concept    | Function                                | Method                                           |
+|------------|-----------------------------------------|--------------------------------------------------|
+| Definition | A block of code that performs an action | A function that is **associated with an object** |
+| Called on  | Standalone / with parameters            | Called **on** an object (e.g., a string or list) |
+| Syntax     | `function(arg)`                         | `object.method()`                                |
+| Example    | `len("hello")`                          | `"hello".upper()`                                |
+
+---
+
+## 🧪 Function Example
+
+```{python}
+# Define your own function
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Alice"))  # Hello, Alice!
+```
+
+```{python}
+# Use a built-in function
+words = ["Python", "Data", "Science"]
+print(len(words))  # 3
+```
+
+---
+
+## 🧪 Method Example
+
+```{python}
+# 'upper()' is a method of string objects
+name = "patrick"
+print(name.upper())  # Output: PATRICK
+print(name) #Why doesn't name.upper() modify the original string? What would we have to do so that name becomes permanently uppercase?
+```
+
+```{python}
+# 'append()' is a method of list objects
+colors = ["red", "blue"]
+colors.append("green")
+print(colors)  # ['red', 'blue', 'green']
+
+#Think back to the last example.  Why does colors permanently change when we use a method, but name did not?
+```
+
+---
+
+## 🧠 Behind the Scenes
+
+```{python}
+# This also works
+str.upper("patrick")  # Output: 'PATRICK'
+```
+
+```{python}
+# But this is more common
+"patrick".upper()  # Output: 'PATRICK'
+```
+
+ Both work — but `str.upper()` is a method being called directly from the class.
+
+---
+
+## Pandas Example: Method Chaining
+
+```{python}
+import pandas as pd
+
+# Sample DataFrame
+df = pd.DataFrame({
+    "name": [" Alice ", "BOB", "Charlie", None],
+    "score": [85, 92, None, 74]
+})
+
+# Clean the data using method chaining
+clean_df = (
+    df
+    .dropna()                # Method: drop rows with any NaNs
+    .assign(                 # Method: add or update columns
+        name_clean=lambda d: d["name"].str.strip().str.title()
+    )
+    .sort_values("score", ascending=False)  # Method: sort by score
+)
+
+print(clean_df)
+```
+
+### Output:
+```
+     name  score name_clean
+1     BOB   92.0        Bob
+0   Alice   85.0      Alice
+```
+
+---
+
+## Why `.str.strip()` and not just `.strip()`?
+
+```{python}
+# This works:
+df["name"].str.strip()
+
+# This does NOT:
+try:
+    df["name"].strip()  # ❌ AttributeError
+except AttributeError: 
+    print("AttributeError: .strip is used for single strings, not a Series of strings")
+
+```
+
+### 🧠 Why?
+- `df["name"]` is a **Series** — not a string.
+- `.strip()` is a string method that works on **single strings**.
+- `.str` is the **accessor** that tells pandas: “apply this string method to each element in the Series.”
+
+### ✅ Rule of Thumb:
+
+| You have...         | Use...                  | Why?                                   |
+|---------------------|-------------------------|----------------------------------------|
+| A single string     | `"hello".strip()`       | It's just Python                       |
+| A Series of strings | `df["col"].str.strip()` | It's pandas, operating on many strings |
+
+---
+
+
+
 Applying Functions to Columns
 
 
@@ -457,6 +760,13 @@ print("Risk Levels:\n", cancer_data[['diagnosis', 'area_mean', 'risk_level']].he
 
 
 ```
+
+
+You’re applying to...	    |Use .apply() on...	       |Do you need axis?
+A single column (Series)	| df['col'].apply(func)	   |No
+Multiple columns (row-wise)	| df.apply(func, axis=1)   |Yes (axis=1)
+Column-wise (less common)	| df.apply(func) or axis=0 |Optional/default
+
 
 
 To export a Pandas dataframe to CSV or XLSX
