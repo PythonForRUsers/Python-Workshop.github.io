@@ -1,0 +1,37 @@
+/*-- scss:defaults --*/
+$body-bg: #fff;
+$body-color: #191919;
+$link-color: #002569;
+$selection-bg: #26351c !default;
+
+$font-family-sans-serif: 'Helvetica Neue', sans-serif;
+
+
+/*-- scss:rules --*/
+
+/* Inline code styling */
+.reveal code {
+  font-family: "Fira Code", "Courier New", monospace;
+  font-size: 0.95em;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  background-color: #f0f0f0; /* light grey background for inline code */
+  color: #191919; /* make it black-ish */
+}
+
+/* Code block styling (preformatted) */
+.reveal pre {
+  padding: 1em;
+  border-radius: 8px;
+  font-family: "Fira Code", "Courier New", monospace;
+  font-size: 0.9em;
+  overflow: visible !important; /* Disable scrollbars */
+  white-space: pre-wrap !important;
+  word-break: break-word;
+}
+
+.reveal pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
