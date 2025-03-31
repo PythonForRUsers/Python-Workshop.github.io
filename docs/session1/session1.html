@@ -8,7 +8,7 @@
 
 <meta name="author" content="Python Group">
 
-<title>Preparation for Session 1 – Intro to Python Workshops</title>
+<title>Intro to Python – Intro to Python Workshops</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -201,33 +201,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quick-overview-of-the-workshop" id="toc-quick-overview-of-the-workshop" class="nav-link active" data-scroll-target="#quick-overview-of-the-workshop">📖Quick overview of the workshop:</a></li>
-  <li><a href="#what-do-i-need-for-the-workshop" id="toc-what-do-i-need-for-the-workshop" class="nav-link" data-scroll-target="#what-do-i-need-for-the-workshop">❔What do I need for the workshop?</a></li>
+  <li><a href="#workshop-at-a-glance" id="toc-workshop-at-a-glance" class="nav-link active" data-scroll-target="#workshop-at-a-glance">🔎Workshop at a Glance:</a></li>
+  <li><a href="#what-youll-need-for-the-workshop" id="toc-what-youll-need-for-the-workshop" class="nav-link" data-scroll-target="#what-youll-need-for-the-workshop">❗What You’ll Need for the Workshop</a></li>
+  <li><a href="#about-this-guide" id="toc-about-this-guide" class="nav-link" data-scroll-target="#about-this-guide">📖 About this Guide</a></li>
   <li><a href="#introduction-to-python" id="toc-introduction-to-python" class="nav-link" data-scroll-target="#introduction-to-python">1 Introduction to Python</a>
   <ul class="collapse">
   <li><a href="#what-is-python" id="toc-what-is-python" class="nav-link" data-scroll-target="#what-is-python">What is Python?</a></li>
+  <li><a href="#what-can-python-do" id="toc-what-can-python-do" class="nav-link" data-scroll-target="#what-can-python-do">What can Python do?</a></li>
   <li><a href="#why-learn-pythonas-biostatisticians" id="toc-why-learn-pythonas-biostatisticians" class="nav-link" data-scroll-target="#why-learn-pythonas-biostatisticians">Why learn Python–as Biostatisticians?</a></li>
   <li><a href="#python-vs-r-differences" id="toc-python-vs-r-differences" class="nav-link" data-scroll-target="#python-vs-r-differences">Python vs R: Differences</a></li>
-  <li><a href="#integration" id="toc-integration" class="nav-link" data-scroll-target="#integration">Integration</a></li>
+  <li><a href="#recommended-programs-for-python-programming" id="toc-recommended-programs-for-python-programming" class="nav-link" data-scroll-target="#recommended-programs-for-python-programming">Recommended Programs for Python Programming</a></li>
   </ul></li>
-  <li><a href="#installation-and-setup" id="toc-installation-and-setup" class="nav-link" data-scroll-target="#installation-and-setup">2 Installation and Setup</a>
+  <li><a href="#python-installation-and-setup" id="toc-python-installation-and-setup" class="nav-link" data-scroll-target="#python-installation-and-setup">2 Python Installation and Setup</a>
   <ul class="collapse">
-  <li><a href="#installing-miniconda-pythonconda" id="toc-installing-miniconda-pythonconda" class="nav-link" data-scroll-target="#installing-miniconda-pythonconda">Installing Miniconda (Python+conda)</a></li>
+  <li><a href="#follow-along-install-miniconda-python-conda" id="toc-follow-along-install-miniconda-python-conda" class="nav-link" data-scroll-target="#follow-along-install-miniconda-python-conda">▶️Follow-Along: Install Miniconda (Python + conda)</a></li>
   <li><a href="#installing-packages-with-conda" id="toc-installing-packages-with-conda" class="nav-link" data-scroll-target="#installing-packages-with-conda">Installing packages with Conda</a></li>
-  <li><a href="#virtual-environments" id="toc-virtual-environments" class="nav-link" data-scroll-target="#virtual-environments">Virtual Environments</a></li>
+  </ul></li>
+  <li><a href="#virtual-environments" id="toc-virtual-environments" class="nav-link" data-scroll-target="#virtual-environments">3 Virtual Environments</a>
+  <ul class="collapse">
   <li><a href="#why-virtual-environments" id="toc-why-virtual-environments" class="nav-link" data-scroll-target="#why-virtual-environments">Why virtual environments?</a></li>
-  <li><a href="#creating-a-virutal-environment-with-conda" id="toc-creating-a-virutal-environment-with-conda" class="nav-link" data-scroll-target="#creating-a-virutal-environment-with-conda">Creating a Virutal Environment with Conda</a></li>
+  <li><a href="#follow-along-create-a-conda-virtual-environment" id="toc-follow-along-create-a-conda-virtual-environment" class="nav-link" data-scroll-target="#follow-along-create-a-conda-virtual-environment">▶️Follow-Along: Create a Conda Virtual Environment</a></li>
   <li><a href="#creating-an-environment-from-an-environment.yml-file" id="toc-creating-an-environment-from-an-environment.yml-file" class="nav-link" data-scroll-target="#creating-an-environment-from-an-environment.yml-file">1.3.3 Creating an Environment from an <code>environment.yml</code> File</a></li>
-  <li><a href="#integrated-development-environment" id="toc-integrated-development-environment" class="nav-link" data-scroll-target="#integrated-development-environment">Integrated Development Environment</a></li>
+  </ul></li>
+  <li><a href="#integrated-development-environment" id="toc-integrated-development-environment" class="nav-link" data-scroll-target="#integrated-development-environment">4 Integrated Development Environment</a>
+  <ul class="collapse">
   <li><a href="#visual-studio-code" id="toc-visual-studio-code" class="nav-link" data-scroll-target="#visual-studio-code">Visual Studio Code</a></li>
   <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
+  <li><a href="#follow-along-set-up-jupyter-notebook-in-vs-code" id="toc-follow-along-set-up-jupyter-notebook-in-vs-code" class="nav-link" data-scroll-target="#follow-along-set-up-jupyter-notebook-in-vs-code">▶️ <strong>Follow-Along:</strong> Set up Jupyter Notebook in VS Code</a></li>
+  <li><a href="#excercise-create-a-quarto-file" id="toc-excercise-create-a-quarto-file" class="nav-link" data-scroll-target="#excercise-create-a-quarto-file">Excercise: Create a Quarto File</a></li>
   </ul></li>
-  <li><a href="#work-with-jupyterquarto-in-vs-code" id="toc-work-with-jupyterquarto-in-vs-code" class="nav-link" data-scroll-target="#work-with-jupyterquarto-in-vs-code">1.4 Work with Jupyter/Quarto in VS Code</a>
-  <ul class="collapse">
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#setting-up-vs-code" id="toc-setting-up-vs-code" class="nav-link" data-scroll-target="#setting-up-vs-code">Setting up VS Code</a></li>
-  <li><a href="#create-a-quarto-file" id="toc-create-a-quarto-file" class="nav-link" data-scroll-target="#create-a-quarto-file">Create a Quarto File</a></li>
-  </ul></li>
+  <li><a href="#next-session" id="toc-next-session" class="nav-link" data-scroll-target="#next-session">Next session</a></li>
   </ul>
 </nav>
     </div>
@@ -236,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Preparation for Session 1</h1>
+<h1 class="title">Intro to Python</h1>
 </div>
 
 
@@ -259,36 +262,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<strong>Learning objectives of the article</strong>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Here is a breakdown of the key takeaways of the article:</p>
-<p><strong>💡Aim 1</strong>: know key features of Python and its applications.</p>
-<p><strong>💡Aim 2</strong>: know the steps to install Python through Miniconda/Anaconda Distribution.</p>
-<p><strong>💡Aim 3</strong>: know what Python virtual environments are and how to use Conda to install and manage them.</p>
-<p><strong>💡Aim 4</strong>: know features of the Visual Studio Code integrated development environments (IDE) and steps to set up a Python project within it.</p>
-</div>
-</div>
-<p>This is a required reading prior to the <strong>Introduction to Python</strong> workshop. In this article, you can find things you need to know to get started with Python programming: <strong><em>How do I install Python? What is the best way to do it (if there is any)? What are other useful software tools to help make coding experience better?</em></strong> This article will answer these questions and serve as a follow-along guide for installing the necessary programs to help you prepare for the upcoming sessions.</p>
-<p>On the other hand, this handout will touch on some important questions–<strong><em>What is special about Python? And why do we want to learn it at all as biostatisticians?</em></strong> To answer these, we will first talk about the main features of Python, what it can do, and its applications in scientific research. Later in the workshop, we will dive deeper into these topics and learn specific Python functions and packages/libraries through hands-on programming practices.</p>
-<section id="quick-overview-of-the-workshop" class="level2">
-<h2 class="anchored" data-anchor-id="quick-overview-of-the-workshop">📖Quick overview of the workshop:</h2>
-<p><strong>Session 1</strong> will help you set up a flexible, interactive, and reproducible environment for Python programming, including setting up <strong>conda</strong> virtual environments and Visual Studio Code IDE to write code in Jupyter Notebook</p>
-<p><strong>Session 2 and 3</strong> will focus on the Python language basics such as data structure, list comprehensive, and functions. We will also learn the <code>pandas</code> library for data frame manipulation.</p>
-<p><strong>Session 4</strong> will introduce you to object-oriented programming (OOP)–the foundation of the Python language–and learn through example class objects from the statistics package <code>statsmodels</code> and machine learning library <code>scikit-learn</code>.</p>
+<section id="workshop-at-a-glance" class="level2">
+<h2 class="anchored" data-anchor-id="workshop-at-a-glance">🔎Workshop at a Glance:</h2>
+<p>The overall <strong>goal</strong> of the is to learn how to program in Python using modern, reproducible tools.</p>
+<ul>
+<li><p><strong>Session 1</strong> will help you set up a flexible, interactive, working environment for Python programming (Miniconda, VS Code IDE, Jupyter Notebook, etc.)</p></li>
+<li><p><strong>Session 2 and 3</strong> will focus on the Python basics such as data structure, list comprehensive, and functions. We will also learn data frame manipulations with <code>pandas</code>.</p></li>
+<li><p><strong>Session 4</strong> will introduce you to object-oriented programming (OOP) with examples from the statistics library <code>statsmodels</code> and machine learning library <code>scikit-learn</code>.</p></li>
+</ul>
 </section>
-<section id="what-do-i-need-for-the-workshop" class="level2">
-<h2 class="anchored" data-anchor-id="what-do-i-need-for-the-workshop">❔What do I need for the workshop?</h2>
+<section id="what-youll-need-for-the-workshop" class="level2">
+<h2 class="anchored" data-anchor-id="what-youll-need-for-the-workshop">❗What You’ll Need for the Workshop</h2>
 <ul>
 <li><p><strong>Bring your laptop (Windows/MacOS)</strong></p></li>
-<li><p><strong>Download the software</strong>–<em>You</em> <em>will follow this article to install most of the software needed before coming to session 1.</em></p>
+<li><p><strong>Basic GitHub knowledge &amp; MSK GitHub Enterprise account</strong>–The workshop website is hosted on MSK Enterprise GitHub, which might require you logging in with MSK credentials to access links/download files. Check out <a href="https://rconnect.mskcc.org/resource-guide/101-trainings.html">Biostatistics Resource Guide</a> for GitHub-related training.</p></li>
+<li><p><strong>Install Miniconda and Visual Studio Code before session 1 (see this guide)</strong></p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -299,11 +287,32 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We recommend that you install software and run through the tutorial on your MSK laptop or workstation. Downloading/installing software files on VDI is extremely slow and might not install at all if the software is too large.</p>
+<p>When following the installation instructions in this article, we recommend that you install software on your MSK laptop or workstation. Downloading/installing software files on VDI is extremely slow and might not install at all if the software is too large.</p>
 </div>
 </div></li>
-<li><p><strong>Basic GitHub knowledge &amp; MSK GitHub Enterprise account</strong>–The workshop website is hosted on MSK Enterprise GitHub, which might require you logging in with MSK credentials to access links/download files. Check out <a href="https://rconnect.mskcc.org/resource-guide/101-trainings.html">Biostatistics Resource Guide</a> for GitHub-related training.</p></li>
 </ul>
+</section>
+<section id="about-this-guide" class="level2">
+<h2 class="anchored" data-anchor-id="about-this-guide">📖 About this Guide</h2>
+<p>This handout is a required pre-read for the Introduction to Python workshop. It serves as a follow-along guide to help you install Python, set up essential tools like Miniconda and VS Code, and prepare for coding in Python for the upcoming sessions.</p>
+<p>Along the way, we will also discuss some important questions–<strong><em>What makes Python useful? Why would we, as biostatisticians, want to learn it?</em></strong> You will get an overview of the key features of Python, what it can do in relation to biostatistics/bioinformatics research, and how it compared to R. Later in the workshop, we will dive deeper into some of Python’s features and functions through hands-on programming practices.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Learning objectives of the article</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>📝 This handout walks you through installing the necessary tools and setting up your Python environment. It’s a required pre-read — please follow each step before the first workshop session.</p>
+<p><strong>💡Aim 1</strong>: know key features of Python and its applications.</p>
+<p><strong>💡Aim 2</strong>: know the steps to install Python through Miniconda/Anaconda Distribution.</p>
+<p><strong>💡Aim 3</strong>: know what Python virtual environments are and how to use conda to install and manage them.</p>
+<p><strong>💡Aim 4</strong>: know features of the Visual Studio Code (VS Code) integrated development environments (IDE) and steps to set up a Python project within it.</p>
+</div>
+</div>
 </section>
 <section id="introduction-to-python" class="level1">
 <h1>1 Introduction to Python</h1>
@@ -315,8 +324,9 @@ Important
 </blockquote>
 <p>Python has gained much popularity in the past 20 years. Its user group has expanded into a large and active scientific computing and developer community that spans numerous academic and industrial fields. Nowadays, Python has a powerful ecosystem of <a href="https://pypi.org/">external packages (libraries)</a> for data science, artificial intelligence, and software development.</p>
 <p>Python is cross-platform and open-source. In Python, you can easily install packages with the built-in installer <code>pip</code> or package manager <code>conda</code>, just as you do with <code>install.packages()</code> in R.</p>
-<section id="what-can-python-do" class="level4">
-<h4 class="anchored" data-anchor-id="what-can-python-do">What can Python do?</h4>
+</section>
+<section id="what-can-python-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-can-python-do">What can Python do?</h2>
 <p>Just like R, Python is an open source and versatile programming language that allows users to perform a wide range of data analysis and computational tasks. While R is particularly useful in statistical analysis and visualizations, Python has been used in many distinct areas, such as:</p>
 <ul>
 <li><p>Machine Learning and Deep learning</p></li>
@@ -327,13 +337,12 @@ Important
 <li><p>Cybersecurity</p></li>
 </ul>
 </section>
-</section>
 <section id="why-learn-pythonas-biostatisticians" class="level2">
 <h2 class="anchored" data-anchor-id="why-learn-pythonas-biostatisticians">Why learn Python–as Biostatisticians?</h2>
 <p>Within the field of biostatistics/ bioinformatics, Python has become a core tool for biomedical data analysis due to its versatility, reproducibility, and strong ecosystem of scientific libraries. Below are some areas where Python can be useful and some essential libraries.</p>
 <section id="statistical-analysis" class="level4">
 <h4 class="anchored" data-anchor-id="statistical-analysis"><strong>Statistical analysis</strong></h4>
-<p>While R is the go-to tool for ststistical analysis, Pyton has caught up with many equivalent libraries and functions:</p>
+<p>While R is the go-to tool for statistical analysis, Python has caught up with many equivalent libraries and functions:</p>
 <ul>
 <li><p><code>statsmodels</code>/ <code>scipy.stats</code> provide <strong>regression modeling</strong> and <strong>hypothesis testing</strong>.</p></li>
 <li><p><code>lifelines</code>/ <code>scikit-survival</code> support <strong>survival analysis</strong> and plotting.</p></li>
@@ -363,9 +372,9 @@ Important
 <p>While both programming languages are popular for data analysis and computation, Python and R differ in their underlying code structure, the scope of functionality, and the extensibility of tasks they can perform. Here is a non-exhaustive summary of some key differences:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 26%">
-<col style="width: 36%">
-<col style="width: 36%">
+<col style="width: 25%">
+<col style="width: 37%">
+<col style="width: 37%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -392,8 +401,8 @@ Important
 </tr>
 <tr class="even">
 <td><strong>Package availability</strong></td>
-<td>✅ Excellent for statistical analysis (<code>glm</code>, <code>survival</code>, <code>ggplot2</code>) <br> ⚠️ Good options for ML (<code>caret</code>, <code>mlr3</code>) but few DL packages <br> ✅ Great for omics-focused analysis (<code>Bioconductor</code>, <code>ComplexHeatmap</code>, <code>Seurat</code>)</td>
-<td>☑️ Improving on statistical packages (<code>statsmodels</code>, <code>lifelines</code>) <br> ✅ Best for ML/DL (<code>scikit-learn</code>, <code>pytorch</code>, <code>keras</code>) <br> ☑️ Fewer established packages specialized in omics data <br> ✅ Great for processing large omics datasets (<code>scanpy</code>, <code>scvi-tools</code>)</td>
+<td>✅ Excellent for statistical analysis (glm, survival, ggplot2) <br> ⚠️ Good options for ML (caret, mlr3) but few DL packages <br> ✅ Great for omics-focused analysis (Bioconductor, ComplexHeatmap, Seurat)</td>
+<td>☑️ Improving on statistical packages (statsmodels, lifelines) <br> ✅ Best for ML/DL (scikit-learn, pytorch, keras) <br> ☑️ Fewer established packages specialized in omics data <br> ✅ Great for processing large omics datasets (scanpy, scvi-tools)</td>
 </tr>
 <tr class="odd">
 <td><strong>IDE &amp; Reproducible environments (notebooks etc.)</strong></td>
@@ -403,22 +412,25 @@ Important
 </tbody>
 </table>
 </section>
-<section id="integration" class="level2">
-<h2 class="anchored" data-anchor-id="integration">Integration</h2>
+<section id="recommended-programs-for-python-programming" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-programs-for-python-programming">Recommended Programs for Python Programming</h2>
 <p>Python integrates with tools like:</p>
 <ul>
-<li><p><strong>Jupyter Notebooks</strong>: ideal for literate programming, sharing code + plots + narrative</p></li>
-<li><p><strong>Snakemake / Nextflow</strong>: workflow managers for scalable, reproducible bioinformatics pipelines</p></li>
+<li>conda</li>
+</ul>
+<!-- -->
+<ul>
+<li><p><strong>VS Code IDE</strong>: ideal for literate programming, sharing code + plots + narrative</p></li>
 <li><p><strong>Jupyer Notebook / Quarto</strong>: documents that combine code, output, and markdown</p></li>
 <li><p><strong>Git</strong>: version control for collaboration</p></li>
 </ul>
 <p>Next, we will</p>
 </section>
 </section>
-<section id="installation-and-setup" class="level1">
-<h1>2 Installation and Setup</h1>
+<section id="python-installation-and-setup" class="level1">
+<h1>2 Python Installation and Setup</h1>
 <p>There are many ways to do install Python locally. For the purpose of the workshop, we recommend one way of installation via <a href="https://www.anaconda.com/docs/getting-started/miniconda/main">Miniconda</a> that works universally across Windows and MacOS platforms. Miniconda is a minimal version of the <a href="https://www.anaconda.com/docs/getting-started/anaconda/main">Anaconda Distribution</a>, an open-source distribution of Python designed for scientific computing, data science, machine learning, and AI development. It comes with <strong>Python</strong>, the <strong>conda</strong> package manager, and a minimal number of libraries.</p>
-<p>Miniconda is relatively lightweight compared to Anaconda, which adds, on top of the above, the <strong>Anaconda Navigator</strong> <strong>GUI</strong> and over 300 pre-downloaded libraries. While Anaconda can be a good alternative, we choose Miniconda for better efficiency in the installation process.</p>
+<p>Miniconda is relatively lightweight compared to Anaconda, which adds on top of the Miniconda distribution the <strong>Anaconda Navigator</strong> <strong>GUI</strong> and over 300 pre-downloaded libraries. While Anaconda can be a good alternative, here we choose Miniconda for better efficiency in the installation process.</p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="images/anaconda-explained.png" class="img-fluid figure-img" width="400"></p>
@@ -428,9 +440,9 @@ Important
 <table class="caption-top table">
 <caption>Anaconda vs.&nbsp;Miniconda</caption>
 <colgroup>
-<col style="width: 24%">
-<col style="width: 42%">
-<col style="width: 32%">
+<col style="width: 25%">
+<col style="width: 41%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -457,57 +469,85 @@ Important
 </tr>
 </tbody>
 </table>
-<div class="callout callout-style-default callout-tip callout-titled">
+<section id="follow-along-install-miniconda-python-conda" class="level2">
+<h2 class="anchored" data-anchor-id="follow-along-install-miniconda-python-conda">▶️Follow-Along: Install Miniconda (Python + conda)</h2>
+<p>Let’s walk through installing <strong>Minconda</strong> . For the latest Miniconda installers for Python 3.12, go to the Anaconda website: <a href="https://www.anaconda.com/download/success#miniconda">https://www.anaconda.com/download/</a> and download the installer based on your system. (Make sure you are downloading from the <strong>Miniconda Installers</strong> section, not Anaconda!<em>)</em></p>
+<section id="windows" class="level4">
+<h4 class="anchored" data-anchor-id="windows">Windows</h4>
+<ol type="1">
+<li><p>Navigate to the <a href="https://www.anaconda.com/download/success#miniconda">Anaconda website</a>.</p></li>
+<li><p>Download the Windows “<strong>64-bit graphical installer</strong>”.</p>
+<ul>
+<li><strong>(Alternative)</strong> Quick download through command line interface: <a href="https://www.anaconda.com/docs/getting-started/miniconda/install#quickstart-install-instructions">Quick command line install</a></li>
+</ul></li>
+<li><p><strong>Run the installer:</strong></p>
+<ul>
+<li>Click <code>Next &gt;</code>. When asked to select the type of the installation, select the&nbsp;<code>Just Me</code>&nbsp;option.</li>
+</ul>
+<p><img src="images/anaconda-install-1.png" class="img-fluid" width="500"></p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Some ways to install Python
+Installing for current user only
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol type="1">
-<li>Installing through the Python website</li>
-</ol>
+<p>You don’t need to install for all users most of the time. This option requires admin privileges which you might not have on your MSK laptop.</p>
 </div>
 </div>
-<section id="installing-miniconda-pythonconda" class="level2">
-<h2 class="anchored" data-anchor-id="installing-miniconda-pythonconda">Installing Miniconda (Python+conda)</h2>
-<p>In this tutorial, we are going to install the <strong>Minconda</strong> and learn to use the features of its Anaconda Navigator desktop application. This allows us to manage packages and environments without necessarily needing to know the conda terminal commands.</p>
-<section id="step-1-download-the-minconda-installer" class="level4">
-<h4 class="anchored" data-anchor-id="step-1-download-the-minconda-installer">Step 1: Download the Minconda Installer</h4>
 <ul>
-<li><p>Download the installer from the Anaconda website: <a href="https://www.anaconda.com/download/success#miniconda">https://www.anaconda.com/download/</a> (*Make sure you are downloading under the “<strong>Miniconda Installers</strong>” section<em>)</em></p></li>
-<li><p>Choose the installer based on your system:</p>
+<li><p>Keep the default for installation location. E.g., <code>C:\Users\&lt;user_name&gt;\AppData\Local\miniconda3</code>.</p></li>
+<li><p>Customize the installation options:</p>
 <ul>
-<li><p><strong>Windows</strong>: <code>.exe</code> (64-bit or 32-bit)</p></li>
-<li><p><strong>macOS</strong>: <code>.pkg</code> for GUI or <code>.sh</code> for terminal install</p></li>
+<li><p>❌ <em>“Add Miniconda to my PATH environment variable”</em> – <strong>NOT</strong> recommended</p></li>
+<li><p>✅ <em>“Register Miniconda3 as my default Python 3.12”</em></p></li>
+</ul>
+<p><img src="images/miniconda-install.png" class="img-fluid"></p></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Do not add Miniconda to PATH
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is recommended that you do not add Miniconda to system’s PATH environment variable, as it might lead to conflicts with your other Python installations or accidentally break software using the system Python.</p>
+<p>Instead, you could later run <code>conda init</code> in <strong>Anaconda Prompt</strong> to configure the terminal shells (like PowerShell or Command Prompt) to recognize the <code>conda</code> command.</p>
+</div>
+</div></li>
+<li><p>Complete the installation. This might take a few minutes to complete.</p></li>
+<li><p>Check Installation</p>
+<ul>
+<li><p>Open the Start Menu and run <strong>Anaconda Prompt</strong>.</p></li>
+<li><p>Type the following command.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> info</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>You should see details about your current conda installation. This means that conda is properly installed and initialized.</p></li>
 </ul></li>
-<li><p>Or use the command line interface as preferred:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe <span class="at">--output</span> .<span class="dt">\D</span>ownloads<span class="dt">\M</span>iniconda3-latest-Windows-x86_64.exe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-</section>
-<section id="step-2-install-miniconda" class="level4">
-<h4 class="anchored" data-anchor-id="step-2-install-miniconda">Step 2: Install Miniconda</h4>
-<ul>
-<li>Go to your Downloads folder (or Home folder if downloaded via CLI) and double-click the installer to launch.</li>
-<li><strong>On Windows:</strong></li>
-</ul>
-<ol type="1">
-<li><p>Run the <code>.exe</code> installer</p></li>
-<li><p>Use default settings, but <strong>check the box</strong> that says:</p>
-<p>✅ <em>“Add Miniconda to my PATH environment variable”</em></p></li>
 </ol>
+</section>
+<section id="macos" class="level4">
+<h4 class="anchored" data-anchor-id="macos"><strong>MacOS:</strong></h4>
+<ol type="1">
+<li><p>Go to <a href="https://www.anaconda.com/download/success#miniconda">Anaconda website</a> and download the Mac <strong>64-bit graphical installer</strong></p>
 <ul>
-<li><strong>On macOS:</strong></li>
-</ul>
+<li>Alternatively, for a quick and silent download through command line check out: <a href="https://www.anaconda.com/docs/getting-started/miniconda/install#quickstart-install-instructions">Quick command line install</a></li>
+</ul></li>
+<li><p>Run the <code>.pkg</code> installer</p></li>
+<li></li>
+</ol>
 </section>
 </section>
 <section id="installing-packages-with-conda" class="level2">
 <h2 class="anchored" data-anchor-id="installing-packages-with-conda">Installing packages with Conda</h2>
-<p>Conda is a cross-platform package and environment manager that comes with Miniconda. You can use conda to install packages from the Anaconda repositories (also called <strong><em>channels</em></strong>). It supports more than just Python packages but numerous other programming languages like R, Java, etc.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Conda is a cross-platform package and environment manager that comes with Miniconda. You can use the following terminal command to install packages from the Anaconda repositories (also called <strong><em>channels</em></strong>):</p>
+<pre class="terminal"><code>conda install</code></pre>
+<p>Conda supports more than just Python packages but numerous other programming languages like R, Java, etc.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -527,23 +567,23 @@ Difference Between Conda and Pip
 </div>
 <p>You can also use Conda to create and manage virtual environments, install, or delete virtual environments.</p>
 </section>
-<section id="virtual-environments" class="level2">
-<h2 class="anchored" data-anchor-id="virtual-environments">Virtual Environments</h2>
+</section>
+<section id="virtual-environments" class="level1">
+<h1>3 Virtual Environments</h1>
 <p>Environments are <strong>isolated, independent installations</strong> of a programming language and groups of packages that don’t interfere with each other.</p>
 <p>For example, you may have a Python version 3.8 installed on your computer as the System Python. Meanwhile, you can install as many virtual environments as you want with the same or different Python versions and set of packages.</p>
 <p>You can switch between environments for different projects, create environment files and share them with others.</p>
-</section>
 <section id="why-virtual-environments" class="level2">
 <h2 class="anchored" data-anchor-id="why-virtual-environments">Why virtual environments?</h2>
 <p>You may find the flexibility of environments useful in many cases.</p>
 <ul>
 <li><p><strong>Avoid Conflicts</strong>. When you need libraries that are not compatibles with your system settings, such as an older Python version or conflicting dependencies. Creating a virtual environment can resolve the conflicts and changing it won’t affect your other environments.</p></li>
 <li><p><strong>Sharing Environment Setting</strong>. You can also share your environment and the list of dependencies with someone with a copy of the <code>environment.yaml</code> file.</p></li>
-<li><p><strong>Easy Management</strong>. When your work is temporary or that you simply want to experiment things without having to worry about things breaking, you can work within a virtual environemnt and later delete it when needed.</p></li>
+<li><p><strong>Easy Management</strong>. When your work is temporary or that you simply want to experiment things without having to worry about things breaking, you can work within a virtual environment and later delete it when needed.</p></li>
 </ul>
 </section>
-<section id="creating-a-virutal-environment-with-conda" class="level2">
-<h2 class="anchored" data-anchor-id="creating-a-virutal-environment-with-conda">Creating a Virutal Environment with Conda</h2>
+<section id="follow-along-create-a-conda-virtual-environment" class="level2">
+<h2 class="anchored" data-anchor-id="follow-along-create-a-conda-virtual-environment">▶️Follow-Along: Create a Conda Virtual Environment</h2>
 <p>Alternatively, you can use the <code>conda</code> command line interface (CLI) to create virtual environments.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -616,8 +656,9 @@ dependencies:
   - numpy</code></pre>
 <p>Download the YML file for this Python workshop series <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml">here</a>. This file includes the required channel and dependencies for completing the workshop sessions.</p>
 </section>
-<section id="integrated-development-environment" class="level2">
-<h2 class="anchored" data-anchor-id="integrated-development-environment">Integrated Development Environment</h2>
+</section>
+<section id="integrated-development-environment" class="level1">
+<h1>4 Integrated Development Environment</h1>
 <p>and preferably set up a coding software for more elegant and interactive programming–we often call it the integrated development environment (IDE).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -641,8 +682,8 @@ Note
 <p>Ther are many IDEs compatible with Python programming <strong>Visual Studio Code JupyterLab</strong> PyCharm, Spyder</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 75%">
+<col style="width: 29%">
+<col style="width: 70%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -669,7 +710,6 @@ Note
 </tr>
 </tbody>
 </table>
-</section>
 <section id="visual-studio-code" class="level2">
 <h2 class="anchored" data-anchor-id="visual-studio-code">Visual Studio Code</h2>
 <p><img src="images/vs-code-icon.png" class="img-fluid" width="100"></p>
@@ -681,7 +721,7 @@ Note
 <li><strong>Build-In Git Source Control.</strong> VS Code automatically recognizes and uses the computer’s Git installation to allow project version control. You can easily track changes, stage, and commit changes to your working branch.</li>
 <li><strong>Variety of Project Development Support</strong>. You can add extra features such as language packs, debugging tools, Git/Github features, and remote server connector by installing extensions from the Extension Marketplace.</li>
 </ul>
-<p>Go to <a href="#work-with-jupyterquarto-in-vs-code">1.4 Work with Jupyter/Quarto in VS Code</a> for guide on how to get started with VS Code.</p>
+<p>Go to [Work with Jupyter/Quarto in VS Code] for guide on how to get started with VS Code.</p>
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
@@ -715,22 +755,28 @@ Ecosystem of Python Programming
 </div>
 </div>
 </section>
-</section>
-<section id="work-with-jupyterquarto-in-vs-code" class="level1">
-<h1>1.4 Work with Jupyter/Quarto in VS Code</h1>
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
-<section id="install-everything" class="level4">
-<h4 class="anchored" data-anchor-id="install-everything">Install Everything</h4>
+<section id="follow-along-set-up-jupyter-notebook-in-vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="follow-along-set-up-jupyter-notebook-in-vs-code">▶️ <strong>Follow-Along:</strong> Set up Jupyter Notebook in VS Code</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+💡Prerequisites
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
+<li>Install <strong>Conda</strong>: Go to previous section [2 Installation and Setup].</li>
 <li>Install <strong>VS Code</strong>: <a href="https://code.visualstudio.com/download">Download and install VS Code</a></li>
 <li>Install <strong>Quarto</strong>: <a href="https://quarto.org/docs/get-started/">Install from the official website</a></li>
-<li>Install <strong>Conda</strong>: Go to previous section [1.2 Install Anaconda].</li>
+<li></li>
 </ol>
-</section>
-</section>
-<section id="setting-up-vs-code" class="level2">
-<h2 class="anchored" data-anchor-id="setting-up-vs-code">Setting up VS Code</h2>
+</div>
+</div>
+<section id="setting-up-vs-code" class="level4">
+<h4 class="anchored" data-anchor-id="setting-up-vs-code"><strong>Setting up VS Code</strong></h4>
 <ol type="1">
 <li><p>Open VS Code.</p></li>
 <li><p><strong>Install Extensions from Extension Marketplace.</strong> Click <strong>Extensions</strong> from the left toolbar or click <code>Ctrl+Shift+X</code> (or <code>Cmd+Shift+X</code> on Mac).</p>
@@ -760,10 +806,7 @@ Important
 <li>ipykernel</li>
 <li>pyyaml</li>
 </ul></li>
-</ul>
-<!-- -->
-<ul>
-<li><strong>Note</strong>: we recommend installing an environment from this <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml">YML file</a>. See [1.3.3 Creating an Environment from an environment.yml File] for detailed instructions.</li>
+<li><p><strong>Note</strong>: we recommend installing an environment from this <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml">YML file</a>. See [1.3.3 Creating an Environment from an environment.yml File] for detailed instructions.</p></li>
 </ul></li>
 <li><p><strong>Configure the Environment in VS Code.</strong></p>
 <ol type="1">
@@ -794,8 +837,9 @@ Find your conda Python executable path
 </ol>
 <p>Now you are ready to go. Let’s start with creating a new Quarto file.</p>
 </section>
-<section id="create-a-quarto-file" class="level2">
-<h2 class="anchored" data-anchor-id="create-a-quarto-file">Create a Quarto File</h2>
+</section>
+<section id="excercise-create-a-quarto-file" class="level2">
+<h2 class="anchored" data-anchor-id="excercise-create-a-quarto-file">Excercise: Create a Quarto File</h2>
 <p>Go to <strong><code>File &gt; New File</code></strong> and select Quarto Document. This will generate an empty <code>.qmd</code> file with the following YAML metadata. You can change the title and file output format as needed.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "First Day"</span></span>
@@ -811,7 +855,7 @@ Find your conda Python executable path
 <div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="in">print("This is some Python output.")</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="b1622729" class="cell" data-execution_count="1">
+<div id="992a0159" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>This is some Python output.</code></pre>
 </div>
@@ -837,10 +881,13 @@ Find your conda Python executable path
 <p>Similarly, you can use command line <code>quarto render</code> in the terminal to save the output.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="op">&lt;</span>yourfilename<span class="op">&gt;</span>.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now you should see a <code>&lt;yourfilename&gt;.html</code> file generated in your working directory.</p>
-
-
 </section>
 </section>
+</section>
+<section id="next-session" class="level1">
+<h1>Next session</h1>
+
+
 </section>
 
 </main> <!-- /main -->
