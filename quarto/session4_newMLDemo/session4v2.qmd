@@ -9,7 +9,7 @@ format:
         highlight-style: pygments
         width: 1400   # default is 960
         height: 800  # default is 700
-        css: slideshowv2.scss
+        css: quarto\session4_newMLDemo\slideshowv2.scss
 execute:
   freeze: auto
   eval: true
@@ -90,6 +90,7 @@ They're helpful for **data transformation**, **wrangling**, and **automation tas
 But when it comes to **modeling**, libraries are designed around **classes**: blueprints for creating objects that store data (**attributes**) and define behaviors (**methods**).  <br>
 
   - `scikit-learn` is great for getting started—everything from regression to clustering follows a simple, consistent OOP interface. Its API is also consistant with other python modeling packages, like [xgboost](https://xgboost.readthedocs.io/en/release_3.0.0/) for gradient boosting and [scvi-tools](https://docs.scvi-tools.org/en/stable/index.html) for transcriptomics data.
+  - [<u>`scikit-survival`</u>](https://scikit-survival.readthedocs.io/en/stable/) is built off 
   - `PyTorch` and `TensorFlow` are essential if you go deeper into neural networks or custom models—you’ll define your **own model classes** with attributes and methods, but the basic structure is similar to `scikit-learn`.  
   - [<u>`statsmodels`</u>](https://www.statsmodels.org/stable/gettingstarted.html) is an alternative to `scikit-learn` for statistical analyses and has R-like syntax and outputs. It's a bit more complex than `scikit-learn` and a bit less consistant with other packages in the python ecosystem.
 
