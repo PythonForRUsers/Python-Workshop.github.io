@@ -8,7 +8,7 @@
 
 <meta name="author" content="Python Group">
 
-<title>Python Workshops: Intro to Python – Intro to Python Workshops</title>
+<title>Introduction to Python Workshops – Intro to Python Workshops</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -167,9 +167,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome-to-the-intro-to-python-workshops" id="toc-welcome-to-the-intro-to-python-workshops" class="nav-link active" data-scroll-target="#welcome-to-the-intro-to-python-workshops">Welcome to the Intro to Python Workshops</a></li>
-  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
-  <li><a href="#sessions" id="toc-sessions" class="nav-link" data-scroll-target="#sessions">Sessions</a></li>
+  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome🙌</a></li>
+  <li><a href="#workshop-information" id="toc-workshop-information" class="nav-link" data-scroll-target="#workshop-information">Workshop Information</a></li>
+  <li><a href="#other-resources" id="toc-other-resources" class="nav-link" data-scroll-target="#other-resources">Other Resources</a>
+  <ul class="collapse">
+  <li><a href="#recordings" id="toc-recordings" class="nav-link" data-scroll-target="#recordings">▶️Recordings</a></li>
+  <li><a href="#useful-links" id="toc-useful-links" class="nav-link" data-scroll-target="#useful-links">🔗Useful Links</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -178,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Python Workshops: Intro to Python</h1>
+<h1 class="title">Introduction to Python Workshops</h1>
 </div>
 
 
@@ -201,49 +205,154 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="welcome-to-the-intro-to-python-workshops" class="level1">
-<h1>Welcome to the Intro to Python Workshops</h1>
-<p>Our Intro to Python Workshops are geared towards R and SAS users who want to explore using Python. Python is a versatile language and is especially powerful for tasks such as machine learning, big data processing, and broader data science applications. We will cover installing and setting up python with anaconda, basic python datastructures, and finally a demo logistic regression model with a cancer dataset. We will upload session videos, python demos and other things here.</p>
-<p>We value your feedback and aim to continually improve these workshops. If you have any suggestions, questions, or ideas, please feel free to share them on our <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/discussions"> GitHub Discussions</a> page. We look forward to hearing from you!</p>
+<section id="welcome" class="level1">
+<h1>Welcome🙌</h1>
+<p>This workshop series is geared toward R and SAS users who are interested in exploring Python–a powerful, versatile programming language that excels in many areas such as machine learning, large-scale data processing, and broader data science applications.</p>
+<p>Our goal is to help you build a solid foundation in Python and gain skills that can be integrated into your own work. This series will guide you through installing and setting up Python, understanding basic Python data structures, data manipulation through <code>pandas</code>, and, finally, applying machine learning methods using libraries such as <code>scikit-learn</code>.</p>
+<p>All workshop materials, including pre-session handouts, coding demos, assignments, session slides, and video recordings, will be uploaded here. Be sure to check out the <a href="https://github.mskcc.org/pages/Python-Workshop/Python-Workshop.github.io/FAQ.html">FAQ</a> tab for common questions. If you have any questions, suggestions, or ideas for future sessions, please feel free to share them on our <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/discussions">GitHub Discussions</a> page. We value your feedback and aim to continually improve the workshops. We look forward to learning with you!</p>
 </section>
-<section id="links" class="level1">
-<h1>Links</h1>
-<a href="https://www.anaconda.com/download/success" class="link-block"> <img src="icons/anaconda_secondary_logo.svg" alt="Anaconda Download">
+<section id="workshop-information" class="level1">
+<h1>Workshop Information</h1>
+<p><strong>Time and Location:</strong> Mon 2:30 - 4:30 pm, Wed 1:00 - 3:00 pm | Room 501C</p>
+<p><strong>Contact and Office Hours</strong>:</p>
+<ul>
+<li>Dani Vaithilingam (<a href="mailto:vaithid1@mskcc.org" class="email">vaithid1@mskcc.org</a>): OH <strong>TBD</strong></li>
+<li>Patrick Augello <strong>(</strong><a href="mailto:augellp1@mskcc.org" class="email">augellp1@mskcc.org</a>): OH <strong>TBD</strong></li>
+<li>Yufei Deng (<a href="mailto:dengy@mskcc.org" class="email">dengy@mskcc.org</a>): OH <strong>TBD</strong></li>
+</ul>
+<div data-tbl-colwidths="[25, 15, 38, 22]">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 15%">
+<col style="width: 38%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Session</th>
+<th>Date</th>
+<th>Outline</th>
+<th>Materials and Assignments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Session 1: Python Installation and Reproducible Workflow (Yufei)</strong></td>
+<td><p>Monday (4/14)</p>
+<p>2:30-4:30 pm</p></td>
+<td><ul>
+<li>Python, VS Code, and conda virtual environment overview</li>
+<li>Building a reproducible Python Porject
+<ul>
+<li>Create a GitHub repository for the workshop series</li>
+<li>Set up a conda virtual environment through command lines</li>
+<li>Sett up Jupyter Notebook in VS Code</li>
+</ul></li>
+</ul></td>
+<td><ul>
+<li>Pre-read: Installation guide [html]</li>
+<li>session slides [html]</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><strong>Session 2: Intro to Python Data Structures (Patrick)</strong></td>
+<td><p>Wednesday (4/16)</p>
+<p>1:00-3:00 pm</p></td>
+<td><ul>
+<li>Data container types: Strings, lists, tuples, dictionaries, etc.</li>
+<li>Handling missingness</li>
+<li>Methods vs.&nbsp;functions</li>
+</ul></td>
+<td><ul>
+<li><p>Data structures: Python vs.&nbsp;R</p></li>
+<li><p>Missingness [docx]</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><strong>Session 3: Intro to Pandas (Patrick)</strong></td>
+<td><p>Monday (4/21)</p>
+<p>2:30-4:30 pm</p></td>
+<td><ul>
+<li><code>pandas</code> for data manipulation and cleaning</li>
+<li>Data management</li>
+<li><code>great_tables</code> for gtsummary-style tables</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Session 4: Object-Oriented Programming &amp; Intro to ML Libraries (Dani)</strong></td>
+<td><p>Wednesday (4/23)</p>
+<p>1:00-3:00 pm</p></td>
+<td><p>Part A: Introduction to object-oriented programming (OOP)</p>
+<ul>
+<li>Recap: classes, methods, and attributes</li>
+<li>Understanding classes (base, derived, mixins)</li>
+<li>Creating classes and instances</li>
+<li>Understanding inheritance</li>
+</ul>
+<p>Part B: <code>scikit-learn</code> for machine learning</p>
+<ul>
+<li>Clustering (k-means)</li>
+<li>Prediction (k nearest neighbors)</li>
+<li>Plotting with Python (<code>plotnine</code>, <code>seaborn</code>)</li>
+</ul></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="other-resources" class="level1">
+<h1>Other Resources</h1>
+<section id="recordings" class="level2">
+<h2 class="anchored" data-anchor-id="recordings">▶️Recordings</h2>
+<p>Recordings will be uploaded after each session</p>
+</section>
+<section id="useful-links" class="level2">
+<h2 class="anchored" data-anchor-id="useful-links">🔗Useful Links</h2>
+<section id="tutorials-and-handouts" class="level4">
+<h4 class="anchored" data-anchor-id="tutorials-and-handouts"><strong>Tutorials and Handouts</strong></h4>
+<ul>
+<li><p><a href="session1/session1.html">Tutorial: Installing Python and Essential Tools</a></p></li>
+<li><p><a href="session2a/session2.html">Go to Session2a: Intro to Python Data Structures </a></p></li>
+<li><p><a href="session2b/session2_2.html">Go to Session2b: Intro to Pandas </a></p></li>
+<li><p><a href="session3/session3.html">Go to ML Demo</a></p></li>
+</ul>
+</section>
+<section id="downloads" class="level4">
+<h4 class="anchored" data-anchor-id="downloads"><strong>Downloads</strong></h4>
+<p><a href="https://www.anaconda.com/download/success" class="link-block"> <img src="icons/anaconda_secondary_logo.svg" alt="Anaconda Download"></a></p><a href="https://www.anaconda.com/download/success" class="link-block">
 <p>
 Install Anaconda
 </p>
-</a><a href="https://code.visualstudio.com/" class="link-block"> <img src="icons/VScode.png" alt="VS Code Download">
+</a><p><a href="https://www.anaconda.com/download/success" class="link-block"></a><a href="https://code.visualstudio.com/" class="link-block"> <img src="icons/VScode.png" alt="VS Code Download" width="100"></a></p><a href="https://code.visualstudio.com/" class="link-block">
 <p>
 Install VS Code
 </p>
-</a><a href="https://quarto.org/docs/get-started/" class="link-block"> <img src="icons/quarto.png" alt="Install Quarto">
+</a><p><a href="https://code.visualstudio.com/" class="link-block"></a><a href="https://quarto.org/docs/get-started/" class="link-block"> <img src="icons/quarto.png" alt="Install Quarto"></a></p><a href="https://quarto.org/docs/get-started/" class="link-block">
 <p>
 Install Quarto
 </p>
 </a><p><a href="https://quarto.org/docs/get-started/" class="link-block"></a></p>
-<a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml" class="link-block"> <img src="icons/yaml.png" alt="File">
+<p><a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml" class="link-block"> <img src="icons/yaml.png" alt="File" width="100"></a></p><a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml" class="link-block">
 <p>
 Download environment YML file
 </p>
-</a><a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block"> <img src="icons/code.png" alt="File">
+</a><p><a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml" class="link-block"></a><a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block"> <img src="icons/code.png" alt="File" width="100"></a></p><a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block">
 <p>
 Download Follow Along Files
 </p>
 </a><p><a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block"></a></p>
-<a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block"> <img src="icons/code.png" alt="File">
+<p><a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block"> <img src="icons/code.png" alt="File" width="100"></a></p><a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block">
 <p>
 Download Intro to Pandas Dataset
 </p>
 </a><p><a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block"></a></p>
+
+
 </section>
-<section id="sessions" class="level1">
-<h1>Sessions</h1>
-<p><a href="session1/session1.html">Tutorial: Get Started with Python </a></p>
-<p><a href="session2a/session2.html">Go to Session2a: Intro to Python Data Structures </a></p>
-<p><a href="session2b/session2_2.html">Go to Session2b: Intro to Pandas </a></p>
-<p><a href="session3/session3.html">Go to ML Demo</a></p>
-
-
+</section>
 </section>
 
 </main> <!-- /main -->
