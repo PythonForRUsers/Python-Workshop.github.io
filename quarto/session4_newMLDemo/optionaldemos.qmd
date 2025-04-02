@@ -1,0 +1,224 @@
+---
+title: "Optional Demos: Neural Networks and Regression Modeling"
+subtitle: "PyTorch and statsmodels"
+author: "Your Name"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    code-fold: true
+    code-summary: "Show code"
+    code-tools: true
+    code-line-numbers: true
+jupyter: python3
+---
+
+# Introduction
+
+This notebook provides **two optional demos** to explore how Python handles:
+
+- **Neural network modeling** using `PyTorch`
+- **Statistical regression** using `statsmodels`
+
+These are **optional, self-paced demos** that reinforce object-oriented programming and modeling design in Python. You can run this notebook independently and refer to the comments for guidance.
+
+---
+
+# Part 1: Defining a Neural Network in PyTorch
+
+## Background
+
+Neural networks are composed of many layers of small, connected units. In PyTorch, we create these using classes that inherit from `nn.Module`.
+
+A typical workflow for a PyTorch neural network:
+
+1. Define a class inheriting from `nn.Module`
+2. Specify the layers in `__init__()`
+3. Define the forward computation in `forward()`
+4. Optionally test it with some sample input
+
+We’ll define a basic CNN for classifying MNIST digits (28x28 grayscale images of digits 0–9).
+
+---
+
+## 1.1: Import PyTorch Libraries
+
+```{python}
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+```
+
+---
+
+## 1.2: Define the Neural Network Class
+
+We’ll use two convolutional layers, followed by dropout and two fully connected layers.
+
+::: {.callout-note}
+This class must inherit from `nn.Module`, and you must call `super()` to initialize the parent.
+:::
+
+```{python}
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        self.conv1 = nn.Conv2d(1, 32, 3, 1)
+        self.conv2 = nn.Conv2d(32, 64, 3, 1)
+        self.dropout1 = nn.Dropout2d(0.25)
+        self.dropout2 = nn.Dropout2d(0.5)
+        self.fc1 = nn.Linear(9216, 128)  # 64 filters * 12x12 output
+        self.fc2 = nn.Linear(128, 10)    # 10 output classes
+```
+
+---
+
+## 1.3: Add the Forward Pass
+
+The `forward()` method describes how data flows through the model.
+
+```{python}
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        self.conv1 = nn.Conv2d(1, 32, 3, 1)
+        self.conv2 = nn.Conv2d(32, 64, 3, 1)
+        self.dropout1 = nn.Dropout2d(0.25)
+        self.dropout2 = nn.Dropout2d(0.5)
+        self.fc1 = nn.Linear(9216, 128)
+        self.fc2 = nn.Linear(128, 10)
+
+    def forward(self, x):
+        x = self.conv1(x)
+        x = F.relu(x)
+        x = self.conv2(x)
+        x = F.relu(x)
+        x = F.max_pool2d(x, 2)
+        x = self.dropout1(x)
+        x = torch.flatten(x, 1)
+        x = self.fc1(x)
+        x = F.relu(x)
+        x = self.dropout2(x)
+        x = self.fc2(x)
+        return F.log_softmax(x, dim=1)
+```
+
+---
+
+## 1.4: Try the Network with Dummy Input
+
+This mimics one 28x28 grayscale image.
+
+```python
+net = Net()
+x = torch.rand((1, 1, 28, 28))  # batch size of 1
+out = net(x)
+print(out)
+```
+
+Each value corresponds to a **log-probability** for the digit class 0–9.
+
+---
+
+# Part 2: Linear Modeling with statsmodels
+
+## 2.1: Load Required Libraries
+
+```python
+import statsmodels.api as sm
+import pandas as pd
+from patsy import dmatrices
+```
+
+---
+
+## 2.2: Load and Inspect the Dataset
+
+We’ll use the **Guerry dataset** from `HistData`.
+
+```python
+df = sm.datasets.get_rdataset("Guerry", "HistData").data
+vars = ['Department', 'Lottery', 'Literacy', 'Wealth', 'Region']
+df = df[vars].dropna()
+df.tail()
+```
+
+---
+
+## 2.3: Create Design Matrices with `patsy`
+
+Use an R-style formula to define predictors and outcome.
+
+```python
+y, X = dmatrices('Lottery ~ Literacy + Wealth + Region', data=df, return_type='dataframe')
+```
+
+This automatically:
+- One-hot encodes `Region`
+- Adds an intercept
+- Returns nice `pandas` DataFrames
+
+---
+
+## 2.4: Fit the Model
+
+```python
+model = sm.OLS(y, X)
+results = model.fit()
+print(results.summary())
+```
+
+This provides a rich summary table with:
+- Coefficients and p-values
+- R-squared and F-statistics
+- Model diagnostics
+
+---
+
+## 2.5: Extract Useful Info
+
+```python
+results.params  # Coefficients
+results.rsquared  # R-squared
+```
+
+---
+
+## 2.6: Diagnostic Test – Rainbow Test
+
+This checks whether the linear model is appropriate.
+
+```python
+sm.stats.linear_rainbow(results)
+```
+
+This returns an F-statistic and p-value. A **high p-value** means we fail to reject the null (good linear fit).
+
+---
+
+## 2.7: Partial Regression Plot
+
+```python
+sm.graphics.plot_partregress('Lottery', 'Wealth', ['Region', 'Literacy'],
+                             data=df, obs_labels=False)
+```
+
+This shows how `Wealth` relates to `Lottery` **after adjusting for other covariates**.
+
+---
+
+# Final Thoughts
+
+These demos show:
+- How **object-oriented design** underpins both deep learning (`PyTorch`) and regression modeling (`statsmodels`)
+- How to **leverage Python packages** to define, fit, and inspect complex models
+- The flexibility and clarity of **class-based workflows**
+
+These are optional explorations—feel free to return to them after the main homework or explore more at your own pace!
+
+```
+
+---
+
+Would you like this exported to `.qmd` or `.html` right now, or added to your course repo?

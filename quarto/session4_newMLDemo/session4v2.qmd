@@ -3,175 +3,213 @@ title: '**Session 4 – Object-Oriented Programming and Modeling Libraries**'
 jupyter: python3
 format: 
     revealjs:
+        code-copy: true   
         smaller: true
-        code-block-height: 650px
+        code-block-height: 750px
         highlight-style: pygments
         width: 1400   # default is 960
-        height: 650   # default is 700
+        height: 800  # default is 700
+        css: slideshowv2.scss
 execute:
   freeze: auto
   eval: true
   echo: true
 ---
 
----
-
 ## Session Overview
 
-This session is divided into two parts:  
-1. **A quick recap of Object-Oriented Programming (OOP)** and why it’s useful.  
-2. **Applying OOP concepts to machine learning** by building models in scikit-learn.
-
----
-
-## Introduction
-
-Both R and python use objects, but not everything in R is object-oriented... If that sounds confusing that's because it is! 
 <br>
 
-**Functional programming:** focuses on functions as the primary unit of code
-<br>
+<p style="font-size: 1.15em">
+In this session, we'll explore how Python's object-oriented nature affects our modeling workflows. 
+</p><br>
 
-**Object-oriented programming:** uses objects with attached attributes(data) and methods(behaviors)
-<br>
+<p style="font-size: 1.25em">
+<strong>Topics:</strong>
+</p>
+<ul style="font-size: 1.15em; line-height: 1.6; max-width: 700px; margin: 0 auto;">
+  <li><strong>Intro to OOP</strong> and how it makes modeling in Python different from R</li>
+  <li><strong>Building and extending classes</strong> using inheritance and mixins</li>
+  <li><strong>Applying OOP to machine learning</strong> through demos with scikit-learn</li>
+</ul>
 
-Functional and object-oriented programming are *paradigms* (styles) and these styles can be applied in both R and Python. However, Python libraries and workflows tend to rely more on object-oriented programming than those designed for R. 
 
-<br>
-
-R originated from another statistical programming language called S, which is not object-oriented, and R tends to lend itself better to functional programming than object-oriented programming in many cases. 
+# Introduction
 
 ## Why Python? 🐍
 
 ::: columns
 ::: column
 
-### R: Built by Statisticians  
-- Excels at statistical analysis and modeling  
-- Beautiful data visualizations with simple code  
+#### R: Built by Statisticians for Statisticians
+- Excels at:
+    - Statistical analysis and modeling  
+    - Clean outputs and tables from models
+    - Beautiful data visualizations with simple code  
+
 
 :::
 
 ::: column
 
-### Python: A General-Purpose Language (like C++, Java)
-- Excels at deep learning, image analysis, and NLP  
-- Also great for:  
-  - Automation  
-  - Software & CLI (command line interface) development  
-  - Web development  
+#### Python: General-Purpose Language
+- Excels at: 
+    - Machine Learning, Neural Networks & Deep Learning (scikit-learn, PyTorch, TensorFlow)   
+    - Image & Genomic Data Analysis (scikit-image, biopython, scanpy)
+    - Software & Command Line Interfaces, Web Scraping, Automation
 
 :::
 :::
 
+
+Python’s broader ecosystem makes it the go-to language in domains like AI, bioinformatics, data engineering, and computational biology.  
+
+> **Note:** Packages like `rpy2` and `reticulate` make it possible to use both R and Python in the same project, but those are beyond the scope of this course.  
+> A primer on `reticulate` is available here: [https://www.r-bloggers.com/2022/04/getting-started-with-python-using-r-and-reticulate/](https://www.r-bloggers.com/2022/04/getting-started-with-python-using-r-and-reticulate/)
+
+## Programming Styles: R vs Python
+<br>
+In the first session, we talked briefly about functional vs object-oriented programming:   
 <br>
 
-Python is a good go-to for many things that R isn't quite suited for and is very flexible. 
-There are also packages like `rpy2` and `reticulate` that make it easy to use both R and Python in the same project, but those are beyond the scope of this course. A primer on `reticulate` <a href='https://www.r-bloggers.com/2022/04/getting-started-with-python-using-r-and-reticulate/.'>https://www.r-bloggers.com/2022/04/getting-started-with-python-using-r-and-reticulate/</a> 
+>  <span style="color: #007acc"><strong>Functional programming:</strong></span> focuses on functions as the primary unit of code <br>
+>  <span style="color: #007acc"><strong>Object-oriented programming:</strong></span> uses objects with attached attributes(data) and methods(behaviors) <br>
+
+- R leans heavily on the functional paradigm — you pass data into functions and get back results, in most cases without altering the original data. Functions and pipes (%>%) dominate most workflows.
+
+- In Python, <span style="color: #007acc"><strong>everything is an object</strong></span>, even basic things like lists, strings, and dataframes, and a lot of 'functions' are written as object-associated methods. Some of these methods modify the objects in-place by altering the attached data (attributes). <span style="color: #007acc; font-weight:bold">Understanding how this works is key to using Python effectively!</span>
+
+> You’ve already seen this object-oriented style in Sessions 2 and 3 — you create objects like lists or dataframes, then call methods on them like `.append()` or `.sort_values()`. In python, instead of piping, we sometimes chain methods together.
 
 ## Functions vs Objects in Python
-
 <br>
 
-Python absolutely still uses functions (just like R), and they’re incredibly useful—particularly for data transformations, wrangling, or tasks like parallel processing.   
-  
-<span style="color: #007acc"><strong>But when it comes to modeling, the dominant paradigm is object-oriented</strong></span>
+<span style="color: #007acc"><strong>Python absolutely uses **functions**—just like R!</strong></span>
+They're helpful for **data transformation**, **wrangling**, and **automation tasks** like looping and parallelization. <br>
 
-## Why OOP Matters in Python
+But when it comes to **modeling**, libraries are designed around **classes**: blueprints for creating objects that store data (**attributes**) and define behaviors (**methods**).  <br>
+
+  - `scikit-learn` is great for getting started—everything from regression to clustering follows a simple, consistent OOP interface. Its API is also consistant with other python modeling packages, like [xgboost](https://xgboost.readthedocs.io/en/release_3.0.0/) for gradient boosting and [scvi-tools](https://docs.scvi-tools.org/en/stable/index.html) for transcriptomics data.
+  - `PyTorch` and `TensorFlow` are essential if you go deeper into neural networks or custom models—you’ll define your **own model classes** with attributes and methods, but the basic structure is similar to `scikit-learn`.  
+  - [<u>`statsmodels`</u>](https://www.statsmodels.org/stable/gettingstarted.html) is an alternative to `scikit-learn` for statistical analyses and has R-like syntax and outputs. It's a bit more complex than `scikit-learn` and a bit less consistant with other packages in the python ecosystem.
+
+> 💡 To work effectively in Python, especially for tasks involving modeling or model training, <span style="color: #007acc"><strong>it helps to think in terms of objects and classes, not just functions.</strong></span>   
+
+## Why Does OOP Matter in Python Modeling?
+
+<p style="font-size: 1.15em; margin-top: 0.5em; margin-bottom: 0.1em;">
+<strong>In Python modeling frameworks:</strong>
+</p>
+
+<ul style="font-size: 1.05em; line-height: 1.15; margin-top: 0;">
+  <li>Models are <strong>instances of classes</strong></li>
+  <li>You call methods like <code>.fit()</code>, <code>.predict()</code>, <code>.score()</code></li>
+  <li>Internal model details like coefficients or layers are stored as <strong>attributes</strong></li>
+</ul>
+
+<p style="font-size: 1.05em; margin-top: 0.5em; margin-bottom: 0.75em;">
+This makes model behavior <strong>consistent</strong> and helps manage complexity of things like pipelines that are designed to work for multiple model classes. It also <strong>simplifies</strong> creating/using pre-trained models: both the architecture and learned weights are bundled into a single object with built-in methods like `.predict()` or `.fine_tune()`.
+</p>
+
+<blockquote style="font-size: 1.05em; margin-top: 1em;">
+ If you're used to <code>lm()</code> or <code>glm()</code> in R returning a list of values, think of the Python approach as a self-contained object with named methods and stored results. Instead of having a separate results object, like in R, you would retrieve your results by accessing an attribute that is stored in the model object itself. 
+</blockquote>
 <br>
 
-Many of the most popular Python libraries for modeling—such as scikit-learn, statsmodels, PyTorch, and TensorFlow—are built around the principles of object-oriented programming (OOP).  
-
-This means that to work effectively in Python, especially for tasks involving modeling or model training, 
-<span style="color: #007acc"><strong>it helps to think in terms of objects and classes, not just functions.</strong></span>
-<br>
-
-. . . 
-
-#### Models in Python: 
-- Typically instances of classes
-- Come with built-in methods (like `.fit()` or `.predict()`) and attributes (like `.coef_`) that define their behavior and internal state
-
-## Why OOP Matters for Machine Learning/ Modeling
-
-If you’re doing machine learning, deep learning, or building custom models in Python, you're often working in domains where R doesn't offer as much built-in support. That’s where packages like:
-
-- **scikit-learn** (machine learning)
-- **PyTorch** and **TensorFlow** (deep learning and neural networks)
-
-come in.
-
-. . .  
-
-- **Scikit-learn** provides a wide array of **ready-to-use model classes**, making it a great entry point
-- **PyTorch** and **TensorFlow**, especially for custom neural network architectures, require you to **create your own classes** using inheritance from base classes and mixins
-
-*I won’t go deep into PyTorch or TensorFlow here, but feel free to ask me later or explore tutorials online if you're curious!*
-
-
-## Statsmodels
-
-- **Statsmodels** offers a more R-like interface for regression models but requires some additional setup for design matrices. (You can check out their excellent [documentation here](https://www.statsmodels.org/stable/gettingstarted.html).)
-
-*I won't cover statsmodels here, but it is worth looking up if you are interested.* 
-
-## What We'll Cover
-
-To get comfortable with this way of thinking, we’ll first do a **brief recap of object-oriented programming**—what classes are, how inheritance works, and how you can define your own classes in Python. <br>
-
-Then we’ll shift focus to using **model classes in Python**, particularly with **scikit-learn**.  <br>
-
-Whether you’re using a prebuilt model class or writing your own from scratch, the workflow is often similar. You’ll still need to define or use common methods like `.fit()`, `.predict()`, and `.score()`, and understand how the model stores internal data like coefficients and hyperparameters.
+<span style="font-size: 1.15em;color: #007acc"><strong><em>We’ll focus on `scikit-learn` here for the sake of simplicity, but feel free to explore other libraries!</em></strong></span> <br>  
+*[https://wesmckinney.com/book/modeling](https://wesmckinney.com/book/modeling) is a good tutorial for statsmodels.*
 
 
 # Part 1: Object-Oriented Programming
 
----
+## **Key OOP Principles (Recap)** 
 
-Object-Oriented Programming (OOP) is a core programming paradigm used throughout Python, especially in modeling libraries like scikit-learn, PyTorch, and TensorFlow.
+In OOP, code is structured around **objects** (as opposed to functions). This paradigm builds off the following principles: 
 
-<span style="color: #007acc"><strong>It helps us build modular, reusable, and intuitive code by organizing logic around objects.</strong></span>
-
----
-
-## **Key Principles of OOP**  
+. . .  
 
 1. **Encapsulation**: Bundling data and methods together in a single unit.  
    - A `StandardScaler` object stores mean and variance data and has `.fit()` and `.transform()` methods
 
+. . . 
+
 2. **Inheritance**: Creating new classes based on existing ones.  
-   - `sklearn.LinearRegression` inherits from a general regression model class.    
-
-3. **Abstraction**: Hiding implementation details and exposing only essential functionality.  
-   - e.g., .fit() works the same way from the outside, regardless of model complexity  
-
-4. **Polymorphism**: Objects of different types can be treated the same way if they implement the same methods. 
-   - e.g., any object with `.fit()` and `.predict()` can be passed into a pipeline 
-   - Python’s **duck typing**:  
-     - *"If it walks like a duck and quacks like a duck, then it must be a duck."*  
-     - If an object has the right attributes and methods, it can be used in the same way as another object of a different class. 
-
-## Recap: What Are Classes and Objects?
-
-A **class** is a **blueprint** for creating objects. An **object** is an **instance** of a class that contains **data (attributes)** and **behaviors (methods)**.  
+   - `sklearn.LinearRegression` inherits attributes and methods from a general regression model class.    
 
 . . . 
 
-For example, in Python, we can define a class called `Dog` and give it attributes that store data about a given dog.    
+3. **Abstraction**: Hiding implementation details and exposing only essential functionality.  
+   - e.g., `.fit()` works the same way from the outside, regardless of model complexity  
 
-We can also define methods that represent behaviors an object of the `Dog` class can perform:  
+
+. . . 
+
+4. **Polymorphism**: Objects of different types can be treated the same way if they implement the same methods. 
+    - Python’s **duck typing**:  
+      - *"If it walks like a duck and quacks like a duck, then it must be a duck."*  
+      - ex: If different objects all have a .summarize() method, we can loop over them and call .summarize() without needing to check their class. As long as the method exists, Python will know what to do.
+      - This lets us easily create [<u>pipelines</u>](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline) that can work for many types of models. 
+
+> We won't cover [pipelines](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline) here, but they are worth looking into!
+
+
+## **Classes and Objects**
+
+<br>
+
+**Classes** are **blueprints** for creating objects. Each object contains:  
+<ul style="font-size: 1.05em; line-height: 1.6;">
+  <li><strong>Attributes</strong> (data): model coefficients, class labels</li>
+  <li><strong>Methods</strong> (behaviors): <code>.fit()</code>, <code>.predict()</code></li>
+</ul>
+
+<br>
+
+👉 To check if an object is an instance of a particular class, use:
+
+```{python}
+#| eval: false
+isinstance(object, class)  # Returns True if `object` is an instance of `class`.
+```
+
+<br>
+
+<p style="color: #007acc; font-weight: 600;">
+Knowing what class an object belongs to helps us understand what methods and attributes it provides.
+</p>
+
+
+# Example: Creating a Class
+
+## Base Classes
+
+A **base class** (or parent class) serves as a template for creating objects. Other classes can inherit from it to reuse its properties and methods.
+
+Classes are defined using the `class` keyword, and their structure is specified using an `__init__()` method for initialization. 
+
+. . . 
+
+For example, we can define a class called `Dog` and give it attributes that store data about a given dog.    
+
+We can also add methods that represent behaviors an object of the `Dog` class can perform:  
 
 . . . 
 
 ```{python}
-#| code-line-numbers: "|3,4|6"
-class Dog:
-    def __init__(self, name, breed):
-        self.name = name
+#| code-line-numbers: "|3,4|6-7|9-13"
+class Dog: ## begin class definition
+    def __init__(self, name, breed): ## define init method
+        self.name = name ## add attributes
         self.breed = breed
 
-    def speak(self):
+    def speak(self): ## add methods
         return f"{self.name} says woof!"
+
+    def __str__(self): ## add special methods, __str__(self) tells python what to display when an object is printed
+        return f"Our dog {self.name}"
+
+    def __repr__(self): ## add representation to display when dog is called in console
+        return f"Dog(name={self.name!r}, breed={self.breed!r})"
 ```
 
 ## Creating a dog
@@ -180,108 +218,44 @@ Creating an instance (object) of the `Dog` class lets us model a particular dog:
 
 . . . 
 ```{python}
-#| code-line-numbers: "1|2|"
 #| output-location: fragment
-my_dog = Dog("Buddy", "Golden Retriever")
-print(my_dog.speak())  
+buddy = Dog("Buddy", "Golden Retriever")
+buddy ## displays what was in the __repr__() method
 ```
 
 . . .
 
-Here, `my_dog` is an **object** of the `Dog` class.     
+Here, `buddy` is an **object** of the `Dog` class.     
 
 It has **attributes** (`name`, `breed`) and **methods** (`speak()`).   
 
 . . .  
 
 When we make an instance of the Dog class:     
-- We set the value of the attributes [`name` and `breed`], which are then stored as part of the `my_dog` object  
-- We can use any methods defined in the Dog class on `my_dog`  
+- We set the value of the attributes [`name` and `breed`], which are then stored as part of the `buddy` object  
+- We can use any methods defined in the Dog class on `buddy`  
+
+```{python}
+#| output-location: fragment
+#| code-line-numbers: "1-3|5-6|"
+## if we want to see what kind of dog our dog is
+## we can call buddy's attributes
+print(f"Our dog {buddy.name} is a {buddy.breed}.")
+
+## we can also call any Dog methods
+print(buddy.speak())  
+```
 
 . . . 
  
 <span style="color: #007acc"><strong>Note:</strong> For python methods, the `self` argument is assumed to be passed and therefore we do not put anything in the parentheses when calling `.speak()`.</span>
 
-## **How Does This Relate to Machine Learning and Modeling?**  
-
-<br> 
-
-Machine learning models in Python are implemented as **classes**.    
-    - When you create a model, you’re **instantiating an object** of a predefined class (e.g., `LogisticRegression()`).    
-    - That model **inherits** attributes (parameters, coefficients) and methods (like `.fit()` and `.predict()`).    
-
---- 
-
-For example, a **logistic regression model** in `scikit-learn` is an instance of the `LogisticRegression` class:
-```{.python}
-## Example: 
-from sklearn.linear_model import LogisticRegression
-
-model = LogisticRegression()  # Creating an instance of the LogisticRegression class
-model.fit(X_train, y_train)   # Calling a method to train the model
-predictions = model.predict(X_test)  # Calling a method to make predictions
-```
-Here, **`model`** is an **object** that has inherited attributes and methods from `LogisticRegression`.  
-
-. . .
-
-👉 **To check if an object is an instance of a particular class**, use:
-```{.python}
-isinstance(object, class)  # Returns True if `object` is an instance of `class`.
-```
-
-. . . 
-
-<span style="color: #007acc"><strong>Knowing what class an object is helps us know what methods we can expect to have access to.</strong></span>
-
-
-## Example: Understanding Classes - Definition, Inheritance, Mixins
-
-Before we get into the machine learning demo projects, I want to quickly demonstrate how classes work and how we can leverage inheritance when making our own classes.  
-
-Even though this example is very simple, the same method applies to making your own classes for machine learning and neural network models.
-
-
-## Base Classes
-A **base class** (or parent class) serves as a template for creating objects. Other classes can inherit from it to reuse its properties and methods.
-
-For example, the class we created earlier, `Dog`, could be a base class. 
-
-```{python}
-class Dog: ## class definition
-    def __init__(self, name, breed): ## sets up the initialization for an instance of class Dog. 
-        ### Allows us to assign name and breed when we instantiate dog. 
-        self.name = name ## attributes
-        self.breed = breed
-
-    def speak(self): ## method
-        return f"{self.name} says Woof!"
-
-
-```
-
-. . .  
-
-And we can make an instance of `Dog` and make it do things. 
-
-```{python}
-#| output-location: fragment
-my_dog = Dog("Fido", "Labrador") ## create a dog of name 'Fido' and breed 'Labrador'
-print(my_dog.speak())
-
-## if we want to see what kind of dog our dog is
-print(f"Our dog {my_dog.name} is a {my_dog.breed}.")
-```
 
 ## Derived (Child) Classes  
 
-Now that we have a `Dog` class, let’s define a new class called `GuardDog`. This class will inherit all the properties and methods from `Dog`, while also adding its own unique attributes and behaviors.
+Derived/child classes build on base classes using the principle of inheritence. <br>
 
-<span style="color: #007acc"><strong>This is the power of inheritance</span></strong>—we don’t have to rewrite everything from scratch! Instead, we can extend the existing functionality of `Dog` to create a more specialized class.
-
----
-
-We can extend the `Dog` class to create a `GuardDog` class. 
+Now that we have a `Dog` class, we can build on it to create a specialized `GuardDog` class. 
 
 ```{python}
 #| code-line-numbers: "|1|2-7|"
@@ -304,37 +278,55 @@ class GuardDog(Dog):  # GuardDog inherits from Dog
         return f"Training {self.name}. {self.name}'s training level is now {self.training_level}"
 
 # Creating an instance of GuardDog
-my_guard_dog = GuardDog("Rex", "German Shepherd", training_level= 5)
+rex = GuardDog("Rex", "German Shepherd", training_level= 5)
 ```
 ---
 
-Now that we have a dog (my_guard_dog), we can call on any of the methods introduced in the `Dog` class as well as the new `GuardDog` class.
+Now that we have a dog (rex), we can call on any of the methods/attributes introduced in the `Dog` class as well as the new `GuardDog` class.
 ```{python}
 #| slide-type: fragment
 #| output-location: fragment
 # Using methods from the base class
-print(my_guard_dog.speak())  # Inherited from Dog -> Output: "Rex says Woof!"
+print(rex.speak())  # Inherited from Dog -> Output: "Rex says Woof!"
+rex
 ```
+<br>
+
 ```{python}
 #| slide-type: fragment
 #| output-location: fragment
 # Using a method from the derived class
-print(f"{my_guard_dog.name}'s training level is {my_guard_dog.training_level}.")
-print(my_guard_dog.guard()) 
+print(f"{rex.name}'s training level is {rex.training_level}.")
+print(rex.guard()) 
 ```
+
+. . . 
+
+<span style="color: #007acc"><strong>This is the power of inheritance</span></strong>—we don’t have to rewrite everything from scratch!
+---
+
+Unlike standalone functions, methods in Python often update objects in-place—meaning they modify the object itself rather than returning a new one.
+
 ```{python}
 #| slide-type: fragment
 #| output-location: fragment
-## if we want to train Rex and increase his training level, 
-print(my_guard_dog.train())
-
-## now check if he can guard 
-print(my_guard_dog.guard()) 
+## we can use the `train` method to increase rex's training level, 
+print(rex.train())
 ```
----
-class: middle
 
-As we saw with Rex, <span style="color: #007acc"><strong>child classes inherit all attributes (`.name` and `.breed`) and methods (`.speak()`) from parent classes.</strong></span> They can also have new methods (`.train()`).
+. . .
+
+```{python}
+#| slide-type: fragment
+#| output-location: fragment
+## now check if he can guard 
+print(rex.guard()) 
+```
+<br>
+
+. . . 
+
+As we saw with Rex, <span style="color: #007acc"><strong>child classes inherit all attributes (`.name` and `.breed`) and methods (`.speak()` `__repr__()`) from parent classes.</strong></span> They can also have new methods (`.train()`).
 
 ## Mixins
 A **mixin** is a special kind of class designed to add **functionality** to another class. Unlike base classes, mixins aren’t used alone.  
@@ -484,9 +476,26 @@ In the context of our work, this would allow us to make a pipeline using models 
 
 <span style="color: #007acc"><strong>While our dog example was very simple, this is the same way that model classes work in python.</strong></span> 
 
-## OOP In ML Recap
+## **OOP in Machine Learning and Modeling?**  
 
-#### **Key Benefits of OOP in Machine Learning**  
+Machine learning models in Python are implemented as **classes**.    
+    - When you create a model, you’re **instantiating an object** of a predefined class (e.g., `LogisticRegression()`).    
+    - That model **inherits** attributes (parameters, coefficients) and methods (like `.fit()` and `.predict()`).    
+
+--- 
+
+For example, a **logistic regression model** in `scikit-learn` is an instance of the `LogisticRegression` class:
+```{.python}
+## Example: 
+from sklearn.linear_model import LogisticRegression
+
+model = LogisticRegression()  # Creating an instance of the LogisticRegression class
+model.fit(X_train, y_train)   # Calling a method to train the model
+predictions = model.predict(X_test)  # Calling a method to make predictions
+```
+Here, **`model`** is an **object** that has inherited attributes and methods from `LogisticRegression`.  
+
+## **Key Benefits of OOP in Machine Learning**  
 
 1. **Encapsulation** – Models store parameters and methods inside a single object.  
 2. **Inheritance** – New models can build on base models, reusing existing functionality.  
@@ -616,7 +625,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 from great_tables import GT
-from tabulate import tabulate
 
 ## sklearn imports
 
@@ -746,7 +754,36 @@ print("Coordinates of cluster centers:", kmeans.cluster_centers_)
 
 ## Step 5: Visualize and Evaluate
 
-To do visualization, we can use either seaborn or plotnine. Plotnine is nice because it is just a python port of ggplot!
+To do visualization, we can use either seaborn or plotnine. `plotnine` mirrors `ggplot2` syntax from R and is great for layered grammar-of-graphics plots, while `seaborn` works directly with **numpy arrays** and **pandas DataFrames**. It builds on top of matplotlib objects—which are themselves instances of classes. Most built-in plotting methods in Python packages use matplotlib.<br>
+
+`seaborn` is often used for quick statistical visualizations in python and is more convienient if you want to put multiple plots on the same figure.
+
+## Plotting with plotnine vs seaborn
+
+::: columns
+::: column
+
+### **plotnine (like ggplot2 in R)**  
+The biggest differences between `plotnine` and `ggplot2` syntax are: 
+- With `plotnine` the whole call is wrapped in `()` parentheses
+- Variables are called with strings (`""` are needed!)
+- If you don't use `from plotnine import *`, you will need to import each individual function you plan to use!
+
+:::
+
+::: column
+
+### **seaborn (base matplotlib + enhancements)**  
+- Designed for **quick, polished plots**
+- Works well with **pandas DataFrames** or **NumPy arrays**
+- Integrates with `matplotlib` for customization
+- Often used in ML for things like **decision boundaries** or **heatmaps**
+
+:::
+:::
+
+
+## Scatterplot with plotnine
 
 To take at the distribution of our species by bill length and bill depth...
 
@@ -761,28 +798,37 @@ plot1 = (ggplot(penguins, aes(x="bill_length_mm", y="bill_depth_mm", color="spec
 display(plot1)
 ```
 
-. . . 
+## Scatterplot with seaborn
 
-The biggest differences between `plotnine` and `ggplot2` syntax are: 
-- With `plotnine` the whole call is wrapped in `()` parentheses
-- Variables are called with strings (`""` are needed!)
-- If you don't use `from plotnine import *`, you will need to import each individual function you plan to use!
-
----
-
-We can also create a plot for the K-means clustering results
+We can also create a plot for the K-means clustering results. This time, we'll use seaborn.
 
 ```{python}
 #| output-location: slide
-# Plotnine scatterplot of k-Means clusters
-plot2 = (ggplot(penguins, aes(x="bill_length_mm", y="bill_depth_mm", color="factor(kmeans_cluster)"))
- + geom_point()
- + ggtitle("K-Means Clustering Results")
- + theme_bw())
+# Create the figure and axes
+fig, ax = plt.subplots(figsize=(8, 6))
 
-display(plot2)
+# Save seaborn scatterplot to variable plot1 by drawing it on ax
+plot1 = sns.scatterplot(
+    data=penguins,
+    x="bill_length_mm",
+    y="bill_depth_mm",
+    hue="species",
+    style="sex",             # optional
+    palette="Set2",
+    edgecolor="black",
+    s=100,
+    ax=ax                    # draw on the axes object
+)
+
+# Add decorations to the same Axes
+ax.set_title("Penguin Bill Length vs Depth by Species")
+ax.set_xlabel("Bill Length (mm)")
+ax.set_ylabel("Bill Depth (mm)")
+ax.legend(title="Species")
+
+# Plot the figure
+fig.tight_layout() 
 ```
----
 
 ## Use function to calculate ARI
 
@@ -801,53 +847,57 @@ print(f"k-Means Adjusted Rand Index: {kmeans_ari:.2f}")
 
 ### We can also use methods on our data structure to create new data
 
-- We can use the `.groupby()` method to help us plot cluster agreement with species label
+- We can use the `.groupby()` method to help us plot cluster agreement with species label as a heatmap
+- If we want to add sex as a variable to see if that is why our clusters don't agree with our species, we can use a scatterplot
+- Using seaborn and matplotlib, we can easily put both of these plots on the same figure. 
+<br>
 
+
+Setting up data... <br>
 ```{python}
-#| code-line-numbers: "1-3|5-20"
-#| output-location: slide
-# Count occurrences of each species-cluster-sex combination
-# ( .size gives the count as index, use reset_index to get count column. )
+# Count occurrences of each species-cluster-sex combination( .size gives the count as index, use reset_index to get count column. )
 scatter_data = penguins.groupby(["species", "kmeans_cluster", "sex"]).size().reset_index(name="count")
-
-# Create a heatmap of the cluster assignments by species
-heatmap_plot = (
-    ggplot(scatter_data, aes(x="species", y="kmeans_cluster", fill="count"))
-    + geom_tile(color="white")  # Add white grid lines for separation
-    + scale_fill_gradient(low="lightblue", high="darkblue")  # Heatmap colors
-    + labs(
-        title="Heatmap of KMeans Clustering by Species",
-        x="Species",
-        y="KMeans Cluster",
-        fill="Count"
-    )
-    + theme_bw()
+# Create a mapping to add horizontal jitter for each sex for scatterplot
+sex_jitter = {'Male': -0.1, 'Female': 0.1}
+scatter_data['x_jittered'] = scatter_data.apply(
+    lambda row: scatter_data['species'].unique().tolist().index(row['species']) + sex_jitter.get(row['sex'], 0),
+    axis=1
 )
-
-# Display the plot
-display(heatmap_plot)
+heatmap_data = scatter_data.pivot_table(index="kmeans_cluster", columns="species", values="count", aggfunc="sum", fill_value=0)
 ```
 
 ---
 
-- If we want to add sex as a variable to see if that is why our clusters don't agree with our species, we can use a scatterplot
+#### Creating Plots ....
 
 ```{python}
 #| output-location: slide
-scatter_plot = (
-    ggplot(scatter_data, aes(x="species", y="kmeans_cluster", color="species", shape="sex", size="count"))
-    + geom_point(alpha=0.7, position=position_dodge(width=0.5))  # Horizontal separation
-    + scale_size(range=(2, 10))  # Adjust point sizes
-    + scale_y_continuous(breaks=[0, 1, 2])  # Set y-axis ticks to only 0, 1, 2
-    + theme_bw()
-    + labs(
-        title="KMeans Clustering vs Species (Size = Count)",
-        x="Species",
-        y="KMeans Cluster"
-    )
+# Prepare the figure with 2 subplots the fig2 object represents the overall figure the axes object will contain both plots
+fig2, axes = plt.subplots(1, 2, figsize=(14, 6)) ## 1 row 2 columns
+
+# Plot heatmap on the first axis
+sns.heatmap(data = heatmap_data, cmap="Blues", linewidths=0.5, linecolor='white', annot=True, fmt='d', ax=axes[0])
+axes[0].set_title("Heatmap of KMeans Clustering by Species")
+axes[0].set_xlabel("Species")
+axes[0].set_ylabel("KMeans Cluster")
+
+# Scatterplot with jitter
+sns.scatterplot(data=scatter_data, x="x_jittered", y="kmeans_cluster",
+    hue="species", style="sex", size="count", sizes=(50, 300),
+    alpha=0.8, ax=axes[1], legend="brief"
 )
-#Display the plot
-display(scatter_plot)
+
+# Fix the x-axis ticks and legend
+species_order = list(scatter_data['species'].unique())
+axes[1].set_xticks(range(len(species_order)))
+axes[1].set_xticklabels(species_order)
+axes[1].set_title("Cluster Assignment by Species and Sex (Jittered)")
+axes[1].set_ylabel("KMeans Cluster")
+axes[1].set_xlabel("Species")
+axes[1].set_yticks([0, 1, 2])
+axes[1].legend(bbox_to_anchor=(1.05, 0.5), loc='center left', borderaxespad=0.0, title="Legend")
+
+fig2.tight_layout()
 ```
 
 ## Project 2 -> KNN classification
@@ -967,6 +1017,48 @@ color="y_actual", fill = 'y_pred', size = 'correct'))
 display(plot3)
 ```
 
+## Visualizing Decision Boundary with seaborn and matplotlib
+
+```{python}
+#| code-line-numbers: "1-8|10-18|20-22|24-34|36-41|"
+#| output-location: slide
+from sklearn.inspection import DecisionBoundaryDisplay
+from sklearn.preprocessing import LabelEncoder
+
+# Create and fit label encoder for y (just makes y numeric because it makes the scatter plot happy)
+label_encoder = LabelEncoder()
+y_encoded = label_encoder.fit_transform(y)
+
+# Create the plot objects
+fig, ax = plt.subplots(figsize=(8, 6))
+
+# Create display object
+disp = DecisionBoundaryDisplay.from_estimator(
+    knn,
+    X_test,
+    response_method = 'predict',
+    plot_method = 'pcolormesh',
+    xlabel = "bill_length_scaled",
+    ylabel = "bill_depth_scaled",
+    shading = 'auto',
+    alpha = 0.5,
+    ax = ax
+)
+
+# Use method from display object to create scatter plot
+scatter = disp.ax_.scatter(X_scaled[:,0], X_scaled[:,1], c=y_encoded, edgecolors = 'k')
+disp.ax_.legend(
+    scatter.legend_elements()[0],
+    knn.classes_,
+    loc = 'lower left',
+    title = 'Species'
+    
+)
+_ = disp.ax_.set_title("Penguin Classification")
+
+plt.show()
+```
+
 ## Evaluate KNN performance
 
 ```{python}
@@ -995,30 +1087,45 @@ GT(summary_table).show() ## round the values!!!!!
 
 ## Key Takeaways from This Session
 
-🔹 **Machine learning models in Python are implemented as classes**, and model objects are instantiated from these classes.  
-🔹 Python modeling workflows make extensive use of both **functions** and **object-oriented structures** (e.g., methods and attributes).  
-🔹 The consistent use of methods like `.fit()`, `.predict()`, and `.transform()` across libraries encourages **code reuse, modularity, and interoperability**.  
-🔹 A working knowledge of **inheritance** and **mixins** is essential for extending functionality, particularly in deep learning frameworks.
-
-Python’s object-oriented design makes machine learning pipelines more **robust, scalable, and production-ready**. 🚀
-
+<p style="font-size: 1.25em"> 
+</p>
+<ul style="font-size: 1.1em; line-height: 1.6; max-width: 700px; margin: 0 auto;">
+  <li><strong>Python workflows rely on object-oriented structures in addition to functions:</strong><br>
+   Understanding the OOP paradigm makes Python a lot easier!</li>
+  <li><strong>Everything is an object!</strong></li>
+  <li><strong>Duck Typing:</strong><br>
+  If an object has a method, that method can be called regardless of the object type. Caveat being, make sure the arguments (if any) in the method are specified correctly for all objects!
+  </li>
+    <li>Python packages use <strong>common methods</strong> that make it easy to change between model types without changing a lot of code. 
+  </li>
+</ul>
 
 ## Additional Insights
 
-#### Predictable APIs Make Model Switching Seamless  
-Once you're familiar with Python's object-method pattern, swapping models (e.g., `LogisticRegression` → `RandomForestClassifier`) requires only minimal changes.
-
-#### scikit-learn Prioritizes Interoperability  
-The standardized class structure enables integration with tools like `Pipeline`, `GridSearchCV`, and `cross_val_score`—promoting reusable and testable workflows.
-
-#### Class Attributes Support Model Transparency  
-Understanding common attributes like `.coef_`, `.classes_`, and `.feature_importances_` is critical for **model inspection, debugging, and reporting**.
-
-#### Custom Classes Are Central in Deep Learning  
-Frameworks like PyTorch and TensorFlow rely on **subclassing base models**—reinforcing the need to understand object-oriented programming practices.
-
-#### Mixins Enable Modular Design Across Libraries  
-Mixins (e.g., `ClassifierMixin`, `TransformerMixin`) extend core functionality without redundancy and are a cornerstone of Python’s library design patterns.
+<div style="font-size: 1.1em; max-width: 900px; margin: 1em auto 0 auto; line-height: 1.7;">
+  <ul>
+    <li>
+      <strong>Predictable APIs enable seamless model switching:</strong><br>
+      Swapping models like <code>LogisticRegression</code> → <code>RandomForestClassifier</code> usually requires minimal code changes.
+    </li>
+    <li style="margin-top: 1em;">
+      <strong>scikit-learn prioritizes interoperability:</strong><br>
+      Its consistent class design integrates with tools like <code>Pipeline</code>, <code>GridSearchCV</code>, and <code>cross_val_score</code>.
+    </li>
+    <li style="margin-top: 1em;">
+      <strong>Class attributes improve model transparency:</strong><br>
+      Access attributes like <code>.coef_</code>, <code>.classes_</code>, and <code>.feature_importances_</code> for model interpretation and debugging.
+    </li>
+    <li style="margin-top: 1em;">
+      <strong>Custom classes are central to deep learning:</strong><br>
+      Frameworks like PyTorch and TensorFlow require you to define your own model classes by subclassing base models.
+    </li>
+    <li style="margin-top: 1em;">
+      <strong>Mixins support modular design:</strong><br>
+      Mixins (e.g., <code>ClassifierMixin</code>) let you add specific functionality without duplicating code.
+    </li>
+  </ul>
+</div>
 
 ## **Pre-Reading for This Session**  
 - [Scikit-learn Documentation](https://scikit-learn.org/stable/user_guide.html)  
