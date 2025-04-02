@@ -5,7 +5,7 @@ format:
     html:
         output-file: "session1.html"
         toc: true
-        css: ../styles.css
+        css: session1_styles.css
         code-copy: true
         code-line-numbers: false
         link-external-icon: false
@@ -130,7 +130,7 @@ While both programming languages are popular for data analysis and computation, 
 Here is a non-exhaustive summary of some key differences:
 
 | Feature / Task | **R** | **Python** |
-|------------------|-------------------------|------------------------------|
+|------------------|-------------------------|-----------------------------|
 | Programming logic | Mostly function-oriented – structured around **functions** | Function- **AND** object-oriented – structured around **classes** |
 | General-purpose programming | ⚠️ Less ideal – designed mainly for working with data | ✅ Strong – ML & AI, software development, scripting, etc. |
 | Computational power | ✅ Vectorization allows operating on all elements of a vector at once <br> ✅ Best for statistical analysis <br> ⚠️ Memory-intensive; often slow for reading large data and performing large computations | ✅ Generally faster for loops <br> ✅ Strong support for GPU computing <br> ✅ Memory-efficient for handling large objects and complex computations |
@@ -147,7 +147,7 @@ Here are the core tools we will be using:
 -   **Jupyer Notebook**: an interactive computing tool that combines code execution, text documentation, and visualizations.
 -   **Git (GitHub)**: for version control and collaboration.
 
-#### Conda (via Miniconda)
+#### **Conda (via Miniconda)**
 
 Conda is a package manager, much like CRAN + Bioconductor, and can be utilized across languages (Python, R, C/C++ etc.).
 It also simplifies Python environment management, similar to `renv` in R but more powerful and flexible, ensuring dependency isolation without cluttering the global system.
@@ -184,7 +184,7 @@ While Anaconda can be an alternative for people who do not want to use command l
 
 : Anaconda vs. Miniconda
 
-## ▶️Follow-Along: Install Miniconda (Python + conda)
+## ▶️Follow-Along: Install Miniconda (Python + conda) {#follow-along-install-miniconda-python-conda}
 
 Let's walk through steps to install **Minconda**.
 For the latest Miniconda installers for Python 3.12, go to the Anaconda website: [https://www.anaconda.com/download/](https://www.anaconda.com/download/success#miniconda) and download the installer based on your system.
@@ -211,7 +211,7 @@ For the latest Miniconda installers for Python 3.12, go to the Anaconda website:
         :::
 
     -   Keep the default for installation location.
-        E.g.,:
+        E.g.,
 
         -   Windows: `C:\Users\<user_name>\AppData\Local\miniconda3`
         -   MacOS: `/Users/yourname/miniconda3`
@@ -272,9 +272,9 @@ For the latest Miniconda installers for Python 3.12, go to the Anaconda website:
 ## Conda
 
 Conda is a powerful command line tool for cross-platform package and environment management via the `conda` **command line interface (CLI)**.
-Conda can be installed via installers such as Miniconda (see [▶️Follow-Along: Install Miniconda (Python + conda)]) or the Anaconda Distribution.
+Conda can be installed via installers such as Miniconda (see [▶️Follow-Along: Install Miniconda (Python + conda)](#follow-along-install-miniconda-python-conda)) or the Anaconda Distribution.
 
-#### Managing Packges 
+### Managing Packges
 
 To install packages from the default Anaconda repository (also called [**channels**](https://www.anaconda.com/docs/psm/cloud/channels)), use the following commands:
 
@@ -331,7 +331,7 @@ To remove a package (or multiple packages at once):
 conda remove scipy pandas matplotlib
 ```
 
-#### Managing Environments
+### Managing Environments
 
 You can also use Conda to create and manage **virtual environments**.
 Here is a list of some useful commands relating to environment management.
@@ -490,7 +490,7 @@ Rstudio is an IDE developed to support coding in both R and Python languages, wi
 For Python, there are many existing IDEs that offer compatibility and multi-functionality
 
 | Tool | Description |
-|-----------------------|------------------------------------------------|
+|------------------------|-----------------------------------------------|
 | **VS Code** | Lightweight, powerful IDE (extensible with Python & Jupyter extensions) |
 | **JupyterLab** | Interactive notebooks for analysis & reports |
 | **Spyder** | RStudio-like interface, good for scientific Python |

@@ -215,7 +215,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#python-installation-and-setup" id="toc-python-installation-and-setup" class="nav-link" data-scroll-target="#python-installation-and-setup">2. Python Installation and Setup</a>
   <ul class="collapse">
   <li><a href="#follow-along-install-miniconda-python-conda" id="toc-follow-along-install-miniconda-python-conda" class="nav-link" data-scroll-target="#follow-along-install-miniconda-python-conda">▶️Follow-Along: Install Miniconda (Python + conda)</a></li>
-  <li><a href="#conda" id="toc-conda" class="nav-link" data-scroll-target="#conda">Conda</a></li>
+  <li><a href="#conda" id="toc-conda" class="nav-link" data-scroll-target="#conda">Conda</a>
+  <ul class="collapse">
+  <li><a href="#managing-packges" id="toc-managing-packges" class="nav-link" data-scroll-target="#managing-packges">Managing Packges</a></li>
+  <li><a href="#managing-environments" id="toc-managing-environments" class="nav-link" data-scroll-target="#managing-environments">Managing Environments</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#virtual-environments" id="toc-virtual-environments" class="nav-link" data-scroll-target="#virtual-environments">3 Virtual Environments</a>
   <ul class="collapse">
@@ -369,9 +373,9 @@ Important
 <p>While both programming languages are popular for data analysis and computation, Python and R differ in their underlying code structure, the scope of functionality, and the extensibility of tasks they can perform. Here is a non-exhaustive summary of some key differences:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 24%">
+<col style="width: 25%">
 <col style="width: 34%">
-<col style="width: 41%">
+<col style="width: 40%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -419,7 +423,7 @@ Important
 <li><strong>Git (GitHub)</strong>: for version control and collaboration.</li>
 </ul>
 <section id="conda-via-miniconda" class="level4">
-<h4 class="anchored" data-anchor-id="conda-via-miniconda">Conda (via Miniconda)</h4>
+<h4 class="anchored" data-anchor-id="conda-via-miniconda"><strong>Conda (via Miniconda)</strong></h4>
 <p>Conda is a package manager, much like CRAN + Bioconductor, and can be utilized across languages (Python, R, C/C++ etc.). It also simplifies Python environment management, similar to <code>renv</code> in R but more powerful and flexible, ensuring dependency isolation without cluttering the global system.</p>
 <p>Conda can be installed via either Miniconda (lightweight version) or the Anaconda Distribution (full version). In this tutorial, we will use the former.</p>
 </section>
@@ -500,7 +504,7 @@ Installing for current user only
 <p>You don’t need to install for all users most of the time. This option requires admin privileges which you might not have on your MSK laptop.</p>
 </div>
 </div></li>
-<li><p>Keep the default for installation location. E.g.,:</p>
+<li><p>Keep the default for installation location. E.g.,</p>
 <ul>
 <li>Windows: <code>C:\Users\&lt;user_name&gt;\AppData\Local\miniconda3</code></li>
 <li>MacOS: <code>/Users/yourname/miniconda3</code></li>
@@ -553,8 +557,8 @@ Do not add Miniconda to PATH⚠️
 <section id="conda" class="level2">
 <h2 class="anchored" data-anchor-id="conda">Conda</h2>
 <p>Conda is a powerful command line tool for cross-platform package and environment management via the <code>conda</code> <strong>command line interface (CLI)</strong>. Conda can be installed via installers such as Miniconda (see <a href="#follow-along-install-miniconda-python-conda">▶️Follow-Along: Install Miniconda (Python + conda)</a>) or the Anaconda Distribution.</p>
-<section id="managing-packges" class="level4">
-<h4 class="anchored" data-anchor-id="managing-packges">Managing Packges</h4>
+<section id="managing-packges" class="level3">
+<h3 class="anchored" data-anchor-id="managing-packges">Managing Packges</h3>
 <p>To install packages from the default Anaconda repository (also called <a href="https://www.anaconda.com/docs/psm/cloud/channels"><strong>channels</strong></a>), use the following commands:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># To install a specific version of a package (e.g., SciPy):</span></span>
@@ -590,8 +594,8 @@ Difference Between <code>conda install</code> and <code>pip install</code>
 <p>To remove a package (or multiple packages at once):</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove scipy pandas matplotlib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="managing-environments" class="level4">
-<h4 class="anchored" data-anchor-id="managing-environments">Managing Environments</h4>
+<section id="managing-environments" class="level3">
+<h3 class="anchored" data-anchor-id="managing-environments">Managing Environments</h3>
 <p>You can also use Conda to create and manage <strong>virtual environments</strong>. Here is a list of some useful commands relating to environment management. We will cover the utility of these commands in more detail in the next section.</p>
 <table class="caption-top table">
 <thead>
@@ -739,8 +743,8 @@ Rstudio IDE
 <p>For Python, there are many existing IDEs that offer compatibility and multi-functionality</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 32%">
-<col style="width: 67%">
+<col style="width: 33%">
+<col style="width: 66%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -894,7 +898,7 @@ Find your conda Python executable path
 <div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="in">print("This is some Python output.")</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="1042f2a2" class="cell" data-execution_count="1">
+<div id="df0d50f0" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>This is some Python output.</code></pre>
 </div>
