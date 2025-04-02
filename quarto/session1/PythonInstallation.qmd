@@ -43,28 +43,28 @@ The overall **goal** of the is to learn how to program in Python using modern, r
 
 ## 📖 About this Guide
 
-This handout is a required pre-read for the Introduction to Python workshop.
+This handout is a pre-read for the Introduction to Python workshop.
 It serves as a follow-along guide to help you install Python, set up essential tools like Miniconda and VS Code, and prepare for coding in Python for the upcoming sessions.
 
 Along the way, we will also discuss some important questions–***What makes Python useful? Why would we, as biostatisticians, want to learn it?*** You will get an overview of the key features of Python, what it can do in relation to biostatistics/bioinformatics research, and how it compared to R.
-Later in the workshop, we will dive deeper into some of Python's features and functions through hands-on programming practices.
+In the upcoming sessions, we will dive deeper into some of Python's features and functions through hands-on programming practices.
 
 ::: {.callout-tip icon="false"}
-## **Learning objectives of the article**
+## 📝Learning objectives of the article
 
-📝 This handout walks you through installing the necessary tools and setting up your Python environment.
-It’s a required pre-read — please follow each step before the first workshop session.
+This handout walks you through installing the necessary tools and setting up your Python environment.
+Please follow each step before the first workshop session.
 
 **💡Aim 1**: know key features of Python and its applications.
 
-**💡Aim 2**: know the steps to install Python through Miniconda/Anaconda Distribution.
+**💡Aim 2**: know what Miniconda/Anaconda are and follow the steps to install Python.
 
-**💡Aim 3**: know what Python virtual environments are and how to use conda to install and manage them.
+**💡Aim 3**: know what Python virtual environments are and how to use Conda to create them.
 
-**💡Aim 4**: know features of the Visual Studio Code (VS Code) integrated development environments (IDE) and steps to set up a Python project within it.
+**💡Aim 4**: know what integrated development environments (IDE) are follow the steps to set up Jupyter Notebooks in Visual Studio Code for Python programming.
 :::
 
-# 1 Introduction to Python
+# 1. Introduction to Python
 
 ## What is Python?
 
@@ -101,33 +101,28 @@ While R is particularly useful in statistical analysis and visualizations, Pytho
 Within the field of biostatistics/ bioinformatics, Python has become a core tool for biomedical data analysis due to its versatility, reproducibility, and strong ecosystem of scientific libraries.
 Below are some areas where Python can be useful and some essential libraries.
 
-#### **Statistical analysis**
+-   **Statistical analysis**
 
-While R is the go-to tool for statistical analysis, Python has caught up with many equivalent libraries and functions:
+    While R is the go-to tool for statistical analysis, Python has caught up with many equivalent libraries and functions:
 
--   `statsmodels`/ `scipy.stats` provide **regression modeling** and **hypothesis testing**.
+    -   `statsmodels`/ `scipy.stats` provide **regression modeling** and **hypothesis testing**.
+    -   `lifelines`/ `scikit-survival` support **survival analysis** and plotting.
 
--   `lifelines`/ `scikit-survival` support **survival analysis** and plotting.
+-   **ML/DL ecosystem**
 
-#### **ML/DL ecosystem**
+    Python dominates in machine learning and AI development:
 
-Python dominates in machine learning and AI development:
+    -   `scikit-learn` is a rich **machine learning** library that supports both supervised regression an dclassification (e.g., random forests, gradient boosting) and unsupervised clustering (e.g., K-means).
+    -   `TensorFlow`, `PyTorch` are **deep learning** libraries widely used for computer vision and natural language processing.
+    -   `optuna`, `Ray` can be integrated into ML/DL workflows for easy and efficient **model training, hyperparameter tuning, fine-tuning**, etc.
 
--   `scikit-learn` is a rich **machine learning** library that supports both supervised regression an dclassification (e.g., random forests, gradient boosting) and unsupervised clustering (e.g., K-means).
+-   **Omics data analysis**
 
--   `TensorFlow`, `PyTorch` are **deep learning** libraries widely used for computer vision and natural language processing.
+    Emerging packages that provide standard omics data preprocessing and analysis pipelines allow Python to become increasingly popular in the field of bioinformatics:
 
--   `optuna`, `Ray` can be integrated into ML/DL workflows for easy and efficient **model training, hyperparameter tuning, fine-tuning**, etc.
-
-#### **Omics data analysis**
-
-Emerging packages that provide standard omics data preprocessing and analysis pipelines allow Python to become increasingly popular in the field of bioinformatics:
-
--   `scanpy`, `anndata` are libraries for single-cell RNA-seq data loading, preprocessing, and analysis.
-
--   `Biopython` is a set of tools for biological computation that performs file parsering (BLAST, FASTA, GenBank, etc.), sequence analysis, clustering algorithms, etc.
-
--   `pysam` works with BAM/SAM/VCF files.
+    -   `scanpy`, `anndata` are libraries for single-cell RNA-seq data loading, preprocessing, and analysis.
+    -   `Biopython` is a set of tools for biological computation that performs file parsering (BLAST, FASTA, GenBank, etc.), sequence analysis, clustering algorithms, etc.
+    -   `pysam` works with BAM/SAM/VCF files.
 
 ## Python vs R: Differences
 
@@ -135,40 +130,51 @@ While both programming languages are popular for data analysis and computation, 
 Here is a non-exhaustive summary of some key differences:
 
 | Feature / Task | **R** | **Python** |
-|------------------|---------------------------|---------------------------|
-| **Programming logic** | Mostly function-oriented – structured around **functions** | Function- **AND** object-oriented – structured around **classes** |
-| **General-purpose programming** | ⚠️ Less ideal – designed mainly for working with data | ✅ Strong – ML & AI, software development, scripting, etc. |
-| **Computational power** | ✅ Vectorization allows operating on all elements of a vector at once <br> ✅ Best for statistical analysis <br> ⚠️ Memory-intensive; often slow for reading large data and performing large computations | ✅ Generally faster for loops <br> ✅ Strong support for GPU computing <br> ✅ Memory-efficient for handling large objects and complex computations |
-| **Package availability** | ✅ Excellent for statistical analysis (glm, survival, ggplot2) <br> ⚠️ Good options for ML (caret, mlr3) but few DL packages <br> ✅ Great for omics-focused analysis (Bioconductor, ComplexHeatmap, Seurat) | ☑️ Improving on statistical packages (statsmodels, lifelines) <br> ✅ Best for ML/DL (scikit-learn, pytorch, keras) <br> ☑️ Fewer established packages specialized in omics data <br> ✅ Great for processing large omics datasets (scanpy, scvi-tools) |
-| **IDE & Reproducible environments (notebooks etc.)** | ✅ RStudio <br> ✅ RMarkdown, Quarto | ✅ VS Code, JupyterLab, PyCharm, Spyder, etc. <br> ✅ Jupyter Notebooks, Quarto |
+|------------------|-------------------------|------------------------------|
+| Programming logic | Mostly function-oriented – structured around **functions** | Function- **AND** object-oriented – structured around **classes** |
+| General-purpose programming | ⚠️ Less ideal – designed mainly for working with data | ✅ Strong – ML & AI, software development, scripting, etc. |
+| Computational power | ✅ Vectorization allows operating on all elements of a vector at once <br> ✅ Best for statistical analysis <br> ⚠️ Memory-intensive; often slow for reading large data and performing large computations | ✅ Generally faster for loops <br> ✅ Strong support for GPU computing <br> ✅ Memory-efficient for handling large objects and complex computations |
+| Package availability | ✅ Excellent for statistical analysis (glm, survival, ggplot2) <br> ⚠️ Good options for ML (caret, mlr3) but few DL packages <br> ✅ Great for omics-focused analysis (Bioconductor, ComplexHeatmap, Seurat) | ☑️ Improving on statistical packages (statsmodels, lifelines) <br> ✅ Best for ML/DL (scikit-learn, pytorch, keras) <br> ☑️ Fewer established packages specialized in omics data <br> ✅ Great for processing large omics datasets (scanpy, scvi-tools) |
+| IDE & Reproducible environments (notebooks etc.) | ✅ RStudio <br> ✅ RMarkdown, Quarto | ✅ Visual Studio Code, JupyterLab, PyCharm, Spyder, etc. <br> ✅ Jupyter Notebooks, Quarto |
 
-## Recommended Programs for Python Programming
+## Essential Tools for Python Programming
 
-Python integrates with tools like:
+To get the most out of Python–especially for data science and reproducible research–it's important to set up an integrated, flexible programming environment.
+Here are the core tools we will be using:
 
--   conda
+-   **Conda**: a powerful package and environment manager for Python.
+-   **Visual Studio Code IDE**: a lightweight code editor that integrates programming + plots + terminal + etc.
+-   **Jupyer Notebook**: an interactive computing tool that combines code execution, text documentation, and visualizations.
+-   **Git (GitHub)**: for version control and collaboration.
 
-<!-- -->
+#### Conda (via Miniconda)
 
--   **VS Code IDE**: ideal for literate programming, sharing code + plots + narrative
+Conda is a package manager, much like CRAN + Bioconductor, and can be utilized across languages (Python, R, C/C++ etc.).
+It also simplifies Python environment management, similar to `renv` in R but more powerful and flexible, ensuring dependency isolation without cluttering the global system.
 
--   **Jupyer Notebook / Quarto**: documents that combine code, output, and markdown
+Conda can be installed via either Miniconda (lightweight version) or the Anaconda Distribution (full version).
+In this tutorial, we will use the former.
 
--   **Git**: version control for collaboration
+#### **Visual Studio Code**
 
-Next, we will
+Akin to RStudio, Visual Studio Code (VS Code) is an IDE for multi-language coding (Python, R, Java, etc.).
+It has many features integrated within it, including interactive coding via Jupyter Notebook or Quarto, version control with Git, and built-in terminal and debugging tools.
+We will walk through steps to set up Jupyter Notebooks in VS Code for Python later in this article.
 
-# 2 Python Installation and Setup
+Next, we’ll walk through how to install and configure each of these tools.
+
+# 2. Python Installation and Setup
 
 There are many ways to do install Python locally.
-For the purpose of the workshop, we recommend one way of installation via [Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/main) that works universally across Windows and MacOS platforms.
-Miniconda is a minimal version of the [Anaconda Distribution](https://www.anaconda.com/docs/getting-started/anaconda/main), an open-source distribution of Python designed for scientific computing, data science, machine learning, and AI development.
-It comes with **Python**, the **conda** package manager, and a minimal number of libraries.
+For the purpose of the workshop, we recommend one way of installation via [**Miniconda**](https://www.anaconda.com/docs/getting-started/miniconda/main) that works universally across Windows and MacOS platforms.
 
-Miniconda is relatively lightweight compared to Anaconda, which adds on top of the Miniconda distribution the **Anaconda Navigator** **GUI** and over 300 pre-downloaded libraries.
-While Anaconda can be a good alternative, here we choose Miniconda for better efficiency in the installation process.
+Miniconda comes with Python, the conda package manager, and a minimal number of libraries.
+It is a minimal version of the [Anaconda Distribution](https://www.anaconda.com/docs/getting-started/anaconda/main), an open-source distribution of Python designed for scientific computing, data science, machine learning, and AI development.
+Miniconda is relatively lightweight compared to Anaconda, which adds on top of the Miniconda distribution the Anaconda Navigator graphical user interface (GUI) and over 300 pre-downloaded libraries.
 
-![Difference between conda, miniconda, and Anaconda](images/anaconda-explained.png){fig-align="left" width="400"}
+![Difference between conda, miniconda, and Anaconda](images/anaconda-explained.png){fig-align="left" width="420"}
+
+While Anaconda can be an alternative for people who do not want to use command line tools for managing packages, in this workshop, we will use Miniconda for better efficiency in the installation process.
 
 | Feature | Anaconda | Miniconda |
 |------------------|------------------------------|------------------------|
@@ -180,131 +186,186 @@ While Anaconda can be a good alternative, here we choose Miniconda for better ef
 
 ## ▶️Follow-Along: Install Miniconda (Python + conda)
 
-Let's walk through installing **Minconda** .
+Let's walk through steps to install **Minconda**.
 For the latest Miniconda installers for Python 3.12, go to the Anaconda website: [https://www.anaconda.com/download/](https://www.anaconda.com/download/success#miniconda) and download the installer based on your system.
-(Make sure you are downloading from the **Miniconda Installers** section, not Anaconda!*)*
 
-#### Windows
+*Note: Make sure you are downloading from the **Miniconda Installers** section, not Anaconda!*
 
 1.  Navigate to the [Anaconda website](https://www.anaconda.com/download/success#miniconda).
 
-2.  Download the Windows "**64-bit graphical installer**".
+2.  Download the **64-bit graphical installer** according to your system (Windows or MacOS):
 
-    -   **(Alternative)** Quick download through command line interface: [Quick command line install](https://www.anaconda.com/docs/getting-started/miniconda/install#quickstart-install-instructions)
+    -   Alternatively, check out the [Quick command line installation guide](https://www.anaconda.com/docs/getting-started/miniconda/install#quickstart-install-instructions) to install Miniconda through command line interface.
 
-3.  **Run the installer:**
+3.  Run the installer (`.exe` for Windows/ `.pkg` for MacOS)
 
-    -   Click `Next >`. When asked to select the type of the installation, select the `Just Me` option.
+    -   select `Just Me` for installation type – recommended; doesn't require admin rights.
 
-    ![](images/anaconda-install-1.png){width="500"}
+        ![](images/anaconda-install-1.png){width="500"}
 
-    ::: callout-note
-    ## Installing for current user only
+        ::: callout-tip
+        ## Installing for current user only
 
-    You don't need to install for all users most of the time.
-    This option requires admin privileges which you might not have on your MSK laptop.
-    :::
+        You don't need to install for all users most of the time.
+        This option requires admin privileges which you might not have on your MSK laptop.
+        :::
 
     -   Keep the default for installation location.
-        E.g., `C:\Users\<user_name>\AppData\Local\miniconda3`.
+        E.g.,:
 
-    -   Customize the installation options:
+        -   Windows: `C:\Users\<user_name>\AppData\Local\miniconda3`
+        -   MacOS: `/Users/yourname/miniconda3`
 
-        -   ❌ *“Add Miniconda to my PATH environment variable”* – **NOT** recommended
+    -   Customize the advanced installation options:
 
-        -   ✅ *"Register Miniconda3 as my default Python 3.12"*
+        -   ❌ *Add Miniconda to my PATH environment variable* – **NOT** recommended
+        -   ✅ *Register Miniconda3 as my default Python 3.12*
 
         ![](images/miniconda-install.png)
 
     ::: callout-warning
-    ## Do not add Miniconda to PATH
+    ## Do not add Miniconda to PATH⚠️
 
     It is recommended that you do not add Miniconda to system's PATH environment variable, as it might lead to conflicts with your other Python installations or accidentally break software using the system Python.
 
     Instead, you could later run `conda init` in **Anaconda Prompt** to configure the terminal shells (like PowerShell or Command Prompt) to recognize the `conda` command.
     :::
 
-4.  Complete the installation.
+4.  Complete installation.
     This might take a few minutes to complete.
 
-5.  Check Installation
+5.  Check installation–verify that Python and Conda are successfully installed.
 
-    -   Open the Start Menu and run **Anaconda Prompt**.
+    -   Windows:
 
-    -   Type the following command.
+        -   Open the Start Menu and run **Anaconda Prompt**.
 
-        ``` bash
-        conda info
-        ```
+        -   Type the following command.
 
-    -   You should see details about your current conda installation.
-        This means that conda is properly installed and initialized.
+            ``` bash
+            conda --version
+            python --version
+            ```
 
-#### **MacOS:**
+        -   You should see the current versions of your Python and Conda being returned–such as `conda 24.9.2` and `Python 3.12.4` (the exact numbers might differ).
+            This means that Miniconda is properly installed and initialized.
 
-1.  Go to [Anaconda website](https://www.anaconda.com/download/success#miniconda) and download the Mac **64-bit graphical installer**
+    -   MacOS:
 
-    -   Alternatively, for a quick and silent download through command line check out: [Quick command line install](https://www.anaconda.com/docs/getting-started/miniconda/install#quickstart-install-instructions)
+        -   Open **Terminal**.
+            Configure your shell to make the `conda` command available.
 
-2.  Run the `.pkg` installer
+            ``` bash
+            source ~/miniconda3/bin/activate
+            conda init zsh # or conda init bash if you are using bash
+            ```
 
-3.  
+        -   Then **restart your Terminal** and type:
 
-## Installing packages with Conda
+            ``` bash
+            conda --version
+            python --version
+            ```
 
-Conda is a cross-platform package and environment manager that comes with Miniconda.
-You can use the following terminal command to install packages from the Anaconda repositories (also called ***channels***):
+        -   You should see the current versions of your Python and Conda being returned, which means everything has been correctly installed.
 
-``` terminal
+## Conda
+
+Conda is a powerful command line tool for cross-platform package and environment management via the `conda` **command line interface (CLI)**.
+Conda can be installed via installers such as Miniconda (see [▶️Follow-Along: Install Miniconda (Python + conda)]) or the Anaconda Distribution.
+
+#### Managing Packges 
+
+To install packages from the default Anaconda repository (also called [**channels**](https://www.anaconda.com/docs/psm/cloud/channels)), use the following commands:
+
+``` bash
 conda install
+# To install a specific version of a package (e.g., SciPy):
+conda install scipy=0.15.0
+# To install multiple packages:
+conda install scipy=0.15.0 pandas matplotlib
 ```
 
-Conda supports more than just Python packages but numerous other programming languages like R, Java, etc.
+If a package you want to install is located in another channel, such as `conda-forge`, you can manually specify the channel when installing the package.
+Take PyTorch as an example:
+
+``` bash
+conda install conda-forge::pytorch
+# or 
+conda install pytorch --channel conda-forge
+```
+
+If the Python package is not available through any conda channel, consider using the pip package manager:
+
+``` bash
+pip install
+```
 
 ::: callout-note
-## Difference Between Conda and Pip
+## Difference Between `conda install` and `pip install`
 
-Long story short: ***Pip is for Python libraries only, while conda can install packages for any software (including python).***
+Long story short: ***Pip installs Python libraries only,** while **conda can install both Python and non-Python packages** (e.g., R, C/C++, system binaries)**.***
 
-It is generally recommended that you only use `conda install` when in a conda environment, as anything installed via pip won't be recognized by conda and vice versa.
+It is generally recommended that you only use `conda install` within a conda environment, as anything installed via pip won't be recognized by conda and vice versa.
 Using the two interchangeably might overwrite or break packages and mess up the environment.
 
 **What if the Python package is unavailable through conda?**
 
 In these scenarios where the package you need is not built under conda, it makes sense to use pip to install packages within the conda environment.
-The best practice is to ***install everything with conda first, then use pip if needed**.*
+The best practice is to ***install everything with conda first, then use pip only if needed**.*
 
 Check out this [blog](https://www.anaconda.com/blog/using-pip-in-a-conda-environment) for more information on using pip in a conda environment.
 :::
 
-You can also use Conda to create and manage virtual environments, install, or delete virtual environments.
+To update a specific package:
+
+``` bash
+conda update scipy
+```
+
+*Note that this automatically updates the package to the highest version supported by the current Python series. For example, Python 3.9 updates to the highest available in the 3.x series.*
+
+To remove a package (or multiple packages at once):
+
+``` bash
+conda remove scipy pandas matplotlib
+```
+
+#### Managing Environments
+
+You can also use Conda to create and manage **virtual environments**.
+Here is a list of some useful commands relating to environment management.
+We will cover the utility of these commands in more detail in the next section.
+
+| Task | Command |
+|----|----|
+| List all environments | `conda env list` |
+| Remove an environment | `conda remove --name myenv --all` |
+| List packages in current environment | `conda list` |
+| Export environment to `.yml` | `conda env export > environment.yml` |
+| Recreate from `.yml` file | `conda env create -f environment.yml` |
 
 # 3 Virtual Environments
 
-Environments are **isolated, independent installations** of a programming language and groups of packages that don't interfere with each other.
+Environments are **isolated, independent installations** of a programming language and groups of dependencies that don't interfere with each other.
 
-For example, you may have a Python version 3.8 installed on your computer as the System Python.
-Meanwhile, you can install as many virtual environments as you want with the same or different Python versions and set of packages.
+For example, in the previous section, we installed Python version 3.12 via Miniconda and set it to be the system's default–the **global** environment.
+Meanwhile, we might want to install another Python version, e.g., Python 3.8, and install dependencies under that Python version specifically.
+This would create a Python directory completely separate from the global environment containing the Python interpreter and the `/site-packages` package folder–this is called a **virtual environment**.
+You may have *as many virtual environment as you want* with its own Python interpreter version and set of packages.
 
-You can switch between environments for different projects, create environment files and share them with others.
+## Why Virtual Environments?
 
-## Why virtual environments?
+Virtual environments can help isolate individual You may find the flexibility of environments useful in many cases.
 
-You may find the flexibility of environments useful in many cases.
-
--   **Avoid Conflicts**.
-    When you need libraries that are not compatibles with your system settings, such as an older Python version or conflicting dependencies.
-    Creating a virtual environment can resolve the conflicts and changing it won't affect your other environments.
-
--   **Sharing Environment Setting**.
-    You can also share your environment and the list of dependencies with someone with a copy of the `environment.yaml` file.
-
--   **Easy Management**.
-    When your work is temporary or that you simply want to experiment things without having to worry about things breaking, you can work within a virtual environment and later delete it when needed.
+-   **Avoid Conflicts.** Creating virtual environments can help resolve potential conflicts between different projects that might require different Python version or conflicting dependencies. Changes made to one environment won't affect other projects that use different environments.
+-   **Easy Management**. When your work is temporary or that you simply want to experiment things without having to worry about breaking things, you can work within a virtual environment and later delete it when needed.
+-   **Sharing Environment**. You can share your Python environment and whole list of dependencies with other people through a copy of the `environment.yaml` file.
+-   **Reproducibility.** They work as time capsules, allowing you to come back to an older project at any time later by recreating the virtual environment.
 
 ## ▶️Follow-Along: Create a Conda Virtual Environment
 
-Alternatively, you can use the `conda` command line interface (CLI) to create virtual environments.
+Once we have installed Conda via Miniconda, we can the use its `conda` to create virtual environments and manage dependencies.
 
 ::: callout-tip
 For users comfortable with command line, this approach is generally more recommended than Anaconda Navigator, as it is faster, more robust to broken environments (reported by some who used the GUI), and offers greater flexibility and functionality for environment management.
@@ -326,26 +387,26 @@ For users comfortable with command line, this approach is generally more recomme
     conda create -n <env-name> python=3.10 scipy=0.17.3 pandas matplotlib
     ```
 
-    Or:
+    Or do it in separate commands:
 
     ```         
     conda create -n <env-name> python=3.10
     conda install -n <env-name> scipy pandas matplotlib
     ```
 
-    You can also specify channel other than the `defaults` channel (for multiple channels, pass the argument multiple times):
+3.  You can also specify channel other than the `defaults` channel (for multiple channels, pass the argument multiple times):
 
     ```         
     conda install -n <env-name> scipy --channel conda-forge --channel bioconda
     ```
 
-3.  Now, activate your environment.
+4.  Now, activate your environment.
 
     ```         
     conda activate <env-name>
     ```
 
-4.  You can also verify that your installation was successful by looking up the list of all current environments on your computer.
+5.  You can also verify that your installation was successful by looking up the list of all current environments on your computer.
 
     ```         
     conda env list
@@ -353,7 +414,7 @@ For users comfortable with command line, this approach is generally more recomme
 
     The default location for the installed conda environments (except for the base conda environment) is `..\anaconda3\envs\<env-name>`
 
-5.  Deactivate the conda environment.
+6.  Deactivate the conda environment.
 
     Simply use `conda deactivate`.
 
@@ -366,7 +427,7 @@ For users comfortable with command line, this approach is generally more recomme
     So make sure that you see `(base)` at the beginning of the terminal prompt line when you are about to activate an environment.
     :::
 
-6.  Removing an environment.
+7.  Removing an environment.
 
     -   Remove by environment name:
 
@@ -376,11 +437,11 @@ For users comfortable with command line, this approach is generally more recomme
 
     -   Remove by environment folder path:
 
-        ```         
+        ``` bash
         conda env remove --prefix </path/to/your/env>
         ```
 
-## 1.3.3 Creating an Environment from an `environment.yml` File
+## Creating an Environment from an `environment.yml` File
 
 We can also create a virtual environment from a `.yml` file.
 
@@ -411,26 +472,25 @@ dependencies:
 Download the YML file for this Python workshop series [here](https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml).
 This file includes the required channel and dependencies for completing the workshop sessions.
 
-# 4 Integrated Development Environment
+# 4. Integrated Development Environment
 
-and preferably set up a coding software for more elegant and interactive programming–we often call it the integrated development environment (IDE).
+An IDE is a suite of tools integrated into a software application to make software code development easy and efficient.
+It typically includes a code editor, a compiler or interpreter, and a debugger that users can access through a single GUI.
 
 ::: callout-note
-Rstudio is an IDE developed to support coding in both R and Python languages, with integrated functionalities including:
+## Rstudio IDE
 
--   Automatic syntax highlighting, code completion, and smart indentation.
+Rstudio is an IDE developed to support coding in both R and Python languages, with integrated functionalities including:Automatic syntax highlighting, code completion, and smart indentation.
 
 -   Multi-panel layout to display coding scripts, console, environment variables, and plot side-by-side.
-
 -   Support for RMarkdown and Quarto documents.
-
 -   Project management through Rprojects and renv.
 :::
 
-Ther are many IDEs compatible with Python programming **Visual Studio Code JupyterLab** PyCharm, Spyder
+For Python, there are many existing IDEs that offer compatibility and multi-functionality
 
 | Tool | Description |
-|---------------------|---------------------------------------------------|
+|-----------------------|------------------------------------------------|
 | **VS Code** | Lightweight, powerful IDE (extensible with Python & Jupyter extensions) |
 | **JupyterLab** | Interactive notebooks for analysis & reports |
 | **Spyder** | RStudio-like interface, good for scientific Python |
@@ -473,18 +533,9 @@ But Quarto has more:
 In summary, Quarto is easy for R users to transition into due to similarities with the R Markdown.
 It also includes more functionality and flexibility, making it a great tool for learning Python.
 
-::: callout-note
-## Ecosystem of Python Programming
-
--   **Miniconda** provides a lightweight way to manage Python environments, similar to renv in R, ensuring dependency isolation without cluttering the global system.
-    It simplifies package management, much like CRAN + Bioconductor, while also handling system-level dependencies.
-
--   **VS Code**, akin to RStudio, offers a powerful yet customizable IDE with Python-specific extensions, an interactive Jupyter notebook interface, and seamless Git integration.
-
--   Together, Miniconda and VS Code provide an efficient, modular setup, making Python adoption intuitive while maintaining the reproducibility and project structure familiar to R users.
-:::
-
 ## ▶️ **Follow-Along:** Set up Jupyter Notebook in VS Code
+
+We will now set up coding software for more elegant and interactive programming
 
 ::: callout-note
 ## 💡Prerequisites
@@ -492,35 +543,32 @@ It also includes more functionality and flexibility, making it a great tool for 
 1.  Install **Conda**: Go to previous section \[2 Installation and Setup\].
 2.  Install **VS Code**: [Download and install VS Code](https://code.visualstudio.com/download)
 3.  Install **Quarto**: [Install from the official website](https://quarto.org/docs/get-started/)
-4.  
 :::
 
-#### **Setting up VS Code**
+1.  Download and install [VS Code](https://code.visualstudio.com/download)
 
-1.  Open VS Code.
+2.  Open VS Code and **install Extensions from Extension Marketplace.**
 
-2.  **Install Extensions from Extension Marketplace.** Click **Extensions** from the left toolbar or click `Ctrl+Shift+X` (or `Cmd+Shift+X` on Mac).
+    1.  Click **Extensions** from the left toolbar or click `Ctrl+Shift+X` (or `Cmd+Shift+X` on Mac).
 
-    -   **Python**: To support Python language, debugging, documentations, etc.
+        -   **Python**: To support Python language, debugging, documentations, etc.
 
-    -   **Quarto**: To support Quarto document editing and previewing.
+        -   **Jupyter**: To support rendering Python documents from Jupyter Notebooks or Quarto files.
 
-    -   **Jupyter**: To support rendering Python documents from Jupyter Notebooks or Quarto files.
+        ::: {.callout-important appearance="minimal"}
+        You still need to install conda (Python) your computer to enable these extensions.
+        :::
 
-    ::: callout-important
-    You still need to install conda (Python) and Quarto to your computer to enable these extensions.
-    :::
+3.  **Create a Conda Virtual Environment.** You may use the ones you created.
 
-3.  **Create a Conda Virtual Environment.** You may also use existing ones you created.
-
-    -   Required packages/dependencies (to install, use `conda install <package-name> –channel conda-forge`):
+    -   Essential packages/dependencies (to install, use `conda install <package-name> –channel conda-forge`):
 
         -   jupyter
         -   ipykernel
         -   pyyaml
 
     -   **Note**: we recommend installing an environment from this [YML file](https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml).
-        See \[1.3.3 Creating an Environment from an environment.yml File\] for detailed instructions.
+        See \[Creating an Environment from an environment.yml File\] for detailed instructions.
 
 4.  **Configure the Environment in VS Code.**
 
@@ -549,7 +597,9 @@ It also includes more functionality and flexibility, making it a great tool for 
         :::
 
 Now you are ready to go.
-Let's start with creating a new Quarto file.
+Let's start with creating a new Jupyter Notebook (.ipynb).
+
+## ============ Ignore Below ============
 
 ## Excercise: Create a Quarto File
 
