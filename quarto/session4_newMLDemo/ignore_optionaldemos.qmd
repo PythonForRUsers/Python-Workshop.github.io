@@ -218,7 +218,3 @@ These demos show:
 These are optional explorations—feel free to return to them after the main homework or explore more at your own pace!
 
 ```
-
----
-
-Would you like this exported to `.qmd` or `.html` right now, or added to your course repo?
