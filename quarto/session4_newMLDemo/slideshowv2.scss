@@ -1,0 +1,78 @@
+
+/*-- scss:defaults --*/
+
+// Typography sizing
+$mainFontSize: 34px;       // Base font size (default is 40px)
+$presentation-font-smaller: 0.85em;       // Scaling for .smaller
+
+// Headings
+$presentationH1FontSize: 2.5em;
+$presentationH2FontSize: 1.6em;
+$presentationH3FontSize: 1.3em;
+$presentationH4FontSize: 1.0em;
+
+// Code blocks
+$code-block-font-size: 0.65em;             // Increase from default (0.55em)
+
+// Colors
+$bodyColor: #222;
+$linkColor: #2a76dd;
+$linkColorHover: #a0c5fa;
+
+
+/*-- scss:rules --*/
+
+// General blur-fix and legibility
+.reveal .slides section {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transform: translateZ(0);
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+// Prevent blurry code blocks
+.reveal pre {
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  width: 95%;
+}
+
+.reveal pre,
+.reveal img,
+.reveal svg {
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+
+
+// Improve inline code appearance
+.reveal code:not(pre code) {
+  font-size: 0.9em;
+  background-color: #f2f2f2;
+  padding: 0.1em 0.1em;
+  border-radius: 4px;
+}
+
+
+// Clean text utility classes
+.clean-text {
+  font-size: 1.0em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.small-clean-text {
+  font-size: 0.9em;
+  @extend .clean-text;
+}
+
+.smaller-clean-text {
+  font-size: 0.85em;
+  @extend .clean-text;
+}

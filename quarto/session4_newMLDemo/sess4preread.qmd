@@ -1,0 +1,68 @@
+---
+title: '**Session 4 – Pre-read**'
+jupyter: python3
+format: 
+    html:
+        code-copy: true   
+        highlight-style: pygments
+execute:
+  warning: false
+  error: false
+  eval: true
+  echo: true
+---
+
+## KNN vs K-Means: Supervised vs Unsupervised Learning
+
+We will be using `sci-kit learn` implementations of both of these algorithms during the session 4 tutorial.
+
+### K-Nearest Neighbors (KNN)
+
+**KNN** is a **supervised** learning algorithm used for **classification** (and sometimes regression):
+
+- You train the model on labeled data (i.e., you know the "answer" or class).
+- When predicting a new sample, the model finds the **k** training samples closest to it (its "neighbors") and uses them to assign a label.
+- Closeness is usually based on **Euclidean distance**.
+
+> Example: Given a penguin with known bill length and depth, predict its species by looking at its 5 nearest neighbors in the training data.
+
+---
+
+### K-Means Clustering
+
+**K-Means** is an **unsupervised** learning algorithm used for **clustering**:
+
+- You do **not** provide the true labels.
+- The algorithm tries to split your data into **k groups** based on similarity.
+- It randomly initializes cluster centers, assigns points to the nearest one, then updates the centers iteratively.
+
+> Example: Given penguin data without species labels, group them into 3 clusters based on bill length and depth.
+
+---
+
+### Key Differences
+
+| Feature           | KNN                            | K-Means                          |
+|------------------|--------------------------------|----------------------------------|
+| Learning Type     | Supervised                    | Unsupervised                    |
+| Goal              | Classification (or Regression) | Clustering                      |
+| Input Labels      | Required                      | Not used                        |
+| Output            | Predicted class               | Cluster assignment              |
+| Model Type        | Lazy (no training phase)      | Iterative center updates        |
+
+
+## Plotting in Python 
+
+Please read the 'Parts of a Figure' and 'Coding Styles' sections of [Quick Start Guide (Matplotlib)](https://matplotlib.org/stable/users/explain/quick_start.html). We will briefly cover plotting with `Seaborn` (which is built on top of the `Matplotlib` package), but will not spend much time talking about base `Matplotlib`.
+
+# Optional Reading
+
+### Introduction to Object-Oriented Programming (OOP) in Python 
+
+We will cover the basics of object-oriented programming and how it relates to analysis workflows in Python during session 4, but [Introduction to OOP in Python (Real Python)](https://realpython.com/python3-object-oriented-programming/) explains in greater detail and includes some practice exercises.  
+
+
+#### Other plotting resources
+- [Seaborn Reference](https://seaborn.pydata.org/tutorial/introduction.html#)  
+- [Plotnine Reference](https://plotnine.org/reference/) 
+- [Axis vs Pyplot Interface (Matplotlib)](https://matplotlib.org/stable/users/explain/figure/api_interfaces.html#the-explicit-axes-interface) 
