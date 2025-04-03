@@ -1,0 +1,632 @@
+[
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html",
+    "href": "session4_newMLDemo/session4v2_webpage.html",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "",
+    "text": "Scikit-learn Documentation\n\nIntroduction to OOP in Python (Real Python)\n\nPlotnine Reference\nSeaborn Reference"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#pre-reading-for-this-session",
+    "href": "session4_newMLDemo/session4v2_webpage.html#pre-reading-for-this-session",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "",
+    "text": "Scikit-learn Documentation\n\nIntroduction to OOP in Python (Real Python)\n\nPlotnine Reference\nSeaborn Reference"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#note-the-tutorial-below-is-the-same-information-well-be-covering-in-session-4",
+    "href": "session4_newMLDemo/session4v2_webpage.html#note-the-tutorial-below-is-the-same-information-well-be-covering-in-session-4",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Note: The tutorial below is the same information we’ll be covering in session 4!",
+    "text": "Note: The tutorial below is the same information we’ll be covering in session 4!"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#session-overview",
+    "href": "session4_newMLDemo/session4v2_webpage.html#session-overview",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Session Overview",
+    "text": "Session Overview\nIn this session, we’ll explore how Python’s object-oriented nature affects our modeling workflows. \nTopics:\n\n\n\nIntro to OOP and how it makes modeling in Python different from R\n\n\nBuilding and extending classes using inheritance and mixins\n\n\nApplying OOP to machine learning through demos with scikit-learn\n\n\n\nCreating and using models\n\n\nPlotting data with plotnine and seaborn"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#why-python",
+    "href": "session4_newMLDemo/session4v2_webpage.html#why-python",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Why Python? 🐍",
+    "text": "Why Python? 🐍\n\n\n\nR: Built by Statisticians for Statisticians\n\nExcels at:\n\nStatistical analysis and modeling\n\nClean outputs and tables from models\nBeautiful data visualizations with simple code\n\n\n\n\n\nPython: General-Purpose Language\n\nExcels at:\n\nMachine Learning, Neural Networks & Deep Learning (scikit-learn, PyTorch, TensorFlow)\n\nImage & Genomic Data Analysis (scikit-image, biopython, scanpy)\nSoftware & Command Line Interfaces, Web Scraping, Automation\n\n\n\n\n\nPython’s broader ecosystem makes it the go-to language in domains like AI, bioinformatics, data engineering, and computational biology.\n\nNote: Packages like rpy2 and reticulate make it possible to use both R and Python in the same project, but those are beyond the scope of this course.\nA primer on reticulate is available here: https://www.r-bloggers.com/2022/04/getting-started-with-python-using-r-and-reticulate/"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#programming-styles-r-vs-python",
+    "href": "session4_newMLDemo/session4v2_webpage.html#programming-styles-r-vs-python",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Programming Styles: R vs Python",
+    "text": "Programming Styles: R vs Python\n In the first session, we talked briefly about functional vs object-oriented programming:\n\n\nFunctional programming: focuses on functions as the primary unit of code  Object-oriented programming: uses objects with attached attributes(data) and methods(behaviors) \n\n\nR leans heavily on the functional paradigm — you pass data into functions and get back results, in most cases without altering the original data. Functions and pipes (%&gt;%) dominate most workflows.\nIn Python, everything is an object, even basic things like lists, strings, and dataframes. A lot of ‘functions’ are instead written as object-associated methods. Some of these methods modify the objects in-place by altering their attributes. Understanding how this works is key to using Python effectively!\n\n\nYou’ve already seen this object-oriented style in Sessions 2 and 3 — you create objects like lists or dataframes, then call methods on them like .append() or .sort_values(). In python, instead of piping, we sometimes chain methods together."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#modeling-in-python",
+    "href": "session4_newMLDemo/session4v2_webpage.html#modeling-in-python",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Modeling in Python",
+    "text": "Modeling in Python\nPython absolutely uses functions—just like R! They’re helpful for data transformation, wrangling, and automation tasks like looping and parallelization. \nBut when it comes to modeling, libraries are designed around classes: blueprints for creating objects that store data (attributes) and define behaviors (methods). \n\nscikit-learn is great for getting started—everything follows a simple, consistent OOP interface. Its API is also consistant with other modeling packages, like xgboost and scvi-tools.\nscikit-survival is built on top of scikit-learn. https://scikit-survival.readthedocs.io/en/stable/user_guide/00-introduction.html is a good tutorial for it.\nPyTorch and TensorFlow are essential if you go deeper into neural networks or custom models—you’ll define your own model classes with attributes and methods, but the basic structure is similar to scikit-learn.\n\nstatsmodels is an alternative to scikit-learn for statistical analyses and has R-like syntax and outputs. It’s a bit more complex than scikit-learn and a bit less consistant with other packages in the python ecosystem. https://wesmckinney.com/book/modeling is a good tutorial for statsmodels.\n\n\n💡 To work effectively in Python, especially for tasks involving modeling or model training, it helps to think in terms of objects and classes, not just functions."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#why-does-oop-matter-in-python-modeling",
+    "href": "session4_newMLDemo/session4v2_webpage.html#why-does-oop-matter-in-python-modeling",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Why Does OOP Matter in Python Modeling?",
+    "text": "Why Does OOP Matter in Python Modeling?\nIn Python modeling frameworks:\n\n\n\nModels are instances of classes\n\n\nYou call methods like .fit(), .predict(), .score()\n\n\nInternal model details like coefficients or layers are stored as attributes\n\n\n\nThis makes model behavior consistent between model classes and even libraries. It also simplifies creating/using pre-trained models: both the architecture and learned weights are bundled into a single object with expected built-in methods like .predict() or .fine_tune().\n\n\nInstead of having a separate results object, like in R, you would retrieve your results by accessing an attribute or using a method that is attached to the model object itself.\n\n\n We’ll focus on scikit-learn in this session, but these ideas carry over to other libraries like xgboost, statsmodels, and PyTorch."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#key-oop-principles-recap",
+    "href": "session4_newMLDemo/session4v2_webpage.html#key-oop-principles-recap",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Key OOP Principles (Recap)",
+    "text": "Key OOP Principles (Recap)\nIn OOP, code is structured around objects (as opposed to functions). This paradigm builds off the following principles:\n\n\nEncapsulation: Bundling data and methods together in a single unit.\n\nA StandardScaler object stores mean and variance data and has .fit() and .transform() methods\n\n\n\n\n\nInheritance: Creating new classes based on existing ones.\n\nsklearn.LinearRegression inherits attributes and methods from a general regression model class.\n\n\n\n\n\n\nAbstraction: Hiding implementation details and exposing only essential functionality.\n\ne.g., .fit() works the same way from the outside, regardless of model complexity\n\n\n\n\n\n\nPolymorphism: Objects of different types can be treated the same way if they implement the same methods.\n\nPython’s duck typing:\n\n🦆 “If it walks like a duck and quacks like a duck, then it must be a duck.” 🦆\n\nex: If different objects all have a .summarize() method, we can loop over them and call .summarize() without needing to check their class. As long as the method exists, Python will know what to do.\nThis lets us easily create pipelines that can work for many types of models.\n\n\n\n\nWe won’t cover pipelines here, but they are worth looking into!"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#classes-and-objects",
+    "href": "session4_newMLDemo/session4v2_webpage.html#classes-and-objects",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Classes and Objects",
+    "text": "Classes and Objects\nClasses are blueprints for creating objects. Each object contains:\n\n\n\nAttributes (data): model coefficients, class labels\n\n\nMethods (behaviors): .fit(), .predict()\n\n\n👉 To Get the class of an object, use:\n\ntype(object) # Returns the type of the object\n\n👉 To check if an object is an instance of a particular class, use:\n\nisinstance(object, class)  # Returns True if `object` is an instance of `class`.\n\n\n\nKnowing what class an object belongs to helps us understand what methods and attributes it provides."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#base-classes",
+    "href": "session4_newMLDemo/session4v2_webpage.html#base-classes",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Base Classes",
+    "text": "Base Classes\nA base class (or parent class) serves as a template for creating objects. Other classes can inherit from it to reuse its properties and methods.\nClasses are defined using the class keyword, and their structure is specified using an __init__() method for initialization.\n\nFor example, we can define a class called Dog and give it attributes that store data about a given dog and methods that represent behaviors an object of the Dog class can perform. We can also edit the special or “dunder” methods (short for double underscore) that define how objects behave in certain contexts.\n\nclass Dog: ## begin class definition\n    def __init__(self, name, breed): ## define init method\n        self.name = name ## add attributes\n        self.breed = breed\n\n    def speak(self): ## add methods\n        return f\"{self.name} says woof!\"\n\n    def __str__(self): # __str__(self) tells python what to display when an object is printed\n        return f\"Our dog {self.name}\"\n\n    def __repr__(self): # add representation to display when dog is called in console\n        return f\"Dog(name={self.name!r}, breed={self.breed!r})\""
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#creating-a-dog",
+    "href": "session4_newMLDemo/session4v2_webpage.html#creating-a-dog",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Creating a dog",
+    "text": "Creating a dog\nCreating an instance of the Dog class lets us model a particular dog:\n\nbuddy = Dog(\"Buddy\", \"Golden Retriever\")\nprint(f\"Buddy is an object of class {type(buddy)}\")\n\nBuddy is an object of class &lt;class '__main__.Dog'&gt;\n\n\n\n\nWe set the value of the attributes [name and breed], which are then stored as part of the buddy object\n\n\nWe can use any methods defined in the Dog class on buddy\n\n\n\n## if we want to see what kind of dog our dog is\n## we can call buddy's attributes\nprint(f\"Our dog {buddy.name} is a {buddy.breed}.\")\n\n## we can also call any Dog methods\nprint(buddy.speak())  \n\n## including special methods\nbuddy ## displays what was in the __repr__() method\n\nOur dog Buddy is a Golden Retriever.\nBuddy says woof!\n\n\nDog(name='Buddy', breed='Golden Retriever')\n\n\nNote: For python methods, the self argument is assumed to be passed and therefore we do not put anything in the parentheses when calling .speak(). For attributes, we do not put () at all."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#derived-child-classes",
+    "href": "session4_newMLDemo/session4v2_webpage.html#derived-child-classes",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Derived (Child) Classes",
+    "text": "Derived (Child) Classes\nDerived/child classes build on base classes using the principle of inheritence. \nNow that we have a Dog class, we can build on it to create a specialized GuardDog class.\n\nclass GuardDog(Dog):  # GuardDog inherits from Dog\n    def __init__(self, name, breed, training_level): ## in addition to name and breed, we can \n        # define a training level. \n        # Call the parent (Dog) class's __init__ method\n        super().__init__(name, breed)\n        self.training_level = training_level  # New attribute for GuardDog that stores the \n        # training level for the dog\n\n    def guard(self): ## checks if the training level is &gt; 5 and if not says train more\n        if self.training_level &gt; 5:\n            return f\"{self.name} is guarding the house!\"\n        else:\n            return f\"{self.name} needs more training before guarding.\"\n    \n    def train(self): # modifies the training_level attribute to increase the dog's training level\n        self.training_level = self.training_level + 1\n        return f\"Training {self.name}. {self.name}'s training level is now {self.training_level}\"\n\n# Creating an instance of GuardDog\nrex = GuardDog(\"Rex\", \"German Shepherd\", training_level= 5)\n\n\nNow that we have a dog (rex), we can call on any of the methods/attributes introduced in the Dog class as well as the new GuardDog class.\nUsing methods from the base class:\n\nprint(rex.speak())\nrex\n\nRex says woof!\n\n\nDog(name='Rex', breed='German Shepherd')\n\n\n\nUsing a method from the child class:\n\nprint(f\"{rex.name}'s training level is {rex.training_level}.\")\nprint(rex.guard()) \n\nRex's training level is 5.\nRex needs more training before guarding.\n\n\n. . .\nThis is the power of inheritance—we don’t have to rewrite everything from scratch!\n\nUnlike standalone functions, methods in Python often update objects in-place—meaning they modify the object itself rather than returning a new one.\nWe can use the .train() method to increase rex’s training level.\n\nprint(rex.train())\n\nTraining Rex. Rex's training level is now 6\n\n\n. . .\n\nNow if we check,\n\nprint(f\"{rex.name}'s training level is {rex.training_level}.\")\nprint(rex.guard()) \n\nRex's training level is 6.\nRex is guarding the house!\n\n\n\n. . .\nAs with Rex, child classes inherit all attributes (.name and .breed) and methods (.speak() __repr__()) from parent classes. They can also have new methods (.train())."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#mixins",
+    "href": "session4_newMLDemo/session4v2_webpage.html#mixins",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Mixins",
+    "text": "Mixins\nA mixin is a special kind of class designed to add functionality to another class. Unlike base classes, mixins aren’t used alone.\n\nFor example, scikit-learn uses mixins like:\n- sklearn.base.ClassifierMixin (adds classifier-specific methods)\n- sklearn.base.RegressorMixin (adds regression-specific methods)\nwhich it adds to the BaseEstimator class to add functionality.  \nTo finish up our dog example, we are going to define a mixin class that adds learning tricks to the base Dog class and use it to create a new class called SmartDog.\n\n\nWhen creating a mixin class, we let the other base classes carry most of the initialization\n\nclass TrickMixin: ## mixin that will let us teach a dog tricks\n    def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)  # Ensures proper initialization in multi inheritance\n        self.tricks = []  # Add attribute to store tricks\n\n## add trick methods\n    def learn_trick(self, trick):\n        \"\"\"Teaches the dog a new trick.\"\"\"\n        if trick not in self.tricks:\n            self.tricks.append(trick)\n            return f\"{self.name} learned a new trick: {trick}!\"\n        return f\"{self.name} already knows {trick}!\"\n\n    def perform_tricks(self):\n        \"\"\"Returns a list of tricks the dog knows.\"\"\"\n        if self.tricks:\n            return f\"{self.name} can perform: {', '.join(self.tricks)}.\"\n        return f\"{self.name} hasn't learned any tricks yet.\"\n\n## note: the TrickMixin class is not a standalone class!\n\n\nBy including both Dog and TrickMixin as base classes, we give objects of class SmartDog the ability to speak and learn tricks!\n\nclass SmartDog(Dog, TrickMixin):\n    def __init__(self, name, breed):\n        super().__init__(name, breed)  # Initialize Dog class\n        TrickMixin.__init__(self)  # Initialize TrickMixin separately\n\n# a SmartDog object can use methods from both parent object `Dog` and mixin `TrickMixin`.\nmy_smart_dog = SmartDog(\"Buddy\", \"Border Collie\")\nprint(my_smart_dog.speak()) \n\nBuddy says woof!\n\n\n\n\nprint(my_smart_dog.learn_trick(\"Sit\"))  \nprint(my_smart_dog.learn_trick(\"Roll Over\")) \nprint(my_smart_dog.learn_trick(\"Sit\"))  \n\nBuddy learned a new trick: Sit!\nBuddy learned a new trick: Roll Over!\nBuddy already knows Sit!\n\n\n\n\nprint(my_smart_dog.perform_tricks()) \n\nBuddy can perform: Sit, Roll Over."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#duck-typing",
+    "href": "session4_newMLDemo/session4v2_webpage.html#duck-typing",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Duck Typing",
+    "text": "Duck Typing\n\n🦆 “If it quacks like a duck and walks like a duck, it’s a duck.” 🦆\n\nPython’s duck typing makes our lives a lot easier, and is one of the main benefits of methods over functions:\n\n\nRepurposing old code - methods by the same name work the same for different model types\n\n\nNot necessary to check types before using methods - methods are assumed to work on the object they’re attached to\n\n\nWe can demonstrate this by defining two new base classes that are different than Dog but also have a speak() method.\n. . .\n\nclass Human:\n    def __init__(self, name):\n        self.name = name\n\n    def speak(self):\n        return f\"{self.name} says hello!\"\n\nclass Parrot:\n    def __init__(self, name):\n        self.name = name\n\n    def speak(self):\n        return f\"{self.name} says squawk!\""
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#duck-typing-in-action",
+    "href": "session4_newMLDemo/session4v2_webpage.html#duck-typing-in-action",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Duck Typing in Action",
+    "text": "Duck Typing in Action\nEven though Dog, Human and Parrot are entirely different classes…\n\ndef call_speaker(obj):\n    print(obj.speak())\n\ncall_speaker(Dog(\"Fido\", \"Labrador\"))\ncall_speaker(Human(\"Alice\"))\ncall_speaker(Parrot(\"Polly\"))\n\nFido says woof!\nAlice says hello!\nPolly says squawk!\n\n\n. . .\nThey all implement .speak(), so Python treats them the same!\nIn the context of our work, this would allow us to make a pipeline using models from different libraries that have the same methods.\n\nWhile our dog example was very simple, this is the same way that model classes work in python!"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#example-oop-in-machine-learning-and-modeling",
+    "href": "session4_newMLDemo/session4v2_webpage.html#example-oop-in-machine-learning-and-modeling",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Example: OOP in Machine Learning and Modeling",
+    "text": "Example: OOP in Machine Learning and Modeling\nMachine learning models in Python are implemented as classes.\n\n\n\nWhen you create a model, you’re instantiating an object of a predefined class (e.g., LogisticRegression()).\n\n\nThat model has attributes (parameters, coefficients) and methods (like .fit() and .predict()).\n\n\nFor example LogisticRegression is a model class that inherits from SparseCoefMixin and BaseEstimator.\nclass LogisticRegression(LinearClassifierMixin, SparseCoefMixin, BaseEstimator):\nTo perform logistic regression, we create an instance of the LogisticRegression class.\n## Example: \nfrom sklearn.linear_model import LogisticRegression\n\nmodel = LogisticRegression()  # Creating an instance of the LogisticRegression class\nmodel.fit(X_train, y_train)   # Calling a method to train the model\npredictions = model.predict(X_test)  # Calling a method to make predictions\ncoefs = model.coef_ # Access model coefficients using attribute"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#key-benefits-of-oop-in-machine-learning",
+    "href": "session4_newMLDemo/session4v2_webpage.html#key-benefits-of-oop-in-machine-learning",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Key Benefits of OOP in Machine Learning",
+    "text": "Key Benefits of OOP in Machine Learning\n\nEncapsulation – Models store parameters and methods inside a single object.\n\nInheritance – New models can build on base models, reusing existing functionality.\n\nAbstraction – .fit() should work as expected, regardless of complexity of underlying implimentation.\nPolymorphism (Duck Typing) – Different models share the same method names (.fit(), .predict()), making them easy to use interchangeably, particularly in analysis pipelines.\n\nUnderstanding base classes and mixins is especially important when working with deep learning frameworks like PyTorch and TensorFlow, which require us to create our own model classes."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#mini-project-classifying-penguins-with-scikit-learn",
+    "href": "session4_newMLDemo/session4v2_webpage.html#mini-project-classifying-penguins-with-scikit-learn",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "🐧 Mini Project: Classifying Penguins with scikit-learn",
+    "text": "🐧 Mini Project: Classifying Penguins with scikit-learn\nNow that you understand classes and data structures in Python, let’s apply that knowledge to classify penguin species using two features:\n\n\n\nbill_length_mm\n\n\nbill_depth_mm\n\n\nWe’ll explore:\n\n\nUnsupervised learning with K-Means clustering (model doesn’t ‘know’ y)\n\n\nSupervised learning with a k-NN classifier (model trained w/ y information)\n\n\nAll scikit-learn models are designed to have\n\n\nCommon Methods:\n\n\n\n.fit() — Train the model\n\n\n.predict() — Make predictions\n\n\n\nCommon Attributes:\n\n\n.classes_, .n_clusters_, etc.\n\n\n\n\n\nThis is true of the scikit-survival package too!"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#import-libraries",
+    "href": "session4_newMLDemo/session4v2_webpage.html#import-libraries",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Import Libraries",
+    "text": "Import Libraries\nBefore any analysis, we must import the necessary libraries.\nFor large libraries like scikit-learn, PyTorch, or TensorFlow, we usually do not import the entire package. Instead, we selectively import the classes and functions we need.\n\n\nClasses\n- StandardScaler — for feature scaling\n- KNeighborsClassifier — for supervised k-NN classification\n- KMeans — for unsupervised clustering\n\n\n🔤 Naming Tip:\n- CamelCase = Classes\n- snake_case = Functions\n\n\nFunctions\n- train_test_split() — to split data into training and test sets\n- accuracy_score() — to evaluate classification accuracy\n- classification_report() — to print precision, recall, F1 (balance of precision and recall), Support (number of true instances per class) - adjusted_rand_score() — to evaluate clustering performance"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#import-libraries-1",
+    "href": "session4_newMLDemo/session4v2_webpage.html#import-libraries-1",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Import Libraries",
+    "text": "Import Libraries\n\n## imports\nimport pandas as pd\nimport numpy as np\n\nfrom plotnine import *\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\nfrom great_tables import GT\n\n## sklearn imports\n\n## import classes\nfrom sklearn.preprocessing import StandardScaler \nfrom sklearn.neighbors import KNeighborsClassifier\nfrom sklearn.cluster import KMeans\n\n## import functions\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import accuracy_score, classification_report, adjusted_rand_score"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#data-preparation",
+    "href": "session4_newMLDemo/session4v2_webpage.html#data-preparation",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load the Penguins dataset\npenguins = sns.load_dataset(\"penguins\").dropna()\n\n# Make a summary table for the penguins dataset, grouping by species. \nsummary_table = penguins.groupby(\"species\").agg({\n    \"bill_length_mm\": [\"mean\", \"std\", \"min\", \"max\"],\n    \"bill_depth_mm\": [\"mean\", \"std\", \"min\", \"max\"],\n    \"sex\": lambda x: x.value_counts().to_dict()  # Count of males and females\n})\n\n# Round numeric values to 1 decimal place (excluding the 'sex' column)\nfor col in summary_table.columns:\n    if summary_table[col].dtype in [float, int]:\n        summary_table[col] = summary_table[col].round(1)\n\n# Display the result\ndisplay(summary_table)\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nsex\n\n\n\nmean\nstd\nmin\nmax\nmean\nstd\nmin\nmax\n&lt;lambda&gt;\n\n\nspecies\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdelie\n38.8\n2.7\n32.1\n46.0\n18.3\n1.2\n15.5\n21.5\n{'Male': 73, 'Female': 73}\n\n\nChinstrap\n48.8\n3.3\n40.9\n58.0\n18.4\n1.1\n16.4\n20.8\n{'Female': 34, 'Male': 34}\n\n\nGentoo\n47.6\n3.1\n40.9\n59.6\n15.0\n1.0\n13.1\n17.3\n{'Male': 61, 'Female': 58}"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#data-visualization",
+    "href": "session4_newMLDemo/session4v2_webpage.html#data-visualization",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Data Visualization",
+    "text": "Data Visualization\nTo do visualization, we can use either seaborn or plotnine. plotnine mirrors ggplot2 syntax from R and is great for layered grammar-of-graphics plots, while seaborn seaborn is more convienient if you want to put multiple plots on the same figure. \n\nPlotting with Plotnine vs Seaborn\n\n\nPlotnine (like ggplot2 in R) The biggest differences between plotnine and ggplot2 syntax are:\n\n\nWith plotnine the whole call is wrapped in () parentheses\n\n\nVariables are called with strings (\"\" are needed!)\n\n\nIf you don’t use from plotnine import *, you will need to import each individual function you plan to use!\n\n\n\nSeaborn (base matplotlib + enhancements)\n\n\nDesigned for quick, polished plots\n\n\nWorks well with pandas DataFrames or NumPy arrays\n\n\nIntegrates with matplotlib for customization\n\n\nGood for things like decision boundaries or heatmaps\n\n\nHarder to customize than plotnine plots"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#scatterplot-with-plotnine",
+    "href": "session4_newMLDemo/session4v2_webpage.html#scatterplot-with-plotnine",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Scatterplot with plotnine",
+    "text": "Scatterplot with plotnine\nTo take a look at the distribution of our species by bill length and bill depth before clustering…\n\nplot1 = (ggplot(penguins, aes(x=\"bill_length_mm\", y=\"bill_depth_mm\", color=\"species\"))\n + geom_point()\n + ggtitle(\"Penguin Species\")\n + theme_bw())\n\ndisplay(plot1)"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#scatterplot-with-seaborn",
+    "href": "session4_newMLDemo/session4v2_webpage.html#scatterplot-with-seaborn",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Scatterplot with seaborn",
+    "text": "Scatterplot with seaborn\nWe can make a similar plot in seaborn. This time, let’s include sex by setting the point style\n\n# Create the figure and axes obects\nfig, ax = plt.subplots(figsize=(10, 8))\n\n# Create a plot \nsns.scatterplot(\n    data=penguins, x=\"bill_length_mm\", y=\"bill_depth_mm\",\n    hue=\"species\", ## hue = fill\n    style=\"sex\",  ## style = style of dots\n    palette=\"Set2\", ## sets color pallet\n    edgecolor=\"black\", s=300, ## line color and point size \n    ax=ax              ## Draw plot on ax      \n)\n\n# Use methods on ax to set title, labels\nax.set_title(\"Penguin Bill Length vs Depth by Species\")\nax.set_xlabel(\"Bill Length (mm)\")\nax.set_ylabel(\"Bill Depth (mm)\")\nax.legend(title=\"Species\")\n\n# Plot the figure\nfig.tight_layout()"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#scaling-the-data---understanding-the-standard-scaler-class",
+    "href": "session4_newMLDemo/session4v2_webpage.html#scaling-the-data---understanding-the-standard-scaler-class",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Scaling the data - Understanding the Standard Scaler class",
+    "text": "Scaling the data - Understanding the Standard Scaler class\nFor our clustering to work well, the predictors should be on the same scale. To achieve this, we use an instance of the StandardScaler class.\nclass sklearn.preprocessing.StandardScaler(*, copy=True, with_mean=True, with_std=True)\n. . .\nParameters are supplied by user\n- copy, with_mean, with_std \nAttributes contain the data of the object\n- scale_: scaling factor\n- mean_: mean value for each feature\n- var_: variance for each feature\n- n_features_in_: number of features seen during fit\n- n_samples_seen: number of samples processed for each feature \nMethods describe the behaviors of the object and/or modify its attributes\n- fit(X): computes mean and std used for scaling and ‘fits’ scaler to data X\n- transform(X): performs standardization by centering and scaling X with fitted scaler\n- fit_transform(X): does both"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#scaling-data",
+    "href": "session4_newMLDemo/session4v2_webpage.html#scaling-data",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Scaling Data",
+    "text": "Scaling Data\n\n# Selecting features for clustering -&gt; let's just use bill length and bill depth.\nX = penguins[[\"bill_length_mm\", \"bill_depth_mm\"]]\ny = penguins[\"species\"]\n\n# Standardizing the features for better clustering performance\nscaler = StandardScaler() ## create instance of StandardScaler\nX_scaled = scaler.fit_transform(X) \n\n\n\n\n\n\n\n\n\n\nOriginal vs Scaled Features\n\n\nFeature\nOriginal\nScaled\n\n\nOriginal Mean\nOriginal Std\nScaled Mean\nScaled Std\n\n\n\n\nmean\n44\n17\n0\n0\n\n\nstd\n5\n2\n1\n1\n\n\n\n\n\n\n        \n\n\n\n\nShow table code\n## Make X_scaled a pandas df\nX_scaled_df = pd.DataFrame(X_scaled, columns=X.columns)\n\n# Compute summary statistics and round to 2 sig figs\noriginal_stats = X.agg([\"mean\", \"std\"])\nscaled_stats = X_scaled_df.agg([\"mean\", \"std\"])\n\n# Combine into a single table with renamed columns\nsummary_table = pd.concat([original_stats, scaled_stats], axis=1)\nsummary_table.columns = [\"Original Mean\", \"Original Std\", \"Scaled Mean\", \"Scaled Std\"]\nsummary_table.index.name = \"Feature\"\n\n# Display nicely with great_tables\n(\n    GT(summary_table.reset_index()).tab_header(\"Original vs Scaled Features\")\n    .fmt_number(n_sigfig = 2)\n    .tab_spanner(label=\"Original\", columns=[\"Original Mean\", \"Original Std\"])\n    .tab_spanner(label=\"Scaled\", columns=[\"Scaled Mean\", \"Scaled Std\"])\n    .tab_options(table_font_size = 20)\n)"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#understanding-the-kmeans-model-class",
+    "href": "session4_newMLDemo/session4v2_webpage.html#understanding-the-kmeans-model-class",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Understanding the KMeans model class",
+    "text": "Understanding the KMeans model class\nclass sklearn.cluster.KMeans(n_clusters=8, *, init='k-means++', n_init='auto', max_iter=300, \ntol=0.0001, verbose=0, random_state=None, copy_x=True, algorithm='lloyd')\nParameters: Set by user at time of instantiation\n- n_clusters, max_iter, algorithm \nAttributes: Store object data\n- cluster_centers_: stores coordinates of cluster centers\n- labels_: stores labels of each point - n_iter_: number of iterations run (will be changed during method run)\n- n_features_in and feature_names_in_: store info about features seen during fit \nMethods: Define object behaviors\n- fit(X): fits model to data X - predict(X): predicts closest cluster each sample in X belongs to\n- transform(X): transforms X to cluster-distance space\n\n\nCreate model\n\n## Choosing 3 clusters b/c we have 3 species\nkmeans = KMeans(n_clusters=3, random_state=42) ## make an instance of the K means class\nkmeans\n\nKMeans(n_clusters=3, random_state=42)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  KMeans?Documentation for KMeansiNot fittedKMeans(n_clusters=3, random_state=42) \n\n\n\n\n\nFit model to data\n\n## the fit\npenguins[\"kmeans_cluster\"] = kmeans.fit_predict(X_scaled)\n\n## now that we fit the model, we should have cluster centers\nprint(\"Coordinates of cluster centers:\", kmeans.cluster_centers_)\n\n## shows that model is fitted\nkmeans\n\nCoordinates of cluster centers: [[-0.95023997  0.55393493]\n [ 0.58644397 -1.09805504]\n [ 1.0886843   0.79503579]]\n\n\nKMeans(n_clusters=3, random_state=42)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  KMeans?Documentation for KMeansiFittedKMeans(n_clusters=3, random_state=42)"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#use-function-to-calculate-ari",
+    "href": "session4_newMLDemo/session4v2_webpage.html#use-function-to-calculate-ari",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Use function to calculate ARI",
+    "text": "Use function to calculate ARI\nTo check how good our model is, we can use one of the functions included in the sklearn library.\nThe adjusted_rand_score() function evaluates how well the cluster groupings agree with the species groupings while adjusting for chance.\n\n# Calculate clustering performance using Adjusted Rand Index (ARI)\nkmeans_ari = adjusted_rand_score(penguins['species'], penguins[\"kmeans_cluster\"])\nprint(f\"k-Means Adjusted Rand Index: {kmeans_ari:.2f}\")\n\nk-Means Adjusted Rand Index: 0.82\n\n\n\n\nWe can also use methods on our data structure to create new data\n\nWe can use the .groupby() method to help us plot cluster agreement with species label as a heatmap\nIf we want to add sex as a variable to see if that is why our clusters don’t agree with our species, we can use a scatterplot\nUsing seaborn and matplotlib, we can easily put both of these plots on the same figure. \n\n\n# Count occurrences of each species-cluster-sex combination\n# (.size gives the count as index, use reset_index to get count column.)\nscatter_data = (penguins.groupby([\"species\", \"kmeans_cluster\", \"sex\"])\n                .size()\n                .reset_index(name=\"count\"))\nspecies_order = list(scatter_data['species'].unique()) ## defining this for later\n\n# Create a mapping to add horizontal jitter for each sex for scatterplot\nsex_jitter = {'Male': -0.1, 'Female': 0.1}\nscatter_data['x_jittered'] = scatter_data.apply(\n    lambda row: scatter_data['species'].unique().tolist().index(row['species']) +\n     sex_jitter.get(row['sex'], 0),\n    axis=1\n)\n\nheatmap_data = scatter_data.pivot_table(index=\"kmeans_cluster\", columns=\"species\", \nvalues=\"count\", aggfunc=\"sum\", fill_value=0)"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#creating-plots",
+    "href": "session4_newMLDemo/session4v2_webpage.html#creating-plots",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Creating Plots",
+    "text": "Creating Plots\n\n# Prepare the figure with 2 subplots; the axes object will contain both plots\nfig2, axes = plt.subplots(1, 2, figsize=(16, 7)) ## 1 row 2 columns\n\n# Plot heatmap on the first axis\nsns.heatmap(data = heatmap_data, cmap=\"Blues\", linewidths=0.5, linecolor='white', annot=True, \nfmt='d', ax=axes[0])\naxes[0].set_title(\"Heatmap of KMeans Clustering by Species\")\naxes[0].set_xlabel(\"Species\")\naxes[0].set_ylabel(\"KMeans Cluster\")\n\n# Scatterplot with jitter\nsns.scatterplot(data=scatter_data, x=\"x_jittered\", y=\"kmeans_cluster\",\n    hue=\"species\", style=\"sex\", size=\"count\", sizes=(100, 500),\n    alpha=0.8, ax=axes[1], legend=\"brief\")\naxes[1].set_xticks(range(len(species_order)))\naxes[1].set_xticklabels(species_order)\naxes[1].set_title(\"Cluster Assignment by Species and Sex (Jittered)\")\naxes[1].set_ylabel(\"KMeans Cluster\")\naxes[1].set_xlabel(\"Species\")\naxes[1].set_yticks([0, 1, 2])\naxes[1].legend(bbox_to_anchor=(1.05, 0.5), loc='center left', borderaxespad=0.0, title=\"Legend\")\n\nfig2.tight_layout()"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#project-2-knn-classification",
+    "href": "session4_newMLDemo/session4v2_webpage.html#project-2-knn-classification",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Project 2: KNN classification",
+    "text": "Project 2: KNN classification\nFor our KNN classification, the model is supervised (meaning it is dependent on the outcome ‘y’ data). This time, we need to split our data into a training and test set. \n. . .\nThe function train_test_split() from scikit-learn is helpful here!\n\n# Splitting dataset into training and testing sets (still using scaled X!)\nX_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=42)\n\n. . .\n\nUnlike R functions, which return a single object (often a list when multiple outputs are needed), Python functions can return multiple values as a tuple—letting you unpack them directly into separate variables."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#understanding-kneighborsclassifier-class",
+    "href": "session4_newMLDemo/session4v2_webpage.html#understanding-kneighborsclassifier-class",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Understanding KNeighborsClassifier class",
+    "text": "Understanding KNeighborsClassifier class\nclass sklearn.neighbors.KNeighborsClassifier(n_neighbors=5, *, weights='uniform', \nalgorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=None)\n. . .\nParameters: Set by user at time of instantiation\n- n_neigbors, weights, algorithm, etc. \nAttributes: Store object data\n- classes_: class labels known to the classifier\n- effective_metric_: distance metric used\n- effective_metric_params_: parameters for the metric function\n- n_features_in and feature_names_in_: store info about features seen during fit\n- n_samples_fit_: number of samples in fitted data \nMethods: Define object behaviors\n- .fit(X, y): fit knn classifier from training dataset (X and y)\n- .predict(X): predict class labels for provided data X\n- .predict_proba(X): return probability estimates for test data X\n- .score(X, y): return mean accuracy on given test data X and labels y"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#making-an-instance-of-kneighborsclassifier-and-fitting-to-training-data",
+    "href": "session4_newMLDemo/session4v2_webpage.html#making-an-instance-of-kneighborsclassifier-and-fitting-to-training-data",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Making an instance of KNeighborsClassifier and fitting to training data",
+    "text": "Making an instance of KNeighborsClassifier and fitting to training data\n\nFor a supervised model, y_train is included in .fit()!\n\n\n## perform knn classification\n# Applying k-NN classification with 5 neighbors\nknn = KNeighborsClassifier(n_neighbors=5) ## make an instance of the KNeighborsClassifier class\n# and set the n_neighbors parameter to be 5. \n\n# Use the fit method to fit the model to the training data\nknn.fit(X_train, y_train)\nknn"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#once-the-model-is-fit",
+    "href": "session4_newMLDemo/session4v2_webpage.html#once-the-model-is-fit",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Once the model is fit…",
+    "text": "Once the model is fit…\n-We can look at its attributes (ex: .classes_) which gives the class labels as known to the classifier\n\nprint(knn.classes_)\n\n['Adelie' 'Chinstrap' 'Gentoo']\n\n\n. . .\n-And use fitted model to predict species for test data\n\n# Use the predict method on the test data to get the predictions for the test data\ny_pred = knn.predict(X_test)\n\n# Also can take a look at the prediction probabilities, \n# and use the .classes_ attribute to put the column labels in the right order\nprobs = pd.DataFrame(\n    knn.predict_proba(X_test),\n    columns = knn.classes_)\nprobs['y_pred'] = y_pred\n\nprint(\"Predicted probabilities: \\n\", probs.head())\n\nPredicted probabilities: \n    Adelie  Chinstrap  Gentoo     y_pred\n0     1.0        0.0     0.0     Adelie\n1     0.0        0.0     1.0     Gentoo\n2     1.0        0.0     0.0     Adelie\n3     0.0        0.6     0.4  Chinstrap\n4     1.0        0.0     0.0     Adelie"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#scatterplot-for-k-nn-classification-of-test-data",
+    "href": "session4_newMLDemo/session4v2_webpage.html#scatterplot-for-k-nn-classification-of-test-data",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Scatterplot for k-NN classification of test data",
+    "text": "Scatterplot for k-NN classification of test data\n\nCreate dataframe of unscaled X_test, bill_length_mm, and bill_depth_mm.\nAdd to it the actual and predicted species labels\n\n\n## First unscale the test data\nX_test_unscaled = scaler.inverse_transform(X_test)\n\n## create dataframe \npenguins_test = pd.DataFrame(\n    X_test_unscaled,\n    columns=['bill_length_mm', 'bill_depth_mm']\n)\n\n## add actual and predicted species \npenguins_test['y_actual'] = y_test.values\npenguins_test['y_pred'] = y_pred\npenguins_test['correct'] = penguins_test['y_actual'] == penguins_test['y_pred']\n\nprint(\"Results: \\n\", penguins_test.head())\n\nResults: \n    bill_length_mm  bill_depth_mm   y_actual     y_pred  correct\n0            39.5           16.7     Adelie     Adelie     True\n1            46.9           14.6     Gentoo     Gentoo     True\n2            42.1           19.1     Adelie     Adelie     True\n3            49.8           17.3  Chinstrap  Chinstrap     True\n4            41.1           18.2     Adelie     Adelie     True"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#plotnine-scatterplot-for-k-nn-classification-of-test-data",
+    "href": "session4_newMLDemo/session4v2_webpage.html#plotnine-scatterplot-for-k-nn-classification-of-test-data",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Plotnine scatterplot for k-NN classification of test data",
+    "text": "Plotnine scatterplot for k-NN classification of test data\nTo see how well our model did at classifying the remaining penguins…\n\n## Build the plot\nplot3 = (ggplot(penguins_test, aes(x=\"bill_length_mm\", y=\"bill_depth_mm\", \ncolor=\"y_actual\", fill = 'y_pred', shape = 'correct'))\n + geom_point(size=4, stroke=1.1)  # Stroke controls outline thickness\n + scale_shape_manual(values={True: 'o', False: '^'})  # Circle and triangle\n + ggtitle(\"k-NN Classification Results\")\n + theme_bw())\n\ndisplay(plot3)"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#visualizing-decision-boundary-with-seaborn-and-matplotlib",
+    "href": "session4_newMLDemo/session4v2_webpage.html#visualizing-decision-boundary-with-seaborn-and-matplotlib",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Visualizing Decision Boundary with seaborn and matplotlib",
+    "text": "Visualizing Decision Boundary with seaborn and matplotlib\n\nfrom sklearn.inspection import DecisionBoundaryDisplay\nfrom sklearn.preprocessing import LabelEncoder\n\n# Create and fit label encoder for y (just makes y numeric because it makes the scatter plot happy)\nlabel_encoder = LabelEncoder()\ny_encoded = label_encoder.fit_transform(y)\n\n# Create the plot objects\nfig, ax = plt.subplots(figsize=(12, 8))\n\n# Create display object\ndisp = DecisionBoundaryDisplay.from_estimator(\n    knn,\n    X_test,\n    response_method = 'predict',\n    plot_method = 'pcolormesh',\n    xlabel = \"bill_length_scaled\",\n    ylabel = \"bill_depth_scaled\",\n    shading = 'auto',\n    alpha = 0.5,\n    ax = ax\n)\n\n# Use method from display object to create scatter plot\nscatter = disp.ax_.scatter(X_scaled[:,0], X_scaled[:,1], c=y_encoded, edgecolors = 'k')\ndisp.ax_.legend(scatter.legend_elements()[0], knn.classes_, loc = 'lower left', title = 'Species')\n_ = disp.ax_.set_title(\"Penguin Classification\")\n\nplt.show()"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#evaluate-knn-performance",
+    "href": "session4_newMLDemo/session4v2_webpage.html#evaluate-knn-performance",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Evaluate KNN performance",
+    "text": "Evaluate KNN performance\nTo check the performance of our KNN classifier, we can check the accuracy score and print a classification report.\n- accuracy_score and classification_report are both functions!\n- They are not unique to scikit-learn classes so it makes sense for them to be functions not methods\n\n## eval knn performance\nknn_accuracy = accuracy_score(y_test, y_pred)\nprint(f\"k-NN Accuracy: {knn_accuracy:.2f}\")\nprint(\"Classification Report: \\n\", classification_report(y_test, y_pred))\n\nk-NN Accuracy: 0.94\nClassification Report: \n               precision    recall  f1-score   support\n\n      Adelie       0.98      0.98      0.98        48\n   Chinstrap       0.80      0.89      0.84        18\n      Gentoo       0.97      0.91      0.94        34\n\n    accuracy                           0.94       100\n   macro avg       0.92      0.93      0.92       100\nweighted avg       0.94      0.94      0.94       100"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#make-a-summary-table-of-metrics-for-both-models",
+    "href": "session4_newMLDemo/session4v2_webpage.html#make-a-summary-table-of-metrics-for-both-models",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Make a Summary Table of Metrics for Both Models",
+    "text": "Make a Summary Table of Metrics for Both Models\n\nsummary_table = pd.DataFrame({\n    \"Metric\": [\"k-Means Adjusted Rand Index\", \"k-NN Accuracy\"],\n    \"Value\": [kmeans_ari, knn_accuracy]\n})\n(\n    GT(summary_table)\n    .tab_header(title = \"Model Results Summary\")\n    .fmt_number(columns = \"Value\", n_sigfig = 2)\n    .tab_options(table_font_size = 20)\n)\n\n\n\n\n\n\n\nModel Results Summary\n\n\nMetric\nValue\n\n\n\n\nk-Means Adjusted Rand Index\n0.82\n\n\nk-NN Accuracy\n0.94"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#key-takeaways-from-this-session",
+    "href": "session4_newMLDemo/session4v2_webpage.html#key-takeaways-from-this-session",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Key Takeaways from This Session",
+    "text": "Key Takeaways from This Session\n\n\n\n\nPython workflows rely on object-oriented structures in addition to functions: Understanding the OOP paradigm makes Python a lot easier!\n\n\nEverything is an object!\n\n\nDuck Typing: If an object has a method, that method can be called regardless of the object type. Caveat being, make sure the arguments (if any) in the method are specified correctly for all objects!\n\n\nPython packages use common methods that make it easy to change between model types without changing a lot of code."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_webpage.html#additional-insights",
+    "href": "session4_newMLDemo/session4v2_webpage.html#additional-insights",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Additional Insights",
+    "text": "Additional Insights\n\n\nPredictable APIs enable seamless model switching: Swapping models like LogisticRegression → RandomForestClassifier usually requires minimal code changes.\n\n\nscikit-learn prioritizes interoperability: Its consistent class design integrates with tools like Pipeline, GridSearchCV, and cross_val_score.\n\n\nClass attributes improve model transparency: Access attributes like .coef_, .classes_, and .feature_importances_ for model interpretation and debugging.\n\n\nCustom classes are central to deep learning: Frameworks like PyTorch and TensorFlow require you to define your own model classes by subclassing base models.\n\n\nMixins support modular design: Mixins (e.g., ClassifierMixin) let you add specific functionality without duplicating code."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#session-overview",
+    "href": "session4_newMLDemo/session4v2_slides.html#session-overview",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Session Overview",
+    "text": "Session Overview\n\nIn this session, we’ll explore how Python’s object-oriented nature affects our modeling workflows. \nTopics:\n\n\n\nIntro to OOP and how it makes modeling in Python different from R\n\n\nBuilding and extending classes using inheritance and mixins\n\n\nApplying OOP to machine learning through demos with scikit-learn\n\n\n\nCreating and using models\n\n\nPlotting data with plotnine and seaborn"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#why-python",
+    "href": "session4_newMLDemo/session4v2_slides.html#why-python",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Why Python? 🐍",
+    "text": "Why Python? 🐍\n\n\n\nR: Built by Statisticians for Statisticians\n\nExcels at:\n\nStatistical analysis and modeling\n\nClean outputs and tables from models\nBeautiful data visualizations with simple code\n\n\n\nPython: General-Purpose Language\n\nExcels at:\n\nMachine Learning, Neural Networks & Deep Learning (scikit-learn, PyTorch, TensorFlow)\n\nImage & Genomic Data Analysis (scikit-image, biopython, scanpy)\nSoftware & Command Line Interfaces, Web Scraping, Automation\n\n\n\nPython’s broader ecosystem makes it the go-to language in domains like AI, bioinformatics, data engineering, and computational biology.\n\nNote: Packages like rpy2 and reticulate make it possible to use both R and Python in the same project, but those are beyond the scope of this course.\nA primer on reticulate is available here: https://www.r-bloggers.com/2022/04/getting-started-with-python-using-r-and-reticulate/"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#programming-styles-r-vs-python",
+    "href": "session4_newMLDemo/session4v2_slides.html#programming-styles-r-vs-python",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Programming Styles: R vs Python",
+    "text": "Programming Styles: R vs Python\n\n In the first session, we talked briefly about functional vs object-oriented programming:\n\n\nFunctional programming: focuses on functions as the primary unit of code  Object-oriented programming: uses objects with attached attributes(data) and methods(behaviors) \n\n\nR leans heavily on the functional paradigm — you pass data into functions and get back results, in most cases without altering the original data. Functions and pipes (%&gt;%) dominate most workflows.\nIn Python, everything is an object, even basic things like lists, strings, and dataframes. A lot of ‘functions’ are instead written as object-associated methods. Some of these methods modify the objects in-place by altering their attributes. Understanding how this works is key to using Python effectively!\n\n\nYou’ve already seen this object-oriented style in Sessions 2 and 3 — you create objects like lists or dataframes, then call methods on them like .append() or .sort_values(). In python, instead of piping, we sometimes chain methods together."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#modeling-in-python",
+    "href": "session4_newMLDemo/session4v2_slides.html#modeling-in-python",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Modeling in Python",
+    "text": "Modeling in Python\n\nPython absolutely uses functions—just like R! They’re helpful for data transformation, wrangling, and automation tasks like looping and parallelization. \nBut when it comes to modeling, libraries are designed around classes: blueprints for creating objects that store data (attributes) and define behaviors (methods). \n\nscikit-learn is great for getting started—everything follows a simple, consistent OOP interface. Its API is also consistant with other modeling packages, like xgboost and scvi-tools.\nscikit-survival is built on top of scikit-learn. https://scikit-survival.readthedocs.io/en/stable/user_guide/00-introduction.html is a good tutorial for it.\nPyTorch and TensorFlow are essential if you go deeper into neural networks or custom models—you’ll define your own model classes with attributes and methods, but the basic structure is similar to scikit-learn.\n\nstatsmodels is an alternative to scikit-learn for statistical analyses and has R-like syntax and outputs. It’s a bit more complex than scikit-learn and a bit less consistant with other packages in the python ecosystem. https://wesmckinney.com/book/modeling is a good tutorial for statsmodels.\n\n\n💡 To work effectively in Python, especially for tasks involving modeling or model training, it helps to think in terms of objects and classes, not just functions."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#why-does-oop-matter-in-python-modeling",
+    "href": "session4_newMLDemo/session4v2_slides.html#why-does-oop-matter-in-python-modeling",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Why Does OOP Matter in Python Modeling?",
+    "text": "Why Does OOP Matter in Python Modeling?\n\nIn Python modeling frameworks:\n\n\n\nModels are instances of classes\n\n\nYou call methods like .fit(), .predict(), .score()\n\n\nInternal model details like coefficients or layers are stored as attributes\n\n\n\nThis makes model behavior consistent between model classes and even libraries. It also simplifies creating/using pre-trained models: both the architecture and learned weights are bundled into a single object with expected built-in methods like .predict() or .fine_tune().\n\n\nInstead of having a separate results object, like in R, you would retrieve your results by accessing an attribute or using a method that is attached to the model object itself.\n\n\n We’ll focus on scikit-learn in this session, but these ideas carry over to other libraries like xgboost, statsmodels, and PyTorch."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#key-oop-principles-recap",
+    "href": "session4_newMLDemo/session4v2_slides.html#key-oop-principles-recap",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Key OOP Principles (Recap)",
+    "text": "Key OOP Principles (Recap)\n\nIn OOP, code is structured around objects (as opposed to functions). This paradigm builds off the following principles:\n\n\nEncapsulation: Bundling data and methods together in a single unit.\n\nA StandardScaler object stores mean and variance data and has .fit() and .transform() methods\n\n\n\n\n\nInheritance: Creating new classes based on existing ones.\n\nsklearn.LinearRegression inherits attributes and methods from a general regression model class.\n\n\n\n\n\n\nAbstraction: Hiding implementation details and exposing only essential functionality.\n\ne.g., .fit() works the same way from the outside, regardless of model complexity\n\n\n\n\n\n\nPolymorphism: Objects of different types can be treated the same way if they implement the same methods.\n\nPython’s duck typing:\n\n🦆 “If it walks like a duck and quacks like a duck, then it must be a duck.” 🦆\n\nex: If different objects all have a .summarize() method, we can loop over them and call .summarize() without needing to check their class. As long as the method exists, Python will know what to do.\nThis lets us easily create pipelines that can work for many types of models.\n\n\n\n\nWe won’t cover pipelines here, but they are worth looking into!"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#classes-and-objects",
+    "href": "session4_newMLDemo/session4v2_slides.html#classes-and-objects",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Classes and Objects",
+    "text": "Classes and Objects\n\nClasses are blueprints for creating objects. Each object contains:\n\n\n\nAttributes (data): model coefficients, class labels\n\n\nMethods (behaviors): .fit(), .predict()\n\n\n👉 To Get the class of an object, use:\n\ntype(object) # Returns the type of the object\n\n👉 To check if an object is an instance of a particular class, use:\n\nisinstance(object, class)  # Returns True if `object` is an instance of `class`.\n\n\n\nKnowing what class an object belongs to helps us understand what methods and attributes it provides."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#base-classes",
+    "href": "session4_newMLDemo/session4v2_slides.html#base-classes",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Base Classes",
+    "text": "Base Classes\n\nA base class (or parent class) serves as a template for creating objects. Other classes can inherit from it to reuse its properties and methods.\nClasses are defined using the class keyword, and their structure is specified using an __init__() method for initialization.\n\nFor example, we can define a class called Dog and give it attributes that store data about a given dog and methods that represent behaviors an object of the Dog class can perform. We can also edit the special or “dunder” methods (short for double underscore) that define how objects behave in certain contexts.\n\nclass Dog: ## begin class definition\n    def __init__(self, name, breed): ## define init method\n        self.name = name ## add attributes\n        self.breed = breed\n\n    def speak(self): ## add methods\n        return f\"{self.name} says woof!\"\n\n    def __str__(self): # __str__(self) tells python what to display when an object is printed\n        return f\"Our dog {self.name}\"\n\n    def __repr__(self): # add representation to display when dog is called in console\n        return f\"Dog(name={self.name!r}, breed={self.breed!r})\""
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#creating-a-dog",
+    "href": "session4_newMLDemo/session4v2_slides.html#creating-a-dog",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Creating a dog",
+    "text": "Creating a dog\n\nCreating an instance of the Dog class lets us model a particular dog:\n\nbuddy = Dog(\"Buddy\", \"Golden Retriever\")\nprint(f\"Buddy is an object of class {type(buddy)}\")\n\n\n\nBuddy is an object of class &lt;class '__main__.Dog'&gt;\n\n\n\n\nWe set the value of the attributes [name and breed], which are then stored as part of the buddy object\n\n\nWe can use any methods defined in the Dog class on buddy\n\n\n\n## if we want to see what kind of dog our dog is\n## we can call buddy's attributes\nprint(f\"Our dog {buddy.name} is a {buddy.breed}.\")\n\n## we can also call any Dog methods\nprint(buddy.speak())  \n\n## including special methods\nbuddy ## displays what was in the __repr__() method\n\n\n\nOur dog Buddy is a Golden Retriever.\nBuddy says woof!\n\n\nDog(name='Buddy', breed='Golden Retriever')\n\n\nNote: For python methods, the self argument is assumed to be passed and therefore we do not put anything in the parentheses when calling .speak(). For attributes, we do not put () at all."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#derived-child-classes",
+    "href": "session4_newMLDemo/session4v2_slides.html#derived-child-classes",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Derived (Child) Classes",
+    "text": "Derived (Child) Classes\n\nDerived/child classes build on base classes using the principle of inheritence. \nNow that we have a Dog class, we can build on it to create a specialized GuardDog class.\n\nclass GuardDog(Dog):  # GuardDog inherits from Dog\n    def __init__(self, name, breed, training_level): ## in addition to name and breed, we can \n        # define a training level. \n        # Call the parent (Dog) class's __init__ method\n        super().__init__(name, breed)\n        self.training_level = training_level  # New attribute for GuardDog that stores the \n        # training level for the dog\n\n    def guard(self): ## checks if the training level is &gt; 5 and if not says train more\n        if self.training_level &gt; 5:\n            return f\"{self.name} is guarding the house!\"\n        else:\n            return f\"{self.name} needs more training before guarding.\"\n    \n    def train(self): # modifies the training_level attribute to increase the dog's training level\n        self.training_level = self.training_level + 1\n        return f\"Training {self.name}. {self.name}'s training level is now {self.training_level}\"\n\n# Creating an instance of GuardDog\nrex = GuardDog(\"Rex\", \"German Shepherd\", training_level= 5)"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#mixins",
+    "href": "session4_newMLDemo/session4v2_slides.html#mixins",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Mixins",
+    "text": "Mixins\n\nA mixin is a special kind of class designed to add functionality to another class. Unlike base classes, mixins aren’t used alone.\n\nFor example, scikit-learn uses mixins like:\n- sklearn.base.ClassifierMixin (adds classifier-specific methods)\n- sklearn.base.RegressorMixin (adds regression-specific methods)\nwhich it adds to the BaseEstimator class to add functionality.  \nTo finish up our dog example, we are going to define a mixin class that adds learning tricks to the base Dog class and use it to create a new class called SmartDog."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#duck-typing",
+    "href": "session4_newMLDemo/session4v2_slides.html#duck-typing",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Duck Typing",
+    "text": "Duck Typing\n\n\n🦆 “If it quacks like a duck and walks like a duck, it’s a duck.” 🦆\n\nPython’s duck typing makes our lives a lot easier, and is one of the main benefits of methods over functions:\n\n\nRepurposing old code - methods by the same name work the same for different model types\n\n\nNot necessary to check types before using methods - methods are assumed to work on the object they’re attached to\n\n\n\nWe can demonstrate this by defining two new base classes that are different than Dog but also have a speak() method.\n\n\nclass Human:\n    def __init__(self, name):\n        self.name = name\n\n    def speak(self):\n        return f\"{self.name} says hello!\"\n\nclass Parrot:\n    def __init__(self, name):\n        self.name = name\n\n    def speak(self):\n        return f\"{self.name} says squawk!\""
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#duck-typing-in-action",
+    "href": "session4_newMLDemo/session4v2_slides.html#duck-typing-in-action",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Duck Typing in Action",
+    "text": "Duck Typing in Action\n\nEven though Dog, Human and Parrot are entirely different classes…\n\n\ndef call_speaker(obj):\n    print(obj.speak())\n\ncall_speaker(Dog(\"Fido\", \"Labrador\"))\ncall_speaker(Human(\"Alice\"))\ncall_speaker(Parrot(\"Polly\"))\n\n\n\nFido says woof!\nAlice says hello!\nPolly says squawk!\n\n\n\nThey all implement .speak(), so Python treats them the same!\nIn the context of our work, this would allow us to make a pipeline using models from different libraries that have the same methods.\n\nWhile our dog example was very simple, this is the same way that model classes work in python!"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#example-oop-in-machine-learning-and-modeling",
+    "href": "session4_newMLDemo/session4v2_slides.html#example-oop-in-machine-learning-and-modeling",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Example: OOP in Machine Learning and Modeling",
+    "text": "Example: OOP in Machine Learning and Modeling\n\nMachine learning models in Python are implemented as classes.\n\n\n\nWhen you create a model, you’re instantiating an object of a predefined class (e.g., LogisticRegression()).\n\n\nThat model has attributes (parameters, coefficients) and methods (like .fit() and .predict()).\n\n\nFor example LogisticRegression is a model class that inherits from SparseCoefMixin and BaseEstimator.\nclass LogisticRegression(LinearClassifierMixin, SparseCoefMixin, BaseEstimator):\nTo perform logistic regression, we create an instance of the LogisticRegression class.\n## Example: \nfrom sklearn.linear_model import LogisticRegression\n\nmodel = LogisticRegression()  # Creating an instance of the LogisticRegression class\nmodel.fit(X_train, y_train)   # Calling a method to train the model\npredictions = model.predict(X_test)  # Calling a method to make predictions\ncoefs = model.coef_ # Access model coefficients using attribute"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#key-benefits-of-oop-in-machine-learning",
+    "href": "session4_newMLDemo/session4v2_slides.html#key-benefits-of-oop-in-machine-learning",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Key Benefits of OOP in Machine Learning",
+    "text": "Key Benefits of OOP in Machine Learning\n\n\nEncapsulation – Models store parameters and methods inside a single object.\n\nInheritance – New models can build on base models, reusing existing functionality.\n\nAbstraction – .fit() should work as expected, regardless of complexity of underlying implimentation.\nPolymorphism (Duck Typing) – Different models share the same method names (.fit(), .predict()), making them easy to use interchangeably, particularly in analysis pipelines.\n\nUnderstanding base classes and mixins is especially important when working with deep learning frameworks like PyTorch and TensorFlow, which require us to create our own model classes."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#mini-project-classifying-penguins-with-scikit-learn",
+    "href": "session4_newMLDemo/session4v2_slides.html#mini-project-classifying-penguins-with-scikit-learn",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "🐧 Mini Project: Classifying Penguins with scikit-learn",
+    "text": "🐧 Mini Project: Classifying Penguins with scikit-learn\n\nNow that you understand classes and data structures in Python, let’s apply that knowledge to classify penguin species using two features:\n\n\n\nbill_length_mm\n\n\nbill_depth_mm\n\n\nWe’ll explore:\n\n\nUnsupervised learning with K-Means clustering (model doesn’t ‘know’ y)\n\n\nSupervised learning with a k-NN classifier (model trained w/ y information)\n\n\nAll scikit-learn models are designed to have\n\n\nCommon Methods:\n\n\n\n.fit() — Train the model\n\n\n.predict() — Make predictions\n\n\n\nCommon Attributes:\n\n\n.classes_, .n_clusters_, etc.\n\n\n\n\nThis is true of the scikit-survival package too!"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#import-libraries",
+    "href": "session4_newMLDemo/session4v2_slides.html#import-libraries",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Import Libraries",
+    "text": "Import Libraries\n\nBefore any analysis, we must import the necessary libraries.\nFor large libraries like scikit-learn, PyTorch, or TensorFlow, we usually do not import the entire package. Instead, we selectively import the classes and functions we need.\n\n\nClasses\n- StandardScaler — for feature scaling\n- KNeighborsClassifier — for supervised k-NN classification\n- KMeans — for unsupervised clustering\n\n\n🔤 Naming Tip:\n- CamelCase = Classes\n- snake_case = Functions\n\n\nFunctions\n- train_test_split() — to split data into training and test sets\n- accuracy_score() — to evaluate classification accuracy\n- classification_report() — to print precision, recall, F1 (balance of precision and recall), Support (number of true instances per class) - adjusted_rand_score() — to evaluate clustering performance"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#import-libraries-1",
+    "href": "session4_newMLDemo/session4v2_slides.html#import-libraries-1",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Import Libraries",
+    "text": "Import Libraries\n\n## imports\nimport pandas as pd\nimport numpy as np\n\nfrom plotnine import *\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\nfrom great_tables import GT\n\n## sklearn imports\n\n## import classes\nfrom sklearn.preprocessing import StandardScaler \nfrom sklearn.neighbors import KNeighborsClassifier\nfrom sklearn.cluster import KMeans\n\n## import functions\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import accuracy_score, classification_report, adjusted_rand_score"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#data-preparation",
+    "href": "session4_newMLDemo/session4v2_slides.html#data-preparation",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load the Penguins dataset\npenguins = sns.load_dataset(\"penguins\").dropna()\n\n# Make a summary table for the penguins dataset, grouping by species. \nsummary_table = penguins.groupby(\"species\").agg({\n    \"bill_length_mm\": [\"mean\", \"std\", \"min\", \"max\"],\n    \"bill_depth_mm\": [\"mean\", \"std\", \"min\", \"max\"],\n    \"sex\": lambda x: x.value_counts().to_dict()  # Count of males and females\n})\n\n# Round numeric values to 1 decimal place (excluding the 'sex' column)\nfor col in summary_table.columns:\n    if summary_table[col].dtype in [float, int]:\n        summary_table[col] = summary_table[col].round(1)\n\n# Display the result\ndisplay(summary_table)\n\n\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nsex\n\n\n\nmean\nstd\nmin\nmax\nmean\nstd\nmin\nmax\n&lt;lambda&gt;\n\n\nspecies\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdelie\n38.8\n2.7\n32.1\n46.0\n18.3\n1.2\n15.5\n21.5\n{'Male': 73, 'Female': 73}\n\n\nChinstrap\n48.8\n3.3\n40.9\n58.0\n18.4\n1.1\n16.4\n20.8\n{'Female': 34, 'Male': 34}\n\n\nGentoo\n47.6\n3.1\n40.9\n59.6\n15.0\n1.0\n13.1\n17.3\n{'Male': 61, 'Female': 58}"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#data-visualization",
+    "href": "session4_newMLDemo/session4v2_slides.html#data-visualization",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Data Visualization",
+    "text": "Data Visualization\n\nTo do visualization, we can use either seaborn or plotnine. plotnine mirrors ggplot2 syntax from R and is great for layered grammar-of-graphics plots, while seaborn seaborn is more convienient if you want to put multiple plots on the same figure. \nPlotting with Plotnine vs Seaborn\n\n\nPlotnine (like ggplot2 in R) The biggest differences between plotnine and ggplot2 syntax are:\n\n\nWith plotnine the whole call is wrapped in () parentheses\n\n\nVariables are called with strings (\"\" are needed!)\n\n\nIf you don’t use from plotnine import *, you will need to import each individual function you plan to use!\n\n\n\nSeaborn (base matplotlib + enhancements)\n\n\nDesigned for quick, polished plots\n\n\nWorks well with pandas DataFrames or NumPy arrays\n\n\nIntegrates with matplotlib for customization\n\n\nGood for things like decision boundaries or heatmaps\n\n\nHarder to customize than plotnine plots"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#scatterplot-with-plotnine",
+    "href": "session4_newMLDemo/session4v2_slides.html#scatterplot-with-plotnine",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Scatterplot with plotnine",
+    "text": "Scatterplot with plotnine\n\nTo take a look at the distribution of our species by bill length and bill depth before clustering…\n\n\nplot1 = (ggplot(penguins, aes(x=\"bill_length_mm\", y=\"bill_depth_mm\", color=\"species\"))\n + geom_point()\n + ggtitle(\"Penguin Species\")\n + theme_bw())\n\ndisplay(plot1)"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#scatterplot-with-seaborn",
+    "href": "session4_newMLDemo/session4v2_slides.html#scatterplot-with-seaborn",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Scatterplot with seaborn",
+    "text": "Scatterplot with seaborn\nWe can make a similar plot in seaborn. This time, let’s include sex by setting the point style\n\n# Create the figure and axes obects\nfig, ax = plt.subplots(figsize=(10, 8))\n\n# Create a plot \nsns.scatterplot(\n    data=penguins, x=\"bill_length_mm\", y=\"bill_depth_mm\",\n    hue=\"species\", ## hue = fill\n    style=\"sex\",  ## style = style of dots\n    palette=\"Set2\", ## sets color pallet\n    edgecolor=\"black\", s=300, ## line color and point size \n    ax=ax              ## Draw plot on ax      \n)\n\n# Use methods on ax to set title, labels\nax.set_title(\"Penguin Bill Length vs Depth by Species\")\nax.set_xlabel(\"Bill Length (mm)\")\nax.set_ylabel(\"Bill Depth (mm)\")\nax.legend(title=\"Species\")\n\n# Plot the figure\nfig.tight_layout()"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#scatterplot-with-seaborn-output",
+    "href": "session4_newMLDemo/session4v2_slides.html#scatterplot-with-seaborn-output",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Scatterplot with seaborn",
+    "text": "Scatterplot with seaborn"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#scaling-the-data---understanding-the-standard-scaler-class",
+    "href": "session4_newMLDemo/session4v2_slides.html#scaling-the-data---understanding-the-standard-scaler-class",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Scaling the data - Understanding the Standard Scaler class",
+    "text": "Scaling the data - Understanding the Standard Scaler class\n\nFor our clustering to work well, the predictors should be on the same scale. To achieve this, we use an instance of the StandardScaler class.\nclass sklearn.preprocessing.StandardScaler(*, copy=True, with_mean=True, with_std=True)\n\n\nParameters are supplied by user\n- copy, with_mean, with_std \nAttributes contain the data of the object\n- scale_: scaling factor\n- mean_: mean value for each feature\n- var_: variance for each feature\n- n_features_in_: number of features seen during fit\n- n_samples_seen: number of samples processed for each feature \nMethods describe the behaviors of the object and/or modify its attributes\n- fit(X): computes mean and std used for scaling and ‘fits’ scaler to data X\n- transform(X): performs standardization by centering and scaling X with fitted scaler\n- fit_transform(X): does both"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#scaling-data",
+    "href": "session4_newMLDemo/session4v2_slides.html#scaling-data",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Scaling Data",
+    "text": "Scaling Data\n\n\n# Selecting features for clustering -&gt; let's just use bill length and bill depth.\nX = penguins[[\"bill_length_mm\", \"bill_depth_mm\"]]\ny = penguins[\"species\"]\n\n# Standardizing the features for better clustering performance\nscaler = StandardScaler() ## create instance of StandardScaler\nX_scaled = scaler.fit_transform(X) \n\n\n\n\n\n\n\n\n\n\nOriginal vs Scaled Features\n\n\nFeature\nOriginal\nScaled\n\n\nOriginal Mean\nOriginal Std\nScaled Mean\nScaled Std\n\n\n\n\nmean\n44\n17\n0\n0\n\n\nstd\n5\n2\n1\n1\n\n\n\n\n\n\n        \n\n\n\n\nShow table code\n## Make X_scaled a pandas df\nX_scaled_df = pd.DataFrame(X_scaled, columns=X.columns)\n\n# Compute summary statistics and round to 2 sig figs\noriginal_stats = X.agg([\"mean\", \"std\"])\nscaled_stats = X_scaled_df.agg([\"mean\", \"std\"])\n\n# Combine into a single table with renamed columns\nsummary_table = pd.concat([original_stats, scaled_stats], axis=1)\nsummary_table.columns = [\"Original Mean\", \"Original Std\", \"Scaled Mean\", \"Scaled Std\"]\nsummary_table.index.name = \"Feature\"\n\n# Display nicely with great_tables\n(\n    GT(summary_table.reset_index()).tab_header(\"Original vs Scaled Features\")\n    .fmt_number(n_sigfig = 2)\n    .tab_spanner(label=\"Original\", columns=[\"Original Mean\", \"Original Std\"])\n    .tab_spanner(label=\"Scaled\", columns=[\"Scaled Mean\", \"Scaled Std\"])\n    .tab_options(table_font_size = 20)\n)"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#understanding-the-kmeans-model-class",
+    "href": "session4_newMLDemo/session4v2_slides.html#understanding-the-kmeans-model-class",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Understanding the KMeans model class",
+    "text": "Understanding the KMeans model class\n\nclass sklearn.cluster.KMeans(n_clusters=8, *, init='k-means++', n_init='auto', max_iter=300, \ntol=0.0001, verbose=0, random_state=None, copy_x=True, algorithm='lloyd')\nParameters: Set by user at time of instantiation\n- n_clusters, max_iter, algorithm \nAttributes: Store object data\n- cluster_centers_: stores coordinates of cluster centers\n- labels_: stores labels of each point - n_iter_: number of iterations run (will be changed during method run)\n- n_features_in and feature_names_in_: store info about features seen during fit \nMethods: Define object behaviors\n- fit(X): fits model to data X - predict(X): predicts closest cluster each sample in X belongs to\n- transform(X): transforms X to cluster-distance space"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#use-function-to-calculate-ari",
+    "href": "session4_newMLDemo/session4v2_slides.html#use-function-to-calculate-ari",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Use function to calculate ARI",
+    "text": "Use function to calculate ARI\n\nTo check how good our model is, we can use one of the functions included in the sklearn library.\nThe adjusted_rand_score() function evaluates how well the cluster groupings agree with the species groupings while adjusting for chance.\n\n# Calculate clustering performance using Adjusted Rand Index (ARI)\nkmeans_ari = adjusted_rand_score(penguins['species'], penguins[\"kmeans_cluster\"])\nprint(f\"k-Means Adjusted Rand Index: {kmeans_ari:.2f}\")\n\n\n\nk-Means Adjusted Rand Index: 0.82"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#creating-plots",
+    "href": "session4_newMLDemo/session4v2_slides.html#creating-plots",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Creating Plots",
+    "text": "Creating Plots\n\n# Prepare the figure with 2 subplots; the axes object will contain both plots\nfig2, axes = plt.subplots(1, 2, figsize=(16, 7)) ## 1 row 2 columns\n\n# Plot heatmap on the first axis\nsns.heatmap(data = heatmap_data, cmap=\"Blues\", linewidths=0.5, linecolor='white', annot=True, \nfmt='d', ax=axes[0])\naxes[0].set_title(\"Heatmap of KMeans Clustering by Species\")\naxes[0].set_xlabel(\"Species\")\naxes[0].set_ylabel(\"KMeans Cluster\")\n\n# Scatterplot with jitter\nsns.scatterplot(data=scatter_data, x=\"x_jittered\", y=\"kmeans_cluster\",\n    hue=\"species\", style=\"sex\", size=\"count\", sizes=(100, 500),\n    alpha=0.8, ax=axes[1], legend=\"brief\")\naxes[1].set_xticks(range(len(species_order)))\naxes[1].set_xticklabels(species_order)\naxes[1].set_title(\"Cluster Assignment by Species and Sex (Jittered)\")\naxes[1].set_ylabel(\"KMeans Cluster\")\naxes[1].set_xlabel(\"Species\")\naxes[1].set_yticks([0, 1, 2])\naxes[1].legend(bbox_to_anchor=(1.05, 0.5), loc='center left', borderaxespad=0.0, title=\"Legend\")\n\nfig2.tight_layout()"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#creating-plots-output",
+    "href": "session4_newMLDemo/session4v2_slides.html#creating-plots-output",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Creating Plots",
+    "text": "Creating Plots"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#project-2-knn-classification",
+    "href": "session4_newMLDemo/session4v2_slides.html#project-2-knn-classification",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Project 2: KNN classification",
+    "text": "Project 2: KNN classification\n\nFor our KNN classification, the model is supervised (meaning it is dependent on the outcome ‘y’ data). This time, we need to split our data into a training and test set. \n\n\nThe function train_test_split() from scikit-learn is helpful here!\n\n# Splitting dataset into training and testing sets (still using scaled X!)\nX_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=42)\n\n\n\n\nUnlike R functions, which return a single object (often a list when multiple outputs are needed), Python functions can return multiple values as a tuple—letting you unpack them directly into separate variables."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#understanding-kneighborsclassifier-class",
+    "href": "session4_newMLDemo/session4v2_slides.html#understanding-kneighborsclassifier-class",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Understanding KNeighborsClassifier class",
+    "text": "Understanding KNeighborsClassifier class\nclass sklearn.neighbors.KNeighborsClassifier(n_neighbors=5, *, weights='uniform', \nalgorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=None)\n\nParameters: Set by user at time of instantiation\n- n_neigbors, weights, algorithm, etc. \nAttributes: Store object data\n- classes_: class labels known to the classifier\n- effective_metric_: distance metric used\n- effective_metric_params_: parameters for the metric function\n- n_features_in and feature_names_in_: store info about features seen during fit\n- n_samples_fit_: number of samples in fitted data \nMethods: Define object behaviors\n- .fit(X, y): fit knn classifier from training dataset (X and y)\n- .predict(X): predict class labels for provided data X\n- .predict_proba(X): return probability estimates for test data X\n- .score(X, y): return mean accuracy on given test data X and labels y"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#making-an-instance-of-kneighborsclassifier-and-fitting-to-training-data",
+    "href": "session4_newMLDemo/session4v2_slides.html#making-an-instance-of-kneighborsclassifier-and-fitting-to-training-data",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Making an instance of KNeighborsClassifier and fitting to training data",
+    "text": "Making an instance of KNeighborsClassifier and fitting to training data\n\nFor a supervised model, y_train is included in .fit()!\n\n\n## perform knn classification\n# Applying k-NN classification with 5 neighbors\nknn = KNeighborsClassifier(n_neighbors=5) ## make an instance of the KNeighborsClassifier class\n# and set the n_neighbors parameter to be 5. \n\n# Use the fit method to fit the model to the training data\nknn.fit(X_train, y_train)\nknn"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#once-the-model-is-fit",
+    "href": "session4_newMLDemo/session4v2_slides.html#once-the-model-is-fit",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Once the model is fit…",
+    "text": "Once the model is fit…\n-We can look at its attributes (ex: .classes_) which gives the class labels as known to the classifier\n\nprint(knn.classes_)\n\n\n\n['Adelie' 'Chinstrap' 'Gentoo']\n\n\n\n-And use fitted model to predict species for test data\n\n# Use the predict method on the test data to get the predictions for the test data\ny_pred = knn.predict(X_test)\n\n# Also can take a look at the prediction probabilities, \n# and use the .classes_ attribute to put the column labels in the right order\nprobs = pd.DataFrame(\n    knn.predict_proba(X_test),\n    columns = knn.classes_)\nprobs['y_pred'] = y_pred\n\nprint(\"Predicted probabilities: \\n\", probs.head())\n\n\n\nPredicted probabilities: \n    Adelie  Chinstrap  Gentoo     y_pred\n0     1.0        0.0     0.0     Adelie\n1     0.0        0.0     1.0     Gentoo\n2     1.0        0.0     0.0     Adelie\n3     0.0        0.6     0.4  Chinstrap\n4     1.0        0.0     0.0     Adelie"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#scatterplot-for-k-nn-classification-of-test-data",
+    "href": "session4_newMLDemo/session4v2_slides.html#scatterplot-for-k-nn-classification-of-test-data",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Scatterplot for k-NN classification of test data",
+    "text": "Scatterplot for k-NN classification of test data\n\n\nCreate dataframe of unscaled X_test, bill_length_mm, and bill_depth_mm.\nAdd to it the actual and predicted species labels\n\n\n## First unscale the test data\nX_test_unscaled = scaler.inverse_transform(X_test)\n\n## create dataframe \npenguins_test = pd.DataFrame(\n    X_test_unscaled,\n    columns=['bill_length_mm', 'bill_depth_mm']\n)\n\n## add actual and predicted species \npenguins_test['y_actual'] = y_test.values\npenguins_test['y_pred'] = y_pred\npenguins_test['correct'] = penguins_test['y_actual'] == penguins_test['y_pred']\n\nprint(\"Results: \\n\", penguins_test.head())\n\n\n\nResults: \n    bill_length_mm  bill_depth_mm   y_actual     y_pred  correct\n0            39.5           16.7     Adelie     Adelie     True\n1            46.9           14.6     Gentoo     Gentoo     True\n2            42.1           19.1     Adelie     Adelie     True\n3            49.8           17.3  Chinstrap  Chinstrap     True\n4            41.1           18.2     Adelie     Adelie     True"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#plotnine-scatterplot-for-k-nn-classification-of-test-data",
+    "href": "session4_newMLDemo/session4v2_slides.html#plotnine-scatterplot-for-k-nn-classification-of-test-data",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Plotnine scatterplot for k-NN classification of test data",
+    "text": "Plotnine scatterplot for k-NN classification of test data\nTo see how well our model did at classifying the remaining penguins…\n\n## Build the plot\nplot3 = (ggplot(penguins_test, aes(x=\"bill_length_mm\", y=\"bill_depth_mm\", \ncolor=\"y_actual\", fill = 'y_pred', shape = 'correct'))\n + geom_point(size=4, stroke=1.1)  # Stroke controls outline thickness\n + scale_shape_manual(values={True: 'o', False: '^'})  # Circle and triangle\n + ggtitle(\"k-NN Classification Results\")\n + theme_bw())\n\ndisplay(plot3)"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#plotnine-scatterplot-for-k-nn-classification-of-test-data-output",
+    "href": "session4_newMLDemo/session4v2_slides.html#plotnine-scatterplot-for-k-nn-classification-of-test-data-output",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Plotnine scatterplot for k-NN classification of test data",
+    "text": "Plotnine scatterplot for k-NN classification of test data"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#visualizing-decision-boundary-with-seaborn-and-matplotlib",
+    "href": "session4_newMLDemo/session4v2_slides.html#visualizing-decision-boundary-with-seaborn-and-matplotlib",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Visualizing Decision Boundary with seaborn and matplotlib",
+    "text": "Visualizing Decision Boundary with seaborn and matplotlib\n\nfrom sklearn.inspection import DecisionBoundaryDisplay\nfrom sklearn.preprocessing import LabelEncoder\n\n# Create and fit label encoder for y (just makes y numeric because it makes the scatter plot happy)\nlabel_encoder = LabelEncoder()\ny_encoded = label_encoder.fit_transform(y)\n\n# Create the plot objects\nfig, ax = plt.subplots(figsize=(12, 8))\n\n# Create display object\ndisp = DecisionBoundaryDisplay.from_estimator(\n    knn,\n    X_test,\n    response_method = 'predict',\n    plot_method = 'pcolormesh',\n    xlabel = \"bill_length_scaled\",\n    ylabel = \"bill_depth_scaled\",\n    shading = 'auto',\n    alpha = 0.5,\n    ax = ax\n)\n\n# Use method from display object to create scatter plot\nscatter = disp.ax_.scatter(X_scaled[:,0], X_scaled[:,1], c=y_encoded, edgecolors = 'k')\ndisp.ax_.legend(scatter.legend_elements()[0], knn.classes_, loc = 'lower left', title = 'Species')\n_ = disp.ax_.set_title(\"Penguin Classification\")\n\nplt.show()"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#visualizing-decision-boundary-with-seaborn-and-matplotlib-output",
+    "href": "session4_newMLDemo/session4v2_slides.html#visualizing-decision-boundary-with-seaborn-and-matplotlib-output",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Visualizing Decision Boundary with seaborn and matplotlib",
+    "text": "Visualizing Decision Boundary with seaborn and matplotlib"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#evaluate-knn-performance",
+    "href": "session4_newMLDemo/session4v2_slides.html#evaluate-knn-performance",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Evaluate KNN performance",
+    "text": "Evaluate KNN performance\n\nTo check the performance of our KNN classifier, we can check the accuracy score and print a classification report.\n- accuracy_score and classification_report are both functions!\n- They are not unique to scikit-learn classes so it makes sense for them to be functions not methods\n\n\n## eval knn performance\nknn_accuracy = accuracy_score(y_test, y_pred)\nprint(f\"k-NN Accuracy: {knn_accuracy:.2f}\")\nprint(\"Classification Report: \\n\", classification_report(y_test, y_pred))\n\n\n\nk-NN Accuracy: 0.94\nClassification Report: \n               precision    recall  f1-score   support\n\n      Adelie       0.98      0.98      0.98        48\n   Chinstrap       0.80      0.89      0.84        18\n      Gentoo       0.97      0.91      0.94        34\n\n    accuracy                           0.94       100\n   macro avg       0.92      0.93      0.92       100\nweighted avg       0.94      0.94      0.94       100"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#make-a-summary-table-of-metrics-for-both-models",
+    "href": "session4_newMLDemo/session4v2_slides.html#make-a-summary-table-of-metrics-for-both-models",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Make a Summary Table of Metrics for Both Models",
+    "text": "Make a Summary Table of Metrics for Both Models\n\nsummary_table = pd.DataFrame({\n    \"Metric\": [\"k-Means Adjusted Rand Index\", \"k-NN Accuracy\"],\n    \"Value\": [kmeans_ari, knn_accuracy]\n})\n(\n    GT(summary_table)\n    .tab_header(title = \"Model Results Summary\")\n    .fmt_number(columns = \"Value\", n_sigfig = 2)\n    .tab_options(table_font_size = 20)\n)\n\n\n\n\n\n\n\n\n\nModel Results Summary\n\n\nMetric\nValue\n\n\n\n\nk-Means Adjusted Rand Index\n0.82\n\n\nk-NN Accuracy\n0.94"
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#key-takeaways-from-this-session",
+    "href": "session4_newMLDemo/session4v2_slides.html#key-takeaways-from-this-session",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Key Takeaways from This Session",
+    "text": "Key Takeaways from This Session\n\n\n\n\n\nPython workflows rely on object-oriented structures in addition to functions: Understanding the OOP paradigm makes Python a lot easier!\n\n\nEverything is an object!\n\n\nDuck Typing: If an object has a method, that method can be called regardless of the object type. Caveat being, make sure the arguments (if any) in the method are specified correctly for all objects!\n\n\nPython packages use common methods that make it easy to change between model types without changing a lot of code."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#additional-insights",
+    "href": "session4_newMLDemo/session4v2_slides.html#additional-insights",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Additional Insights",
+    "text": "Additional Insights\n\n\n\nPredictable APIs enable seamless model switching: Swapping models like LogisticRegression → RandomForestClassifier usually requires minimal code changes.\n\n\nscikit-learn prioritizes interoperability: Its consistent class design integrates with tools like Pipeline, GridSearchCV, and cross_val_score.\n\n\nClass attributes improve model transparency: Access attributes like .coef_, .classes_, and .feature_importances_ for model interpretation and debugging.\n\n\nCustom classes are central to deep learning: Frameworks like PyTorch and TensorFlow require you to define your own model classes by subclassing base models.\n\n\nMixins support modular design: Mixins (e.g., ClassifierMixin) let you add specific functionality without duplicating code."
+  },
+  {
+    "objectID": "session4_newMLDemo/session4v2_slides.html#pre-reading-for-this-session",
+    "href": "session4_newMLDemo/session4v2_slides.html#pre-reading-for-this-session",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Pre-Reading for This Session",
+    "text": "Pre-Reading for This Session\n\n\nScikit-learn Documentation\n\nIntroduction to OOP in Python (Real Python)\n\nPlotnine Reference\nSeaborn Reference"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Python Workshops",
+    "section": "",
+    "text": "This workshop series is geared toward R and SAS users who are interested in exploring Python–a powerful, versatile programming language that excels in many areas such as machine learning, large-scale data processing, and broader data science applications.\nOur goal is to help you build a solid foundation in Python and gain skills that can be integrated into your own work. This series will guide you through installing and setting up Python, understanding basic Python data structures, data manipulation through pandas, and, finally, applying machine learning methods using libraries such as scikit-learn.\nAll workshop materials, including pre-session handouts, coding demos, assignments, session slides, and video recordings, will be uploaded here. Be sure to check out the FAQ tab for common questions. If you have any questions, suggestions, or ideas for future sessions, please feel free to share them on our GitHub Discussions page. We value your feedback and aim to continually improve the workshops. We look forward to learning with you!"
+  },
+  {
+    "objectID": "index.html#recordings",
+    "href": "index.html#recordings",
+    "title": "Introduction to Python Workshops",
+    "section": "▶️Recordings",
+    "text": "▶️Recordings\nRecordings will be uploaded after each session"
+  },
+  {
+    "objectID": "index.html#useful-links",
+    "href": "index.html#useful-links",
+    "title": "Introduction to Python Workshops",
+    "section": "🔗Useful Links",
+    "text": "🔗Useful Links\n\nTutorials and Handouts\n\nTutorial: Installing Python and Essential Tools\nGo to Session2a: Intro to Python Data Structures \nGo to Session2b: Intro to Pandas \nGo to ML Demo\n\n\n\nDownloads\n \n\nInstall Anaconda\n\n \n\nInstall VS Code\n\n \n\nInstall Quarto\n\n\n \n\nDownload environment YML file\n\n \n\nDownload Follow Along Files\n\n\n \n\nDownload Intro to Pandas Dataset"
+  },
+  {
+    "objectID": "session4_newMLDemo/sess4preread.html",
+    "href": "session4_newMLDemo/sess4preread.html",
+    "title": "Session 4 – Pre-read",
+    "section": "",
+    "text": "We will be using sci-kit learn implementations of both of these algorithms during the session 4 tutorial.\n\n\nKNN is a supervised learning algorithm used for classification (and sometimes regression):\n\nYou train the model on labeled data (i.e., you know the “answer” or class).\nWhen predicting a new sample, the model finds the k training samples closest to it (its “neighbors”) and uses them to assign a label.\nCloseness is usually based on Euclidean distance.\n\n\nExample: Given a penguin with known bill length and depth, predict its species by looking at its 5 nearest neighbors in the training data.\n\n\n\n\n\nK-Means is an unsupervised learning algorithm used for clustering:\n\nYou do not provide the true labels.\nThe algorithm tries to split your data into k groups based on similarity.\nIt randomly initializes cluster centers, assigns points to the nearest one, then updates the centers iteratively.\n\n\nExample: Given penguin data without species labels, group them into 3 clusters based on bill length and depth.\n\n\n\n\n\n\n\n\n\n\n\n\n\nFeature\nKNN\nK-Means\n\n\n\n\nLearning Type\nSupervised\nUnsupervised\n\n\nGoal\nClassification (or Regression)\nClustering\n\n\nInput Labels\nRequired\nNot used\n\n\nOutput\nPredicted class\nCluster assignment\n\n\nModel Type\nLazy (no training phase)\nIterative center updates"
+  },
+  {
+    "objectID": "session4_newMLDemo/sess4preread.html#knn-vs-k-means-supervised-vs-unsupervised-learning",
+    "href": "session4_newMLDemo/sess4preread.html#knn-vs-k-means-supervised-vs-unsupervised-learning",
+    "title": "Session 4 – Pre-read",
+    "section": "",
+    "text": "We will be using sci-kit learn implementations of both of these algorithms during the session 4 tutorial.\n\n\nKNN is a supervised learning algorithm used for classification (and sometimes regression):\n\nYou train the model on labeled data (i.e., you know the “answer” or class).\nWhen predicting a new sample, the model finds the k training samples closest to it (its “neighbors”) and uses them to assign a label.\nCloseness is usually based on Euclidean distance.\n\n\nExample: Given a penguin with known bill length and depth, predict its species by looking at its 5 nearest neighbors in the training data.\n\n\n\n\n\nK-Means is an unsupervised learning algorithm used for clustering:\n\nYou do not provide the true labels.\nThe algorithm tries to split your data into k groups based on similarity.\nIt randomly initializes cluster centers, assigns points to the nearest one, then updates the centers iteratively.\n\n\nExample: Given penguin data without species labels, group them into 3 clusters based on bill length and depth.\n\n\n\n\n\n\n\n\n\n\n\n\n\nFeature\nKNN\nK-Means\n\n\n\n\nLearning Type\nSupervised\nUnsupervised\n\n\nGoal\nClassification (or Regression)\nClustering\n\n\nInput Labels\nRequired\nNot used\n\n\nOutput\nPredicted class\nCluster assignment\n\n\nModel Type\nLazy (no training phase)\nIterative center updates"
+  },
+  {
+    "objectID": "session4_newMLDemo/sess4preread.html#plotting-in-python",
+    "href": "session4_newMLDemo/sess4preread.html#plotting-in-python",
+    "title": "Session 4 – Pre-read",
+    "section": "Plotting in Python",
+    "text": "Plotting in Python\nPlease read the ‘Parts of a Figure’ and ‘Coding Styles’ sections of Quick Start Guide (Matplotlib). We will briefly cover plotting with Seaborn (which is built on top of the Matplotlib package), but will not spend much time talking about base Matplotlib."
+  }
+]

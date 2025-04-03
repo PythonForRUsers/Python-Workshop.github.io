@@ -16,7 +16,7 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-      - text: "Sessions"
+      - text: "Tutorials"
         menu: 
           - text: "All Sessions"
             href: sessions.qmd
@@ -26,8 +26,8 @@ website:
             href: session2a/DataStructuresDemo.qmd
           - text: "Session 2b: Intro to Pandas"
             href: session2b/DataStructuresDemo_2.qmd
-          - text: "Session 3: Logistic Regression Demo"
-            href: session3/PythonMLDemo.qmd
+          - text: "Session 4: Object-Oriented Programming and Modeling Libraries"
+            href: "session4_newMLDemo\session4v2_webpage.html"
       - text: "Discussion"
         href: https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/discussions
       - text: "Links"

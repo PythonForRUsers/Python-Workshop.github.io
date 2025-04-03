@@ -16,7 +16,7 @@ execute:
   freeze: auto
   eval: true
   echo: true
-warning: false
+  warning: false
   error: false
 ---
 
