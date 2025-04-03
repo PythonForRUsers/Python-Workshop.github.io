@@ -104,6 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="session1_styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -209,33 +210,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#what-is-python" id="toc-what-is-python" class="nav-link" data-scroll-target="#what-is-python">What is Python?</a></li>
   <li><a href="#what-can-python-do" id="toc-what-can-python-do" class="nav-link" data-scroll-target="#what-can-python-do">What can Python do?</a></li>
   <li><a href="#why-learn-pythonas-biostatisticians" id="toc-why-learn-pythonas-biostatisticians" class="nav-link" data-scroll-target="#why-learn-pythonas-biostatisticians">Why learn Python–as Biostatisticians?</a></li>
-  <li><a href="#python-vs-r-differences" id="toc-python-vs-r-differences" class="nav-link" data-scroll-target="#python-vs-r-differences">Python vs R: Differences</a></li>
+  <li><a href="#python-vs.-r-differences" id="toc-python-vs.-r-differences" class="nav-link" data-scroll-target="#python-vs.-r-differences">Python vs.&nbsp;R: Differences</a></li>
   <li><a href="#essential-tools-for-python-programming" id="toc-essential-tools-for-python-programming" class="nav-link" data-scroll-target="#essential-tools-for-python-programming">Essential Tools for Python Programming</a></li>
   </ul></li>
   <li><a href="#python-installation-and-setup" id="toc-python-installation-and-setup" class="nav-link" data-scroll-target="#python-installation-and-setup">2. Python Installation and Setup</a>
   <ul class="collapse">
   <li><a href="#follow-along-install-miniconda-python-conda" id="toc-follow-along-install-miniconda-python-conda" class="nav-link" data-scroll-target="#follow-along-install-miniconda-python-conda">▶️Follow-Along: Install Miniconda (Python + conda)</a></li>
-  <li><a href="#conda" id="toc-conda" class="nav-link" data-scroll-target="#conda">Conda</a>
-  <ul class="collapse">
-  <li><a href="#managing-packges" id="toc-managing-packges" class="nav-link" data-scroll-target="#managing-packges">Managing Packges</a></li>
-  <li><a href="#managing-environments" id="toc-managing-environments" class="nav-link" data-scroll-target="#managing-environments">Managing Environments</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#virtual-environments" id="toc-virtual-environments" class="nav-link" data-scroll-target="#virtual-environments">3 Virtual Environments</a>
+  <li><a href="#virtual-environment-package-management-with-conda" id="toc-virtual-environment-package-management-with-conda" class="nav-link" data-scroll-target="#virtual-environment-package-management-with-conda">3. Virtual Environment &amp; Package Management with Conda</a>
   <ul class="collapse">
-  <li><a href="#why-virtual-environments" id="toc-why-virtual-environments" class="nav-link" data-scroll-target="#why-virtual-environments">Why Virtual Environments?</a></li>
-  <li><a href="#follow-along-create-a-conda-virtual-environment" id="toc-follow-along-create-a-conda-virtual-environment" class="nav-link" data-scroll-target="#follow-along-create-a-conda-virtual-environment">▶️Follow-Along: Create a Conda Virtual Environment</a></li>
-  <li><a href="#creating-an-environment-from-an-environment.yml-file" id="toc-creating-an-environment-from-an-environment.yml-file" class="nav-link" data-scroll-target="#creating-an-environment-from-an-environment.yml-file">Creating an Environment from an <code>environment.yml</code> File</a></li>
+  <li><a href="#what-is-conda" id="toc-what-is-conda" class="nav-link" data-scroll-target="#what-is-conda">What is Conda?</a></li>
+  <li><a href="#conda-for-managing-packages" id="toc-conda-for-managing-packages" class="nav-link" data-scroll-target="#conda-for-managing-packages">Conda for Managing Packages</a></li>
+  <li><a href="#what-is-a-virtual-environment" id="toc-what-is-a-virtual-environment" class="nav-link" data-scroll-target="#what-is-a-virtual-environment">What is a Virtual Environment?</a></li>
+  <li><a href="#why-use-virtual-environments" id="toc-why-use-virtual-environments" class="nav-link" data-scroll-target="#why-use-virtual-environments">Why Use Virtual Environments?</a></li>
+  <li><a href="#follow-along-create-a-conda-virtual-environment" id="toc-follow-along-create-a-conda-virtual-environment" class="nav-link" data-scroll-target="#follow-along-create-a-conda-virtual-environment">▶️Follow-Along: Create a Conda Virtual Environment</a>
+  <ul class="collapse">
+  <li><a href="#create-env-yml-file" id="toc-create-env-yml-file" class="nav-link" data-scroll-target="#create-env-yml-file">👉Create an Environment from an <code>environment.yml</code> File</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#integrated-development-environment" id="toc-integrated-development-environment" class="nav-link" data-scroll-target="#integrated-development-environment">4. Integrated Development Environment</a>
   <ul class="collapse">
   <li><a href="#visual-studio-code-1" id="toc-visual-studio-code-1" class="nav-link" data-scroll-target="#visual-studio-code-1">Visual Studio Code</a></li>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
-  <li><a href="#follow-along-set-up-jupyter-notebook-in-vs-code" id="toc-follow-along-set-up-jupyter-notebook-in-vs-code" class="nav-link" data-scroll-target="#follow-along-set-up-jupyter-notebook-in-vs-code">▶️ <strong>Follow-Along:</strong> Set up Jupyter Notebook in VS Code</a></li>
-  <li><a href="#ignore-below" id="toc-ignore-below" class="nav-link" data-scroll-target="#ignore-below">============ Ignore Below ============</a></li>
-  <li><a href="#excercise-create-a-quarto-file" id="toc-excercise-create-a-quarto-file" class="nav-link" data-scroll-target="#excercise-create-a-quarto-file">Excercise: Create a Quarto File</a></li>
+  <li><a href="#follow-along-set-up-jupyter-notebook-in-vs-code" id="toc-follow-along-set-up-jupyter-notebook-in-vs-code" class="nav-link" data-scroll-target="#follow-along-set-up-jupyter-notebook-in-vs-code">▶️Follow-Along<strong>:</strong> Set up Jupyter Notebook in VS Code</a>
+  <ul class="collapse">
+  <li><a href="#step-1-install-required-vs-code-extensions" id="toc-step-1-install-required-vs-code-extensions" class="nav-link" data-scroll-target="#step-1-install-required-vs-code-extensions">Step 1: Install Required VS Code Extensions</a></li>
+  <li><a href="#step-2-create-a-conda-virtual-environment" id="toc-step-2-create-a-conda-virtual-environment" class="nav-link" data-scroll-target="#step-2-create-a-conda-virtual-environment">Step 2: Create a Conda Virtual Environment</a></li>
+  <li><a href="#step-3-configure-the-environment-in-vs-code." id="toc-step-3-configure-the-environment-in-vs-code." class="nav-link" data-scroll-target="#step-3-configure-the-environment-in-vs-code.">Step 3: Configure the Environment in VS Code.</a></li>
+  <li><a href="#step-4-open-a-python-project-and-create-a-jupyter-notebook-file" id="toc-step-4-open-a-python-project-and-create-a-jupyter-notebook-file" class="nav-link" data-scroll-target="#step-4-open-a-python-project-and-create-a-jupyter-notebook-file">Step 4: Open a Python Project and Create a Jupyter Notebook File</a></li>
   </ul></li>
-  <li><a href="#next-session" id="toc-next-session" class="nav-link" data-scroll-target="#next-session">Next session</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -299,7 +302,7 @@ Important
 </section>
 <section id="about-this-guide" class="level2">
 <h2 class="anchored" data-anchor-id="about-this-guide">📖 About this Guide</h2>
-<p>This handout is a pre-read for the Introduction to Python workshop. It serves as a follow-along guide to help you install Python, set up essential tools like Miniconda and VS Code, and prepare for coding in Python for the upcoming sessions.</p>
+<p>This handout is a reading for the first session of the Introduction to Python workshop. It serves as a follow-along guide to help you install Python, set up essential tools like Miniconda and VS Code, and prepare for coding in Python for the upcoming sessions.</p>
 <p>Along the way, we will also discuss some important questions–<strong><em>What makes Python useful? Why would we, as biostatisticians, want to learn it?</em></strong> You will get an overview of the key features of Python, what it can do in relation to biostatistics/bioinformatics research, and how it compared to R. In the upcoming sessions, we will dive deeper into some of Python’s features and functions through hands-on programming practices.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -313,9 +316,9 @@ Important
 <div class="callout-body-container callout-body">
 <p>This handout walks you through installing the necessary tools and setting up your Python environment. Please follow each step before the first workshop session.</p>
 <p><strong>💡Aim 1</strong>: know key features of Python and its applications.</p>
-<p><strong>💡Aim 2</strong>: know what Miniconda/Anaconda are and follow the steps to install Python.</p>
-<p><strong>💡Aim 3</strong>: know what Python virtual environments are and how to use Conda to create them.</p>
-<p><strong>💡Aim 4</strong>: know what integrated development environments (IDE) are follow the steps to set up Jupyter Notebooks in Visual Studio Code for Python programming.</p>
+<p><strong>💡Aim 2</strong>: know what Miniconda is and the steps to install Python through it.</p>
+<p><strong>💡Aim 3</strong>: know what Python virtual environments are and how to create them with conda.</p>
+<p><strong>💡Aim 4</strong>: know what integrated development environments (IDE) are and steps to set up an interactive Python coding environment in Visual Studio Code.</p>
 </div>
 </div>
 </section>
@@ -368,69 +371,72 @@ Important
 </ul></li>
 </ul>
 </section>
-<section id="python-vs-r-differences" class="level2">
-<h2 class="anchored" data-anchor-id="python-vs-r-differences">Python vs R: Differences</h2>
+<section id="python-vs.-r-differences" class="level2">
+<h2 class="anchored" data-anchor-id="python-vs.-r-differences">Python vs.&nbsp;R: Differences</h2>
 <p>While both programming languages are popular for data analysis and computation, Python and R differ in their underlying code structure, the scope of functionality, and the extensibility of tasks they can perform. Here is a non-exhaustive summary of some key differences:</p>
+<div data-tbl-colwidths="[15, 30, 30]">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 34%">
-<col style="width: 40%">
+<col style="width: 15%">
+<col style="width: 30%">
+<col style="width: 30%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Feature / Task</th>
+<th><strong>Feature/Task</strong></th>
 <th><strong>R</strong></th>
 <th><strong>Python</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Programming logic</td>
-<td>Mostly function-oriented – structured around <strong>functions</strong></td>
-<td>Function- <strong>AND</strong> object-oriented – structured around <strong>classes</strong></td>
+<td><strong>Programming logic</strong></td>
+<td>Mostly function-oriented</td>
+<td>Function and object-oriented – structured around <strong>classes</strong></td>
 </tr>
 <tr class="even">
-<td>General-purpose programming</td>
+<td><strong>General-purpose programming</strong></td>
 <td>⚠️ Less ideal – designed mainly for working with data</td>
 <td>✅ Strong – ML &amp; AI, software development, scripting, etc.</td>
 </tr>
 <tr class="odd">
-<td>Computational power</td>
+<td><strong>Computational power</strong></td>
 <td>✅ Vectorization allows operating on all elements of a vector at once <br> ✅ Best for statistical analysis <br> ⚠️ Memory-intensive; often slow for reading large data and performing large computations</td>
 <td>✅ Generally faster for loops <br> ✅ Strong support for GPU computing <br> ✅ Memory-efficient for handling large objects and complex computations</td>
 </tr>
 <tr class="even">
-<td>Package availability</td>
+<td><strong>Package availability</strong></td>
 <td>✅ Excellent for statistical analysis (glm, survival, ggplot2) <br> ⚠️ Good options for ML (caret, mlr3) but few DL packages <br> ✅ Great for omics-focused analysis (Bioconductor, ComplexHeatmap, Seurat)</td>
-<td>☑️ Improving on statistical packages (statsmodels, lifelines) <br> ✅ Best for ML/DL (scikit-learn, pytorch, keras) <br> ☑️ Fewer established packages specialized in omics data <br> ✅ Great for processing large omics datasets (scanpy, scvi-tools)</td>
+<td>☑️ Improving on statistical packages (statsmodels, lifelines) <br> ✅ Best for ML/DL (scikit-learn, pytorch, keras) <br> ✅ Established packages specialized in processing large omics datasets (scanpy, scvi-tools)</td>
 </tr>
 <tr class="odd">
-<td>IDE &amp; Reproducible environments (notebooks etc.)</td>
+<td><strong>IDE &amp; Reproducible environments (notebooks etc.)</strong></td>
 <td>✅ RStudio <br> ✅ RMarkdown, Quarto</td>
 <td>✅ Visual Studio Code, JupyterLab, PyCharm, Spyder, etc. <br> ✅ Jupyter Notebooks, Quarto</td>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="essential-tools-for-python-programming" class="level2">
 <h2 class="anchored" data-anchor-id="essential-tools-for-python-programming">Essential Tools for Python Programming</h2>
-<p>To get the most out of Python–especially for data science and reproducible research–it’s important to set up an integrated, flexible programming environment. Here are the core tools we will be using:</p>
+<p>To get the most out of Python–especially for data science and reproducible research–it’s important to set up an integrated, flexible programming environment.</p>
+<p>Here is a list of tools we recommend using:</p>
 <ul>
 <li><strong>Conda</strong>: a powerful package and environment manager for Python.</li>
-<li><strong>Visual Studio Code IDE</strong>: a lightweight code editor that integrates programming + plots + terminal + etc.</li>
+<li><strong>Visual Studio Code</strong>: a lightweight code editor that integrates programming + plots + terminal + etc.</li>
 <li><strong>Jupyer Notebook</strong>: an interactive computing tool that combines code execution, text documentation, and visualizations.</li>
-<li><strong>Git (GitHub)</strong>: for version control and collaboration.</li>
+<li><strong>Git (GitHub)</strong>: for version control, collaboration, and publishing code.</li>
 </ul>
 <section id="conda-via-miniconda" class="level4">
 <h4 class="anchored" data-anchor-id="conda-via-miniconda"><strong>Conda (via Miniconda)</strong></h4>
 <p>Conda is a package manager, much like CRAN + Bioconductor, and can be utilized across languages (Python, R, C/C++ etc.). It also simplifies Python environment management, similar to <code>renv</code> in R but more powerful and flexible, ensuring dependency isolation without cluttering the global system.</p>
-<p>Conda can be installed via either Miniconda (lightweight version) or the Anaconda Distribution (full version). In this tutorial, we will use the former.</p>
+<p>Conda can be installed via either Miniconda (lightweight version) or the Anaconda Distribution (full version). We will use the former for the purpose of this workshop series.</p>
 </section>
 <section id="visual-studio-code" class="level4">
 <h4 class="anchored" data-anchor-id="visual-studio-code"><strong>Visual Studio Code</strong></h4>
-<p>Akin to RStudio, Visual Studio Code (VS Code) is an IDE for multi-language coding (Python, R, Java, etc.). It has many features integrated within it, including interactive coding via Jupyter Notebook or Quarto, version control with Git, and built-in terminal and debugging tools. We will walk through steps to set up Jupyter Notebooks in VS Code for Python later in this article.</p>
-<p>Next, we’ll walk through how to install and configure each of these tools.</p>
+<p>Akin to RStudio, Visual Studio Code (often called VS Code) is an IDE for multi-language coding (Python, R, Java, etc.). It has many features integrated within it, including interactive coding via Jupyter Notebook or Quarto, version control with Git, and built-in terminal and debugging tools.</p>
+<p>Next, we will walk through installing and setting up these tools.</p>
 </section>
 </section>
 </section>
@@ -448,8 +454,8 @@ Important
 <table class="caption-top table">
 <caption>Anaconda vs.&nbsp;Miniconda</caption>
 <colgroup>
-<col style="width: 25%">
-<col style="width: 41%">
+<col style="width: 26%">
+<col style="width: 40%">
 <col style="width: 33%">
 </colgroup>
 <thead>
@@ -479,15 +485,15 @@ Important
 </table>
 <section id="follow-along-install-miniconda-python-conda" class="level2">
 <h2 class="anchored" data-anchor-id="follow-along-install-miniconda-python-conda">▶️Follow-Along: Install Miniconda (Python + conda)</h2>
-<p>Let’s walk through steps to install <strong>Minconda</strong>. For the latest Miniconda installers for Python 3.12, go to the Anaconda website: <a href="https://www.anaconda.com/download/success#miniconda">https://www.anaconda.com/download/</a> and download the installer based on your system.</p>
-<p><em>Note: Make sure you are downloading from the <strong>Miniconda Installers</strong> section, not Anaconda!</em></p>
+<p>Let’s walk through steps to install <strong>Minconda</strong>.</p>
 <ol type="1">
-<li><p>Navigate to the <a href="https://www.anaconda.com/download/success#miniconda">Anaconda website</a>.</p></li>
+<li><p>For the latest Miniconda installers for Python 3.12, navigate to the <a href="https://www.anaconda.com/download/success#miniconda">Anaconda website</a>.</p></li>
 <li><p>Download the <strong>64-bit graphical installer</strong> according to your system (Windows or MacOS):</p>
+<p><em>Note: Make sure you are downloading from the <strong>Miniconda Installers</strong> section, not Anaconda!</em></p>
 <ul>
 <li>Alternatively, check out the <a href="https://www.anaconda.com/docs/getting-started/miniconda/install#quickstart-install-instructions">Quick command line installation guide</a> to install Miniconda through command line interface.</li>
 </ul></li>
-<li><p>Run the installer (<code>.exe</code> for Windows/ <code>.pkg</code> for MacOS)</p>
+<li><p>Run the installer (<code>.exe</code> for Windows / <code>.pkg</code> for MacOS)</p>
 <ul>
 <li><p>select <code>Just Me</code> for installation type – recommended; doesn’t require admin rights.</p>
 <p><img src="images/anaconda-install-1.png" class="img-fluid" width="500"></p>
@@ -554,23 +560,39 @@ Do not add Miniconda to PATH⚠️
 </ul></li>
 </ol>
 </section>
-<section id="conda" class="level2">
-<h2 class="anchored" data-anchor-id="conda">Conda</h2>
-<p>Conda is a powerful command line tool for cross-platform package and environment management via the <code>conda</code> <strong>command line interface (CLI)</strong>. Conda can be installed via installers such as Miniconda (see <a href="#follow-along-install-miniconda-python-conda">▶️Follow-Along: Install Miniconda (Python + conda)</a>) or the Anaconda Distribution.</p>
-<section id="managing-packges" class="level3">
-<h3 class="anchored" data-anchor-id="managing-packges">Managing Packges</h3>
-<p>To install packages from the default Anaconda repository (also called <a href="https://www.anaconda.com/docs/psm/cloud/channels"><strong>channels</strong></a>), use the following commands:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># To install a specific version of a package (e.g., SciPy):</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install scipy=0.15.0</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># To install multiple packages:</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install scipy=0.15.0 pandas matplotlib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If a package you want to install is located in another channel, such as <code>conda-forge</code>, you can manually specify the channel when installing the package. Take PyTorch as an example:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install conda-forge::pytorch</span>
+</section>
+<section id="virtual-environment-package-management-with-conda" class="level1">
+<h1>3. Virtual Environment &amp; Package Management with Conda</h1>
+<section id="what-is-conda" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-conda">What is Conda?</h2>
+<p>Conda is a cross-platform command line tool for managing packages and environment via the <code>conda</code> <strong>command line interface (CLI)</strong>. It can handle both Python and non-Python dependencies (R, C, system binaries, etc.), making it particularly powerful.</p>
+<p>You can install conda via installers such as Miniconda or the Anaconda Distribution.</p>
+</section>
+<section id="conda-for-managing-packages" class="level2">
+<h2 class="anchored" data-anchor-id="conda-for-managing-packages">Conda for Managing Packages</h2>
+<p>Conda installs packages from <a href="https://www.anaconda.com/docs/psm/cloud/channels"><strong>channels</strong></a>(repositories), such as the default Anaconda channel or community-maintained channels like <code>conda-forge</code>.</p>
+<p>To install packages from the default Anaconda repository:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install a single package</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install scipy</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install a specific version of a package</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install scipy=0.15.0 </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install multiple packages</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install scipy=0.15.0 pandas matplotlib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If the package is located in another channel, such as <code>conda-forge</code>, you can manually specify the channel when installing the package. For example:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install conda-forge::pytorch </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or </span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install pytorch <span class="at">--channel</span> conda-forge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If the Python package is not available through any conda channel, consider using the pip package manager:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To update a package:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update scipy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Note that this automatically updates the package to the highest version supported by the current Python series. For example, Python 3.9 updates to the highest available in the 3.x series.</em></p>
+<p>To remove a package (or multiple packages at once):</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove scipy pandas matplotlib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="conda-vs.-pip" class="level4">
+<h4 class="anchored" data-anchor-id="conda-vs.-pip"><strong>Conda vs.&nbsp;Pip</strong></h4>
+<p>If a Python package is not available through any conda channel, consider using the pip package manager:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -584,69 +606,44 @@ Difference Between <code>conda install</code> and <code>pip install</code>
 <p>Long story short: <em><strong>Pip installs Python libraries only,</strong> while <strong>conda can install both Python and non-Python packages</strong> (e.g., R, C/C++, system binaries)<strong>.</strong></em></p>
 <p>It is generally recommended that you only use <code>conda install</code> within a conda environment, as anything installed via pip won’t be recognized by conda and vice versa. Using the two interchangeably might overwrite or break packages and mess up the environment.</p>
 <p><strong>What if the Python package is unavailable through conda?</strong></p>
-<p>In these scenarios where the package you need is not built under conda, it makes sense to use pip to install packages within the conda environment. The best practice is to <em><strong>install everything with conda first, then use pip only if needed</strong>.</em></p>
+<p>The best practice is to <strong><em>install everything with conda first, then use pip only when the package is not available in conda.</em></strong></p>
 <p>Check out this <a href="https://www.anaconda.com/blog/using-pip-in-a-conda-environment">blog</a> for more information on using pip in a conda environment.</p>
 </div>
 </div>
-<p>To update a specific package:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update scipy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>Note that this automatically updates the package to the highest version supported by the current Python series. For example, Python 3.9 updates to the highest available in the 3.x series.</em></p>
-<p>To remove a package (or multiple packages at once):</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove scipy pandas matplotlib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="managing-environments" class="level3">
-<h3 class="anchored" data-anchor-id="managing-environments">Managing Environments</h3>
-<p>You can also use Conda to create and manage <strong>virtual environments</strong>. Here is a list of some useful commands relating to environment management. We will cover the utility of these commands in more detail in the next section.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Task</th>
-<th>Command</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>List all environments</td>
-<td><code>conda env list</code></td>
-</tr>
-<tr class="even">
-<td>Remove an environment</td>
-<td><code>conda remove --name myenv --all</code></td>
-</tr>
-<tr class="odd">
-<td>List packages in current environment</td>
-<td><code>conda list</code></td>
-</tr>
-<tr class="even">
-<td>Export environment to <code>.yml</code></td>
-<td><code>conda env export &gt; environment.yml</code></td>
-</tr>
-<tr class="odd">
-<td>Recreate from <code>.yml</code> file</td>
-<td><code>conda env create -f environment.yml</code></td>
-</tr>
-</tbody>
-</table>
 </section>
 </section>
+<section id="what-is-a-virtual-environment" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-virtual-environment">What is a Virtual Environment?</h2>
+<p>A <strong>virtual environment</strong> is an isolated, self-contained workspace that includes its own <strong>language interpreter</strong> and <strong>package dependencies</strong>. Each environment operates independently, ensuring that projects are isolated from one another and from the system’s global setup.</p>
+<p>In the previous section, we installed Python 3.12 via Miniconda and set it as the default (global) Python. However, you might need a different version of Python–say, Python 3.8–or a different set of packages for a particular project. In this case, creating a virtual environment allows you to maintain a completely separate Python setup, including its own Python version and <code>/site-packages</code> folder.</p>
+<p>You can create as many environments as needed — ideal for managing multiple projects with different requirements.</p>
 </section>
-<section id="virtual-environments" class="level1">
-<h1>3 Virtual Environments</h1>
-<p>Environments are <strong>isolated, independent installations</strong> of a programming language and groups of dependencies that don’t interfere with each other.</p>
-<p>For example, in the previous section, we installed Python version 3.12 via Miniconda and set it to be the system’s default–the <strong>global</strong> environment. Meanwhile, we might want to install another Python version, e.g., Python 3.8, and install dependencies under that Python version specifically. This would create a Python directory completely separate from the global environment containing the Python interpreter and the <code>/site-packages</code> package folder–this is called a <strong>virtual environment</strong>. You may have <em>as many virtual environment as you want</em> with its own Python interpreter version and set of packages.</p>
-<section id="why-virtual-environments" class="level2">
-<h2 class="anchored" data-anchor-id="why-virtual-environments">Why Virtual Environments?</h2>
-<p>Virtual environments can help isolate individual You may find the flexibility of environments useful in many cases.</p>
+<section id="why-use-virtual-environments" class="level2">
+<h2 class="anchored" data-anchor-id="why-use-virtual-environments">Why Use Virtual Environments?</h2>
+<p>You may find the flexibility of environments beneficial in many cases.</p>
 <ul>
 <li><strong>Avoid Conflicts.</strong> Creating virtual environments can help resolve potential conflicts between different projects that might require different Python version or conflicting dependencies. Changes made to one environment won’t affect other projects that use different environments.</li>
 <li><strong>Easy Management</strong>. When your work is temporary or that you simply want to experiment things without having to worry about breaking things, you can work within a virtual environment and later delete it when needed.</li>
-<li><strong>Sharing Environment</strong>. You can share your Python environment and whole list of dependencies with other people through a copy of the <code>environment.yaml</code> file.</li>
+<li><strong>Sharing Environment</strong>. You can share your Python environment and whole list of dependencies with other people through a copy of the <code>.yml</code> file.</li>
 <li><strong>Reproducibility.</strong> They work as time capsules, allowing you to come back to an older project at any time later by recreating the virtual environment.</li>
 </ul>
 </section>
 <section id="follow-along-create-a-conda-virtual-environment" class="level2">
 <h2 class="anchored" data-anchor-id="follow-along-create-a-conda-virtual-environment">▶️Follow-Along: Create a Conda Virtual Environment</h2>
-<p>Once we have installed Conda via Miniconda, we can the use its <code>conda</code> to create virtual environments and manage dependencies.</p>
+<p>Using <code>conda</code>, we can <strong>create, activate, update, export,</strong> and <strong>remove</strong> virtual environments, each with its own Python version and set of packages. Let’s practice creating a virtual environment and installing packages into it using the command line.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📌Prerequisite
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Be sure you have installed Miniconda by following the previous <a href="#follow-along-install-miniconda-python-conda">tutorial</a> to access the <code>conda</code> command line interface.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -657,94 +654,141 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For users comfortable with command line, this approach is generally more recommended than Anaconda Navigator, as it is faster, more robust to broken environments (reported by some who used the GUI), and offers greater flexibility and functionality for environment management.</p>
+<p>The <a href="https://www.anaconda.com/docs/tools/anaconda-navigator/main">Anaconda Navigator</a> is an alternative to creating conda environments without the terminal skills. However, for users comfortable using the command line tool, we recommend the <code>conda</code> approach for better speed, control, and stability,</p>
 </div>
 </div>
 <ol type="1">
-<li><p>Create the virtual environment.</p>
-<pre><code>conda create --name &lt;env-name&gt;</code></pre>
-<p>Replace <code>&lt;env-name&gt;</code> with the name you want to give your environment.</p>
+<li><p>Open <strong>Anaconda Prompt</strong> (Windows) or <strong>Terminal</strong> (MacOS)</p></li>
+<li><p>Create the virtual environment. Replace <code>&lt;env-name&gt;</code> with the name you want to give your environment.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">--name</span> <span class="op">&lt;</span>env-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><em>Note: you can use <code>-n</code> (shorthand) and <code>--name</code> interchangeably.</em></p></li>
-<li><p>You can also specify the Python version and packages you want to install to your environment.</p>
-<pre><code>conda create -n &lt;env-name&gt; python=3.10 scipy=0.17.3 pandas matplotlib</code></pre>
-<p>Or do it in separate commands:</p>
-<pre><code>conda create -n &lt;env-name&gt; python=3.10
-conda install -n &lt;env-name&gt; scipy pandas matplotlib</code></pre></li>
-<li><p>You can also specify channel other than the <code>defaults</code> channel (for multiple channels, pass the argument multiple times):</p>
-<pre><code>conda install -n &lt;env-name&gt; scipy --channel conda-forge --channel bioconda</code></pre></li>
+<li><p>To create an environment with a specific Python version:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> <span class="op">&lt;</span>env-name<span class="op">&gt;</span> python=3.10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>To create an environment with a specific package(s):</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> <span class="op">&lt;</span>env-name<span class="op">&gt;</span> python=3.10 scipy pandas matplotlib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or install packages later with separate commands:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> <span class="op">&lt;</span>env-name<span class="op">&gt;</span> python=3.10</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-n</span> <span class="op">&lt;</span>env-name<span class="op">&gt;</span> scipy pandas matplotlib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>You can also install packages from channels other than the <code>defaults</code> (your can pass multiple channels for the package search):</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-n</span> <span class="op">&lt;</span>env-name<span class="op">&gt;</span> scipy <span class="at">--channel</span> conda-forge <span class="at">--channel</span> bioconda</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or explicitly specify the channel from which you want the package to be installed:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">conda</span> install <span class="at">-n</span> <span class="op">&lt;</span>env-name<span class="op">&gt;</span> conda-forge::scipy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Now, activate your environment.</p>
-<pre><code>conda activate &lt;env-name&gt;</code></pre></li>
-<li><p>You can also verify that your installation was successful by looking up the list of all current environments on your computer.</p>
-<pre><code>conda env list</code></pre>
-<p>The default location for the installed conda environments (except for the base conda environment) is <code>..\anaconda3\envs\&lt;env-name&gt;</code></p></li>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate <span class="op">&lt;</span>env-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>You can verify that your installation was successful by looking up the list of all current environments on your computer.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The default location for the installed conda environments (except for the base conda environment) is <code>..\miniconda3\envs\&lt;env-name&gt;</code></p></li>
 <li><p>Deactivate the conda environment.</p>
-<p>Simply use <code>conda deactivate</code>.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note: Avoid activating on top of another virtual environment!
+Avoid activating on top of another virtual environment!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Be careful when activating environments. Remember to always <strong>deactivate the current environment before going into another one</strong> because environments can be <strong>stacked</strong>. This can lead to chaos in the packages in both environments. So make sure that you see <code>(base)</code> at the beginning of the terminal prompt line when you are about to activate an environment.</p>
+<p>Always <code>conda deactivate</code> first before activating another one because environments can be <strong>stacked</strong>. This can lead to chaos in the packages in both environments.</p>
+<p>💡<strong>Tip</strong>: make sure you see <code>(base)</code> at the beginning of the terminal prompt when you are about to activate an environment.</p>
 </div>
 </div></li>
 <li><p>Removing an environment.</p>
 <ul>
 <li><p>Remove by environment name:</p>
-<pre><code>conda env remove -n &lt;env-name&gt;</code></pre></li>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env remove <span class="at">-n</span> <span class="op">&lt;</span>env-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Remove by environment folder path:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env remove <span class="at">--prefix</span> <span class="op">&lt;</span>/path/to/your/env<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env remove <span class="at">--prefix</span> <span class="op">&lt;</span>/path/to/your/env<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul></li>
 </ol>
-</section>
-<section id="creating-an-environment-from-an-environment.yml-file" class="level2">
-<h2 class="anchored" data-anchor-id="creating-an-environment-from-an-environment.yml-file">Creating an Environment from an <code>environment.yml</code> File</h2>
-<p>We can also create a virtual environment from a <code>.yml</code> file.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Similarly, after installation, activate the new environment:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate <span class="op">&lt;</span>env-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This way, we can easily recreate an environment that is shared by others or share our environment settings with others.</p>
-<p>For example, a simple environment file that has information about the environment name, channels, and dependencies:</p>
-<pre><code>name: python310
-channels:
-  - defaults
-dependencies:
-  - python==3.10
-  - pandas
-  - numpy</code></pre>
-<p>Download the YML file for this Python workshop series <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml">here</a>. This file includes the required channel and dependencies for completing the workshop sessions.</p>
-</section>
-</section>
-<section id="integrated-development-environment" class="level1">
-<h1>4. Integrated Development Environment</h1>
-<p>An IDE is a suite of tools integrated into a software application to make software code development easy and efficient. It typically includes a code editor, a compiler or interpreter, and a debugger that users can access through a single GUI.</p>
+<section id="create-env-yml-file" class="level3">
+<h3 class="anchored" data-anchor-id="create-env-yml-file">👉Create an Environment from an <code>environment.yml</code> File</h3>
+<ol type="1">
+<li><p>You can also create a virtual environment from a <code>.yml</code> configuration file.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Example: An environment file contains information about the environment name, channels, and dependencies:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">name:</span> python310</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">channels:</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> defaults</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="ex">dependencies:</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> python=3.10</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> pandas</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> numpy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Rstudio IDE
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Rstudio is an IDE developed to support coding in both R and Python languages, with integrated functionalities including:Automatic syntax highlighting, code completion, and smart indentation.</p>
+<p>Download the <code>.yml</code> file for this Python workshop series <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml">here</a>. This file includes the Python version and required channels and dependencies for completing the workshop sessions.</p>
+</div>
+</div></li>
+<li><p>Then activate the new environment:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate python310</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This way, we can skip the cumbersome steps to set up an environment from scratch and easily recreate an environment shared by others or share our environment settings with others.</p></li>
+</ol>
+<table class="caption-top table">
+<caption>Summary: A list of useful conda commands for managing environments.</caption>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Create an environment</td>
+<td><code>conda create --name &lt;env-name&gt;</code></td>
+</tr>
+<tr class="even">
+<td>List all environments</td>
+<td><code>conda env list</code></td>
+</tr>
+<tr class="odd">
+<td>Remove an environment</td>
+<td><code>conda remove --name &lt;env-name&gt; --all</code></td>
+</tr>
+<tr class="even">
+<td>List packages in current environment</td>
+<td><code>conda list</code></td>
+</tr>
+<tr class="odd">
+<td>Export environment to <code>.yml</code></td>
+<td><code>conda env export &gt; environment.yml</code></td>
+</tr>
+<tr class="even">
+<td>Recreate environment from <code>.yml</code> file</td>
+<td><code>conda env create -f environment.yml</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="integrated-development-environment" class="level1">
+<h1>4. Integrated Development Environment</h1>
+<p>An <strong>Integrated Development Environment (IDE)</strong> is a software application that brings together everything you need to write and run code and manage projects.</p>
+<p>It typically includes:</p>
 <ul>
-<li>Multi-panel layout to display coding scripts, console, environment variables, and plot side-by-side.</li>
-<li>Support for RMarkdown and Quarto documents.</li>
-<li>Project management through Rprojects and renv.</li>
+<li>A code editor</li>
+<li>Terminal panel</li>
+<li>A compiler or interpreter to execute code</li>
+<li>Debugger and version control integration</li>
 </ul>
-</div>
-</div>
-<p>For Python, there are many existing IDEs that offer compatibility and multi-functionality</p>
+<p>For Python, there are many existing IDEs that offer great compatibility and multi-functionality.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 66%">
+<col style="width: 37%">
+<col style="width: 62%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -771,6 +815,7 @@ Rstudio IDE
 </tr>
 </tbody>
 </table>
+<p>We will use the VS Code IDE for the workshop series.</p>
 <section id="visual-studio-code-1" class="level2">
 <h2 class="anchored" data-anchor-id="visual-studio-code-1">Visual Studio Code</h2>
 <p><img src="images/vs-code-icon.png" class="img-fluid" width="100"></p>
@@ -778,159 +823,132 @@ Rstudio IDE
 <p><strong>Visual Studio Code (VS Code)</strong> is one of the most popular open-source code editors with many features.</p>
 </blockquote>
 <ul>
-<li><strong>Multi-Language Programming.</strong> You can code in almost any major programming languages in VS Code including Python, R, C/C++, JavaScript, etc.</li>
-<li><strong>Build-In Git Source Control.</strong> VS Code automatically recognizes and uses the computer’s Git installation to allow project version control. You can easily track changes, stage, and commit changes to your working branch.</li>
+<li><strong>Multi-Language Programming.</strong> VS Code supports multiple programming languages including Python, R, C/C++, JavaScript, etc.</li>
+<li><strong>Integrated Git Source Control.</strong> VS Code automatically recognizes and uses the computer’s Git installation. You can easily track changes, stage, and commit changes to your working branch.</li>
 <li><strong>Variety of Project Development Support</strong>. You can add extra features such as language packs, debugging tools, Git/Github features, and remote server connector by installing extensions from the Extension Marketplace.</li>
 </ul>
-<p>Go to [Work with Jupyter/Quarto in VS Code] for guide on how to get started with VS Code.</p>
-</section>
-<section id="quarto" class="level2">
-<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
-<p><img src="images/quarto-icon.png" class="img-fluid" width="250"></p>
-<blockquote class="blockquote">
-<p><strong>Quarto</strong> is an open-source scientific and technical publishing system.</p>
-</blockquote>
-<p>Think of Quarto <code>.qmd</code> as similar to R Markdown <code>.Rmd</code> files. Both combine executable code chunks with text components and figures and allow generating outputs as PDF, HTML, Docx, and even slideshow presentations.</p>
-<p>But Quarto has more:</p>
-<ul>
-<li><p><strong>Compatibility with multiple IDEs</strong>. You can not only work with Quarto <code>.qmd</code> in RStudio, but also VS Code, Jupyter Lab, etc.</p></li>
-<li><p><strong>Mutli-lingual support</strong>. Unlike R Markdown which is dependent on R, Quarto does not require R. It supports embedded Python, JavaScript, and Julia executable code by simply specifying the language name in the braces on top of a code chunk (e.g., <code>```{python}</code>).</p></li>
-<li><p><strong>Multi-engine support</strong>. Don’t worry if you are an R Markdown or Jupyter Notebook user! Qurato also works with <code>.Rmd</code> and <code>.ipynb</code> files and will automatically deploy either the knitr or jupyter engine depending on the file type that you are rendering.</p></li>
-</ul>
-<p>In summary, Quarto is easy for R users to transition into due to similarities with the R Markdown. It also includes more functionality and flexibility, making it a great tool for learning Python.</p>
 </section>
 <section id="follow-along-set-up-jupyter-notebook-in-vs-code" class="level2">
-<h2 class="anchored" data-anchor-id="follow-along-set-up-jupyter-notebook-in-vs-code">▶️ <strong>Follow-Along:</strong> Set up Jupyter Notebook in VS Code</h2>
-<p>We will now set up coding software for more elegant and interactive programming</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<h2 class="anchored" data-anchor-id="follow-along-set-up-jupyter-notebook-in-vs-code">▶️Follow-Along<strong>:</strong> Set up Jupyter Notebook in VS Code</h2>
+<p>We’ll now walk through setting up your Python coding environment in VS Code with full support for virtual environments and Jupyter notebooks.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 💡Prerequisites
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol type="1">
-<li>Install <strong>Conda</strong>: Go to previous section [2 Installation and Setup].</li>
-<li>Install <strong>VS Code</strong>: <a href="https://code.visualstudio.com/download">Download and install VS Code</a></li>
-<li>Install <strong>Quarto</strong>: <a href="https://quarto.org/docs/get-started/">Install from the official website</a></li>
-</ol>
-</div>
-</div>
-<ol type="1">
-<li><p>Download and install <a href="https://code.visualstudio.com/download">VS Code</a></p></li>
-<li><p>Open VS Code and <strong>install Extensions from Extension Marketplace.</strong></p>
-<ol type="1">
-<li><p>Click <strong>Extensions</strong> from the left toolbar or click <code>Ctrl+Shift+X</code> (or <code>Cmd+Shift+X</code> on Mac).</p>
+<p>Ensure you have the following:</p>
 <ul>
-<li><p><strong>Python</strong>: To support Python language, debugging, documentations, etc.</p></li>
-<li><p><strong>Jupyter</strong>: To support rendering Python documents from Jupyter Notebooks or Quarto files.</p></li>
+<li><strong>Miniconda</strong>: see <a href="#follow-along-install-miniconda-python-conda">▶️Follow-Along: Install Miniconda (Python + conda)</a></li>
+<li><strong>VS Code</strong>: <a href="https://code.visualstudio.com/download">Download and install VS Code</a></li>
 </ul>
-<div class="callout callout-style-simple callout-important no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>You still need to install conda (Python) your computer to enable these extensions.</p>
 </div>
 </div>
-</div></li>
-</ol></li>
-<li><p><strong>Create a Conda Virtual Environment.</strong> You may use the ones you created.</p>
-<ul>
-<li><p>Essential packages/dependencies (to install, use <code>conda install &lt;package-name&gt; –channel conda-forge</code>):</p>
-<ul>
-<li>jupyter</li>
-<li>ipykernel</li>
-<li>pyyaml</li>
-</ul></li>
-<li><p><strong>Note</strong>: we recommend installing an environment from this <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml">YML file</a>. See [Creating an Environment from an environment.yml File] for detailed instructions.</p></li>
-</ul></li>
-<li><p><strong>Configure the Environment in VS Code.</strong></p>
+<section id="step-1-install-required-vs-code-extensions" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-install-required-vs-code-extensions">Step 1: Install Required VS Code Extensions</h3>
 <ol type="1">
-<li><p>Open Command Palette by pressing <code>Ctrl+Shift+P</code> (or <code>Cmd+Shift+X</code> on Mac).</p></li>
-<li><p>Type “<strong>Python: Select Interpreter</strong>”.</p></li>
-<li><p>Choose the Conda python environment you created. If you don’t see its name pop up, choose <strong>Enter interpreter path…</strong> and manually type in the location of your conda virtual environment python executable.</p>
-<p>E.g., <code>C:\Users\&lt;username&gt;\AppData\Local\anaconda3\envs\&lt;env-name&gt;\python.exe</code> for Windows <strong>or</strong> <code>Users/&lt;username&gt;/anaconda/envs/&lt;env-name&gt;/python</code> for macOS.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<li><p>Launch VS Code.</p></li>
+<li><p>Open the <strong>Extensions</strong> panel from the left toolbar (or <code>Ctrl+Shift+X</code> on Windows/ <code>Cmd+Shift+X</code> on Mac).</p>
+<p><img src="images/qs-python-ext-install.gif" class="img-fluid"></p></li>
+<li><p>Install the following extensions:</p>
+<ul>
+<li><strong>Python</strong>: To support Python language, debugging, documentations, etc.</li>
+<li><strong>Jupyter</strong>: To support rendering Python documents from Jupyter Notebooks or Quarto files.</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Find your conda Python executable path
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can search for the conda Python interpreter location on your computer. Here is an example of how to do it using command line.</p>
-<p>For both Windows and macOS, open the <strong>Anaconda Prompt</strong> or <strong>terminal</strong> and activate the conda Python environment with <code>conda activate &lt;env-name&gt;</code>.</p>
+<p>You still need to install Python (Miniconda) to your computer for these extensions to fully function.</p>
+</div>
+</div></li>
+</ol>
+</section>
+<section id="step-2-create-a-conda-virtual-environment" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-create-a-conda-virtual-environment">Step 2: Create a Conda Virtual Environment</h3>
+<p>You can create an environment in one step using the shared <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml">environment.yml</a> file.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you want to create your own environment or use existing ones, install these necessary packages to allow your Python to work with Jupyter Notebooks in VS Code:</p>
+<ul>
+<li>jupyter</li>
+<li>ipykernel</li>
+<li>pyyaml</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install jupyter ipykernel pyyaml <span class="at">-c</span> conda-forge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-3-configure-the-environment-in-vs-code." class="level3">
+<h3 class="anchored" data-anchor-id="step-3-configure-the-environment-in-vs-code.">Step 3: Configure the Environment in VS Code.</h3>
+<ol type="1">
+<li><p>Open the <strong>Command Palette</strong> (<code>Ctrl+Shift+P</code> on Windows / <code>Cmd+Shift+X</code> on Mac).</p></li>
+<li><p>Search for and select “<strong>Python: Select Interpreter</strong>”.</p></li>
+<li><p>Choose your conda environment (e.g., <code>python-intro-env</code>).</p>
+<ul>
+<li><p>If it doesn’t pop up, click <strong>Enter interpreter path…</strong></p></li>
+<li><p>Manually enter the path to your conda virtual environment Python executable:</p>
+<ul>
+<li><p>Windows: <code>C:\Users\&lt;username&gt;\AppData\Local\miniconda3\envs\&lt;env-name&gt;\python.exe</code></p></li>
+<li><p>macOS: <code>Users/&lt;username&gt;/miniconda/envs/&lt;env-name&gt;/python</code></p></li>
+</ul></li>
+</ul>
+<div id="find-python-path" class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🔎Find your conda Python executable path
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To search for the conda Python interpreter location on your computer, open the <strong>Anaconda Prompt</strong> or <strong>terminal</strong>:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate <span class="op">&lt;</span>env-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then, locate your Python executable by typing the following:</p>
 <ul>
-<li><p>Windows: <code>where python</code></p></li>
-<li><p>macOS: <code>which python</code></p></li>
+<li>Windows: <code>where python</code></li>
+<li>macOS: <code>which python</code></li>
 </ul>
 </div>
 </div></li>
-</ol></li>
 </ol>
-<p>Now you are ready to go. Let’s start with creating a new Jupyter Notebook (.ipynb).</p>
 </section>
-<section id="ignore-below" class="level2">
-<h2 class="anchored" data-anchor-id="ignore-below">============ Ignore Below ============</h2>
-</section>
-<section id="excercise-create-a-quarto-file" class="level2">
-<h2 class="anchored" data-anchor-id="excercise-create-a-quarto-file">Excercise: Create a Quarto File</h2>
-<p>Go to <strong><code>File &gt; New File</code></strong> and select Quarto Document. This will generate an empty <code>.qmd</code> file with the following YAML metadata. You can change the title and file output format as needed.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "First Day"</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In Quarto files, you can mix Markdown with code blocks just like in R Markdown. For example:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Heading 1</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>This is a demo Quarto file. Here is the text section.</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">## Heading 2</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>This is a subsection.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>To add an executable code block, specify the language name inside two curly braces (e.g., <code>{python}</code>, <code>{r}</code>, etc.). For example, let’s print something:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="in">print("This is some Python output.")</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="df0d50f0" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-stdout">
-<pre><code>This is some Python output.</code></pre>
-</div>
-</div>
-<section id="file-previewing" class="level4">
-<h4 class="anchored" data-anchor-id="file-previewing">File Previewing</h4>
-<p>To preview the html output, click on the <strong>Quarto Preview</strong> button at the top right (or press <code>Ctrl+Shift+K</code>).</p>
-<p>Alternatively, run <code>quarto preview</code> in your terminal to view the output.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview <span class="op">&lt;</span>yourfilename<span class="op">&gt;</span>.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This is an example of the html output preview showing next to the source <code>.qmd</code> file.</p>
-<p><img src="images/quarto-demo.png" class="img-fluid"></p>
-</section>
-<section id="file-rendering-exporting-to-other-formats" class="level4">
-<h4 class="anchored" data-anchor-id="file-rendering-exporting-to-other-formats">File Rendering/ Exporting to other Formats</h4>
-<p>To save the output, use <strong>Quarto: Render Document</strong> from the command search bar (<code>Ctrl+Shift+P</code>).</p>
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="images/quarto-render.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="900"></p>
-</figure>
-</div>
-<p>Then select the desired output format. For example, Render HTML.</p>
-<p><img src="images/quarto-render2.png" class="img-fluid" width="900"></p>
-<p>Similarly, you can use command line <code>quarto render</code> in the terminal to save the output.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="op">&lt;</span>yourfilename<span class="op">&gt;</span>.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now you should see a <code>&lt;yourfilename&gt;.html</code> file generated in your working directory.</p>
-</section>
-</section>
-</section>
-<section id="next-session" class="level1">
-<h1>Next session</h1>
+<section id="step-4-open-a-python-project-and-create-a-jupyter-notebook-file" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-open-a-python-project-and-create-a-jupyter-notebook-file">Step 4: Open a Python Project and Create a Jupyter Notebook File</h3>
+<ol type="1">
+<li><p>If you have an existing Python project you wish to work on in VS Code, you may open the project folder in VS Code.</p>
+<ul>
+<li><p>Open from the VS Code Welcome page:</p>
+<p><img src="images/vs code-welcome-page.png" class="img-fluid" width="774"></p></li>
+<li><p>Or by selecting <strong>File &gt; Open Folder</strong> (<code>Ctrl+K Ctrl+O</code>)</p></li>
+</ul></li>
+<li><p>To create a new Jupyter Notebook file, go to <strong><code>File &gt; New File</code></strong> and select Jupyter Notebook (<code>.ipynb</code>).</p></li>
+<li><p>Select the correct <strong>kernel</strong> (conda environment):</p>
+<ul>
+<li><p>In the top-right corner of the notebook, you will see a <strong>Select Kernel</strong> button</p></li>
+<li><p>Choose the kernel that matches your conda environment (e.g., <code>python-intro-env (Python 3.10.0)</code>)</p></li>
+</ul></li>
+<li><p>If you don’t see the environment showing up:</p>
+<ul>
+<li><p>Make sure your conda env has the dependencies installed:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install ipykernel jupyter pyyaml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then restart VS Code or reload the window (<code>Ctrl+Shift+P</code> &gt; <code>Reload Window</code>).</p></li>
+<li><p>If all packages are installed but the issue persists, manually specify the Python path (see <a href="#find-your-conda-python-executable-path">🔎Find your conda Python executable path</a>)</p></li>
+</ul></li>
+</ol>
+<p>You are all set!</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
