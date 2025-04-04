@@ -3,13 +3,16 @@ channels:
   - defaults
   - conda-forge
 dependencies:
-  - python==3.10
-  - pandas
-  - numpy
-  - seaborn
-  - scikit-learn
+  - python=3.10
   - jupyter
   - ipykernel
   - pyyaml
+  - numpy
+  - pandas
+  - great_tables
+  - plotnine
+  - seaborn
+  - scikit-learn
+  - statsmodels
   - nbformat #optional
   - statsmodels
