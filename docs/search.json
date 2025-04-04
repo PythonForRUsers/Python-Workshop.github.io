@@ -257,5 +257,320 @@
     "title": "Python Machine Learning Demo",
     "section": "Topic 4: Dictionaries",
     "text": "Topic 4: Dictionaries\nA dictionary is a collection in Python that stores data as key-value pairs. It’s similar to a real-world dictionary where you look up a word (the key) to get its definition (the value). In Python, dictionaries are mutable, meaning you can add, remove, and change items.\nTo create a dictionary, use curly braces {}, with each key-value pair separated by a colon (:), and pairs separated by commas.\n\n# Creating a dictionary\nmy_dictionary = {\n    'name': 'Alice',\n    'age': 25,\n    'city': 'New York'\n}\nprint(my_dictionary)\n\n{'name': 'Alice', 'age': 25, 'city': 'New York'}\n\n\nAccessing dictionary values To access a specific value in a dictionary, use the key in square brackets. You can also use the .get() method, which returns None if the key does not exist, instead of raising an error.\n\nprint(my_dictionary['name'])      # Using key\nprint(my_dictionary.get('age'))   # Using .get() method\nprint(my_dictionary.get('gender', 'Not specified'))  # Providing a default value\n\nAlice\n25\nNot specified\n\n\nAdding and updating dictionary items\nDictionaries are mutable, so you can add new items or update existing ones using assignment.\n\nmy_dictionary['job'] = 'Engineer'        # Adding a new key-value pair\nmy_dictionary['age'] = 26                # Updating an existing value\nprint(my_dictionary)\n\n{'name': 'Alice', 'age': 26, 'city': 'New York', 'job': 'Engineer'}\n\n\nDictionary Methods\nPython dictionaries have several useful methods for managing data:\nkeys(): Returns a list of all the keys in the dictionary. values(): Returns a list of all values in the dictionary. items(): Returns a list of key-value pairs as tuples.\n\n# Getting all keys\nprint(my_dictionary.keys())\n\n# Getting all values\nprint(my_dictionary.values())\n\n# Getting all key-value pairs\nprint(my_dictionary.items())\n\ndict_keys(['name', 'age', 'city', 'job'])\ndict_values(['Alice', 26, 'New York', 'Engineer'])\ndict_items([('name', 'Alice'), ('age', 26), ('city', 'New York'), ('job', 'Engineer')])\n\n\nPython Dictionaries for Cancer Research Data\nIn cancer research, dictionaries can be used to store patient data, genetic mutations, and statistical results as key-value pairs. This allows for easy lookup, organization, and analysis of data.\n\n#Let’s create a dictionary to store basic patient information, where each patient has a unique ID, and each ID maps to a dictionary containing information about the patient’s age, cancer type, and stage.\n\n# Dictionary of patients with nested dictionaries\npatient_data = {\n    'P001': {'age': 50, 'cancer_type': 'Lung Cancer', 'stage': 'II'},\n    'P002': {'age': 60, 'cancer_type': 'Breast Cancer', 'stage': 'I'},\n    'P003': {'age': 45, 'cancer_type': 'Melanoma', 'stage': 'III'}\n}\n\nprint(patient_data)\n\n{'P001': {'age': 50, 'cancer_type': 'Lung Cancer', 'stage': 'II'}, 'P002': {'age': 60, 'cancer_type': 'Breast Cancer', 'stage': 'I'}, 'P003': {'age': 45, 'cancer_type': 'Melanoma', 'stage': 'III'}}\n\n\nYou can access a patient’s information using their unique ID. To access nested data, chain the keys. For example, to retrieve the cancer type of a specific patient, you’d use the following:\n\n# Accessing specific information\n\npatient_id = 'P002'\ncancer_type = patient_data[patient_id]['cancer_type']\nprint(f\"Cancer type for {patient_id}: {cancer_type}\")\n\n# Updating a patient’s stage\npatient_data['P003']['stage'] = 'IV'\nprint(f\"Updated stage for P003: {patient_data['P003']['stage']}\")\n\nCancer type for P002: Breast Cancer\nUpdated stage for P003: IV\n\n\nAdding and Removing Data New patient data can be added using assignment, and pop() or del can remove a patient’s data.\n\n# Adding a new patient\npatient_data['P004'] = {'age': 70, 'cancer_type': 'Prostate Cancer', 'stage': 'II'}\nprint(\"Added new patient:\", patient_data['P004'])\n\n# Removing a patient\nremoved_patient = patient_data.pop('P001')\nprint(\"Removed patient:\", removed_patient)\n\nAdded new patient: {'age': 70, 'cancer_type': 'Prostate Cancer', 'stage': 'II'}\nRemoved patient: {'age': 50, 'cancer_type': 'Lung Cancer', 'stage': 'II'}\n\n\nDictionary Methods: Data Summary Dictionaries allow you to retrieve keys, values, or entire key-value pairs. Here’s how to use these methods to get an overview of the data.\nkeys(): Retrieves all patient IDs. values(): Retrieves all patient records. items(): Retrieves patient records as key-value pairs\n\n# Getting all patient IDs\nprint(\"Patient IDs:\", patient_data.keys())\n\n# Getting all patient details\nprint(\"Patient Details:\", patient_data.values())\n\n# Looping through each patient's data\nfor patient_id, details in patient_data.items():\n    print(f\"Patient {patient_id} - Age: {details['age']}, Cancer Type: {details['cancer_type']}, Stage: {details['stage']}\")\n\nPatient IDs: dict_keys(['P002', 'P003', 'P004'])\nPatient Details: dict_values([{'age': 60, 'cancer_type': 'Breast Cancer', 'stage': 'I'}, {'age': 45, 'cancer_type': 'Melanoma', 'stage': 'IV'}, {'age': 70, 'cancer_type': 'Prostate Cancer', 'stage': 'II'}])\nPatient P002 - Age: 60, Cancer Type: Breast Cancer, Stage: I\nPatient P003 - Age: 45, Cancer Type: Melanoma, Stage: IV\nPatient P004 - Age: 70, Cancer Type: Prostate Cancer, Stage: II"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#links",
+    "href": "session2a/DataStructuresDemo.html#links",
+    "title": "Session 2: Python Data Structures",
+    "section": "Links",
+    "text": "Links\n \n\nGuide to Python Data Structures\n\n  \n\nCancer Dataset"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#getting-started",
+    "href": "session2a/DataStructuresDemo.html#getting-started",
+    "title": "Session 2: Python Data Structures",
+    "section": "Getting Started",
+    "text": "Getting Started\nBefore doing anything else, we should first activate the conda environment we want to use.\n\n\nRefresher: How to activate conda environment\n\n\n\n\nFrom terminal, type:\n\n&gt; conda activate ENVNAME\n\n\n\n\nWhen in VS code, you might get a popup message like the one below, confirming that the environment was activated:\n\nSelected conda environment was successfully activated, even though “(ENVNAME)” indicator may not be present in the terminal prompt.\n\n\nIf we want to make sure we have the packages we’ll need installed in the environment before we try to import them, we can either check on anaconda or use the terminal:\n\n&gt; conda list\n\n\n\n\nOtherwise, we will get an error message if we try to import packages that are not installed.\n\n\nRefresher: How to install packages\n\nTo install packages, we can either use the “anaconda” dashboard, or we can use the command line. Make sure your environment is active before installing packages or the packages will not be available in your environment.\nTo install from the command line, we open a terminal and type:\n\n&gt; conda install {package}\n\nor\n\n&gt; pip install {package}\n\nIf a package is not available via conda it might be available via pip."
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#topic-1-lists",
+    "href": "session2a/DataStructuresDemo.html#topic-1-lists",
+    "title": "Session 2: Python Data Structures",
+    "section": "Topic 1: Lists",
+    "text": "Topic 1: Lists\nThe most important thing about lists\nIn Python, lists are mutable, meaning their elements can be changed after the list is created, allowing for modification such as adding, removing, or updating items. This flexibility makes lists powerful for handling dynamic collections of data.\n\nWe will learn how to do things such as:\n\nCreate lists\nModify lists\nSort lists\nLoop over elements of a list with a for-loop or using list comprehension\nSlice a list\nAppend to a list"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#topic-2-tuples",
+    "href": "session2a/DataStructuresDemo.html#topic-2-tuples",
+    "title": "Session 2: Python Data Structures",
+    "section": "Topic 2: Tuples",
+    "text": "Topic 2: Tuples\n\nA tuple is similar to a list, but with one key difference. Tuples are immutable. This means that once you create a tuple, you cannot modify its elements.\nTuples are useful for storing data that should not be changed after creation, such as coordinates, days of the week, or fixed pairs.\nJust like lists, tuples are objects, and the class for tuples is tuple.\nTo transform another Python object into a tuple, you can use the tuple() constructor. It accepts a single iterable, such as a list, range, or string.\n\n\nTo create a tuple, you use parentheses () rather than square brackets [].\n\n# Creating a tuple\nmy_tuple = (10, 20, 30)\n\n# Accessing elements by index\nprint(\"First element:\", my_tuple[0])\nprint(\"Last element:\", my_tuple[-1])\n\n\n\nFirst element: 10\nLast element: 30"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#topic-3-strings",
+    "href": "session2a/DataStructuresDemo.html#topic-3-strings",
+    "title": "Session 2: Python Data Structures",
+    "section": "Topic 3: Strings",
+    "text": "Topic 3: Strings\nYou can use single or double quotes to define a string (but keep it consistent!)\n\nmy_string = \"Hello, World!\"\nprint(my_string)\n\n\n\nHello, World!\n\n\n\nYou can also create a multiline string using triple quotes:\n\nmulti_line_string = \"\"\"This is\na multiline\nstring.\"\"\"\nprint(multi_line_string)\n\n\n\nThis is\na multiline\nstring."
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#topic-4-dictionaries",
+    "href": "session2a/DataStructuresDemo.html#topic-4-dictionaries",
+    "title": "Session 2: Python Data Structures",
+    "section": "Topic 4: Dictionaries",
+    "text": "Topic 4: Dictionaries\n\nA dictionary is a collection in Python that stores data as key-value pairs.\nIt’s similar to a real-world dictionary where you look up a word (the key) to get its definition (the value).\nIn Python, dictionaries are mutable, meaning you can add, remove, and change items.\n\n\nTo create a dictionary, use curly braces {}, with each key-value pair separated by a colon (:), and pairs separated by commas.\n\n# Creating a dictionary\nmy_dictionary = {\n    'name': 'Alice',\n    'age': 25,\n    'city': 'New York'\n}\nprint(my_dictionary)\n\n\n\n{'name': 'Alice', 'age': 25, 'city': 'New York'}"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#example-reveal-output-on-click",
+    "href": "session2a/DataStructuresDemo.html#example-reveal-output-on-click",
+    "title": "Session 2: Python Data Structures",
+    "section": "Example: Reveal Output on Click",
+    "text": "Example: Reveal Output on Click\n\nmy_list = [1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]\n\n#| echo: true\n#| class: fragment\nprint(my_list)\n\n[1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#to-create-a-list",
+    "href": "session2a/DataStructuresDemo.html#to-create-a-list",
+    "title": "Session 2: Python Data Structures",
+    "section": "To create a list:",
+    "text": "To create a list:\n\nmy_list = [1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]\nprint(my_list)\n\n\n\n[1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#intro-to-python-data-structures",
+    "href": "session2a/DataStructuresDemo.html#intro-to-python-data-structures",
+    "title": "Session 2: Python Data Structures",
+    "section": "Intro to Python Data Structures",
+    "text": "Intro to Python Data Structures"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#lists-continued",
+    "href": "session2a/DataStructuresDemo.html#lists-continued",
+    "title": "Session 2: Python Data Structures",
+    "section": "Lists (continued)",
+    "text": "Lists (continued)\n\nIn Python, lists are objects like all other data types, and the class for lists is named ‘list’ with a lowercase ‘L’.\nTo transform another Python object into a list, you can use the list() function, which is essentially the constructor of the list class. This function accepts a single argument: an iterable. So, you can use it to turn any iterable, such as a range, set, or tuple, into a list of concrete values.\nPython indices begin at 0. In addition, certain built-in python functions such as range will terminate at n-1 in the second argument.\n\n\nfirst_range=range(5)\nfirst_range_list=list(first_range)\nprint(first_range_list)\n\n\n\n[0, 1, 2, 3, 4]\n\n\n\nsecond_range=range(5,10)\nsecond_range_list=list(second_range)\nprint(second_range_list)\n\n\n\n[5, 6, 7, 8, 9]"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#accessing-python-list-elements",
+    "href": "session2a/DataStructuresDemo.html#accessing-python-list-elements",
+    "title": "Session 2: Python Data Structures",
+    "section": "Accessing Python list elements",
+    "text": "Accessing Python list elements\nTo access an individual list element, you need to know its position. Since python starts counting at 0, the first element is in position 0, and the second element is in position 1. You can also access nested elements within a list, or access the list in reverse.\n\nExamples using my_list from above\n\nprint(my_list)\n\n\n\n[1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]\n\n\n\nexample_1=my_list[0]\n\nexample_2=my_list[6][1]\n\nexample_3=my_list[-1]\n\nprint(example_1, example_2, example_3)\n\n\n\n1 z [4, 'z']"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#mutability-of-lists",
+    "href": "session2a/DataStructuresDemo.html#mutability-of-lists",
+    "title": "Session 2: Python Data Structures",
+    "section": "Mutability of lists",
+    "text": "Mutability of lists\nSince lists are mutable objects, we can directly change their elements.\n\nsome_list=[1,2,3]\nprint(some_list)\n\nsome_list[0]=\"hello\"\nprint(some_list)\n\n\n\n[1, 2, 3]\n['hello', 2, 3]"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#appending-an-element-to-a-list",
+    "href": "session2a/DataStructuresDemo.html#appending-an-element-to-a-list",
+    "title": "Session 2: Python Data Structures",
+    "section": "Appending an element to a list",
+    "text": "Appending an element to a list\nWhen calling append on a list, we append an object to the end of the list:\n\nprint(my_list)\n\nmy_list.append(5)\n\nprint(my_list)\n\n\n\n[1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]\n[1, 2, 3.2, 'a', 'b', 'c', [4, 'z'], 5]"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#combining-lists",
+    "href": "session2a/DataStructuresDemo.html#combining-lists",
+    "title": "Session 2: Python Data Structures",
+    "section": "Combining lists",
+    "text": "Combining lists\nWe can combine lists with the “+” operator. This keeps the original lists intact\n\nlist_1=[1,2,3]\n\nlist_2=['a','b','c']\n\ncombined_lists=list_1+list_2\n\nprint(combined_lists)\n\n\n\n[1, 2, 3, 'a', 'b', 'c']\n\n\n\nAnother method is to extend one list onto another.\n\nlist_1=[1,2,3]\n\nlist_2=['a','b','c']\n\nlist_1.extend(list_2)\n\nprint(list_1)\n\n\n\n[1, 2, 3, 'a', 'b', 'c']"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#pop-method",
+    "href": "session2a/DataStructuresDemo.html#pop-method",
+    "title": "Session 2: Python Data Structures",
+    "section": ".pop() method",
+    "text": ".pop() method\nThe .pop() method removes and returns the last item by default unless you give it an index argument. If you’re familiar with stacks, this method as well as .append() can be used to create one!\n\nlist_1=[1,2,3]\n\nelement_1=list_1.pop()\nelement_2=list_1.pop(1)\n\nprint(element_1, element_2)\n\n\n\n3 2"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#deleting-items-by-index",
+    "href": "session2a/DataStructuresDemo.html#deleting-items-by-index",
+    "title": "Session 2: Python Data Structures",
+    "section": "Deleting items by index",
+    "text": "Deleting items by index\ndel removes an item without returning anything. In fact, you can delete any object, including the entire list, using del:\n\nlist_1=[1,2,3]\n\ndel list_1[0]\n\nprint(list_1)\n\n\n\n[2, 3]"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#deleting-items-by-value",
+    "href": "session2a/DataStructuresDemo.html#deleting-items-by-value",
+    "title": "Session 2: Python Data Structures",
+    "section": "Deleting items by value",
+    "text": "Deleting items by value\nThe .remove() method deletes a specific value from the list. This method will remove the first occurrence of the given object in a list.\n\nlist_1=[1,2,3]\n\nlist_1.remove(1)\n\nprint(list_1)\n\n\n\n[2, 3]"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#lists-vs.-sets-and-deleting-duplicates-from-a-list",
+    "href": "session2a/DataStructuresDemo.html#lists-vs.-sets-and-deleting-duplicates-from-a-list",
+    "title": "Session 2: Python Data Structures",
+    "section": "Lists vs. sets, and deleting duplicates from a list",
+    "text": "Lists vs. sets, and deleting duplicates from a list\nThe difference between a list and a set:\n\nA set is an unordered collection of distinct elements.\nA list is ordered and can contain repeats of an element.\nSets are denoted by curly brackets {}. We can use this knowledge to easily delete duplicates from a list, since there is no built-in method to do so.\n\n\nlist_1=[1,2,3,1,2]\nprint(list_1)\n\n\n\n[1, 2, 3, 1, 2]\n\n\n\nset_1=set(list_1)\nprint(set_1)\n\n\n\n{1, 2, 3}\n\n\n\nlist_2=list(set_1)\nprint (list_2)\n\n\n\n[1, 2, 3]"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#sorting-a-list",
+    "href": "session2a/DataStructuresDemo.html#sorting-a-list",
+    "title": "Session 2: Python Data Structures",
+    "section": "Sorting a list",
+    "text": "Sorting a list\nThere are two ways to sort a list in Python\n\n.sort() modifies the original list itself. Nothing is returned.\n.sorted() returns a new list, which is a sorted version of the original list.\n.reverse=True: Use this parameter to sort the list in reverse order.\n\n\nnumber_list_1=[3,5,2,1,6,19]\nnumber_list_1.sort()\nprint(number_list_1)\n\n\n\n[1, 2, 3, 5, 6, 19]\n\n\n\nnumber_list_2=sorted(number_list_1, reverse=True)\nprint(number_list_2)\n\n\n\n[19, 6, 5, 3, 2, 1]\n\n\n\nalphabet_list_1=['a','z','e','b']\nalphabet_list_1.sort()\nprint(alphabet_list_1)\n\n\n\n['a', 'b', 'e', 'z']\n\n\n\nalphabet_list_2=sorted(alphabet_list_1, reverse=True)\nprint(alphabet_list_2)\n\n\n\n['z', 'e', 'b', 'a']\n\n\n\nmixed_list_1=[1,5,3,'a','c','b']\ntry:\n    mixed_list_1.sort()\n    print(mixed_list_1)\nexcept TypeError:\n    print(\"Can't sort a list of mixed elements\")\n\n\n\nCan't sort a list of mixed elements"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#you-try",
+    "href": "session2a/DataStructuresDemo.html#you-try",
+    "title": "Session 2: Python Data Structures",
+    "section": "You Try!",
+    "text": "You Try!\nNavigate to the follow-along file and try the practice problems!"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#lists",
+    "href": "session2a/DataStructuresDemo.html#lists",
+    "title": "Session 2: Python Data Structures",
+    "section": "Lists",
+    "text": "Lists\n\nTo create a list:\n\n\nmy_list = [1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]\nprint(my_list)\n\n\n\n[1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]\n\n\n\nA list is simply a collection of objects. We can find the length of a list using the len() function:\n\n\nmy_list=[1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]\nlen(my_list)\n\n\n\n7"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#list-comprehension",
+    "href": "session2a/DataStructuresDemo.html#list-comprehension",
+    "title": "Session 2: Python Data Structures",
+    "section": "List comprehension",
+    "text": "List comprehension\nList comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list (or other object)\n\n#Longer syntax with for loop\n\n\n#Example 1:\n\nsome_list=[1,2,3,'a', 'b', 'c']\nnew_list=[]\nfor item in some_list:\n    if type(item)==str:\n        new_list.append(item)\nprint(new_list)\n\n\n\n['a', 'b', 'c']\n\n\n\n#Example 2:\n\nlowercase_list=['joe', 'sarah', 'emily']\ncapital_list=[]\nfor item in lowercase_list:\n    capital_item=item.upper()\n    capital_list.append(capital_item)\nprint(capital_list)\n\n\n\n['JOE', 'SARAH', 'EMILY']\n\n\n\n#Example 3:\n\nsome_string=\"patrick\"\npatrick_list=[]\nfor letter in some_string:\n    if letter=='t' or letter=='a':\n        patrick_list.append(letter)\nprint(patrick_list)\n\n\n\n['a', 't']"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#shorter-syntax-with-list-comprehension",
+    "href": "session2a/DataStructuresDemo.html#shorter-syntax-with-list-comprehension",
+    "title": "Session 2: Python Data Structures",
+    "section": "Shorter syntax with list comprehension",
+    "text": "Shorter syntax with list comprehension\n\n#Example 1:\n\nsome_list=[1,2,3,'a', 'b', 'c']\nnew_list=[x for x in some_list if type(x)==str]\nprint(new_list)\n\n\n\n['a', 'b', 'c']\n\n\n\n#Example 2:\n\nlowercase_list=['joe', 'sarah', 'emily']\ncapital_list=[name.upper() for name in lowercase_list]\nprint(capital_list)\n\n\n\n['JOE', 'SARAH', 'EMILY']\n\n\n\n#Example 3:\n\nsome_string=\"patrick\"\npatrick_list=[x for x in some_string if x=='t' or x=='a']\nprint(patrick_list)\n\n\n\n['a', 't']"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#mutability-of-tuples",
+    "href": "session2a/DataStructuresDemo.html#mutability-of-tuples",
+    "title": "Session 2: Python Data Structures",
+    "section": "Mutability of Tuples",
+    "text": "Mutability of Tuples\nTuples are immutable, so you can’t modify their elements. Attempting to change a tuple will result in an error.\n\n# Trying to modify a tuple element (this will raise an error)\ntry:\n    my_tuple[1] = 99\nexcept TypeError:\n    print(\"Tuples are immutable and cannot be changed!\")\n\n\n\nTuples are immutable and cannot be changed!"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#functions-and-tuples",
+    "href": "session2a/DataStructuresDemo.html#functions-and-tuples",
+    "title": "Session 2: Python Data Structures",
+    "section": "Functions and Tuples",
+    "text": "Functions and Tuples\nFunctions can return multiple values as a tuple. This is useful for returning multiple results in a single function call.\n\n# Function that returns multiple values as a tuple\ndef min_max(nums):\n    return min(nums), max(nums)  # Returns a tuple of (min, max)\n\n# Calling the function and unpacking the tuple\n\nnumbers = [3, 7, 1, 5]\n\nour_tuple = min_max(numbers)\n\nmin_val, max_val = min_max(numbers) #Unpacking in the function call\n\nprint(our_tuple)\nprint(\"Min:\", min_val)\nprint(\"Max:\", max_val)\n\n\n\n(1, 7)\nMin: 1\nMax: 7"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#string-operations",
+    "href": "session2a/DataStructuresDemo.html#string-operations",
+    "title": "Session 2: Python Data Structures",
+    "section": "String Operations",
+    "text": "String Operations\nYou can find the length of a string using the len() funtion, just like with lists.\n\nmy_string = \"Hello, World!\"\nprint(len(my_string))\n\n\n\n13"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#accessing-characters-in-a-string",
+    "href": "session2a/DataStructuresDemo.html#accessing-characters-in-a-string",
+    "title": "Session 2: Python Data Structures",
+    "section": "Accessing characters in a string",
+    "text": "Accessing characters in a string\nStrings are indexed like lists, with the first character having index 0. You can access individual characters using their index.\n\nmy_string = \"Hello, World!\"\n\n# First character\nfirst_char = my_string[0]\n\n# Last character (using negative indexing)\nlast_char = my_string[-1]\n\n# Accessing a range of characters (slicing)\nsubstring = my_string[0:5]\n\nprint(first_char, last_char, substring)\n\n\n\nH ! Hello"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#mutability-of-strings",
+    "href": "session2a/DataStructuresDemo.html#mutability-of-strings",
+    "title": "Session 2: Python Data Structures",
+    "section": "Mutability of Strings",
+    "text": "Mutability of Strings\nStrings are immutable!\nUnlike lists, strings cannot be changed after creation. If you try to change an individual character, you’ll get an error.\n\nmy_string = \"Hello\"\ntry:\n    my_string[0] = \"h\"  # This will raise an error\nexcept TypeError:\n    print(\"Strings are immutable!\")\n\n\n\nStrings are immutable!"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#concatenating-strings",
+    "href": "session2a/DataStructuresDemo.html#concatenating-strings",
+    "title": "Session 2: Python Data Structures",
+    "section": "Concatenating Strings",
+    "text": "Concatenating Strings\nYou can concatenate (combine) strings using the + operator:\n\ngreeting = \"Hello\"\nname = \"Patrick\"\ncombined_string = greeting + \", \" + name + \"!\"\nprint(combined_string)\n\n\n\nHello, Patrick!"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#string-methods",
+    "href": "session2a/DataStructuresDemo.html#string-methods",
+    "title": "Session 2: Python Data Structures",
+    "section": "String methods",
+    "text": "String methods\nPython provides many built-in methods for manipulating strings. Some common ones are:\n\nupper() and lower() These methods convert a string to uppercase or lowercase.\n\nmy_string = \"Hello, World!\"\nprint(my_string.upper())\nprint(my_string.lower())\n\n\n\nHELLO, WORLD!\nhello, world!\n\n\n\n\nstrip() This method removes any leading or trailing whitespace from the string.\n\nmy_string = \"   Hello, World!   \"\nprint(my_string.strip())\n\n\n\nHello, World!\n\n\n\n\nreplace() You can replace parts of a string with another string.\n\nmy_string = \"Hello, World!\"\nnew_string = my_string.replace(\"World\", \"Patrick\")\nprint(new_string)\n\n\n\nHello, Patrick!\n\n\n\n\nThe split() method divides a string into a list of substrings based on a delimiter (default is whitespace).\n\nmy_string = \"Hello, World!\"\nwords = my_string.split()\nprint(words)\n\n\n\n['Hello,', 'World!']\n\n\n\nanother_string=\"Hello-World!\"\nmore_words=another_string.split(\"-\")\nprint(more_words)\n\n\n\n['Hello', 'World!']\n\n\n\n\nThe join() method takes an iterable (like a list) and concatenates its elements into a string with a specified separator between them.\n\nmy_list=['Hello,', 'my', 'name', 'is', 'Patrick']\n\nmy_string=' '.join(my_list)\n\nprint(my_string)\n\n\n\nHello, my name is Patrick"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#f-strings-python-3.6",
+    "href": "session2a/DataStructuresDemo.html#f-strings-python-3.6",
+    "title": "Session 2: Python Data Structures",
+    "section": "f-strings (Python 3.6+)",
+    "text": "f-strings (Python 3.6+)\nYou can insert variables directly into strings using f-strings.\n\nname = \"Patrick\"\nage = 30\nformatted_string = f\"My name is {name} and I am {age} years old.\"\nprint(formatted_string)\n\n\n\nMy name is Patrick and I am 30 years old.\n\n\n\nmy_string = \"Hello, World!\"\n\n# Extract all vowels from the string\nvowels = str([char for char in my_string if char.lower() in \"aeiou\"])\nprint(vowels)\n\n\n\n['e', 'o', 'o']"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#dictionary-operations",
+    "href": "session2a/DataStructuresDemo.html#dictionary-operations",
+    "title": "Session 2: Python Data Structures",
+    "section": "Dictionary Operations",
+    "text": "Dictionary Operations\nAccessing dictionary values\n\nTo access a specific value in a dictionary, use the key in square brackets.\nYou can also use the .get() method, which returns None if the key does not exist, instead of raising an error.\n\n\nprint(my_dictionary['name'])      # Using key\nprint(my_dictionary.get('age'))   # Using .get() method\nprint(my_dictionary.get('gender', 'Not specified'))  # Providing a default value\n\n\n\nAlice\n25\nNot specified"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#adding-and-updating-dictionary-items",
+    "href": "session2a/DataStructuresDemo.html#adding-and-updating-dictionary-items",
+    "title": "Session 2: Python Data Structures",
+    "section": "Adding and updating dictionary items",
+    "text": "Adding and updating dictionary items\nDictionaries are mutable, so you can add new items or update existing ones using assignment.\n\nmy_dictionary['job'] = 'Engineer'        # Adding a new key-value pair\nmy_dictionary['age'] = 26                # Updating an existing value\nprint(my_dictionary)\n\n\n\n{'name': 'Alice', 'age': 26, 'city': 'New York', 'job': 'Engineer'}"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#dictionary-methods",
+    "href": "session2a/DataStructuresDemo.html#dictionary-methods",
+    "title": "Session 2: Python Data Structures",
+    "section": "Dictionary Methods",
+    "text": "Dictionary Methods\nPython dictionaries have several useful methods for managing data:\n\nkeys(): Returns a list of all the keys in the dictionary.\nvalues(): Returns a list of all values in the dictionary.\nitems(): Returns a list of key-value pairs as tuples.\n\n\n# Getting all keys\nprint(my_dictionary.keys())\n\n\n\ndict_keys(['name', 'age', 'city', 'job'])\n\n\n\n# Getting all values\nprint(my_dictionary.values())\n\n\n\ndict_values(['Alice', 26, 'New York', 'Engineer'])\n\n\n\n# Getting all key-value pairs\nprint(my_dictionary.items())\n\n\n\ndict_items([('name', 'Alice'), ('age', 26), ('city', 'New York'), ('job', 'Engineer')])"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#python-dictionaries-for-cancer-research-data",
+    "href": "session2a/DataStructuresDemo.html#python-dictionaries-for-cancer-research-data",
+    "title": "Session 2: Python Data Structures",
+    "section": "Python Dictionaries for Cancer Research Data",
+    "text": "Python Dictionaries for Cancer Research Data\nIn cancer research, dictionaries can be used to store patient data, genetic mutations, and statistical results as key-value pairs. This allows for easy lookup, organization, and analysis of data.\n\n#Let’s create a dictionary to store basic patient information, where each patient has a unique ID, and each ID maps to a dictionary containing information about the patient’s age, cancer type, and stage.\n\n# Dictionary of patients with nested dictionaries\npatient_data = {\n    'P001': {'age': 50, 'cancer_type': 'Lung Cancer', 'stage': 'II'},\n    'P002': {'age': 60, 'cancer_type': 'Breast Cancer', 'stage': 'I'},\n    'P003': {'age': 45, 'cancer_type': 'Melanoma', 'stage': 'III'}\n}\n\nprint(patient_data)\n\n\n\n{'P001': {'age': 50, 'cancer_type': 'Lung Cancer', 'stage': 'II'}, 'P002': {'age': 60, 'cancer_type': 'Breast Cancer', 'stage': 'I'}, 'P003': {'age': 45, 'cancer_type': 'Melanoma', 'stage': 'III'}}\n\n\n\nYou can access a patient’s information using their unique ID. To access nested data, chain the keys. For example, to retrieve the cancer type of a specific patient, you’d use the following:\n\n# Accessing specific information\n\npatient_id = 'P002'\ncancer_type = patient_data[patient_id]['cancer_type']\nprint(f\"Cancer type for {patient_id}: {cancer_type}\")\n\n\n\nCancer type for P002: Breast Cancer\n\n\n\n# Updating a patient’s stage\npatient_data['P003']['stage'] = 'IV'\nprint(f\"Updated stage for P003: {patient_data['P003']['stage']}\")\n\n\n\nUpdated stage for P003: IV"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#adding-and-removing-data",
+    "href": "session2a/DataStructuresDemo.html#adding-and-removing-data",
+    "title": "Session 2: Python Data Structures",
+    "section": "Adding and Removing Data",
+    "text": "Adding and Removing Data\nNew patient data can be added using assignment, and pop() or del can remove a patient’s data.\n\n# Adding a new patient\npatient_data['P004'] = {'age': 70, 'cancer_type': 'Prostate Cancer', 'stage': 'II'}\nprint(\"Added new patient:\", patient_data['P004'])\n\n\n\nAdded new patient: {'age': 70, 'cancer_type': 'Prostate Cancer', 'stage': 'II'}\n\n\n\n# Removing a patient\nremoved_patient = patient_data.pop('P001')\nprint(\"Removed patient:\", removed_patient)\n\n\n\nRemoved patient: {'age': 50, 'cancer_type': 'Lung Cancer', 'stage': 'II'}"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#dictionary-methods-1",
+    "href": "session2a/DataStructuresDemo.html#dictionary-methods-1",
+    "title": "Session 2: Python Data Structures",
+    "section": "Dictionary Methods",
+    "text": "Dictionary Methods\nDictionaries allow you to retrieve keys, values, or entire key-value pairs. Here’s how to use these methods to get an overview of the data.\nkeys(): Retrieves all patient IDs. values(): Retrieves all patient records. items(): Retrieves patient records as key-value pairs\n\nFurther Example\n\n# Getting all patient IDs\nprint(\"Patient IDs:\", patient_data.keys())\n\n# Getting all patient details\nprint(\"Patient Details:\", patient_data.values())\n\n# Looping through each patient's data\nfor patient_id, details in patient_data.items():\n    print(f\"Patient {patient_id} - Age: {details['age']}, Cancer Type: {details['cancer_type']}, Stage: {details['stage']}\")\n\n\n\nPatient IDs: dict_keys(['P002', 'P003', 'P004'])\nPatient Details: dict_values([{'age': 60, 'cancer_type': 'Breast Cancer', 'stage': 'I'}, {'age': 45, 'cancer_type': 'Melanoma', 'stage': 'IV'}, {'age': 70, 'cancer_type': 'Prostate Cancer', 'stage': 'II'}])\nPatient P002 - Age: 60, Cancer Type: Breast Cancer, Stage: I\nPatient P003 - Age: 45, Cancer Type: Melanoma, Stage: IV\nPatient P004 - Age: 70, Cancer Type: Prostate Cancer, Stage: II"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#string-slicing",
+    "href": "session2a/DataStructuresDemo.html#string-slicing",
+    "title": "Session 2: Python Data Structures",
+    "section": "String Slicing",
+    "text": "String Slicing\nWe will slice a string using different combinations of start, end, and step to extract different parts of the string.\n\n#To slice a string, follow the string[start:end:step] format\n\n# Original string\nmy_string = \"Python is awesome!\"\nprint(f\"Original string: {my_string}\")\n\n\n\nOriginal string: Python is awesome!\n\n\n\n# Slice from index 0 to 6 (not inclusive), stepping by 1 (default)\n# This will extract \"Python\"\nsubstring_1 = my_string[0:6]\nprint(f\"Substring 1 (0:6): {substring_1}\")\n\n\n\nSubstring 1 (0:6): Python\n\n\n\n# Slice from index 7 to the end of the string, stepping by 1 (default)\n# This will extract \"is awesome!\"\nsubstring_2 = my_string[7:]\nprint(f\"Substring 2 (7:): {substring_2}\")\n\n\n\nSubstring 2 (7:): is awesome!\n\n\n\n# Slice the entire string but take every second character\n# This will extract \"Pto saeoe\"\nsubstring_3 = my_string[::2]\nprint(f\"Substring 3 (every second character): {substring_3}\")\n\n\n\nSubstring 3 (every second character): Pto saeoe\n\n\n\n# Slice from index 0 to 6, stepping by 2\n# This will extract \"Pto\"\nsubstring_4 = my_string[0:6:2]\nprint(f\"Substring 4 (0:6:2): {substring_4}\")\n\n\n\nSubstring 4 (0:6:2): Pto\n\n\n\n# Slice from index 11 to 6, stepping backward by -1\n# This will extract \"wa si\" (reverse slice)\nsubstring_5 = my_string[11:6:-1]\nprint(f\"Substring 5 (11:6:-1): {substring_5}\")\n\n\n\nSubstring 5 (11:6:-1): wa si"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#topic-1-lists-.scrollable",
+    "href": "session2a/DataStructuresDemo.html#topic-1-lists-.scrollable",
+    "title": "Session 2: Python Data Structures",
+    "section": "Topic 1: Lists {.scrollable}",
+    "text": "Topic 1: Lists {.scrollable}\nThe most important thing about lists\nIn Python, lists are mutable, meaning their elements can be changed after the list is created, allowing for modification such as adding, removing, or updating items. This flexibility makes lists powerful for handling dynamic collections of data.\n\nWe will learn how to do things such as:\n\nCreate lists\nModify lists\nSort lists\nLoop over elements of a list with a for-loop or using list comprehension\nSlice a list\nAppend to a list"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#topic-1-lists-.scrollable-background-coloraquamarine",
+    "href": "session2a/DataStructuresDemo.html#topic-1-lists-.scrollable-background-coloraquamarine",
+    "title": "Session 2: Python Data Structures",
+    "section": "Topic 1: Lists {.scrollable, background-color=“aquamarine”}",
+    "text": "Topic 1: Lists {.scrollable, background-color=“aquamarine”}\nThe most important thing about lists\nIn Python, lists are mutable, meaning their elements can be changed after the list is created, allowing for modification such as adding, removing, or updating items. This flexibility makes lists powerful for handling dynamic collections of data.\n\nWe will learn how to do things such as:\n\nCreate lists\nModify lists\nSort lists\nLoop over elements of a list with a for-loop or using list comprehension\nSlice a list\nAppend to a list"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#functions-vs-methods-in",
+    "href": "session2a/DataStructuresDemo.html#functions-vs-methods-in",
+    "title": "Session 2: Python Data Structures",
+    "section": "Functions vs Methods in",
+    "text": "Functions vs Methods in\nWhat’s the difference?\n\n\n\n\n\n\n\n\nConcept\nFunction\nMethod\n\n\n\n\nDefinition\nA block of code that performs an action\nA function that is associated with an object\n\n\nCalled on\nStandalone / with parameters\nCalled on an object (e.g., a string or list)\n\n\nSyntax\nfunction(arg)\nobject.method()\n\n\nExample\nlen(\"hello\")\n\"hello\".upper()"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#function-example",
+    "href": "session2a/DataStructuresDemo.html#function-example",
+    "title": "Session 2: Python Data Structures",
+    "section": "Function Example",
+    "text": "Function Example\n\n# Define your own function\ndef greet(name):\n    return f\"Hello, {name}!\"\n\nprint(greet(\"Alice\"))  # Hello, Alice!\n\n\n\nHello, Alice!\n\n\n\n# Use a built-in function\nwords = [\"Python\", \"Data\", \"Science\"]\nprint(len(words))  # 3\n\n\n\n3"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#method-example",
+    "href": "session2a/DataStructuresDemo.html#method-example",
+    "title": "Session 2: Python Data Structures",
+    "section": "Method Example",
+    "text": "Method Example\n\n# 'upper()' is a method of string objects\nname = \"patrick\"\nprint(name.upper())  # Output: PATRICK\nprint(name) #Why doesn't name.upper() modify the original string? What would we have to do so that name becomes permanently uppercase?\n\n\n\nPATRICK\npatrick\n\n\n\n# 'append()' is a method of list objects\ncolors = [\"red\", \"blue\"]\ncolors.append(\"green\")\nprint(colors)  # ['red', 'blue', 'green']\n\n#Think back to the last example.  Why does colors permanently change when we use a method, but name did not?\n\n\n\n['red', 'blue', 'green']"
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#behind-the-scenes",
+    "href": "session2a/DataStructuresDemo.html#behind-the-scenes",
+    "title": "Session 2: Python Data Structures",
+    "section": "Behind the Scenes",
+    "text": "Behind the Scenes\n\n# This also works\nstr.upper(\"patrick\")  # Output: 'PATRICK'\n\n\n\n'PATRICK'\n\n\n\n# But this is more common\n\"patrick\".upper()  # Output: 'PATRICK'\n\n\n\n'PATRICK'\n\n\n\nBoth work — but “str.upper()” is a method being called directly from the class."
+  },
+  {
+    "objectID": "session2a/DataStructuresDemo.html#topic-5-functions-vs-methods-in-python",
+    "href": "session2a/DataStructuresDemo.html#topic-5-functions-vs-methods-in-python",
+    "title": "Session 2: Python Data Structures",
+    "section": "Topic 5: Functions vs Methods in Python",
+    "text": "Topic 5: Functions vs Methods in Python\nWhat’s the difference?\n\n\n\n\n\n\n\n\nConcept\nFunction\nMethod\n\n\n\n\nDefinition\nA block of code that performs an action\nA function that is associated with an object\n\n\nCalled on\nStandalone / with parameters\nCalled on an object (e.g., a string or list)\n\n\nSyntax\nfunction(arg)\nobject.method()\n\n\nExample\nlen(\"hello\")\n\"hello\".upper()"
   }
 ]
