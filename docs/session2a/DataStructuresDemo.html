@@ -94,7 +94,6 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
-  <link rel="stylesheet" href="custom.scss">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -429,7 +428,7 @@ Cancer Dataset
 <ul>
 <li class="fragment">To create a list:</li>
 </ul>
-<div id="800ccfd8" class="cell fragment" data-execution_count="1">
+<div id="863fcd28" class="cell fragment" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">3.2</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, [<span class="dv">4</span>, <span class="st">'z'</span>]]</span>
 <span id="cb1-2"><a></a><span class="bu">print</span>(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -441,12 +440,12 @@ Cancer Dataset
 <ul>
 <li class="fragment">A list is simply a collection of objects. We can find the length of a list using the len() function:</li>
 </ul>
-<div id="576e43b2" class="cell fragment" data-execution_count="2">
+<div id="4e7c1ad5" class="cell fragment" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>my_list<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">3.2</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, [<span class="dv">4</span>, <span class="st">'z'</span>]]</span>
 <span id="cb3-2"><a></a><span class="bu">len</span>(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="2">
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="70">
 <pre><code>7</code></pre>
 </div>
 </div>
@@ -458,7 +457,7 @@ Cancer Dataset
 <li class="fragment"><p>To transform another Python object into a list, you can use the list() function, which is essentially the constructor of the list class. This function accepts a single argument: an iterable. So, you can use it to turn any iterable, such as a range, set, or tuple, into a list of concrete values.</p></li>
 <li class="fragment"><p>Python indices begin at 0. In addition, certain built-in python functions such as range will terminate at n-1 in the second argument.</p></li>
 </ul>
-<div id="d9e732bd" class="cell fragment" data-execution_count="3">
+<div id="df694f4f" class="cell fragment" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>first_range<span class="op">=</span><span class="bu">range</span>(<span class="dv">5</span>)</span>
 <span id="cb5-2"><a></a>first_range_list<span class="op">=</span><span class="bu">list</span>(first_range)</span>
 <span id="cb5-3"><a></a><span class="bu">print</span>(first_range_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -468,7 +467,7 @@ Cancer Dataset
 <pre><code>[0, 1, 2, 3, 4]</code></pre>
 </div>
 </div>
-<div id="15b2aedb" class="cell fragment" data-execution_count="4">
+<div id="c40ad87f" class="cell fragment" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>second_range<span class="op">=</span><span class="bu">range</span>(<span class="dv">5</span>,<span class="dv">10</span>)</span>
 <span id="cb7-2"><a></a>second_range_list<span class="op">=</span><span class="bu">list</span>(second_range)</span>
 <span id="cb7-3"><a></a><span class="bu">print</span>(second_range_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -484,7 +483,7 @@ Cancer Dataset
 <p>To access an individual list element, you need to know its position. Since python starts counting at 0, the first element is in position 0, and the second element is in position 1. You can also access nested elements within a list, or access the list in reverse.</p>
 <div class="fragment">
 <p>Examples using my_list from above</p>
-<div id="e46c9992" class="cell fragment" data-execution_count="5">
+<div id="d5b1aa0a" class="cell fragment" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="bu">print</span>(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="5">
@@ -492,7 +491,7 @@ Cancer Dataset
 <pre><code>[1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]</code></pre>
 </div>
 </div>
-<div id="215d2fb6" class="cell fragment" data-execution_count="6">
+<div id="968e385d" class="cell fragment" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>example_1<span class="op">=</span>my_list[<span class="dv">0</span>]</span>
 <span id="cb11-2"><a></a></span>
 <span id="cb11-3"><a></a>example_2<span class="op">=</span>my_list[<span class="dv">6</span>][<span class="dv">1</span>]</span>
@@ -511,7 +510,7 @@ Cancer Dataset
 <section id="mutability-of-lists" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Mutability of lists</h2>
 <p>Since lists are mutable objects, we can directly change their elements.</p>
-<div id="2b627f8a" class="cell fragment" data-execution_count="7">
+<div id="8947360c" class="cell fragment" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>some_list<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb13-2"><a></a><span class="bu">print</span>(some_list)</span>
 <span id="cb13-3"><a></a></span>
@@ -528,7 +527,7 @@ Cancer Dataset
 <section id="appending-an-element-to-a-list" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Appending an element to a list</h2>
 <p>When calling append on a list, we append an object to the end of the list:</p>
-<div id="b6c71718" class="cell fragment" data-execution_count="8">
+<div id="0a0d2353" class="cell fragment" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="bu">print</span>(my_list)</span>
 <span id="cb15-2"><a></a></span>
 <span id="cb15-3"><a></a>my_list.append(<span class="dv">5</span>)</span>
@@ -545,7 +544,7 @@ Cancer Dataset
 <section id="combining-lists" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Combining lists</h2>
 <p>We can combine lists with the “+” operator. This keeps the original lists intact</p>
-<div id="55739243" class="cell fragment" data-execution_count="9">
+<div id="a3b7ef7c" class="cell fragment" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>list_1<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb17-2"><a></a></span>
 <span id="cb17-3"><a></a>list_2<span class="op">=</span>[<span class="st">'a'</span>,<span class="st">'b'</span>,<span class="st">'c'</span>]</span>
@@ -561,7 +560,7 @@ Cancer Dataset
 </div>
 <div class="fragment">
 <p>Another method is to extend one list onto another.</p>
-<div id="3080b770" class="cell fragment" data-execution_count="10">
+<div id="04448e3b" class="cell fragment" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>list_1<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb19-2"><a></a></span>
 <span id="cb19-3"><a></a>list_2<span class="op">=</span>[<span class="st">'a'</span>,<span class="st">'b'</span>,<span class="st">'c'</span>]</span>
@@ -580,7 +579,7 @@ Cancer Dataset
 <section id="pop-method" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>.pop() method</h2>
 <p>The .pop() method removes and returns the last item by default unless you give it an index argument. If you’re familiar with stacks, this method as well as .append() can be used to create one!</p>
-<div id="612b3f47" class="cell fragment" data-execution_count="11">
+<div id="4af69565" class="cell fragment" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>list_1<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb21-2"><a></a></span>
 <span id="cb21-3"><a></a>element_1<span class="op">=</span>list_1.pop()</span>
@@ -597,7 +596,7 @@ Cancer Dataset
 <section id="deleting-items-by-index" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Deleting items by index</h2>
 <p>del removes an item without returning anything. In fact, you can delete any object, including the entire list, using del:</p>
-<div id="c0765e3e" class="cell fragment" data-execution_count="12">
+<div id="17f07b6e" class="cell fragment" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>list_1<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb23-2"><a></a></span>
 <span id="cb23-3"><a></a><span class="kw">del</span> list_1[<span class="dv">0</span>]</span>
@@ -613,7 +612,7 @@ Cancer Dataset
 <section id="deleting-items-by-value" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Deleting items by value</h2>
 <p>The .remove() method deletes a specific value from the list. This method will remove the first occurrence of the given object in a list.</p>
-<div id="02cf6637" class="cell fragment" data-execution_count="13">
+<div id="38eb396d" class="cell fragment" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>list_1<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb25-2"><a></a></span>
 <span id="cb25-3"><a></a>list_1.remove(<span class="dv">1</span>)</span>
@@ -634,7 +633,7 @@ Cancer Dataset
 <li class="fragment">A list is ordered and can contain repeats of an element.</li>
 <li class="fragment">Sets are denoted by curly brackets {}. We can use this knowledge to easily delete duplicates from a list, since there is no built-in method to do so.</li>
 </ul>
-<div id="70d7abf9" class="cell fragment" data-execution_count="14">
+<div id="620d1143" class="cell fragment" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>list_1<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>]</span>
 <span id="cb27-2"><a></a><span class="bu">print</span>(list_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -643,7 +642,7 @@ Cancer Dataset
 <pre><code>[1, 2, 3, 1, 2]</code></pre>
 </div>
 </div>
-<div id="4b9e8a54" class="cell fragment" data-execution_count="15">
+<div id="21c59faf" class="cell fragment" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a>set_1<span class="op">=</span><span class="bu">set</span>(list_1)</span>
 <span id="cb29-2"><a></a><span class="bu">print</span>(set_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -652,7 +651,7 @@ Cancer Dataset
 <pre><code>{1, 2, 3}</code></pre>
 </div>
 </div>
-<div id="757bd1f3" class="cell fragment" data-execution_count="16">
+<div id="03cf0706" class="cell fragment" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a>list_2<span class="op">=</span><span class="bu">list</span>(set_1)</span>
 <span id="cb31-2"><a></a><span class="bu">print</span> (list_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -670,7 +669,7 @@ Cancer Dataset
 <li class="fragment"><p>.sorted() returns a new list, which is a sorted version of the original list.</p></li>
 <li class="fragment"><p>.reverse=True: Use this parameter to sort the list in reverse order.</p></li>
 </ul>
-<div id="27b0825c" class="cell fragment" data-execution_count="17">
+<div id="37f806fb" class="cell fragment" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a>number_list_1<span class="op">=</span>[<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">19</span>]</span>
 <span id="cb33-2"><a></a>number_list_1.sort()</span>
 <span id="cb33-3"><a></a><span class="bu">print</span>(number_list_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -680,7 +679,7 @@ Cancer Dataset
 <pre><code>[1, 2, 3, 5, 6, 19]</code></pre>
 </div>
 </div>
-<div id="fe88e64c" class="cell fragment" data-execution_count="18">
+<div id="413f8b24" class="cell fragment" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a></a>number_list_2<span class="op">=</span><span class="bu">sorted</span>(number_list_1, reverse<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb35-2"><a></a><span class="bu">print</span>(number_list_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -689,7 +688,7 @@ Cancer Dataset
 <pre><code>[19, 6, 5, 3, 2, 1]</code></pre>
 </div>
 </div>
-<div id="20f4c20d" class="cell fragment" data-execution_count="19">
+<div id="b7f202b0" class="cell fragment" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a></a>alphabet_list_1<span class="op">=</span>[<span class="st">'a'</span>,<span class="st">'z'</span>,<span class="st">'e'</span>,<span class="st">'b'</span>]</span>
 <span id="cb37-2"><a></a>alphabet_list_1.sort()</span>
 <span id="cb37-3"><a></a><span class="bu">print</span>(alphabet_list_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -699,7 +698,7 @@ Cancer Dataset
 <pre><code>['a', 'b', 'e', 'z']</code></pre>
 </div>
 </div>
-<div id="d3d34c49" class="cell fragment" data-execution_count="20">
+<div id="f7297613" class="cell fragment" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a>alphabet_list_2<span class="op">=</span><span class="bu">sorted</span>(alphabet_list_1, reverse<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb39-2"><a></a><span class="bu">print</span>(alphabet_list_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -708,7 +707,7 @@ Cancer Dataset
 <pre><code>['z', 'e', 'b', 'a']</code></pre>
 </div>
 </div>
-<div id="adc8e4fe" class="cell fragment" data-execution_count="21">
+<div id="4e4358d3" class="cell fragment" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>mixed_list_1<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="st">'a'</span>,<span class="st">'c'</span>,<span class="st">'b'</span>]</span>
 <span id="cb41-2"><a></a><span class="cf">try</span>:</span>
 <span id="cb41-3"><a></a>    mixed_list_1.sort()</span>
@@ -725,7 +724,7 @@ Cancer Dataset
 <section id="list-comprehension" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>List comprehension</h2>
 <p>List comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list (or other object)</p>
-<div id="9c3654f1" class="cell fragment" data-execution_count="22">
+<div id="9ee6992d" class="cell fragment" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a><span class="co">#Longer syntax with for loop</span></span>
 <span id="cb43-2"><a></a></span>
 <span id="cb43-3"><a></a></span>
@@ -743,7 +742,7 @@ Cancer Dataset
 <pre><code>['a', 'b', 'c']</code></pre>
 </div>
 </div>
-<div id="f8a569f9" class="cell fragment" data-execution_count="23">
+<div id="47183d4e" class="cell fragment" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a><span class="co">#Example 2:</span></span>
 <span id="cb45-2"><a></a></span>
 <span id="cb45-3"><a></a>lowercase_list<span class="op">=</span>[<span class="st">'joe'</span>, <span class="st">'sarah'</span>, <span class="st">'emily'</span>]</span>
@@ -758,7 +757,7 @@ Cancer Dataset
 <pre><code>['JOE', 'SARAH', 'EMILY']</code></pre>
 </div>
 </div>
-<div id="1f37ea2c" class="cell fragment" data-execution_count="24">
+<div id="34bfd41e" class="cell fragment" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a><span class="co">#Example 3:</span></span>
 <span id="cb47-2"><a></a></span>
 <span id="cb47-3"><a></a>some_string<span class="op">=</span><span class="st">"patrick"</span></span>
@@ -776,7 +775,7 @@ Cancer Dataset
 </section>
 <section id="shorter-syntax-with-list-comprehension" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Shorter syntax with list comprehension</h2>
-<div id="441a5117" class="cell fragment" data-execution_count="25">
+<div id="285eff22" class="cell fragment" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a><span class="co">#Example 1:</span></span>
 <span id="cb49-2"><a></a></span>
 <span id="cb49-3"><a></a>some_list<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>]</span>
@@ -788,7 +787,7 @@ Cancer Dataset
 <pre><code>['a', 'b', 'c']</code></pre>
 </div>
 </div>
-<div id="efcba10a" class="cell fragment" data-execution_count="26">
+<div id="bdf081ee" class="cell fragment" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a></a><span class="co">#Example 2:</span></span>
 <span id="cb51-2"><a></a></span>
 <span id="cb51-3"><a></a>lowercase_list<span class="op">=</span>[<span class="st">'joe'</span>, <span class="st">'sarah'</span>, <span class="st">'emily'</span>]</span>
@@ -800,7 +799,7 @@ Cancer Dataset
 <pre><code>['JOE', 'SARAH', 'EMILY']</code></pre>
 </div>
 </div>
-<div id="796c8b46" class="cell fragment" data-execution_count="27">
+<div id="d09674b0" class="cell fragment" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a></a><span class="co">#Example 3:</span></span>
 <span id="cb53-2"><a></a></span>
 <span id="cb53-3"><a></a>some_string<span class="op">=</span><span class="st">"patrick"</span></span>
@@ -823,7 +822,7 @@ Cancer Dataset
 </ul>
 <div class="fragment">
 <p>To create a tuple, you use parentheses () rather than square brackets [].</p>
-<div id="49b06cce" class="cell fragment" data-execution_count="28">
+<div id="b7fe863f" class="cell fragment" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a></a><span class="co"># Creating a tuple</span></span>
 <span id="cb55-2"><a></a>my_tuple <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)</span>
 <span id="cb55-3"><a></a></span>
@@ -842,7 +841,7 @@ Last element: 30</code></pre>
 <section id="mutability-of-tuples" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Mutability of Tuples</h2>
 <p>Tuples are immutable, so you can’t modify their elements. Attempting to change a tuple will result in an error.</p>
-<div id="3ae3bb29" class="cell fragment" data-execution_count="29">
+<div id="9eb6788a" class="cell fragment" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a></a><span class="co"># Trying to modify a tuple element (this will raise an error)</span></span>
 <span id="cb57-2"><a></a><span class="cf">try</span>:</span>
 <span id="cb57-3"><a></a>    my_tuple[<span class="dv">1</span>] <span class="op">=</span> <span class="dv">99</span></span>
@@ -858,7 +857,7 @@ Last element: 30</code></pre>
 <section id="functions-and-tuples" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Functions and Tuples</h2>
 <p>Functions can return multiple values as a tuple. This is useful for returning multiple results in a single function call.</p>
-<div id="2ca336d2" class="cell fragment" data-execution_count="30">
+<div id="274e9445" class="cell fragment" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a></a><span class="co"># Function that returns multiple values as a tuple</span></span>
 <span id="cb59-2"><a></a><span class="kw">def</span> min_max(nums):</span>
 <span id="cb59-3"><a></a>    <span class="cf">return</span> <span class="bu">min</span>(nums), <span class="bu">max</span>(nums)  <span class="co"># Returns a tuple of (min, max)</span></span>
@@ -886,7 +885,7 @@ Max: 7</code></pre>
 <section id="topic-3-strings" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Topic 3: Strings</h2>
 <p>You can use single or double quotes to define a string (but keep it consistent!)</p>
-<div id="096cb726" class="cell fragment" data-execution_count="31">
+<div id="3d824c26" class="cell fragment" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a></a>my_string <span class="op">=</span> <span class="st">"Hello, World!"</span></span>
 <span id="cb61-2"><a></a><span class="bu">print</span>(my_string)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -897,7 +896,7 @@ Max: 7</code></pre>
 </div>
 <div class="fragment">
 <p>You can also create a multiline string using triple quotes:</p>
-<div id="53d55fab" class="cell fragment" data-execution_count="32">
+<div id="21d3d5d8" class="cell fragment" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a></a>multi_line_string <span class="op">=</span> <span class="st">"""This is</span></span>
 <span id="cb63-2"><a></a><span class="st">a multiline</span></span>
 <span id="cb63-3"><a></a><span class="st">string."""</span></span>
@@ -915,7 +914,7 @@ string.</code></pre>
 <section id="string-operations" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>String Operations</h2>
 <p>You can find the length of a string using the len() funtion, just like with lists.</p>
-<div id="03509b7d" class="cell fragment" data-execution_count="33">
+<div id="d765a095" class="cell fragment" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a></a>my_string <span class="op">=</span> <span class="st">"Hello, World!"</span></span>
 <span id="cb65-2"><a></a><span class="bu">print</span>(<span class="bu">len</span>(my_string))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -928,7 +927,7 @@ string.</code></pre>
 <section id="accessing-characters-in-a-string" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Accessing characters in a string</h2>
 <p>Strings are indexed like lists, with the first character having index 0. You can access individual characters using their index.</p>
-<div id="978a0a85" class="cell fragment" data-execution_count="34">
+<div id="deccf4a7" class="cell fragment" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a></a>my_string <span class="op">=</span> <span class="st">"Hello, World!"</span></span>
 <span id="cb67-2"><a></a></span>
 <span id="cb67-3"><a></a><span class="co"># First character</span></span>
@@ -952,7 +951,7 @@ string.</code></pre>
 <h2>Mutability of Strings</h2>
 <p>Strings are immutable!</p>
 <p>Unlike lists, strings cannot be changed after creation. If you try to change an individual character, you’ll get an error.</p>
-<div id="7a876454" class="cell fragment" data-execution_count="35">
+<div id="ea3fc663" class="cell fragment" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a></a>my_string <span class="op">=</span> <span class="st">"Hello"</span></span>
 <span id="cb69-2"><a></a><span class="cf">try</span>:</span>
 <span id="cb69-3"><a></a>    my_string[<span class="dv">0</span>] <span class="op">=</span> <span class="st">"h"</span>  <span class="co"># This will raise an error</span></span>
@@ -968,7 +967,7 @@ string.</code></pre>
 <section id="concatenating-strings" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Concatenating Strings</h2>
 <p>You can concatenate (combine) strings using the + operator:</p>
-<div id="12a3d8f0" class="cell fragment" data-execution_count="36">
+<div id="157bf970" class="cell fragment" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a></a>greeting <span class="op">=</span> <span class="st">"Hello"</span></span>
 <span id="cb71-2"><a></a>name <span class="op">=</span> <span class="st">"Patrick"</span></span>
 <span id="cb71-3"><a></a>combined_string <span class="op">=</span> greeting <span class="op">+</span> <span class="st">", "</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">"!"</span></span>
@@ -985,7 +984,7 @@ string.</code></pre>
 <p>Python provides many built-in methods for manipulating strings. Some common ones are:</p>
 <div class="fragment">
 <p>upper() and lower() These methods convert a string to uppercase or lowercase.</p>
-<div id="aed7a227" class="cell fragment" data-execution_count="37">
+<div id="99209386" class="cell fragment" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a></a>my_string <span class="op">=</span> <span class="st">"Hello, World!"</span></span>
 <span id="cb73-2"><a></a><span class="bu">print</span>(my_string.upper())</span>
 <span id="cb73-3"><a></a><span class="bu">print</span>(my_string.lower())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -999,7 +998,7 @@ hello, world!</code></pre>
 </div>
 <div class="fragment">
 <p>strip() This method removes any leading or trailing whitespace from the string.</p>
-<div id="61b89792" class="cell fragment" data-execution_count="38">
+<div id="52f5ca42" class="cell fragment" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a></a>my_string <span class="op">=</span> <span class="st">"   Hello, World!   "</span></span>
 <span id="cb75-2"><a></a><span class="bu">print</span>(my_string.strip())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1011,7 +1010,7 @@ hello, world!</code></pre>
 </div>
 <div class="fragment">
 <p>replace() You can replace parts of a string with another string.</p>
-<div id="4fb80079" class="cell fragment" data-execution_count="39">
+<div id="1354eb8b" class="cell fragment" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a></a>my_string <span class="op">=</span> <span class="st">"Hello, World!"</span></span>
 <span id="cb77-2"><a></a>new_string <span class="op">=</span> my_string.replace(<span class="st">"World"</span>, <span class="st">"Patrick"</span>)</span>
 <span id="cb77-3"><a></a><span class="bu">print</span>(new_string)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1024,7 +1023,7 @@ hello, world!</code></pre>
 </div>
 <div class="fragment">
 <p>The split() method divides a string into a list of substrings based on a delimiter (default is whitespace).</p>
-<div id="07750209" class="cell fragment" data-execution_count="40">
+<div id="e8ecb63f" class="cell fragment" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a></a>my_string <span class="op">=</span> <span class="st">"Hello, World!"</span></span>
 <span id="cb79-2"><a></a>words <span class="op">=</span> my_string.split()</span>
 <span id="cb79-3"><a></a><span class="bu">print</span>(words)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1034,7 +1033,7 @@ hello, world!</code></pre>
 <pre><code>['Hello,', 'World!']</code></pre>
 </div>
 </div>
-<div id="4d10c7ac" class="cell fragment" data-execution_count="41">
+<div id="3607021d" class="cell fragment" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a></a>another_string<span class="op">=</span><span class="st">"Hello-World!"</span></span>
 <span id="cb81-2"><a></a>more_words<span class="op">=</span>another_string.split(<span class="st">"-"</span>)</span>
 <span id="cb81-3"><a></a><span class="bu">print</span>(more_words)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1047,7 +1046,7 @@ hello, world!</code></pre>
 </div>
 <div class="fragment">
 <p>The join() method takes an iterable (like a list) and concatenates its elements into a string with a specified separator between them.</p>
-<div id="323a79be" class="cell fragment" data-execution_count="42">
+<div id="159c54ac" class="cell fragment" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a></a>my_list<span class="op">=</span>[<span class="st">'Hello,'</span>, <span class="st">'my'</span>, <span class="st">'name'</span>, <span class="st">'is'</span>, <span class="st">'Patrick'</span>]</span>
 <span id="cb83-2"><a></a></span>
 <span id="cb83-3"><a></a>my_string<span class="op">=</span><span class="st">' '</span>.join(my_list)</span>
@@ -1064,7 +1063,7 @@ hello, world!</code></pre>
 <section id="f-strings-python-3.6" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>f-strings (Python 3.6+)</h2>
 <p>You can insert variables directly into strings using f-strings.</p>
-<div id="166925c1" class="cell fragment" data-execution_count="43">
+<div id="74cae7d2" class="cell fragment" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a></a>name <span class="op">=</span> <span class="st">"Patrick"</span></span>
 <span id="cb85-2"><a></a>age <span class="op">=</span> <span class="dv">30</span></span>
 <span id="cb85-3"><a></a>formatted_string <span class="op">=</span> <span class="ss">f"My name is </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> and I am </span><span class="sc">{</span>age<span class="sc">}</span><span class="ss"> years old."</span></span>
@@ -1075,7 +1074,7 @@ hello, world!</code></pre>
 <pre><code>My name is Patrick and I am 30 years old.</code></pre>
 </div>
 </div>
-<div id="4077372b" class="cell fragment" data-execution_count="44">
+<div id="635a73af" class="cell fragment" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a></a>my_string <span class="op">=</span> <span class="st">"Hello, World!"</span></span>
 <span id="cb87-2"><a></a></span>
 <span id="cb87-3"><a></a><span class="co"># Extract all vowels from the string</span></span>
@@ -1091,7 +1090,7 @@ hello, world!</code></pre>
 <section id="string-slicing" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>String Slicing</h2>
 <p>We will slice a string using different combinations of start, end, and step to extract different parts of the string.</p>
-<div id="636fbeab" class="cell fragment" data-execution_count="45">
+<div id="9926dc45" class="cell fragment" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a></a><span class="co">#To slice a string, follow the string[start:end:step] format</span></span>
 <span id="cb89-2"><a></a></span>
 <span id="cb89-3"><a></a><span class="co"># Original string</span></span>
@@ -1103,7 +1102,7 @@ hello, world!</code></pre>
 <pre><code>Original string: Python is awesome!</code></pre>
 </div>
 </div>
-<div id="2a36351d" class="cell fragment" data-execution_count="46">
+<div id="384e8bbc" class="cell fragment" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a></a><span class="co"># Slice from index 0 to 6 (not inclusive), stepping by 1 (default)</span></span>
 <span id="cb91-2"><a></a><span class="co"># This will extract "Python"</span></span>
 <span id="cb91-3"><a></a>substring_1 <span class="op">=</span> my_string[<span class="dv">0</span>:<span class="dv">6</span>]</span>
@@ -1114,7 +1113,7 @@ hello, world!</code></pre>
 <pre><code>Substring 1 (0:6): Python</code></pre>
 </div>
 </div>
-<div id="21de4cc6" class="cell fragment" data-execution_count="47">
+<div id="fec51d4d" class="cell fragment" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a></a><span class="co"># Slice from index 7 to the end of the string, stepping by 1 (default)</span></span>
 <span id="cb93-2"><a></a><span class="co"># This will extract "is awesome!"</span></span>
 <span id="cb93-3"><a></a>substring_2 <span class="op">=</span> my_string[<span class="dv">7</span>:]</span>
@@ -1125,7 +1124,7 @@ hello, world!</code></pre>
 <pre><code>Substring 2 (7:): is awesome!</code></pre>
 </div>
 </div>
-<div id="e4fa9d62" class="cell fragment" data-execution_count="48">
+<div id="19c9c289" class="cell fragment" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a></a><span class="co"># Slice the entire string but take every second character</span></span>
 <span id="cb95-2"><a></a><span class="co"># This will extract "Pto saeoe"</span></span>
 <span id="cb95-3"><a></a>substring_3 <span class="op">=</span> my_string[::<span class="dv">2</span>]</span>
@@ -1136,7 +1135,7 @@ hello, world!</code></pre>
 <pre><code>Substring 3 (every second character): Pto saeoe</code></pre>
 </div>
 </div>
-<div id="70558247" class="cell fragment" data-execution_count="49">
+<div id="c8078e67" class="cell fragment" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a></a><span class="co"># Slice from index 0 to 6, stepping by 2</span></span>
 <span id="cb97-2"><a></a><span class="co"># This will extract "Pto"</span></span>
 <span id="cb97-3"><a></a>substring_4 <span class="op">=</span> my_string[<span class="dv">0</span>:<span class="dv">6</span>:<span class="dv">2</span>]</span>
@@ -1147,7 +1146,7 @@ hello, world!</code></pre>
 <pre><code>Substring 4 (0:6:2): Pto</code></pre>
 </div>
 </div>
-<div id="39144562" class="cell fragment" data-execution_count="50">
+<div id="fa8c9c45" class="cell fragment" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a></a><span class="co"># Slice from index 11 to 6, stepping backward by -1</span></span>
 <span id="cb99-2"><a></a><span class="co"># This will extract "wa si" (reverse slice)</span></span>
 <span id="cb99-3"><a></a>substring_5 <span class="op">=</span> my_string[<span class="dv">11</span>:<span class="dv">6</span>:<span class="op">-</span><span class="dv">1</span>]</span>
@@ -1168,7 +1167,7 @@ hello, world!</code></pre>
 </ul>
 <div class="fragment">
 <p>To create a dictionary, use curly braces {}, with each key-value pair separated by a colon (:), and pairs separated by commas.</p>
-<div id="5974cdb1" class="cell fragment" data-execution_count="51">
+<div id="8a295651" class="cell fragment" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a></a><span class="co"># Creating a dictionary</span></span>
 <span id="cb101-2"><a></a>my_dictionary <span class="op">=</span> {</span>
 <span id="cb101-3"><a></a>    <span class="st">'name'</span>: <span class="st">'Alice'</span>,</span>
@@ -1191,7 +1190,7 @@ hello, world!</code></pre>
 <li class="fragment">To access a specific value in a dictionary, use the key in square brackets.</li>
 <li class="fragment">You can also use the .get() method, which returns None if the key does not exist, instead of raising an error.</li>
 </ul>
-<div id="07a3c140" class="cell fragment" data-execution_count="52">
+<div id="e4f2db2a" class="cell fragment" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a></a><span class="bu">print</span>(my_dictionary[<span class="st">'name'</span>])      <span class="co"># Using key</span></span>
 <span id="cb103-2"><a></a><span class="bu">print</span>(my_dictionary.get(<span class="st">'age'</span>))   <span class="co"># Using .get() method</span></span>
 <span id="cb103-3"><a></a><span class="bu">print</span>(my_dictionary.get(<span class="st">'gender'</span>, <span class="st">'Not specified'</span>))  <span class="co"># Providing a default value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1207,7 +1206,7 @@ Not specified</code></pre>
 <section id="adding-and-updating-dictionary-items" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Adding and updating dictionary items</h2>
 <p>Dictionaries are mutable, so you can add new items or update existing ones using assignment.</p>
-<div id="c160a270" class="cell fragment" data-execution_count="53">
+<div id="102d08ec" class="cell fragment" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a></a>my_dictionary[<span class="st">'job'</span>] <span class="op">=</span> <span class="st">'Engineer'</span>        <span class="co"># Adding a new key-value pair</span></span>
 <span id="cb105-2"><a></a>my_dictionary[<span class="st">'age'</span>] <span class="op">=</span> <span class="dv">26</span>                <span class="co"># Updating an existing value</span></span>
 <span id="cb105-3"><a></a><span class="bu">print</span>(my_dictionary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1226,7 +1225,7 @@ Not specified</code></pre>
 <li class="fragment">values(): Returns a list of all values in the dictionary.</li>
 <li class="fragment">items(): Returns a list of key-value pairs as tuples.</li>
 </ul>
-<div id="e5923682" class="cell fragment" data-execution_count="54">
+<div id="240d0163" class="cell fragment" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a></a><span class="co"># Getting all keys</span></span>
 <span id="cb107-2"><a></a><span class="bu">print</span>(my_dictionary.keys())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1235,7 +1234,7 @@ Not specified</code></pre>
 <pre><code>dict_keys(['name', 'age', 'city', 'job'])</code></pre>
 </div>
 </div>
-<div id="5483504f" class="cell fragment" data-execution_count="55">
+<div id="55017f35" class="cell fragment" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a></a><span class="co"># Getting all values</span></span>
 <span id="cb109-2"><a></a><span class="bu">print</span>(my_dictionary.values())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1244,7 +1243,7 @@ Not specified</code></pre>
 <pre><code>dict_values(['Alice', 26, 'New York', 'Engineer'])</code></pre>
 </div>
 </div>
-<div id="bda0f218" class="cell fragment" data-execution_count="56">
+<div id="f68b25c9" class="cell fragment" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a></a><span class="co"># Getting all key-value pairs</span></span>
 <span id="cb111-2"><a></a><span class="bu">print</span>(my_dictionary.items())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1257,7 +1256,7 @@ Not specified</code></pre>
 <section id="python-dictionaries-for-cancer-research-data" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Python Dictionaries for Cancer Research Data</h2>
 <p>In cancer research, dictionaries can be used to store patient data, genetic mutations, and statistical results as key-value pairs. This allows for easy lookup, organization, and analysis of data.</p>
-<div id="99652ab5" class="cell fragment" data-execution_count="57">
+<div id="43e14cff" class="cell fragment" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a></a><span class="co">#Let’s create a dictionary to store basic patient information, where each patient has a unique ID, and each ID maps to a dictionary containing information about the patient’s age, cancer type, and stage.</span></span>
 <span id="cb113-2"><a></a></span>
 <span id="cb113-3"><a></a><span class="co"># Dictionary of patients with nested dictionaries</span></span>
@@ -1276,7 +1275,7 @@ Not specified</code></pre>
 </div>
 <div class="fragment">
 <p>You can access a patient’s information using their unique ID. To access nested data, chain the keys. For example, to retrieve the cancer type of a specific patient, you’d use the following:</p>
-<div id="14af7bdb" class="cell fragment" data-execution_count="58">
+<div id="c51ba28f" class="cell fragment" data-execution_count="58">
 <div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a></a><span class="co"># Accessing specific information</span></span>
 <span id="cb115-2"><a></a></span>
 <span id="cb115-3"><a></a>patient_id <span class="op">=</span> <span class="st">'P002'</span></span>
@@ -1288,7 +1287,7 @@ Not specified</code></pre>
 <pre><code>Cancer type for P002: Breast Cancer</code></pre>
 </div>
 </div>
-<div id="1543c677" class="cell fragment" data-execution_count="59">
+<div id="b22984ab" class="cell fragment" data-execution_count="59">
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a></a><span class="co"># Updating a patient’s stage</span></span>
 <span id="cb117-2"><a></a>patient_data[<span class="st">'P003'</span>][<span class="st">'stage'</span>] <span class="op">=</span> <span class="st">'IV'</span></span>
 <span id="cb117-3"><a></a><span class="bu">print</span>(<span class="ss">f"Updated stage for P003: </span><span class="sc">{</span>patient_data[<span class="st">'P003'</span>][<span class="st">'stage'</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1303,7 +1302,7 @@ Not specified</code></pre>
 <section id="adding-and-removing-data" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Adding and Removing Data</h2>
 <p>New patient data can be added using assignment, and pop() or del can remove a patient’s data.</p>
-<div id="abc6a443" class="cell fragment" data-execution_count="60">
+<div id="f780ff74" class="cell fragment" data-execution_count="60">
 <div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a></a><span class="co"># Adding a new patient</span></span>
 <span id="cb119-2"><a></a>patient_data[<span class="st">'P004'</span>] <span class="op">=</span> {<span class="st">'age'</span>: <span class="dv">70</span>, <span class="st">'cancer_type'</span>: <span class="st">'Prostate Cancer'</span>, <span class="st">'stage'</span>: <span class="st">'II'</span>}</span>
 <span id="cb119-3"><a></a><span class="bu">print</span>(<span class="st">"Added new patient:"</span>, patient_data[<span class="st">'P004'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1313,7 +1312,7 @@ Not specified</code></pre>
 <pre><code>Added new patient: {'age': 70, 'cancer_type': 'Prostate Cancer', 'stage': 'II'}</code></pre>
 </div>
 </div>
-<div id="a3ff6c6b" class="cell fragment" data-execution_count="61">
+<div id="7f478a58" class="cell fragment" data-execution_count="61">
 <div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb121-1"><a></a><span class="co"># Removing a patient</span></span>
 <span id="cb121-2"><a></a>removed_patient <span class="op">=</span> patient_data.pop(<span class="st">'P001'</span>)</span>
 <span id="cb121-3"><a></a><span class="bu">print</span>(<span class="st">"Removed patient:"</span>, removed_patient)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1330,7 +1329,7 @@ Not specified</code></pre>
 <p>keys(): Retrieves all patient IDs. values(): Retrieves all patient records. items(): Retrieves patient records as key-value pairs</p>
 <div class="fragment">
 <p>Further Example</p>
-<div id="8615dd4b" class="cell fragment" data-execution_count="62">
+<div id="816f473e" class="cell fragment" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a></a><span class="co"># Getting all patient IDs</span></span>
 <span id="cb123-2"><a></a><span class="bu">print</span>(<span class="st">"Patient IDs:"</span>, patient_data.keys())</span>
 <span id="cb123-3"><a></a></span>
@@ -1394,7 +1393,7 @@ Patient P004 - Age: 70, Cancer Type: Prostate Cancer, Stage: II</code></pre>
 </section>
 <section id="function-example" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Function Example</h2>
-<div id="584a36f0" class="cell fragment" data-execution_count="63">
+<div id="c6ec26f6" class="cell fragment" data-execution_count="63">
 <div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb125-1"><a></a><span class="co"># Define your own function</span></span>
 <span id="cb125-2"><a></a><span class="kw">def</span> greet(name):</span>
 <span id="cb125-3"><a></a>    <span class="cf">return</span> <span class="ss">f"Hello, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span></span>
@@ -1406,7 +1405,7 @@ Patient P004 - Age: 70, Cancer Type: Prostate Cancer, Stage: II</code></pre>
 <pre><code>Hello, Alice!</code></pre>
 </div>
 </div>
-<div id="a096e1e8" class="cell fragment" data-execution_count="64">
+<div id="91caa691" class="cell fragment" data-execution_count="64">
 <div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb127-1"><a></a><span class="co"># Use a built-in function</span></span>
 <span id="cb127-2"><a></a>words <span class="op">=</span> [<span class="st">"Python"</span>, <span class="st">"Data"</span>, <span class="st">"Science"</span>]</span>
 <span id="cb127-3"><a></a><span class="bu">print</span>(<span class="bu">len</span>(words))  <span class="co"># 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1419,7 +1418,7 @@ Patient P004 - Age: 70, Cancer Type: Prostate Cancer, Stage: II</code></pre>
 </section>
 <section id="method-example" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Method Example</h2>
-<div id="f8b0df54" class="cell fragment" data-execution_count="65">
+<div id="8488bac1" class="cell fragment" data-execution_count="65">
 <div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb129-1"><a></a><span class="co"># 'upper()' is a method of string objects</span></span>
 <span id="cb129-2"><a></a>name <span class="op">=</span> <span class="st">"patrick"</span></span>
 <span id="cb129-3"><a></a><span class="bu">print</span>(name.upper())  <span class="co"># Output: PATRICK</span></span>
@@ -1431,7 +1430,7 @@ Patient P004 - Age: 70, Cancer Type: Prostate Cancer, Stage: II</code></pre>
 patrick</code></pre>
 </div>
 </div>
-<div id="8cb8e1b6" class="cell fragment" data-execution_count="66">
+<div id="628a168a" class="cell fragment" data-execution_count="66">
 <div class="sourceCode cell-code" id="cb131"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb131-1"><a></a><span class="co"># 'append()' is a method of list objects</span></span>
 <span id="cb131-2"><a></a>colors <span class="op">=</span> [<span class="st">"red"</span>, <span class="st">"blue"</span>]</span>
 <span id="cb131-3"><a></a>colors.append(<span class="st">"green"</span>)</span>
@@ -1447,21 +1446,21 @@ patrick</code></pre>
 </section>
 <section id="behind-the-scenes" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Behind the Scenes</h2>
-<div id="7645dbca" class="cell fragment" data-execution_count="67">
+<div id="bf5c2da0" class="cell fragment" data-execution_count="67">
 <div class="sourceCode cell-code" id="cb133"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb133-1"><a></a><span class="co"># This also works</span></span>
 <span id="cb133-2"><a></a><span class="bu">str</span>.upper(<span class="st">"patrick"</span>)  <span class="co"># Output: 'PATRICK'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="67">
-<div class="cell-output cell-output-display" data-execution_count="67">
+<div class="cell-output cell-output-display" data-execution_count="135">
 <pre><code>'PATRICK'</code></pre>
 </div>
 </div>
-<div id="096a0cba" class="cell fragment" data-execution_count="68">
+<div id="f27fce0a" class="cell fragment" data-execution_count="68">
 <div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb135-1"><a></a><span class="co"># But this is more common</span></span>
 <span id="cb135-2"><a></a><span class="co">"patrick"</span>.upper()  <span class="co"># Output: 'PATRICK'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="68">
-<div class="cell-output cell-output-display" data-execution_count="68">
+<div class="cell-output cell-output-display" data-execution_count="136">
 <pre><code>'PATRICK'</code></pre>
 </div>
 </div>
