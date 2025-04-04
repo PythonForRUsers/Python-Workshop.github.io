@@ -1,5 +1,5 @@
 ---
-title: "Python Workshops: Intro to Python"
+title: "Introduction to Python Workshops"
 author: "Python Group"
 format: 
   html:
@@ -11,51 +11,105 @@ format:
     link-external-newwindow: true
     css: styles.css
 output-dir: docs/
-    
 ---
 
-# Welcome to the Intro to Python Workshops
+# Welcome🙌
 
-Our Intro to Python Workshops are geared towards R and SAS users who want to explore using Python. Python is a versatile language and is especially powerful for tasks such as machine learning, big data processing, and broader data science applications. We will cover installing and setting up python with anaconda, basic python datastructures, and finally a demo logistic regression model with a cancer dataset. We will upload session videos, python demos and other things here. 
+This workshop series is geared toward R and SAS users who are interested in exploring Python–a powerful, versatile programming language that excels in many areas such as machine learning, large-scale data processing, and broader data science applications.
 
-We value your feedback and aim to continually improve these workshops. If you have any suggestions, questions, or ideas, please feel free to share them on our <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/discussions"> GitHub Discussions</a> page. We look forward to hearing from you!
+Our goal is to help you build a solid foundation in Python and gain skills that can be integrated into your own work. This series will guide you through installing and setting up Python, understanding basic Python data structures, data manipulation through `pandas`, and, finally, applying machine learning methods using libraries such as `scikit-learn`.
 
+All workshop materials, including pre-session handouts, coding demos, assignments, session slides, and video recordings, will be uploaded here. Be sure to check out the [FAQ](https://github.mskcc.org/pages/Python-Workshop/Python-Workshop.github.io/FAQ.html) tab for common questions. If you have any questions, suggestions, or ideas for future sessions, please feel free to share them on our [GitHub Discussions](https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/discussions) page. We value your feedback and aim to continually improve the workshops. We look forward to learning with you!
 
-# Links 
+# Workshop Information
 
-<a href="https://www.anaconda.com/download/success" class="link-block">
-    <img src="icons/anaconda_secondary_logo.svg" alt="Anaconda Download">
-    <p>Install Anaconda</p>
-</a><a href="https://code.visualstudio.com/" class = "link-block"> <img src="icons/VScode.png" alt="VS Code Download"> <p>Install VS Code</p> 
-</a><a href="https://quarto.org/docs/get-started/" class="link-block">
-    <img src="icons/quarto.png" alt="Install Quarto">
-    <p>Install Quarto</p>
+**Time and Location:** Mon 2:30 - 4:30 pm, Wed 1:00 - 3:00 pm \| Room 501C
+
+**Contact and Office Hours**:
+
+-   Dani Vaithilingam ([vaithid1\@mskcc.org](mailto:vaithid1@mskcc.org){.email}): OH **TBD**
+-   Patrick Augello **(**[augellp1\@mskcc.org](mailto:augellp1@mskcc.org){.email}): OH **TBD**
+-   Yufei Deng ([dengy\@mskcc.org](mailto:dengy@mskcc.org){.email}): OH **TBD**
+
+::: {tbl-colwidths="[25, 15, 38, 22]"}
++---------------------------------------------------------------------------+------------------+----------------------------------------------------------------------+-------------------------------------------+
+| Session                                                                   | Date             | Outline                                                              | Materials and Assignments                 |
++===========================================================================+==================+======================================================================+===========================================+
+| **Session 1: Python Installation and Reproducible Workflow (Yufei)**      | Monday (4/14)    | -   Python, VS Code, and conda virtual environment overview          | -   Pre-read: Installation guide \[html\] |
+|                                                                           |                  | -   Building a reproducible Python Project                           | -   session slides \[html\]               |
+|                                                                           | 2:30-4:30 pm     |     -   Create a GitHub repository for the workshop series           |                                           |
+|                                                                           |                  |     -   Set up a conda virtual environment through command lines     |                                           |
+|                                                                           |                  |     -   Sett up Jupyter Notebook in VS Code                          |                                           |
++---------------------------------------------------------------------------+------------------+----------------------------------------------------------------------+-------------------------------------------+
+| **Session 2: Intro to Python Data Structures (Patrick)**                  | Wednesday (4/16) | -   Data container types: Strings, lists, tuples, dictionaries, etc. | -   Data structures: Python vs. R         |
+|                                                                           |                  | -   Handling missingness                                             |                                           |
+|                                                                           | 1:00-3:00 pm     | -   Methods vs. functions                                            | -   Missingness \[docx\]                  |
++---------------------------------------------------------------------------+------------------+----------------------------------------------------------------------+-------------------------------------------+
+| **Session 3: Intro to Pandas (Patrick)**                                  | Monday (4/21)    | -   `pandas` for data manipulation and cleaning                      |                                           |
+|                                                                           |                  | -   Data management                                                  |                                           |
+|                                                                           | 2:30-4:30 pm     | -   `great_tables` for gtsummary-style tables                        |                                           |
++---------------------------------------------------------------------------+------------------+----------------------------------------------------------------------+-------------------------------------------+
+| **Session 4: Object-Oriented Programming & Intro to ML Libraries (Dani)** | Wednesday (4/23) | Part A: Introduction to object-oriented programming (OOP)            | -   Pre-read: K-Means vs KNN and Plotting in Python primer \[ <a href="session4_newMLDemo\sess4preread.html">html</a>\] |
+|                                                                           |                  |                                                                      | -   Session Slides \[<a href="session4_newMLDemo\session4v2_slides.html">html</a>\] |
+|                                                                           | 1:00-3:00 pm     | -   Recap: classes, methods, and attributes                          |                                           |
+|                                                                           |                  | -   Understanding classes (base, derived, mixins)                    |                                           |
+|                                                                           |                  | -   Creating classes and instances                                   |                                           |
+|                                                                           |                  | -   Understanding inheritance                                        |                                           |
+|                                                                           |                  |                                                                      |                                           |
+|                                                                           |                  | Part B: `scikit-learn` for machine learning                          |                                           |
+|                                                                           |                  |                                                                      |                                           |
+|                                                                           |                  | -   Clustering (k-means)                                             |                                           |
+|                                                                           |                  | -   Prediction (k nearest neighbors)                                 |                                           |
+|                                                                           |                  | -   Plotting with Python (`plotnine`, `seaborn`)                     |                                           |
++---------------------------------------------------------------------------+------------------+----------------------------------------------------------------------+-------------------------------------------+
+:::
+
+# Other Resources
+
+## ▶️Recordings
+
+Recordings will be uploaded after each session
+
+## 🔗Useful Links
+
+#### **Tutorials and Handouts**
+
+-   <a href="session1/session1.html">Tutorial: Installing Python and Essential Tools</a>
+
+-   <a href="session2a/session2.html">Go to Session2a: Intro to Python Data Structures </a>
+
+-   <a href="session2b/session2_2.html">Go to Session2b: Intro to Pandas </a>
+
+-   <a href="session3/session3.html">Go to ML Demo</a>
+
+#### **Downloads**
+
+<a href="https://www.anaconda.com/download/success" class="link-block"> <img src="icons/anaconda_secondary_logo.svg" alt="Anaconda Download"/>
+
+<p>Install Anaconda</p>
+
+</a><a href="https://code.visualstudio.com/" class = "link-block"> <img src="icons/VScode.png" alt="VS Code Download" width="100"/>
+
+<p>Install VS Code</p>
+
+</a><a href="https://quarto.org/docs/get-started/" class="link-block"> <img src="icons/quarto.png" alt="Install Quarto"/>
+
+<p>Install Quarto</p>
+
 </a>
 
-<a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml" class="link-block">
-    <img src="icons/yaml.png" alt="File">
-    <p>Download environment YML file </p>
-</a><a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block">
-    <img src="icons/code.png" alt="File">
-    <p>Download Follow Along Files</p>
+<a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml" class="link-block"> <img src="icons/yaml.png" alt="File" width="100"/>
+
+<p>Download environment YML file</p>
+
+</a><a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block"> <img src="icons/code.png" alt="File" width="100"/>
+
+<p>Download Follow Along Files</p>
+
 </a>
 
-<a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block">
-    <img src="icons/code.png" alt="File">
-    <p>Download Intro to Pandas Dataset</p>
+<a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block"> <img src="icons/code.png" alt="File" width="100"/>
+
+<p>Download Intro to Pandas Dataset</p>
+
 </a>
-
-
-# Sessions
-
-<a href="session1/session1.html">Tutorial: Get Started with Python
-  </a>
-  
-<a href="session2a/session2.html">Go to Session2a: Intro to Python Data Structures
-  </a> 
-
-<a href="session2b/session2_2.html">Go to Session2b: Intro to Pandas
-  </a>
-  
-<a href="session3/session3.html">Go to ML Demo</a>
-

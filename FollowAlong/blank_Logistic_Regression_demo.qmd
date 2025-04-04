@@ -10,12 +10,17 @@ format:
         link-external-icon: false
         link-external-newwindow: true
 ---
+# Welcome to session 4!
 
-We are using the same dataset as in session 3! There is no need to re-download it!
+This is the follow-along file for session 4: Logistic Regression Demo. The answers to the fill-in-the-blanks are on the website!
+
+**In this session, we are going to walk through data cleaning, visualization and two different ways of building a logistic regression model.**
+
+We are using the **same dataset** as in session 3! There is no need to re-download it!
 
 ## Getting Started
 
-Before doing anything else, we should first activate the conda environment we want to use.
+Before doing anything else, we should first activate the conda environment we want to use. If you created the 'python-intro-env' environment, please use that. 
 
 **Refresher: How to activate conda environment**
 
@@ -33,14 +38,6 @@ or
 
 In Anaconda Navagator, click on the **Environments** tab on the left and select the environment you want to activate. Just selecting the environment should activate it.
 
-If we want to make sure we have the packages we'll need installed in the environment before we try to import them, we can either check on anaconda or use the terminal:
-
-```{bash}
-conda list
-```
-
-Otherwise, we will get an error message if we try to import packages that are not installed.
-
 **Refresher: How to install packages**
 
 To install packages, we can either use the "anaconda" dashboard, or we can use the command line. Make sure your environment is active before installing packages or the packages will not be available in your environment.
@@ -57,6 +54,31 @@ pip install {package}
 ```
 When working with conda environments, it's best practice to install everything with conda and only use pip for packages that are not available through conda!
 
+**If you are using the 'python-intro-env' environment, you may need to install the 'statsmodels' package if you have not already installed it.**
+
+**Statsmodels can be installed via conda install so:**
+
+```{bash}
+conda install statsmodels
+```
+
+### Checking installed packages
+If we want to make sure we have the packages we'll need installed in the environment before we try to import them, we can either check on anaconda or use the terminal:
+
+```{bash}
+conda list
+```
+
+Otherwise, we will get an error message if we try to import packages that are not installed.
+
+We can also check for a specific package, like pandas, with `conda list {package}.
+
+# Now we are ready to get started!
+
+Our goals for this session are:  
+1. Practice the **pandas** skills we covered last session  
+2. Get familiar with plotting in python using **seaborn** and **matplotlib**  
+3. Understand how to create and evaluate models using **Statsmodels** and **scikit-learn**  
 
 ## Step 1: Import Packages
 
@@ -83,6 +105,9 @@ from sklearn.linear_model import ___
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score, roc_curve, auc
 from sklearn.feature_selection import SelectKBest, f_classif
+
+# Import display from IPython to allow display of plots in notebook
+from IPython.display import display
 ```
 
 ## Step 2: Read in Data and Perform Data Cleaning
@@ -142,40 +167,65 @@ data["diagnosis"] = data["diagnosis"].map(________)
 data.head(5)
 ```
 
-## Step 3: Exploratory Data Analysis
-
-Now that our data is cleaned and we have our outcome in numeric form, we can use `.describe()` to get summary statistics for each column of the dataset.
-
-```{python}
-#| eval: false
-
-___.___()
-```
-
-The count column tells us the number of non-null (non-missing) values in a column.
-
 ### Creating Descriptive Plots
 
-We can also look at the number of each diagnosis reflected in the dataset in a plot using seaborn.
+Creating plots in python is similar to using ggplot in R, but there are some syntactic differences. The two most popular plotting packages in python are `matplotlib` and `seaborn`.
 
-You can also save a plot to a variable (ex: 'p') if you want to display it later with `plt.show(p)`.
+Matplotlib is a low-level plotting package, and seaborn is built on top of it. Therefore, you can use many matplotlib methods with seaborn plot objects.
 
+#### Building a plot
+
+When building a plot in python, you start with a 'figure' object and an 'axis' object. 
+
+Data is plotted onto 'axis' objects. Axis objects sit on top of figure objects, which can be saved to variables and displayed later. 
+
+Things like titles and legends are also associated with the 'axis' object, not the 'figure' object.
+
+You can create figures using `plt.figure()`, with additional arguments for things like figure size. Then, you can add an axis object to the figure using fig.add_subplot().
 ```{python}
 #| eval: false
-sns.countplot(x="_________", hue="_________", data=______)
-plt.title("Distribution of Diagnoses")
-_____
+fig = plt.figure()
+ax = fig.add_subplot()
 ```
 
-If we want, we can change the colors of the plot. To make the plot a bit more useful, we can also change the y-scale from "count" to "percentage" and add labels so it is clear what "0" and "1" mean.
+#### Example: Building a count plot of diagnoses using seaborn
 
-To help us pick colors, we can use `sns.color_palette()` which will display an image with the colors in the palette.
+We can look at the number of each diagnosis reflected in the dataset in a plot using `seaborn`. 
+
+To do this, we can first construct our 'figure' and 'axis' objects. 
+
+```{python}
+# | dpi: 600
+# | eval: false
+fig = ___
+ax = ___
+```
+
+Then, we can create our 'count plot', which is similar to a barplot in ggplot, and assign it to the 'axis' object we just made. 
+
+We can also set the title of the axis object using the `.set_title()` method. 
+
+If we want to display the plot, we have to use `display()` if we are working with a quarto document or a jupyter notebook. If we are working with a regular python script, we use fig.show().
+
+```{python}
+# | eval: false
+sns.countplot(x="_________", hue="_________", data=______, ax=__)
+ax.set_title("Distribution of Diagnoses")
+
+___(___)
+```
+
+#### Changing plot attributes
+
+If we want, we can change the colors of the plot. To make the plot a bit more useful, we can also change the y-scale from "count" to "percentage" and add labels so it is clear what "0" and "1" mean. 
+
+To help us pick colors, we can use `sns.color_palette()` which will display an image with the colors in the palette. 
 
 ```{python}
 sns.color_palette("colorblind")
 ```
 
-To change the colors of our plot, we can make a dictionary with the values of 'diagnosis' as keys and the hexcodes of the colors we want to use as values.
+To change the colors of our plot, we can make a dictionary with the values of 'diagnosis' as keys and the hexcodes of the colors we want to use as values. 
 
 We can get the hex codes of colors from a seaborn palette using `sns.color_palette().as_hex()`.
 
@@ -195,59 +245,60 @@ colors = {0: color_hex[__], 1: color_hex[__]}
 
 We then create the plot and tell seaborn to use 'colors' as the palette for the graph. We can also change the 'stat' to be "percent", which can be more interpretable than raw counts.
 
-We can also change the xtick labels to be "Benign" and "Malignant" instead of "0" and "1". Because we assigned the plot to the variable 'p', we can use `p.{}` to change attributes of plot 'p'.
+We can also change the xtick labels to be "Benign" and "Malignant" instead of "0" and "1". 
 
 We will also change the axis labels and set a title. Once we make these changes, we can show the finished plot.
 
 ```{python}
-#| eval: false
-p = sns.countplot(
-    x="___",
-    hue="___",
-    stat="___",
-    data=data,
-    palette=colors,
-    legend=False,
+# | eval: false
+fig2 = plt.figure()
+ax2 = fig2.add_subplot()
+
+sns.countplot(
+    x="___", hue="___", stat="___", data=data, palette=colors, legend=False, ax=ax2
 )
 
 ## change the xticklabels to benign and malignant
-p.set_xticks([0, 1])
-p.set_xticklabels(["___", ""])
+ax2.set_xticks([0, 1])
+ax2.set_xticklabels(["___", ""])
 
 ## change the axes labels and title
-p.set(xlabel="___", ylabel="___", title="Distribution of Diagnoses")
+ax2.set(xlabel="___", ylabel="___", title="Distribution of Diagnoses")
 
 ## add legend
-plt.legend(title="Diagnosis", loc="upper right", labels=["Benign", "Malignant"])
+ax2.legend(title="Diagnosis", loc="upper right", labels=["Benign", "Malignant"])
 
-## show plot
-plt.show(p)
+display(fig2)
 ```
 
-If we wanted to, we could also make a correlation heatmap of our features using `.corr()` and `sns.heatmap()`.
+#### Correlation Heatmap
+
+If we wanted to, we could also make a correlation heatmap of our features using `.corr()` and `sns.heatmap()`. 
 
 For this, all of our columns must be numeric, and we should remove the 'id' column as it is not useful for correlation. We use `.select_dtypes()` to select only the numeric columns from the dataset.
 
 ```{python}
 # | eval: false
+## set figure size
+fig3 = plt.figure(figsize=(20, 20))
+ax3 = fig3.add_subplot()
 numeric_data = data.select_dtypes(include=___)
 
 ## drop id column
 numeric_data.drop(columns=___, inplace=___)
 
-## set figure size
-plt.figure(figsize=(20, 20))
 
 ## use corr function and seaborn heatmap to create correlation heatmap
 ## 'fmt' allows us to choose the number display format for the heatmap
 
-sns.heatmap(numeric_data.___, annot=True, fmt=".2f", cmap="coolwarm")
+sns.heatmap(numeric_data.___, annot=True, fmt=".2f", cmap="coolwarm", ax=ax3)
 
 ## set plot title and show plot
-plt.title("Feature Correlation Heatmap")
+ax3.set_title("Feature Correlation Heatmap")
 
-plt.___
+display(fig3)
 ```
+
 
 ## Step 4: Creating a Logistic Regression Model
 
@@ -257,7 +308,7 @@ Here we will explore two methods for creating a logistic regression model. The f
 
 The <a href="https://www.statsmodels.org/stable/index.html">statsmodels package</a> is a python package for creating statistical models, conducting tests and performing data exploration. It is similar to packages used in R and creates an r-like model summary.
 
-If we wanted to see if higher values of area_mean and texture_mean are associated with a higher probability of malignancy, we can use `smf.logit()` to fit a logistic regression model.
+If we wanted to see if higher values of area_mean and texture_mean are associated with increased odds of malignancy, we can use `smf.logit()` to fit a logistic regression model.
 
 ```{python}
 # | eval: false
@@ -338,12 +389,21 @@ X_train_pca = pca.transform(___)
 X_test_pca = pca.transform(___)
 ```
 
+#### We can get an idea of how well our PCA factors represent our data
+
+To do this, we can make a plot of the cumulative explained variance. 
+
+If we just want to make a quick plot that we do not plan on displaying multiple times, we can skip explicitly setting figure and axis objects.
+
+Here we use `plt.plot()` from matplotlib to create a plot of the cumulative explained variance. We can use `plt.xlabel()` and `plt.ylabel()` **in the same code chunk** to set the labels for this plot.
+
+If we try to set the labels in a later chunk, we will get a blank plot. 
+
 ```{python}
 ## we can look at the cumulative explained variance
 plt.plot(np.cumsum(pca.explained_variance_ratio_))
 plt.xlabel("Number of Components")
 plt.ylabel("Cumulative Explained Variance")
-plt.show()
 ```
 
 ## Step 5: Model Setup
@@ -400,7 +460,11 @@ print("Accuracy: {:.2f}%".format(accuracy * 100))
 
 ### Create ROC curve
 
-As a figure, we can create an ROC curve and use quarto chunk options to add a figure caption.
+As a figure, we can create an ROC curve and use quarto chunk options to add a figure caption. 
+
+Like we did for the cumulative variance plot, this time we will skip setting up named figure and axis objects. Instead, we will first create a 'working figure' of size 8x6 and add plots on top of that. Any 'plt.plot()' instances we create in this chunk will be overlayed on the working figure object. 
+
+If we were working in a python script rather than a quarto document, we would need to use plt.show() at the end to display the figure. 
 
 ```{python}
 # | fig-cap: An ROC curve for our logistic regression model
@@ -421,11 +485,11 @@ plt.figure(figsize=(8, 6))
 ## using matplotlib this time, create line plot with 2pt line weight
 ## add "ROC Curve (AUC = AUC)" as label for orange line
 ## .2f is for display formatting, lw is linewidth
-plt.plot(fpr, tpr, color="darkorange", lw=2, label=f"ROC Curve (AUC = {roc_auc:.2f})")
+plt.plot(__, __, color="darkorange", lw=2, label=f"ROC Curve (AUC = {roc_auc:.2f})")
 
 ## create another curve, this time blue with a dashed line labeled "Random"
 ## as in random chance.
-plt.plot(___, ___, color="navy", lw=2, linestyle="--", label="Random")
+plt.plot([0, 1], [0, 1], color="navy", lw=2, linestyle="--", label="Random")
 
 ## add xlabel, ylabel and title
 plt.xlabel("False Positive Rate")
@@ -438,9 +502,10 @@ plt.title(
 
 ## add legend and show plot
 plt.legend(loc="lower right")
-plt.show()
+
 
 ```
+
 
 Congratulations! You have successfully done logistic regression in Python!
 
