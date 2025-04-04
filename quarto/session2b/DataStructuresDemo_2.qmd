@@ -1,14 +1,21 @@
 ---
-title: "Python Machine Learning Demo"
-author: "Python Group"
-format: 
-    html:
-        output-file: "session2_2.html"
-        toc: true
-        code-copy: true
-        code-line-numbers: true
-        link-external-icon: false
-        link-external-newwindow: true
+title: "Session 3: Pandas Data Structures"
+jupyter: python3
+format:
+  revealjs:
+    css: custom.scss
+    background-color: lavenderblush
+    incremental: true
+    code-copy: true
+    smaller: true
+    code-block-height: 750px
+    highlight-style: pygments
+    width: 1400
+    height: 800
+execute:
+  freeze: auto
+  eval: true
+  echo: true
 ---
 
 ## Links
@@ -563,72 +570,7 @@ print("Data with 'area_ratio' at the end:\n", cancer_data_with_area_ratio_last.h
 
 
 
-## 🧠 Functions vs Methods in Python
 
-### 🔹 What’s the difference?
-
-| Concept    | Function                                | Method                                           |
-|------------|-----------------------------------------|--------------------------------------------------|
-| Definition | A block of code that performs an action | A function that is **associated with an object** |
-| Called on  | Standalone / with parameters            | Called **on** an object (e.g., a string or list) |
-| Syntax     | `function(arg)`                         | `object.method()`                                |
-| Example    | `len("hello")`                          | `"hello".upper()`                                |
-
----
-
-## 🧪 Function Example
-
-```{python}
-# Define your own function
-def greet(name):
-    return f"Hello, {name}!"
-
-print(greet("Alice"))  # Hello, Alice!
-```
-
-```{python}
-# Use a built-in function
-words = ["Python", "Data", "Science"]
-print(len(words))  # 3
-```
-
----
-
-## 🧪 Method Example
-
-```{python}
-# 'upper()' is a method of string objects
-name = "patrick"
-print(name.upper())  # Output: PATRICK
-print(name) #Why doesn't name.upper() modify the original string? What would we have to do so that name becomes permanently uppercase?
-```
-
-```{python}
-# 'append()' is a method of list objects
-colors = ["red", "blue"]
-colors.append("green")
-print(colors)  # ['red', 'blue', 'green']
-
-#Think back to the last example.  Why does colors permanently change when we use a method, but name did not?
-```
-
----
-
-## 🧠 Behind the Scenes
-
-```{python}
-# This also works
-str.upper("patrick")  # Output: 'PATRICK'
-```
-
-```{python}
-# But this is more common
-"patrick".upper()  # Output: 'PATRICK'
-```
-
- Both work — but `str.upper()` is a method being called directly from the class.
-
----
 
 ## Pandas Example: Method Chaining
 
