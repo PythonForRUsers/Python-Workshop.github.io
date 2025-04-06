@@ -8,6 +8,7 @@ project:
     - "!ignore*.ipynb"
     - session3/*.ipynb
     - "!Downloadable/*.yml"
+    - "!session4_newMLDemo/session4_homework_blank.ipynb"
 
 website:
   title: "Intro to Python Workshops"
@@ -27,7 +28,7 @@ website:
           - text: "Session 2b: Intro to Pandas"
             href: session2b/DataStructuresDemo_2.qmd
           - text: "Session 4: Object-Oriented Programming and Modeling Libraries"
-            href: "session4_newMLDemo\session4v2_webpage.html"
+            href: "session4_newMLDemo\\session4v2_webpage.html"
       - text: "Discussion"
         href: https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/discussions
       - text: "Links"

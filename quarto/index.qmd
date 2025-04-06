@@ -49,8 +49,8 @@ All workshop materials, including pre-session handouts, coding demos, assignment
 |                                                                           |                  | -   Data management                                                  |                                           |
 |                                                                           | 2:30-4:30 pm     | -   `great_tables` for gtsummary-style tables                        |                                           |
 +---------------------------------------------------------------------------+------------------+----------------------------------------------------------------------+-------------------------------------------+
-| **Session 4: Object-Oriented Programming & Intro to ML Libraries (Dani)** | Wednesday (4/23) | Part A: Introduction to object-oriented programming (OOP)            | -   Pre-read: K-Means vs KNN and Plotting in Python primer \[ <a href="session4_newMLDemo\sess4preread.html">html</a>\] |
-|                                                                           |                  |                                                                      | -   Session Slides \[<a href="session4_newMLDemo\session4v2_slides.html">html</a>\] |
+| **Session 4: Object-Oriented Programming & Intro to ML Libraries (Dani)** | Wednesday (4/23) | Part A: Introduction to object-oriented programming (OOP)            | -   Pre-read: K-Means vs KNN and Plotting in Python primer \[ <a href="session4_newMLDemo\sess4preread.html">html</a>\]   |
+|                                                                           |                  |                                                                      | -   Session Slides \[<a href="session4_newMLDemo\session4v2_slides.html">html</a>\]   |
 |                                                                           | 1:00-3:00 pm     | -   Recap: classes, methods, and attributes                          |                                           |
 |                                                                           |                  | -   Understanding classes (base, derived, mixins)                    |                                           |
 |                                                                           |                  | -   Creating classes and instances                                   |                                           |
@@ -80,7 +80,7 @@ Recordings will be uploaded after each session
 
 -   <a href="session2b/session2_2.html">Go to Session2b: Intro to Pandas </a>
 
--   <a href="session3/session3.html">Go to ML Demo</a>
+-   <a href="session4_newMLDemo\\session4v2_webpage.html">Session 4: Object-Oriented Programming and Intro to ML Libraries - Extended tutorial</a>
 
 #### **Downloads**
 
