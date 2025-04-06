@@ -5,6 +5,7 @@ format:
     html:
         code-copy: true   
         highlight-style: pygments
+        toc: false
 execute:
   freeze: auto
   warning: false
