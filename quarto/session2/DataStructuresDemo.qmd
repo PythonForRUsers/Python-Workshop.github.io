@@ -1,0 +1,1048 @@
+---
+title: "Session 2: Python Data Structures"
+jupyter: python3
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    background-color: lavenderblush
+    incremental: true
+    code-copy: true
+    smaller: true
+    code-block-height: 750px
+    highlight-style: pygments
+    width: 1400
+    height: 800
+execute:
+  freeze: auto
+  eval: true
+  echo: true
+---
+
+## Links {.scrollable background-color="lavenderblush"}
+
+<a href="https://docs.python.org/3/tutorial/datastructures.html" class="link-block">
+    <img src="../icons/csv.png" alt="Dataset">
+    <p>Guide to Python Data Structures</p>
+</a>
+<a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block">
+    <img src="../icons/code.png" alt="File">
+    <p>Cancer Dataset</p>
+</a>
+
+## Topic 1: Lists {.scrollable background-color="lavenderblush"}
+
+
+The most important thing about lists
+
+In Python, lists are mutable, meaning their elements can be changed after the list is created, allowing for modification such as adding, removing, or updating items. This flexibility makes lists powerful for handling dynamic collections of data.
+
+. . .
+
+We will learn how to do things such as:
+
+
+- Create lists
+- Modify lists
+- Sort lists
+- Loop over elements of a list with a for-loop or using list comprehension
+- Slice a list
+- Append to a list
+
+
+## Lists {.scrollable background-color="lavenderblush"}
+
+- To create a list:
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+my_list = [1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]
+print(my_list)
+```
+
+
+- A list is simply a collection of objects.  We can find the length of a list using the len() function:
+
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+my_list=[1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]
+len(my_list)
+
+
+```
+
+
+
+## Lists (continued) {.scrollable background-color="lavenderblush"}
+
+- In Python, lists are objects like all other data types, and the class for lists is named 'list' with a lowercase 'L'. 
+
+- To transform another Python object into a list, you can use the list() function, which is essentially the constructor of the list class. This function accepts a single argument: an iterable. So, you can use it to turn any iterable, such as a range, set, or tuple, into a list of concrete values.
+
+- Python indices begin at 0.  In addition, certain built-in python functions such as range will terminate at n-1 in the second argument.
+
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+first_range=range(5)
+first_range_list=list(first_range)
+print(first_range_list)
+```
+```{python}
+#| class: fragment
+#| output-location: fragment
+second_range=range(5,10)
+second_range_list=list(second_range)
+print(second_range_list)
+
+```
+
+
+
+## Accessing Python list elements {.scrollable background-color="lavenderblush"}
+
+To access an individual list element, you need to know its position. Since python starts counting at 0, the first element is in position 0, and the second element is in position 1. You can also access nested elements within a list, or access the list in reverse.
+
+. . .
+
+Examples using my_list from above
+```{python}
+#| class: fragment
+#| output-location: fragment
+print(my_list)
+```
+
+```{python} 
+#| class: fragment
+#| output-location: fragment
+
+example_1=my_list[0]
+
+example_2=my_list[6][1]
+
+example_3=my_list[-1]
+
+print(example_1, example_2, example_3)
+
+
+```
+
+
+
+## Mutability of lists {.scrollable background-color="lavenderblush"}
+
+Since lists are mutable objects, we can directly change their elements.
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+some_list=[1,2,3]
+print(some_list)
+
+some_list[0]="hello"
+print(some_list)
+
+```
+
+
+
+## Appending an element to a list {.scrollable background-color="lavenderblush"}
+
+When calling append on a list, we append an object to the end of the list:
+
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+print(my_list)
+
+my_list.append(5)
+
+print(my_list)
+
+```
+
+
+
+## Combining lists {.scrollable background-color="lavenderblush"}
+
+We can combine lists with the "+" operator. This keeps the original lists intact
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+list_1=[1,2,3]
+
+list_2=['a','b','c']
+
+combined_lists=list_1+list_2
+
+print(combined_lists)
+
+```
+
+. . .
+
+Another method is to extend one list onto another.
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+list_1=[1,2,3]
+
+list_2=['a','b','c']
+
+list_1.extend(list_2)
+
+print(list_1)
+
+```
+
+
+
+## .pop() method {.scrollable background-color="lavenderblush"}
+
+The .pop() method removes and returns the last item by default unless you give it an index argument. If you're familiar with stacks, this method as well as .append() can be used to create one!
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+list_1=[1,2,3]
+
+element_1=list_1.pop()
+element_2=list_1.pop(1)
+
+print(element_1, element_2)
+
+
+```
+
+
+## Deleting items by index {.scrollable background-color="lavenderblush"}
+
+del removes an item without returning anything. In fact, you can delete any object, including the entire list, using del:
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+list_1=[1,2,3]
+
+del list_1[0]
+
+print(list_1)
+```
+
+
+## Deleting items by value {.scrollable background-color="lavenderblush"}
+
+The .remove() method deletes a specific value from the list. This method will remove the first occurrence of the given object in a list. 
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+list_1=[1,2,3]
+
+list_1.remove(1)
+
+print(list_1)
+
+
+```
+
+
+## Lists vs. sets, and deleting duplicates from a list {.scrollable background-color="lavenderblush"}
+
+The difference between a list and a set:
+
+- A set is an unordered collection of distinct elements.
+- A list is ordered and can contain repeats of an element. 
+- Sets are denoted by curly brackets {}. We can use this knowledge to easily delete duplicates from a list, since there is no built-in method to do so.
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+list_1=[1,2,3,1,2]
+print(list_1)
+```
+```{python}
+#| class: fragment
+#| output-location: fragment
+set_1=set(list_1)
+print(set_1)
+```
+```{python}
+#| class: fragment
+#| output-location: fragment
+list_2=list(set_1)
+print (list_2)
+
+```
+
+
+
+## Sorting a list {.scrollable background-color="lavenderblush"}
+
+There are two ways to sort a list in Python
+
+- .sort() modifies the original list itself. Nothing is returned.
+
+- .sorted() returns a new list, which is a sorted version of the original list.
+
+- .reverse=True: Use this parameter to sort the list in reverse order.
+
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+number_list_1=[3,5,2,1,6,19]
+number_list_1.sort()
+print(number_list_1)
+
+```
+```{python}
+#| class: fragment
+#| output-location: fragment
+number_list_2=sorted(number_list_1, reverse=True)
+print(number_list_2)
+```
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+alphabet_list_1=['a','z','e','b']
+alphabet_list_1.sort()
+print(alphabet_list_1)
+```
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+alphabet_list_2=sorted(alphabet_list_1, reverse=True)
+print(alphabet_list_2)
+
+```
+
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+mixed_list_1=[1,5,3,'a','c','b']
+try:
+    mixed_list_1.sort()
+    print(mixed_list_1)
+except TypeError:
+    print("Can't sort a list of mixed elements")
+
+
+```
+
+
+## List comprehension {.scrollable background-color="lavenderblush"}
+ 
+List comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list (or other object)
+
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+#Longer syntax with for loop
+
+
+#Example 1:
+
+some_list=[1,2,3,'a', 'b', 'c']
+new_list=[]
+for item in some_list:
+    if type(item)==str:
+        new_list.append(item)
+print(new_list)
+```
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+#Example 2:
+
+lowercase_list=['joe', 'sarah', 'emily']
+capital_list=[]
+for item in lowercase_list:
+    capital_item=item.upper()
+    capital_list.append(capital_item)
+print(capital_list)
+```
+```{python}
+#| class: fragment
+#| output-location: fragment
+#Example 3:
+
+some_string="patrick"
+patrick_list=[]
+for letter in some_string:
+    if letter=='t' or letter=='a':
+        patrick_list.append(letter)
+print(patrick_list)
+
+
+```
+
+
+
+## Shorter syntax with list comprehension {.scrollable background-color="lavenderblush"}
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+#Example 1:
+
+some_list=[1,2,3,'a', 'b', 'c']
+new_list=[x for x in some_list if type(x)==str]
+print(new_list)
+
+```
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+#Example 2:
+
+lowercase_list=['joe', 'sarah', 'emily']
+capital_list=[name.upper() for name in lowercase_list]
+print(capital_list)
+```
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+#Example 3:
+
+some_string="patrick"
+patrick_list=[x for x in some_string if x=='t' or x=='a']
+print(patrick_list)
+```
+
+
+## Topic 2: Tuples {.scrollable background-color="lavenderblush"}
+
+- A tuple is similar to a list, but with one key difference. Tuples are immutable. This means that once you create a tuple, you cannot modify its elements. 
+
+- Tuples are useful for storing data that should not be changed after creation, such as coordinates, days of the week, or fixed pairs.
+
+- Just like lists, tuples are objects, and the class for tuples is tuple. 
+
+- To transform another Python object into a tuple, you can use the tuple() constructor. It accepts a single iterable, such as a list, range, or string.
+
+. . . 
+
+To create a tuple, you use parentheses () rather than square brackets [].
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+# Creating a tuple
+my_tuple = (10, 20, 30)
+
+# Accessing elements by index
+print("First element:", my_tuple[0])
+print("Last element:", my_tuple[-1])
+```
+
+
+## Mutability of Tuples {.scrollable background-color="lavenderblush"}
+
+
+Tuples are immutable, so you can’t modify their elements. Attempting to change a tuple will result in an error.
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+# Trying to modify a tuple element (this will raise an error)
+try:
+    my_tuple[1] = 99
+except TypeError:
+    print("Tuples are immutable and cannot be changed!")
+
+
+```
+
+## Functions and Tuples {.scrollable background-color="lavenderblush"}
+
+
+Functions can return multiple values as a tuple. This is useful for returning multiple results in a single function call.
+```{python}
+
+#| class: fragment
+#| output-location: fragment
+
+# Function that returns multiple values as a tuple
+def min_max(nums):
+    return min(nums), max(nums)  # Returns a tuple of (min, max)
+
+# Calling the function and unpacking the tuple
+
+numbers = [3, 7, 1, 5]
+
+our_tuple = min_max(numbers)
+
+min_val, max_val = min_max(numbers) #Unpacking in the function call
+
+print(our_tuple)
+print("Min:", min_val)
+print("Max:", max_val)
+```
+
+
+## Topic 3: Strings {.scrollable background-color="lavenderblush"}
+
+You can use single or double quotes to define a string (but keep it consistent!)
+
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+my_string = "Hello, World!"
+print(my_string)
+
+```
+
+. . .
+
+You can also create a multiline string using triple quotes:
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+multi_line_string = """This is
+a multiline
+string."""
+print(multi_line_string)
+
+```
+
+
+## String Operations {.scrollable background-color="lavenderblush"}
+ 
+You can find the length of a string using the len() funtion, just like with lists.
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+my_string = "Hello, World!"
+print(len(my_string))
+
+```
+. . . 
+
+## Accessing characters in a string {.scrollable background-color="lavenderblush"}
+
+Strings are indexed like lists, with the first character having index 0. You can access individual characters using their index.
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+my_string = "Hello, World!"
+
+# First character
+first_char = my_string[0]
+
+# Last character (using negative indexing)
+last_char = my_string[-1]
+
+# Accessing a range of characters (slicing)
+substring = my_string[0:5]
+
+print(first_char, last_char, substring)
+
+```
+
+
+## Mutability of Strings {.scrollable background-color="lavenderblush"}
+
+Strings are immutable!
+
+Unlike lists, strings cannot be changed after creation. If you try to change an individual character, you'll get an error.
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+my_string = "Hello"
+try:
+    my_string[0] = "h"  # This will raise an error
+except TypeError:
+    print("Strings are immutable!")
+
+```
+
+## Concatenating Strings {.scrollable background-color="lavenderblush"}
+
+You can concatenate (combine) strings using the + operator:
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+greeting = "Hello"
+name = "Patrick"
+combined_string = greeting + ", " + name + "!"
+print(combined_string)
+
+```
+
+## String methods {.scrollable background-color="lavenderblush"}
+
+Python provides many built-in methods for manipulating strings. Some common ones are:
+
+. . . 
+
+upper() and lower()
+These methods convert a string to uppercase or lowercase.
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+my_string = "Hello, World!"
+print(my_string.upper())
+print(my_string.lower())
+
+```
+
+. . . 
+
+strip()
+This method removes any leading or trailing whitespace from the string.
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+my_string = "   Hello, World!   "
+print(my_string.strip())
+
+```
+
+. . . 
+
+replace()
+You can replace parts of a string with another string.
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+my_string = "Hello, World!"
+new_string = my_string.replace("World", "Patrick")
+print(new_string)
+
+```
+
+. . .
+
+The split() method divides a string into a list of substrings based on a delimiter (default is whitespace).
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+my_string = "Hello, World!"
+words = my_string.split()
+print(words)
+```
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+another_string="Hello-World!"
+more_words=another_string.split("-")
+print(more_words)
+
+```
+
+. . .
+
+The join() method takes an iterable (like a list) and concatenates its elements into a string with a specified separator between them.
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+my_list=['Hello,', 'my', 'name', 'is', 'Patrick']
+
+my_string=' '.join(my_list)
+
+print(my_string)
+```
+
+
+## f-strings (Python 3.6+) {.scrollable background-color="lavenderblush"}
+
+You can insert variables directly into strings using f-strings.
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+name = "Patrick"
+age = 30
+formatted_string = f"My name is {name} and I am {age} years old."
+print(formatted_string)
+
+```
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+my_string = "Hello, World!"
+
+# Extract all vowels from the string
+vowels = str([char for char in my_string if char.lower() in "aeiou"])
+print(vowels)
+
+```
+
+
+## String Slicing {.scrollable background-color="lavenderblush"}
+
+We will slice a string using different combinations of start, end, and step to extract different parts of the string.
+```{python}
+#| class: fragment
+#| output-location: fragment
+#To slice a string, follow the string[start:end:step] format
+
+# Original string
+my_string = "Python is awesome!"
+print(f"Original string: {my_string}")
+```
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Slice from index 0 to 6 (not inclusive), stepping by 1 (default)
+# This will extract "Python"
+substring_1 = my_string[0:6]
+print(f"Substring 1 (0:6): {substring_1}")
+```
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Slice from index 7 to the end of the string, stepping by 1 (default)
+# This will extract "is awesome!"
+substring_2 = my_string[7:]
+print(f"Substring 2 (7:): {substring_2}")
+```
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Slice the entire string but take every second character
+# This will extract "Pto saeoe"
+substring_3 = my_string[::2]
+print(f"Substring 3 (every second character): {substring_3}")
+```
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Slice from index 0 to 6, stepping by 2
+# This will extract "Pto"
+substring_4 = my_string[0:6:2]
+print(f"Substring 4 (0:6:2): {substring_4}")
+```
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Slice from index 11 to 6, stepping backward by -1
+# This will extract "wa si" (reverse slice)
+substring_5 = my_string[11:6:-1]
+print(f"Substring 5 (11:6:-1): {substring_5}")
+
+```
+
+
+## Topic 4: Dictionaries {.scrollable background-color="lavenderblush"}
+
+
+- A dictionary is a collection in Python that stores data as key-value pairs. 
+- It’s similar to a real-world dictionary where you look up a word (the key) to get its definition (the value). 
+- In Python, dictionaries are mutable, meaning you can add, remove, and change items.
+
+. . . 
+
+To create a dictionary, use curly braces {}, with each key-value pair separated by a colon (:), and pairs separated by commas.
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+# Creating a dictionary
+my_dictionary = {
+    'name': 'Alice',
+    'age': 25,
+    'city': 'New York'
+}
+print(my_dictionary)
+
+
+```
+
+
+## Dictionary Operations {.scrollable background-color="lavenderblush"}
+
+Accessing dictionary values
+
+
+- To access a specific value in a dictionary, use the key in square brackets. 
+- You can also use the .get() method, which returns None if the key does not exist, instead of raising an error.
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+print(my_dictionary['name'])      # Using key
+print(my_dictionary.get('age'))   # Using .get() method
+print(my_dictionary.get('gender', 'Not specified'))  # Providing a default value
+
+
+```
+
+
+
+## Adding and updating dictionary items {.scrollable background-color="lavenderblush"}
+
+Dictionaries are mutable, so you can add new items or update existing ones using assignment.
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+my_dictionary['job'] = 'Engineer'        # Adding a new key-value pair
+my_dictionary['age'] = 26                # Updating an existing value
+print(my_dictionary)
+
+
+```
+
+
+
+## Dictionary Methods {.scrollable background-color="lavenderblush"}
+
+Python dictionaries have several useful methods for managing data:
+
+- keys(): Returns a list of all the keys in the dictionary.
+- values(): Returns a list of all values in the dictionary.
+- items(): Returns a list of key-value pairs as tuples.
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Getting all keys
+print(my_dictionary.keys())
+```
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Getting all values
+print(my_dictionary.values())
+```
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Getting all key-value pairs
+print(my_dictionary.items())
+
+```
+
+
+
+## Python Dictionaries for Cancer Research Data {.scrollable background-color="lavenderblush"}
+
+In cancer research, dictionaries can be used to store patient data, genetic mutations, and statistical results as key-value pairs. This allows for easy lookup, organization, and analysis of data.
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+#Let’s create a dictionary to store basic patient information, where each patient has a unique ID, and each ID maps to a dictionary containing information about the patient’s age, cancer type, and stage.
+
+# Dictionary of patients with nested dictionaries
+patient_data = {
+    'P001': {'age': 50, 'cancer_type': 'Lung Cancer', 'stage': 'II'},
+    'P002': {'age': 60, 'cancer_type': 'Breast Cancer', 'stage': 'I'},
+    'P003': {'age': 45, 'cancer_type': 'Melanoma', 'stage': 'III'}
+}
+
+print(patient_data)
+
+
+
+```
+
+. . .
+
+You can access a patient’s information using their unique ID. To access nested data, chain the keys. For example, to retrieve the cancer type of a specific patient, you’d use the following:
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Accessing specific information
+
+patient_id = 'P002'
+cancer_type = patient_data[patient_id]['cancer_type']
+print(f"Cancer type for {patient_id}: {cancer_type}")
+```
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Updating a patient’s stage
+patient_data['P003']['stage'] = 'IV'
+print(f"Updated stage for P003: {patient_data['P003']['stage']}")
+
+```
+
+
+## Adding and Removing Data {.scrollable background-color="lavenderblush"}
+
+New patient data can be added using assignment, and pop() or del can remove a patient’s data.
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+# Adding a new patient
+patient_data['P004'] = {'age': 70, 'cancer_type': 'Prostate Cancer', 'stage': 'II'}
+print("Added new patient:", patient_data['P004'])
+```
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+# Removing a patient
+removed_patient = patient_data.pop('P001')
+print("Removed patient:", removed_patient)
+
+```
+
+
+
+## Dictionary Methods {.scrollable background-color="lavenderblush"}
+
+Dictionaries allow you to retrieve keys, values, or entire key-value pairs. Here’s how to use these methods to get an overview of the data.
+
+keys(): Retrieves all patient IDs.
+values(): Retrieves all patient records.
+items(): Retrieves patient records as key-value pairs
+
+. . .
+
+Further Example
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+# Getting all patient IDs
+print("Patient IDs:", patient_data.keys())
+
+# Getting all patient details
+print("Patient Details:", patient_data.values())
+
+# Looping through each patient's data
+for patient_id, details in patient_data.items():
+    print(f"Patient {patient_id} - Age: {details['age']}, Cancer Type: {details['cancer_type']}, Stage: {details['stage']}")
+
+
+
+```
+
+
+## Topic 5: Functions vs Methods in Python {.scrollable background-color="lavenderblush"}
+
+What’s the difference?
+
+| Concept    | Function                                | Method                                           |
+|------------|-----------------------------------------|--------------------------------------------------|
+| Definition | A block of code that performs an action | A function that is **associated with an object** |
+| Called on  | Standalone / with parameters            | Called **on** an object (e.g., a string or list) |
+| Syntax     | `function(arg)`                         | `object.method()`                                |
+| Example    | `len("hello")`                          | `"hello".upper()`                                |
+
+
+
+## Function Example {.scrollable background-color="lavenderblush"}
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Define your own function
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Alice"))  # Hello, Alice!
+```
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Use a built-in function
+words = ["Python", "Data", "Science"]
+print(len(words))  # 3
+```
+
+
+## Method Example {.scrollable background-color="lavenderblush"}
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+# 'upper()' is a method of string objects
+name = "patrick"
+print(name.upper())  # Output: PATRICK
+print(name) #Why doesn't name.upper() modify the original string? What would we have to do so that name becomes permanently uppercase?
+```
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+# 'append()' is a method of list objects
+colors = ["red", "blue"]
+colors.append("green")
+print(colors)  # ['red', 'blue', 'green']
+
+#Think back to the last example.  Why does colors permanently change when we use a method, but name did not?
+```
+
+
+## Behind the Scenes {.scrollable background-color="lavenderblush"}
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+# This also works
+str.upper("patrick")  # Output: 'PATRICK'
+```
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+# But this is more common
+"patrick".upper()  # Output: 'PATRICK'
+```
+
+. . .
+
+Both work — but "str.upper()" is a method being called directly from the class.
+
+
+
+
+
+## You Try! {.scrollable background-color="lavenderblush"}
+
+Navigate to the follow-along file and try the practice problems!

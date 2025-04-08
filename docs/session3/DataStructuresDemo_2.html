@@ -1,0 +1,2939 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.57">
+
+  <title>Intro to Python Workshops – Session 3: Intro to Pandas and great_tables</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+  
+
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Session 3: Intro to Pandas and great_tables</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="links" class="slide level2">
+<h2>Links</h2>
+<a href="https://docs.python.org/3/tutorial/datastructures.html" class="link-block"> <img src="../icons/csv.png" alt="Dataset">
+<p>
+Guide to Python Data Structures
+</p>
+</a> <a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block"> <img src="../icons/code.png" alt="File">
+<p>
+Cancer Dataset
+</p>
+</a><p><a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block"></a></p>
+</section>
+<section id="topic-5-what-is-pandas" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Topic 5: What Is Pandas?</h2>
+<p>Pandas is a powerful open-source data analysis and manipulation library in Python. It provides data structures, primarily the DataFrame and Series, which are optimized for handling and analyzing large datasets efficiently.</p>
+<div class="fragment">
+<p>Data Structures:</p>
+<ul>
+<li class="fragment"><p>Series: A one-dimensional labeled array, suitable for handling single columns or rows of data.</p></li>
+<li class="fragment"><p>DataFrame: A two-dimensional table with labeled axes (rows and columns), much like a spreadsheet or SQL table, allowing you to work with data in rows and columns simultaneously.</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p>Data Manipulation:</p>
+<ul>
+<li class="fragment"><p>Pandas has functions for merging, reshaping, and aggregating datasets, which helps streamline data cleaning and preparation.</p></li>
+<li class="fragment"><p>It can handle missing data, making it easy to filter or fill gaps in datasets.</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p>Data Analysis:</p>
+<ul>
+<li class="fragment"><p>Pandas provides extensive functionality for descriptive statistics, grouping data, and handling time series.</p></li>
+<li class="fragment"><p>Integrates well with other libraries, making it easy to move data between libraries like NumPy for numerical computations and Matplotlib or Seaborn for visualization.</p></li>
+</ul>
+</div>
+</section>
+<section id="creating-folders-for-project-housekeeping" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Creating folders for project housekeeping</h2>
+<div id="45b12589" class="cell fragment" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="co">###Example Folder Structure</span></span>
+<span id="cb1-2"><a></a><span class="co">'''</span></span>
+<span id="cb1-3"><a></a><span class="co">project_name/</span></span>
+<span id="cb1-4"><a></a><span class="co">    data/</span></span>
+<span id="cb1-5"><a></a><span class="co">        raw/</span></span>
+<span id="cb1-6"><a></a><span class="co">        processed/</span></span>
+<span id="cb1-7"><a></a><span class="co">    scripts/</span></span>
+<span id="cb1-8"><a></a><span class="co">    results/</span></span>
+<span id="cb1-9"><a></a><span class="co">    logs/</span></span>
+<span id="cb1-10"><a></a><span class="co">'''</span></span>
+<span id="cb1-11"><a></a></span>
+<span id="cb1-12"><a></a><span class="co">#To Create folders</span></span>
+<span id="cb1-13"><a></a></span>
+<span id="cb1-14"><a></a><span class="im">import</span> os</span>
+<span id="cb1-15"><a></a></span>
+<span id="cb1-16"><a></a><span class="co">#Defining working directory</span></span>
+<span id="cb1-17"><a></a>base_dir <span class="op">=</span> <span class="st">"G:</span><span class="ch">\\</span><span class="st">dir_demo"</span></span>
+<span id="cb1-18"><a></a></span>
+<span id="cb1-19"><a></a><span class="co">#Defining Project folder</span></span>
+<span id="cb1-20"><a></a>project_name <span class="op">=</span> os.path.join(base_dir, <span class="st">"my_project"</span>)</span>
+<span id="cb1-21"><a></a></span>
+<span id="cb1-22"><a></a><span class="co"># Define the subdirectories</span></span>
+<span id="cb1-23"><a></a>subdirs <span class="op">=</span> [</span>
+<span id="cb1-24"><a></a>    <span class="st">"data/raw"</span>,</span>
+<span id="cb1-25"><a></a>    <span class="st">"data/processed"</span>,</span>
+<span id="cb1-26"><a></a>    <span class="st">"scripts"</span>,</span>
+<span id="cb1-27"><a></a>    <span class="st">"results"</span>,</span>
+<span id="cb1-28"><a></a>    <span class="st">"logs"</span>,</span>
+<span id="cb1-29"><a></a>]</span>
+<span id="cb1-30"><a></a></span>
+<span id="cb1-31"><a></a><span class="co"># Create directories</span></span>
+<span id="cb1-32"><a></a><span class="cf">for</span> subdir <span class="kw">in</span> subdirs:</span>
+<span id="cb1-33"><a></a>    path <span class="op">=</span> os.path.join(project_name, subdir)</span>
+<span id="cb1-34"><a></a>    os.makedirs(path, exist_ok<span class="op">=</span><span class="va">True</span>)  <span class="co">#ensures no error if the folder already exists</span></span>
+<span id="cb1-35"><a></a>    <span class="bu">print</span>(<span class="ss">f"Created directory: </span><span class="sc">{</span>path<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>Created directory: G:\dir_demo\my_project\data/raw
+Created directory: G:\dir_demo\my_project\data/processed
+Created directory: G:\dir_demo\my_project\scripts
+Created directory: G:\dir_demo\my_project\results
+Created directory: G:\dir_demo\my_project\logs</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Loading the Dataset</p>
+<div id="128f3665" class="cell fragment" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> os</span>
+<span id="cb3-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-3"><a></a></span>
+<span id="cb3-4"><a></a><span class="co"># Load the dataset</span></span>
+<span id="cb3-5"><a></a>cancer_data <span class="op">=</span> pd.read_csv(<span class="st">"C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">augellp1</span><span class="ch">\\</span><span class="st">Desktop</span><span class="ch">\\</span><span class="st">Python Workshop</span><span class="ch">\\</span><span class="st">Python-Workshop_NEW</span><span class="ch">\\</span><span class="st">quarto</span><span class="ch">\\</span><span class="st">session3</span><span class="ch">\\</span><span class="st">example_data</span><span class="ch">\\</span><span class="st">Cancer_Data.csv"</span>)</span>
+<span id="cb3-6"><a></a></span>
+<span id="cb3-7"><a></a><span class="bu">print</span> (<span class="bu">type</span>(cancer_data))</span>
+<span id="cb3-8"><a></a></span>
+<span id="cb3-9"><a></a></span>
+<span id="cb3-10"><a></a><span class="co"># Display the first few rows of the dataset</span></span>
+<span id="cb3-11"><a></a>cancer_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">diagnosis</th>
+<th data-quarto-table-cell-role="th">radius_mean</th>
+<th data-quarto-table-cell-role="th">texture_mean</th>
+<th data-quarto-table-cell-role="th">perimeter_mean</th>
+<th data-quarto-table-cell-role="th">area_mean</th>
+<th data-quarto-table-cell-role="th">smoothness_mean</th>
+<th data-quarto-table-cell-role="th">compactness_mean</th>
+<th data-quarto-table-cell-role="th">concavity_mean</th>
+<th data-quarto-table-cell-role="th">concave points_mean</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">texture_worst</th>
+<th data-quarto-table-cell-role="th">perimeter_worst</th>
+<th data-quarto-table-cell-role="th">area_worst</th>
+<th data-quarto-table-cell-role="th">smoothness_worst</th>
+<th data-quarto-table-cell-role="th">compactness_worst</th>
+<th data-quarto-table-cell-role="th">concavity_worst</th>
+<th data-quarto-table-cell-role="th">concave points_worst</th>
+<th data-quarto-table-cell-role="th">symmetry_worst</th>
+<th data-quarto-table-cell-role="th">fractal_dimension_worst</th>
+<th data-quarto-table-cell-role="th">Unnamed: 32</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>842302</td>
+<td>M</td>
+<td>17.99</td>
+<td>10.38</td>
+<td>122.80</td>
+<td>1001.0</td>
+<td>0.11840</td>
+<td>0.27760</td>
+<td>0.3001</td>
+<td>0.14710</td>
+<td>...</td>
+<td>17.33</td>
+<td>184.60</td>
+<td>2019.0</td>
+<td>0.1622</td>
+<td>0.6656</td>
+<td>0.7119</td>
+<td>0.2654</td>
+<td>0.4601</td>
+<td>0.11890</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>842517</td>
+<td>M</td>
+<td>20.57</td>
+<td>17.77</td>
+<td>132.90</td>
+<td>1326.0</td>
+<td>0.08474</td>
+<td>0.07864</td>
+<td>0.0869</td>
+<td>0.07017</td>
+<td>...</td>
+<td>23.41</td>
+<td>158.80</td>
+<td>1956.0</td>
+<td>0.1238</td>
+<td>0.1866</td>
+<td>0.2416</td>
+<td>0.1860</td>
+<td>0.2750</td>
+<td>0.08902</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>84300903</td>
+<td>M</td>
+<td>19.69</td>
+<td>21.25</td>
+<td>130.00</td>
+<td>1203.0</td>
+<td>0.10960</td>
+<td>0.15990</td>
+<td>0.1974</td>
+<td>0.12790</td>
+<td>...</td>
+<td>25.53</td>
+<td>152.50</td>
+<td>1709.0</td>
+<td>0.1444</td>
+<td>0.4245</td>
+<td>0.4504</td>
+<td>0.2430</td>
+<td>0.3613</td>
+<td>0.08758</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>84348301</td>
+<td>M</td>
+<td>11.42</td>
+<td>20.38</td>
+<td>77.58</td>
+<td>386.1</td>
+<td>0.14250</td>
+<td>0.28390</td>
+<td>0.2414</td>
+<td>0.10520</td>
+<td>...</td>
+<td>26.50</td>
+<td>98.87</td>
+<td>567.7</td>
+<td>0.2098</td>
+<td>0.8663</td>
+<td>0.6869</td>
+<td>0.2575</td>
+<td>0.6638</td>
+<td>0.17300</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>84358402</td>
+<td>M</td>
+<td>20.29</td>
+<td>14.34</td>
+<td>135.10</td>
+<td>1297.0</td>
+<td>0.10030</td>
+<td>0.13280</td>
+<td>0.1980</td>
+<td>0.10430</td>
+<td>...</td>
+<td>16.67</td>
+<td>152.20</td>
+<td>1575.0</td>
+<td>0.1374</td>
+<td>0.2050</td>
+<td>0.4000</td>
+<td>0.1625</td>
+<td>0.2364</td>
+<td>0.07678</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 33 columns</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="viewing-basic-information" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Viewing Basic Information</h2>
+<ul>
+<li class="fragment">Checking the Dataset’s Shape</li>
+</ul>
+<div class="fragment">
+<p>.shape returns a tuple with (number of rows, number of columns), which provides a basic overview of the dataset size.</p>
+<div id="d88f5cdc" class="cell fragment" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="co"># Display the shape of the dataset</span></span>
+<span id="cb5-2"><a></a><span class="bu">print</span>(<span class="st">"Dataset Shape:"</span>, cancer_data.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="3">
+<div class="cell-output cell-output-stdout">
+<pre><code>Dataset Shape: (569, 33)</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Summarizing Column Information</li>
+</ul>
+</div>
+<div class="fragment">
+<p>.info() lists all columns, their data types, and counts of non-null values, helping identify any columns that may have missing data.</p>
+<div id="12b73c35" class="cell fragment" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="co"># Display column names, data types, and non-null counts</span></span>
+<span id="cb7-2"><a></a>cancer_data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="4">
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 569 entries, 0 to 568
+Data columns (total 33 columns):
+ #   Column                   Non-Null Count  Dtype  
+---  ------                   --------------  -----  
+ 0   id                       569 non-null    int64  
+ 1   diagnosis                569 non-null    object 
+ 2   radius_mean              569 non-null    float64
+ 3   texture_mean             569 non-null    float64
+ 4   perimeter_mean           569 non-null    float64
+ 5   area_mean                569 non-null    float64
+ 6   smoothness_mean          569 non-null    float64
+ 7   compactness_mean         569 non-null    float64
+ 8   concavity_mean           569 non-null    float64
+ 9   concave points_mean      569 non-null    float64
+ 10  symmetry_mean            569 non-null    float64
+ 11  fractal_dimension_mean   569 non-null    float64
+ 12  radius_se                569 non-null    float64
+ 13  texture_se               569 non-null    float64
+ 14  perimeter_se             569 non-null    float64
+ 15  area_se                  569 non-null    float64
+ 16  smoothness_se            569 non-null    float64
+ 17  compactness_se           569 non-null    float64
+ 18  concavity_se             569 non-null    float64
+ 19  concave points_se        569 non-null    float64
+ 20  symmetry_se              569 non-null    float64
+ 21  fractal_dimension_se     569 non-null    float64
+ 22  radius_worst             569 non-null    float64
+ 23  texture_worst            569 non-null    float64
+ 24  perimeter_worst          569 non-null    float64
+ 25  area_worst               569 non-null    float64
+ 26  smoothness_worst         569 non-null    float64
+ 27  compactness_worst        569 non-null    float64
+ 28  concavity_worst          569 non-null    float64
+ 29  concave points_worst     569 non-null    float64
+ 30  symmetry_worst           569 non-null    float64
+ 31  fractal_dimension_worst  569 non-null    float64
+ 32  Unnamed: 32              0 non-null      float64
+dtypes: float64(31), int64(1), object(1)
+memory usage: 146.8+ KB</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Viewing Column Names</p>
+</div>
+<div class="fragment">
+<p>.columns lists column headers, while .tolist() converts it into a standard Python list for easier viewing.</p>
+<div id="ea0b1c38" class="cell fragment" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="co"># Display column names</span></span>
+<span id="cb9-2"><a></a><span class="bu">print</span>(<span class="st">"Column Names:"</span>, cancer_data.columns.tolist())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="5">
+<div class="cell-output cell-output-stdout">
+<pre><code>Column Names: ['id', 'diagnosis', 'radius_mean', 'texture_mean', 'perimeter_mean', 'area_mean', 'smoothness_mean', 'compactness_mean', 'concavity_mean', 'concave points_mean', 'symmetry_mean', 'fractal_dimension_mean', 'radius_se', 'texture_se', 'perimeter_se', 'area_se', 'smoothness_se', 'compactness_se', 'concavity_se', 'concave points_se', 'symmetry_se', 'fractal_dimension_se', 'radius_worst', 'texture_worst', 'perimeter_worst', 'area_worst', 'smoothness_worst', 'compactness_worst', 'concavity_worst', 'concave points_worst', 'symmetry_worst', 'fractal_dimension_worst', 'Unnamed: 32']</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-statistics" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Summary Statistics</h2>
+<div class="fragment">
+<p>.describe() generates essential statistics (mean, std, min, max, percentiles) for numeric columns, useful for identifying data distributions.</p>
+<div id="5c847c97" class="cell fragment" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="co"># Generate summary statistics for numeric columns</span></span>
+<span id="cb11-2"><a></a>cancer_data.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">radius_mean</th>
+<th data-quarto-table-cell-role="th">texture_mean</th>
+<th data-quarto-table-cell-role="th">perimeter_mean</th>
+<th data-quarto-table-cell-role="th">area_mean</th>
+<th data-quarto-table-cell-role="th">smoothness_mean</th>
+<th data-quarto-table-cell-role="th">compactness_mean</th>
+<th data-quarto-table-cell-role="th">concavity_mean</th>
+<th data-quarto-table-cell-role="th">concave points_mean</th>
+<th data-quarto-table-cell-role="th">symmetry_mean</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">texture_worst</th>
+<th data-quarto-table-cell-role="th">perimeter_worst</th>
+<th data-quarto-table-cell-role="th">area_worst</th>
+<th data-quarto-table-cell-role="th">smoothness_worst</th>
+<th data-quarto-table-cell-role="th">compactness_worst</th>
+<th data-quarto-table-cell-role="th">concavity_worst</th>
+<th data-quarto-table-cell-role="th">concave points_worst</th>
+<th data-quarto-table-cell-role="th">symmetry_worst</th>
+<th data-quarto-table-cell-role="th">fractal_dimension_worst</th>
+<th data-quarto-table-cell-role="th">Unnamed: 32</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>5.690000e+02</td>
+<td>569.000000</td>
+<td>569.000000</td>
+<td>569.000000</td>
+<td>569.000000</td>
+<td>569.000000</td>
+<td>569.000000</td>
+<td>569.000000</td>
+<td>569.000000</td>
+<td>569.000000</td>
+<td>...</td>
+<td>569.000000</td>
+<td>569.000000</td>
+<td>569.000000</td>
+<td>569.000000</td>
+<td>569.000000</td>
+<td>569.000000</td>
+<td>569.000000</td>
+<td>569.000000</td>
+<td>569.000000</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>3.037183e+07</td>
+<td>14.127292</td>
+<td>19.289649</td>
+<td>91.969033</td>
+<td>654.889104</td>
+<td>0.096360</td>
+<td>0.104341</td>
+<td>0.088799</td>
+<td>0.048919</td>
+<td>0.181162</td>
+<td>...</td>
+<td>25.677223</td>
+<td>107.261213</td>
+<td>880.583128</td>
+<td>0.132369</td>
+<td>0.254265</td>
+<td>0.272188</td>
+<td>0.114606</td>
+<td>0.290076</td>
+<td>0.083946</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>1.250206e+08</td>
+<td>3.524049</td>
+<td>4.301036</td>
+<td>24.298981</td>
+<td>351.914129</td>
+<td>0.014064</td>
+<td>0.052813</td>
+<td>0.079720</td>
+<td>0.038803</td>
+<td>0.027414</td>
+<td>...</td>
+<td>6.146258</td>
+<td>33.602542</td>
+<td>569.356993</td>
+<td>0.022832</td>
+<td>0.157336</td>
+<td>0.208624</td>
+<td>0.065732</td>
+<td>0.061867</td>
+<td>0.018061</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>8.670000e+03</td>
+<td>6.981000</td>
+<td>9.710000</td>
+<td>43.790000</td>
+<td>143.500000</td>
+<td>0.052630</td>
+<td>0.019380</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.106000</td>
+<td>...</td>
+<td>12.020000</td>
+<td>50.410000</td>
+<td>185.200000</td>
+<td>0.071170</td>
+<td>0.027290</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.156500</td>
+<td>0.055040</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>8.692180e+05</td>
+<td>11.700000</td>
+<td>16.170000</td>
+<td>75.170000</td>
+<td>420.300000</td>
+<td>0.086370</td>
+<td>0.064920</td>
+<td>0.029560</td>
+<td>0.020310</td>
+<td>0.161900</td>
+<td>...</td>
+<td>21.080000</td>
+<td>84.110000</td>
+<td>515.300000</td>
+<td>0.116600</td>
+<td>0.147200</td>
+<td>0.114500</td>
+<td>0.064930</td>
+<td>0.250400</td>
+<td>0.071460</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>9.060240e+05</td>
+<td>13.370000</td>
+<td>18.840000</td>
+<td>86.240000</td>
+<td>551.100000</td>
+<td>0.095870</td>
+<td>0.092630</td>
+<td>0.061540</td>
+<td>0.033500</td>
+<td>0.179200</td>
+<td>...</td>
+<td>25.410000</td>
+<td>97.660000</td>
+<td>686.500000</td>
+<td>0.131300</td>
+<td>0.211900</td>
+<td>0.226700</td>
+<td>0.099930</td>
+<td>0.282200</td>
+<td>0.080040</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>8.813129e+06</td>
+<td>15.780000</td>
+<td>21.800000</td>
+<td>104.100000</td>
+<td>782.700000</td>
+<td>0.105300</td>
+<td>0.130400</td>
+<td>0.130700</td>
+<td>0.074000</td>
+<td>0.195700</td>
+<td>...</td>
+<td>29.720000</td>
+<td>125.400000</td>
+<td>1084.000000</td>
+<td>0.146000</td>
+<td>0.339100</td>
+<td>0.382900</td>
+<td>0.161400</td>
+<td>0.317900</td>
+<td>0.092080</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>9.113205e+08</td>
+<td>28.110000</td>
+<td>39.280000</td>
+<td>188.500000</td>
+<td>2501.000000</td>
+<td>0.163400</td>
+<td>0.345400</td>
+<td>0.426800</td>
+<td>0.201200</td>
+<td>0.304000</td>
+<td>...</td>
+<td>49.540000</td>
+<td>251.200000</td>
+<td>4254.000000</td>
+<td>0.222600</td>
+<td>1.058000</td>
+<td>1.252000</td>
+<td>0.291000</td>
+<td>0.663800</td>
+<td>0.207500</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+<p>8 rows × 32 columns</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Using value_counts() on a Single Column</p>
+<p>This method is straightforward if you want to check the frequency distribution of one specific categorical column. Returns a pandas series object</p>
+<div id="424c0b20" class="cell fragment" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="co"># Count occurrences of each unique value in the 'diagnosis' column</span></span>
+<span id="cb12-2"><a></a>diagnosis_counts <span class="op">=</span> cancer_data[<span class="st">'diagnosis'</span>].value_counts()</span>
+<span id="cb12-3"><a></a><span class="bu">print</span>(<span class="st">"Diagnosis Counts:</span><span class="ch">\n</span><span class="st">"</span>, diagnosis_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="7">
+<div class="cell-output cell-output-stdout">
+<pre><code>Diagnosis Counts:
+ diagnosis
+B    357
+M    212
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>To see summary statistics grouped by a categorical variable in pandas, you can use the groupby() method along with describe() or specific aggregation functions like mean(), sum(), etc.</p>
+<div id="05d50fc3" class="cell fragment" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="co"># Group by 'diagnosis' and get summary statistics for each group</span></span>
+<span id="cb14-2"><a></a>grouped_summary <span class="op">=</span> cancer_data.groupby(<span class="st">'diagnosis'</span>).mean()</span>
+<span id="cb14-3"><a></a><span class="bu">print</span>(grouped_summary)</span>
+<span id="cb14-4"><a></a></span>
+<span id="cb14-5"><a></a></span>
+<span id="cb14-6"><a></a><span class="co">#Group by 'diagnosis' and get summary statistics for only one variable</span></span>
+<span id="cb14-7"><a></a>grouped_radius_mean <span class="op">=</span> cancer_data.groupby(<span class="st">'diagnosis'</span>)[<span class="st">'radius_mean'</span>].mean()</span>
+<span id="cb14-8"><a></a><span class="bu">print</span>(grouped_radius_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="8">
+<div class="cell-output cell-output-stdout">
+<pre><code>                     id  radius_mean  texture_mean  perimeter_mean  \
+diagnosis                                                            
+B          2.654382e+07    12.146524     17.914762       78.075406   
+M          3.681805e+07    17.462830     21.604906      115.365377   
+
+            area_mean  smoothness_mean  compactness_mean  concavity_mean  \
+diagnosis                                                                  
+B          462.790196         0.092478          0.080085        0.046058   
+M          978.376415         0.102898          0.145188        0.160775   
+
+           concave points_mean  symmetry_mean  ...  texture_worst  \
+diagnosis                                      ...                  
+B                     0.025717       0.174186  ...      23.515070   
+M                     0.087990       0.192909  ...      29.318208   
+
+           perimeter_worst   area_worst  smoothness_worst  compactness_worst  \
+diagnosis                                                                      
+B                87.005938   558.899440          0.124959           0.182673   
+M               141.370330  1422.286321          0.144845           0.374824   
+
+           concavity_worst  concave points_worst  symmetry_worst  \
+diagnosis                                                          
+B                 0.166238              0.074444        0.270246   
+M                 0.450606              0.182237        0.323468   
+
+           fractal_dimension_worst  Unnamed: 32  
+diagnosis                                        
+B                         0.079442          NaN  
+M                         0.091530          NaN  
+
+[2 rows x 32 columns]
+diagnosis
+B    12.146524
+M    17.462830
+Name: radius_mean, dtype: float64</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="renaming-columns" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Renaming Columns</h2>
+<p>To make column names more readable or consistent, you can use rename() to change specific names. Here’s how to rename columns like radius_mean to Radius Mean.</p>
+<div id="2645ef28" class="cell fragment" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="co"># Rename specific columns for readability. 'old': 'new'</span></span>
+<span id="cb16-2"><a></a></span>
+<span id="cb16-3"><a></a>new_columns<span class="op">=</span>{</span>
+<span id="cb16-4"><a></a>    <span class="st">'radius_mean'</span>: <span class="st">'Radius Mean'</span>,</span>
+<span id="cb16-5"><a></a>    <span class="st">'texture_mean'</span>: <span class="st">'Texture Mean'</span>,</span>
+<span id="cb16-6"><a></a>    <span class="st">'perimeter_mean'</span>: <span class="st">'Perimeter Mean'</span></span>
+<span id="cb16-7"><a></a>}</span>
+<span id="cb16-8"><a></a></span>
+<span id="cb16-9"><a></a>cancer_data <span class="op">=</span> cancer_data.rename(columns<span class="op">=</span>new_columns)</span>
+<span id="cb16-10"><a></a></span>
+<span id="cb16-11"><a></a><span class="co"># Display the new column names to verify the changes</span></span>
+<span id="cb16-12"><a></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Updated Column Names:"</span>, cancer_data.columns.tolist())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="9">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Updated Column Names: ['id', 'diagnosis', 'Radius Mean', 'Texture Mean', 'Perimeter Mean', 'area_mean', 'smoothness_mean', 'compactness_mean', 'concavity_mean', 'concave points_mean', 'symmetry_mean', 'fractal_dimension_mean', 'radius_se', 'texture_se', 'perimeter_se', 'area_se', 'smoothness_se', 'compactness_se', 'concavity_se', 'concave points_se', 'symmetry_se', 'fractal_dimension_se', 'radius_worst', 'texture_worst', 'perimeter_worst', 'area_worst', 'smoothness_worst', 'compactness_worst', 'concavity_worst', 'concave points_worst', 'symmetry_worst', 'fractal_dimension_worst', 'Unnamed: 32']</code></pre>
+</div>
+</div>
+</section>
+<section id="missing-values-in-python" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Missing values in Python</h2>
+<p>Missing values are common in data analysis. Python provides multiple ways to represent missing values, including <code>None</code>, <code>np.nan</code>, and <code>pd.NA</code>. Understanding their behavior is crucial for data cleaning, processing, and analysis.</p>
+<div class="fragment">
+<p>Missing Values in Python: <code>None</code></p>
+<ul>
+<li class="fragment"><strong>Definition</strong>: <code>None</code> is a built-in Python object representing “no value.”</li>
+<li class="fragment"><strong>Use Cases</strong>: Works with general Python objects but does <strong>not</strong> support mathematical operations.</li>
+</ul>
+<div id="6514fa76" class="cell fragment" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>x <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb18-2"><a></a><span class="cf">if</span> x <span class="kw">is</span> <span class="va">None</span>:  <span class="co"># Best practice</span></span>
+<span id="cb18-3"><a></a>    <span class="bu">print</span>(<span class="st">"x is missing"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="10">
+<div class="cell-output cell-output-stdout">
+<pre><code>x is missing</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><strong>Issue with <code>None</code> in arithmetic</strong>:</p>
+<div id="e72eeb4b" class="cell fragment" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a><span class="cf">try</span>: </span>
+<span id="cb20-2"><a></a>    <span class="bu">print</span>(x <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb20-3"><a></a><span class="cf">except</span> <span class="pp">TypeError</span>: </span>
+<span id="cb20-4"><a></a>    <span class="bu">print</span>(<span class="st">"TypeError: Unsupported operand type(s)"</span>)  <span class="co"># TypeError: unsupported operand type(s)</span></span>
+<span id="cb20-5"><a></a><span class="bu">print</span>(x<span class="op">==</span>x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="11">
+<div class="cell-output cell-output-stdout">
+<pre><code>TypeError: Unsupported operand type(s)
+True</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="missing-values-in-numpy-np.nan" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Missing Values in NumPy: <code>np.nan</code></h2>
+<ul>
+<li class="fragment"><code>np.nan</code> represents missing values in numerical computations.</li>
+<li class="fragment"><code>np.nan</code> is a floating-point value (<code>float64</code>).</li>
+<li class="fragment">Cannot be checked with <code>==</code> because <code>np.nan != np.nan</code>.</li>
+</ul>
+<div id="ac86cc9c" class="cell fragment" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb22-2"><a></a>x <span class="op">=</span> np.nan</span>
+<span id="cb22-3"><a></a><span class="cf">if</span> np.isnan(x):  <span class="co"># Correct way to check for np.nan</span></span>
+<span id="cb22-4"><a></a>    <span class="bu">print</span>(<span class="st">"x is missing"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="12">
+<div class="cell-output cell-output-stdout">
+<pre><code>x is missing</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Behavior in Math Operations</li>
+</ul>
+<div id="f30775df" class="cell fragment" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a><span class="bu">print</span>(x <span class="op">+</span> <span class="dv">10</span>)  <span class="co"># Output: nan</span></span>
+<span id="cb24-2"><a></a><span class="bu">print</span>(x <span class="op">==</span> x)  <span class="co"># Output: False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="13">
+<div class="cell-output cell-output-stdout">
+<pre><code>nan
+False</code></pre>
+</div>
+</div>
+</section>
+<section id="missing-values-in-pandas-pd.na" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Missing Values in Pandas: <code>pd.NA</code></h2>
+<ul>
+<li class="fragment"><p><code>pd.NA</code> is Pandas’ missing value representation, introduced in Pandas 1.0.</p></li>
+<li class="fragment"><p>Works with nullable data types (<code>Int64</code>, <code>Float64</code>, <code>boolean</code>, <code>string</code>).</p></li>
+<li class="fragment"><p>Avoids automatic type conversion (e.g., integers remain integers).</p></li>
+<li class="fragment"><p>Behavior in Math Operations</p></li>
+</ul>
+<div id="80b2ac0c" class="cell fragment" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb26-2"><a></a>x <span class="op">=</span> pd.NA</span>
+<span id="cb26-3"><a></a><span class="bu">print</span>(x<span class="op">+</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="14">
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;NA&gt;</code></pre>
+</div>
+</div>
+<div id="7cfaf22f" class="cell fragment" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a><span class="co">#Checking for missingness </span></span>
+<span id="cb28-2"><a></a></span>
+<span id="cb28-3"><a></a></span>
+<span id="cb28-4"><a></a>x <span class="op">=</span> pd.NA</span>
+<span id="cb28-5"><a></a><span class="cf">if</span> pd.isna(x):  <span class="co"># Correct way</span></span>
+<span id="cb28-6"><a></a>    <span class="bu">print</span>(<span class="st">"x is missing"</span>)</span>
+<span id="cb28-7"><a></a></span>
+<span id="cb28-8"><a></a><span class="cf">try</span>:   </span>
+<span id="cb28-9"><a></a>    <span class="cf">if</span> x<span class="op">==</span>pd.na:</span>
+<span id="cb28-10"><a></a>        <span class="bu">print</span>(x)</span>
+<span id="cb28-11"><a></a><span class="cf">except</span> <span class="pp">AttributeError</span>:</span>
+<span id="cb28-12"><a></a>    <span class="bu">print</span>(<span class="st">'#Incorrect way: if x=pd.NA'</span>)</span>
+<span id="cb28-13"><a></a></span>
+<span id="cb28-14"><a></a><span class="bu">print</span>(x<span class="op">==</span>x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="15">
+<div class="cell-output cell-output-stdout">
+<pre><code>x is missing
+#Incorrect way: if x=pd.NA
+&lt;NA&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="comparing-none-np.nan-and-pd.na" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Comparing <code>None</code>, <code>np.nan</code>, and <code>pd.NA</code></h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 21%">
+<col style="width: 27%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th><code>None</code></th>
+<th><code>np.nan</code></th>
+<th><code>pd.NA</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Type</strong></td>
+<td><code>NoneType</code></td>
+<td><code>float64</code></td>
+<td>Special Pandas scalar</td>
+</tr>
+<tr class="even">
+<td><strong>Use Case</strong></td>
+<td>General Python</td>
+<td>NumPy/Pandas numeric data</td>
+<td>Pandas nullable types</td>
+</tr>
+<tr class="odd">
+<td><strong>Arithmetic Ops</strong></td>
+<td>Fails (<code>None + 1</code>)</td>
+<td>Works but returns <code>nan</code></td>
+<td>Works but returns <code>&lt;NA&gt;</code></td>
+</tr>
+<tr class="even">
+<td><strong>Comparison (<code>==</code>)</strong></td>
+<td><code>None == None → True</code></td>
+<td><code>np.nan == np.nan → False</code></td>
+<td><code>pd.NA == pd.NA → &lt;NA&gt;</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Check Method</strong></td>
+<td><code>if x is None:</code></td>
+<td><code>if np.isnan(x):</code></td>
+<td><code>if pd.isna(x):</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="handling-missing-values-in-pandas" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Handling Missing Values in Pandas</h2>
+<div id="0e5c5927" class="cell fragment" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb30-2"><a></a>df <span class="op">=</span> pd.DataFrame({<span class="st">"A"</span>: [<span class="dv">1</span>, np.nan, <span class="dv">3</span>, <span class="va">None</span>, pd.NA]})</span>
+<span id="cb30-3"><a></a><span class="bu">print</span>(df.isna())  <span class="co"># Identifies missing values</span></span>
+<span id="cb30-4"><a></a><span class="cf">for</span> x <span class="kw">in</span> df.iloc[:, <span class="dv">0</span>]:</span>
+<span id="cb30-5"><a></a>    <span class="bu">print</span>(<span class="bu">type</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="16">
+<div class="cell-output cell-output-stdout">
+<pre><code>       A
+0  False
+1   True
+2  False
+3   True
+4   True
+&lt;class 'int'&gt;
+&lt;class 'float'&gt;
+&lt;class 'int'&gt;
+&lt;class 'NoneType'&gt;
+&lt;class 'pandas._libs.missing.NAType'&gt;</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Filling Missing Values</p>
+<div id="deaddf28" class="cell fragment" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>df[<span class="st">"A"</span>]<span class="op">=</span>df[<span class="st">"A"</span>].fillna(pd.NA).astype(<span class="st">'Float64'</span>)  <span class="co"># Replaces missing values with pd.NA, and then changes the column type to 'FLoat64, pandas' nullable float datatype.</span></span>
+<span id="cb32-2"><a></a><span class="cf">for</span> value <span class="kw">in</span> df.iloc[:,<span class="dv">0</span>]:</span>
+<span id="cb32-3"><a></a>        <span class="bu">print</span>(value)</span>
+<span id="cb32-4"><a></a>        <span class="bu">print</span>(<span class="bu">type</span>(value))</span>
+<span id="cb32-5"><a></a></span>
+<span id="cb32-6"><a></a><span class="bu">print</span>(df[<span class="st">"A"</span>].dtype)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="17">
+<div class="cell-output cell-output-stdout">
+<pre><code>1.0
+&lt;class 'numpy.float64'&gt;
+&lt;NA&gt;
+&lt;class 'pandas._libs.missing.NAType'&gt;
+3.0
+&lt;class 'numpy.float64'&gt;
+&lt;NA&gt;
+&lt;class 'pandas._libs.missing.NAType'&gt;
+&lt;NA&gt;
+&lt;class 'pandas._libs.missing.NAType'&gt;
+Float64</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Make sure you typecast the column as a pandas nullable data type.</p>
+<div id="89a0f413" class="cell fragment" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>df[<span class="st">"A"</span>]<span class="op">=</span>df[<span class="st">"A"</span>].astype(<span class="st">'float64'</span>)  <span class="co">#typecasting as lowercase "float" changes all pd.NA back to np.nan because "float64" (lowercase) is not supported by pd.NA</span></span>
+<span id="cb34-2"><a></a><span class="cf">for</span> value <span class="kw">in</span> df.iloc[:,<span class="dv">0</span>]:</span>
+<span id="cb34-3"><a></a>        <span class="bu">print</span>(value)</span>
+<span id="cb34-4"><a></a>        <span class="bu">print</span>(<span class="bu">type</span>(value))</span>
+<span id="cb34-5"><a></a></span>
+<span id="cb34-6"><a></a><span class="bu">print</span>(df[<span class="st">"A"</span>].dtype)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="18">
+<div class="cell-output cell-output-stdout">
+<pre><code>1.0
+&lt;class 'float'&gt;
+nan
+&lt;class 'float'&gt;
+3.0
+&lt;class 'float'&gt;
+nan
+&lt;class 'float'&gt;
+nan
+&lt;class 'float'&gt;
+float64</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="dropping-missing-values" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Dropping Missing Values</h2>
+<div id="65bf0db8" class="cell fragment" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>df<span class="op">=</span>df.dropna()</span>
+<span id="cb36-2"><a></a><span class="bu">print</span>(df[<span class="st">"A"</span>])</span>
+<span id="cb36-3"><a></a><span class="co"># Removes rows with missing values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="19">
+<div class="cell-output cell-output-stdout">
+<pre><code>0    1.0
+2    3.0
+Name: A, dtype: float64</code></pre>
+</div>
+</div>
+</section>
+<section id="best-practices" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Best Practices</h2>
+<ul>
+<li class="fragment">Use <code>None</code> for general Python objects.<br>
+</li>
+<li class="fragment">Use <code>np.nan</code> for numerical missing values in NumPy.<br>
+</li>
+<li class="fragment">Use <code>pd.NA</code> for missing values in Pandas with nullable data types.<br>
+</li>
+<li class="fragment">Always use <code>isna()</code> or <code>isnull()</code> when working with missing data in Pandas.</li>
+</ul>
+</section>
+<section id="other-pandas-nullable-data-types" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Other Pandas Nullable Data Types</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 40%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pandas Nullable Data Type</th>
+<th>Description</th>
+<th>Typical Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Int8</code>, <code>Int16</code>, <code>Int32</code>, <code>Int64</code></td>
+<td>Nullable integer types (can hold <code>pd.NA</code>)</td>
+<td>Use when you want integers with missing values</td>
+</tr>
+<tr class="even">
+<td><code>Float32</code>, <code>Float64</code></td>
+<td>Nullable float types (standard floats also support <code>NaN</code>)</td>
+<td>Numeric data with decimals, missing values</td>
+</tr>
+<tr class="odd">
+<td><code>boolean</code></td>
+<td>Nullable Boolean type (<code>True</code>, <code>False</code>, <code>pd.NA</code>)</td>
+<td>Binary categories with missing info</td>
+</tr>
+<tr class="even">
+<td><code>string</code></td>
+<td>Pandas string data type (nullable)</td>
+<td>Text data with potential nulls</td>
+</tr>
+<tr class="odd">
+<td><code>category</code></td>
+<td>Categorical type (can include <code>NaN</code> or <code>pd.NA</code>)</td>
+<td>Categorical data, efficient storage</td>
+</tr>
+<tr class="even">
+<td><code>datetime64[ns]</code> with <code>pd.NaT</code></td>
+<td>Datetime with nanosecond precision</td>
+<td>Time series, datetime columns</td>
+</tr>
+<tr class="odd">
+<td><code>timedelta64[ns]</code> with <code>pd.NaT</code></td>
+<td>Timedeltas (differences between datetimes)</td>
+<td>Duration calculations</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="more-on-missing-values" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>More on missing values</h2>
+<p>To find missing values, you can use isnull() with sum() to calculate the total number of missing values in each column.</p>
+<div id="facde961" class="cell fragment" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a><span class="co"># Count missing values in each column</span></span>
+<span id="cb38-2"><a></a>missing_values <span class="op">=</span> cancer_data.isnull().<span class="bu">sum</span>()</span>
+<span id="cb38-3"><a></a><span class="bu">print</span>(<span class="st">"Missing Values per Column:"</span>)</span>
+<span id="cb38-4"><a></a><span class="bu">print</span>(missing_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="20">
+<div class="cell-output cell-output-stdout">
+<pre><code>Missing Values per Column:
+id                           0
+diagnosis                    0
+Radius Mean                  0
+Texture Mean                 0
+Perimeter Mean               0
+area_mean                    0
+smoothness_mean              0
+compactness_mean             0
+concavity_mean               0
+concave points_mean          0
+symmetry_mean                0
+fractal_dimension_mean       0
+radius_se                    0
+texture_se                   0
+perimeter_se                 0
+area_se                      0
+smoothness_se                0
+compactness_se               0
+concavity_se                 0
+concave points_se            0
+symmetry_se                  0
+fractal_dimension_se         0
+radius_worst                 0
+texture_worst                0
+perimeter_worst              0
+area_worst                   0
+smoothness_worst             0
+compactness_worst            0
+concavity_worst              0
+concave points_worst         0
+symmetry_worst               0
+fractal_dimension_worst      0
+Unnamed: 32                569
+dtype: int64</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Dropping Columns with Excessive Missing Data Since Unnamed: 32 has no data, it can be dropped from the DataFrame using .drop().</p>
+<div id="6e78444b" class="cell fragment" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a><span class="co"># Drop the 'Unnamed: 32' column if it contains no data</span></span>
+<span id="cb40-2"><a></a>cancer_data <span class="op">=</span> cancer_data.drop(columns<span class="op">=</span>[<span class="st">'Unnamed: 32'</span>])</span>
+<span id="cb40-3"><a></a></span>
+<span id="cb40-4"><a></a><span class="co"># Verify the column has been dropped</span></span>
+<span id="cb40-5"><a></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Columns after dropping 'Unnamed: 32':"</span>, cancer_data.columns.tolist())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="21">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Columns after dropping 'Unnamed: 32': ['id', 'diagnosis', 'Radius Mean', 'Texture Mean', 'Perimeter Mean', 'area_mean', 'smoothness_mean', 'compactness_mean', 'concavity_mean', 'concave points_mean', 'symmetry_mean', 'fractal_dimension_mean', 'radius_se', 'texture_se', 'perimeter_se', 'area_se', 'smoothness_se', 'compactness_se', 'concavity_se', 'concave points_se', 'symmetry_se', 'fractal_dimension_se', 'radius_worst', 'texture_worst', 'perimeter_worst', 'area_worst', 'smoothness_worst', 'compactness_worst', 'concavity_worst', 'concave points_worst', 'symmetry_worst', 'fractal_dimension_worst']</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="column-selection" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Column Selection</h2>
+<p>Selecting specific columns is essential for focusing on particular aspects of the dataset. Here are some examples of both single and multiple column selections.</p>
+<div id="fe2cefce" class="cell fragment" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a><span class="co"># Select the 'diagnosis' column - diagnosis_column will be a series</span></span>
+<span id="cb42-2"><a></a>diagnosis_column <span class="op">=</span> cancer_data[<span class="st">'diagnosis'</span>]</span>
+<span id="cb42-3"><a></a><span class="bu">print</span>(<span class="st">"Diagnosis Column:</span><span class="ch">\n</span><span class="st">"</span>, diagnosis_column.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="22">
+<div class="cell-output cell-output-stdout">
+<pre><code>Diagnosis Column:
+ 0    M
+1    M
+2    M
+3    M
+4    M
+Name: diagnosis, dtype: object</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Alternatively, you can select multiple columns.</p>
+<div id="baf1fbf2" class="cell fragment" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a><span class="co"># Select multiple columns: 'diagnosis', 'radius_mean', and 'area_mean' - selected_columns will be a pandas DataFrame</span></span>
+<span id="cb44-2"><a></a></span>
+<span id="cb44-3"><a></a>selected_columns <span class="op">=</span> cancer_data[[<span class="st">'diagnosis'</span>, <span class="st">'Radius Mean'</span>, <span class="st">'area_mean'</span>]]</span>
+<span id="cb44-4"><a></a><span class="bu">print</span>(<span class="st">"Selected Columns:</span><span class="ch">\n</span><span class="st">"</span>, selected_columns.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="23">
+<div class="cell-output cell-output-stdout">
+<pre><code>Selected Columns:
+   diagnosis  Radius Mean  area_mean
+0         M        17.99     1001.0
+1         M        20.57     1326.0
+2         M        19.69     1203.0
+3         M        11.42      386.1
+4         M        20.29     1297.0</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="row-selection" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Row Selection</h2>
+<p>Selecting rows based on labels or positions is helpful for inspecting specific data points or subsets.</p>
+<div class="fragment">
+<p>Label-Based Indexing with loc</p>
+</div>
+<div class="fragment">
+<p>loc allows selection based on labels (e.g., column names or index labels) and is particularly useful for data subsets.</p>
+<div id="0a0de146" class="cell fragment" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a></a><span class="co"># Select rows by labels (assuming integer index here) and specific columns</span></span>
+<span id="cb46-2"><a></a>selected_rows_labels <span class="op">=</span> cancer_data.loc[<span class="dv">0</span>:<span class="dv">4</span>, [<span class="st">'diagnosis'</span>, <span class="st">'Radius Mean'</span>, <span class="st">'area_mean'</span>]]</span>
+<span id="cb46-3"><a></a><span class="bu">print</span>(<span class="st">"Selected Rows with loc:</span><span class="ch">\n</span><span class="st">"</span>, selected_rows_labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="24">
+<div class="cell-output cell-output-stdout">
+<pre><code>Selected Rows with loc:
+   diagnosis  Radius Mean  area_mean
+0         M        17.99     1001.0
+1         M        20.57     1326.0
+2         M        19.69     1203.0
+3         M        11.42      386.1
+4         M        20.29     1297.0</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Integer-Based Indexing with iloc</p>
+</div>
+<div class="fragment">
+<p>iloc allows selection based purely on integer positions, making it convenient for slicing and position-based operations.</p>
+<div id="61438002" class="cell fragment" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a><span class="co"># Select rows by integer position and specific columns</span></span>
+<span id="cb48-2"><a></a>selected_rows_position <span class="op">=</span> cancer_data.iloc[<span class="dv">0</span>:<span class="dv">5</span>, [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]]  <span class="co"># Select first 5 rows and columns at position 1, 2, 3</span></span>
+<span id="cb48-3"><a></a><span class="bu">print</span>(<span class="st">"Selected Rows with iloc:</span><span class="ch">\n</span><span class="st">"</span>, selected_rows_position)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="25">
+<div class="cell-output cell-output-stdout">
+<pre><code>Selected Rows with iloc:
+   diagnosis  Radius Mean  Texture Mean
+0         M        17.99         10.38
+1         M        20.57         17.77
+2         M        19.69         21.25
+3         M        11.42         20.38
+4         M        20.29         14.34</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="filtering" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Filtering</h2>
+<p>Filtering enables you to create subsets of data that match specific conditions. For example, we can filter by diagnosis to analyze only malignant (M) or benign (B) cases.</p>
+<div id="89f06330" class="cell fragment" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a><span class="co"># Filter rows where 'diagnosis' is "M" (Malignant)</span></span>
+<span id="cb50-2"><a></a>malignant_cases <span class="op">=</span> cancer_data[cancer_data[<span class="st">'diagnosis'</span>] <span class="op">==</span> <span class="st">'M'</span>]</span>
+<span id="cb50-3"><a></a><span class="bu">print</span>(<span class="st">"Malignant Cases:</span><span class="ch">\n</span><span class="st">"</span>, malignant_cases.head(<span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="26">
+<div class="cell-output cell-output-stdout">
+<pre><code>Malignant Cases:
+           id diagnosis  Radius Mean  Texture Mean  Perimeter Mean  area_mean  \
+0     842302         M        17.99         10.38          122.80     1001.0   
+1     842517         M        20.57         17.77          132.90     1326.0   
+2   84300903         M        19.69         21.25          130.00     1203.0   
+3   84348301         M        11.42         20.38           77.58      386.1   
+4   84358402         M        20.29         14.34          135.10     1297.0   
+5     843786         M        12.45         15.70           82.57      477.1   
+6     844359         M        18.25         19.98          119.60     1040.0   
+7   84458202         M        13.71         20.83           90.20      577.9   
+8     844981         M        13.00         21.82           87.50      519.8   
+9   84501001         M        12.46         24.04           83.97      475.9   
+10    845636         M        16.02         23.24          102.70      797.8   
+11  84610002         M        15.78         17.89          103.60      781.0   
+12    846226         M        19.17         24.80          132.40     1123.0   
+13    846381         M        15.85         23.95          103.70      782.7   
+14  84667401         M        13.73         22.61           93.60      578.3   
+15  84799002         M        14.54         27.54           96.73      658.8   
+16    848406         M        14.68         20.13           94.74      684.5   
+17  84862001         M        16.13         20.68          108.10      798.8   
+18    849014         M        19.81         22.15          130.00     1260.0   
+22   8511133         M        15.34         14.26          102.50      704.4   
+
+    smoothness_mean  compactness_mean  concavity_mean  concave points_mean  \
+0           0.11840           0.27760         0.30010              0.14710   
+1           0.08474           0.07864         0.08690              0.07017   
+2           0.10960           0.15990         0.19740              0.12790   
+3           0.14250           0.28390         0.24140              0.10520   
+4           0.10030           0.13280         0.19800              0.10430   
+5           0.12780           0.17000         0.15780              0.08089   
+6           0.09463           0.10900         0.11270              0.07400   
+7           0.11890           0.16450         0.09366              0.05985   
+8           0.12730           0.19320         0.18590              0.09353   
+9           0.11860           0.23960         0.22730              0.08543   
+10          0.08206           0.06669         0.03299              0.03323   
+11          0.09710           0.12920         0.09954              0.06606   
+12          0.09740           0.24580         0.20650              0.11180   
+13          0.08401           0.10020         0.09938              0.05364   
+14          0.11310           0.22930         0.21280              0.08025   
+15          0.11390           0.15950         0.16390              0.07364   
+16          0.09867           0.07200         0.07395              0.05259   
+17          0.11700           0.20220         0.17220              0.10280   
+18          0.09831           0.10270         0.14790              0.09498   
+22          0.10730           0.21350         0.20770              0.09756   
+
+    ...  radius_worst  texture_worst  perimeter_worst  area_worst  \
+0   ...         25.38          17.33           184.60      2019.0   
+1   ...         24.99          23.41           158.80      1956.0   
+2   ...         23.57          25.53           152.50      1709.0   
+3   ...         14.91          26.50            98.87       567.7   
+4   ...         22.54          16.67           152.20      1575.0   
+5   ...         15.47          23.75           103.40       741.6   
+6   ...         22.88          27.66           153.20      1606.0   
+7   ...         17.06          28.14           110.60       897.0   
+8   ...         15.49          30.73           106.20       739.3   
+9   ...         15.09          40.68            97.65       711.4   
+10  ...         19.19          33.88           123.80      1150.0   
+11  ...         20.42          27.28           136.50      1299.0   
+12  ...         20.96          29.94           151.70      1332.0   
+13  ...         16.84          27.66           112.00       876.5   
+14  ...         15.03          32.01           108.80       697.7   
+15  ...         17.46          37.13           124.10       943.2   
+16  ...         19.07          30.88           123.40      1138.0   
+17  ...         20.96          31.48           136.80      1315.0   
+18  ...         27.32          30.88           186.80      2398.0   
+22  ...         18.07          19.08           125.10       980.9   
+
+    smoothness_worst  compactness_worst  concavity_worst  \
+0             0.1622             0.6656           0.7119   
+1             0.1238             0.1866           0.2416   
+2             0.1444             0.4245           0.4504   
+3             0.2098             0.8663           0.6869   
+4             0.1374             0.2050           0.4000   
+5             0.1791             0.5249           0.5355   
+6             0.1442             0.2576           0.3784   
+7             0.1654             0.3682           0.2678   
+8             0.1703             0.5401           0.5390   
+9             0.1853             1.0580           1.1050   
+10            0.1181             0.1551           0.1459   
+11            0.1396             0.5609           0.3965   
+12            0.1037             0.3903           0.3639   
+13            0.1131             0.1924           0.2322   
+14            0.1651             0.7725           0.6943   
+15            0.1678             0.6577           0.7026   
+16            0.1464             0.1871           0.2914   
+17            0.1789             0.4233           0.4784   
+18            0.1512             0.3150           0.5372   
+22            0.1390             0.5954           0.6305   
+
+    concave points_worst  symmetry_worst  fractal_dimension_worst  
+0                0.26540          0.4601                  0.11890  
+1                0.18600          0.2750                  0.08902  
+2                0.24300          0.3613                  0.08758  
+3                0.25750          0.6638                  0.17300  
+4                0.16250          0.2364                  0.07678  
+5                0.17410          0.3985                  0.12440  
+6                0.19320          0.3063                  0.08368  
+7                0.15560          0.3196                  0.11510  
+8                0.20600          0.4378                  0.10720  
+9                0.22100          0.4366                  0.20750  
+10               0.09975          0.2948                  0.08452  
+11               0.18100          0.3792                  0.10480  
+12               0.17670          0.3176                  0.10230  
+13               0.11190          0.2809                  0.06287  
+14               0.22080          0.3596                  0.14310  
+15               0.17120          0.4218                  0.13410  
+16               0.16090          0.3029                  0.08216  
+17               0.20730          0.3706                  0.11420  
+18               0.23880          0.2768                  0.07615  
+22               0.23930          0.4667                  0.09946  
+
+[20 rows x 32 columns]</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>You can also filter based on multiple conditions, such as finding rows where the diagnosis is “M” and radius_mean is greater than 15.</p>
+<p>Note: You can’t use ‘and’ python operator here, because ‘and’ is a keyword for Python’s boolean operations, which work with single True or False values, not arrays or Series.</p>
+<div id="6bee03ba" class="cell fragment" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a></a><span class="co"># Filter for Malignant cases with radius_mean &gt; 15</span></span>
+<span id="cb52-2"><a></a>large_malignant_cases <span class="op">=</span> cancer_data[(cancer_data[<span class="st">'diagnosis'</span>] <span class="op">==</span> <span class="st">'M'</span>) <span class="op">&amp;</span> (cancer_data[<span class="st">'Radius Mean'</span>] <span class="op">&gt;</span> <span class="dv">15</span>)]</span>
+<span id="cb52-3"><a></a><span class="bu">print</span>(<span class="st">"Large Malignant Cases (Radius Mean &gt; 15):</span><span class="ch">\n</span><span class="st">"</span>, large_malignant_cases.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="27">
+<div class="cell-output cell-output-stdout">
+<pre><code>Large Malignant Cases (Radius Mean &gt; 15):
+          id diagnosis  Radius Mean  Texture Mean  Perimeter Mean  area_mean  \
+0    842302         M        17.99         10.38           122.8     1001.0   
+1    842517         M        20.57         17.77           132.9     1326.0   
+2  84300903         M        19.69         21.25           130.0     1203.0   
+4  84358402         M        20.29         14.34           135.1     1297.0   
+6    844359         M        18.25         19.98           119.6     1040.0   
+
+   smoothness_mean  compactness_mean  concavity_mean  concave points_mean  \
+0          0.11840           0.27760          0.3001              0.14710   
+1          0.08474           0.07864          0.0869              0.07017   
+2          0.10960           0.15990          0.1974              0.12790   
+4          0.10030           0.13280          0.1980              0.10430   
+6          0.09463           0.10900          0.1127              0.07400   
+
+   ...  radius_worst  texture_worst  perimeter_worst  area_worst  \
+0  ...         25.38          17.33            184.6      2019.0   
+1  ...         24.99          23.41            158.8      1956.0   
+2  ...         23.57          25.53            152.5      1709.0   
+4  ...         22.54          16.67            152.2      1575.0   
+6  ...         22.88          27.66            153.2      1606.0   
+
+   smoothness_worst  compactness_worst  concavity_worst  concave points_worst  \
+0            0.1622             0.6656           0.7119                0.2654   
+1            0.1238             0.1866           0.2416                0.1860   
+2            0.1444             0.4245           0.4504                0.2430   
+4            0.1374             0.2050           0.4000                0.1625   
+6            0.1442             0.2576           0.3784                0.1932   
+
+   symmetry_worst  fractal_dimension_worst  
+0          0.4601                  0.11890  
+1          0.2750                  0.08902  
+2          0.3613                  0.08758  
+4          0.2364                  0.07678  
+6          0.3063                  0.08368  
+
+[5 rows x 32 columns]</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-and-modifying-columns" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Adding and Modifying Columns</h2>
+<p>You can create new columns in a DataFrame based on calculations using existing columns. For example, we can calculate the area_ratio by dividing area_worst by area_mean.</p>
+<div id="6924cc22" class="cell fragment" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a></a><span class="co"># Add a new column 'area_ratio' by dividing 'area_worst' by 'area_mean'</span></span>
+<span id="cb54-2"><a></a>cancer_data[<span class="st">'area_ratio'</span>] <span class="op">=</span> cancer_data[<span class="st">'area_worst'</span>] <span class="op">/</span> cancer_data[<span class="st">'area_mean'</span>]</span>
+<span id="cb54-3"><a></a><span class="bu">print</span>(<span class="st">"New Column 'area_ratio':</span><span class="ch">\n</span><span class="st">"</span>, cancer_data[[<span class="st">'area_worst'</span>, <span class="st">'area_mean'</span>, <span class="st">'area_ratio'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="28">
+<div class="cell-output cell-output-stdout">
+<pre><code>New Column 'area_ratio':
+    area_worst  area_mean  area_ratio
+0      2019.0     1001.0    2.016983
+1      1956.0     1326.0    1.475113
+2      1709.0     1203.0    1.420615
+3       567.7      386.1    1.470344
+4      1575.0     1297.0    1.214341</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Changing a Value Using .at</p>
+</div>
+<div class="fragment">
+<p>Suppose you have a DataFrame and want to update the value in the radius_mean column for a particular index.</p>
+<div id="0dfdc12c" class="cell fragment" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a></a><span class="co"># Access and print the original value at index 0 and column 'radius_mean'</span></span>
+<span id="cb56-2"><a></a>original_value <span class="op">=</span> cancer_data.at[<span class="dv">0</span>, <span class="st">'Radius Mean'</span>]</span>
+<span id="cb56-3"><a></a><span class="bu">print</span>(<span class="st">"Original Radius Mean at index 0:"</span>, original_value)</span>
+<span id="cb56-4"><a></a></span>
+<span id="cb56-5"><a></a></span>
+<span id="cb56-6"><a></a><span class="co"># Change the value at index 0 and column 'radius_mean' to 18.5</span></span>
+<span id="cb56-7"><a></a>cancer_data.at[<span class="dv">0</span>, <span class="st">'Radius Mean'</span>] <span class="op">=</span> <span class="fl">18.5</span></span>
+<span id="cb56-8"><a></a></span>
+<span id="cb56-9"><a></a></span>
+<span id="cb56-10"><a></a><span class="co"># Verify the updated value</span></span>
+<span id="cb56-11"><a></a>updated_value <span class="op">=</span> cancer_data.at[<span class="dv">0</span>, <span class="st">'Radius Mean'</span>]</span>
+<span id="cb56-12"><a></a><span class="bu">print</span>(<span class="st">"Updated Radius Mean at index 0:"</span>, updated_value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="29">
+<div class="cell-output cell-output-stdout">
+<pre><code>Original Radius Mean at index 0: 17.99
+Updated Radius Mean at index 0: 18.5</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="sorting-by-columns" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Sorting by Columns</h2>
+<p>You can sort a dataset by columns. Here’s how to sort by diagnosis first and then by area_mean in ascending order.</p>
+<div id="1df87712" class="cell fragment" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a></a><span class="co"># Sort by 'diagnosis' first, then by 'area_mean' within each diagnosis group</span></span>
+<span id="cb58-2"><a></a>sorted_by_diagnosis_area <span class="op">=</span> cancer_data.sort_values(by<span class="op">=</span>[<span class="st">'diagnosis'</span>, <span class="st">'area_mean'</span>], ascending<span class="op">=</span>[<span class="va">True</span>, <span class="va">True</span>])</span>
+<span id="cb58-3"><a></a><span class="bu">print</span>(<span class="st">"Data sorted by Diagnosis and Area Mean:</span><span class="ch">\n</span><span class="st">"</span>, sorted_by_diagnosis_area[[<span class="st">'diagnosis'</span>, <span class="st">'area_mean'</span>, <span class="st">'Radius Mean'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="30">
+<div class="cell-output cell-output-stdout">
+<pre><code>Data sorted by Diagnosis and Area Mean:
+     diagnosis  area_mean  Radius Mean
+101         B      143.5        6.981
+539         B      170.4        7.691
+538         B      178.8        7.729
+568         B      181.0        7.760
+46          B      201.9        8.196</code></pre>
+</div>
+</div>
+</section>
+<section id="reordering-columns-to-move-a-column-to-the-end" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Reordering Columns to Move a Column to the End</h2>
+<p>You might also want to move a specific column to the end of the DataFrame, such as moving area_ratio to the last position.</p>
+<div id="7ca41870" class="cell fragment" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a></a><span class="co"># Move 'area_ratio' to the end of the DataFrame</span></span>
+<span id="cb60-2"><a></a>columns_reordered <span class="op">=</span> [col <span class="cf">for</span> col <span class="kw">in</span> cancer_data.columns <span class="cf">if</span> col <span class="op">!=</span> <span class="st">'area_ratio'</span>] <span class="op">+</span> [<span class="st">'area_ratio'</span>]</span>
+<span id="cb60-3"><a></a>cancer_data_with_area_ratio_last <span class="op">=</span> cancer_data[columns_reordered]</span>
+<span id="cb60-4"><a></a></span>
+<span id="cb60-5"><a></a><span class="co"># Display the reordered columns</span></span>
+<span id="cb60-6"><a></a><span class="bu">print</span>(<span class="st">"Data with 'area_ratio' at the end:</span><span class="ch">\n</span><span class="st">"</span>, cancer_data_with_area_ratio_last.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="31">
+<div class="cell-output cell-output-stdout">
+<pre><code>Data with 'area_ratio' at the end:
+          id diagnosis  Radius Mean  Texture Mean  Perimeter Mean  area_mean  \
+0    842302         M        18.50         10.38          122.80     1001.0   
+1    842517         M        20.57         17.77          132.90     1326.0   
+2  84300903         M        19.69         21.25          130.00     1203.0   
+3  84348301         M        11.42         20.38           77.58      386.1   
+4  84358402         M        20.29         14.34          135.10     1297.0   
+
+   smoothness_mean  compactness_mean  concavity_mean  concave points_mean  \
+0          0.11840           0.27760          0.3001              0.14710   
+1          0.08474           0.07864          0.0869              0.07017   
+2          0.10960           0.15990          0.1974              0.12790   
+3          0.14250           0.28390          0.2414              0.10520   
+4          0.10030           0.13280          0.1980              0.10430   
+
+   ...  texture_worst  perimeter_worst  area_worst  smoothness_worst  \
+0  ...          17.33           184.60      2019.0            0.1622   
+1  ...          23.41           158.80      1956.0            0.1238   
+2  ...          25.53           152.50      1709.0            0.1444   
+3  ...          26.50            98.87       567.7            0.2098   
+4  ...          16.67           152.20      1575.0            0.1374   
+
+   compactness_worst  concavity_worst  concave points_worst  symmetry_worst  \
+0             0.6656           0.7119                0.2654          0.4601   
+1             0.1866           0.2416                0.1860          0.2750   
+2             0.4245           0.4504                0.2430          0.3613   
+3             0.8663           0.6869                0.2575          0.6638   
+4             0.2050           0.4000                0.1625          0.2364   
+
+   fractal_dimension_worst  area_ratio  
+0                  0.11890    2.016983  
+1                  0.08902    1.475113  
+2                  0.08758    1.420615  
+3                  0.17300    1.470344  
+4                  0.07678    1.214341  
+
+[5 rows x 33 columns]</code></pre>
+</div>
+</div>
+</section>
+<section id="method-chaining-in-pandas" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Method Chaining in Pandas</h2>
+<p>In Pandas, you can chain multiple methods together to create a pipeline.</p>
+<div id="8aa5ea44" class="cell fragment" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb62-2"><a></a></span>
+<span id="cb62-3"><a></a><span class="co"># Sample DataFrame</span></span>
+<span id="cb62-4"><a></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb62-5"><a></a>    <span class="st">"name"</span>: [<span class="st">" Alice "</span>, <span class="st">"BOB"</span>, <span class="st">"Charlie"</span>, <span class="va">None</span>],</span>
+<span id="cb62-6"><a></a>    <span class="st">"score"</span>: [<span class="dv">85</span>, <span class="dv">92</span>, <span class="va">None</span>, <span class="dv">74</span>]</span>
+<span id="cb62-7"><a></a>})</span>
+<span id="cb62-8"><a></a></span>
+<span id="cb62-9"><a></a><span class="co"># Clean the data using method chaining</span></span>
+<span id="cb62-10"><a></a>clean_df <span class="op">=</span> (</span>
+<span id="cb62-11"><a></a>    df</span>
+<span id="cb62-12"><a></a>    .dropna()                <span class="co"># Method: drop rows with any NaNs</span></span>
+<span id="cb62-13"><a></a>    .assign(                 <span class="co"># Method: add or update columns</span></span>
+<span id="cb62-14"><a></a>        name_clean<span class="op">=</span><span class="kw">lambda</span> d: d[<span class="st">"name"</span>].<span class="bu">str</span>.strip().<span class="bu">str</span>.title()</span>
+<span id="cb62-15"><a></a>    )</span>
+<span id="cb62-16"><a></a>    .sort_values(<span class="st">"score"</span>, ascending<span class="op">=</span><span class="va">False</span>)  <span class="co"># Method: sort by score</span></span>
+<span id="cb62-17"><a></a>)</span>
+<span id="cb62-18"><a></a></span>
+<span id="cb62-19"><a></a><span class="bu">print</span>(clean_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="32">
+<div class="cell-output cell-output-stdout">
+<pre><code>      name  score name_clean
+1      BOB   92.0        Bob
+0   Alice    85.0      Alice</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Why <code>.str.strip()</code> and not just <code>.strip()</code>?</p>
+<div id="9cee863a" class="cell fragment" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a></a><span class="co"># This works:</span></span>
+<span id="cb64-2"><a></a>df[<span class="st">"name"</span>].<span class="bu">str</span>.strip()</span>
+<span id="cb64-3"><a></a></span>
+<span id="cb64-4"><a></a><span class="co"># This does NOT:</span></span>
+<span id="cb64-5"><a></a><span class="cf">try</span>:</span>
+<span id="cb64-6"><a></a>    df[<span class="st">"name"</span>].strip()  <span class="co"># ❌ AttributeError</span></span>
+<span id="cb64-7"><a></a><span class="cf">except</span> <span class="pp">AttributeError</span>: </span>
+<span id="cb64-8"><a></a>    <span class="bu">print</span>(<span class="st">"AttributeError: .strip is used for single strings, not a Series of strings"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="33">
+<div class="cell-output cell-output-stdout">
+<pre><code>AttributeError: .strip is used for single strings, not a Series of strings</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Why? - <code>df["name"]</code> is a Series — not a string. - <code>.strip()</code> is a string method that works on single strings. - <code>.str</code> is the accessor that tells pandas: “apply this string method to each element in the Series.”</p>
+</div>
+</section>
+<section id="rule-of-thumb" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Rule of Thumb:</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 29%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>You have…</th>
+<th>Use…</th>
+<th>Why?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A single string</td>
+<td><code>"hello".strip()</code></td>
+<td>It’s just Python</td>
+</tr>
+<tr class="even">
+<td>A Series of strings</td>
+<td><code>df["col"].str.strip()</code></td>
+<td>It’s pandas, operating on many strings</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="applying-functions-in-pandas" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Applying Functions in Pandas</h2>
+<p>Applying Functions to Columns</p>
+<p>Using apply() to Apply Custom Functions</p>
+<div class="fragment">
+<p>The .apply() method in pandas lets you apply a custom function to each element in a Series (column) or DataFrame. Here’s how to use it to categorize tumors based on area_mean.</p>
+</div>
+<div class="fragment">
+<p>Example: Categorizing Tumors by Size Let’s create a custom function to categorize tumors as “Small”, “Medium”, or “Large” based on area_mean.</p>
+<div id="990ee727" class="cell fragment" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a></a><span class="co"># Define a custom function to categorize tumors by area_mean</span></span>
+<span id="cb66-2"><a></a><span class="kw">def</span> categorize_tumor(size):</span>
+<span id="cb66-3"><a></a>    <span class="cf">if</span> size <span class="op">&lt;</span> <span class="dv">500</span>:</span>
+<span id="cb66-4"><a></a>        <span class="cf">return</span> <span class="st">'Small'</span></span>
+<span id="cb66-5"><a></a>    <span class="cf">elif</span> <span class="dv">500</span> <span class="op">&lt;=</span> size <span class="op">&lt;</span> <span class="dv">1000</span>:</span>
+<span id="cb66-6"><a></a>        <span class="cf">return</span> <span class="st">'Medium'</span></span>
+<span id="cb66-7"><a></a>    <span class="cf">else</span>:</span>
+<span id="cb66-8"><a></a>        <span class="cf">return</span> <span class="st">'Large'</span></span>
+<span id="cb66-9"><a></a></span>
+<span id="cb66-10"><a></a><span class="co"># Apply the function to the 'area_mean' column and create a new column 'tumor_size_category'</span></span>
+<span id="cb66-11"><a></a>cancer_data[<span class="st">'tumor_size_category'</span>] <span class="op">=</span> cancer_data[<span class="st">'area_mean'</span>].<span class="bu">apply</span>(categorize_tumor)</span>
+<span id="cb66-12"><a></a></span>
+<span id="cb66-13"><a></a><span class="co"># Display the new column to verify the transformation</span></span>
+<span id="cb66-14"><a></a><span class="bu">print</span>(<span class="st">"Tumor Size Categories:</span><span class="ch">\n</span><span class="st">"</span>, cancer_data[[<span class="st">'area_mean'</span>, <span class="st">'tumor_size_category'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="34">
+<div class="cell-output cell-output-stdout">
+<pre><code>Tumor Size Categories:
+    area_mean tumor_size_category
+0     1001.0               Large
+1     1326.0               Large
+2     1203.0               Large
+3      386.1               Small
+4     1297.0               Large</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Using Lambda Functions for Quick Transformations</p>
+</div>
+<div class="fragment">
+<p>Lambda functions are useful for simple, one-line operations. For example, we can use a lambda function to convert diagnosis into numerical codes (0 for Benign, 1 for Malignant).</p>
+<div id="5b95573d" class="cell fragment" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a></a><span class="co"># Apply a lambda function to classify 'diagnosis' into numerical codes</span></span>
+<span id="cb68-2"><a></a>cancer_data[<span class="st">'diagnosis_code'</span>] <span class="op">=</span> cancer_data[<span class="st">'diagnosis'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="dv">1</span> <span class="cf">if</span> x <span class="op">==</span> <span class="st">'M'</span> <span class="cf">else</span> <span class="dv">0</span>)</span>
+<span id="cb68-3"><a></a></span>
+<span id="cb68-4"><a></a><span class="co"># Display the new column to verify the transformation</span></span>
+<span id="cb68-5"><a></a><span class="bu">print</span>(<span class="st">"Diagnosis Codes:</span><span class="ch">\n</span><span class="st">"</span>, cancer_data[[<span class="st">'diagnosis'</span>, <span class="st">'diagnosis_code'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="35">
+<div class="cell-output cell-output-stdout">
+<pre><code>Diagnosis Codes:
+   diagnosis  diagnosis_code
+0         M               1
+1         M               1
+2         M               1
+3         M               1
+4         M               1</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="applying-multiple-conditions-with-apply" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Applying Multiple Conditions with apply()</h2>
+<p>You can also use apply() with a lambda function for more complex, multi-condition classifications.</p>
+<div class="fragment">
+<p>Example: Adding a Column with Risk Levels Suppose we want to create a new column, risk_level, based on both diagnosis and area_mean:</p>
+<ul>
+<li class="fragment">“High Risk” for Malignant tumors with area_mean above 1000.</li>
+<li class="fragment">“Moderate Risk” for Malignant tumors with area_mean below 1000.</li>
+<li class="fragment">“Low Risk” for Benign tumors.</li>
+</ul>
+<div id="cfca4219" class="cell fragment" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a></a><span class="co"># Apply a lambda function with multiple conditions to create a 'risk_level' column</span></span>
+<span id="cb70-2"><a></a>cancer_data[<span class="st">'risk_level'</span>] <span class="op">=</span> cancer_data.<span class="bu">apply</span>(</span>
+<span id="cb70-3"><a></a>    <span class="kw">lambda</span> row: <span class="st">'High Risk'</span> <span class="cf">if</span> row[<span class="st">'diagnosis'</span>] <span class="op">==</span> <span class="st">'M'</span> <span class="kw">and</span> row[<span class="st">'area_mean'</span>] <span class="op">&gt;</span> <span class="dv">1000</span> </span>
+<span id="cb70-4"><a></a>    <span class="cf">else</span> (<span class="st">'Moderate Risk'</span> <span class="cf">if</span> row[<span class="st">'diagnosis'</span>] <span class="op">==</span> <span class="st">'M'</span> <span class="cf">else</span> <span class="st">'Low Risk'</span>), axis<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb70-5"><a></a>)</span>
+<span id="cb70-6"><a></a></span>
+<span id="cb70-7"><a></a><span class="co"># Display the new column to verify the transformation</span></span>
+<span id="cb70-8"><a></a><span class="bu">print</span>(<span class="st">"Risk Levels:</span><span class="ch">\n</span><span class="st">"</span>, cancer_data[[<span class="st">'diagnosis'</span>, <span class="st">'area_mean'</span>, <span class="st">'risk_level'</span>]].head())</span>
+<span id="cb70-9"><a></a></span>
+<span id="cb70-10"><a></a><span class="co">#Axis=1 tells the function to apply it to the rows. axis=0 (default) applies function to the columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="36">
+<div class="cell-output cell-output-stdout">
+<pre><code>Risk Levels:
+   diagnosis  area_mean     risk_level
+0         M     1001.0      High Risk
+1         M     1326.0      High Risk
+2         M     1203.0      High Risk
+3         M      386.1  Moderate Risk
+4         M     1297.0      High Risk</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="when-to-apply-axis" class="slide level2">
+<h2>When to apply axis=</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 32%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>You’re applying to…</th>
+<th>Use <code>.apply()</code> on…</th>
+<th>Do you need <code>axis</code>?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A single column (Series)</td>
+<td><code>df['col'].apply(func)</code></td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Multiple columns (row-wise)</td>
+<td><code>df.apply(func, axis=1)</code></td>
+<td>Yes (<code>axis=1</code>)</td>
+</tr>
+<tr class="odd">
+<td>Column-wise (less common)</td>
+<td><code>df.apply(func)</code> or <code>axis=0</code></td>
+<td>Optional (default is <code>0</code>)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="to-export-a-pandas-dataframe-to-csv-or-xlsx" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>To export a Pandas dataframe to CSV or XLSX</h2>
+<div id="0b83a821" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a></a><span class="co"># Export to CSV</span></span>
+<span id="cb72-2"><a></a><span class="co">'''</span></span>
+<span id="cb72-3"><a></a></span>
+<span id="cb72-4"><a></a><span class="co">df.to_csv('/path/to/directory/example.csv', index=False)  # index=False excludes the row indices</span></span>
+<span id="cb72-5"><a></a></span>
+<span id="cb72-6"><a></a></span>
+<span id="cb72-7"><a></a><span class="co">'''</span></span>
+<span id="cb72-8"><a></a><span class="co">#Export to xlsx</span></span>
+<span id="cb72-9"><a></a></span>
+<span id="cb72-10"><a></a><span class="co">'''</span></span>
+<span id="cb72-11"><a></a></span>
+<span id="cb72-12"><a></a><span class="co">df.to_excel('/path/to/directory/example.xlsx', index=False)</span></span>
+<span id="cb72-13"><a></a></span>
+<span id="cb72-14"><a></a><span class="co">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<pre><code>"\n\ndf.to_excel('/path/to/directory/example.xlsx', index=False)\n\n"</code></pre>
+</div>
+</div>
+</section>
+<section id="great_tables-for-table-generation" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>great_tables for table generation</h2>
+<p>You can use the <code>great_tables</code> Python module from the great-tables package to explore and display data from a dataset in a clean and interactive format.</p>
+<div class="fragment">
+<p>We’ll load the data, summarize it, and then build styled tables using <code>great_tables</code>.</p>
+</div>
+</section>
+<section id="load-and-inspect-the-data" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Load and Inspect the Data</h2>
+<div id="21a00672" class="cell fragment" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb74-2"><a></a></span>
+<span id="cb74-3"><a></a><span class="co"># Load the dataset</span></span>
+<span id="cb74-4"><a></a>df <span class="op">=</span> pd.read_csv(<span class="st">"C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">augellp1</span><span class="ch">\\</span><span class="st">Desktop</span><span class="ch">\\</span><span class="st">Python Workshop</span><span class="ch">\\</span><span class="st">Python-Workshop_NEW</span><span class="ch">\\</span><span class="st">quarto</span><span class="ch">\\</span><span class="st">session3</span><span class="ch">\\</span><span class="st">example_data</span><span class="ch">\\</span><span class="st">Cancer_Data.csv"</span>)</span>
+<span id="cb74-5"><a></a></span>
+<span id="cb74-6"><a></a><span class="co"># Drop unnamed column</span></span>
+<span id="cb74-7"><a></a>df <span class="op">=</span> df.loc[:, <span class="op">~</span>df.columns.<span class="bu">str</span>.contains(<span class="st">'^Unnamed'</span>)]</span>
+<span id="cb74-8"><a></a></span>
+<span id="cb74-9"><a></a><span class="co"># Show the shape and first few rows</span></span>
+<span id="cb74-10"><a></a>df.shape, df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="38">
+<div class="cell-output cell-output-display" data-execution_count="38">
+<pre><code>((569, 32),
+          id diagnosis  radius_mean  texture_mean  perimeter_mean  area_mean  \
+ 0    842302         M        17.99         10.38          122.80     1001.0   
+ 1    842517         M        20.57         17.77          132.90     1326.0   
+ 2  84300903         M        19.69         21.25          130.00     1203.0   
+ 3  84348301         M        11.42         20.38           77.58      386.1   
+ 4  84358402         M        20.29         14.34          135.10     1297.0   
+ 
+    smoothness_mean  compactness_mean  concavity_mean  concave points_mean  \
+ 0          0.11840           0.27760          0.3001              0.14710   
+ 1          0.08474           0.07864          0.0869              0.07017   
+ 2          0.10960           0.15990          0.1974              0.12790   
+ 3          0.14250           0.28390          0.2414              0.10520   
+ 4          0.10030           0.13280          0.1980              0.10430   
+ 
+    ...  radius_worst  texture_worst  perimeter_worst  area_worst  \
+ 0  ...         25.38          17.33           184.60      2019.0   
+ 1  ...         24.99          23.41           158.80      1956.0   
+ 2  ...         23.57          25.53           152.50      1709.0   
+ 3  ...         14.91          26.50            98.87       567.7   
+ 4  ...         22.54          16.67           152.20      1575.0   
+ 
+    smoothness_worst  compactness_worst  concavity_worst  concave points_worst  \
+ 0            0.1622             0.6656           0.7119                0.2654   
+ 1            0.1238             0.1866           0.2416                0.1860   
+ 2            0.1444             0.4245           0.4504                0.2430   
+ 3            0.2098             0.8663           0.6869                0.2575   
+ 4            0.1374             0.2050           0.4000                0.1625   
+ 
+    symmetry_worst  fractal_dimension_worst  
+ 0          0.4601                  0.11890  
+ 1          0.2750                  0.08902  
+ 2          0.3613                  0.08758  
+ 3          0.6638                  0.17300  
+ 4          0.2364                  0.07678  
+ 
+ [5 rows x 32 columns])</code></pre>
+</div>
+</div>
+</section>
+<section id="preview-of-dataset-using-great_tables" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Preview of dataset using great_tables</h2>
+<div id="9d3fe124" class="cell fragment" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a></a><span class="im">from</span> great_tables <span class="im">import</span> GT</span>
+<span id="cb76-2"><a></a></span>
+<span id="cb76-3"><a></a><span class="co"># Select a subset of the columns for preview</span></span>
+<span id="cb76-4"><a></a>preview_df <span class="op">=</span> df[[<span class="st">'id'</span>, <span class="st">'diagnosis'</span>, <span class="st">'radius_mean'</span>, <span class="st">'texture_mean'</span>, <span class="st">'area_mean'</span>]].head(<span class="dv">5</span>)</span>
+<span id="cb76-5"><a></a></span>
+<span id="cb76-6"><a></a>GT(preview_df).tab_header(</span>
+<span id="cb76-7"><a></a>    title<span class="op">=</span><span class="st">"Breast Cancer Diagnosis Preview"</span>,</span>
+<span id="cb76-8"><a></a>    subtitle<span class="op">=</span><span class="st">"Selected features from the first 5 records"</span></span>
+<span id="cb76-9"><a></a>).fmt_number(columns<span class="op">=</span>[<span class="st">"radius_mean"</span>, <span class="st">"texture_mean"</span>, <span class="st">"area_mean"</span>], decimals<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="39">
+<div class="cell-output cell-output-display" data-execution_count="39">
+<div id="cusmbkuxvl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>
+#cusmbkuxvl table {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+#cusmbkuxvl thead, tbody, tfoot, tr, td, th { border-style: none; }
+ tr { background-color: transparent; }
+#cusmbkuxvl p { margin: 0; padding: 0; }
+ #cusmbkuxvl .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #cusmbkuxvl .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #cusmbkuxvl .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #cusmbkuxvl .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #cusmbkuxvl .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #cusmbkuxvl .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #cusmbkuxvl .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #cusmbkuxvl .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #cusmbkuxvl .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #cusmbkuxvl .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #cusmbkuxvl .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #cusmbkuxvl .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #cusmbkuxvl .gt_spanner_row { border-bottom-style: hidden; }
+ #cusmbkuxvl .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #cusmbkuxvl .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #cusmbkuxvl .gt_from_md> :first-child { margin-top: 0; }
+ #cusmbkuxvl .gt_from_md> :last-child { margin-bottom: 0; }
+ #cusmbkuxvl .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #cusmbkuxvl .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #cusmbkuxvl .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #cusmbkuxvl .gt_row_group_first td { border-top-width: 2px; }
+ #cusmbkuxvl .gt_row_group_first th { border-top-width: 2px; }
+ #cusmbkuxvl .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #cusmbkuxvl .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #cusmbkuxvl .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #cusmbkuxvl .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #cusmbkuxvl .gt_left { text-align: left; }
+ #cusmbkuxvl .gt_center { text-align: center; }
+ #cusmbkuxvl .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #cusmbkuxvl .gt_font_normal { font-weight: normal; }
+ #cusmbkuxvl .gt_font_bold { font-weight: bold; }
+ #cusmbkuxvl .gt_font_italic { font-style: italic; }
+ #cusmbkuxvl .gt_super { font-size: 65%; }
+ #cusmbkuxvl .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #cusmbkuxvl .gt_asterisk { font-size: 100%; vertical-align: 0; }
+ 
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="5" class="gt_heading gt_title gt_font_normal">Breast Cancer Diagnosis Preview</th>
+</tr>
+<tr class="odd gt_heading">
+<th colspan="5" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Selected features from the first 5 records</th>
+</tr>
+<tr class="header gt_col_headings">
+<th id="id" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">id</th>
+<th id="diagnosis" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">diagnosis</th>
+<th id="radius_mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">radius_mean</th>
+<th id="texture_mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">texture_mean</th>
+<th id="area_mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">area_mean</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right">842302</td>
+<td class="gt_row gt_left">M</td>
+<td class="gt_row gt_right">17.99</td>
+<td class="gt_row gt_right">10.38</td>
+<td class="gt_row gt_right">1,001.00</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right">842517</td>
+<td class="gt_row gt_left">M</td>
+<td class="gt_row gt_right">20.57</td>
+<td class="gt_row gt_right">17.77</td>
+<td class="gt_row gt_right">1,326.00</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right">84300903</td>
+<td class="gt_row gt_left">M</td>
+<td class="gt_row gt_right">19.69</td>
+<td class="gt_row gt_right">21.25</td>
+<td class="gt_row gt_right">1,203.00</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right">84348301</td>
+<td class="gt_row gt_left">M</td>
+<td class="gt_row gt_right">11.42</td>
+<td class="gt_row gt_right">20.38</td>
+<td class="gt_row gt_right">386.10</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right">84358402</td>
+<td class="gt_row gt_left">M</td>
+<td class="gt_row gt_right">20.29</td>
+<td class="gt_row gt_right">14.34</td>
+<td class="gt_row gt_right">1,297.00</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+        
+</div>
+</div>
+</section>
+<section id="enhance-the-table-with-styling" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Enhance the Table with Styling</h2>
+<p>Let’s add conditional formatting to highlight larger tumor areas.</p>
+<div id="0d54f5cc" class="cell fragment" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a></a>GT(preview_df).tab_header(</span>
+<span id="cb77-2"><a></a>    title<span class="op">=</span><span class="st">"Styled Cancer Data Table"</span>,</span>
+<span id="cb77-3"><a></a>    subtitle<span class="op">=</span><span class="st">"With conditional formatting on tumor area"</span></span>
+<span id="cb77-4"><a></a>).fmt_number(columns<span class="op">=</span>[<span class="st">"radius_mean"</span>, <span class="st">"texture_mean"</span>, <span class="st">"area_mean"</span>], decimals<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb77-5"><a></a>).data_color(</span>
+<span id="cb77-6"><a></a>    columns<span class="op">=</span><span class="st">"area_mean"</span>,</span>
+<span id="cb77-7"><a></a>    palette<span class="op">=</span>[<span class="st">"blue"</span>, <span class="st">"red"</span>]</span>
+<span id="cb77-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="40">
+<div class="cell-output cell-output-display" data-execution_count="40">
+<div id="uythximait" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>
+#uythximait table {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+#uythximait thead, tbody, tfoot, tr, td, th { border-style: none; }
+ tr { background-color: transparent; }
+#uythximait p { margin: 0; padding: 0; }
+ #uythximait .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #uythximait .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #uythximait .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #uythximait .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #uythximait .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #uythximait .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #uythximait .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #uythximait .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #uythximait .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #uythximait .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #uythximait .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #uythximait .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #uythximait .gt_spanner_row { border-bottom-style: hidden; }
+ #uythximait .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #uythximait .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #uythximait .gt_from_md> :first-child { margin-top: 0; }
+ #uythximait .gt_from_md> :last-child { margin-bottom: 0; }
+ #uythximait .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #uythximait .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #uythximait .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #uythximait .gt_row_group_first td { border-top-width: 2px; }
+ #uythximait .gt_row_group_first th { border-top-width: 2px; }
+ #uythximait .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #uythximait .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #uythximait .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #uythximait .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #uythximait .gt_left { text-align: left; }
+ #uythximait .gt_center { text-align: center; }
+ #uythximait .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #uythximait .gt_font_normal { font-weight: normal; }
+ #uythximait .gt_font_bold { font-weight: bold; }
+ #uythximait .gt_font_italic { font-style: italic; }
+ #uythximait .gt_super { font-size: 65%; }
+ #uythximait .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #uythximait .gt_asterisk { font-size: 100%; vertical-align: 0; }
+ 
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="5" class="gt_heading gt_title gt_font_normal">Styled Cancer Data Table</th>
+</tr>
+<tr class="odd gt_heading">
+<th colspan="5" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">With conditional formatting on tumor area</th>
+</tr>
+<tr class="header gt_col_headings">
+<th id="id" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">id</th>
+<th id="diagnosis" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">diagnosis</th>
+<th id="radius_mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">radius_mean</th>
+<th id="texture_mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">texture_mean</th>
+<th id="area_mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">area_mean</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right">842302</td>
+<td class="gt_row gt_left">M</td>
+<td class="gt_row gt_right">17.99</td>
+<td class="gt_row gt_right">10.38</td>
+<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #a70058">1,001.00</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right">842517</td>
+<td class="gt_row gt_left">M</td>
+<td class="gt_row gt_right">20.57</td>
+<td class="gt_row gt_right">17.77</td>
+<td class="gt_row gt_right" style="color: #000000; background-color: #ff0000">1,326.00</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right">84300903</td>
+<td class="gt_row gt_left">M</td>
+<td class="gt_row gt_right">19.69</td>
+<td class="gt_row gt_right">21.25</td>
+<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #de0021">1,203.00</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right">84348301</td>
+<td class="gt_row gt_left">M</td>
+<td class="gt_row gt_right">11.42</td>
+<td class="gt_row gt_right">20.38</td>
+<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #0000ff">386.10</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right">84358402</td>
+<td class="gt_row gt_left">M</td>
+<td class="gt_row gt_right">20.29</td>
+<td class="gt_row gt_right">14.34</td>
+<td class="gt_row gt_right" style="color: #000000; background-color: #f70008">1,297.00</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+        
+</div>
+</div>
+</section>
+<section id="group-statistics-by-diagnosis" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>Group Statistics by Diagnosis</h2>
+<p>Let’s summarize average values by diagnosis group (malignant vs.&nbsp;benign).</p>
+<div id="0bfa4658" class="cell fragment" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a></a>summary_df <span class="op">=</span> df.groupby(<span class="st">"diagnosis"</span>)[[<span class="st">"radius_mean"</span>, <span class="st">"texture_mean"</span>, <span class="st">"area_mean"</span>]].mean().reset_index()</span>
+<span id="cb78-2"><a></a></span>
+<span id="cb78-3"><a></a>GT(summary_df).tab_header(</span>
+<span id="cb78-4"><a></a>    title<span class="op">=</span><span class="st">"Group-wise Summary"</span>,</span>
+<span id="cb78-5"><a></a>    subtitle<span class="op">=</span><span class="st">"Mean values for radius, texture, and area by diagnosis"</span></span>
+<span id="cb78-6"><a></a>).fmt_number(columns<span class="op">=</span>[<span class="st">"radius_mean"</span>, <span class="st">"texture_mean"</span>, <span class="st">"area_mean"</span>], decimals<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="41">
+<div class="cell-output cell-output-display" data-execution_count="41">
+<div id="osrrrfqrfr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>
+#osrrrfqrfr table {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+#osrrrfqrfr thead, tbody, tfoot, tr, td, th { border-style: none; }
+ tr { background-color: transparent; }
+#osrrrfqrfr p { margin: 0; padding: 0; }
+ #osrrrfqrfr .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #osrrrfqrfr .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #osrrrfqrfr .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #osrrrfqrfr .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #osrrrfqrfr .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #osrrrfqrfr .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #osrrrfqrfr .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #osrrrfqrfr .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #osrrrfqrfr .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #osrrrfqrfr .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #osrrrfqrfr .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #osrrrfqrfr .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #osrrrfqrfr .gt_spanner_row { border-bottom-style: hidden; }
+ #osrrrfqrfr .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #osrrrfqrfr .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #osrrrfqrfr .gt_from_md> :first-child { margin-top: 0; }
+ #osrrrfqrfr .gt_from_md> :last-child { margin-bottom: 0; }
+ #osrrrfqrfr .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #osrrrfqrfr .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #osrrrfqrfr .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #osrrrfqrfr .gt_row_group_first td { border-top-width: 2px; }
+ #osrrrfqrfr .gt_row_group_first th { border-top-width: 2px; }
+ #osrrrfqrfr .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #osrrrfqrfr .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #osrrrfqrfr .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #osrrrfqrfr .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #osrrrfqrfr .gt_left { text-align: left; }
+ #osrrrfqrfr .gt_center { text-align: center; }
+ #osrrrfqrfr .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #osrrrfqrfr .gt_font_normal { font-weight: normal; }
+ #osrrrfqrfr .gt_font_bold { font-weight: bold; }
+ #osrrrfqrfr .gt_font_italic { font-style: italic; }
+ #osrrrfqrfr .gt_super { font-size: 65%; }
+ #osrrrfqrfr .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #osrrrfqrfr .gt_asterisk { font-size: 100%; vertical-align: 0; }
+ 
+</style>
+
+<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="4" class="gt_heading gt_title gt_font_normal">Group-wise Summary</th>
+</tr>
+<tr class="odd gt_heading">
+<th colspan="4" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Mean values for radius, texture, and area by diagnosis</th>
+</tr>
+<tr class="header gt_col_headings">
+<th id="diagnosis" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">diagnosis</th>
+<th id="radius_mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">radius_mean</th>
+<th id="texture_mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">texture_mean</th>
+<th id="area_mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">area_mean</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left">B</td>
+<td class="gt_row gt_right">12.15</td>
+<td class="gt_row gt_right">17.91</td>
+<td class="gt_row gt_right">462.79</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left">M</td>
+<td class="gt_row gt_right">17.46</td>
+<td class="gt_row gt_right">21.60</td>
+<td class="gt_row gt_right">978.38</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+        
+</div>
+</div>
+</section>
+<section id="you-try" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>You Try!</h2>
+<p>Navigate to the follow-along file and try the practice problems!</p>
+
+<div class="quarto-auto-generated-content">
+<div class="footer footer-default">
+
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': true,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1400,
+
+        height: 800,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
