@@ -30,7 +30,7 @@ execute:
 </a>
 
 
-## Topic 5: What Is Pandas? {.scrollable background-color="lavenderblush"}
+## What Is Pandas? {.scrollable background-color="lavenderblush"}
 
 Pandas is a powerful open-source data analysis and manipulation library in Python. It provides data structures, primarily the DataFrame and Series, which are optimized for handling and analyzing large datasets efficiently.
 
