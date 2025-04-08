@@ -14,14 +14,16 @@ execute:
   echo: true
 ---
 
-## **Pre-Reading for This Session**  
-
+## **Pre-Reading for This Session** 
+- [KNN vs K-means]("session4/sess4preread.html")
+- 'Parts of a Figure' and 'Coding Styles' sections of [Quick Start Guide (Matplotlib)](https://matplotlib.org/stable/users/explain/quick_start.html)
+### Optional: 
 - [Scikit-learn Documentation](https://scikit-learn.org/stable/user_guide.html)  
 - [Introduction to OOP in Python (Real Python)](https://realpython.com/python3-object-oriented-programming/)  
 - [Plotnine Reference](https://plotnine.org/reference/)
 - [Seaborn Reference](https://seaborn.pydata.org/tutorial/function_overview.html)
 
-## Note: The tutorial below is the same information we'll be covering in session 4!
+## Note: The tutorial below is the same information we'll be covering in session 4! 
 
 ## Session Overview
 
@@ -1212,7 +1214,9 @@ summary_table = pd.DataFrame({
     </li>
   </ul>
   
+# Additional Content
 
+## Statsmodels
 
 
   

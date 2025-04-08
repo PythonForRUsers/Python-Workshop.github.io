@@ -4,14 +4,14 @@
     "href": "session4/session4v2_webpage.html",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "",
-    "text": "Scikit-learn Documentation\n\nIntroduction to OOP in Python (Real Python)\n\nPlotnine Reference\nSeaborn Reference"
+    "text": "KNN vs K-means\n‘Parts of a Figure’ and ‘Coding Styles’ sections of Quick Start Guide (Matplotlib) ### Optional:\nScikit-learn Documentation\n\nIntroduction to OOP in Python (Real Python)\n\nPlotnine Reference\nSeaborn Reference"
   },
   {
     "objectID": "session4/session4v2_webpage.html#pre-reading-for-this-session",
     "href": "session4/session4v2_webpage.html#pre-reading-for-this-session",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "",
-    "text": "Scikit-learn Documentation\n\nIntroduction to OOP in Python (Real Python)\n\nPlotnine Reference\nSeaborn Reference"
+    "text": "KNN vs K-means\n‘Parts of a Figure’ and ‘Coding Styles’ sections of Quick Start Guide (Matplotlib) ### Optional:\nScikit-learn Documentation\n\nIntroduction to OOP in Python (Real Python)\n\nPlotnine Reference\nSeaborn Reference"
   },
   {
     "objectID": "session4/session4v2_webpage.html#note-the-tutorial-below-is-the-same-information-well-be-covering-in-session-4",
@@ -285,6 +285,13 @@
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Additional Insights",
     "text": "Additional Insights\n\n\nPredictable APIs enable seamless model switching: Swapping models like LogisticRegression → RandomForestClassifier usually requires minimal code changes.\n\n\nscikit-learn prioritizes interoperability: Its consistent class design integrates with tools like Pipeline, GridSearchCV, and cross_val_score.\n\n\nClass attributes improve model transparency: Access attributes like .coef_, .classes_, and .feature_importances_ for model interpretation and debugging.\n\n\nCustom classes are central to deep learning: Frameworks like PyTorch and TensorFlow require you to define your own model classes by subclassing base models.\n\n\nMixins support modular design: Mixins (e.g., ClassifierMixin) let you add specific functionality without duplicating code."
+  },
+  {
+    "objectID": "session4/session4v2_webpage.html#statsmodels",
+    "href": "session4/session4v2_webpage.html#statsmodels",
+    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
+    "section": "Statsmodels",
+    "text": "Statsmodels"
   },
   {
     "objectID": "session2a/session2.html",
