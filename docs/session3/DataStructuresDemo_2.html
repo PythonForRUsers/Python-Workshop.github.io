@@ -413,8 +413,8 @@ Cancer Dataset
 </p>
 </a><p><a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block"></a></p>
 </section>
-<section id="topic-5-what-is-pandas" class="slide level2 scrollable" data-background-color="lavenderblush">
-<h2>Topic 5: What Is Pandas?</h2>
+<section id="what-is-pandas" class="slide level2 scrollable" data-background-color="lavenderblush">
+<h2>What Is Pandas?</h2>
 <p>Pandas is a powerful open-source data analysis and manipulation library in Python. It provides data structures, primarily the DataFrame and Series, which are optimized for handling and analyzing large datasets efficiently.</p>
 <div class="fragment">
 <p>Data Structures:</p>
@@ -440,7 +440,7 @@ Cancer Dataset
 </section>
 <section id="creating-folders-for-project-housekeeping" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Creating folders for project housekeeping</h2>
-<div id="45b12589" class="cell fragment" data-execution_count="1">
+<div id="8a0d0a5f" class="cell fragment" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="co">###Example Folder Structure</span></span>
 <span id="cb1-2"><a></a><span class="co">'''</span></span>
 <span id="cb1-3"><a></a><span class="co">project_name/</span></span>
@@ -488,7 +488,7 @@ Created directory: G:\dir_demo\my_project\logs</code></pre>
 </div>
 <div class="fragment">
 <p>Loading the Dataset</p>
-<div id="128f3665" class="cell fragment" data-execution_count="2">
+<div id="84097d1e" class="cell fragment" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> os</span>
 <span id="cb3-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-3"><a></a></span>
@@ -685,7 +685,7 @@ Created directory: G:\dir_demo\my_project\logs</code></pre>
 </ul>
 <div class="fragment">
 <p>.shape returns a tuple with (number of rows, number of columns), which provides a basic overview of the dataset size.</p>
-<div id="d88f5cdc" class="cell fragment" data-execution_count="3">
+<div id="4c5ff1a4" class="cell fragment" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="co"># Display the shape of the dataset</span></span>
 <span id="cb5-2"><a></a><span class="bu">print</span>(<span class="st">"Dataset Shape:"</span>, cancer_data.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -700,7 +700,7 @@ Created directory: G:\dir_demo\my_project\logs</code></pre>
 </div>
 <div class="fragment">
 <p>.info() lists all columns, their data types, and counts of non-null values, helping identify any columns that may have missing data.</p>
-<div id="12b73c35" class="cell fragment" data-execution_count="4">
+<div id="7123f8df" class="cell fragment" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="co"># Display column names, data types, and non-null counts</span></span>
 <span id="cb7-2"><a></a>cancer_data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -754,7 +754,7 @@ memory usage: 146.8+ KB</code></pre>
 </div>
 <div class="fragment">
 <p>.columns lists column headers, while .tolist() converts it into a standard Python list for easier viewing.</p>
-<div id="ea0b1c38" class="cell fragment" data-execution_count="5">
+<div id="dd8dec9e" class="cell fragment" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="co"># Display column names</span></span>
 <span id="cb9-2"><a></a><span class="bu">print</span>(<span class="st">"Column Names:"</span>, cancer_data.columns.tolist())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -769,7 +769,7 @@ memory usage: 146.8+ KB</code></pre>
 <h2>Summary Statistics</h2>
 <div class="fragment">
 <p>.describe() generates essential statistics (mean, std, min, max, percentiles) for numeric columns, useful for identifying data distributions.</p>
-<div id="5c847c97" class="cell fragment" data-execution_count="6">
+<div id="f6a672ec" class="cell fragment" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="co"># Generate summary statistics for numeric columns</span></span>
 <span id="cb11-2"><a></a>cancer_data.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1021,7 +1021,7 @@ memory usage: 146.8+ KB</code></pre>
 <div class="fragment">
 <p>Using value_counts() on a Single Column</p>
 <p>This method is straightforward if you want to check the frequency distribution of one specific categorical column. Returns a pandas series object</p>
-<div id="424c0b20" class="cell fragment" data-execution_count="7">
+<div id="3eb57b00" class="cell fragment" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="co"># Count occurrences of each unique value in the 'diagnosis' column</span></span>
 <span id="cb12-2"><a></a>diagnosis_counts <span class="op">=</span> cancer_data[<span class="st">'diagnosis'</span>].value_counts()</span>
 <span id="cb12-3"><a></a><span class="bu">print</span>(<span class="st">"Diagnosis Counts:</span><span class="ch">\n</span><span class="st">"</span>, diagnosis_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1038,7 +1038,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 <div class="fragment">
 <p>To see summary statistics grouped by a categorical variable in pandas, you can use the groupby() method along with describe() or specific aggregation functions like mean(), sum(), etc.</p>
-<div id="05d50fc3" class="cell fragment" data-execution_count="8">
+<div id="dd582afa" class="cell fragment" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="co"># Group by 'diagnosis' and get summary statistics for each group</span></span>
 <span id="cb14-2"><a></a>grouped_summary <span class="op">=</span> cancer_data.groupby(<span class="st">'diagnosis'</span>).mean()</span>
 <span id="cb14-3"><a></a><span class="bu">print</span>(grouped_summary)</span>
@@ -1092,7 +1092,7 @@ Name: radius_mean, dtype: float64</code></pre>
 <section id="renaming-columns" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Renaming Columns</h2>
 <p>To make column names more readable or consistent, you can use rename() to change specific names. Here’s how to rename columns like radius_mean to Radius Mean.</p>
-<div id="2645ef28" class="cell fragment" data-execution_count="9">
+<div id="6ff1b49b" class="cell fragment" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="co"># Rename specific columns for readability. 'old': 'new'</span></span>
 <span id="cb16-2"><a></a></span>
 <span id="cb16-3"><a></a>new_columns<span class="op">=</span>{</span>
@@ -1122,7 +1122,7 @@ Updated Column Names: ['id', 'diagnosis', 'Radius Mean', 'Texture Mean', 'Perime
 <li class="fragment"><strong>Definition</strong>: <code>None</code> is a built-in Python object representing “no value.”</li>
 <li class="fragment"><strong>Use Cases</strong>: Works with general Python objects but does <strong>not</strong> support mathematical operations.</li>
 </ul>
-<div id="6514fa76" class="cell fragment" data-execution_count="10">
+<div id="62c0573f" class="cell fragment" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>x <span class="op">=</span> <span class="va">None</span></span>
 <span id="cb18-2"><a></a><span class="cf">if</span> x <span class="kw">is</span> <span class="va">None</span>:  <span class="co"># Best practice</span></span>
 <span id="cb18-3"><a></a>    <span class="bu">print</span>(<span class="st">"x is missing"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1135,7 +1135,7 @@ Updated Column Names: ['id', 'diagnosis', 'Radius Mean', 'Texture Mean', 'Perime
 </div>
 <div class="fragment">
 <p><strong>Issue with <code>None</code> in arithmetic</strong>:</p>
-<div id="e72eeb4b" class="cell fragment" data-execution_count="11">
+<div id="1ae369a4" class="cell fragment" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a><span class="cf">try</span>: </span>
 <span id="cb20-2"><a></a>    <span class="bu">print</span>(x <span class="op">+</span> <span class="dv">1</span>)</span>
 <span id="cb20-3"><a></a><span class="cf">except</span> <span class="pp">TypeError</span>: </span>
@@ -1157,7 +1157,7 @@ True</code></pre>
 <li class="fragment"><code>np.nan</code> is a floating-point value (<code>float64</code>).</li>
 <li class="fragment">Cannot be checked with <code>==</code> because <code>np.nan != np.nan</code>.</li>
 </ul>
-<div id="ac86cc9c" class="cell fragment" data-execution_count="12">
+<div id="7f443497" class="cell fragment" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb22-2"><a></a>x <span class="op">=</span> np.nan</span>
 <span id="cb22-3"><a></a><span class="cf">if</span> np.isnan(x):  <span class="co"># Correct way to check for np.nan</span></span>
@@ -1171,7 +1171,7 @@ True</code></pre>
 <ul>
 <li class="fragment">Behavior in Math Operations</li>
 </ul>
-<div id="f30775df" class="cell fragment" data-execution_count="13">
+<div id="f7f203ad" class="cell fragment" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a><span class="bu">print</span>(x <span class="op">+</span> <span class="dv">10</span>)  <span class="co"># Output: nan</span></span>
 <span id="cb24-2"><a></a><span class="bu">print</span>(x <span class="op">==</span> x)  <span class="co"># Output: False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1190,7 +1190,7 @@ False</code></pre>
 <li class="fragment"><p>Avoids automatic type conversion (e.g., integers remain integers).</p></li>
 <li class="fragment"><p>Behavior in Math Operations</p></li>
 </ul>
-<div id="80b2ac0c" class="cell fragment" data-execution_count="14">
+<div id="3346b6f9" class="cell fragment" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb26-2"><a></a>x <span class="op">=</span> pd.NA</span>
 <span id="cb26-3"><a></a><span class="bu">print</span>(x<span class="op">+</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1200,7 +1200,7 @@ False</code></pre>
 <pre><code>&lt;NA&gt;</code></pre>
 </div>
 </div>
-<div id="7cfaf22f" class="cell fragment" data-execution_count="15">
+<div id="aeedb103" class="cell fragment" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a><span class="co">#Checking for missingness </span></span>
 <span id="cb28-2"><a></a></span>
 <span id="cb28-3"><a></a></span>
@@ -1277,7 +1277,7 @@ False</code></pre>
 </section>
 <section id="handling-missing-values-in-pandas" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Handling Missing Values in Pandas</h2>
-<div id="0e5c5927" class="cell fragment" data-execution_count="16">
+<div id="21de1d93" class="cell fragment" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb30-2"><a></a>df <span class="op">=</span> pd.DataFrame({<span class="st">"A"</span>: [<span class="dv">1</span>, np.nan, <span class="dv">3</span>, <span class="va">None</span>, pd.NA]})</span>
 <span id="cb30-3"><a></a><span class="bu">print</span>(df.isna())  <span class="co"># Identifies missing values</span></span>
@@ -1301,7 +1301,7 @@ False</code></pre>
 </div>
 <div class="fragment">
 <p>Filling Missing Values</p>
-<div id="deaddf28" class="cell fragment" data-execution_count="17">
+<div id="f5e6fcec" class="cell fragment" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>df[<span class="st">"A"</span>]<span class="op">=</span>df[<span class="st">"A"</span>].fillna(pd.NA).astype(<span class="st">'Float64'</span>)  <span class="co"># Replaces missing values with pd.NA, and then changes the column type to 'FLoat64, pandas' nullable float datatype.</span></span>
 <span id="cb32-2"><a></a><span class="cf">for</span> value <span class="kw">in</span> df.iloc[:,<span class="dv">0</span>]:</span>
 <span id="cb32-3"><a></a>        <span class="bu">print</span>(value)</span>
@@ -1327,7 +1327,7 @@ Float64</code></pre>
 </div>
 <div class="fragment">
 <p>Make sure you typecast the column as a pandas nullable data type.</p>
-<div id="89a0f413" class="cell fragment" data-execution_count="18">
+<div id="e1a454c3" class="cell fragment" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>df[<span class="st">"A"</span>]<span class="op">=</span>df[<span class="st">"A"</span>].astype(<span class="st">'float64'</span>)  <span class="co">#typecasting as lowercase "float" changes all pd.NA back to np.nan because "float64" (lowercase) is not supported by pd.NA</span></span>
 <span id="cb34-2"><a></a><span class="cf">for</span> value <span class="kw">in</span> df.iloc[:,<span class="dv">0</span>]:</span>
 <span id="cb34-3"><a></a>        <span class="bu">print</span>(value)</span>
@@ -1354,7 +1354,7 @@ float64</code></pre>
 </section>
 <section id="dropping-missing-values" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Dropping Missing Values</h2>
-<div id="65bf0db8" class="cell fragment" data-execution_count="19">
+<div id="bf8356c7" class="cell fragment" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>df<span class="op">=</span>df.dropna()</span>
 <span id="cb36-2"><a></a><span class="bu">print</span>(df[<span class="st">"A"</span>])</span>
 <span id="cb36-3"><a></a><span class="co"># Removes rows with missing values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1436,7 +1436,7 @@ Name: A, dtype: float64</code></pre>
 <section id="more-on-missing-values" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>More on missing values</h2>
 <p>To find missing values, you can use isnull() with sum() to calculate the total number of missing values in each column.</p>
-<div id="facde961" class="cell fragment" data-execution_count="20">
+<div id="4d53c7b6" class="cell fragment" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a><span class="co"># Count missing values in each column</span></span>
 <span id="cb38-2"><a></a>missing_values <span class="op">=</span> cancer_data.isnull().<span class="bu">sum</span>()</span>
 <span id="cb38-3"><a></a><span class="bu">print</span>(<span class="st">"Missing Values per Column:"</span>)</span>
@@ -1483,7 +1483,7 @@ dtype: int64</code></pre>
 </div>
 <div class="fragment">
 <p>Dropping Columns with Excessive Missing Data Since Unnamed: 32 has no data, it can be dropped from the DataFrame using .drop().</p>
-<div id="6e78444b" class="cell fragment" data-execution_count="21">
+<div id="50d702ec" class="cell fragment" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a><span class="co"># Drop the 'Unnamed: 32' column if it contains no data</span></span>
 <span id="cb40-2"><a></a>cancer_data <span class="op">=</span> cancer_data.drop(columns<span class="op">=</span>[<span class="st">'Unnamed: 32'</span>])</span>
 <span id="cb40-3"><a></a></span>
@@ -1501,7 +1501,7 @@ Columns after dropping 'Unnamed: 32': ['id', 'diagnosis', 'Radius Mean', 'Textur
 <section id="column-selection" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Column Selection</h2>
 <p>Selecting specific columns is essential for focusing on particular aspects of the dataset. Here are some examples of both single and multiple column selections.</p>
-<div id="fe2cefce" class="cell fragment" data-execution_count="22">
+<div id="92e42621" class="cell fragment" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a><span class="co"># Select the 'diagnosis' column - diagnosis_column will be a series</span></span>
 <span id="cb42-2"><a></a>diagnosis_column <span class="op">=</span> cancer_data[<span class="st">'diagnosis'</span>]</span>
 <span id="cb42-3"><a></a><span class="bu">print</span>(<span class="st">"Diagnosis Column:</span><span class="ch">\n</span><span class="st">"</span>, diagnosis_column.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1519,7 +1519,7 @@ Name: diagnosis, dtype: object</code></pre>
 </div>
 <div class="fragment">
 <p>Alternatively, you can select multiple columns.</p>
-<div id="baf1fbf2" class="cell fragment" data-execution_count="23">
+<div id="5c651fd6" class="cell fragment" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a><span class="co"># Select multiple columns: 'diagnosis', 'radius_mean', and 'area_mean' - selected_columns will be a pandas DataFrame</span></span>
 <span id="cb44-2"><a></a></span>
 <span id="cb44-3"><a></a>selected_columns <span class="op">=</span> cancer_data[[<span class="st">'diagnosis'</span>, <span class="st">'Radius Mean'</span>, <span class="st">'area_mean'</span>]]</span>
@@ -1546,7 +1546,7 @@ Name: diagnosis, dtype: object</code></pre>
 </div>
 <div class="fragment">
 <p>loc allows selection based on labels (e.g., column names or index labels) and is particularly useful for data subsets.</p>
-<div id="0a0de146" class="cell fragment" data-execution_count="24">
+<div id="473721e1" class="cell fragment" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a></a><span class="co"># Select rows by labels (assuming integer index here) and specific columns</span></span>
 <span id="cb46-2"><a></a>selected_rows_labels <span class="op">=</span> cancer_data.loc[<span class="dv">0</span>:<span class="dv">4</span>, [<span class="st">'diagnosis'</span>, <span class="st">'Radius Mean'</span>, <span class="st">'area_mean'</span>]]</span>
 <span id="cb46-3"><a></a><span class="bu">print</span>(<span class="st">"Selected Rows with loc:</span><span class="ch">\n</span><span class="st">"</span>, selected_rows_labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1568,7 +1568,7 @@ Name: diagnosis, dtype: object</code></pre>
 </div>
 <div class="fragment">
 <p>iloc allows selection based purely on integer positions, making it convenient for slicing and position-based operations.</p>
-<div id="61438002" class="cell fragment" data-execution_count="25">
+<div id="a882f398" class="cell fragment" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a><span class="co"># Select rows by integer position and specific columns</span></span>
 <span id="cb48-2"><a></a>selected_rows_position <span class="op">=</span> cancer_data.iloc[<span class="dv">0</span>:<span class="dv">5</span>, [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]]  <span class="co"># Select first 5 rows and columns at position 1, 2, 3</span></span>
 <span id="cb48-3"><a></a><span class="bu">print</span>(<span class="st">"Selected Rows with iloc:</span><span class="ch">\n</span><span class="st">"</span>, selected_rows_position)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1589,7 +1589,7 @@ Name: diagnosis, dtype: object</code></pre>
 <section id="filtering" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Filtering</h2>
 <p>Filtering enables you to create subsets of data that match specific conditions. For example, we can filter by diagnosis to analyze only malignant (M) or benign (B) cases.</p>
-<div id="89f06330" class="cell fragment" data-execution_count="26">
+<div id="2055566c" class="cell fragment" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a><span class="co"># Filter rows where 'diagnosis' is "M" (Malignant)</span></span>
 <span id="cb50-2"><a></a>malignant_cases <span class="op">=</span> cancer_data[cancer_data[<span class="st">'diagnosis'</span>] <span class="op">==</span> <span class="st">'M'</span>]</span>
 <span id="cb50-3"><a></a><span class="bu">print</span>(<span class="st">"Malignant Cases:</span><span class="ch">\n</span><span class="st">"</span>, malignant_cases.head(<span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1713,7 +1713,7 @@ Name: diagnosis, dtype: object</code></pre>
 <div class="fragment">
 <p>You can also filter based on multiple conditions, such as finding rows where the diagnosis is “M” and radius_mean is greater than 15.</p>
 <p>Note: You can’t use ‘and’ python operator here, because ‘and’ is a keyword for Python’s boolean operations, which work with single True or False values, not arrays or Series.</p>
-<div id="6bee03ba" class="cell fragment" data-execution_count="27">
+<div id="18eb736e" class="cell fragment" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a></a><span class="co"># Filter for Malignant cases with radius_mean &gt; 15</span></span>
 <span id="cb52-2"><a></a>large_malignant_cases <span class="op">=</span> cancer_data[(cancer_data[<span class="st">'diagnosis'</span>] <span class="op">==</span> <span class="st">'M'</span>) <span class="op">&amp;</span> (cancer_data[<span class="st">'Radius Mean'</span>] <span class="op">&gt;</span> <span class="dv">15</span>)]</span>
 <span id="cb52-3"><a></a><span class="bu">print</span>(<span class="st">"Large Malignant Cases (Radius Mean &gt; 15):</span><span class="ch">\n</span><span class="st">"</span>, large_malignant_cases.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1764,7 +1764,7 @@ Name: diagnosis, dtype: object</code></pre>
 <section id="adding-and-modifying-columns" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Adding and Modifying Columns</h2>
 <p>You can create new columns in a DataFrame based on calculations using existing columns. For example, we can calculate the area_ratio by dividing area_worst by area_mean.</p>
-<div id="6924cc22" class="cell fragment" data-execution_count="28">
+<div id="b0fae8c0" class="cell fragment" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a></a><span class="co"># Add a new column 'area_ratio' by dividing 'area_worst' by 'area_mean'</span></span>
 <span id="cb54-2"><a></a>cancer_data[<span class="st">'area_ratio'</span>] <span class="op">=</span> cancer_data[<span class="st">'area_worst'</span>] <span class="op">/</span> cancer_data[<span class="st">'area_mean'</span>]</span>
 <span id="cb54-3"><a></a><span class="bu">print</span>(<span class="st">"New Column 'area_ratio':</span><span class="ch">\n</span><span class="st">"</span>, cancer_data[[<span class="st">'area_worst'</span>, <span class="st">'area_mean'</span>, <span class="st">'area_ratio'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1785,7 +1785,7 @@ Name: diagnosis, dtype: object</code></pre>
 </div>
 <div class="fragment">
 <p>Suppose you have a DataFrame and want to update the value in the radius_mean column for a particular index.</p>
-<div id="0dfdc12c" class="cell fragment" data-execution_count="29">
+<div id="d8fe7b89" class="cell fragment" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a></a><span class="co"># Access and print the original value at index 0 and column 'radius_mean'</span></span>
 <span id="cb56-2"><a></a>original_value <span class="op">=</span> cancer_data.at[<span class="dv">0</span>, <span class="st">'Radius Mean'</span>]</span>
 <span id="cb56-3"><a></a><span class="bu">print</span>(<span class="st">"Original Radius Mean at index 0:"</span>, original_value)</span>
@@ -1810,7 +1810,7 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 <section id="sorting-by-columns" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Sorting by Columns</h2>
 <p>You can sort a dataset by columns. Here’s how to sort by diagnosis first and then by area_mean in ascending order.</p>
-<div id="1df87712" class="cell fragment" data-execution_count="30">
+<div id="ea7295af" class="cell fragment" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a></a><span class="co"># Sort by 'diagnosis' first, then by 'area_mean' within each diagnosis group</span></span>
 <span id="cb58-2"><a></a>sorted_by_diagnosis_area <span class="op">=</span> cancer_data.sort_values(by<span class="op">=</span>[<span class="st">'diagnosis'</span>, <span class="st">'area_mean'</span>], ascending<span class="op">=</span>[<span class="va">True</span>, <span class="va">True</span>])</span>
 <span id="cb58-3"><a></a><span class="bu">print</span>(<span class="st">"Data sorted by Diagnosis and Area Mean:</span><span class="ch">\n</span><span class="st">"</span>, sorted_by_diagnosis_area[[<span class="st">'diagnosis'</span>, <span class="st">'area_mean'</span>, <span class="st">'Radius Mean'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1830,7 +1830,7 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 <section id="reordering-columns-to-move-a-column-to-the-end" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Reordering Columns to Move a Column to the End</h2>
 <p>You might also want to move a specific column to the end of the DataFrame, such as moving area_ratio to the last position.</p>
-<div id="7ca41870" class="cell fragment" data-execution_count="31">
+<div id="4c5a8009" class="cell fragment" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a></a><span class="co"># Move 'area_ratio' to the end of the DataFrame</span></span>
 <span id="cb60-2"><a></a>columns_reordered <span class="op">=</span> [col <span class="cf">for</span> col <span class="kw">in</span> cancer_data.columns <span class="cf">if</span> col <span class="op">!=</span> <span class="st">'area_ratio'</span>] <span class="op">+</span> [<span class="st">'area_ratio'</span>]</span>
 <span id="cb60-3"><a></a>cancer_data_with_area_ratio_last <span class="op">=</span> cancer_data[columns_reordered]</span>
@@ -1883,7 +1883,7 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 <section id="method-chaining-in-pandas" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Method Chaining in Pandas</h2>
 <p>In Pandas, you can chain multiple methods together to create a pipeline.</p>
-<div id="8aa5ea44" class="cell fragment" data-execution_count="32">
+<div id="d4a665fd" class="cell fragment" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb62-2"><a></a></span>
 <span id="cb62-3"><a></a><span class="co"># Sample DataFrame</span></span>
@@ -1913,7 +1913,7 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 </div>
 <div class="fragment">
 <p>Why <code>.str.strip()</code> and not just <code>.strip()</code>?</p>
-<div id="9cee863a" class="cell fragment" data-execution_count="33">
+<div id="7671e096" class="cell fragment" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a></a><span class="co"># This works:</span></span>
 <span id="cb64-2"><a></a>df[<span class="st">"name"</span>].<span class="bu">str</span>.strip()</span>
 <span id="cb64-3"><a></a></span>
@@ -1971,7 +1971,7 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 </div>
 <div class="fragment">
 <p>Example: Categorizing Tumors by Size Let’s create a custom function to categorize tumors as “Small”, “Medium”, or “Large” based on area_mean.</p>
-<div id="990ee727" class="cell fragment" data-execution_count="34">
+<div id="3585d72d" class="cell fragment" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a></a><span class="co"># Define a custom function to categorize tumors by area_mean</span></span>
 <span id="cb66-2"><a></a><span class="kw">def</span> categorize_tumor(size):</span>
 <span id="cb66-3"><a></a>    <span class="cf">if</span> size <span class="op">&lt;</span> <span class="dv">500</span>:</span>
@@ -2004,7 +2004,7 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 </div>
 <div class="fragment">
 <p>Lambda functions are useful for simple, one-line operations. For example, we can use a lambda function to convert diagnosis into numerical codes (0 for Benign, 1 for Malignant).</p>
-<div id="5b95573d" class="cell fragment" data-execution_count="35">
+<div id="3c2cf1c4" class="cell fragment" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a></a><span class="co"># Apply a lambda function to classify 'diagnosis' into numerical codes</span></span>
 <span id="cb68-2"><a></a>cancer_data[<span class="st">'diagnosis_code'</span>] <span class="op">=</span> cancer_data[<span class="st">'diagnosis'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="dv">1</span> <span class="cf">if</span> x <span class="op">==</span> <span class="st">'M'</span> <span class="cf">else</span> <span class="dv">0</span>)</span>
 <span id="cb68-3"><a></a></span>
@@ -2034,7 +2034,7 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 <li class="fragment">“Moderate Risk” for Malignant tumors with area_mean below 1000.</li>
 <li class="fragment">“Low Risk” for Benign tumors.</li>
 </ul>
-<div id="cfca4219" class="cell fragment" data-execution_count="36">
+<div id="6efe05c2" class="cell fragment" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a></a><span class="co"># Apply a lambda function with multiple conditions to create a 'risk_level' column</span></span>
 <span id="cb70-2"><a></a>cancer_data[<span class="st">'risk_level'</span>] <span class="op">=</span> cancer_data.<span class="bu">apply</span>(</span>
 <span id="cb70-3"><a></a>    <span class="kw">lambda</span> row: <span class="st">'High Risk'</span> <span class="cf">if</span> row[<span class="st">'diagnosis'</span>] <span class="op">==</span> <span class="st">'M'</span> <span class="kw">and</span> row[<span class="st">'area_mean'</span>] <span class="op">&gt;</span> <span class="dv">1000</span> </span>
@@ -2095,7 +2095,7 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 </section>
 <section id="to-export-a-pandas-dataframe-to-csv-or-xlsx" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>To export a Pandas dataframe to CSV or XLSX</h2>
-<div id="0b83a821" class="cell" data-execution_count="37">
+<div id="bee39084" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a></a><span class="co"># Export to CSV</span></span>
 <span id="cb72-2"><a></a><span class="co">'''</span></span>
 <span id="cb72-3"><a></a></span>
@@ -2124,7 +2124,7 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 </section>
 <section id="load-and-inspect-the-data" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Load and Inspect the Data</h2>
-<div id="21a00672" class="cell fragment" data-execution_count="38">
+<div id="a09a302a" class="cell fragment" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb74-2"><a></a></span>
 <span id="cb74-3"><a></a><span class="co"># Load the dataset</span></span>
@@ -2180,7 +2180,7 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 </section>
 <section id="preview-of-dataset-using-great_tables" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Preview of dataset using great_tables</h2>
-<div id="9d3fe124" class="cell fragment" data-execution_count="39">
+<div id="f837e5f4" class="cell fragment" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a></a><span class="im">from</span> great_tables <span class="im">import</span> GT</span>
 <span id="cb76-2"><a></a></span>
 <span id="cb76-3"><a></a><span class="co"># Select a subset of the columns for preview</span></span>
@@ -2193,52 +2193,52 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 </div>
 <div class="cell fragment" data-execution_count="39">
 <div class="cell-output cell-output-display" data-execution_count="39">
-<div id="cusmbkuxvl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="vuwssjqkec" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#cusmbkuxvl table {
+#vuwssjqkec table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#cusmbkuxvl thead, tbody, tfoot, tr, td, th { border-style: none; }
+#vuwssjqkec thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#cusmbkuxvl p { margin: 0; padding: 0; }
- #cusmbkuxvl .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #cusmbkuxvl .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #cusmbkuxvl .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #cusmbkuxvl .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #cusmbkuxvl .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #cusmbkuxvl .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #cusmbkuxvl .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #cusmbkuxvl .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #cusmbkuxvl .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #cusmbkuxvl .gt_column_spanner_outer:first-child { padding-left: 0; }
- #cusmbkuxvl .gt_column_spanner_outer:last-child { padding-right: 0; }
- #cusmbkuxvl .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #cusmbkuxvl .gt_spanner_row { border-bottom-style: hidden; }
- #cusmbkuxvl .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #cusmbkuxvl .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #cusmbkuxvl .gt_from_md> :first-child { margin-top: 0; }
- #cusmbkuxvl .gt_from_md> :last-child { margin-bottom: 0; }
- #cusmbkuxvl .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #cusmbkuxvl .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #cusmbkuxvl .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #cusmbkuxvl .gt_row_group_first td { border-top-width: 2px; }
- #cusmbkuxvl .gt_row_group_first th { border-top-width: 2px; }
- #cusmbkuxvl .gt_striped { background-color: rgba(128,128,128,0.05); }
- #cusmbkuxvl .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #cusmbkuxvl .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #cusmbkuxvl .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #cusmbkuxvl .gt_left { text-align: left; }
- #cusmbkuxvl .gt_center { text-align: center; }
- #cusmbkuxvl .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #cusmbkuxvl .gt_font_normal { font-weight: normal; }
- #cusmbkuxvl .gt_font_bold { font-weight: bold; }
- #cusmbkuxvl .gt_font_italic { font-style: italic; }
- #cusmbkuxvl .gt_super { font-size: 65%; }
- #cusmbkuxvl .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #cusmbkuxvl .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#vuwssjqkec p { margin: 0; padding: 0; }
+ #vuwssjqkec .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #vuwssjqkec .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #vuwssjqkec .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #vuwssjqkec .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #vuwssjqkec .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #vuwssjqkec .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #vuwssjqkec .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #vuwssjqkec .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #vuwssjqkec .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #vuwssjqkec .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #vuwssjqkec .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #vuwssjqkec .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #vuwssjqkec .gt_spanner_row { border-bottom-style: hidden; }
+ #vuwssjqkec .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #vuwssjqkec .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #vuwssjqkec .gt_from_md> :first-child { margin-top: 0; }
+ #vuwssjqkec .gt_from_md> :last-child { margin-bottom: 0; }
+ #vuwssjqkec .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #vuwssjqkec .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #vuwssjqkec .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #vuwssjqkec .gt_row_group_first td { border-top-width: 2px; }
+ #vuwssjqkec .gt_row_group_first th { border-top-width: 2px; }
+ #vuwssjqkec .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #vuwssjqkec .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #vuwssjqkec .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #vuwssjqkec .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #vuwssjqkec .gt_left { text-align: left; }
+ #vuwssjqkec .gt_center { text-align: center; }
+ #vuwssjqkec .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #vuwssjqkec .gt_font_normal { font-weight: normal; }
+ #vuwssjqkec .gt_font_bold { font-weight: bold; }
+ #vuwssjqkec .gt_font_italic { font-style: italic; }
+ #vuwssjqkec .gt_super { font-size: 65%; }
+ #vuwssjqkec .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #vuwssjqkec .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -2306,7 +2306,7 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 <section id="enhance-the-table-with-styling" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Enhance the Table with Styling</h2>
 <p>Let’s add conditional formatting to highlight larger tumor areas.</p>
-<div id="0d54f5cc" class="cell fragment" data-execution_count="40">
+<div id="a9430493" class="cell fragment" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a></a>GT(preview_df).tab_header(</span>
 <span id="cb77-2"><a></a>    title<span class="op">=</span><span class="st">"Styled Cancer Data Table"</span>,</span>
 <span id="cb77-3"><a></a>    subtitle<span class="op">=</span><span class="st">"With conditional formatting on tumor area"</span></span>
@@ -2318,52 +2318,52 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 </div>
 <div class="cell fragment" data-execution_count="40">
 <div class="cell-output cell-output-display" data-execution_count="40">
-<div id="uythximait" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wlnjidzrwu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#uythximait table {
+#wlnjidzrwu table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#uythximait thead, tbody, tfoot, tr, td, th { border-style: none; }
+#wlnjidzrwu thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#uythximait p { margin: 0; padding: 0; }
- #uythximait .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #uythximait .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #uythximait .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #uythximait .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #uythximait .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #uythximait .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #uythximait .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #uythximait .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #uythximait .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #uythximait .gt_column_spanner_outer:first-child { padding-left: 0; }
- #uythximait .gt_column_spanner_outer:last-child { padding-right: 0; }
- #uythximait .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #uythximait .gt_spanner_row { border-bottom-style: hidden; }
- #uythximait .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #uythximait .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #uythximait .gt_from_md> :first-child { margin-top: 0; }
- #uythximait .gt_from_md> :last-child { margin-bottom: 0; }
- #uythximait .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #uythximait .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #uythximait .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #uythximait .gt_row_group_first td { border-top-width: 2px; }
- #uythximait .gt_row_group_first th { border-top-width: 2px; }
- #uythximait .gt_striped { background-color: rgba(128,128,128,0.05); }
- #uythximait .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #uythximait .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #uythximait .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #uythximait .gt_left { text-align: left; }
- #uythximait .gt_center { text-align: center; }
- #uythximait .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #uythximait .gt_font_normal { font-weight: normal; }
- #uythximait .gt_font_bold { font-weight: bold; }
- #uythximait .gt_font_italic { font-style: italic; }
- #uythximait .gt_super { font-size: 65%; }
- #uythximait .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #uythximait .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#wlnjidzrwu p { margin: 0; padding: 0; }
+ #wlnjidzrwu .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #wlnjidzrwu .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #wlnjidzrwu .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #wlnjidzrwu .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #wlnjidzrwu .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #wlnjidzrwu .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #wlnjidzrwu .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #wlnjidzrwu .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #wlnjidzrwu .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #wlnjidzrwu .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #wlnjidzrwu .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #wlnjidzrwu .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #wlnjidzrwu .gt_spanner_row { border-bottom-style: hidden; }
+ #wlnjidzrwu .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #wlnjidzrwu .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #wlnjidzrwu .gt_from_md> :first-child { margin-top: 0; }
+ #wlnjidzrwu .gt_from_md> :last-child { margin-bottom: 0; }
+ #wlnjidzrwu .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #wlnjidzrwu .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #wlnjidzrwu .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #wlnjidzrwu .gt_row_group_first td { border-top-width: 2px; }
+ #wlnjidzrwu .gt_row_group_first th { border-top-width: 2px; }
+ #wlnjidzrwu .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #wlnjidzrwu .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #wlnjidzrwu .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #wlnjidzrwu .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #wlnjidzrwu .gt_left { text-align: left; }
+ #wlnjidzrwu .gt_center { text-align: center; }
+ #wlnjidzrwu .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #wlnjidzrwu .gt_font_normal { font-weight: normal; }
+ #wlnjidzrwu .gt_font_bold { font-weight: bold; }
+ #wlnjidzrwu .gt_font_italic { font-style: italic; }
+ #wlnjidzrwu .gt_super { font-size: 65%; }
+ #wlnjidzrwu .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #wlnjidzrwu .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -2431,7 +2431,7 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 <section id="group-statistics-by-diagnosis" class="slide level2 scrollable" data-background-color="lavenderblush">
 <h2>Group Statistics by Diagnosis</h2>
 <p>Let’s summarize average values by diagnosis group (malignant vs.&nbsp;benign).</p>
-<div id="0bfa4658" class="cell fragment" data-execution_count="41">
+<div id="3791be2c" class="cell fragment" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a></a>summary_df <span class="op">=</span> df.groupby(<span class="st">"diagnosis"</span>)[[<span class="st">"radius_mean"</span>, <span class="st">"texture_mean"</span>, <span class="st">"area_mean"</span>]].mean().reset_index()</span>
 <span id="cb78-2"><a></a></span>
 <span id="cb78-3"><a></a>GT(summary_df).tab_header(</span>
@@ -2441,52 +2441,52 @@ Updated Radius Mean at index 0: 18.5</code></pre>
 </div>
 <div class="cell fragment" data-execution_count="41">
 <div class="cell-output cell-output-display" data-execution_count="41">
-<div id="osrrrfqrfr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ifdvylxjne" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#osrrrfqrfr table {
+#ifdvylxjne table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#osrrrfqrfr thead, tbody, tfoot, tr, td, th { border-style: none; }
+#ifdvylxjne thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#osrrrfqrfr p { margin: 0; padding: 0; }
- #osrrrfqrfr .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #osrrrfqrfr .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #osrrrfqrfr .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #osrrrfqrfr .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #osrrrfqrfr .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #osrrrfqrfr .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #osrrrfqrfr .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #osrrrfqrfr .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #osrrrfqrfr .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #osrrrfqrfr .gt_column_spanner_outer:first-child { padding-left: 0; }
- #osrrrfqrfr .gt_column_spanner_outer:last-child { padding-right: 0; }
- #osrrrfqrfr .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #osrrrfqrfr .gt_spanner_row { border-bottom-style: hidden; }
- #osrrrfqrfr .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #osrrrfqrfr .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #osrrrfqrfr .gt_from_md> :first-child { margin-top: 0; }
- #osrrrfqrfr .gt_from_md> :last-child { margin-bottom: 0; }
- #osrrrfqrfr .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #osrrrfqrfr .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #osrrrfqrfr .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #osrrrfqrfr .gt_row_group_first td { border-top-width: 2px; }
- #osrrrfqrfr .gt_row_group_first th { border-top-width: 2px; }
- #osrrrfqrfr .gt_striped { background-color: rgba(128,128,128,0.05); }
- #osrrrfqrfr .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #osrrrfqrfr .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #osrrrfqrfr .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #osrrrfqrfr .gt_left { text-align: left; }
- #osrrrfqrfr .gt_center { text-align: center; }
- #osrrrfqrfr .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #osrrrfqrfr .gt_font_normal { font-weight: normal; }
- #osrrrfqrfr .gt_font_bold { font-weight: bold; }
- #osrrrfqrfr .gt_font_italic { font-style: italic; }
- #osrrrfqrfr .gt_super { font-size: 65%; }
- #osrrrfqrfr .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #osrrrfqrfr .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#ifdvylxjne p { margin: 0; padding: 0; }
+ #ifdvylxjne .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #ifdvylxjne .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #ifdvylxjne .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #ifdvylxjne .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #ifdvylxjne .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #ifdvylxjne .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #ifdvylxjne .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #ifdvylxjne .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #ifdvylxjne .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #ifdvylxjne .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #ifdvylxjne .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #ifdvylxjne .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #ifdvylxjne .gt_spanner_row { border-bottom-style: hidden; }
+ #ifdvylxjne .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #ifdvylxjne .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #ifdvylxjne .gt_from_md> :first-child { margin-top: 0; }
+ #ifdvylxjne .gt_from_md> :last-child { margin-bottom: 0; }
+ #ifdvylxjne .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #ifdvylxjne .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #ifdvylxjne .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #ifdvylxjne .gt_row_group_first td { border-top-width: 2px; }
+ #ifdvylxjne .gt_row_group_first th { border-top-width: 2px; }
+ #ifdvylxjne .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #ifdvylxjne .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #ifdvylxjne .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #ifdvylxjne .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #ifdvylxjne .gt_left { text-align: left; }
+ #ifdvylxjne .gt_center { text-align: center; }
+ #ifdvylxjne .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #ifdvylxjne .gt_font_normal { font-weight: normal; }
+ #ifdvylxjne .gt_font_bold { font-weight: bold; }
+ #ifdvylxjne .gt_font_italic { font-style: italic; }
+ #ifdvylxjne .gt_super { font-size: 65%; }
+ #ifdvylxjne .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #ifdvylxjne .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 

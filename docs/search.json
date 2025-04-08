@@ -1057,11 +1057,11 @@
     "text": "Links\n \n\nGuide to Python Data Structures\n\n  \n\nCancer Dataset"
   },
   {
-    "objectID": "session3/DataStructuresDemo_2.html#topic-5-what-is-pandas",
-    "href": "session3/DataStructuresDemo_2.html#topic-5-what-is-pandas",
+    "objectID": "session3/DataStructuresDemo_2.html#what-is-pandas",
+    "href": "session3/DataStructuresDemo_2.html#what-is-pandas",
     "title": "Session 3: Intro to Pandas and great_tables",
-    "section": "Topic 5: What Is Pandas?",
-    "text": "Topic 5: What Is Pandas?\nPandas is a powerful open-source data analysis and manipulation library in Python. It provides data structures, primarily the DataFrame and Series, which are optimized for handling and analyzing large datasets efficiently.\n\nData Structures:\n\nSeries: A one-dimensional labeled array, suitable for handling single columns or rows of data.\nDataFrame: A two-dimensional table with labeled axes (rows and columns), much like a spreadsheet or SQL table, allowing you to work with data in rows and columns simultaneously.\n\n\n\nData Manipulation:\n\nPandas has functions for merging, reshaping, and aggregating datasets, which helps streamline data cleaning and preparation.\nIt can handle missing data, making it easy to filter or fill gaps in datasets.\n\n\n\nData Analysis:\n\nPandas provides extensive functionality for descriptive statistics, grouping data, and handling time series.\nIntegrates well with other libraries, making it easy to move data between libraries like NumPy for numerical computations and Matplotlib or Seaborn for visualization."
+    "section": "What Is Pandas?",
+    "text": "What Is Pandas?\nPandas is a powerful open-source data analysis and manipulation library in Python. It provides data structures, primarily the DataFrame and Series, which are optimized for handling and analyzing large datasets efficiently.\n\nData Structures:\n\nSeries: A one-dimensional labeled array, suitable for handling single columns or rows of data.\nDataFrame: A two-dimensional table with labeled axes (rows and columns), much like a spreadsheet or SQL table, allowing you to work with data in rows and columns simultaneously.\n\n\n\nData Manipulation:\n\nPandas has functions for merging, reshaping, and aggregating datasets, which helps streamline data cleaning and preparation.\nIt can handle missing data, making it easy to filter or fill gaps in datasets.\n\n\n\nData Analysis:\n\nPandas provides extensive functionality for descriptive statistics, grouping data, and handling time series.\nIntegrates well with other libraries, making it easy to move data between libraries like NumPy for numerical computations and Matplotlib or Seaborn for visualization."
   },
   {
     "objectID": "session3/DataStructuresDemo_2.html#creating-folders-for-project-housekeeping",
