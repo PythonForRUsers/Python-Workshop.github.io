@@ -147,7 +147,7 @@ Here is a list of tools we recommend using:
 
 -   **Conda**: a powerful package and environment manager for Python.
 -   **Visual Studio Code**: a lightweight code editor that integrates programming + plots + terminal + etc.
--   **Jupyer Notebook**: an interactive computing tool that combines code execution, text documentation, and visualizations.
+-   **Jupyter Notebook**: an interactive computing tool that combines code execution, text documentation, and visualizations.
 -   **Git (GitHub)**: for version control, collaboration, and publishing code.
 
 #### **Conda (via Miniconda)**
