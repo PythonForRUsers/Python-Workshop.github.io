@@ -3,7 +3,7 @@ title: "Data Structures Activity Session 2"
 author: "Python Group"
 format: 
     html:
-        output-file: "session2blank.html"
+        output-file: "session2_homework_answers.html"
         toc: true
         code-copy: true
         code-line-numbers: true
@@ -23,6 +23,7 @@ Create a string variable called sentence that contains the following text:
 
 ```{python}
 
+sentence= "Python is a powerful and easy to learn programming language."
 
 ```
 
@@ -31,6 +32,8 @@ a. Use string slicing to extract and print the word "powerful".
 
 ```{python}
 
+word = sentence[12:20]
+print(word)
 
 ```
 
@@ -39,12 +42,15 @@ b. Convert the entire sentence to uppercase and print the result.
 
 ```{python}
 
-
+upper_sentence = sentence.upper()
+print(upper_sentence)
 ```
 
 c. Replace the word "powerful" with "versatile" and print the new sentence.
 ```{python}
 
+new_sentence = sentence.replace("powerful", "versatile")
+print(new_sentence)
 
 ```
 
@@ -57,7 +63,8 @@ a. Convert the sentence you created in Part 1 into a list of words (split by spa
 
 ```{python}
 
-
+words_list=sentence.split()
+print(words_list)
 ```
 
 
@@ -65,6 +72,7 @@ b. Print the length of the list.
 
 ```{python}
 
+print(len(words_list))
 
 ```
 
@@ -73,6 +81,7 @@ c. Print the first and last words from the list.
 
 ```{python}
 
+print(words_list[0], words_list[-1])
 
 ```
 
@@ -82,10 +91,11 @@ Part 3: List Operations and String Comprehension
 Combining Strings and Lists:
 
 
-a. Use list comprehension to create a new list called short_words that contains only the words from words_list that are 4 characters or shorter.
+a. Use list comprehension to create a new list called short_words that contains only the words from words_list that are 4 characters or shorter. Print the new list.
 
 ```{python}
-
+short_words=[word for word in words_list if len(word)<=4]
+print(short_words)
 
 ```
 
@@ -93,7 +103,8 @@ a. Use list comprehension to create a new list called short_words that contains 
 b. Join all the words in short_words into a single string, where the words are separated by commas, and print the result.
 
 ```{python}
-
+short_words_string = ','.join(short_words)
+print(short_words_string)
 
 ```
 
@@ -106,12 +117,20 @@ a. Create a reversed version of words_list and print it.
 
 ```{python}
 
+words_list_reversed=words_list[-1::-1]
+print(words_list_reversed)
 
 ```
 
-b. Sort the list alphabetically and print the sorted list.
+b. Sort the reversed list alphabetically and print the sorted list.
 
 ```{python}
+
+words_list_reversed.sort()
+print(words_list_reversed)
+
+#Why does 'Python' appear first?
+
 
 
 ```
@@ -120,6 +139,8 @@ c. Using list comprehension, create a new list called vowel_words that contains 
 
 ```{python}
 
+vowel_words = [word for word in words_list if word[0] in "aeiou"]
+print(vowel_words)
 
 ```
 
@@ -151,7 +172,7 @@ print("Mutation data:", mutation_data)
 
 2 Create an empty dictionary called mutation_counts that will be used to store each mutation as a key and the number of occurrences as the value.
 ```{python}
-
+mutation_counts = {}
 
 
 
@@ -163,6 +184,13 @@ print("Mutation data:", mutation_data)
 If it already exists in mutation_counts, increase its count by 1.
 If it doesn’t exist in mutation_counts, add it with an initial count of 1.
 ```{python}
+
+for key, value in mutation_data.items():
+    for item in value:
+        if item not in mutation_counts.keys():
+            mutation_counts[item] = 1
+        else:
+            mutation_counts[item] += 1
 
 
 
@@ -188,9 +216,6 @@ print("Mutation Counts: {'BRAF': 2, 'TP53': 1, 'BRCA1': 2, 'EGFR': 1, 'ALK': 1}"
 
 ```
 
-
-
-
 ## Try It Yourself 3: Counting Genetic Mutations Across Patients Tumor Mutational Burden (TMB) Classification
 
 
@@ -212,6 +237,7 @@ Example Input:
 Expected Output:
 
 ```{python}
+
 # 'High'
 ```
 
@@ -223,12 +249,21 @@ Raise a ValueError if the input is negative.
 
 ```{python}
 
+def classify_tmb(score):
+    if score <0:
+        raise ValueError("Input cannot be negative")
+    elif score>=0 and score <5:
+        classification="Low"
+        return Classificaiton
+    elif score >=5 and score <10:
+        Classification = "Intermediate"
+        return Classification
+    elif score >= 10:
+        Classification = "High"
+        return Classification
+```
 
-
-
-
-
-
-
-
+```{python}
+output=classify_tmb(12.3)
+print(output)
 ```

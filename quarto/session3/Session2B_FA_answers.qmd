@@ -3,7 +3,7 @@ title: "Data Structures Activity Session 3"
 author: "Python Group"
 format: 
     html:
-        output-file: "session2_2blank.html"
+        output-file: "session3_homework_answers.html"
         toc: true
         code-copy: true
         code-line-numbers: true
@@ -14,17 +14,27 @@ format:
 
 ## Try It Yourself 1:
 
-
 Exercise: Exploring and Manipulating Cancer Data
 
-
-Load and Explore the Data
+ Load and Explore the Data
 
 Load the Dataset: Load the cancer dataset and display the first five rows.
 View Basic Information: Check the shape of the dataset, column names, and summary statistics to understand the structure and types of data.
 ```{python}
+import pandas as pd
+import numpy as np
+
+cancer_data = pd.read_csv("C:\\Users\\augellp1\\Desktop\\Python Workshop\\Python-Workshop_NEW\\quarto\\session3\\example_data\\Cancer_Data.csv")
 
 
+print(cancer_data.head())
+
+
+print(cancer_data.shape)
+
+print(cancer_data.describe())
+
+print(cancer_data.columns.to_list())
 
 
 ```
@@ -34,9 +44,14 @@ View Basic Information: Check the shape of the dataset, column names, and summar
 
 Select Columns: Select the columns texture_mean, smoothness_mean, and symmetry_mean and create a new DataFrame called texture_smoothness_symmetry.
 
-Select Rows by Index: Use loc to select the rows with indexes 100 to 105 from texture_smoothness_symmetry and display them.
+Select Rows by Index: Use .loc to select the rows with indices 100 to 105 from texture_smoothness_symmetry and display them.
 ```{python}
 
+texture_smoothness_symmetry = cancer_data[["texture_mean", "smoothness_mean", "symmetry_mean"]]
+
+
+subset = texture_smoothness_symmetry.loc[100:105]
+print(subset)
 
 
 
@@ -50,7 +65,9 @@ Filter by Condition: Filter the original DataFrame to include only rows where co
 Count the Results: Display the number of rows in high_compactness_data to see how many rows meet this condition.
 ```{python}
 
+high_compactness_data = cancer_data[cancer_data["compactness_mean"] > 0.2]
 
+print(len(high_compactness_data))
 
 
 ```
@@ -63,9 +80,13 @@ Using .loc for Label-Based Selection: Use .loc to select rows with indexes 10 to
 Using .iloc for Position-Based Selection: Use .iloc to select the first 10 rows and the first 3 columns of the dataset. Save this as subset_iloc.
 ```{python}
 
+subset_loc = cancer_data.loc[10:15, ["radius_mean", "texture_mean", "smoothness_mean"]]
 
+print(subset_loc)
 
+subset_iloc = cancer_data.iloc[0:10, 0:3]
 
+print(subset_iloc)
 ```
 
 
@@ -76,7 +97,7 @@ Add a New Column: Calculate the texture_area_ratio by dividing texture_mean by a
 Add this as a new column in the original DataFrame.
 ```{python}
 
-
+cancer_data["texture_area_ratio"] = cancer_data["texture_mean"] / cancer_data["area_mean"]
 
 
 ```
@@ -89,9 +110,19 @@ If radius_mean is less than 10, label it as "Low Risk".
 If radius_mean is between 10 and 15, label it as "Moderate Risk".
 If radius_mean is greater than 15, label it as "High Risk".
 ```{python}
+def categorize_risk(radius):
+    if radius < 10:
+        return "Low Risk"
+    elif 10 <= radius <= 15:
+        return "Moderate Risk"
+    else:
+        return "High Risk"
 
 
+cancer_data["risk_category"] = cancer_data["radius_mean"].apply(categorize_risk)
 
+
+print(cancer_data[["radius_mean", "risk_category"]].head())
 
 ```
 

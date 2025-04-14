@@ -3,6 +3,7 @@ title: "Session 2: Python Data Structures"
 jupyter: python3
 format:
   revealjs:
+    self-contained: true
     theme: [default, custom.scss]
     background-color: lavenderblush
     incremental: true

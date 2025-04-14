@@ -3,6 +3,7 @@ title: "Session 3: Intro to Pandas and great_tables"
 jupyter: python3
 format:
   revealjs:
+    self-contained: true
     theme: [default, custom.scss]
     background-color: lavenderblush
     incremental: true
