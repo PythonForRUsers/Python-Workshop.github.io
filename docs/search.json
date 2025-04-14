@@ -3,232 +3,232 @@
     "objectID": "session2/DataStructuresDemo.html#links",
     "href": "session2/DataStructuresDemo.html#links",
     "title": "Session 2: Python Data Structures",
-    "section": "",
-    "text": "Guide to Python Data Structures\n\n  \n\nCancer Dataset"
+    "section": "Links",
+    "text": "Links\n \n\nGuide to Python Data Structures\n\n  \n\nCancer Dataset"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#topic-1-lists",
     "href": "session2/DataStructuresDemo.html#topic-1-lists",
     "title": "Session 2: Python Data Structures",
     "section": "Topic 1: Lists",
-    "text": "Topic 1: Lists\nThe most important thing about lists\nIn Python, lists are mutable, meaning their elements can be changed after the list is created, allowing for modification such as adding, removing, or updating items. This flexibility makes lists powerful for handling dynamic collections of data.\n. . .\nWe will learn how to do things such as:\n\nCreate lists\nModify lists\nSort lists\nLoop over elements of a list with a for-loop or using list comprehension\nSlice a list\nAppend to a list"
+    "text": "Topic 1: Lists\nThe most important thing about lists\nIn Python, lists are mutable, meaning their elements can be changed after the list is created, allowing for modification such as adding, removing, or updating items. This flexibility makes lists powerful for handling dynamic collections of data.\n\nWe will learn how to do things such as:\n\nCreate lists\nModify lists\nSort lists\nLoop over elements of a list with a for-loop or using list comprehension\nSlice a list\nAppend to a list"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#lists",
     "href": "session2/DataStructuresDemo.html#lists",
     "title": "Session 2: Python Data Structures",
     "section": "Lists",
-    "text": "Lists\n\nTo create a list:\n\n\nmy_list = [1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]\nprint(my_list)\n\n[1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]\n\n\n\nA list is simply a collection of objects. We can find the length of a list using the len() function:\n\n\nmy_list=[1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]\nlen(my_list)\n\n7"
+    "text": "Lists\n\nTo create a list:\n\n\nmy_list = [1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]\nprint(my_list)\n\n\n\n[1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]\n\n\n\nA list is simply a collection of objects. We can find the length of a list using the len() function:\n\n\nmy_list=[1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]\nlen(my_list)\n\n\n\n7"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#lists-continued",
     "href": "session2/DataStructuresDemo.html#lists-continued",
     "title": "Session 2: Python Data Structures",
     "section": "Lists (continued)",
-    "text": "Lists (continued)\n\nIn Python, lists are objects like all other data types, and the class for lists is named ‘list’ with a lowercase ‘L’.\nTo transform another Python object into a list, you can use the list() function, which is essentially the constructor of the list class. This function accepts a single argument: an iterable. So, you can use it to turn any iterable, such as a range, set, or tuple, into a list of concrete values.\nPython indices begin at 0. In addition, certain built-in python functions such as range will terminate at n-1 in the second argument.\n\n\nfirst_range=range(5)\nfirst_range_list=list(first_range)\nprint(first_range_list)\n\n[0, 1, 2, 3, 4]\n\n\n\nsecond_range=range(5,10)\nsecond_range_list=list(second_range)\nprint(second_range_list)\n\n[5, 6, 7, 8, 9]"
+    "text": "Lists (continued)\n\nIn Python, lists are objects like all other data types, and the class for lists is named ‘list’ with a lowercase ‘L’.\nTo transform another Python object into a list, you can use the list() function, which is essentially the constructor of the list class. This function accepts a single argument: an iterable. So, you can use it to turn any iterable, such as a range, set, or tuple, into a list of concrete values.\nPython indices begin at 0. In addition, certain built-in python functions such as range will terminate at n-1 in the second argument.\n\n\nfirst_range=range(5)\nfirst_range_list=list(first_range)\nprint(first_range_list)\n\n\n\n[0, 1, 2, 3, 4]\n\n\n\nsecond_range=range(5,10)\nsecond_range_list=list(second_range)\nprint(second_range_list)\n\n\n\n[5, 6, 7, 8, 9]"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#accessing-python-list-elements",
     "href": "session2/DataStructuresDemo.html#accessing-python-list-elements",
     "title": "Session 2: Python Data Structures",
     "section": "Accessing Python list elements",
-    "text": "Accessing Python list elements\nTo access an individual list element, you need to know its position. Since python starts counting at 0, the first element is in position 0, and the second element is in position 1. You can also access nested elements within a list, or access the list in reverse.\n. . .\nExamples using my_list from above\n\nprint(my_list)\n\n[1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]\n\n\n\nexample_1=my_list[0]\n\nexample_2=my_list[6][1]\n\nexample_3=my_list[-1]\n\nprint(example_1, example_2, example_3)\n\n1 z [4, 'z']"
+    "text": "Accessing Python list elements\nTo access an individual list element, you need to know its position. Since python starts counting at 0, the first element is in position 0, and the second element is in position 1. You can also access nested elements within a list, or access the list in reverse.\n\nExamples using my_list from above\n\nprint(my_list)\n\n\n\n[1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]\n\n\n\nexample_1=my_list[0]\n\nexample_2=my_list[6][1]\n\nexample_3=my_list[-1]\n\nprint(example_1, example_2, example_3)\n\n\n\n1 z [4, 'z']"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#mutability-of-lists",
     "href": "session2/DataStructuresDemo.html#mutability-of-lists",
     "title": "Session 2: Python Data Structures",
     "section": "Mutability of lists",
-    "text": "Mutability of lists\nSince lists are mutable objects, we can directly change their elements.\n\nsome_list=[1,2,3]\nprint(some_list)\n\nsome_list[0]=\"hello\"\nprint(some_list)\n\n[1, 2, 3]\n['hello', 2, 3]"
+    "text": "Mutability of lists\nSince lists are mutable objects, we can directly change their elements.\n\nsome_list=[1,2,3]\nprint(some_list)\n\nsome_list[0]=\"hello\"\nprint(some_list)\n\n\n\n[1, 2, 3]\n['hello', 2, 3]"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#appending-an-element-to-a-list",
     "href": "session2/DataStructuresDemo.html#appending-an-element-to-a-list",
     "title": "Session 2: Python Data Structures",
     "section": "Appending an element to a list",
-    "text": "Appending an element to a list\nWhen calling append on a list, we append an object to the end of the list:\n\nprint(my_list)\n\nmy_list.append(5)\n\nprint(my_list)\n\n[1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]\n[1, 2, 3.2, 'a', 'b', 'c', [4, 'z'], 5]"
+    "text": "Appending an element to a list\nWhen calling append on a list, we append an object to the end of the list:\n\nprint(my_list)\n\nmy_list.append(5)\n\nprint(my_list)\n\n\n\n[1, 2, 3.2, 'a', 'b', 'c', [4, 'z']]\n[1, 2, 3.2, 'a', 'b', 'c', [4, 'z'], 5]"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#combining-lists",
     "href": "session2/DataStructuresDemo.html#combining-lists",
     "title": "Session 2: Python Data Structures",
     "section": "Combining lists",
-    "text": "Combining lists\nWe can combine lists with the “+” operator. This keeps the original lists intact\n\nlist_1=[1,2,3]\n\nlist_2=['a','b','c']\n\ncombined_lists=list_1+list_2\n\nprint(combined_lists)\n\n[1, 2, 3, 'a', 'b', 'c']\n\n\n. . .\nAnother method is to extend one list onto another.\n\nlist_1=[1,2,3]\n\nlist_2=['a','b','c']\n\nlist_1.extend(list_2)\n\nprint(list_1)\n\n[1, 2, 3, 'a', 'b', 'c']"
+    "text": "Combining lists\nWe can combine lists with the “+” operator. This keeps the original lists intact\n\nlist_1=[1,2,3]\n\nlist_2=['a','b','c']\n\ncombined_lists=list_1+list_2\n\nprint(combined_lists)\n\n\n\n[1, 2, 3, 'a', 'b', 'c']\n\n\n\nAnother method is to extend one list onto another.\n\nlist_1=[1,2,3]\n\nlist_2=['a','b','c']\n\nlist_1.extend(list_2)\n\nprint(list_1)\n\n\n\n[1, 2, 3, 'a', 'b', 'c']"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#pop-method",
     "href": "session2/DataStructuresDemo.html#pop-method",
     "title": "Session 2: Python Data Structures",
     "section": ".pop() method",
-    "text": ".pop() method\nThe .pop() method removes and returns the last item by default unless you give it an index argument. If you’re familiar with stacks, this method as well as .append() can be used to create one!\n\nlist_1=[1,2,3]\n\nelement_1=list_1.pop()\nelement_2=list_1.pop(1)\n\nprint(element_1, element_2)\n\n3 2"
+    "text": ".pop() method\nThe .pop() method removes and returns the last item by default unless you give it an index argument. If you’re familiar with stacks, this method as well as .append() can be used to create one!\n\nlist_1=[1,2,3]\n\nelement_1=list_1.pop()\nelement_2=list_1.pop(1)\n\nprint(element_1, element_2)\n\n\n\n3 2"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#deleting-items-by-index",
     "href": "session2/DataStructuresDemo.html#deleting-items-by-index",
     "title": "Session 2: Python Data Structures",
     "section": "Deleting items by index",
-    "text": "Deleting items by index\ndel removes an item without returning anything. In fact, you can delete any object, including the entire list, using del:\n\nlist_1=[1,2,3]\n\ndel list_1[0]\n\nprint(list_1)\n\n[2, 3]"
+    "text": "Deleting items by index\ndel removes an item without returning anything. In fact, you can delete any object, including the entire list, using del:\n\nlist_1=[1,2,3]\n\ndel list_1[0]\n\nprint(list_1)\n\n\n\n[2, 3]"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#deleting-items-by-value",
     "href": "session2/DataStructuresDemo.html#deleting-items-by-value",
     "title": "Session 2: Python Data Structures",
     "section": "Deleting items by value",
-    "text": "Deleting items by value\nThe .remove() method deletes a specific value from the list. This method will remove the first occurrence of the given object in a list.\n\nlist_1=[1,2,3]\n\nlist_1.remove(1)\n\nprint(list_1)\n\n[2, 3]"
+    "text": "Deleting items by value\nThe .remove() method deletes a specific value from the list. This method will remove the first occurrence of the given object in a list.\n\nlist_1=[1,2,3]\n\nlist_1.remove(1)\n\nprint(list_1)\n\n\n\n[2, 3]"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#lists-vs.-sets-and-deleting-duplicates-from-a-list",
     "href": "session2/DataStructuresDemo.html#lists-vs.-sets-and-deleting-duplicates-from-a-list",
     "title": "Session 2: Python Data Structures",
     "section": "Lists vs. sets, and deleting duplicates from a list",
-    "text": "Lists vs. sets, and deleting duplicates from a list\nThe difference between a list and a set:\n\nA set is an unordered collection of distinct elements.\nA list is ordered and can contain repeats of an element.\nSets are denoted by curly brackets {}. We can use this knowledge to easily delete duplicates from a list, since there is no built-in method to do so.\n\n\nlist_1=[1,2,3,1,2]\nprint(list_1)\n\n[1, 2, 3, 1, 2]\n\n\n\nset_1=set(list_1)\nprint(set_1)\n\n{1, 2, 3}\n\n\n\nlist_2=list(set_1)\nprint (list_2)\n\n[1, 2, 3]"
+    "text": "Lists vs. sets, and deleting duplicates from a list\nThe difference between a list and a set:\n\nA set is an unordered collection of distinct elements.\nA list is ordered and can contain repeats of an element.\nSets are denoted by curly brackets {}. We can use this knowledge to easily delete duplicates from a list, since there is no built-in method to do so.\n\n\nlist_1=[1,2,3,1,2]\nprint(list_1)\n\n\n\n[1, 2, 3, 1, 2]\n\n\n\nset_1=set(list_1)\nprint(set_1)\n\n\n\n{1, 2, 3}\n\n\n\nlist_2=list(set_1)\nprint (list_2)\n\n\n\n[1, 2, 3]"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#sorting-a-list",
     "href": "session2/DataStructuresDemo.html#sorting-a-list",
     "title": "Session 2: Python Data Structures",
     "section": "Sorting a list",
-    "text": "Sorting a list\nThere are two ways to sort a list in Python\n\n.sort() modifies the original list itself. Nothing is returned.\n.sorted() returns a new list, which is a sorted version of the original list.\n.reverse=True: Use this parameter to sort the list in reverse order.\n\n\nnumber_list_1=[3,5,2,1,6,19]\nnumber_list_1.sort()\nprint(number_list_1)\n\n[1, 2, 3, 5, 6, 19]\n\n\n\nnumber_list_2=sorted(number_list_1, reverse=True)\nprint(number_list_2)\n\n[19, 6, 5, 3, 2, 1]\n\n\n\nalphabet_list_1=['a','z','e','b']\nalphabet_list_1.sort()\nprint(alphabet_list_1)\n\n['a', 'b', 'e', 'z']\n\n\n\nalphabet_list_2=sorted(alphabet_list_1, reverse=True)\nprint(alphabet_list_2)\n\n['z', 'e', 'b', 'a']\n\n\n\nmixed_list_1=[1,5,3,'a','c','b']\ntry:\n    mixed_list_1.sort()\n    print(mixed_list_1)\nexcept TypeError:\n    print(\"Can't sort a list of mixed elements\")\n\nCan't sort a list of mixed elements"
+    "text": "Sorting a list\nThere are two ways to sort a list in Python\n\n.sort() modifies the original list itself. Nothing is returned.\n.sorted() returns a new list, which is a sorted version of the original list.\n.reverse=True: Use this parameter to sort the list in reverse order.\n\n\nnumber_list_1=[3,5,2,1,6,19]\nnumber_list_1.sort()\nprint(number_list_1)\n\n\n\n[1, 2, 3, 5, 6, 19]\n\n\n\nnumber_list_2=sorted(number_list_1, reverse=True)\nprint(number_list_2)\n\n\n\n[19, 6, 5, 3, 2, 1]\n\n\n\nalphabet_list_1=['a','z','e','b']\nalphabet_list_1.sort()\nprint(alphabet_list_1)\n\n\n\n['a', 'b', 'e', 'z']\n\n\n\nalphabet_list_2=sorted(alphabet_list_1, reverse=True)\nprint(alphabet_list_2)\n\n\n\n['z', 'e', 'b', 'a']\n\n\n\nmixed_list_1=[1,5,3,'a','c','b']\ntry:\n    mixed_list_1.sort()\n    print(mixed_list_1)\nexcept TypeError:\n    print(\"Can't sort a list of mixed elements\")\n\n\n\nCan't sort a list of mixed elements"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#list-comprehension",
     "href": "session2/DataStructuresDemo.html#list-comprehension",
     "title": "Session 2: Python Data Structures",
     "section": "List comprehension",
-    "text": "List comprehension\nList comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list (or other object)\n\n#Longer syntax with for loop\n\n\n#Example 1:\n\nsome_list=[1,2,3,'a', 'b', 'c']\nnew_list=[]\nfor item in some_list:\n    if type(item)==str:\n        new_list.append(item)\nprint(new_list)\n\n['a', 'b', 'c']\n\n\n\n#Example 2:\n\nlowercase_list=['joe', 'sarah', 'emily']\ncapital_list=[]\nfor item in lowercase_list:\n    capital_item=item.upper()\n    capital_list.append(capital_item)\nprint(capital_list)\n\n['JOE', 'SARAH', 'EMILY']\n\n\n\n#Example 3:\n\nsome_string=\"patrick\"\npatrick_list=[]\nfor letter in some_string:\n    if letter=='t' or letter=='a':\n        patrick_list.append(letter)\nprint(patrick_list)\n\n['a', 't']"
+    "text": "List comprehension\nList comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list (or other object)\n\n#Longer syntax with for loop\n\n\n#Example 1:\n\nsome_list=[1,2,3,'a', 'b', 'c']\nnew_list=[]\nfor item in some_list:\n    if type(item)==str:\n        new_list.append(item)\nprint(new_list)\n\n\n\n['a', 'b', 'c']\n\n\n\n#Example 2:\n\nlowercase_list=['joe', 'sarah', 'emily']\ncapital_list=[]\nfor item in lowercase_list:\n    capital_item=item.upper()\n    capital_list.append(capital_item)\nprint(capital_list)\n\n\n\n['JOE', 'SARAH', 'EMILY']\n\n\n\n#Example 3:\n\nsome_string=\"patrick\"\npatrick_list=[]\nfor letter in some_string:\n    if letter=='t' or letter=='a':\n        patrick_list.append(letter)\nprint(patrick_list)\n\n\n\n['a', 't']"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#shorter-syntax-with-list-comprehension",
     "href": "session2/DataStructuresDemo.html#shorter-syntax-with-list-comprehension",
     "title": "Session 2: Python Data Structures",
     "section": "Shorter syntax with list comprehension",
-    "text": "Shorter syntax with list comprehension\n\n#Example 1:\n\nsome_list=[1,2,3,'a', 'b', 'c']\nnew_list=[x for x in some_list if type(x)==str]\nprint(new_list)\n\n['a', 'b', 'c']\n\n\n\n#Example 2:\n\nlowercase_list=['joe', 'sarah', 'emily']\ncapital_list=[name.upper() for name in lowercase_list]\nprint(capital_list)\n\n['JOE', 'SARAH', 'EMILY']\n\n\n\n#Example 3:\n\nsome_string=\"patrick\"\npatrick_list=[x for x in some_string if x=='t' or x=='a']\nprint(patrick_list)\n\n['a', 't']"
+    "text": "Shorter syntax with list comprehension\n\n#Example 1:\n\nsome_list=[1,2,3,'a', 'b', 'c']\nnew_list=[x for x in some_list if type(x)==str]\nprint(new_list)\n\n\n\n['a', 'b', 'c']\n\n\n\n#Example 2:\n\nlowercase_list=['joe', 'sarah', 'emily']\ncapital_list=[name.upper() for name in lowercase_list]\nprint(capital_list)\n\n\n\n['JOE', 'SARAH', 'EMILY']\n\n\n\n#Example 3:\n\nsome_string=\"patrick\"\npatrick_list=[x for x in some_string if x=='t' or x=='a']\nprint(patrick_list)\n\n\n\n['a', 't']"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#topic-2-tuples",
     "href": "session2/DataStructuresDemo.html#topic-2-tuples",
     "title": "Session 2: Python Data Structures",
     "section": "Topic 2: Tuples",
-    "text": "Topic 2: Tuples\n\nA tuple is similar to a list, but with one key difference. Tuples are immutable. This means that once you create a tuple, you cannot modify its elements.\nTuples are useful for storing data that should not be changed after creation, such as coordinates, days of the week, or fixed pairs.\nJust like lists, tuples are objects, and the class for tuples is tuple.\nTo transform another Python object into a tuple, you can use the tuple() constructor. It accepts a single iterable, such as a list, range, or string.\n\n. . .\nTo create a tuple, you use parentheses () rather than square brackets [].\n\n# Creating a tuple\nmy_tuple = (10, 20, 30)\n\n# Accessing elements by index\nprint(\"First element:\", my_tuple[0])\nprint(\"Last element:\", my_tuple[-1])\n\nFirst element: 10\nLast element: 30"
+    "text": "Topic 2: Tuples\n\nA tuple is similar to a list, but with one key difference. Tuples are immutable. This means that once you create a tuple, you cannot modify its elements.\nTuples are useful for storing data that should not be changed after creation, such as coordinates, days of the week, or fixed pairs.\nJust like lists, tuples are objects, and the class for tuples is tuple.\nTo transform another Python object into a tuple, you can use the tuple() constructor. It accepts a single iterable, such as a list, range, or string.\n\n\nTo create a tuple, you use parentheses () rather than square brackets [].\n\n# Creating a tuple\nmy_tuple = (10, 20, 30)\n\n# Accessing elements by index\nprint(\"First element:\", my_tuple[0])\nprint(\"Last element:\", my_tuple[-1])\n\n\n\nFirst element: 10\nLast element: 30"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#mutability-of-tuples",
     "href": "session2/DataStructuresDemo.html#mutability-of-tuples",
     "title": "Session 2: Python Data Structures",
     "section": "Mutability of Tuples",
-    "text": "Mutability of Tuples\nTuples are immutable, so you can’t modify their elements. Attempting to change a tuple will result in an error.\n\n# Trying to modify a tuple element (this will raise an error)\ntry:\n    my_tuple[1] = 99\nexcept TypeError:\n    print(\"Tuples are immutable and cannot be changed!\")\n\nTuples are immutable and cannot be changed!"
+    "text": "Mutability of Tuples\nTuples are immutable, so you can’t modify their elements. Attempting to change a tuple will result in an error.\n\n# Trying to modify a tuple element (this will raise an error)\ntry:\n    my_tuple[1] = 99\nexcept TypeError:\n    print(\"Tuples are immutable and cannot be changed!\")\n\n\n\nTuples are immutable and cannot be changed!"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#functions-and-tuples",
     "href": "session2/DataStructuresDemo.html#functions-and-tuples",
     "title": "Session 2: Python Data Structures",
     "section": "Functions and Tuples",
-    "text": "Functions and Tuples\nFunctions can return multiple values as a tuple. This is useful for returning multiple results in a single function call.\n\n# Function that returns multiple values as a tuple\ndef min_max(nums):\n    return min(nums), max(nums)  # Returns a tuple of (min, max)\n\n# Calling the function and unpacking the tuple\n\nnumbers = [3, 7, 1, 5]\n\nour_tuple = min_max(numbers)\n\nmin_val, max_val = min_max(numbers) #Unpacking in the function call\n\nprint(our_tuple)\nprint(\"Min:\", min_val)\nprint(\"Max:\", max_val)\n\n(1, 7)\nMin: 1\nMax: 7"
+    "text": "Functions and Tuples\nFunctions can return multiple values as a tuple. This is useful for returning multiple results in a single function call.\n\n# Function that returns multiple values as a tuple\ndef min_max(nums):\n    return min(nums), max(nums)  # Returns a tuple of (min, max)\n\n# Calling the function and unpacking the tuple\n\nnumbers = [3, 7, 1, 5]\n\nour_tuple = min_max(numbers)\n\nmin_val, max_val = min_max(numbers) #Unpacking in the function call\n\nprint(our_tuple)\nprint(\"Min:\", min_val)\nprint(\"Max:\", max_val)\n\n\n\n(1, 7)\nMin: 1\nMax: 7"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#topic-3-strings",
     "href": "session2/DataStructuresDemo.html#topic-3-strings",
     "title": "Session 2: Python Data Structures",
     "section": "Topic 3: Strings",
-    "text": "Topic 3: Strings\nYou can use single or double quotes to define a string (but keep it consistent!)\n\nmy_string = \"Hello, World!\"\nprint(my_string)\n\nHello, World!\n\n\n. . .\nYou can also create a multiline string using triple quotes:\n\nmulti_line_string = \"\"\"This is\na multiline\nstring.\"\"\"\nprint(multi_line_string)\n\nThis is\na multiline\nstring."
+    "text": "Topic 3: Strings\nYou can use single or double quotes to define a string (but keep it consistent!)\n\nmy_string = \"Hello, World!\"\nprint(my_string)\n\n\n\nHello, World!\n\n\n\nYou can also create a multiline string using triple quotes:\n\nmulti_line_string = \"\"\"This is\na multiline\nstring.\"\"\"\nprint(multi_line_string)\n\n\n\nThis is\na multiline\nstring."
   },
   {
     "objectID": "session2/DataStructuresDemo.html#string-operations",
     "href": "session2/DataStructuresDemo.html#string-operations",
     "title": "Session 2: Python Data Structures",
     "section": "String Operations",
-    "text": "String Operations\nYou can find the length of a string using the len() funtion, just like with lists.\n\nmy_string = \"Hello, World!\"\nprint(len(my_string))\n\n13\n\n\n. . ."
+    "text": "String Operations\nYou can find the length of a string using the len() funtion, just like with lists.\n\nmy_string = \"Hello, World!\"\nprint(len(my_string))\n\n\n\n13"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#accessing-characters-in-a-string",
     "href": "session2/DataStructuresDemo.html#accessing-characters-in-a-string",
     "title": "Session 2: Python Data Structures",
     "section": "Accessing characters in a string",
-    "text": "Accessing characters in a string\nStrings are indexed like lists, with the first character having index 0. You can access individual characters using their index.\n\nmy_string = \"Hello, World!\"\n\n# First character\nfirst_char = my_string[0]\n\n# Last character (using negative indexing)\nlast_char = my_string[-1]\n\n# Accessing a range of characters (slicing)\nsubstring = my_string[0:5]\n\nprint(first_char, last_char, substring)\n\nH ! Hello"
+    "text": "Accessing characters in a string\nStrings are indexed like lists, with the first character having index 0. You can access individual characters using their index.\n\nmy_string = \"Hello, World!\"\n\n# First character\nfirst_char = my_string[0]\n\n# Last character (using negative indexing)\nlast_char = my_string[-1]\n\n# Accessing a range of characters (slicing)\nsubstring = my_string[0:5]\n\nprint(first_char, last_char, substring)\n\n\n\nH ! Hello"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#mutability-of-strings",
     "href": "session2/DataStructuresDemo.html#mutability-of-strings",
     "title": "Session 2: Python Data Structures",
     "section": "Mutability of Strings",
-    "text": "Mutability of Strings\nStrings are immutable!\nUnlike lists, strings cannot be changed after creation. If you try to change an individual character, you’ll get an error.\n\nmy_string = \"Hello\"\ntry:\n    my_string[0] = \"h\"  # This will raise an error\nexcept TypeError:\n    print(\"Strings are immutable!\")\n\nStrings are immutable!"
+    "text": "Mutability of Strings\nStrings are immutable!\nUnlike lists, strings cannot be changed after creation. If you try to change an individual character, you’ll get an error.\n\nmy_string = \"Hello\"\ntry:\n    my_string[0] = \"h\"  # This will raise an error\nexcept TypeError:\n    print(\"Strings are immutable!\")\n\n\n\nStrings are immutable!"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#concatenating-strings",
     "href": "session2/DataStructuresDemo.html#concatenating-strings",
     "title": "Session 2: Python Data Structures",
     "section": "Concatenating Strings",
-    "text": "Concatenating Strings\nYou can concatenate (combine) strings using the + operator:\n\ngreeting = \"Hello\"\nname = \"Patrick\"\ncombined_string = greeting + \", \" + name + \"!\"\nprint(combined_string)\n\nHello, Patrick!"
+    "text": "Concatenating Strings\nYou can concatenate (combine) strings using the + operator:\n\ngreeting = \"Hello\"\nname = \"Patrick\"\ncombined_string = greeting + \", \" + name + \"!\"\nprint(combined_string)\n\n\n\nHello, Patrick!"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#string-methods",
     "href": "session2/DataStructuresDemo.html#string-methods",
     "title": "Session 2: Python Data Structures",
     "section": "String methods",
-    "text": "String methods\nPython provides many built-in methods for manipulating strings. Some common ones are:\n. . .\nupper() and lower() These methods convert a string to uppercase or lowercase.\n\nmy_string = \"Hello, World!\"\nprint(my_string.upper())\nprint(my_string.lower())\n\nHELLO, WORLD!\nhello, world!\n\n\n. . .\nstrip() This method removes any leading or trailing whitespace from the string.\n\nmy_string = \"   Hello, World!   \"\nprint(my_string.strip())\n\nHello, World!\n\n\n. . .\nreplace() You can replace parts of a string with another string.\n\nmy_string = \"Hello, World!\"\nnew_string = my_string.replace(\"World\", \"Patrick\")\nprint(new_string)\n\nHello, Patrick!\n\n\n. . .\nThe split() method divides a string into a list of substrings based on a delimiter (default is whitespace).\n\nmy_string = \"Hello, World!\"\nwords = my_string.split()\nprint(words)\n\n['Hello,', 'World!']\n\n\n\nanother_string=\"Hello-World!\"\nmore_words=another_string.split(\"-\")\nprint(more_words)\n\n['Hello', 'World!']\n\n\n. . .\nThe join() method takes an iterable (like a list) and concatenates its elements into a string with a specified separator between them.\n\nmy_list=['Hello,', 'my', 'name', 'is', 'Patrick']\n\nmy_string=' '.join(my_list)\n\nprint(my_string)\n\nHello, my name is Patrick"
+    "text": "String methods\nPython provides many built-in methods for manipulating strings. Some common ones are:\n\nupper() and lower() These methods convert a string to uppercase or lowercase.\n\nmy_string = \"Hello, World!\"\nprint(my_string.upper())\nprint(my_string.lower())\n\n\n\nHELLO, WORLD!\nhello, world!\n\n\n\n\nstrip() This method removes any leading or trailing whitespace from the string.\n\nmy_string = \"   Hello, World!   \"\nprint(my_string.strip())\n\n\n\nHello, World!\n\n\n\n\nreplace() You can replace parts of a string with another string.\n\nmy_string = \"Hello, World!\"\nnew_string = my_string.replace(\"World\", \"Patrick\")\nprint(new_string)\n\n\n\nHello, Patrick!\n\n\n\n\nThe split() method divides a string into a list of substrings based on a delimiter (default is whitespace).\n\nmy_string = \"Hello, World!\"\nwords = my_string.split()\nprint(words)\n\n\n\n['Hello,', 'World!']\n\n\n\nanother_string=\"Hello-World!\"\nmore_words=another_string.split(\"-\")\nprint(more_words)\n\n\n\n['Hello', 'World!']\n\n\n\n\nThe join() method takes an iterable (like a list) and concatenates its elements into a string with a specified separator between them.\n\nmy_list=['Hello,', 'my', 'name', 'is', 'Patrick']\n\nmy_string=' '.join(my_list)\n\nprint(my_string)\n\n\n\nHello, my name is Patrick"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#f-strings-python-3.6",
     "href": "session2/DataStructuresDemo.html#f-strings-python-3.6",
     "title": "Session 2: Python Data Structures",
     "section": "f-strings (Python 3.6+)",
-    "text": "f-strings (Python 3.6+)\nYou can insert variables directly into strings using f-strings.\n\nname = \"Patrick\"\nage = 30\nformatted_string = f\"My name is {name} and I am {age} years old.\"\nprint(formatted_string)\n\nMy name is Patrick and I am 30 years old.\n\n\n\nmy_string = \"Hello, World!\"\n\n# Extract all vowels from the string\nvowels = str([char for char in my_string if char.lower() in \"aeiou\"])\nprint(vowels)\n\n['e', 'o', 'o']"
+    "text": "f-strings (Python 3.6+)\nYou can insert variables directly into strings using f-strings.\n\nname = \"Patrick\"\nage = 30\nformatted_string = f\"My name is {name} and I am {age} years old.\"\nprint(formatted_string)\n\n\n\nMy name is Patrick and I am 30 years old.\n\n\n\nmy_string = \"Hello, World!\"\n\n# Extract all vowels from the string\nvowels = str([char for char in my_string if char.lower() in \"aeiou\"])\nprint(vowels)\n\n\n\n['e', 'o', 'o']"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#string-slicing",
     "href": "session2/DataStructuresDemo.html#string-slicing",
     "title": "Session 2: Python Data Structures",
     "section": "String Slicing",
-    "text": "String Slicing\nWe will slice a string using different combinations of start, end, and step to extract different parts of the string.\n\n#To slice a string, follow the string[start:end:step] format\n\n# Original string\nmy_string = \"Python is awesome!\"\nprint(f\"Original string: {my_string}\")\n\nOriginal string: Python is awesome!\n\n\n\n# Slice from index 0 to 6 (not inclusive), stepping by 1 (default)\n# This will extract \"Python\"\nsubstring_1 = my_string[0:6]\nprint(f\"Substring 1 (0:6): {substring_1}\")\n\nSubstring 1 (0:6): Python\n\n\n\n# Slice from index 7 to the end of the string, stepping by 1 (default)\n# This will extract \"is awesome!\"\nsubstring_2 = my_string[7:]\nprint(f\"Substring 2 (7:): {substring_2}\")\n\nSubstring 2 (7:): is awesome!\n\n\n\n# Slice the entire string but take every second character\n# This will extract \"Pto saeoe\"\nsubstring_3 = my_string[::2]\nprint(f\"Substring 3 (every second character): {substring_3}\")\n\nSubstring 3 (every second character): Pto saeoe\n\n\n\n# Slice from index 0 to 6, stepping by 2\n# This will extract \"Pto\"\nsubstring_4 = my_string[0:6:2]\nprint(f\"Substring 4 (0:6:2): {substring_4}\")\n\nSubstring 4 (0:6:2): Pto\n\n\n\n# Slice from index 11 to 6, stepping backward by -1\n# This will extract \"wa si\" (reverse slice)\nsubstring_5 = my_string[11:6:-1]\nprint(f\"Substring 5 (11:6:-1): {substring_5}\")\n\nSubstring 5 (11:6:-1): wa si"
+    "text": "String Slicing\nWe will slice a string using different combinations of start, end, and step to extract different parts of the string.\n\n#To slice a string, follow the string[start:end:step] format\n\n# Original string\nmy_string = \"Python is awesome!\"\nprint(f\"Original string: {my_string}\")\n\n\n\nOriginal string: Python is awesome!\n\n\n\n# Slice from index 0 to 6 (not inclusive), stepping by 1 (default)\n# This will extract \"Python\"\nsubstring_1 = my_string[0:6]\nprint(f\"Substring 1 (0:6): {substring_1}\")\n\n\n\nSubstring 1 (0:6): Python\n\n\n\n# Slice from index 7 to the end of the string, stepping by 1 (default)\n# This will extract \"is awesome!\"\nsubstring_2 = my_string[7:]\nprint(f\"Substring 2 (7:): {substring_2}\")\n\n\n\nSubstring 2 (7:): is awesome!\n\n\n\n# Slice the entire string but take every second character\n# This will extract \"Pto saeoe\"\nsubstring_3 = my_string[::2]\nprint(f\"Substring 3 (every second character): {substring_3}\")\n\n\n\nSubstring 3 (every second character): Pto saeoe\n\n\n\n# Slice from index 0 to 6, stepping by 2\n# This will extract \"Pto\"\nsubstring_4 = my_string[0:6:2]\nprint(f\"Substring 4 (0:6:2): {substring_4}\")\n\n\n\nSubstring 4 (0:6:2): Pto\n\n\n\n# Slice from index 11 to 6, stepping backward by -1\n# This will extract \"wa si\" (reverse slice)\nsubstring_5 = my_string[11:6:-1]\nprint(f\"Substring 5 (11:6:-1): {substring_5}\")\n\n\n\nSubstring 5 (11:6:-1): wa si"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#topic-4-dictionaries",
     "href": "session2/DataStructuresDemo.html#topic-4-dictionaries",
     "title": "Session 2: Python Data Structures",
     "section": "Topic 4: Dictionaries",
-    "text": "Topic 4: Dictionaries\n\nA dictionary is a collection in Python that stores data as key-value pairs.\nIt’s similar to a real-world dictionary where you look up a word (the key) to get its definition (the value).\nIn Python, dictionaries are mutable, meaning you can add, remove, and change items.\n\n. . .\nTo create a dictionary, use curly braces {}, with each key-value pair separated by a colon (:), and pairs separated by commas.\n\n# Creating a dictionary\nmy_dictionary = {\n    'name': 'Alice',\n    'age': 25,\n    'city': 'New York'\n}\nprint(my_dictionary)\n\n{'name': 'Alice', 'age': 25, 'city': 'New York'}"
+    "text": "Topic 4: Dictionaries\n\nA dictionary is a collection in Python that stores data as key-value pairs.\nIt’s similar to a real-world dictionary where you look up a word (the key) to get its definition (the value).\nIn Python, dictionaries are mutable, meaning you can add, remove, and change items.\n\n\nTo create a dictionary, use curly braces {}, with each key-value pair separated by a colon (:), and pairs separated by commas.\n\n# Creating a dictionary\nmy_dictionary = {\n    'name': 'Alice',\n    'age': 25,\n    'city': 'New York'\n}\nprint(my_dictionary)\n\n\n\n{'name': 'Alice', 'age': 25, 'city': 'New York'}"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#dictionary-operations",
     "href": "session2/DataStructuresDemo.html#dictionary-operations",
     "title": "Session 2: Python Data Structures",
     "section": "Dictionary Operations",
-    "text": "Dictionary Operations\nAccessing dictionary values\n\nTo access a specific value in a dictionary, use the key in square brackets.\nYou can also use the .get() method, which returns None if the key does not exist, instead of raising an error.\n\n\nprint(my_dictionary['name'])      # Using key\nprint(my_dictionary.get('age'))   # Using .get() method\nprint(my_dictionary.get('gender', 'Not specified'))  # Providing a default value\n\nAlice\n25\nNot specified"
+    "text": "Dictionary Operations\nAccessing dictionary values\n\nTo access a specific value in a dictionary, use the key in square brackets.\nYou can also use the .get() method, which returns None if the key does not exist, instead of raising an error.\n\n\nprint(my_dictionary['name'])      # Using key\nprint(my_dictionary.get('age'))   # Using .get() method\nprint(my_dictionary.get('gender', 'Not specified'))  # Providing a default value\n\n\n\nAlice\n25\nNot specified"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#adding-and-updating-dictionary-items",
     "href": "session2/DataStructuresDemo.html#adding-and-updating-dictionary-items",
     "title": "Session 2: Python Data Structures",
     "section": "Adding and updating dictionary items",
-    "text": "Adding and updating dictionary items\nDictionaries are mutable, so you can add new items or update existing ones using assignment.\n\nmy_dictionary['job'] = 'Engineer'        # Adding a new key-value pair\nmy_dictionary['age'] = 26                # Updating an existing value\nprint(my_dictionary)\n\n{'name': 'Alice', 'age': 26, 'city': 'New York', 'job': 'Engineer'}"
+    "text": "Adding and updating dictionary items\nDictionaries are mutable, so you can add new items or update existing ones using assignment.\n\nmy_dictionary['job'] = 'Engineer'        # Adding a new key-value pair\nmy_dictionary['age'] = 26                # Updating an existing value\nprint(my_dictionary)\n\n\n\n{'name': 'Alice', 'age': 26, 'city': 'New York', 'job': 'Engineer'}"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#dictionary-methods",
     "href": "session2/DataStructuresDemo.html#dictionary-methods",
     "title": "Session 2: Python Data Structures",
     "section": "Dictionary Methods",
-    "text": "Dictionary Methods\nPython dictionaries have several useful methods for managing data:\n\nkeys(): Returns a list of all the keys in the dictionary.\nvalues(): Returns a list of all values in the dictionary.\nitems(): Returns a list of key-value pairs as tuples.\n\n\n# Getting all keys\nprint(my_dictionary.keys())\n\ndict_keys(['name', 'age', 'city', 'job'])\n\n\n\n# Getting all values\nprint(my_dictionary.values())\n\ndict_values(['Alice', 26, 'New York', 'Engineer'])\n\n\n\n# Getting all key-value pairs\nprint(my_dictionary.items())\n\ndict_items([('name', 'Alice'), ('age', 26), ('city', 'New York'), ('job', 'Engineer')])"
+    "text": "Dictionary Methods\nPython dictionaries have several useful methods for managing data:\n\nkeys(): Returns a list of all the keys in the dictionary.\nvalues(): Returns a list of all values in the dictionary.\nitems(): Returns a list of key-value pairs as tuples.\n\n\n# Getting all keys\nprint(my_dictionary.keys())\n\n\n\ndict_keys(['name', 'age', 'city', 'job'])\n\n\n\n# Getting all values\nprint(my_dictionary.values())\n\n\n\ndict_values(['Alice', 26, 'New York', 'Engineer'])\n\n\n\n# Getting all key-value pairs\nprint(my_dictionary.items())\n\n\n\ndict_items([('name', 'Alice'), ('age', 26), ('city', 'New York'), ('job', 'Engineer')])"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#python-dictionaries-for-cancer-research-data",
     "href": "session2/DataStructuresDemo.html#python-dictionaries-for-cancer-research-data",
     "title": "Session 2: Python Data Structures",
     "section": "Python Dictionaries for Cancer Research Data",
-    "text": "Python Dictionaries for Cancer Research Data\nIn cancer research, dictionaries can be used to store patient data, genetic mutations, and statistical results as key-value pairs. This allows for easy lookup, organization, and analysis of data.\n\n#Let’s create a dictionary to store basic patient information, where each patient has a unique ID, and each ID maps to a dictionary containing information about the patient’s age, cancer type, and stage.\n\n# Dictionary of patients with nested dictionaries\npatient_data = {\n    'P001': {'age': 50, 'cancer_type': 'Lung Cancer', 'stage': 'II'},\n    'P002': {'age': 60, 'cancer_type': 'Breast Cancer', 'stage': 'I'},\n    'P003': {'age': 45, 'cancer_type': 'Melanoma', 'stage': 'III'}\n}\n\nprint(patient_data)\n\n{'P001': {'age': 50, 'cancer_type': 'Lung Cancer', 'stage': 'II'}, 'P002': {'age': 60, 'cancer_type': 'Breast Cancer', 'stage': 'I'}, 'P003': {'age': 45, 'cancer_type': 'Melanoma', 'stage': 'III'}}\n\n\n. . .\nYou can access a patient’s information using their unique ID. To access nested data, chain the keys. For example, to retrieve the cancer type of a specific patient, you’d use the following:\n\n# Accessing specific information\n\npatient_id = 'P002'\ncancer_type = patient_data[patient_id]['cancer_type']\nprint(f\"Cancer type for {patient_id}: {cancer_type}\")\n\nCancer type for P002: Breast Cancer\n\n\n\n# Updating a patient’s stage\npatient_data['P003']['stage'] = 'IV'\nprint(f\"Updated stage for P003: {patient_data['P003']['stage']}\")\n\nUpdated stage for P003: IV"
+    "text": "Python Dictionaries for Cancer Research Data\nIn cancer research, dictionaries can be used to store patient data, genetic mutations, and statistical results as key-value pairs. This allows for easy lookup, organization, and analysis of data.\n\n#Let’s create a dictionary to store basic patient information, where each patient has a unique ID, and each ID maps to a dictionary containing information about the patient’s age, cancer type, and stage.\n\n# Dictionary of patients with nested dictionaries\npatient_data = {\n    'P001': {'age': 50, 'cancer_type': 'Lung Cancer', 'stage': 'II'},\n    'P002': {'age': 60, 'cancer_type': 'Breast Cancer', 'stage': 'I'},\n    'P003': {'age': 45, 'cancer_type': 'Melanoma', 'stage': 'III'}\n}\n\nprint(patient_data)\n\n\n\n{'P001': {'age': 50, 'cancer_type': 'Lung Cancer', 'stage': 'II'}, 'P002': {'age': 60, 'cancer_type': 'Breast Cancer', 'stage': 'I'}, 'P003': {'age': 45, 'cancer_type': 'Melanoma', 'stage': 'III'}}\n\n\n\nYou can access a patient’s information using their unique ID. To access nested data, chain the keys. For example, to retrieve the cancer type of a specific patient, you’d use the following:\n\n# Accessing specific information\n\npatient_id = 'P002'\ncancer_type = patient_data[patient_id]['cancer_type']\nprint(f\"Cancer type for {patient_id}: {cancer_type}\")\n\n\n\nCancer type for P002: Breast Cancer\n\n\n\n# Updating a patient’s stage\npatient_data['P003']['stage'] = 'IV'\nprint(f\"Updated stage for P003: {patient_data['P003']['stage']}\")\n\n\n\nUpdated stage for P003: IV"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#adding-and-removing-data",
     "href": "session2/DataStructuresDemo.html#adding-and-removing-data",
     "title": "Session 2: Python Data Structures",
     "section": "Adding and Removing Data",
-    "text": "Adding and Removing Data\nNew patient data can be added using assignment, and pop() or del can remove a patient’s data.\n\n# Adding a new patient\npatient_data['P004'] = {'age': 70, 'cancer_type': 'Prostate Cancer', 'stage': 'II'}\nprint(\"Added new patient:\", patient_data['P004'])\n\nAdded new patient: {'age': 70, 'cancer_type': 'Prostate Cancer', 'stage': 'II'}\n\n\n\n# Removing a patient\nremoved_patient = patient_data.pop('P001')\nprint(\"Removed patient:\", removed_patient)\n\nRemoved patient: {'age': 50, 'cancer_type': 'Lung Cancer', 'stage': 'II'}"
+    "text": "Adding and Removing Data\nNew patient data can be added using assignment, and pop() or del can remove a patient’s data.\n\n# Adding a new patient\npatient_data['P004'] = {'age': 70, 'cancer_type': 'Prostate Cancer', 'stage': 'II'}\nprint(\"Added new patient:\", patient_data['P004'])\n\n\n\nAdded new patient: {'age': 70, 'cancer_type': 'Prostate Cancer', 'stage': 'II'}\n\n\n\n# Removing a patient\nremoved_patient = patient_data.pop('P001')\nprint(\"Removed patient:\", removed_patient)\n\n\n\nRemoved patient: {'age': 50, 'cancer_type': 'Lung Cancer', 'stage': 'II'}"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#dictionary-methods-1",
     "href": "session2/DataStructuresDemo.html#dictionary-methods-1",
     "title": "Session 2: Python Data Structures",
     "section": "Dictionary Methods",
-    "text": "Dictionary Methods\nDictionaries allow you to retrieve keys, values, or entire key-value pairs. Here’s how to use these methods to get an overview of the data.\nkeys(): Retrieves all patient IDs. values(): Retrieves all patient records. items(): Retrieves patient records as key-value pairs\n. . .\nFurther Example\n\n# Getting all patient IDs\nprint(\"Patient IDs:\", patient_data.keys())\n\n# Getting all patient details\nprint(\"Patient Details:\", patient_data.values())\n\n# Looping through each patient's data\nfor patient_id, details in patient_data.items():\n    print(f\"Patient {patient_id} - Age: {details['age']}, Cancer Type: {details['cancer_type']}, Stage: {details['stage']}\")\n\nPatient IDs: dict_keys(['P002', 'P003', 'P004'])\nPatient Details: dict_values([{'age': 60, 'cancer_type': 'Breast Cancer', 'stage': 'I'}, {'age': 45, 'cancer_type': 'Melanoma', 'stage': 'IV'}, {'age': 70, 'cancer_type': 'Prostate Cancer', 'stage': 'II'}])\nPatient P002 - Age: 60, Cancer Type: Breast Cancer, Stage: I\nPatient P003 - Age: 45, Cancer Type: Melanoma, Stage: IV\nPatient P004 - Age: 70, Cancer Type: Prostate Cancer, Stage: II"
+    "text": "Dictionary Methods\nDictionaries allow you to retrieve keys, values, or entire key-value pairs. Here’s how to use these methods to get an overview of the data.\nkeys(): Retrieves all patient IDs. values(): Retrieves all patient records. items(): Retrieves patient records as key-value pairs\n\nFurther Example\n\n# Getting all patient IDs\nprint(\"Patient IDs:\", patient_data.keys())\n\n# Getting all patient details\nprint(\"Patient Details:\", patient_data.values())\n\n# Looping through each patient's data\nfor patient_id, details in patient_data.items():\n    print(f\"Patient {patient_id} - Age: {details['age']}, Cancer Type: {details['cancer_type']}, Stage: {details['stage']}\")\n\n\n\nPatient IDs: dict_keys(['P002', 'P003', 'P004'])\nPatient Details: dict_values([{'age': 60, 'cancer_type': 'Breast Cancer', 'stage': 'I'}, {'age': 45, 'cancer_type': 'Melanoma', 'stage': 'IV'}, {'age': 70, 'cancer_type': 'Prostate Cancer', 'stage': 'II'}])\nPatient P002 - Age: 60, Cancer Type: Breast Cancer, Stage: I\nPatient P003 - Age: 45, Cancer Type: Melanoma, Stage: IV\nPatient P004 - Age: 70, Cancer Type: Prostate Cancer, Stage: II"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#topic-5-functions-vs-methods-in-python",
@@ -242,21 +242,21 @@
     "href": "session2/DataStructuresDemo.html#function-example",
     "title": "Session 2: Python Data Structures",
     "section": "Function Example",
-    "text": "Function Example\n\n# Define your own function\ndef greet(name):\n    return f\"Hello, {name}!\"\n\nprint(greet(\"Alice\"))  # Hello, Alice!\n\nHello, Alice!\n\n\n\n# Use a built-in function\nwords = [\"Python\", \"Data\", \"Science\"]\nprint(len(words))  # 3\n\n3"
+    "text": "Function Example\n\n# Define your own function\ndef greet(name):\n    return f\"Hello, {name}!\"\n\nprint(greet(\"Alice\"))  # Hello, Alice!\n\n\n\nHello, Alice!\n\n\n\n# Use a built-in function\nwords = [\"Python\", \"Data\", \"Science\"]\nprint(len(words))  # 3\n\n\n\n3"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#method-example",
     "href": "session2/DataStructuresDemo.html#method-example",
     "title": "Session 2: Python Data Structures",
     "section": "Method Example",
-    "text": "Method Example\n\n# 'upper()' is a method of string objects\nname = \"patrick\"\nprint(name.upper())  # Output: PATRICK\nprint(name) #Why doesn't name.upper() modify the original string? What would we have to do so that name becomes permanently uppercase?\n\nPATRICK\npatrick\n\n\n\n# 'append()' is a method of list objects\ncolors = [\"red\", \"blue\"]\ncolors.append(\"green\")\nprint(colors)  # ['red', 'blue', 'green']\n\n#Think back to the last example.  Why does colors permanently change when we use a method, but name did not?\n\n['red', 'blue', 'green']"
+    "text": "Method Example\n\n# 'upper()' is a method of string objects\nname = \"patrick\"\nprint(name.upper())  # Output: PATRICK\nprint(name) #Why doesn't name.upper() modify the original string? What would we have to do so that name becomes permanently uppercase?\n\n\n\nPATRICK\npatrick\n\n\n\n# 'append()' is a method of list objects\ncolors = [\"red\", \"blue\"]\ncolors.append(\"green\")\nprint(colors)  # ['red', 'blue', 'green']\n\n#Think back to the last example.  Why does colors permanently change when we use a method, but name did not?\n\n\n\n['red', 'blue', 'green']"
   },
   {
     "objectID": "session2/DataStructuresDemo.html#behind-the-scenes",
     "href": "session2/DataStructuresDemo.html#behind-the-scenes",
     "title": "Session 2: Python Data Structures",
     "section": "Behind the Scenes",
-    "text": "Behind the Scenes\n\n# This also works\nstr.upper(\"patrick\")  # Output: 'PATRICK'\n\n'PATRICK'\n\n\n\n# But this is more common\n\"patrick\".upper()  # Output: 'PATRICK'\n\n'PATRICK'\n\n\n. . .\nBoth work — but “str.upper()” is a method being called directly from the class."
+    "text": "Behind the Scenes\n\n# This also works\nstr.upper(\"patrick\")  # Output: 'PATRICK'\n\n\n\n'PATRICK'\n\n\n\n# But this is more common\n\"patrick\".upper()  # Output: 'PATRICK'\n\n\n\n'PATRICK'\n\n\n\nBoth work — but “str.upper()” is a method being called directly from the class."
   },
   {
     "objectID": "session2/DataStructuresDemo.html#you-try",
@@ -759,15 +759,15 @@
     "objectID": "session4/session4v2_slides.html#session-overview",
     "href": "session4/session4v2_slides.html#session-overview",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
-    "section": "",
-    "text": "In this session, we’ll explore how Python’s object-oriented nature affects our modeling workflows. \nTopics:\n\n\n\nIntro to OOP and how it makes modeling in Python different from R\n\n\nBuilding and extending classes using inheritance and mixins\n\n\nApplying OOP to machine learning through demos with scikit-learn\n\n\n\nCreating and using models\n\n\nPlotting data with plotnine and seaborn"
+    "section": "Session Overview",
+    "text": "Session Overview\n\nIn this session, we’ll explore how Python’s object-oriented nature affects our modeling workflows. \nTopics:\n\n\n\nIntro to OOP and how it makes modeling in Python different from R\n\n\nBuilding and extending classes using inheritance and mixins\n\n\nApplying OOP to machine learning through demos with scikit-learn\n\n\n\nCreating and using models\n\n\nPlotting data with plotnine and seaborn"
   },
   {
     "objectID": "session4/session4v2_slides.html#why-python",
     "href": "session4/session4v2_slides.html#why-python",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Why Python? 🐍",
-    "text": "Why Python? 🐍\n\n\n\n\nR: Built by Statisticians for Statisticians\n\nExcels at:\n\nStatistical analysis and modeling\n\nClean outputs and tables from models\nBeautiful data visualizations with simple code\n\n\n\n\n\nPython: General-Purpose Language\n\nExcels at:\n\nMachine Learning, Neural Networks & Deep Learning (scikit-learn, PyTorch, TensorFlow)\n\nImage & Genomic Data Analysis (scikit-image, biopython, scanpy)\nSoftware & Command Line Interfaces, Web Scraping, Automation\n\n\n\n\n\nPython’s broader ecosystem makes it the go-to language in domains like AI, bioinformatics, data engineering, and computational biology.\n\nNote: Packages like rpy2 and reticulate make it possible to use both R and Python in the same project, but those are beyond the scope of this course.\nA primer on reticulate is available here: https://www.r-bloggers.com/2022/04/getting-started-with-python-using-r-and-reticulate/"
+    "text": "Why Python? 🐍\n\n\n\nR: Built by Statisticians for Statisticians\n\nExcels at:\n\nStatistical analysis and modeling\n\nClean outputs and tables from models\nBeautiful data visualizations with simple code\n\n\n\nPython: General-Purpose Language\n\nExcels at:\n\nMachine Learning, Neural Networks & Deep Learning (scikit-learn, PyTorch, TensorFlow)\n\nImage & Genomic Data Analysis (scikit-image, biopython, scanpy)\nSoftware & Command Line Interfaces, Web Scraping, Automation\n\n\n\nPython’s broader ecosystem makes it the go-to language in domains like AI, bioinformatics, data engineering, and computational biology.\n\nNote: Packages like rpy2 and reticulate make it possible to use both R and Python in the same project, but those are beyond the scope of this course.\nA primer on reticulate is available here: https://www.r-bloggers.com/2022/04/getting-started-with-python-using-r-and-reticulate/"
   },
   {
     "objectID": "session4/session4v2_slides.html#programming-styles-r-vs-python",
@@ -816,35 +816,35 @@
     "href": "session4/session4v2_slides.html#creating-a-dog",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Creating a dog",
-    "text": "Creating a dog\n\nCreating an instance of the Dog class lets us model a particular dog:\n\nbuddy = Dog(\"Buddy\", \"Golden Retriever\")\nprint(f\"Buddy is an object of class {type(buddy)}\")\n\nBuddy is an object of class &lt;class '__main__.Dog'&gt;\n\n\n\n\nWe set the value of the attributes [name and breed], which are then stored as part of the buddy object\n\n\nWe can use any methods defined in the Dog class on buddy\n\n\n\n## if we want to see what kind of dog our dog is\n## we can call buddy's attributes\nprint(f\"Our dog {buddy.name} is a {buddy.breed}.\")\n\n## we can also call any Dog methods\nprint(buddy.speak())  \n\n## including special methods\nbuddy ## displays what was in the __repr__() method\n\nOur dog Buddy is a Golden Retriever.\nBuddy says woof!\n\n\nDog(name='Buddy', breed='Golden Retriever')\n\n\nNote: For python methods, the self argument is assumed to be passed and therefore we do not put anything in the parentheses when calling .speak(). For attributes, we do not put () at all."
+    "text": "Creating a dog\n\nCreating an instance of the Dog class lets us model a particular dog:\n\nbuddy = Dog(\"Buddy\", \"Golden Retriever\")\nprint(f\"Buddy is an object of class {type(buddy)}\")\n\n\n\nBuddy is an object of class &lt;class '__main__.Dog'&gt;\n\n\n\n\nWe set the value of the attributes [name and breed], which are then stored as part of the buddy object\n\n\nWe can use any methods defined in the Dog class on buddy\n\n\n\n## if we want to see what kind of dog our dog is\n## we can call buddy's attributes\nprint(f\"Our dog {buddy.name} is a {buddy.breed}.\")\n\n## we can also call any Dog methods\nprint(buddy.speak())  \n\n## including special methods\nbuddy ## displays what was in the __repr__() method\n\n\n\nOur dog Buddy is a Golden Retriever.\nBuddy says woof!\n\n\nDog(name='Buddy', breed='Golden Retriever')\n\n\nNote: For python methods, the self argument is assumed to be passed and therefore we do not put anything in the parentheses when calling .speak(). For attributes, we do not put () at all."
   },
   {
     "objectID": "session4/session4v2_slides.html#derived-child-classes",
     "href": "session4/session4v2_slides.html#derived-child-classes",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Derived (Child) Classes",
-    "text": "Derived (Child) Classes\n\nDerived/child classes build on base classes using the principle of inheritence. \nNow that we have a Dog class, we can build on it to create a specialized GuardDog class.\n\nclass GuardDog(Dog):  # GuardDog inherits from Dog\n    def __init__(self, name, breed, training_level): ## in addition to name and breed, we can \n        # define a training level. \n        # Call the parent (Dog) class's __init__ method\n        super().__init__(name, breed)\n        self.training_level = training_level  # New attribute for GuardDog that stores the \n        # training level for the dog\n\n    def guard(self): ## checks if the training level is &gt; 5 and if not says train more\n        if self.training_level &gt; 5:\n            return f\"{self.name} is guarding the house!\"\n        else:\n            return f\"{self.name} needs more training before guarding.\"\n    \n    def train(self): # modifies the training_level attribute to increase the dog's training level\n        self.training_level = self.training_level + 1\n        return f\"Training {self.name}. {self.name}'s training level is now {self.training_level}\"\n\n# Creating an instance of GuardDog\nrex = GuardDog(\"Rex\", \"German Shepherd\", training_level= 5)\n\n\n\nNow that we have a dog (rex), we can call on any of the methods/attributes introduced in the Dog class as well as the new GuardDog class.\nUsing methods from the base class:\n\nprint(rex.speak())\nrex\n\nRex says woof!\n\n\nDog(name='Rex', breed='German Shepherd')\n\n\n\nUsing a method from the child class:\n\nprint(f\"{rex.name}'s training level is {rex.training_level}.\")\nprint(rex.guard()) \n\nRex's training level is 5.\nRex needs more training before guarding.\n\n\n. . .\nThis is the power of inheritance—we don’t have to rewrite everything from scratch!\n\nUnlike standalone functions, methods in Python often update objects in-place—meaning they modify the object itself rather than returning a new one.\nWe can use the .train() method to increase rex’s training level.\n\nprint(rex.train())\n\nTraining Rex. Rex's training level is now 6\n\n\n. . .\n\nNow if we check,\n\nprint(f\"{rex.name}'s training level is {rex.training_level}.\")\nprint(rex.guard()) \n\nRex's training level is 6.\nRex is guarding the house!\n\n\n\n. . .\nAs with Rex, child classes inherit all attributes (.name and .breed) and methods (.speak() __repr__()) from parent classes. They can also have new methods (.train())."
+    "text": "Derived (Child) Classes\n\nDerived/child classes build on base classes using the principle of inheritence. \nNow that we have a Dog class, we can build on it to create a specialized GuardDog class.\n\nclass GuardDog(Dog):  # GuardDog inherits from Dog\n    def __init__(self, name, breed, training_level): ## in addition to name and breed, we can \n        # define a training level. \n        # Call the parent (Dog) class's __init__ method\n        super().__init__(name, breed)\n        self.training_level = training_level  # New attribute for GuardDog that stores the \n        # training level for the dog\n\n    def guard(self): ## checks if the training level is &gt; 5 and if not says train more\n        if self.training_level &gt; 5:\n            return f\"{self.name} is guarding the house!\"\n        else:\n            return f\"{self.name} needs more training before guarding.\"\n    \n    def train(self): # modifies the training_level attribute to increase the dog's training level\n        self.training_level = self.training_level + 1\n        return f\"Training {self.name}. {self.name}'s training level is now {self.training_level}\"\n\n# Creating an instance of GuardDog\nrex = GuardDog(\"Rex\", \"German Shepherd\", training_level= 5)"
   },
   {
     "objectID": "session4/session4v2_slides.html#mixins",
     "href": "session4/session4v2_slides.html#mixins",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Mixins",
-    "text": "Mixins\n\nA mixin is a special kind of class designed to add functionality to another class. Unlike base classes, mixins aren’t used alone.\n\nFor example, scikit-learn uses mixins like:\n- sklearn.base.ClassifierMixin (adds classifier-specific methods)\n- sklearn.base.RegressorMixin (adds regression-specific methods)\nwhich it adds to the BaseEstimator class to add functionality.  \nTo finish up our dog example, we are going to define a mixin class that adds learning tricks to the base Dog class and use it to create a new class called SmartDog.\n\n\n\nWhen creating a mixin class, we let the other base classes carry most of the initialization\n\nclass TrickMixin: ## mixin that will let us teach a dog tricks\n    def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)  # Ensures proper initialization in multi inheritance\n        self.tricks = []  # Add attribute to store tricks\n\n## add trick methods\n    def learn_trick(self, trick):\n        \"\"\"Teaches the dog a new trick.\"\"\"\n        if trick not in self.tricks:\n            self.tricks.append(trick)\n            return f\"{self.name} learned a new trick: {trick}!\"\n        return f\"{self.name} already knows {trick}!\"\n\n    def perform_tricks(self):\n        \"\"\"Returns a list of tricks the dog knows.\"\"\"\n        if self.tricks:\n            return f\"{self.name} can perform: {', '.join(self.tricks)}.\"\n        return f\"{self.name} hasn't learned any tricks yet.\"\n\n## note: the TrickMixin class is not a standalone class!\n\n\nBy including both Dog and TrickMixin as base classes, we give objects of class SmartDog the ability to speak and learn tricks!\n\nclass SmartDog(Dog, TrickMixin):\n    def __init__(self, name, breed):\n        super().__init__(name, breed)  # Initialize Dog class\n        TrickMixin.__init__(self)  # Initialize TrickMixin separately\n\n# a SmartDog object can use methods from both parent object `Dog` and mixin `TrickMixin`.\nmy_smart_dog = SmartDog(\"Buddy\", \"Border Collie\")\nprint(my_smart_dog.speak()) \n\nBuddy says woof!\n\n\n\n\nprint(my_smart_dog.learn_trick(\"Sit\"))  \nprint(my_smart_dog.learn_trick(\"Roll Over\")) \nprint(my_smart_dog.learn_trick(\"Sit\"))  \n\nBuddy learned a new trick: Sit!\nBuddy learned a new trick: Roll Over!\nBuddy already knows Sit!\n\n\n\n\nprint(my_smart_dog.perform_tricks()) \n\nBuddy can perform: Sit, Roll Over."
+    "text": "Mixins\n\nA mixin is a special kind of class designed to add functionality to another class. Unlike base classes, mixins aren’t used alone.\n\nFor example, scikit-learn uses mixins like:\n- sklearn.base.ClassifierMixin (adds classifier-specific methods)\n- sklearn.base.RegressorMixin (adds regression-specific methods)\nwhich it adds to the BaseEstimator class to add functionality.  \nTo finish up our dog example, we are going to define a mixin class that adds learning tricks to the base Dog class and use it to create a new class called SmartDog."
   },
   {
     "objectID": "session4/session4v2_slides.html#duck-typing",
     "href": "session4/session4v2_slides.html#duck-typing",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Duck Typing",
-    "text": "Duck Typing\n\n\n🦆 “If it quacks like a duck and walks like a duck, it’s a duck.” 🦆\n\nPython’s duck typing makes our lives a lot easier, and is one of the main benefits of methods over functions:\n\n\nRepurposing old code - methods by the same name work the same for different model types\n\n\nNot necessary to check types before using methods - methods are assumed to work on the object they’re attached to\n\n\n\nWe can demonstrate this by defining two new base classes that are different than Dog but also have a speak() method.\n. . .\n\nclass Human:\n    def __init__(self, name):\n        self.name = name\n\n    def speak(self):\n        return f\"{self.name} says hello!\"\n\nclass Parrot:\n    def __init__(self, name):\n        self.name = name\n\n    def speak(self):\n        return f\"{self.name} says squawk!\""
+    "text": "Duck Typing\n\n\n🦆 “If it quacks like a duck and walks like a duck, it’s a duck.” 🦆\n\nPython’s duck typing makes our lives a lot easier, and is one of the main benefits of methods over functions:\n\n\nRepurposing old code - methods by the same name work the same for different model types\n\n\nNot necessary to check types before using methods - methods are assumed to work on the object they’re attached to\n\n\n\nWe can demonstrate this by defining two new base classes that are different than Dog but also have a speak() method.\n\n\nclass Human:\n    def __init__(self, name):\n        self.name = name\n\n    def speak(self):\n        return f\"{self.name} says hello!\"\n\nclass Parrot:\n    def __init__(self, name):\n        self.name = name\n\n    def speak(self):\n        return f\"{self.name} says squawk!\""
   },
   {
     "objectID": "session4/session4v2_slides.html#duck-typing-in-action",
     "href": "session4/session4v2_slides.html#duck-typing-in-action",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Duck Typing in Action",
-    "text": "Duck Typing in Action\n\nEven though Dog, Human and Parrot are entirely different classes…\n\n\ndef call_speaker(obj):\n    print(obj.speak())\n\ncall_speaker(Dog(\"Fido\", \"Labrador\"))\ncall_speaker(Human(\"Alice\"))\ncall_speaker(Parrot(\"Polly\"))\n\nFido says woof!\nAlice says hello!\nPolly says squawk!\n\n\n. . .\nThey all implement .speak(), so Python treats them the same!\nIn the context of our work, this would allow us to make a pipeline using models from different libraries that have the same methods.\n\nWhile our dog example was very simple, this is the same way that model classes work in python!"
+    "text": "Duck Typing in Action\n\nEven though Dog, Human and Parrot are entirely different classes…\n\n\ndef call_speaker(obj):\n    print(obj.speak())\n\ncall_speaker(Dog(\"Fido\", \"Labrador\"))\ncall_speaker(Human(\"Alice\"))\ncall_speaker(Parrot(\"Polly\"))\n\n\n\nFido says woof!\nAlice says hello!\nPolly says squawk!\n\n\n\nThey all implement .speak(), so Python treats them the same!\nIn the context of our work, this would allow us to make a pipeline using models from different libraries that have the same methods.\n\nWhile our dog example was very simple, this is the same way that model classes work in python!"
   },
   {
     "objectID": "session4/session4v2_slides.html#example-oop-in-machine-learning-and-modeling",
@@ -865,7 +865,7 @@
     "href": "session4/session4v2_slides.html#mini-project-classifying-penguins-with-scikit-learn",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "🐧 Mini Project: Classifying Penguins with scikit-learn",
-    "text": "🐧 Mini Project: Classifying Penguins with scikit-learn\n\nNow that you understand classes and data structures in Python, let’s apply that knowledge to classify penguin species using two features:\n\n\n\nbill_length_mm\n\n\nbill_depth_mm\n\n\nWe’ll explore:\n\n\nUnsupervised learning with K-Means clustering (model doesn’t ‘know’ y)\n\n\nSupervised learning with a k-NN classifier (model trained w/ y information)\n\n\nAll scikit-learn models are designed to have\n\n\nCommon Methods:\n\n\n\n.fit() — Train the model\n\n\n.predict() — Make predictions\n\n\n\nCommon Attributes:\n\n\n.classes_, .n_clusters_, etc.\n\n\n\n\n\nThis is true of the scikit-survival package too!"
+    "text": "🐧 Mini Project: Classifying Penguins with scikit-learn\n\nNow that you understand classes and data structures in Python, let’s apply that knowledge to classify penguin species using two features:\n\n\n\nbill_length_mm\n\n\nbill_depth_mm\n\n\nWe’ll explore:\n\n\nUnsupervised learning with K-Means clustering (model doesn’t ‘know’ y)\n\n\nSupervised learning with a k-NN classifier (model trained w/ y information)\n\n\nAll scikit-learn models are designed to have\n\n\nCommon Methods:\n\n\n\n.fit() — Train the model\n\n\n.predict() — Make predictions\n\n\n\nCommon Attributes:\n\n\n.classes_, .n_clusters_, etc.\n\n\n\n\nThis is true of the scikit-survival package too!"
   },
   {
     "objectID": "session4/session4v2_slides.html#import-libraries",
@@ -886,14 +886,14 @@
     "href": "session4/session4v2_slides.html#data-preparation",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Data Preparation",
-    "text": "Data Preparation\n\n# Load the Penguins dataset\npenguins = sns.load_dataset(\"penguins\").dropna()\n\n# Make a summary table for the penguins dataset, grouping by species. \nsummary_table = penguins.groupby(\"species\").agg({\n    \"bill_length_mm\": [\"mean\", \"std\", \"min\", \"max\"],\n    \"bill_depth_mm\": [\"mean\", \"std\", \"min\", \"max\"],\n    \"sex\": lambda x: x.value_counts().to_dict()  # Count of males and females\n})\n\n# Round numeric values to 1 decimal place (excluding the 'sex' column)\nfor col in summary_table.columns:\n    if summary_table[col].dtype in [float, int]:\n        summary_table[col] = summary_table[col].round(1)\n\n# Display the result\ndisplay(summary_table)\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nsex\n\n\n\nmean\nstd\nmin\nmax\nmean\nstd\nmin\nmax\n&lt;lambda&gt;\n\n\nspecies\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdelie\n38.8\n2.7\n32.1\n46.0\n18.3\n1.2\n15.5\n21.5\n{'Male': 73, 'Female': 73}\n\n\nChinstrap\n48.8\n3.3\n40.9\n58.0\n18.4\n1.1\n16.4\n20.8\n{'Female': 34, 'Male': 34}\n\n\nGentoo\n47.6\n3.1\n40.9\n59.6\n15.0\n1.0\n13.1\n17.3\n{'Male': 61, 'Female': 58}"
+    "text": "Data Preparation\n\n# Load the Penguins dataset\npenguins = sns.load_dataset(\"penguins\").dropna()\n\n# Make a summary table for the penguins dataset, grouping by species. \nsummary_table = penguins.groupby(\"species\").agg({\n    \"bill_length_mm\": [\"mean\", \"std\", \"min\", \"max\"],\n    \"bill_depth_mm\": [\"mean\", \"std\", \"min\", \"max\"],\n    \"sex\": lambda x: x.value_counts().to_dict()  # Count of males and females\n})\n\n# Round numeric values to 1 decimal place (excluding the 'sex' column)\nfor col in summary_table.columns:\n    if summary_table[col].dtype in [float, int]:\n        summary_table[col] = summary_table[col].round(1)\n\n# Display the result\ndisplay(summary_table)\n\n\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nsex\n\n\n\nmean\nstd\nmin\nmax\nmean\nstd\nmin\nmax\n&lt;lambda&gt;\n\n\nspecies\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdelie\n38.8\n2.7\n32.1\n46.0\n18.3\n1.2\n15.5\n21.5\n{'Male': 73, 'Female': 73}\n\n\nChinstrap\n48.8\n3.3\n40.9\n58.0\n18.4\n1.1\n16.4\n20.8\n{'Female': 34, 'Male': 34}\n\n\nGentoo\n47.6\n3.1\n40.9\n59.6\n15.0\n1.0\n13.1\n17.3\n{'Male': 61, 'Female': 58}"
   },
   {
     "objectID": "session4/session4v2_slides.html#data-visualization",
     "href": "session4/session4v2_slides.html#data-visualization",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Data Visualization",
-    "text": "Data Visualization\n\nTo do visualization, we can use either seaborn or plotnine. plotnine mirrors ggplot2 syntax from R and is great for layered grammar-of-graphics plots, while seaborn seaborn is more convienient if you want to put multiple plots on the same figure. \n\nPlotting with Plotnine vs Seaborn\n\n\nPlotnine (like ggplot2 in R) The biggest differences between plotnine and ggplot2 syntax are:\n\n\nWith plotnine the whole call is wrapped in () parentheses\n\n\nVariables are called with strings (\"\" are needed!)\n\n\nIf you don’t use from plotnine import *, you will need to import each individual function you plan to use!\n\n\n\nSeaborn (base matplotlib + enhancements)\n\n\nDesigned for quick, polished plots\n\n\nWorks well with pandas DataFrames or NumPy arrays\n\n\nIntegrates with matplotlib for customization\n\n\nGood for things like decision boundaries or heatmaps\n\n\nHarder to customize than plotnine plots"
+    "text": "Data Visualization\n\nTo do visualization, we can use either seaborn or plotnine. plotnine mirrors ggplot2 syntax from R and is great for layered grammar-of-graphics plots, while seaborn seaborn is more convienient if you want to put multiple plots on the same figure. \nPlotting with Plotnine vs Seaborn\n\n\nPlotnine (like ggplot2 in R) The biggest differences between plotnine and ggplot2 syntax are:\n\n\nWith plotnine the whole call is wrapped in () parentheses\n\n\nVariables are called with strings (\"\" are needed!)\n\n\nIf you don’t use from plotnine import *, you will need to import each individual function you plan to use!\n\n\n\nSeaborn (base matplotlib + enhancements)\n\n\nDesigned for quick, polished plots\n\n\nWorks well with pandas DataFrames or NumPy arrays\n\n\nIntegrates with matplotlib for customization\n\n\nGood for things like decision boundaries or heatmaps\n\n\nHarder to customize than plotnine plots"
   },
   {
     "objectID": "session4/session4v2_slides.html#scatterplot-with-plotnine",
@@ -921,7 +921,7 @@
     "href": "session4/session4v2_slides.html#scaling-the-data---understanding-the-standard-scaler-class",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Scaling the data - Understanding the Standard Scaler class",
-    "text": "Scaling the data - Understanding the Standard Scaler class\n\nFor our clustering to work well, the predictors should be on the same scale. To achieve this, we use an instance of the StandardScaler class.\nclass sklearn.preprocessing.StandardScaler(*, copy=True, with_mean=True, with_std=True)\n\n. . .\nParameters are supplied by user\n- copy, with_mean, with_std \nAttributes contain the data of the object\n- scale_: scaling factor\n- mean_: mean value for each feature\n- var_: variance for each feature\n- n_features_in_: number of features seen during fit\n- n_samples_seen: number of samples processed for each feature \nMethods describe the behaviors of the object and/or modify its attributes\n- fit(X): computes mean and std used for scaling and ‘fits’ scaler to data X\n- transform(X): performs standardization by centering and scaling X with fitted scaler\n- fit_transform(X): does both"
+    "text": "Scaling the data - Understanding the Standard Scaler class\n\nFor our clustering to work well, the predictors should be on the same scale. To achieve this, we use an instance of the StandardScaler class.\nclass sklearn.preprocessing.StandardScaler(*, copy=True, with_mean=True, with_std=True)\n\n\nParameters are supplied by user\n- copy, with_mean, with_std \nAttributes contain the data of the object\n- scale_: scaling factor\n- mean_: mean value for each feature\n- var_: variance for each feature\n- n_features_in_: number of features seen during fit\n- n_samples_seen: number of samples processed for each feature \nMethods describe the behaviors of the object and/or modify its attributes\n- fit(X): computes mean and std used for scaling and ‘fits’ scaler to data X\n- transform(X): performs standardization by centering and scaling X with fitted scaler\n- fit_transform(X): does both"
   },
   {
     "objectID": "session4/session4v2_slides.html#scaling-data",
@@ -935,14 +935,14 @@
     "href": "session4/session4v2_slides.html#understanding-the-kmeans-model-class",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Understanding the KMeans model class",
-    "text": "Understanding the KMeans model class\n\nclass sklearn.cluster.KMeans(n_clusters=8, *, init='k-means++', n_init='auto', max_iter=300, \ntol=0.0001, verbose=0, random_state=None, copy_x=True, algorithm='lloyd')\nParameters: Set by user at time of instantiation\n- n_clusters, max_iter, algorithm \nAttributes: Store object data\n- cluster_centers_: stores coordinates of cluster centers\n- labels_: stores labels of each point - n_iter_: number of iterations run (will be changed during method run)\n- n_features_in and feature_names_in_: store info about features seen during fit \nMethods: Define object behaviors\n- fit(X): fits model to data X - predict(X): predicts closest cluster each sample in X belongs to\n- transform(X): transforms X to cluster-distance space\n\n\n\n\nCreate model\n\n## Choosing 3 clusters b/c we have 3 species\nkmeans = KMeans(n_clusters=3, random_state=42) ## make an instance of the K means class\nkmeans\n\nKMeans(n_clusters=3, random_state=42)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  KMeans?Documentation for KMeansiNot fittedKMeans(n_clusters=3, random_state=42) \n\n\n\n\n\nFit model to data\n\n## the fit\npenguins[\"kmeans_cluster\"] = kmeans.fit_predict(X_scaled)\n\n## now that we fit the model, we should have cluster centers\nprint(\"Coordinates of cluster centers:\", kmeans.cluster_centers_)\n\n## shows that model is fitted\nkmeans\n\nCoordinates of cluster centers: [[-0.95023997  0.55393493]\n [ 0.58644397 -1.09805504]\n [ 1.0886843   0.79503579]]\n\n\nKMeans(n_clusters=3, random_state=42)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  KMeans?Documentation for KMeansiFittedKMeans(n_clusters=3, random_state=42)"
+    "text": "Understanding the KMeans model class\n\nclass sklearn.cluster.KMeans(n_clusters=8, *, init='k-means++', n_init='auto', max_iter=300, \ntol=0.0001, verbose=0, random_state=None, copy_x=True, algorithm='lloyd')\nParameters: Set by user at time of instantiation\n- n_clusters, max_iter, algorithm \nAttributes: Store object data\n- cluster_centers_: stores coordinates of cluster centers\n- labels_: stores labels of each point - n_iter_: number of iterations run (will be changed during method run)\n- n_features_in and feature_names_in_: store info about features seen during fit \nMethods: Define object behaviors\n- fit(X): fits model to data X - predict(X): predicts closest cluster each sample in X belongs to\n- transform(X): transforms X to cluster-distance space"
   },
   {
     "objectID": "session4/session4v2_slides.html#use-function-to-calculate-ari",
     "href": "session4/session4v2_slides.html#use-function-to-calculate-ari",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Use function to calculate ARI",
-    "text": "Use function to calculate ARI\n\nTo check how good our model is, we can use one of the functions included in the sklearn library.\nThe adjusted_rand_score() function evaluates how well the cluster groupings agree with the species groupings while adjusting for chance.\n\n# Calculate clustering performance using Adjusted Rand Index (ARI)\nkmeans_ari = adjusted_rand_score(penguins['species'], penguins[\"kmeans_cluster\"])\nprint(f\"k-Means Adjusted Rand Index: {kmeans_ari:.2f}\")\n\nk-Means Adjusted Rand Index: 0.82\n\n\n\n\n\nWe can also use methods on our data structure to create new data\n\n\nWe can use the .groupby() method to help us plot cluster agreement with species label as a heatmap\nIf we want to add sex as a variable to see if that is why our clusters don’t agree with our species, we can use a scatterplot\nUsing seaborn and matplotlib, we can easily put both of these plots on the same figure. \n\n\n# Count occurrences of each species-cluster-sex combination\n# (.size gives the count as index, use reset_index to get count column.)\nscatter_data = (penguins.groupby([\"species\", \"kmeans_cluster\", \"sex\"])\n                .size()\n                .reset_index(name=\"count\"))\nspecies_order = list(scatter_data['species'].unique()) ## defining this for later\n\n# Create a mapping to add horizontal jitter for each sex for scatterplot\nsex_jitter = {'Male': -0.1, 'Female': 0.1}\nscatter_data['x_jittered'] = scatter_data.apply(\n    lambda row: scatter_data['species'].unique().tolist().index(row['species']) +\n     sex_jitter.get(row['sex'], 0),\n    axis=1\n)\n\nheatmap_data = scatter_data.pivot_table(index=\"kmeans_cluster\", columns=\"species\", \nvalues=\"count\", aggfunc=\"sum\", fill_value=0)"
+    "text": "Use function to calculate ARI\n\nTo check how good our model is, we can use one of the functions included in the sklearn library.\nThe adjusted_rand_score() function evaluates how well the cluster groupings agree with the species groupings while adjusting for chance.\n\n# Calculate clustering performance using Adjusted Rand Index (ARI)\nkmeans_ari = adjusted_rand_score(penguins['species'], penguins[\"kmeans_cluster\"])\nprint(f\"k-Means Adjusted Rand Index: {kmeans_ari:.2f}\")\n\n\n\nk-Means Adjusted Rand Index: 0.82"
   },
   {
     "objectID": "session4/session4v2_slides.html#creating-plots",
@@ -963,14 +963,14 @@
     "href": "session4/session4v2_slides.html#project-2-knn-classification",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Project 2: KNN classification",
-    "text": "Project 2: KNN classification\n\nFor our KNN classification, the model is supervised (meaning it is dependent on the outcome ‘y’ data). This time, we need to split our data into a training and test set. \n\n. . .\nThe function train_test_split() from scikit-learn is helpful here!\n\n# Splitting dataset into training and testing sets (still using scaled X!)\nX_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=42)\n\n. . .\n\nUnlike R functions, which return a single object (often a list when multiple outputs are needed), Python functions can return multiple values as a tuple—letting you unpack them directly into separate variables."
+    "text": "Project 2: KNN classification\n\nFor our KNN classification, the model is supervised (meaning it is dependent on the outcome ‘y’ data). This time, we need to split our data into a training and test set. \n\n\nThe function train_test_split() from scikit-learn is helpful here!\n\n# Splitting dataset into training and testing sets (still using scaled X!)\nX_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=42)\n\n\n\n\nUnlike R functions, which return a single object (often a list when multiple outputs are needed), Python functions can return multiple values as a tuple—letting you unpack them directly into separate variables."
   },
   {
     "objectID": "session4/session4v2_slides.html#understanding-kneighborsclassifier-class",
     "href": "session4/session4v2_slides.html#understanding-kneighborsclassifier-class",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Understanding KNeighborsClassifier class",
-    "text": "Understanding KNeighborsClassifier class\nclass sklearn.neighbors.KNeighborsClassifier(n_neighbors=5, *, weights='uniform', \nalgorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=None)\n. . .\nParameters: Set by user at time of instantiation\n- n_neigbors, weights, algorithm, etc. \nAttributes: Store object data\n- classes_: class labels known to the classifier\n- effective_metric_: distance metric used\n- effective_metric_params_: parameters for the metric function\n- n_features_in and feature_names_in_: store info about features seen during fit\n- n_samples_fit_: number of samples in fitted data \nMethods: Define object behaviors\n- .fit(X, y): fit knn classifier from training dataset (X and y)\n- .predict(X): predict class labels for provided data X\n- .predict_proba(X): return probability estimates for test data X\n- .score(X, y): return mean accuracy on given test data X and labels y"
+    "text": "Understanding KNeighborsClassifier class\nclass sklearn.neighbors.KNeighborsClassifier(n_neighbors=5, *, weights='uniform', \nalgorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=None)\n\nParameters: Set by user at time of instantiation\n- n_neigbors, weights, algorithm, etc. \nAttributes: Store object data\n- classes_: class labels known to the classifier\n- effective_metric_: distance metric used\n- effective_metric_params_: parameters for the metric function\n- n_features_in and feature_names_in_: store info about features seen during fit\n- n_samples_fit_: number of samples in fitted data \nMethods: Define object behaviors\n- .fit(X, y): fit knn classifier from training dataset (X and y)\n- .predict(X): predict class labels for provided data X\n- .predict_proba(X): return probability estimates for test data X\n- .score(X, y): return mean accuracy on given test data X and labels y"
   },
   {
     "objectID": "session4/session4v2_slides.html#making-an-instance-of-kneighborsclassifier-and-fitting-to-training-data",
@@ -984,14 +984,14 @@
     "href": "session4/session4v2_slides.html#once-the-model-is-fit",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Once the model is fit…",
-    "text": "Once the model is fit…\n-We can look at its attributes (ex: .classes_) which gives the class labels as known to the classifier\n\nprint(knn.classes_)\n\n['Adelie' 'Chinstrap' 'Gentoo']\n\n\n. . .\n-And use fitted model to predict species for test data\n\n# Use the predict method on the test data to get the predictions for the test data\ny_pred = knn.predict(X_test)\n\n# Also can take a look at the prediction probabilities, \n# and use the .classes_ attribute to put the column labels in the right order\nprobs = pd.DataFrame(\n    knn.predict_proba(X_test),\n    columns = knn.classes_)\nprobs['y_pred'] = y_pred\n\nprint(\"Predicted probabilities: \\n\", probs.head())\n\nPredicted probabilities: \n    Adelie  Chinstrap  Gentoo     y_pred\n0     1.0        0.0     0.0     Adelie\n1     0.0        0.0     1.0     Gentoo\n2     1.0        0.0     0.0     Adelie\n3     0.0        0.6     0.4  Chinstrap\n4     1.0        0.0     0.0     Adelie"
+    "text": "Once the model is fit…\n-We can look at its attributes (ex: .classes_) which gives the class labels as known to the classifier\n\nprint(knn.classes_)\n\n\n\n['Adelie' 'Chinstrap' 'Gentoo']\n\n\n\n-And use fitted model to predict species for test data\n\n# Use the predict method on the test data to get the predictions for the test data\ny_pred = knn.predict(X_test)\n\n# Also can take a look at the prediction probabilities, \n# and use the .classes_ attribute to put the column labels in the right order\nprobs = pd.DataFrame(\n    knn.predict_proba(X_test),\n    columns = knn.classes_)\nprobs['y_pred'] = y_pred\n\nprint(\"Predicted probabilities: \\n\", probs.head())\n\n\n\nPredicted probabilities: \n    Adelie  Chinstrap  Gentoo     y_pred\n0     1.0        0.0     0.0     Adelie\n1     0.0        0.0     1.0     Gentoo\n2     1.0        0.0     0.0     Adelie\n3     0.0        0.6     0.4  Chinstrap\n4     1.0        0.0     0.0     Adelie"
   },
   {
     "objectID": "session4/session4v2_slides.html#scatterplot-for-k-nn-classification-of-test-data",
     "href": "session4/session4v2_slides.html#scatterplot-for-k-nn-classification-of-test-data",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Scatterplot for k-NN classification of test data",
-    "text": "Scatterplot for k-NN classification of test data\n\n\nCreate dataframe of unscaled X_test, bill_length_mm, and bill_depth_mm.\nAdd to it the actual and predicted species labels\n\n\n## First unscale the test data\nX_test_unscaled = scaler.inverse_transform(X_test)\n\n## create dataframe \npenguins_test = pd.DataFrame(\n    X_test_unscaled,\n    columns=['bill_length_mm', 'bill_depth_mm']\n)\n\n## add actual and predicted species \npenguins_test['y_actual'] = y_test.values\npenguins_test['y_pred'] = y_pred\npenguins_test['correct'] = penguins_test['y_actual'] == penguins_test['y_pred']\n\nprint(\"Results: \\n\", penguins_test.head())\n\nResults: \n    bill_length_mm  bill_depth_mm   y_actual     y_pred  correct\n0            39.5           16.7     Adelie     Adelie     True\n1            46.9           14.6     Gentoo     Gentoo     True\n2            42.1           19.1     Adelie     Adelie     True\n3            49.8           17.3  Chinstrap  Chinstrap     True\n4            41.1           18.2     Adelie     Adelie     True"
+    "text": "Scatterplot for k-NN classification of test data\n\n\nCreate dataframe of unscaled X_test, bill_length_mm, and bill_depth_mm.\nAdd to it the actual and predicted species labels\n\n\n## First unscale the test data\nX_test_unscaled = scaler.inverse_transform(X_test)\n\n## create dataframe \npenguins_test = pd.DataFrame(\n    X_test_unscaled,\n    columns=['bill_length_mm', 'bill_depth_mm']\n)\n\n## add actual and predicted species \npenguins_test['y_actual'] = y_test.values\npenguins_test['y_pred'] = y_pred\npenguins_test['correct'] = penguins_test['y_actual'] == penguins_test['y_pred']\n\nprint(\"Results: \\n\", penguins_test.head())\n\n\n\nResults: \n    bill_length_mm  bill_depth_mm   y_actual     y_pred  correct\n0            39.5           16.7     Adelie     Adelie     True\n1            46.9           14.6     Gentoo     Gentoo     True\n2            42.1           19.1     Adelie     Adelie     True\n3            49.8           17.3  Chinstrap  Chinstrap     True\n4            41.1           18.2     Adelie     Adelie     True"
   },
   {
     "objectID": "session4/session4v2_slides.html#plotnine-scatterplot-for-k-nn-classification-of-test-data",
@@ -1026,14 +1026,14 @@
     "href": "session4/session4v2_slides.html#evaluate-knn-performance",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Evaluate KNN performance",
-    "text": "Evaluate KNN performance\n\nTo check the performance of our KNN classifier, we can check the accuracy score and print a classification report.\n- accuracy_score and classification_report are both functions!\n- They are not unique to scikit-learn classes so it makes sense for them to be functions not methods\n\n\n## eval knn performance\nknn_accuracy = accuracy_score(y_test, y_pred)\nprint(f\"k-NN Accuracy: {knn_accuracy:.2f}\")\nprint(\"Classification Report: \\n\", classification_report(y_test, y_pred))\n\nk-NN Accuracy: 0.94\nClassification Report: \n               precision    recall  f1-score   support\n\n      Adelie       0.98      0.98      0.98        48\n   Chinstrap       0.80      0.89      0.84        18\n      Gentoo       0.97      0.91      0.94        34\n\n    accuracy                           0.94       100\n   macro avg       0.92      0.93      0.92       100\nweighted avg       0.94      0.94      0.94       100"
+    "text": "Evaluate KNN performance\n\nTo check the performance of our KNN classifier, we can check the accuracy score and print a classification report.\n- accuracy_score and classification_report are both functions!\n- They are not unique to scikit-learn classes so it makes sense for them to be functions not methods\n\n\n## eval knn performance\nknn_accuracy = accuracy_score(y_test, y_pred)\nprint(f\"k-NN Accuracy: {knn_accuracy:.2f}\")\nprint(\"Classification Report: \\n\", classification_report(y_test, y_pred))\n\n\n\nk-NN Accuracy: 0.94\nClassification Report: \n               precision    recall  f1-score   support\n\n      Adelie       0.98      0.98      0.98        48\n   Chinstrap       0.80      0.89      0.84        18\n      Gentoo       0.97      0.91      0.94        34\n\n    accuracy                           0.94       100\n   macro avg       0.92      0.93      0.92       100\nweighted avg       0.94      0.94      0.94       100"
   },
   {
     "objectID": "session4/session4v2_slides.html#make-a-summary-table-of-metrics-for-both-models",
     "href": "session4/session4v2_slides.html#make-a-summary-table-of-metrics-for-both-models",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Make a Summary Table of Metrics for Both Models",
-    "text": "Make a Summary Table of Metrics for Both Models\n\nsummary_table = pd.DataFrame({\n    \"Metric\": [\"k-Means Adjusted Rand Index\", \"k-NN Accuracy\"],\n    \"Value\": [kmeans_ari, knn_accuracy]\n})\n(\n    GT(summary_table)\n    .tab_header(title = \"Model Results Summary\")\n    .fmt_number(columns = \"Value\", n_sigfig = 2)\n    .tab_options(table_font_size = 20)\n)\n\n\n\n\n\n\n\nModel Results Summary\n\n\nMetric\nValue\n\n\n\n\nk-Means Adjusted Rand Index\n0.82\n\n\nk-NN Accuracy\n0.94"
+    "text": "Make a Summary Table of Metrics for Both Models\n\nsummary_table = pd.DataFrame({\n    \"Metric\": [\"k-Means Adjusted Rand Index\", \"k-NN Accuracy\"],\n    \"Value\": [kmeans_ari, knn_accuracy]\n})\n(\n    GT(summary_table)\n    .tab_header(title = \"Model Results Summary\")\n    .fmt_number(columns = \"Value\", n_sigfig = 2)\n    .tab_options(table_font_size = 20)\n)\n\n\n\n\n\n\n\n\n\nModel Results Summary\n\n\nMetric\nValue\n\n\n\n\nk-Means Adjusted Rand Index\n0.82\n\n\nk-NN Accuracy\n0.94"
   },
   {
     "objectID": "session4/session4v2_slides.html#key-takeaways-from-this-session",
@@ -1286,26 +1286,5 @@
     "title": "Session 3: Intro to Pandas and great_tables",
     "section": "You Try!",
     "text": "You Try!\nNavigate to the follow-along file and try the practice problems!"
-  },
-  {
-    "objectID": "session2/DataStructuresDemo.html",
-    "href": "session2/DataStructuresDemo.html",
-    "title": "Session 2: Python Data Structures",
-    "section": "",
-    "text": "Guide to Python Data Structures\n\n  \n\nCancer Dataset"
-  },
-  {
-    "objectID": "session4/session4v2_slides.html",
-    "href": "session4/session4v2_slides.html",
-    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
-    "section": "",
-    "text": "In this session, we’ll explore how Python’s object-oriented nature affects our modeling workflows. \nTopics:\n\n\n\nIntro to OOP and how it makes modeling in Python different from R\n\n\nBuilding and extending classes using inheritance and mixins\n\n\nApplying OOP to machine learning through demos with scikit-learn\n\n\n\nCreating and using models\n\n\nPlotting data with plotnine and seaborn"
-  },
-  {
-    "objectID": "session3/DataStructuresDemo_2.html",
-    "href": "session3/DataStructuresDemo_2.html",
-    "title": "Session 3: Intro to Pandas and great_tables",
-    "section": "",
-    "text": "Guide to Python Data Structures\n\n  \n\nCancer Dataset"
   }
 ]
