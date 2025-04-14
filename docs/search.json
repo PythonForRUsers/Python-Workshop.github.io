@@ -697,7 +697,7 @@
     "href": "index.html#recordings",
     "title": "Introduction to Python Workshops",
     "section": "▶️Recordings",
-    "text": "▶️Recordings\nRecordings will be uploaded after each session"
+    "text": "▶️Recordings\nRecordings will be uploaded after each session.\n\nSession 1 recording: Python Workshop Monday, April 14, 2025"
   },
   {
     "objectID": "index.html#useful-links",
@@ -1293,5 +1293,117 @@
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "",
     "text": "In this session, we’ll explore how Python’s object-oriented nature affects our modeling workflows. \nTopics:\n\n\n\nIntro to OOP and how it makes modeling in Python different from R\n\n\nBuilding and extending classes using inheritance and mixins\n\n\nApplying OOP to machine learning through demos with scikit-learn\n\n\n\nCreating and using models\n\n\nPlotting data with plotnine and seaborn"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html",
+    "href": "session1/session1-python-setup.html",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "",
+    "text": "Workshop website: Introduction to Python Workshops 👉Find session handouts, assignments, and recordings 👉Ask questions (GitHub Discussion page)   Books / Websites:  The Python for Data Analysis, 3ed written by Wes McKinney is a helpful reference for Python beginners. The book focuses on data analysis and introduces relevant packages including NumPy, pandas (author is one of the creators!), statsmodels, and scikit-learn, etc.  Prerequisite\n\nMSK laptop/Remote Desktop\n\n\nMSK Github Enterprise account\n\n\nProgramming experience and minimal command line skills"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#session-1-learning-goals",
+    "href": "session1/session1-python-setup.html#session-1-learning-goals",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Session 1 Learning Goals",
+    "text": "Session 1 Learning Goals\nIn this session, we will familiarize with Python and essential tools for building reproducible Python projects. \n💡 Python overview: What is Python? How is it useful compared to R? 💡 Conda: conda for installing packages and creating reproducible Python virtual environments 💡 Familiarize with integrated development environments (Visual Studio Code) and interactive computing tools (Jupyter Notebook) 💡 Python reproducible workflow: Create a GitHub Python repository and work in Visual Studio Code within a project-specific conda environment"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#what-is-python",
+    "href": "session1/session1-python-setup.html#what-is-python",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "What is Python?",
+    "text": "What is Python?\n\n\n\nPython is an open-source, high-level, interpreted, general-purpose programming language\n\nKey Features\n\n\nEasy to use: Python syntax is designed to be readable and user-friendly\nGeneral-purpose: widely applied in data science, ML/AL, software development, automation, etc.\nInterpreted: run code without compiling (unlike C/C++)\nOpen-source: free to use and supported by a mass user community, who contributes to many high-quality packages open to public"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#python-vs.-r",
+    "href": "session1/session1-python-setup.html#python-vs.-r",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Python vs. R",
+    "text": "Python vs. R\nPython and R differ in programming philosophy, computational capacity, and extensibility.\n\n\n\n\nFeature / Task\n\n\nR\n\n\nPython\n\n\n\n\n\n\nProgramming style\n\n\nFunction-oriented\n\n\nMostly object-oriented\n\n\n\n\nScope of functionality\n\n\nPrimarily for statistical computing and data analysis\n\n\nGeneral-purpose: ML & AI, software development, scripting, etc.\n\n\n\n\nComputational power\n\n\n✅ Vectorized operations  ⚠️ Memory-intensive for large data and loops\n\n\n✅ Faster loop performance  ✅ Strong GPU support  ✅ Efficient memory use\n\n\n\n\nPackage ecosystem\n\n\n✅ Rich ecosystem of statistical tools ⚠️ Fewer ML/AI tools\n\n\n☑️ Emerging statistical packages  ✅ Extensive ML/AI tools"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#python-package-ecosystem",
+    "href": "session1/session1-python-setup.html#python-package-ecosystem",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Python Package Ecosystem",
+    "text": "Python Package Ecosystem\n\n\nStatistical analysis\nWhile R is the go-to tool for statistical analysis, Python has caught up with many equivalent libraries and functions:\n\nstatsmodels / scipy.stats provide regression modeling and hypothesis testing.\nscikit-survival /lifelines support survival analysis and plotting.\n\n\n\n\nML/DL ecosystem\nPython dominates in machine learning and AI development:\n\nscikit-learn is a comprehensive machine learning library that supports supervised regression and classification (e.g., random forests, gradient boosting) and unsupervised clustering (e.g., K-means) analyses\nTensorFlow / PyTorch are deep learning libraries widely used for computer vision and natural language processing (NLP).\noptuna / Ray can be integrated into ML/DL workflows for easy and efficient model training, hyperparameter tuning, fine-tuning, etc.\n\n\n\n\nOmics data analysis\nEmerging bioinformatics packages that provide standard omics data preprocessing and analysis pipeliness:\n\nscanpy, anndata are libraries for single-cell RNA-seq data loading, preprocessing, and analysis\nBiopython is a set of tools for biological computation that performs file parsering, sequence analysis, clustering algorithms, etc.\npysam works with raw input files (e.g., BAM/SAM/VCF)"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#essential-tools",
+    "href": "session1/session1-python-setup.html#essential-tools",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Essential Tools",
+    "text": "Essential Tools\nLet’s familiarize with the essential software tools for Python programming and project building.\n\n\nMiniconda: provides Python installation and conda, a powerful package and environment manager\n\n\n\n\nVisual Studio Code: a lightweight code editor that integrates programming + plots + terminal + git + …\n\n\n\n\nJupyter Notebook: an interactive computing tool that combines code execution + markdown + visualizations\n\n\n\n\nGit (GitHub): for version control, collaboration, and publishing code"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#miniconda-vs.-anaconda",
+    "href": "session1/session1-python-setup.html#miniconda-vs.-anaconda",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Miniconda vs. Anaconda",
+    "text": "Miniconda vs. Anaconda\n\nYou can install conda via both installers:\n\nMiniconda (minimal version)\n\n\nAnaconda Distribution (full version)\n\n The Latter provides the Anaconda Navigator application which allows you to manage packages and environments without having to use the command line."
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#conda-virtual-environments",
+    "href": "session1/session1-python-setup.html#conda-virtual-environments",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Conda Virtual Environments",
+    "text": "Conda Virtual Environments\n\nEnvironments are isolated, self-contained workspace that includes its own language interpreter and package dependencies \nExample:\n\nGlobal environment (system): Miniconda installation of Python 3.12 + dependencies\n\n\nVirtual environment1: Python 3.8 + dependencies\n\n\nVirtual environment2: R 4.4.2 + dependencies\n\n  In this case, creating virtual environments allows these Python installations to operate fully independently and not interfere with each other."
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#why-use-virtual-environments",
+    "href": "session1/session1-python-setup.html#why-use-virtual-environments",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Why Use Virtual Environments?",
+    "text": "Why Use Virtual Environments?\n You may find the flexibility of environments beneficial in many cases.\n\n\nAvoid Conflicts. Help resolve potential conflicts between different projects concerning conflicting dependencies. Changes made to one environment won’t affect other projects that use different environments.\n\n\n\n\nEasy Management. Reduce the risk of breaking system Python and globally installed packages. You can easily delete a virtual environment if issues occur and recreate it.\n\n\n\n\nReproducibility. Work as time capsules, allowing you to replicate the requirement of a project at later time points or on new machines.\n\n\n\n\nSharing Environments. Allow sharing the Python version and entire list of dependencies with other people through a copy of the .yml file."
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#overview-of-conda-commands",
+    "href": "session1/session1-python-setup.html#overview-of-conda-commands",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Overview of conda commands",
+    "text": "Overview of conda commands\nLet’s walk through some useful commands.  💡Open Anaconda Prompt (Windows) or Terminal (macOS) to execute commands"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#visual-studio-code",
+    "href": "session1/session1-python-setup.html#visual-studio-code",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Visual Studio Code",
+    "text": "Visual Studio Code\n\n  Visual Studio Code (VS Code) is one of the most popular open-source code editors with many features.\n\nLightweight\nMulti-language support for Python, R, C++, etc.\nIntegrated Git version control\nExtensible features like Jupyter notebooks, Quarto, remote connection\n\n\n\nJupyter Notebook\n\nJupyter is an interactive computing tool that lets you combine executable code, Markdown text, and visual components in one file called a notebook (.ipynb).\n\n\n\n VS Code + Jupyter notebooks for Python = RStudio + RMarkdowns for R."
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#create-a-github-project---example",
+    "href": "session1/session1-python-setup.html#create-a-github-project---example",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Create a GitHub Project - Example",
+    "text": "Create a GitHub Project - Example\n\n\nCreate new repository from GitHub (public) or GitHub Enterprise (MSK Secured)\nInitialize with README.md and .gitignore (choose Python template)\n\n\n\nAlternatively…\n\nGo to practice repository: https://github.mskcc.org/Python-Workshop/workshop_proj\nFork the repo to create a copy on your GitHub account \nNow, you should have a forked copy of the repository on your own GitHub account (e.g. username/workshop_proj) \n\n\n\n\nNow, clone the repository to your local computer by clicking  \nOption 1 (CLI): Copy the HTTPS URL and clone with git command\ngit clone https://github.mskcc.org/&lt;username&gt;/workshop_proj.git\nOption 2 (GUI): Open in GitHub Desktop"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#organize-the-project-directory",
+    "href": "session1/session1-python-setup.html#organize-the-project-directory",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Organize the Project Directory",
+    "text": "Organize the Project Directory\n\nOrganize the project with separate data/ and notebooks/ folders and environment.yml file to save virtual environment information.\n\n\n\nHere is an example project structure.\nworkshop_proj/\n   ├── data/            # Raw & processed data folder\n   ├── notebooks/       # Jupyter notebooks and scripts\n   ├── environment.yml  # Conda environment YML file\n   ├── .gitignore       # Files that git should not track\n   └── README.md        # Project description \n👉Downlaod workshop environment.yml file and add to the parent directory.\n\n\n\nNote: If you do not use GitHub – that is fine! You can skip the previous step of cloning from GitHub and directly create a local folder with subfolders and files."
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#create-a-project-specific-conda-environment",
+    "href": "session1/session1-python-setup.html#create-a-project-specific-conda-environment",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Create a Project-Specific Conda Environment",
+    "text": "Create a Project-Specific Conda Environment\n\n\n\n\n\n\nNote: Ensure that Miniconda is installed. For MacOs, ensure conda is correctly initialized with conda init (see installing Miniconda)\n\n\n\n\n\nLaunch Anaconda Prompt (Windows) or Terminal (macOS).\n\nChagne directory to your project folder with cd\nCreate the environment with:\nconda env create -f environment.yml\nconda activate python-intro-env"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#set-up-vs-code-for-python-jupyter",
+    "href": "session1/session1-python-setup.html#set-up-vs-code-for-python-jupyter",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Set up VS Code for Python & Jupyter",
+    "text": "Set up VS Code for Python & Jupyter\n\n\nLaunch VS Code\nOpen the Extensions Marketplace (Ctrl+Shift+X or Cmd+Shift+X) \nInstall the following extensions:\n\n✅ Python (auto-, debugging, and interpreter selection)\n✅ Jupyter (notebook interface and interactive execution)\nNote: You still need local installations of Python to enable the extension."
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#work-in-jupyter-notebooks-in-vs-code",
+    "href": "session1/session1-python-setup.html#work-in-jupyter-notebooks-in-vs-code",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Work in Jupyter Notebooks in VS Code",
+    "text": "Work in Jupyter Notebooks in VS Code\n\n\nOpen your project folder in VS Code:\n\nSelect Open Folder… from the VS Code Welcome page: \nOr by selecting File &gt; Open Folder (Ctrl+K Ctrl+O)"
   }
 ]
