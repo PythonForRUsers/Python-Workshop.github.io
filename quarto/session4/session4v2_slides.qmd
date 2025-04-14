@@ -12,6 +12,7 @@ format:
         height: 900  # default is 700
         transition: none
         code-line-numbers: true
+        self-contained: true
 execute:
   freeze: auto
   eval: true

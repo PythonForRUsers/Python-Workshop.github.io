@@ -25,7 +25,7 @@ The overall **goal** of the is to learn how to program in Python using modern, r
 -   **Session 2 and 3** will focus on the Python basics such as data structure, list comprehensive, and functions.
     We will also learn data frame manipulations with `pandas`.
 
--   **Session 4** will introduce you to object-oriented programming (OOP) with examples from the statistics library `statsmodels` and machine learning library `scikit-learn`.
+-   **Session 4** will introduce you to object-oriented programming (OOP) with examples from the machine learning library `scikit-learn`.
 
 ## ❗What You'll Need for the Workshop
 
