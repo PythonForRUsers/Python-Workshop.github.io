@@ -10,6 +10,10 @@ project:
     - "!Downloadable/*.yml"
     - "!session4_newMLDemo/session4_homework_blank.ipynb"
 
+resources:
+  - docs/session2
+  - docs/session3
+
 website:
   title: "Intro to Python Workshops"
   navbar:
