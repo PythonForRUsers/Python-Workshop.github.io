@@ -173,6 +173,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#key-differences" id="toc-key-differences" class="nav-link" data-scroll-target="#key-differences">Key Differences</a></li>
   </ul></li>
   <li><a href="#plotting-in-python" id="toc-plotting-in-python" class="nav-link" data-scroll-target="#plotting-in-python">Plotting in Python</a></li>
+  <li><a href="#quick-primer-on-object-oriented-programming-oop" id="toc-quick-primer-on-object-oriented-programming-oop" class="nav-link" data-scroll-target="#quick-primer-on-object-oriented-programming-oop">Quick Primer on Object-Oriented Programming (OOP)</a>
+  <ul class="collapse">
+  <li><a href="#key-principles-of-oop" id="toc-key-principles-of-oop" class="nav-link" data-scroll-target="#key-principles-of-oop"><strong>Key Principles of OOP</strong></a></li>
+  </ul></li>
   <li><a href="#optional-reading" id="toc-optional-reading" class="nav-link" data-scroll-target="#optional-reading">Optional Reading</a>
   <ul class="collapse">
   <li><a href="#introduction-to-object-oriented-programming-oop-in-python" id="toc-introduction-to-object-oriented-programming-oop-in-python" class="nav-link" data-scroll-target="#introduction-to-object-oriented-programming-oop-in-python">Introduction to Object-Oriented Programming (OOP) in Python</a></li>
@@ -279,6 +283,44 @@ ul.task-list li input[type="checkbox"] {
 <section id="plotting-in-python" class="level2">
 <h2 class="anchored" data-anchor-id="plotting-in-python">Plotting in Python</h2>
 <p>Please read the ‘Parts of a Figure’ and ‘Coding Styles’ sections of <a href="https://matplotlib.org/stable/users/explain/quick_start.html">Quick Start Guide (Matplotlib)</a>. We will briefly cover plotting with <code>Seaborn</code> (which is built on top of the <code>Matplotlib</code> package), but will not spend much time talking about base <code>Matplotlib</code>.</p>
+</section>
+<section id="quick-primer-on-object-oriented-programming-oop" class="level1">
+<h1>Quick Primer on Object-Oriented Programming (OOP)</h1>
+<p>Object-Oriented Programming (OOP) organizes code by bundling <strong>data (attributes)</strong> and <strong>behaviors (methods)</strong> into objects.</p>
+<p>For example, imagine an object representing a <strong>person</strong>: - <strong>Attributes</strong>: Name, age, address<br>
+- <strong>Methods</strong>: Walk, talk, eat</p>
+<p>Or a <strong>logistic regression model</strong>: - <strong>Attributes</strong>: Coefficients, intercept<br>
+- <strong>Methods</strong>: <code>.fit()</code>, <code>.predict()</code>, <code>.score()</code></p>
+<section id="key-principles-of-oop" class="level3">
+<h3 class="anchored" data-anchor-id="key-principles-of-oop"><strong>Key Principles of OOP</strong></h3>
+<ol type="1">
+<li><strong>Encapsulation</strong>: Bundling data and methods together in a single unit.
+<ul>
+<li>Example: A <code>DataFrame</code> object in pandas has its own methods for manipulation (<code>.sort_values()</code>, <code>.groupby()</code>).<br>
+</li>
+<li>Benefit: Prevents unintended modifications and keeps code organized.</li>
+</ul></li>
+<li><strong>Inheritance</strong>: Creating new classes based on existing ones.
+<ul>
+<li>Example: <code>sklearn.LinearRegression</code> inherits from a general regression model class.<br>
+</li>
+<li>Benefit: Code reuse and modular design.</li>
+</ul></li>
+<li><strong>Abstraction</strong>: Hiding implementation details and exposing only essential functionality.
+<ul>
+<li>Example: <code>.fit()</code> is implemented differently for logistic regression and KNN, but the user interacts with it the same way.</li>
+</ul></li>
+<li><strong>Polymorphism</strong>: Objects of different types can be treated the same way if they implement the same methods.
+<ul>
+<li>Example: Python’s <strong>duck typing</strong>:
+<ul>
+<li><em>“If it walks like a duck and quacks like a duck, then it must be a duck.”</em><br>
+</li>
+<li>If an object has the right attributes and methods, it can be used in the same way as another object of a different class.</li>
+</ul></li>
+</ul></li>
+</ol>
+</section>
 </section>
 <section id="optional-reading" class="level1">
 <h1>Optional Reading</h1>

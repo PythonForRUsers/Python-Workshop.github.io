@@ -7599,6 +7599,9 @@ class Speech:  ## mixin that adds behaviors to animal class
             return (
                 f"Invalid input. Must be a number between 0 and {len(self.sound_list)}."
             )
+    
+    def repeat(self, message):
+        return f"{self.name} says: {message}"
 </pre></div>
 </div>
 </div>
@@ -7653,7 +7656,7 @@ class Parrot(Animal, Speech):  ## inherit from Speech and Animal
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-plaintext"><pre><span></span>polly = Parrot("Polly")
@@ -7665,6 +7668,8 @@ polly.learn_sound("Polly wants a cracker!")
 polly.set_sound(2)
 
 print(polly.speak())
+
+print(polly.repeat("I am not a bird!"))
 
 print(polly)
 
@@ -7683,12 +7688,13 @@ polly
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Polly says squawk!
 Polly says Polly wants a cracker!!
+Polly says: I am not a bird!
 Name: Polly. Current sound: Polly wants a cracker!
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>Name: Polly. Current sound: Polly wants a cracker! 
  Known sounds: ['squawk', 'Hello!', 'Polly wants a cracker!']</pre>

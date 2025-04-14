@@ -55,6 +55,38 @@ We will be using `sci-kit learn` implementations of both of these algorithms dur
 
 Please read the 'Parts of a Figure' and 'Coding Styles' sections of [Quick Start Guide (Matplotlib)](https://matplotlib.org/stable/users/explain/quick_start.html). We will briefly cover plotting with `Seaborn` (which is built on top of the `Matplotlib` package), but will not spend much time talking about base `Matplotlib`.
 
+
+# Quick Primer on Object-Oriented Programming (OOP)
+
+Object-Oriented Programming (OOP) organizes code by bundling **data (attributes)** and **behaviors (methods)** into objects.  
+
+For example, imagine an object representing a **person**:
+- **Attributes**: Name, age, address  
+- **Methods**: Walk, talk, eat  
+
+Or a **logistic regression model**:
+- **Attributes**: Coefficients, intercept  
+- **Methods**: `.fit()`, `.predict()`, `.score()`  
+
+### **Key Principles of OOP**  
+
+1. **Encapsulation**: Bundling data and methods together in a single unit.  
+   - Example: A `DataFrame` object in pandas has its own methods for manipulation (`.sort_values()`, `.groupby()`).  
+   - Benefit: Prevents unintended modifications and keeps code organized.  
+
+2. **Inheritance**: Creating new classes based on existing ones.  
+   - Example: `sklearn.LinearRegression` inherits from a general regression model class.  
+   - Benefit: Code reuse and modular design.  
+
+3. **Abstraction**: Hiding implementation details and exposing only essential functionality.  
+   - Example: `.fit()` is implemented differently for logistic regression and KNN, but the user interacts with it the same way.  
+
+4. **Polymorphism**: Objects of different types can be treated the same way if they implement the same methods.  
+   - Example: Python’s **duck typing**:  
+     - *"If it walks like a duck and quacks like a duck, then it must be a duck."*  
+     - If an object has the right attributes and methods, it can be used in the same way as another object of a different class.  
+
+
 # Optional Reading
 
 ### Introduction to Object-Oriented Programming (OOP) in Python 
