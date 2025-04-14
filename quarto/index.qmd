@@ -31,12 +31,12 @@ All workshop materials, including pre-session handouts, coding demos, assignment
 -   Patrick Augello **(**[augellp1\@mskcc.org](mailto:augellp1@mskcc.org){.email}): OH **TBD**
 -   Yufei Deng ([dengy\@mskcc.org](mailto:dengy@mskcc.org){.email}): OH **TBD**
 
-::: {tbl-colwidths="[25, 15, 38, 50]"}
+::: {tbl-colwidths="[25, 15, 50, 25]"}
 +---------------------------------------------------------------------------+------------------+----------------------------------------------------------------------+--------------------------------------------------------------+
-| Session                                                                   | Date             | Outline                                                              | Materials                                                    |
-+===========================================================================+==================+======================================================================+==============================================================+
-| **Session 1: Python Installation and Reproducible Workflow (Yufei)**      | Monday (4/14)    | - Python, VS Code, and conda virtual environment overview            | - Pre-read: Installation guide [html]                        |
-|                                                                           |                  | - Building a reproducible Python Project                             | - Session Slides [html]                                      |
+| **Session**                                                               | **Date**         | **Outline**                                                          | **Materials**                                                |
++---------------------------------------------------------------------------+------------------+----------------------------------------------------------------------+--------------------------------------------------------------+
+| **Session 1: Python Installation and Reproducible Workflow (Yufei)**      | Monday (4/14)    | - Python, VS Code, and conda virtual environment overview            | - Installation guide [html](session1/session1.html)          |
+|                                                                           |                  | - Building a reproducible Python Project                             | - Session Slides [html](https://mskcc-my.sharepoint.com/:u:/g/personal/dengy_mskcc_org1/EToHXY348D5Hofgqw1Yt9fUB3ks-do9Egv9WaH2WNJ2Kjw?e=6WYxRe) |
 |                                                                           | 2:30–4:30 pm     | - Create a GitHub repository for the workshop series                 |                                                              |
 |                                                                           |                  | - Set up a conda virtual environment through command lines           |                                                              |
 |                                                                           |                  | - Set up Jupyter Notebook in VS Code                                 |                                                              |
@@ -45,7 +45,7 @@ All workshop materials, including pre-session handouts, coding demos, assignment
 |                                                                           |                  | - Handling missingness                                               | - Session Slides [html](session2/DataStructuresDemo.html)    |
 |                                                                           | 1:00–3:00 pm     | - Methods vs. functions                                              |                                                              |
 +---------------------------------------------------------------------------+------------------+----------------------------------------------------------------------+--------------------------------------------------------------+
-| **Session 3: Intro to Pandas (Patrick)**                                  | Monday (4/21)    | - `pandas` for data manipulation and cleaning                        | - Session Slides [html](session3/DataStructuresDemo_2.html)    |
+| **Session 3: Intro to Pandas (Patrick)**                                  | Monday (4/21)    | - `pandas` for data manipulation and cleaning                        | - Session Slides [html](session3/DataStructuresDemo_2.html)  |
 |                                                                           |                  | - Data management                                                    |                                                              |
 |                                                                           | 2:30–4:30 pm     | - `great_tables` for gtsummary-style tables                          |                                                              |
 +---------------------------------------------------------------------------+------------------+----------------------------------------------------------------------+--------------------------------------------------------------+
@@ -60,7 +60,6 @@ All workshop materials, including pre-session handouts, coding demos, assignment
 |                                                                           |                  | - Prediction (k nearest neighbors)                                   |                                                              |
 |                                                                           |                  | - Plotting with Python (`plotnine`, `seaborn`)                       |                                                              |
 +---------------------------------------------------------------------------+------------------+----------------------------------------------------------------------+--------------------------------------------------------------+
-
 :::
 
 
@@ -84,23 +83,24 @@ Recordings will be uploaded after each session
 
 #### **Downloads**
 
-<a href="https://www.anaconda.com/download/success" class="link-block"> <img src="icons/anaconda_secondary_logo.svg" alt="Anaconda Download"/>
+<a href="https://www.anaconda.com/docs/getting-started/miniconda/main" class="link-block"> <img src="icons/anaconda_secondary_logo.svg" alt="Miniconda Download"/>
 
-<p>Install Anaconda</p>
+<p>Install Miniconda</p>
 
 </a><a href="https://code.visualstudio.com/" class = "link-block"> <img src="icons/VScode.png" alt="VS Code Download" width="100"/>
 
 <p>Install VS Code</p>
 
-</a><a href="https://quarto.org/docs/get-started/" class="link-block"> <img src="icons/quarto.png" alt="Install Quarto"/>
-
-<p>Install Quarto</p>
-
-</a>
-
 <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml" class="link-block"> <img src="icons/yaml.png" alt="File" width="100"/>
 
 <p>Download environment YML file</p>
+
+<!-- </a><a href="https://quarto.org/docs/get-started/" class="link-block"> <img src="icons/quarto.png" alt="Install Quarto"/>
+
+<p>Install Quarto</p> -->
+
+<!-- </a>
+
 
 </a><a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block"> <img src="icons/code.png" alt="File" width="100"/>
 
@@ -112,4 +112,4 @@ Recordings will be uploaded after each session
 
 <p>Download Intro to Pandas Dataset</p>
 
-</a>
+</a> -->
