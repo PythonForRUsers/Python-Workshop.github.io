@@ -16,11 +16,11 @@ output-dir: docs/
   </a>
 
  
-<a href="session2a/session2.html">Go to Session2a: Intro to Python Data Structures
+<a href="session2/DataStructuresDemo.html">Go to Session2a: Intro to Python Data Structures
   </a> 
 
 
-<a href="session2b/session2_2.html">Go to Session2b: Intro to Pandas
+<a href="session3/DataStructuresDemo_2.html">Go to Session2b: Intro to Pandas
   </a>
 
 

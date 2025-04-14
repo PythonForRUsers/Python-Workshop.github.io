@@ -1,0 +1,929 @@
+---
+title: "Session 3: Intro to Pandas and great_tables"
+jupyter: python3
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    background-color: lavenderblush
+    incremental: true
+    code-copy: true
+    smaller: true
+    code-block-height: 750px
+    highlight-style: pygments
+    width: 1400
+    height: 800
+execute:
+  freeze: auto
+  eval: true
+  echo: true
+---
+
+
+## Links
+
+<a href="https://docs.python.org/3/tutorial/datastructures.html" class="link-block">
+    <img src="../icons/csv.png" alt="Dataset">
+    <p>Guide to Python Data Structures</p>
+</a> <a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block">
+    <img src="../icons/code.png" alt="File">
+    <p>Cancer Dataset</p>
+</a>
+
+
+## Topic 5: What Is Pandas? {.scrollable background-color="lavenderblush"}
+
+Pandas is a powerful open-source data analysis and manipulation library in Python. It provides data structures, primarily the DataFrame and Series, which are optimized for handling and analyzing large datasets efficiently.
+
+. . .
+
+Data Structures:
+
+- Series: A one-dimensional labeled array, suitable for handling single columns or rows of data.
+
+- DataFrame: A two-dimensional table with labeled axes (rows and columns), much like a spreadsheet or SQL table, allowing you to work with data in rows and columns simultaneously.
+
+. . .
+
+Data Manipulation:
+
+- Pandas has functions for merging, reshaping, and aggregating datasets, which helps streamline data cleaning and preparation.
+
+- It can handle missing data, making it easy to filter or fill gaps in datasets.
+
+. . .
+
+Data Analysis:
+
+- Pandas provides extensive functionality for descriptive statistics, grouping data, and handling time series.
+
+- Integrates well with other libraries, making it easy to move data between libraries like NumPy for numerical computations and Matplotlib or Seaborn for visualization.
+
+
+
+
+## Creating folders for project housekeeping {.scrollable background-color="lavenderblush"}
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+###Example Folder Structure
+'''
+project_name/
+    data/
+        raw/
+        processed/
+    scripts/
+    results/
+    logs/
+'''
+
+#To Create folders
+
+import os
+
+#Defining working directory
+base_dir = "G:\\dir_demo"
+
+#Defining Project folder
+project_name = os.path.join(base_dir, "my_project")
+
+# Define the subdirectories
+subdirs = [
+    "data/raw",
+    "data/processed",
+    "scripts",
+    "results",
+    "logs",
+]
+
+# Create directories
+for subdir in subdirs:
+    path = os.path.join(project_name, subdir)
+    os.makedirs(path, exist_ok=True)  #ensures no error if the folder already exists
+    print(f"Created directory: {path}")
+
+```
+
+. . .
+
+Loading the Dataset
+```{python}
+#| class: fragment
+#| output-location: fragment
+import os
+import pandas as pd
+
+# Load the dataset
+cancer_data = pd.read_csv("C:\\Users\\augellp1\\Desktop\\Python Workshop\\Python-Workshop_NEW\\quarto\\session3\\example_data\\Cancer_Data.csv")
+
+print (type(cancer_data))
+
+
+# Display the first few rows of the dataset
+cancer_data.head()
+
+
+```
+
+## Viewing Basic Information {.scrollable background-color="lavenderblush"}
+
+- Checking the Dataset’s Shape
+
+. . .
+
+.shape returns a tuple with (number of rows, number of columns), which provides a basic overview of the dataset size.
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Display the shape of the dataset
+print("Dataset Shape:", cancer_data.shape)
+
+
+
+
+```
+
+
+
+- Summarizing Column Information
+
+. . .
+
+.info() lists all columns, their data types, and counts of non-null values, helping identify any columns that may have missing data.
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Display column names, data types, and non-null counts
+cancer_data.info()
+
+
+
+```
+
+. . .
+
+Viewing Column Names
+
+. . .
+
+.columns lists column headers, while .tolist() converts it into a standard Python list for easier viewing.
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Display column names
+print("Column Names:", cancer_data.columns.tolist())
+
+
+
+```
+
+
+## Summary Statistics {.scrollable background-color="lavenderblush"}
+
+. . .
+
+.describe() generates essential statistics (mean, std, min, max, percentiles) for numeric columns, useful for identifying data distributions.
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Generate summary statistics for numeric columns
+cancer_data.describe()
+
+
+
+
+```
+
+. . .
+
+Using value_counts() on a Single Column
+
+This method is straightforward if you want to check the frequency distribution of one specific categorical column. Returns a pandas series object
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Count occurrences of each unique value in the 'diagnosis' column
+diagnosis_counts = cancer_data['diagnosis'].value_counts()
+print("Diagnosis Counts:\n", diagnosis_counts)
+
+
+
+```
+
+. . .
+
+To see summary statistics grouped by a categorical variable in pandas, you can use the groupby() method along with describe() or specific aggregation functions like mean(), sum(), etc.
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Group by 'diagnosis' and get summary statistics for each group
+grouped_summary = cancer_data.groupby('diagnosis').mean()
+print(grouped_summary)
+
+
+#Group by 'diagnosis' and get summary statistics for only one variable
+grouped_radius_mean = cancer_data.groupby('diagnosis')['radius_mean'].mean()
+print(grouped_radius_mean)
+
+
+```
+
+
+## Renaming Columns {.scrollable background-color="lavenderblush"}
+
+To make column names more readable or consistent, you can use rename() to change specific names. Here’s how to rename columns like radius_mean to Radius Mean.
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Rename specific columns for readability. 'old': 'new'
+
+new_columns={
+    'radius_mean': 'Radius Mean',
+    'texture_mean': 'Texture Mean',
+    'perimeter_mean': 'Perimeter Mean'
+}
+
+cancer_data = cancer_data.rename(columns=new_columns)
+
+# Display the new column names to verify the changes
+print("\nUpdated Column Names:", cancer_data.columns.tolist())
+
+
+```
+
+## Missing values in Python {.scrollable background-color="lavenderblush"}
+
+
+Missing values are common in data analysis. Python provides multiple ways to represent missing values, including `None`, `np.nan`, and `pd.NA`. Understanding their behavior is crucial for data cleaning, processing, and analysis.
+
+. . .
+
+Missing Values in Python: `None`
+
+- **Definition**: `None` is a built-in Python object representing "no value."
+- **Use Cases**: Works with general Python objects but does **not** support mathematical operations.
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+x = None
+if x is None:  # Best practice
+    print("x is missing")
+```
+
+. . .
+
+**Issue with `None` in arithmetic**:
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+try: 
+    print(x + 1)
+except TypeError: 
+    print("TypeError: Unsupported operand type(s)")  # TypeError: unsupported operand type(s)
+print(x==x)
+```
+
+
+
+## Missing Values in NumPy: `np.nan` {.scrollable background-color="lavenderblush"}
+
+- `np.nan` represents missing values in numerical computations.
+- `np.nan` is a floating-point value (`float64`).
+- Cannot be checked with `==` because `np.nan != np.nan`.
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+import numpy as np
+x = np.nan
+if np.isnan(x):  # Correct way to check for np.nan
+    print("x is missing")
+```
+
+- Behavior in Math Operations
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+print(x + 10)  # Output: nan
+print(x == x)  # Output: False
+```
+
+
+
+## Missing Values in Pandas: `pd.NA` {.scrollable background-color="lavenderblush"}
+
+- `pd.NA` is Pandas' missing value representation, introduced in Pandas 1.0.
+- Works with nullable data types (`Int64`, `Float64`, `boolean`, `string`).
+- Avoids automatic type conversion (e.g., integers remain integers).
+
+
+- Behavior in Math Operations
+```{python}
+#| class: fragment
+#| output-location: fragment
+import pandas as pd
+x = pd.NA
+print(x+1)
+```
+
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+#Checking for missingness 
+
+
+x = pd.NA
+if pd.isna(x):  # Correct way
+    print("x is missing")
+
+try:   
+    if x==pd.na:
+        print(x)
+except AttributeError:
+    print('#Incorrect way: if x=pd.NA')
+
+print(x==x)
+
+```
+
+
+
+## Comparing `None`, `np.nan`, and `pd.NA` {.scrollable background-color="lavenderblush"}
+
+| Feature               | `None`              | `np.nan`                  | `pd.NA`                  |
+|-----------------------|---------------------|---------------------------|--------------------------|
+| **Type**              | `NoneType`          | `float64`                 | Special Pandas scalar    |
+| **Use Case**          | General Python      | NumPy/Pandas numeric data | Pandas nullable types    |
+| **Arithmetic Ops**    | Fails (`None + 1`)  | Works but returns `nan`   | Works but returns `<NA>` |
+| **Comparison (`==`)** |`None == None → True`| `np.nan == np.nan → False`| `pd.NA == pd.NA → <NA> ` |
+| **Check Method**      | `if x is None:`     | `if np.isnan(x):`         | `if pd.isna(x):`         |
+
+---
+
+## Handling Missing Values in Pandas {.scrollable background-color="lavenderblush"}
+
+
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+import numpy as np
+df = pd.DataFrame({"A": [1, np.nan, 3, None, pd.NA]})
+print(df.isna())  # Identifies missing values
+for x in df.iloc[:, 0]:
+    print(type(x))
+
+```
+
+. . .
+
+Filling Missing Values
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+df["A"]=df["A"].fillna(pd.NA).astype('Float64')  # Replaces missing values with pd.NA, and then changes the column type to 'FLoat64, pandas' nullable float datatype.
+for value in df.iloc[:,0]:
+        print(value)
+        print(type(value))
+
+print(df["A"].dtype)
+```
+
+. . .
+
+Make sure you typecast the column as a pandas nullable data type.
+```{python}
+#| class: fragment
+#| output-location: fragment
+df["A"]=df["A"].astype('float64')  #typecasting as lowercase "float" changes all pd.NA back to np.nan because "float64" (lowercase) is not supported by pd.NA
+for value in df.iloc[:,0]:
+        print(value)
+        print(type(value))
+
+print(df["A"].dtype)
+```
+
+
+
+
+## Dropping Missing Values {.scrollable background-color="lavenderblush"}
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+df=df.dropna()
+print(df["A"])
+# Removes rows with missing values
+```
+
+
+## Best Practices {.scrollable background-color="lavenderblush"}
+
+- Use `None` for general Python objects.  
+- Use `np.nan` for numerical missing values in NumPy.  
+- Use `pd.NA` for missing values in Pandas with nullable data types.  
+- Always use `isna()` or `isnull()` when working with missing data in Pandas.
+
+## Other Pandas Nullable Data Types {.scrollable background-color="lavenderblush"}
+
+| Pandas Nullable Data Type | Description                              | Typical Usage                      |
+|---------------------------|------------------------------------------|------------------------------------|
+| `Int8`, `Int16`, `Int32`, `Int64` | Nullable integer types (can hold `pd.NA`) | Use when you want integers with missing values |
+| `Float32`, `Float64`      | Nullable float types (standard floats also support `NaN`) | Numeric data with decimals, missing values |
+| `boolean`                 | Nullable Boolean type (`True`, `False`, `pd.NA`) | Binary categories with missing info |
+| `string`                  | Pandas string data type (nullable)       | Text data with potential nulls     |
+| `category`                | Categorical type (can include `NaN` or `pd.NA`) | Categorical data, efficient storage |
+| `datetime64[ns]` with `pd.NaT` | Datetime with nanosecond precision       | Time series, datetime columns      |
+| `timedelta64[ns]` with `pd.NaT` | Timedeltas (differences between datetimes) | Duration calculations              |
+
+
+
+## More on missing values {.scrollable background-color="lavenderblush"}
+
+To find missing values, you can use isnull() with sum() to calculate the total number of missing values in each column.
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Count missing values in each column
+missing_values = cancer_data.isnull().sum()
+print("Missing Values per Column:")
+print(missing_values)
+
+
+
+
+```
+
+. . .
+
+Dropping Columns with Excessive Missing Data
+Since Unnamed: 32 has no data, it can be dropped from the DataFrame using .drop().
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Drop the 'Unnamed: 32' column if it contains no data
+cancer_data = cancer_data.drop(columns=['Unnamed: 32'])
+
+# Verify the column has been dropped
+print("\nColumns after dropping 'Unnamed: 32':", cancer_data.columns.tolist())
+
+
+
+
+```
+
+
+## Column Selection {.scrollable background-color="lavenderblush"}
+
+Selecting specific columns is essential for focusing on particular aspects of the dataset. Here are some examples of both single and multiple column selections.
+```{python}
+#| class: fragment
+#| output-location: fragment
+
+# Select the 'diagnosis' column - diagnosis_column will be a series
+diagnosis_column = cancer_data['diagnosis']
+print("Diagnosis Column:\n", diagnosis_column.head())
+
+
+```
+
+. . . 
+
+Alternatively, you can select multiple columns.
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Select multiple columns: 'diagnosis', 'radius_mean', and 'area_mean' - selected_columns will be a pandas DataFrame
+
+selected_columns = cancer_data[['diagnosis', 'Radius Mean', 'area_mean']]
+print("Selected Columns:\n", selected_columns.head())
+
+
+
+```
+
+
+## Row Selection {.scrollable background-color="lavenderblush"}
+Selecting rows based on labels or positions is helpful for inspecting specific data points or subsets.
+
+. . .
+
+Label-Based Indexing with loc
+
+. . .
+
+loc allows selection based on labels (e.g., column names or index labels) and is particularly useful for data subsets.
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Select rows by labels (assuming integer index here) and specific columns
+selected_rows_labels = cancer_data.loc[0:4, ['diagnosis', 'Radius Mean', 'area_mean']]
+print("Selected Rows with loc:\n", selected_rows_labels)
+
+
+
+```
+
+. . .
+
+Integer-Based Indexing with iloc
+
+. . .
+
+iloc allows selection based purely on integer positions, making it convenient for slicing and position-based operations.
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Select rows by integer position and specific columns
+selected_rows_position = cancer_data.iloc[0:5, [1, 2, 3]]  # Select first 5 rows and columns at position 1, 2, 3
+print("Selected Rows with iloc:\n", selected_rows_position)
+
+
+
+
+```
+
+## Filtering {.scrollable background-color="lavenderblush"}
+
+Filtering enables you to create subsets of data that match specific conditions. For example, we can filter by diagnosis to analyze only malignant (M) or benign (B) cases.
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Filter rows where 'diagnosis' is "M" (Malignant)
+malignant_cases = cancer_data[cancer_data['diagnosis'] == 'M']
+print("Malignant Cases:\n", malignant_cases.head(20))
+
+
+
+
+```
+
+. . .
+
+You can also filter based on multiple conditions, such as finding rows where the diagnosis is "M" and radius_mean is greater than 15.
+
+Note: You can't use 'and' python operator here, because 'and' is a keyword for Python's boolean operations, which work with single True or False values, not arrays or Series.
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Filter for Malignant cases with radius_mean > 15
+large_malignant_cases = cancer_data[(cancer_data['diagnosis'] == 'M') & (cancer_data['Radius Mean'] > 15)]
+print("Large Malignant Cases (Radius Mean > 15):\n", large_malignant_cases.head())
+
+
+
+```
+
+
+## Adding and Modifying Columns {.scrollable background-color="lavenderblush"}
+
+
+You can create new columns in a DataFrame based on calculations using existing columns. For example, we can calculate the area_ratio by dividing area_worst by area_mean.
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Add a new column 'area_ratio' by dividing 'area_worst' by 'area_mean'
+cancer_data['area_ratio'] = cancer_data['area_worst'] / cancer_data['area_mean']
+print("New Column 'area_ratio':\n", cancer_data[['area_worst', 'area_mean', 'area_ratio']].head())
+
+
+
+
+```
+
+. . .
+
+Changing a Value Using .at
+
+. . .
+
+Suppose you have a DataFrame and want to update the value in the radius_mean column for a particular index.
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Access and print the original value at index 0 and column 'radius_mean'
+original_value = cancer_data.at[0, 'Radius Mean']
+print("Original Radius Mean at index 0:", original_value)
+
+
+# Change the value at index 0 and column 'radius_mean' to 18.5
+cancer_data.at[0, 'Radius Mean'] = 18.5
+
+
+# Verify the updated value
+updated_value = cancer_data.at[0, 'Radius Mean']
+print("Updated Radius Mean at index 0:", updated_value)
+
+
+```
+
+. . .
+
+## Sorting by Columns {.scrollable background-color="lavenderblush"}
+
+You can sort a dataset by columns. Here’s how to sort by diagnosis first and then by area_mean in ascending order.
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Sort by 'diagnosis' first, then by 'area_mean' within each diagnosis group
+sorted_by_diagnosis_area = cancer_data.sort_values(by=['diagnosis', 'area_mean'], ascending=[True, True])
+print("Data sorted by Diagnosis and Area Mean:\n", sorted_by_diagnosis_area[['diagnosis', 'area_mean', 'Radius Mean']].head())
+
+
+
+```
+
+
+## Reordering Columns to Move a Column to the End {.scrollable background-color="lavenderblush"}
+
+You might also want to move a specific column to the end of the DataFrame, such as moving area_ratio to the last position.
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Move 'area_ratio' to the end of the DataFrame
+columns_reordered = [col for col in cancer_data.columns if col != 'area_ratio'] + ['area_ratio']
+cancer_data_with_area_ratio_last = cancer_data[columns_reordered]
+
+# Display the reordered columns
+print("Data with 'area_ratio' at the end:\n", cancer_data_with_area_ratio_last.head())
+
+
+
+
+```
+
+
+
+## Method Chaining in Pandas {.scrollable background-color="lavenderblush"}
+
+
+In Pandas, you can chain multiple methods together to create a pipeline.
+```{python}
+
+#| class: fragment
+#| output-location: fragment
+import pandas as pd
+
+# Sample DataFrame
+df = pd.DataFrame({
+    "name": [" Alice ", "BOB", "Charlie", None],
+    "score": [85, 92, None, 74]
+})
+
+# Clean the data using method chaining
+clean_df = (
+    df
+    .dropna()                # Method: drop rows with any NaNs
+    .assign(                 # Method: add or update columns
+        name_clean=lambda d: d["name"].str.strip().str.title()
+    )
+    .sort_values("score", ascending=False)  # Method: sort by score
+)
+
+print(clean_df)
+```
+
+. . .
+
+Why `.str.strip()` and not just `.strip()`?
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+# This works:
+df["name"].str.strip()
+
+# This does NOT:
+try:
+    df["name"].strip()  # ❌ AttributeError
+except AttributeError: 
+    print("AttributeError: .strip is used for single strings, not a Series of strings")
+
+```
+
+. . .
+
+Why?
+- `df["name"]` is a Series — not a string.
+- `.strip()` is a string method that works on single strings.
+- `.str` is the accessor that tells pandas: “apply this string method to each element in the Series.”
+
+## Rule of Thumb: {.scrollable background-color="lavenderblush"}
+
+| You have...         | Use...                  | Why?                                   |
+|---------------------|-------------------------|----------------------------------------|
+| A single string     | `"hello".strip()`       | It's just Python                       |
+| A Series of strings | `df["col"].str.strip()` | It's pandas, operating on many strings |
+
+---
+
+
+## Applying Functions in Pandas {.scrollable background-color="lavenderblush"}
+
+Applying Functions to Columns
+
+
+Using apply() to Apply Custom Functions
+
+. . .
+
+The .apply() method in pandas lets you apply a custom function to each element in a Series (column) or DataFrame. Here’s how to use it to categorize tumors based on area_mean.
+
+. . .
+
+Example: Categorizing Tumors by Size
+Let’s create a custom function to categorize tumors as "Small", "Medium", or "Large" based on area_mean.
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Define a custom function to categorize tumors by area_mean
+def categorize_tumor(size):
+    if size < 500:
+        return 'Small'
+    elif 500 <= size < 1000:
+        return 'Medium'
+    else:
+        return 'Large'
+
+# Apply the function to the 'area_mean' column and create a new column 'tumor_size_category'
+cancer_data['tumor_size_category'] = cancer_data['area_mean'].apply(categorize_tumor)
+
+# Display the new column to verify the transformation
+print("Tumor Size Categories:\n", cancer_data[['area_mean', 'tumor_size_category']].head())
+
+
+
+```
+
+. . .
+
+Using Lambda Functions for Quick Transformations
+
+. . .
+
+Lambda functions are useful for simple, one-line operations. For example, we can use a lambda function to convert diagnosis into numerical codes (0 for Benign, 1 for Malignant).
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Apply a lambda function to classify 'diagnosis' into numerical codes
+cancer_data['diagnosis_code'] = cancer_data['diagnosis'].apply(lambda x: 1 if x == 'M' else 0)
+
+# Display the new column to verify the transformation
+print("Diagnosis Codes:\n", cancer_data[['diagnosis', 'diagnosis_code']].head())
+
+
+```
+
+
+## Applying Multiple Conditions with apply() {.scrollable background-color="lavenderblush"}
+
+You can also use apply() with a lambda function for more complex, multi-condition classifications.
+
+. . .
+
+Example: Adding a Column with Risk Levels
+Suppose we want to create a new column, risk_level, based on both diagnosis and area_mean:
+
+- "High Risk" for Malignant tumors with area_mean above 1000.
+- "Moderate Risk" for Malignant tumors with area_mean below 1000.
+- "Low Risk" for Benign tumors.
+```{python}
+#| class: fragment
+#| output-location: fragment
+# Apply a lambda function with multiple conditions to create a 'risk_level' column
+cancer_data['risk_level'] = cancer_data.apply(
+    lambda row: 'High Risk' if row['diagnosis'] == 'M' and row['area_mean'] > 1000 
+    else ('Moderate Risk' if row['diagnosis'] == 'M' else 'Low Risk'), axis=1
+)
+
+# Display the new column to verify the transformation
+print("Risk Levels:\n", cancer_data[['diagnosis', 'area_mean', 'risk_level']].head())
+
+#Axis=1 tells the function to apply it to the rows. axis=0 (default) applies function to the columns
+
+
+```
+
+
+## When to apply axis= 
+
+
+| You’re applying to...              | Use `.apply()` on...          | Do you need `axis`?        |
+|-----------------------------------|-------------------------------|-----------------------------|
+| A single column (Series)          | `df['col'].apply(func)`       | No                          |
+| Multiple columns (row-wise)       | `df.apply(func, axis=1)`      | Yes (`axis=1`)              |
+| Column-wise (less common)         | `df.apply(func)` or `axis=0`  | Optional (default is `0`)   |
+
+
+
+## To export a Pandas dataframe to CSV or XLSX {.scrollable background-color="lavenderblush"}
+```{python}
+
+# Export to CSV
+'''
+
+df.to_csv('/path/to/directory/example.csv', index=False)  # index=False excludes the row indices
+
+
+'''
+#Export to xlsx
+
+'''
+
+df.to_excel('/path/to/directory/example.xlsx', index=False)
+
+'''
+
+```
+
+
+
+
+## great_tables for table generation {.scrollable background-color="lavenderblush"}
+
+You can use the `great_tables` Python module from the great-tables package to explore and display data from a dataset in a clean and interactive format.
+
+. . .
+
+We’ll load the data, summarize it, and then build styled tables using `great_tables`.
+
+---
+
+## Load and Inspect the Data {.scrollable background-color="lavenderblush"}
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+import pandas as pd
+
+# Load the dataset
+df = pd.read_csv("C:\\Users\\augellp1\\Desktop\\Python Workshop\\Python-Workshop_NEW\\quarto\\session3\\example_data\\Cancer_Data.csv")
+
+# Drop unnamed column
+df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
+
+# Show the shape and first few rows
+df.shape, df.head()
+```
+
+
+
+## Preview of dataset using great_tables {.scrollable background-color="lavenderblush"}
+```{python}
+#| class: fragment
+#| output-location: fragment
+from great_tables import GT
+
+# Select a subset of the columns for preview
+preview_df = df[['id', 'diagnosis', 'radius_mean', 'texture_mean', 'area_mean']].head(5)
+
+GT(preview_df).tab_header(
+    title="Breast Cancer Diagnosis Preview",
+    subtitle="Selected features from the first 5 records"
+).fmt_number(columns=["radius_mean", "texture_mean", "area_mean"], decimals=2)
+``` 
+
+## Enhance the Table with Styling {.scrollable background-color="lavenderblush"}
+
+Let's add conditional formatting to highlight larger tumor areas.
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+GT(preview_df).tab_header(
+    title="Styled Cancer Data Table",
+    subtitle="With conditional formatting on tumor area"
+).fmt_number(columns=["radius_mean", "texture_mean", "area_mean"], decimals=2
+).data_color(
+    columns="area_mean",
+    palette=["blue", "red"]
+)
+```
+
+
+## Group Statistics by Diagnosis {.scrollable background-color="lavenderblush"}
+
+Let’s summarize average values by diagnosis group (malignant vs. benign).
+
+```{python}
+#| class: fragment
+#| output-location: fragment
+summary_df = df.groupby("diagnosis")[["radius_mean", "texture_mean", "area_mean"]].mean().reset_index()
+
+GT(summary_df).tab_header(
+    title="Group-wise Summary",
+    subtitle="Mean values for radius, texture, and area by diagnosis"
+).fmt_number(columns=["radius_mean", "texture_mean", "area_mean"], decimals=2)
+```
+
+## You Try! {.scrollable background-color="lavenderblush"}
+
+Navigate to the follow-along file and try the practice problems!

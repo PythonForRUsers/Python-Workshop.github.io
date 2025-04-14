@@ -10,6 +10,10 @@ project:
     - "!Downloadable/*.yml"
     - "!session4_newMLDemo/session4_homework_blank.ipynb"
 
+resources:
+  - docs/session2
+  - docs/session3
+
 website:
   title: "Intro to Python Workshops"
   navbar:
@@ -23,10 +27,10 @@ website:
             href: sessions.qmd
           - text: "Session 1: Get Started with Python"
             href: session1/PythonInstallation.qmd
-          - text: "Session 2a: Intro to Python Data Structures"
-            href: session2a/DataStructuresDemo.qmd
-          - text: "Session 2b: Intro to Pandas"
-            href: session2b/DataStructuresDemo_2.qmd
+          - text: "Session 2: Intro to Python Data Structures"
+            href: session2/DataStructuresDemo.qmd
+          - text: "Session 3: Intro to Panda and great_tables"
+            href: session3/DataStructuresDemo_2.qmd
           - text: "Session 4: Object-Oriented Programming and Modeling Libraries"
             href: "session4/session4v2_webpage.html"
       - text: "Discussion"

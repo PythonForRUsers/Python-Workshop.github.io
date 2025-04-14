@@ -1,0 +1,24 @@
+/*-- scss:rules --*/
+
+/* Set background color for the title slide */
+.reveal .slide-background:first-of-type {
+  background-color: lavenderblush !important;
+}
+
+/* Make link icons smaller */
+.link-block img {
+  width: 50px;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+/* Make all code chunks bigger */
+.reveal pre code {
+  font-size: 1.5em;
+  line-height: 1.5;
+}
+
+/* Add space between code blocks */
+.reveal pre {
+  margin-bottom: 2em;
+}
