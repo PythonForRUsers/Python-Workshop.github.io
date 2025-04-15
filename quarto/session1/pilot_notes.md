@@ -29,8 +29,15 @@ No it won't. R studio pretty much isolates itself. You can check what environmen
     ```
     ├── README.md
     ├── environment.yaml
-    ├── data-date.txt
     ├── .gitignore
     ├── data/
-    └── scr/
+    └── notebooks/
     ```
+
+
+# Post-session 1 updates (2025)
+
+1. Add note on installing conda virtual env on VDI - could be slow
+2. Add note to explicitly explain where conda envs are installed by default
+3. Add note on how to create cell chunks in VS Code (P.S. shortcuts - maybe FAQ)
+4. Note: Add restart vs code after installing extensions to the tutorial page

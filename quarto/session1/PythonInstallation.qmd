@@ -68,7 +68,7 @@ Please follow each step before the first workshop session.
 
 ## What is Python?
 
-![](images/paste-1.png){width="220"}
+![](images/python-logo.png){width="220"}
 
 > Python is a **high-level**, **interpreted**, and **general-purpose programming language** first developed by Guido van Rossum in 1991.
 
