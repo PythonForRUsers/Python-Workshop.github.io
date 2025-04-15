@@ -560,6 +560,27 @@
     "text": "Statsmodels"
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Python Workshops",
+    "section": "",
+    "text": "This workshop series is geared toward R and SAS users who are interested in exploring Python–a powerful, versatile programming language that excels in many areas such as machine learning, large-scale data processing, and broader data science applications.\nOur goal is to help you build a solid foundation in Python and gain skills that can be integrated into your own work. This series will guide you through installing and setting up Python, understanding basic Python data structures, data manipulation through pandas, and, finally, applying machine learning methods using libraries such as scikit-learn.\nAll workshop materials, including pre-session handouts, coding demos, assignments, session slides, and video recordings, will be uploaded here. Be sure to check out the FAQ tab for common questions. If you have any questions, suggestions, or ideas for future sessions, please feel free to share them on our GitHub Discussions page. We value your feedback and aim to continually improve the workshops. We look forward to learning with you!"
+  },
+  {
+    "objectID": "index.html#recordings",
+    "href": "index.html#recordings",
+    "title": "Introduction to Python Workshops",
+    "section": "▶️Recordings",
+    "text": "▶️Recordings\nRecordings will be uploaded after each session.\n\nSession 1 recording: Python Workshop Monday, April 14, 2025"
+  },
+  {
+    "objectID": "index.html#useful-links",
+    "href": "index.html#useful-links",
+    "title": "Introduction to Python Workshops",
+    "section": "🔗Useful Links",
+    "text": "🔗Useful Links\n\nTutorials and Handouts\n\nSession 1 Tutorial: Installing Python and Essential Tools\nSession 2: Intro to Python Data Structures \nSession 3: Intro to Pandas \nSession 4: Object-Oriented Programming and Intro to ML Libraries - Extended tutorial\n\n\n\nDownloads\n \n\nInstall Miniconda\n\n \n\nInstall VS Code\n\n \n\nDownload environment.yml file"
+  },
+  {
     "objectID": "sessions.html",
     "href": "sessions.html",
     "title": "Sessions",
@@ -686,25 +707,11 @@
     "text": "▶️Follow-Along: Set up Jupyter Notebook in VS Code\nWe’ll now walk through setting up your Python coding environment in VS Code with full support for virtual environments and Jupyter notebooks.\n\n\n\n\n\n\n💡Prerequisites\n\n\n\nEnsure you have the following:\n\nMiniconda: see ▶️Follow-Along: Install Miniconda (Python + conda)\nVS Code: Download and install VS Code\n\n\n\n\nStep 1: Install Required VS Code Extensions\n\nLaunch VS Code.\nOpen the Extensions panel from the left toolbar (or Ctrl+Shift+X on Windows/ Cmd+Shift+X on Mac).\n\nInstall the following extensions:\n\nPython: To support Python language, debugging, documentations, etc.\nJupyter: To support rendering Python documents from Jupyter Notebooks or Quarto files.\n\n\n\n\n\n\n\nImportant\n\n\n\nYou still need to install Python (Miniconda) to your computer for these extensions to fully function.\n\n\n\n\n\nStep 2: Create a Conda Virtual Environment\nYou can create an environment in one step using the shared environment.yml file.\nconda env create -f environment.yml\nIf you want to create your own environment or use existing ones, install these necessary packages to allow your Python to work with Jupyter Notebooks in VS Code:\n\njupyter\nipykernel\npyyaml\n\nconda install jupyter ipykernel pyyaml -c conda-forge\n\n\nStep 3: Configure the Environment in VS Code.\n\nOpen the Command Palette (Ctrl+Shift+P on Windows / Cmd+Shift+X on Mac).\nSearch for and select “Python: Select Interpreter”.\nChoose your conda environment (e.g., python-intro-env).\n\nIf it doesn’t pop up, click Enter interpreter path…\nManually enter the path to your conda virtual environment Python executable:\n\nWindows: C:\\Users\\&lt;username&gt;\\AppData\\Local\\miniconda3\\envs\\&lt;env-name&gt;\\python.exe\nmacOS: Users/&lt;username&gt;/miniconda/envs/&lt;env-name&gt;/python\n\n\n\n\n\n\n\n\n🔎Find your conda Python executable path\n\n\n\nTo search for the conda Python interpreter location on your computer, open the Anaconda Prompt or terminal:\nconda activate &lt;env-name&gt;\nThen, locate your Python executable by typing the following:\n\nWindows: where python\nmacOS: which python\n\n\n\n\n\n\nStep 4: Open a Python Project and Create a Jupyter Notebook File\n\nIf you have an existing Python project you wish to work on in VS Code, you may open the project folder in VS Code.\n\nOpen from the VS Code Welcome page:\n\nOr by selecting File &gt; Open Folder (Ctrl+K Ctrl+O)\n\nTo create a new Jupyter Notebook file, go to File &gt; New File and select Jupyter Notebook (.ipynb).\nSelect the correct kernel (conda environment):\n\nIn the top-right corner of the notebook, you will see a Select Kernel button\nChoose the kernel that matches your conda environment (e.g., python-intro-env (Python 3.10.0))\n\nIf you don’t see the environment showing up:\n\nMake sure your conda env has the dependencies installed:\nconda install ipykernel jupyter pyyaml\nThen restart VS Code or reload the window (Ctrl+Shift+P &gt; Reload Window).\nIf all packages are installed but the issue persists, manually specify the Python path (see 🔎Find your conda Python executable path)\n\n\nYou are all set!"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction to Python Workshops",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "This workshop series is geared toward R and SAS users who are interested in exploring Python–a powerful, versatile programming language that excels in many areas such as machine learning, large-scale data processing, and broader data science applications.\nOur goal is to help you build a solid foundation in Python and gain skills that can be integrated into your own work. This series will guide you through installing and setting up Python, understanding basic Python data structures, data manipulation through pandas, and, finally, applying machine learning methods using libraries such as scikit-learn.\nAll workshop materials, including pre-session handouts, coding demos, assignments, session slides, and video recordings, will be uploaded here. Be sure to check out the FAQ tab for common questions. If you have any questions, suggestions, or ideas for future sessions, please feel free to share them on our GitHub Discussions page. We value your feedback and aim to continually improve the workshops. We look forward to learning with you!"
-  },
-  {
-    "objectID": "index.html#recordings",
-    "href": "index.html#recordings",
-    "title": "Introduction to Python Workshops",
-    "section": "▶️Recordings",
-    "text": "▶️Recordings\nRecordings will be uploaded after each session.\n\nSession 1 recording: Python Workshop Monday, April 14, 2025"
-  },
-  {
-    "objectID": "index.html#useful-links",
-    "href": "index.html#useful-links",
-    "title": "Introduction to Python Workshops",
-    "section": "🔗Useful Links",
-    "text": "🔗Useful Links\n\nTutorials and Handouts\n\nTutorial: Installing Python and Essential Tools\nGo to Session 2: Intro to Python Data Structures \nGo to Session 3: Intro to Pandas \nSession 4: Object-Oriented Programming and Intro to ML Libraries - Extended tutorial\n\n\n\nDownloads\n \n\nInstall Miniconda\n\n \n\nInstall VS Code\n\n \n\nDownload environment YML file"
+    "text": "About this site"
   },
   {
     "objectID": "FAQ.html",
@@ -719,13 +726,6 @@
     "title": "FAQ",
     "section": "",
     "text": "Question: Is it possible (or recommended) to create a virtual environment in a specific project folder? Are there advantages or disadvantages to keeping the virtual environment in the default location versus a network drive (e.g., H drive)?\nAnswer: It is definitely possible to create an environment in a specific project folder/on the H drive (conda create --prefix /path/to/your/project_folder/env_name)! Note that, to activate the environment, you need to activate it by the full path, not by a name–e.g., conda activate /path/to/your/project_folder/env_name.\n\nAdvantages:\n\nBackup and Portability: Keeping the environment with the project makes it easier to back up as a single unit and enables access on multiple devices without recreating the environment each time.\n\nDisadvantages:\n\nPerformance: Access speed may be slower on a network drive, and network or permissions issues could make the environment temporarily inaccessible. If you typically work off a network drive, storing your environments within the project folder can be beneficial for organization and consistency.\n\n\n\n\n\n\n\n\nActivating environments with custom folder locations\n\n\n\nYou need to activate the conda environment stored outside of the default location by the path, not by a name.\nconda activate /path/to/your/project_folder/env_name\nYou may also create a symbolic link in the default envs folder to point to your custom environment location.\n\nOn macOS:\nln -s /path/to/your/project_folder/env_name /path/to/conda/envs/&lt;custom_env_name&gt;\nOn Windows:\nmklink /J \"C:\\path\\to\\conda\\envs\\&lt;custom_env_name&gt;\" \"H:\\path\\to\\your\\project_folder\\env_name\"\n\nNow, you will be able to activate the environment by name only.\nconda activate &lt;custom_env_name&gt;\n\n\n\nQuestion: Will creating a virtual environment for each project lead to memory or storage issues? What is the best practice for closing out a project environment?\nAnswer: In general, having a virtual environment for each active project shouldn’t cause memory issues. However, it’s good practice to clean up environments when a project concludes.\n\nHere’s a recommended process:\n\nActivating the environment you want to export.\nExporting the environment to a .yaml file with conda env export &gt; environment.yaml.\nAfter the .yaml file is created (make sure to check before deleting the environment!), you can delete the environment with conda env remove --name env_name (or conda env remove --prefix path/to/env_name if using a specific path).\n\nTip: By exporting the environment before deletion, you can always recreate the environment later if needed by using:\nconda env create --prefix /path/to/your/project_folder/env_name -f environment.yaml\nconda activate /path/to/your/project_folder/env_name"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
   },
   {
     "objectID": "link.html",
@@ -756,18 +756,123 @@
     "text": "Plotting in Python\nPlease read the ‘Parts of a Figure’ and ‘Coding Styles’ sections of Quick Start Guide (Matplotlib). We will briefly cover plotting with Seaborn (which is built on top of the Matplotlib package), but will not spend much time talking about base Matplotlib."
   },
   {
+    "objectID": "session1/session1-python-setup.html#session-1-learning-goals",
+    "href": "session1/session1-python-setup.html#session-1-learning-goals",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Session 1 Learning Goals",
+    "text": "Session 1 Learning Goals\nIn this session, we will familiarize with Python and essential tools for building reproducible Python projects. \n💡 Python overview: What is Python? How is it useful compared to R? 💡 Conda: conda for installing packages and creating reproducible Python virtual environments 💡 Familiarize with integrated development environments (Visual Studio Code) and interactive computing tools (Jupyter Notebook) 💡 Python reproducible workflow: Create a GitHub Python repository and work in Visual Studio Code within a project-specific conda environment"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#what-is-python",
+    "href": "session1/session1-python-setup.html#what-is-python",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "What is Python?",
+    "text": "What is Python?\n\n\n\nPython is an open-source, high-level, interpreted, general-purpose programming language\n\nKey Features\n\n\nEasy to use: Python syntax is designed to be readable and user-friendly\nGeneral-purpose: widely applied in data science, ML/AL, software development, automation, etc.\nInterpreted: run code without compiling (unlike C/C++)\nOpen-source: free to use and supported by a mass user community, who contributes to many high-quality packages open to public"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#python-vs.-r",
+    "href": "session1/session1-python-setup.html#python-vs.-r",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Python vs. R",
+    "text": "Python vs. R\nPython and R differ in programming philosophy, computational capacity, and extensibility.\n\n\n\n\nFeature / Task\n\n\nR\n\n\nPython\n\n\n\n\n\n\nProgramming style\n\n\nFunction-oriented\n\n\nMostly object-oriented\n\n\n\n\nScope of functionality\n\n\nPrimarily for statistical computing and data analysis\n\n\nGeneral-purpose: ML & AI, software development, scripting, etc.\n\n\n\n\nComputational power\n\n\n✅ Vectorized operations  ⚠️ Memory-intensive for large data and loops\n\n\n✅ Faster loop performance  ✅ Strong GPU support  ✅ Efficient memory use\n\n\n\n\nPackage ecosystem\n\n\n✅ Rich ecosystem of statistical tools ⚠️ Fewer ML/AI tools\n\n\n☑️ Emerging statistical packages  ✅ Extensive ML/AI tools"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#python-package-ecosystem",
+    "href": "session1/session1-python-setup.html#python-package-ecosystem",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Python Package Ecosystem",
+    "text": "Python Package Ecosystem\n\n\nStatistical analysis\nWhile R is the go-to tool for statistical analysis, Python has caught up with many equivalent libraries and functions:\n\nstatsmodels / scipy.stats provide regression modeling and hypothesis testing.\nscikit-survival /lifelines support survival analysis and plotting.\n\n\n\n\nML/DL ecosystem\nPython dominates in machine learning and AI development:\n\nscikit-learn is a comprehensive machine learning library that supports supervised regression and classification (e.g., random forests, gradient boosting) and unsupervised clustering (e.g., K-means) analyses\nTensorFlow / PyTorch are deep learning libraries widely used for computer vision and natural language processing (NLP).\noptuna / Ray can be integrated into ML/DL workflows for easy and efficient model training, hyperparameter tuning, fine-tuning, etc.\n\n\n\n\nOmics data analysis\nEmerging bioinformatics packages that provide standard omics data preprocessing and analysis pipeliness:\n\nscanpy, anndata are libraries for single-cell RNA-seq data loading, preprocessing, and analysis\nBiopython is a set of tools for biological computation that performs file parsering, sequence analysis, clustering algorithms, etc.\npysam works with raw input files (e.g., BAM/SAM/VCF)"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#essential-tools",
+    "href": "session1/session1-python-setup.html#essential-tools",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Essential Tools",
+    "text": "Essential Tools\nLet’s familiarize with the essential software tools for Python programming and project building.\n\n\nMiniconda: provides Python installation and conda, a powerful package and environment manager\n\n\n\n\nVisual Studio Code: a lightweight code editor that integrates programming + plots + terminal + git + …\n\n\n\n\nJupyter Notebook: an interactive computing tool that combines code execution + markdown + visualizations\n\n\n\n\nGit (GitHub): for version control, collaboration, and publishing code"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#miniconda-vs.-anaconda",
+    "href": "session1/session1-python-setup.html#miniconda-vs.-anaconda",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Miniconda vs. Anaconda",
+    "text": "Miniconda vs. Anaconda\n\nYou can install conda via both installers:\n\nMiniconda (minimal version)\n\n\nAnaconda Distribution (full version)\n\n The Latter provides the Anaconda Navigator application which allows you to manage packages and environments without having to use the command line."
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#conda-virtual-environments",
+    "href": "session1/session1-python-setup.html#conda-virtual-environments",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Conda Virtual Environments",
+    "text": "Conda Virtual Environments\n\nEnvironments are isolated, self-contained workspace that includes its own language interpreter and package dependencies \nExample:\n\nGlobal environment (system): Miniconda installation of Python 3.12 + dependencies\n\n\nVirtual environment1: Python 3.8 + dependencies\n\n\nVirtual environment2: R 4.4.2 + dependencies\n\n  In this case, creating virtual environments allows these Python installations to operate fully independently and not interfere with each other."
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#why-use-virtual-environments",
+    "href": "session1/session1-python-setup.html#why-use-virtual-environments",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Why Use Virtual Environments?",
+    "text": "Why Use Virtual Environments?\n You may find the flexibility of environments beneficial in many cases.\n\n\nAvoid Conflicts. Help resolve potential conflicts between different projects concerning conflicting dependencies. Changes made to one environment won’t affect other projects that use different environments.\n\n\n\n\nEasy Management. Reduce the risk of breaking system Python and globally installed packages. You can easily delete a virtual environment if issues occur and recreate it.\n\n\n\n\nReproducibility. Work as time capsules, allowing you to replicate the requirement of a project at later time points or on new machines.\n\n\n\n\nSharing Environments. Allow sharing the Python version and entire list of dependencies with other people through a copy of the .yml file."
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#overview-of-conda-commands",
+    "href": "session1/session1-python-setup.html#overview-of-conda-commands",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Overview of conda commands",
+    "text": "Overview of conda commands\nLet’s walk through some useful commands.  💡Open Anaconda Prompt (Windows) or Terminal (macOS) to execute commands"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#visual-studio-code",
+    "href": "session1/session1-python-setup.html#visual-studio-code",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Visual Studio Code",
+    "text": "Visual Studio Code\n\n  Visual Studio Code (VS Code) is one of the most popular open-source code editors with many features.\n\nLightweight\nMulti-language support for Python, R, C++, etc.\nIntegrated Git version control\nExtensible features like Jupyter notebooks, Quarto, remote connection\n\n\n\nJupyter Notebook\n\nJupyter is an interactive computing tool that lets you combine executable code, Markdown text, and visual components in one file called a notebook (.ipynb).\n\n\n\n VS Code + Jupyter notebooks for Python = RStudio + RMarkdowns for R."
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#create-a-github-project---example",
+    "href": "session1/session1-python-setup.html#create-a-github-project---example",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Create a GitHub Project - Example",
+    "text": "Create a GitHub Project - Example\n\n\nCreate new repository from GitHub (public) or GitHub Enterprise (MSK Secured)\nInitialize with README.md and .gitignore (choose Python template)\n\n\n\nAlternatively…\n\nGo to practice repository: https://github.mskcc.org/Python-Workshop/workshop_proj\nFork the repo to create a copy on your GitHub account \nNow, you should have a forked copy of the repository on your own GitHub account (e.g. username/workshop_proj) \n\n\n\n\nNow, clone the repository to your local computer by clicking  \nOption 1 (CLI): Copy the HTTPS URL and clone with git command\ngit clone https://github.mskcc.org/&lt;username&gt;/workshop_proj.git\nOption 2 (GUI): Open in GitHub Desktop"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#organize-the-project-directory",
+    "href": "session1/session1-python-setup.html#organize-the-project-directory",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Organize the Project Directory",
+    "text": "Organize the Project Directory\n\nOrganize the project with separate data/ and notebooks/ folders and environment.yml file to save virtual environment information.\n\n\n\nHere is an example project structure.\nworkshop_proj/\n   ├── data/            # Raw & processed data folder\n   ├── notebooks/       # Jupyter notebooks and scripts\n   ├── environment.yml  # Conda environment YML file\n   ├── .gitignore       # Files that git should not track\n   └── README.md        # Project description \n👉Downlaod workshop environment.yml file and add to the parent directory.\n\n\n\nNote: If you do not use GitHub – that is fine! You can skip the previous step of cloning from GitHub and directly create a local folder with subfolders and files."
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#create-a-project-specific-conda-environment",
+    "href": "session1/session1-python-setup.html#create-a-project-specific-conda-environment",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Create a Project-Specific Conda Environment",
+    "text": "Create a Project-Specific Conda Environment\n\n\n\n\n\n\nNote: Ensure that Miniconda is installed. For MacOs, ensure conda is correctly initialized with conda init (see installing Miniconda)\n\n\n\n\n\nLaunch Anaconda Prompt (Windows) or Terminal (macOS).\n\nChagne directory to your project folder with cd\nCreate the environment with:\nconda env create -f environment.yml\nconda activate python-intro-env"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#set-up-vs-code-for-python-jupyter",
+    "href": "session1/session1-python-setup.html#set-up-vs-code-for-python-jupyter",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Set up VS Code for Python & Jupyter",
+    "text": "Set up VS Code for Python & Jupyter\n\n\nLaunch VS Code\nOpen the Extensions Marketplace (Ctrl+Shift+X or Cmd+Shift+X) \nInstall the following extensions:\n\n✅ Python (auto-, debugging, and interpreter selection)\n✅ Jupyter (notebook interface and interactive execution)\nNote: You still need local installations of Python to enable the extension."
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#work-in-jupyter-notebooks-in-vs-code",
+    "href": "session1/session1-python-setup.html#work-in-jupyter-notebooks-in-vs-code",
+    "title": "Python Installation, Environments, and VS Code Setup",
+    "section": "Work in Jupyter Notebooks in VS Code",
+    "text": "Work in Jupyter Notebooks in VS Code\n\n\nOpen your project folder in VS Code:\n\nSelect Open Folder… from the VS Code Welcome page: \nOr by selecting File &gt; Open Folder (Ctrl+K Ctrl+O)"
+  },
+  {
     "objectID": "session4/session4v2_slides.html#session-overview",
     "href": "session4/session4v2_slides.html#session-overview",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
-    "section": "",
-    "text": "In this session, we’ll explore how Python’s object-oriented nature affects our modeling workflows. \nTopics:\n\n\n\nIntro to OOP and how it makes modeling in Python different from R\n\n\nBuilding and extending classes using inheritance and mixins\n\n\nApplying OOP to machine learning through demos with scikit-learn\n\n\n\nCreating and using models\n\n\nPlotting data with plotnine and seaborn"
+    "section": "Session Overview",
+    "text": "Session Overview\n\nIn this session, we’ll explore how Python’s object-oriented nature affects our modeling workflows. \nTopics:\n\n\n\nIntro to OOP and how it makes modeling in Python different from R\n\n\nBuilding and extending classes using inheritance and mixins\n\n\nApplying OOP to machine learning through demos with scikit-learn\n\n\n\nCreating and using models\n\n\nPlotting data with plotnine and seaborn"
   },
   {
     "objectID": "session4/session4v2_slides.html#why-python",
     "href": "session4/session4v2_slides.html#why-python",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Why Python? 🐍",
-    "text": "Why Python? 🐍\n\n\n\n\nR: Built by Statisticians for Statisticians\n\nExcels at:\n\nStatistical analysis and modeling\n\nClean outputs and tables from models\nBeautiful data visualizations with simple code\n\n\n\n\n\nPython: General-Purpose Language\n\nExcels at:\n\nMachine Learning, Neural Networks & Deep Learning (scikit-learn, PyTorch, TensorFlow)\n\nImage & Genomic Data Analysis (scikit-image, biopython, scanpy)\nSoftware & Command Line Interfaces, Web Scraping, Automation\n\n\n\n\n\nPython’s broader ecosystem makes it the go-to language in domains like AI, bioinformatics, data engineering, and computational biology.\n\nNote: Packages like rpy2 and reticulate make it possible to use both R and Python in the same project, but those are beyond the scope of this course.\nA primer on reticulate is available here: https://www.r-bloggers.com/2022/04/getting-started-with-python-using-r-and-reticulate/"
+    "text": "Why Python? 🐍\n\n\n\nR: Built by Statisticians for Statisticians\n\nExcels at:\n\nStatistical analysis and modeling\n\nClean outputs and tables from models\nBeautiful data visualizations with simple code\n\n\n\nPython: General-Purpose Language\n\nExcels at:\n\nMachine Learning, Neural Networks & Deep Learning (scikit-learn, PyTorch, TensorFlow)\n\nImage & Genomic Data Analysis (scikit-image, biopython, scanpy)\nSoftware & Command Line Interfaces, Web Scraping, Automation\n\n\n\nPython’s broader ecosystem makes it the go-to language in domains like AI, bioinformatics, data engineering, and computational biology.\n\nNote: Packages like rpy2 and reticulate make it possible to use both R and Python in the same project, but those are beyond the scope of this course.\nA primer on reticulate is available here: https://www.r-bloggers.com/2022/04/getting-started-with-python-using-r-and-reticulate/"
   },
   {
     "objectID": "session4/session4v2_slides.html#programming-styles-r-vs-python",
@@ -816,35 +921,35 @@
     "href": "session4/session4v2_slides.html#creating-a-dog",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Creating a dog",
-    "text": "Creating a dog\n\nCreating an instance of the Dog class lets us model a particular dog:\n\nbuddy = Dog(\"Buddy\", \"Golden Retriever\")\nprint(f\"Buddy is an object of class {type(buddy)}\")\n\nBuddy is an object of class &lt;class '__main__.Dog'&gt;\n\n\n\n\nWe set the value of the attributes [name and breed], which are then stored as part of the buddy object\n\n\nWe can use any methods defined in the Dog class on buddy\n\n\n\n## if we want to see what kind of dog our dog is\n## we can call buddy's attributes\nprint(f\"Our dog {buddy.name} is a {buddy.breed}.\")\n\n## we can also call any Dog methods\nprint(buddy.speak())  \n\n## including special methods\nbuddy ## displays what was in the __repr__() method\n\nOur dog Buddy is a Golden Retriever.\nBuddy says woof!\n\n\nDog(name='Buddy', breed='Golden Retriever')\n\n\nNote: For python methods, the self argument is assumed to be passed and therefore we do not put anything in the parentheses when calling .speak(). For attributes, we do not put () at all."
+    "text": "Creating a dog\n\nCreating an instance of the Dog class lets us model a particular dog:\n\nbuddy = Dog(\"Buddy\", \"Golden Retriever\")\nprint(f\"Buddy is an object of class {type(buddy)}\")\n\n\n\nBuddy is an object of class &lt;class '__main__.Dog'&gt;\n\n\n\n\nWe set the value of the attributes [name and breed], which are then stored as part of the buddy object\n\n\nWe can use any methods defined in the Dog class on buddy\n\n\n\n## if we want to see what kind of dog our dog is\n## we can call buddy's attributes\nprint(f\"Our dog {buddy.name} is a {buddy.breed}.\")\n\n## we can also call any Dog methods\nprint(buddy.speak())  \n\n## including special methods\nbuddy ## displays what was in the __repr__() method\n\n\n\nOur dog Buddy is a Golden Retriever.\nBuddy says woof!\n\n\nDog(name='Buddy', breed='Golden Retriever')\n\n\nNote: For python methods, the self argument is assumed to be passed and therefore we do not put anything in the parentheses when calling .speak(). For attributes, we do not put () at all."
   },
   {
     "objectID": "session4/session4v2_slides.html#derived-child-classes",
     "href": "session4/session4v2_slides.html#derived-child-classes",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Derived (Child) Classes",
-    "text": "Derived (Child) Classes\n\nDerived/child classes build on base classes using the principle of inheritence. \nNow that we have a Dog class, we can build on it to create a specialized GuardDog class.\n\nclass GuardDog(Dog):  # GuardDog inherits from Dog\n    def __init__(self, name, breed, training_level): ## in addition to name and breed, we can \n        # define a training level. \n        # Call the parent (Dog) class's __init__ method\n        super().__init__(name, breed)\n        self.training_level = training_level  # New attribute for GuardDog that stores the \n        # training level for the dog\n\n    def guard(self): ## checks if the training level is &gt; 5 and if not says train more\n        if self.training_level &gt; 5:\n            return f\"{self.name} is guarding the house!\"\n        else:\n            return f\"{self.name} needs more training before guarding.\"\n    \n    def train(self): # modifies the training_level attribute to increase the dog's training level\n        self.training_level = self.training_level + 1\n        return f\"Training {self.name}. {self.name}'s training level is now {self.training_level}\"\n\n# Creating an instance of GuardDog\nrex = GuardDog(\"Rex\", \"German Shepherd\", training_level= 5)\n\n\n\nNow that we have a dog (rex), we can call on any of the methods/attributes introduced in the Dog class as well as the new GuardDog class.\nUsing methods from the base class:\n\nprint(rex.speak())\nrex\n\nRex says woof!\n\n\nDog(name='Rex', breed='German Shepherd')\n\n\n\nUsing a method from the child class:\n\nprint(f\"{rex.name}'s training level is {rex.training_level}.\")\nprint(rex.guard()) \n\nRex's training level is 5.\nRex needs more training before guarding.\n\n\n. . .\nThis is the power of inheritance—we don’t have to rewrite everything from scratch!\n\nUnlike standalone functions, methods in Python often update objects in-place—meaning they modify the object itself rather than returning a new one.\nWe can use the .train() method to increase rex’s training level.\n\nprint(rex.train())\n\nTraining Rex. Rex's training level is now 6\n\n\n. . .\n\nNow if we check,\n\nprint(f\"{rex.name}'s training level is {rex.training_level}.\")\nprint(rex.guard()) \n\nRex's training level is 6.\nRex is guarding the house!\n\n\n\n. . .\nAs with Rex, child classes inherit all attributes (.name and .breed) and methods (.speak() __repr__()) from parent classes. They can also have new methods (.train())."
+    "text": "Derived (Child) Classes\n\nDerived/child classes build on base classes using the principle of inheritence. \nNow that we have a Dog class, we can build on it to create a specialized GuardDog class.\n\nclass GuardDog(Dog):  # GuardDog inherits from Dog\n    def __init__(self, name, breed, training_level): ## in addition to name and breed, we can \n        # define a training level. \n        # Call the parent (Dog) class's __init__ method\n        super().__init__(name, breed)\n        self.training_level = training_level  # New attribute for GuardDog that stores the \n        # training level for the dog\n\n    def guard(self): ## checks if the training level is &gt; 5 and if not says train more\n        if self.training_level &gt; 5:\n            return f\"{self.name} is guarding the house!\"\n        else:\n            return f\"{self.name} needs more training before guarding.\"\n    \n    def train(self): # modifies the training_level attribute to increase the dog's training level\n        self.training_level = self.training_level + 1\n        return f\"Training {self.name}. {self.name}'s training level is now {self.training_level}\"\n\n# Creating an instance of GuardDog\nrex = GuardDog(\"Rex\", \"German Shepherd\", training_level= 5)"
   },
   {
     "objectID": "session4/session4v2_slides.html#mixins",
     "href": "session4/session4v2_slides.html#mixins",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Mixins",
-    "text": "Mixins\n\nA mixin is a special kind of class designed to add functionality to another class. Unlike base classes, mixins aren’t used alone.\n\nFor example, scikit-learn uses mixins like:\n- sklearn.base.ClassifierMixin (adds classifier-specific methods)\n- sklearn.base.RegressorMixin (adds regression-specific methods)\nwhich it adds to the BaseEstimator class to add functionality.  \nTo finish up our dog example, we are going to define a mixin class that adds learning tricks to the base Dog class and use it to create a new class called SmartDog.\n\n\n\nWhen creating a mixin class, we let the other base classes carry most of the initialization\n\nclass TrickMixin: ## mixin that will let us teach a dog tricks\n    def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)  # Ensures proper initialization in multi inheritance\n        self.tricks = []  # Add attribute to store tricks\n\n## add trick methods\n    def learn_trick(self, trick):\n        \"\"\"Teaches the dog a new trick.\"\"\"\n        if trick not in self.tricks:\n            self.tricks.append(trick)\n            return f\"{self.name} learned a new trick: {trick}!\"\n        return f\"{self.name} already knows {trick}!\"\n\n    def perform_tricks(self):\n        \"\"\"Returns a list of tricks the dog knows.\"\"\"\n        if self.tricks:\n            return f\"{self.name} can perform: {', '.join(self.tricks)}.\"\n        return f\"{self.name} hasn't learned any tricks yet.\"\n\n## note: the TrickMixin class is not a standalone class!\n\n\nBy including both Dog and TrickMixin as base classes, we give objects of class SmartDog the ability to speak and learn tricks!\n\nclass SmartDog(Dog, TrickMixin):\n    def __init__(self, name, breed):\n        super().__init__(name, breed)  # Initialize Dog class\n        TrickMixin.__init__(self)  # Initialize TrickMixin separately\n\n# a SmartDog object can use methods from both parent object `Dog` and mixin `TrickMixin`.\nmy_smart_dog = SmartDog(\"Buddy\", \"Border Collie\")\nprint(my_smart_dog.speak()) \n\nBuddy says woof!\n\n\n\n\nprint(my_smart_dog.learn_trick(\"Sit\"))  \nprint(my_smart_dog.learn_trick(\"Roll Over\")) \nprint(my_smart_dog.learn_trick(\"Sit\"))  \n\nBuddy learned a new trick: Sit!\nBuddy learned a new trick: Roll Over!\nBuddy already knows Sit!\n\n\n\n\nprint(my_smart_dog.perform_tricks()) \n\nBuddy can perform: Sit, Roll Over."
+    "text": "Mixins\n\nA mixin is a special kind of class designed to add functionality to another class. Unlike base classes, mixins aren’t used alone.\n\nFor example, scikit-learn uses mixins like:\n- sklearn.base.ClassifierMixin (adds classifier-specific methods)\n- sklearn.base.RegressorMixin (adds regression-specific methods)\nwhich it adds to the BaseEstimator class to add functionality.  \nTo finish up our dog example, we are going to define a mixin class that adds learning tricks to the base Dog class and use it to create a new class called SmartDog."
   },
   {
     "objectID": "session4/session4v2_slides.html#duck-typing",
     "href": "session4/session4v2_slides.html#duck-typing",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Duck Typing",
-    "text": "Duck Typing\n\n\n🦆 “If it quacks like a duck and walks like a duck, it’s a duck.” 🦆\n\nPython’s duck typing makes our lives a lot easier, and is one of the main benefits of methods over functions:\n\n\nRepurposing old code - methods by the same name work the same for different model types\n\n\nNot necessary to check types before using methods - methods are assumed to work on the object they’re attached to\n\n\n\nWe can demonstrate this by defining two new base classes that are different than Dog but also have a speak() method.\n. . .\n\nclass Human:\n    def __init__(self, name):\n        self.name = name\n\n    def speak(self):\n        return f\"{self.name} says hello!\"\n\nclass Parrot:\n    def __init__(self, name):\n        self.name = name\n\n    def speak(self):\n        return f\"{self.name} says squawk!\""
+    "text": "Duck Typing\n\n\n🦆 “If it quacks like a duck and walks like a duck, it’s a duck.” 🦆\n\nPython’s duck typing makes our lives a lot easier, and is one of the main benefits of methods over functions:\n\n\nRepurposing old code - methods by the same name work the same for different model types\n\n\nNot necessary to check types before using methods - methods are assumed to work on the object they’re attached to\n\n\n\nWe can demonstrate this by defining two new base classes that are different than Dog but also have a speak() method.\n\n\nclass Human:\n    def __init__(self, name):\n        self.name = name\n\n    def speak(self):\n        return f\"{self.name} says hello!\"\n\nclass Parrot:\n    def __init__(self, name):\n        self.name = name\n\n    def speak(self):\n        return f\"{self.name} says squawk!\""
   },
   {
     "objectID": "session4/session4v2_slides.html#duck-typing-in-action",
     "href": "session4/session4v2_slides.html#duck-typing-in-action",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Duck Typing in Action",
-    "text": "Duck Typing in Action\n\nEven though Dog, Human and Parrot are entirely different classes…\n\n\ndef call_speaker(obj):\n    print(obj.speak())\n\ncall_speaker(Dog(\"Fido\", \"Labrador\"))\ncall_speaker(Human(\"Alice\"))\ncall_speaker(Parrot(\"Polly\"))\n\nFido says woof!\nAlice says hello!\nPolly says squawk!\n\n\n. . .\nThey all implement .speak(), so Python treats them the same!\nIn the context of our work, this would allow us to make a pipeline using models from different libraries that have the same methods.\n\nWhile our dog example was very simple, this is the same way that model classes work in python!"
+    "text": "Duck Typing in Action\n\nEven though Dog, Human and Parrot are entirely different classes…\n\n\ndef call_speaker(obj):\n    print(obj.speak())\n\ncall_speaker(Dog(\"Fido\", \"Labrador\"))\ncall_speaker(Human(\"Alice\"))\ncall_speaker(Parrot(\"Polly\"))\n\n\n\nFido says woof!\nAlice says hello!\nPolly says squawk!\n\n\n\nThey all implement .speak(), so Python treats them the same!\nIn the context of our work, this would allow us to make a pipeline using models from different libraries that have the same methods.\n\nWhile our dog example was very simple, this is the same way that model classes work in python!"
   },
   {
     "objectID": "session4/session4v2_slides.html#example-oop-in-machine-learning-and-modeling",
@@ -865,7 +970,7 @@
     "href": "session4/session4v2_slides.html#mini-project-classifying-penguins-with-scikit-learn",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "🐧 Mini Project: Classifying Penguins with scikit-learn",
-    "text": "🐧 Mini Project: Classifying Penguins with scikit-learn\n\nNow that you understand classes and data structures in Python, let’s apply that knowledge to classify penguin species using two features:\n\n\n\nbill_length_mm\n\n\nbill_depth_mm\n\n\nWe’ll explore:\n\n\nUnsupervised learning with K-Means clustering (model doesn’t ‘know’ y)\n\n\nSupervised learning with a k-NN classifier (model trained w/ y information)\n\n\nAll scikit-learn models are designed to have\n\n\nCommon Methods:\n\n\n\n.fit() — Train the model\n\n\n.predict() — Make predictions\n\n\n\nCommon Attributes:\n\n\n.classes_, .n_clusters_, etc.\n\n\n\n\n\nThis is true of the scikit-survival package too!"
+    "text": "🐧 Mini Project: Classifying Penguins with scikit-learn\n\nNow that you understand classes and data structures in Python, let’s apply that knowledge to classify penguin species using two features:\n\n\n\nbill_length_mm\n\n\nbill_depth_mm\n\n\nWe’ll explore:\n\n\nUnsupervised learning with K-Means clustering (model doesn’t ‘know’ y)\n\n\nSupervised learning with a k-NN classifier (model trained w/ y information)\n\n\nAll scikit-learn models are designed to have\n\n\nCommon Methods:\n\n\n\n.fit() — Train the model\n\n\n.predict() — Make predictions\n\n\n\nCommon Attributes:\n\n\n.classes_, .n_clusters_, etc.\n\n\n\n\nThis is true of the scikit-survival package too!"
   },
   {
     "objectID": "session4/session4v2_slides.html#import-libraries",
@@ -886,14 +991,14 @@
     "href": "session4/session4v2_slides.html#data-preparation",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Data Preparation",
-    "text": "Data Preparation\n\n# Load the Penguins dataset\npenguins = sns.load_dataset(\"penguins\").dropna()\n\n# Make a summary table for the penguins dataset, grouping by species. \nsummary_table = penguins.groupby(\"species\").agg({\n    \"bill_length_mm\": [\"mean\", \"std\", \"min\", \"max\"],\n    \"bill_depth_mm\": [\"mean\", \"std\", \"min\", \"max\"],\n    \"sex\": lambda x: x.value_counts().to_dict()  # Count of males and females\n})\n\n# Round numeric values to 1 decimal place (excluding the 'sex' column)\nfor col in summary_table.columns:\n    if summary_table[col].dtype in [float, int]:\n        summary_table[col] = summary_table[col].round(1)\n\n# Display the result\ndisplay(summary_table)\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nsex\n\n\n\nmean\nstd\nmin\nmax\nmean\nstd\nmin\nmax\n&lt;lambda&gt;\n\n\nspecies\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdelie\n38.8\n2.7\n32.1\n46.0\n18.3\n1.2\n15.5\n21.5\n{'Male': 73, 'Female': 73}\n\n\nChinstrap\n48.8\n3.3\n40.9\n58.0\n18.4\n1.1\n16.4\n20.8\n{'Female': 34, 'Male': 34}\n\n\nGentoo\n47.6\n3.1\n40.9\n59.6\n15.0\n1.0\n13.1\n17.3\n{'Male': 61, 'Female': 58}"
+    "text": "Data Preparation\n\n# Load the Penguins dataset\npenguins = sns.load_dataset(\"penguins\").dropna()\n\n# Make a summary table for the penguins dataset, grouping by species. \nsummary_table = penguins.groupby(\"species\").agg({\n    \"bill_length_mm\": [\"mean\", \"std\", \"min\", \"max\"],\n    \"bill_depth_mm\": [\"mean\", \"std\", \"min\", \"max\"],\n    \"sex\": lambda x: x.value_counts().to_dict()  # Count of males and females\n})\n\n# Round numeric values to 1 decimal place (excluding the 'sex' column)\nfor col in summary_table.columns:\n    if summary_table[col].dtype in [float, int]:\n        summary_table[col] = summary_table[col].round(1)\n\n# Display the result\ndisplay(summary_table)\n\n\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nsex\n\n\n\nmean\nstd\nmin\nmax\nmean\nstd\nmin\nmax\n&lt;lambda&gt;\n\n\nspecies\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdelie\n38.8\n2.7\n32.1\n46.0\n18.3\n1.2\n15.5\n21.5\n{'Male': 73, 'Female': 73}\n\n\nChinstrap\n48.8\n3.3\n40.9\n58.0\n18.4\n1.1\n16.4\n20.8\n{'Female': 34, 'Male': 34}\n\n\nGentoo\n47.6\n3.1\n40.9\n59.6\n15.0\n1.0\n13.1\n17.3\n{'Male': 61, 'Female': 58}"
   },
   {
     "objectID": "session4/session4v2_slides.html#data-visualization",
     "href": "session4/session4v2_slides.html#data-visualization",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Data Visualization",
-    "text": "Data Visualization\n\nTo do visualization, we can use either seaborn or plotnine. plotnine mirrors ggplot2 syntax from R and is great for layered grammar-of-graphics plots, while seaborn seaborn is more convienient if you want to put multiple plots on the same figure. \n\nPlotting with Plotnine vs Seaborn\n\n\nPlotnine (like ggplot2 in R) The biggest differences between plotnine and ggplot2 syntax are:\n\n\nWith plotnine the whole call is wrapped in () parentheses\n\n\nVariables are called with strings (\"\" are needed!)\n\n\nIf you don’t use from plotnine import *, you will need to import each individual function you plan to use!\n\n\n\nSeaborn (base matplotlib + enhancements)\n\n\nDesigned for quick, polished plots\n\n\nWorks well with pandas DataFrames or NumPy arrays\n\n\nIntegrates with matplotlib for customization\n\n\nGood for things like decision boundaries or heatmaps\n\n\nHarder to customize than plotnine plots"
+    "text": "Data Visualization\n\nTo do visualization, we can use either seaborn or plotnine. plotnine mirrors ggplot2 syntax from R and is great for layered grammar-of-graphics plots, while seaborn seaborn is more convienient if you want to put multiple plots on the same figure. \nPlotting with Plotnine vs Seaborn\n\n\nPlotnine (like ggplot2 in R) The biggest differences between plotnine and ggplot2 syntax are:\n\n\nWith plotnine the whole call is wrapped in () parentheses\n\n\nVariables are called with strings (\"\" are needed!)\n\n\nIf you don’t use from plotnine import *, you will need to import each individual function you plan to use!\n\n\n\nSeaborn (base matplotlib + enhancements)\n\n\nDesigned for quick, polished plots\n\n\nWorks well with pandas DataFrames or NumPy arrays\n\n\nIntegrates with matplotlib for customization\n\n\nGood for things like decision boundaries or heatmaps\n\n\nHarder to customize than plotnine plots"
   },
   {
     "objectID": "session4/session4v2_slides.html#scatterplot-with-plotnine",
@@ -921,7 +1026,7 @@
     "href": "session4/session4v2_slides.html#scaling-the-data---understanding-the-standard-scaler-class",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Scaling the data - Understanding the Standard Scaler class",
-    "text": "Scaling the data - Understanding the Standard Scaler class\n\nFor our clustering to work well, the predictors should be on the same scale. To achieve this, we use an instance of the StandardScaler class.\nclass sklearn.preprocessing.StandardScaler(*, copy=True, with_mean=True, with_std=True)\n\n. . .\nParameters are supplied by user\n- copy, with_mean, with_std \nAttributes contain the data of the object\n- scale_: scaling factor\n- mean_: mean value for each feature\n- var_: variance for each feature\n- n_features_in_: number of features seen during fit\n- n_samples_seen: number of samples processed for each feature \nMethods describe the behaviors of the object and/or modify its attributes\n- fit(X): computes mean and std used for scaling and ‘fits’ scaler to data X\n- transform(X): performs standardization by centering and scaling X with fitted scaler\n- fit_transform(X): does both"
+    "text": "Scaling the data - Understanding the Standard Scaler class\n\nFor our clustering to work well, the predictors should be on the same scale. To achieve this, we use an instance of the StandardScaler class.\nclass sklearn.preprocessing.StandardScaler(*, copy=True, with_mean=True, with_std=True)\n\n\nParameters are supplied by user\n- copy, with_mean, with_std \nAttributes contain the data of the object\n- scale_: scaling factor\n- mean_: mean value for each feature\n- var_: variance for each feature\n- n_features_in_: number of features seen during fit\n- n_samples_seen: number of samples processed for each feature \nMethods describe the behaviors of the object and/or modify its attributes\n- fit(X): computes mean and std used for scaling and ‘fits’ scaler to data X\n- transform(X): performs standardization by centering and scaling X with fitted scaler\n- fit_transform(X): does both"
   },
   {
     "objectID": "session4/session4v2_slides.html#scaling-data",
@@ -935,14 +1040,14 @@
     "href": "session4/session4v2_slides.html#understanding-the-kmeans-model-class",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Understanding the KMeans model class",
-    "text": "Understanding the KMeans model class\n\nclass sklearn.cluster.KMeans(n_clusters=8, *, init='k-means++', n_init='auto', max_iter=300, \ntol=0.0001, verbose=0, random_state=None, copy_x=True, algorithm='lloyd')\nParameters: Set by user at time of instantiation\n- n_clusters, max_iter, algorithm \nAttributes: Store object data\n- cluster_centers_: stores coordinates of cluster centers\n- labels_: stores labels of each point - n_iter_: number of iterations run (will be changed during method run)\n- n_features_in and feature_names_in_: store info about features seen during fit \nMethods: Define object behaviors\n- fit(X): fits model to data X - predict(X): predicts closest cluster each sample in X belongs to\n- transform(X): transforms X to cluster-distance space\n\n\n\n\nCreate model\n\n## Choosing 3 clusters b/c we have 3 species\nkmeans = KMeans(n_clusters=3, random_state=42) ## make an instance of the K means class\nkmeans\n\nKMeans(n_clusters=3, random_state=42)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  KMeans?Documentation for KMeansiNot fittedKMeans(n_clusters=3, random_state=42) \n\n\n\n\n\nFit model to data\n\n## the fit\npenguins[\"kmeans_cluster\"] = kmeans.fit_predict(X_scaled)\n\n## now that we fit the model, we should have cluster centers\nprint(\"Coordinates of cluster centers:\", kmeans.cluster_centers_)\n\n## shows that model is fitted\nkmeans\n\nCoordinates of cluster centers: [[-0.95023997  0.55393493]\n [ 0.58644397 -1.09805504]\n [ 1.0886843   0.79503579]]\n\n\nKMeans(n_clusters=3, random_state=42)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  KMeans?Documentation for KMeansiFittedKMeans(n_clusters=3, random_state=42)"
+    "text": "Understanding the KMeans model class\n\nclass sklearn.cluster.KMeans(n_clusters=8, *, init='k-means++', n_init='auto', max_iter=300, \ntol=0.0001, verbose=0, random_state=None, copy_x=True, algorithm='lloyd')\nParameters: Set by user at time of instantiation\n- n_clusters, max_iter, algorithm \nAttributes: Store object data\n- cluster_centers_: stores coordinates of cluster centers\n- labels_: stores labels of each point - n_iter_: number of iterations run (will be changed during method run)\n- n_features_in and feature_names_in_: store info about features seen during fit \nMethods: Define object behaviors\n- fit(X): fits model to data X - predict(X): predicts closest cluster each sample in X belongs to\n- transform(X): transforms X to cluster-distance space"
   },
   {
     "objectID": "session4/session4v2_slides.html#use-function-to-calculate-ari",
     "href": "session4/session4v2_slides.html#use-function-to-calculate-ari",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Use function to calculate ARI",
-    "text": "Use function to calculate ARI\n\nTo check how good our model is, we can use one of the functions included in the sklearn library.\nThe adjusted_rand_score() function evaluates how well the cluster groupings agree with the species groupings while adjusting for chance.\n\n# Calculate clustering performance using Adjusted Rand Index (ARI)\nkmeans_ari = adjusted_rand_score(penguins['species'], penguins[\"kmeans_cluster\"])\nprint(f\"k-Means Adjusted Rand Index: {kmeans_ari:.2f}\")\n\nk-Means Adjusted Rand Index: 0.82\n\n\n\n\n\nWe can also use methods on our data structure to create new data\n\n\nWe can use the .groupby() method to help us plot cluster agreement with species label as a heatmap\nIf we want to add sex as a variable to see if that is why our clusters don’t agree with our species, we can use a scatterplot\nUsing seaborn and matplotlib, we can easily put both of these plots on the same figure. \n\n\n# Count occurrences of each species-cluster-sex combination\n# (.size gives the count as index, use reset_index to get count column.)\nscatter_data = (penguins.groupby([\"species\", \"kmeans_cluster\", \"sex\"])\n                .size()\n                .reset_index(name=\"count\"))\nspecies_order = list(scatter_data['species'].unique()) ## defining this for later\n\n# Create a mapping to add horizontal jitter for each sex for scatterplot\nsex_jitter = {'Male': -0.1, 'Female': 0.1}\nscatter_data['x_jittered'] = scatter_data.apply(\n    lambda row: scatter_data['species'].unique().tolist().index(row['species']) +\n     sex_jitter.get(row['sex'], 0),\n    axis=1\n)\n\nheatmap_data = scatter_data.pivot_table(index=\"kmeans_cluster\", columns=\"species\", \nvalues=\"count\", aggfunc=\"sum\", fill_value=0)"
+    "text": "Use function to calculate ARI\n\nTo check how good our model is, we can use one of the functions included in the sklearn library.\nThe adjusted_rand_score() function evaluates how well the cluster groupings agree with the species groupings while adjusting for chance.\n\n# Calculate clustering performance using Adjusted Rand Index (ARI)\nkmeans_ari = adjusted_rand_score(penguins['species'], penguins[\"kmeans_cluster\"])\nprint(f\"k-Means Adjusted Rand Index: {kmeans_ari:.2f}\")\n\n\n\nk-Means Adjusted Rand Index: 0.82"
   },
   {
     "objectID": "session4/session4v2_slides.html#creating-plots",
@@ -963,14 +1068,14 @@
     "href": "session4/session4v2_slides.html#project-2-knn-classification",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Project 2: KNN classification",
-    "text": "Project 2: KNN classification\n\nFor our KNN classification, the model is supervised (meaning it is dependent on the outcome ‘y’ data). This time, we need to split our data into a training and test set. \n\n. . .\nThe function train_test_split() from scikit-learn is helpful here!\n\n# Splitting dataset into training and testing sets (still using scaled X!)\nX_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=42)\n\n. . .\n\nUnlike R functions, which return a single object (often a list when multiple outputs are needed), Python functions can return multiple values as a tuple—letting you unpack them directly into separate variables."
+    "text": "Project 2: KNN classification\n\nFor our KNN classification, the model is supervised (meaning it is dependent on the outcome ‘y’ data). This time, we need to split our data into a training and test set. \n\n\nThe function train_test_split() from scikit-learn is helpful here!\n\n# Splitting dataset into training and testing sets (still using scaled X!)\nX_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=42)\n\n\n\n\nUnlike R functions, which return a single object (often a list when multiple outputs are needed), Python functions can return multiple values as a tuple—letting you unpack them directly into separate variables."
   },
   {
     "objectID": "session4/session4v2_slides.html#understanding-kneighborsclassifier-class",
     "href": "session4/session4v2_slides.html#understanding-kneighborsclassifier-class",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Understanding KNeighborsClassifier class",
-    "text": "Understanding KNeighborsClassifier class\nclass sklearn.neighbors.KNeighborsClassifier(n_neighbors=5, *, weights='uniform', \nalgorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=None)\n. . .\nParameters: Set by user at time of instantiation\n- n_neigbors, weights, algorithm, etc. \nAttributes: Store object data\n- classes_: class labels known to the classifier\n- effective_metric_: distance metric used\n- effective_metric_params_: parameters for the metric function\n- n_features_in and feature_names_in_: store info about features seen during fit\n- n_samples_fit_: number of samples in fitted data \nMethods: Define object behaviors\n- .fit(X, y): fit knn classifier from training dataset (X and y)\n- .predict(X): predict class labels for provided data X\n- .predict_proba(X): return probability estimates for test data X\n- .score(X, y): return mean accuracy on given test data X and labels y"
+    "text": "Understanding KNeighborsClassifier class\nclass sklearn.neighbors.KNeighborsClassifier(n_neighbors=5, *, weights='uniform', \nalgorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=None)\n\nParameters: Set by user at time of instantiation\n- n_neigbors, weights, algorithm, etc. \nAttributes: Store object data\n- classes_: class labels known to the classifier\n- effective_metric_: distance metric used\n- effective_metric_params_: parameters for the metric function\n- n_features_in and feature_names_in_: store info about features seen during fit\n- n_samples_fit_: number of samples in fitted data \nMethods: Define object behaviors\n- .fit(X, y): fit knn classifier from training dataset (X and y)\n- .predict(X): predict class labels for provided data X\n- .predict_proba(X): return probability estimates for test data X\n- .score(X, y): return mean accuracy on given test data X and labels y"
   },
   {
     "objectID": "session4/session4v2_slides.html#making-an-instance-of-kneighborsclassifier-and-fitting-to-training-data",
@@ -984,14 +1089,14 @@
     "href": "session4/session4v2_slides.html#once-the-model-is-fit",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Once the model is fit…",
-    "text": "Once the model is fit…\n-We can look at its attributes (ex: .classes_) which gives the class labels as known to the classifier\n\nprint(knn.classes_)\n\n['Adelie' 'Chinstrap' 'Gentoo']\n\n\n. . .\n-And use fitted model to predict species for test data\n\n# Use the predict method on the test data to get the predictions for the test data\ny_pred = knn.predict(X_test)\n\n# Also can take a look at the prediction probabilities, \n# and use the .classes_ attribute to put the column labels in the right order\nprobs = pd.DataFrame(\n    knn.predict_proba(X_test),\n    columns = knn.classes_)\nprobs['y_pred'] = y_pred\n\nprint(\"Predicted probabilities: \\n\", probs.head())\n\nPredicted probabilities: \n    Adelie  Chinstrap  Gentoo     y_pred\n0     1.0        0.0     0.0     Adelie\n1     0.0        0.0     1.0     Gentoo\n2     1.0        0.0     0.0     Adelie\n3     0.0        0.6     0.4  Chinstrap\n4     1.0        0.0     0.0     Adelie"
+    "text": "Once the model is fit…\n-We can look at its attributes (ex: .classes_) which gives the class labels as known to the classifier\n\nprint(knn.classes_)\n\n\n\n['Adelie' 'Chinstrap' 'Gentoo']\n\n\n\n-And use fitted model to predict species for test data\n\n# Use the predict method on the test data to get the predictions for the test data\ny_pred = knn.predict(X_test)\n\n# Also can take a look at the prediction probabilities, \n# and use the .classes_ attribute to put the column labels in the right order\nprobs = pd.DataFrame(\n    knn.predict_proba(X_test),\n    columns = knn.classes_)\nprobs['y_pred'] = y_pred\n\nprint(\"Predicted probabilities: \\n\", probs.head())\n\n\n\nPredicted probabilities: \n    Adelie  Chinstrap  Gentoo     y_pred\n0     1.0        0.0     0.0     Adelie\n1     0.0        0.0     1.0     Gentoo\n2     1.0        0.0     0.0     Adelie\n3     0.0        0.6     0.4  Chinstrap\n4     1.0        0.0     0.0     Adelie"
   },
   {
     "objectID": "session4/session4v2_slides.html#scatterplot-for-k-nn-classification-of-test-data",
     "href": "session4/session4v2_slides.html#scatterplot-for-k-nn-classification-of-test-data",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Scatterplot for k-NN classification of test data",
-    "text": "Scatterplot for k-NN classification of test data\n\n\nCreate dataframe of unscaled X_test, bill_length_mm, and bill_depth_mm.\nAdd to it the actual and predicted species labels\n\n\n## First unscale the test data\nX_test_unscaled = scaler.inverse_transform(X_test)\n\n## create dataframe \npenguins_test = pd.DataFrame(\n    X_test_unscaled,\n    columns=['bill_length_mm', 'bill_depth_mm']\n)\n\n## add actual and predicted species \npenguins_test['y_actual'] = y_test.values\npenguins_test['y_pred'] = y_pred\npenguins_test['correct'] = penguins_test['y_actual'] == penguins_test['y_pred']\n\nprint(\"Results: \\n\", penguins_test.head())\n\nResults: \n    bill_length_mm  bill_depth_mm   y_actual     y_pred  correct\n0            39.5           16.7     Adelie     Adelie     True\n1            46.9           14.6     Gentoo     Gentoo     True\n2            42.1           19.1     Adelie     Adelie     True\n3            49.8           17.3  Chinstrap  Chinstrap     True\n4            41.1           18.2     Adelie     Adelie     True"
+    "text": "Scatterplot for k-NN classification of test data\n\n\nCreate dataframe of unscaled X_test, bill_length_mm, and bill_depth_mm.\nAdd to it the actual and predicted species labels\n\n\n## First unscale the test data\nX_test_unscaled = scaler.inverse_transform(X_test)\n\n## create dataframe \npenguins_test = pd.DataFrame(\n    X_test_unscaled,\n    columns=['bill_length_mm', 'bill_depth_mm']\n)\n\n## add actual and predicted species \npenguins_test['y_actual'] = y_test.values\npenguins_test['y_pred'] = y_pred\npenguins_test['correct'] = penguins_test['y_actual'] == penguins_test['y_pred']\n\nprint(\"Results: \\n\", penguins_test.head())\n\n\n\nResults: \n    bill_length_mm  bill_depth_mm   y_actual     y_pred  correct\n0            39.5           16.7     Adelie     Adelie     True\n1            46.9           14.6     Gentoo     Gentoo     True\n2            42.1           19.1     Adelie     Adelie     True\n3            49.8           17.3  Chinstrap  Chinstrap     True\n4            41.1           18.2     Adelie     Adelie     True"
   },
   {
     "objectID": "session4/session4v2_slides.html#plotnine-scatterplot-for-k-nn-classification-of-test-data",
@@ -1026,14 +1131,14 @@
     "href": "session4/session4v2_slides.html#evaluate-knn-performance",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Evaluate KNN performance",
-    "text": "Evaluate KNN performance\n\nTo check the performance of our KNN classifier, we can check the accuracy score and print a classification report.\n- accuracy_score and classification_report are both functions!\n- They are not unique to scikit-learn classes so it makes sense for them to be functions not methods\n\n\n## eval knn performance\nknn_accuracy = accuracy_score(y_test, y_pred)\nprint(f\"k-NN Accuracy: {knn_accuracy:.2f}\")\nprint(\"Classification Report: \\n\", classification_report(y_test, y_pred))\n\nk-NN Accuracy: 0.94\nClassification Report: \n               precision    recall  f1-score   support\n\n      Adelie       0.98      0.98      0.98        48\n   Chinstrap       0.80      0.89      0.84        18\n      Gentoo       0.97      0.91      0.94        34\n\n    accuracy                           0.94       100\n   macro avg       0.92      0.93      0.92       100\nweighted avg       0.94      0.94      0.94       100"
+    "text": "Evaluate KNN performance\n\nTo check the performance of our KNN classifier, we can check the accuracy score and print a classification report.\n- accuracy_score and classification_report are both functions!\n- They are not unique to scikit-learn classes so it makes sense for them to be functions not methods\n\n\n## eval knn performance\nknn_accuracy = accuracy_score(y_test, y_pred)\nprint(f\"k-NN Accuracy: {knn_accuracy:.2f}\")\nprint(\"Classification Report: \\n\", classification_report(y_test, y_pred))\n\n\n\nk-NN Accuracy: 0.94\nClassification Report: \n               precision    recall  f1-score   support\n\n      Adelie       0.98      0.98      0.98        48\n   Chinstrap       0.80      0.89      0.84        18\n      Gentoo       0.97      0.91      0.94        34\n\n    accuracy                           0.94       100\n   macro avg       0.92      0.93      0.92       100\nweighted avg       0.94      0.94      0.94       100"
   },
   {
     "objectID": "session4/session4v2_slides.html#make-a-summary-table-of-metrics-for-both-models",
     "href": "session4/session4v2_slides.html#make-a-summary-table-of-metrics-for-both-models",
     "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
     "section": "Make a Summary Table of Metrics for Both Models",
-    "text": "Make a Summary Table of Metrics for Both Models\n\nsummary_table = pd.DataFrame({\n    \"Metric\": [\"k-Means Adjusted Rand Index\", \"k-NN Accuracy\"],\n    \"Value\": [kmeans_ari, knn_accuracy]\n})\n(\n    GT(summary_table)\n    .tab_header(title = \"Model Results Summary\")\n    .fmt_number(columns = \"Value\", n_sigfig = 2)\n    .tab_options(table_font_size = 20)\n)\n\n\n\n\n\n\n\nModel Results Summary\n\n\nMetric\nValue\n\n\n\n\nk-Means Adjusted Rand Index\n0.82\n\n\nk-NN Accuracy\n0.94"
+    "text": "Make a Summary Table of Metrics for Both Models\n\nsummary_table = pd.DataFrame({\n    \"Metric\": [\"k-Means Adjusted Rand Index\", \"k-NN Accuracy\"],\n    \"Value\": [kmeans_ari, knn_accuracy]\n})\n(\n    GT(summary_table)\n    .tab_header(title = \"Model Results Summary\")\n    .fmt_number(columns = \"Value\", n_sigfig = 2)\n    .tab_options(table_font_size = 20)\n)\n\n\n\n\n\n\n\n\n\nModel Results Summary\n\n\nMetric\nValue\n\n\n\n\nk-Means Adjusted Rand Index\n0.82\n\n\nk-NN Accuracy\n0.94"
   },
   {
     "objectID": "session4/session4v2_slides.html#key-takeaways-from-this-session",
@@ -1286,124 +1391,5 @@
     "title": "Session 3: Intro to Pandas and great_tables",
     "section": "You Try!",
     "text": "You Try!\nNavigate to the follow-along file and try the practice problems!"
-  },
-  {
-    "objectID": "session4/session4v2_slides.html",
-    "href": "session4/session4v2_slides.html",
-    "title": "Session 4 – Object-Oriented Programming and Modeling Libraries",
-    "section": "",
-    "text": "In this session, we’ll explore how Python’s object-oriented nature affects our modeling workflows. \nTopics:\n\n\n\nIntro to OOP and how it makes modeling in Python different from R\n\n\nBuilding and extending classes using inheritance and mixins\n\n\nApplying OOP to machine learning through demos with scikit-learn\n\n\n\nCreating and using models\n\n\nPlotting data with plotnine and seaborn"
-  },
-  {
-    "objectID": "session1/session1-python-setup.html",
-    "href": "session1/session1-python-setup.html",
-    "title": "Python Installation, Environments, and VS Code Setup",
-    "section": "",
-    "text": "Workshop website: Introduction to Python Workshops 👉Find session handouts, assignments, and recordings 👉Ask questions (GitHub Discussion page)   Books / Websites:  The Python for Data Analysis, 3ed written by Wes McKinney is a helpful reference for Python beginners. The book focuses on data analysis and introduces relevant packages including NumPy, pandas (author is one of the creators!), statsmodels, and scikit-learn, etc.  Prerequisite\n\nMSK laptop/Remote Desktop\n\n\nMSK Github Enterprise account\n\n\nProgramming experience and minimal command line skills"
-  },
-  {
-    "objectID": "session1/session1-python-setup.html#session-1-learning-goals",
-    "href": "session1/session1-python-setup.html#session-1-learning-goals",
-    "title": "Python Installation, Environments, and VS Code Setup",
-    "section": "Session 1 Learning Goals",
-    "text": "Session 1 Learning Goals\nIn this session, we will familiarize with Python and essential tools for building reproducible Python projects. \n💡 Python overview: What is Python? How is it useful compared to R? 💡 Conda: conda for installing packages and creating reproducible Python virtual environments 💡 Familiarize with integrated development environments (Visual Studio Code) and interactive computing tools (Jupyter Notebook) 💡 Python reproducible workflow: Create a GitHub Python repository and work in Visual Studio Code within a project-specific conda environment"
-  },
-  {
-    "objectID": "session1/session1-python-setup.html#what-is-python",
-    "href": "session1/session1-python-setup.html#what-is-python",
-    "title": "Python Installation, Environments, and VS Code Setup",
-    "section": "What is Python?",
-    "text": "What is Python?\n\n\n\nPython is an open-source, high-level, interpreted, general-purpose programming language\n\nKey Features\n\n\nEasy to use: Python syntax is designed to be readable and user-friendly\nGeneral-purpose: widely applied in data science, ML/AL, software development, automation, etc.\nInterpreted: run code without compiling (unlike C/C++)\nOpen-source: free to use and supported by a mass user community, who contributes to many high-quality packages open to public"
-  },
-  {
-    "objectID": "session1/session1-python-setup.html#python-vs.-r",
-    "href": "session1/session1-python-setup.html#python-vs.-r",
-    "title": "Python Installation, Environments, and VS Code Setup",
-    "section": "Python vs. R",
-    "text": "Python vs. R\nPython and R differ in programming philosophy, computational capacity, and extensibility.\n\n\n\n\nFeature / Task\n\n\nR\n\n\nPython\n\n\n\n\n\n\nProgramming style\n\n\nFunction-oriented\n\n\nMostly object-oriented\n\n\n\n\nScope of functionality\n\n\nPrimarily for statistical computing and data analysis\n\n\nGeneral-purpose: ML & AI, software development, scripting, etc.\n\n\n\n\nComputational power\n\n\n✅ Vectorized operations  ⚠️ Memory-intensive for large data and loops\n\n\n✅ Faster loop performance  ✅ Strong GPU support  ✅ Efficient memory use\n\n\n\n\nPackage ecosystem\n\n\n✅ Rich ecosystem of statistical tools ⚠️ Fewer ML/AI tools\n\n\n☑️ Emerging statistical packages  ✅ Extensive ML/AI tools"
-  },
-  {
-    "objectID": "session1/session1-python-setup.html#python-package-ecosystem",
-    "href": "session1/session1-python-setup.html#python-package-ecosystem",
-    "title": "Python Installation, Environments, and VS Code Setup",
-    "section": "Python Package Ecosystem",
-    "text": "Python Package Ecosystem\n\n\nStatistical analysis\nWhile R is the go-to tool for statistical analysis, Python has caught up with many equivalent libraries and functions:\n\nstatsmodels / scipy.stats provide regression modeling and hypothesis testing.\nscikit-survival /lifelines support survival analysis and plotting.\n\n\n\n\nML/DL ecosystem\nPython dominates in machine learning and AI development:\n\nscikit-learn is a comprehensive machine learning library that supports supervised regression and classification (e.g., random forests, gradient boosting) and unsupervised clustering (e.g., K-means) analyses\nTensorFlow / PyTorch are deep learning libraries widely used for computer vision and natural language processing (NLP).\noptuna / Ray can be integrated into ML/DL workflows for easy and efficient model training, hyperparameter tuning, fine-tuning, etc.\n\n\n\n\nOmics data analysis\nEmerging bioinformatics packages that provide standard omics data preprocessing and analysis pipeliness:\n\nscanpy, anndata are libraries for single-cell RNA-seq data loading, preprocessing, and analysis\nBiopython is a set of tools for biological computation that performs file parsering, sequence analysis, clustering algorithms, etc.\npysam works with raw input files (e.g., BAM/SAM/VCF)"
-  },
-  {
-    "objectID": "session1/session1-python-setup.html#essential-tools",
-    "href": "session1/session1-python-setup.html#essential-tools",
-    "title": "Python Installation, Environments, and VS Code Setup",
-    "section": "Essential Tools",
-    "text": "Essential Tools\nLet’s familiarize with the essential software tools for Python programming and project building.\n\n\nMiniconda: provides Python installation and conda, a powerful package and environment manager\n\n\n\n\nVisual Studio Code: a lightweight code editor that integrates programming + plots + terminal + git + …\n\n\n\n\nJupyter Notebook: an interactive computing tool that combines code execution + markdown + visualizations\n\n\n\n\nGit (GitHub): for version control, collaboration, and publishing code"
-  },
-  {
-    "objectID": "session1/session1-python-setup.html#miniconda-vs.-anaconda",
-    "href": "session1/session1-python-setup.html#miniconda-vs.-anaconda",
-    "title": "Python Installation, Environments, and VS Code Setup",
-    "section": "Miniconda vs. Anaconda",
-    "text": "Miniconda vs. Anaconda\n\nYou can install conda via both installers:\n\nMiniconda (minimal version)\n\n\nAnaconda Distribution (full version)\n\n The Latter provides the Anaconda Navigator application which allows you to manage packages and environments without having to use the command line."
-  },
-  {
-    "objectID": "session1/session1-python-setup.html#conda-virtual-environments",
-    "href": "session1/session1-python-setup.html#conda-virtual-environments",
-    "title": "Python Installation, Environments, and VS Code Setup",
-    "section": "Conda Virtual Environments",
-    "text": "Conda Virtual Environments\n\nEnvironments are isolated, self-contained workspace that includes its own language interpreter and package dependencies \nExample:\n\nGlobal environment (system): Miniconda installation of Python 3.12 + dependencies\n\n\nVirtual environment1: Python 3.8 + dependencies\n\n\nVirtual environment2: R 4.4.2 + dependencies\n\n  In this case, creating virtual environments allows these Python installations to operate fully independently and not interfere with each other."
-  },
-  {
-    "objectID": "session1/session1-python-setup.html#why-use-virtual-environments",
-    "href": "session1/session1-python-setup.html#why-use-virtual-environments",
-    "title": "Python Installation, Environments, and VS Code Setup",
-    "section": "Why Use Virtual Environments?",
-    "text": "Why Use Virtual Environments?\n You may find the flexibility of environments beneficial in many cases.\n\n\nAvoid Conflicts. Help resolve potential conflicts between different projects concerning conflicting dependencies. Changes made to one environment won’t affect other projects that use different environments.\n\n\n\n\nEasy Management. Reduce the risk of breaking system Python and globally installed packages. You can easily delete a virtual environment if issues occur and recreate it.\n\n\n\n\nReproducibility. Work as time capsules, allowing you to replicate the requirement of a project at later time points or on new machines.\n\n\n\n\nSharing Environments. Allow sharing the Python version and entire list of dependencies with other people through a copy of the .yml file."
-  },
-  {
-    "objectID": "session1/session1-python-setup.html#overview-of-conda-commands",
-    "href": "session1/session1-python-setup.html#overview-of-conda-commands",
-    "title": "Python Installation, Environments, and VS Code Setup",
-    "section": "Overview of conda commands",
-    "text": "Overview of conda commands\nLet’s walk through some useful commands.  💡Open Anaconda Prompt (Windows) or Terminal (macOS) to execute commands"
-  },
-  {
-    "objectID": "session1/session1-python-setup.html#visual-studio-code",
-    "href": "session1/session1-python-setup.html#visual-studio-code",
-    "title": "Python Installation, Environments, and VS Code Setup",
-    "section": "Visual Studio Code",
-    "text": "Visual Studio Code\n\n  Visual Studio Code (VS Code) is one of the most popular open-source code editors with many features.\n\nLightweight\nMulti-language support for Python, R, C++, etc.\nIntegrated Git version control\nExtensible features like Jupyter notebooks, Quarto, remote connection\n\n\n\nJupyter Notebook\n\nJupyter is an interactive computing tool that lets you combine executable code, Markdown text, and visual components in one file called a notebook (.ipynb).\n\n\n\n VS Code + Jupyter notebooks for Python = RStudio + RMarkdowns for R."
-  },
-  {
-    "objectID": "session1/session1-python-setup.html#create-a-github-project---example",
-    "href": "session1/session1-python-setup.html#create-a-github-project---example",
-    "title": "Python Installation, Environments, and VS Code Setup",
-    "section": "Create a GitHub Project - Example",
-    "text": "Create a GitHub Project - Example\n\n\nCreate new repository from GitHub (public) or GitHub Enterprise (MSK Secured)\nInitialize with README.md and .gitignore (choose Python template)\n\n\n\nAlternatively…\n\nGo to practice repository: https://github.mskcc.org/Python-Workshop/workshop_proj\nFork the repo to create a copy on your GitHub account \nNow, you should have a forked copy of the repository on your own GitHub account (e.g. username/workshop_proj) \n\n\n\n\nNow, clone the repository to your local computer by clicking  \nOption 1 (CLI): Copy the HTTPS URL and clone with git command\ngit clone https://github.mskcc.org/&lt;username&gt;/workshop_proj.git\nOption 2 (GUI): Open in GitHub Desktop"
-  },
-  {
-    "objectID": "session1/session1-python-setup.html#organize-the-project-directory",
-    "href": "session1/session1-python-setup.html#organize-the-project-directory",
-    "title": "Python Installation, Environments, and VS Code Setup",
-    "section": "Organize the Project Directory",
-    "text": "Organize the Project Directory\n\nOrganize the project with separate data/ and notebooks/ folders and environment.yml file to save virtual environment information.\n\n\n\nHere is an example project structure.\nworkshop_proj/\n   ├── data/            # Raw & processed data folder\n   ├── notebooks/       # Jupyter notebooks and scripts\n   ├── environment.yml  # Conda environment YML file\n   ├── .gitignore       # Files that git should not track\n   └── README.md        # Project description \n👉Downlaod workshop environment.yml file and add to the parent directory.\n\n\n\nNote: If you do not use GitHub – that is fine! You can skip the previous step of cloning from GitHub and directly create a local folder with subfolders and files."
-  },
-  {
-    "objectID": "session1/session1-python-setup.html#create-a-project-specific-conda-environment",
-    "href": "session1/session1-python-setup.html#create-a-project-specific-conda-environment",
-    "title": "Python Installation, Environments, and VS Code Setup",
-    "section": "Create a Project-Specific Conda Environment",
-    "text": "Create a Project-Specific Conda Environment\n\n\n\n\n\n\nNote: Ensure that Miniconda is installed. For MacOs, ensure conda is correctly initialized with conda init (see installing Miniconda)\n\n\n\n\n\nLaunch Anaconda Prompt (Windows) or Terminal (macOS).\n\nChagne directory to your project folder with cd\nCreate the environment with:\nconda env create -f environment.yml\nconda activate python-intro-env"
-  },
-  {
-    "objectID": "session1/session1-python-setup.html#set-up-vs-code-for-python-jupyter",
-    "href": "session1/session1-python-setup.html#set-up-vs-code-for-python-jupyter",
-    "title": "Python Installation, Environments, and VS Code Setup",
-    "section": "Set up VS Code for Python & Jupyter",
-    "text": "Set up VS Code for Python & Jupyter\n\n\nLaunch VS Code\nOpen the Extensions Marketplace (Ctrl+Shift+X or Cmd+Shift+X) \nInstall the following extensions:\n\n✅ Python (auto-, debugging, and interpreter selection)\n✅ Jupyter (notebook interface and interactive execution)\nNote: You still need local installations of Python to enable the extension."
-  },
-  {
-    "objectID": "session1/session1-python-setup.html#work-in-jupyter-notebooks-in-vs-code",
-    "href": "session1/session1-python-setup.html#work-in-jupyter-notebooks-in-vs-code",
-    "title": "Python Installation, Environments, and VS Code Setup",
-    "section": "Work in Jupyter Notebooks in VS Code",
-    "text": "Work in Jupyter Notebooks in VS Code\n\n\nOpen your project folder in VS Code:\n\nSelect Open Folder… from the VS Code Welcome page: \nOr by selecting File &gt; Open Folder (Ctrl+K Ctrl+O)"
   }
 ]
