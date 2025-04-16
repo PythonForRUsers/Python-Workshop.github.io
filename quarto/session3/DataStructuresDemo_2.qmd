@@ -12,6 +12,7 @@ format:
     highlight-style: pygments
     width: 1400
     height: 800
+    self-contained: true
 execute:
   freeze: auto
   eval: true
@@ -115,7 +116,7 @@ import os
 import pandas as pd
 
 # Load the dataset
-cancer_data = pd.read_csv("C:\\Users\\augellp1\\Desktop\\Python Workshop\\Python-Workshop_NEW\\quarto\\session3\\example_data\\Cancer_Data.csv")
+cancer_data = pd.read_csv("..\session3\example_data\Cancer_Data.csv")
 
 print (type(cancer_data))
 
@@ -865,7 +866,7 @@ We’ll load the data, summarize it, and then build styled tables using `great_t
 import pandas as pd
 
 # Load the dataset
-df = pd.read_csv("C:\\Users\\augellp1\\Desktop\\Python Workshop\\Python-Workshop_NEW\\quarto\\session3\\example_data\\Cancer_Data.csv")
+df = pd.read_csv("..\session3\example_data\Cancer_Data.csv")
 
 # Drop unnamed column
 df = df.loc[:, ~df.columns.str.contains('^Unnamed')]

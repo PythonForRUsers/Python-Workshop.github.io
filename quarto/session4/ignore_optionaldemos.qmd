@@ -3,14 +3,22 @@ title: "Optional Demos: Neural Networks and Regression Modeling"
 subtitle: "PyTorch and statsmodels"
 author: "Your Name"
 format:
-  html:
+  revealjs:
     toc: true
     toc-depth: 2
     number-sections: true
-    code-fold: true
     code-summary: "Show code"
     code-tools: true
+    theme: [default, slideshowv2.scss]
+    code-copy: true   
+    smaller: false
+    code-block-height: 850px
+    highlight-style: pygments
+    width: 1600   # default is 960
+    height: 900  # default is 700
+    transition: none
     code-line-numbers: true
+    self-contained: true
 jupyter: python3
 ---
 
