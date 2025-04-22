@@ -14,7 +14,7 @@ format:
     smaller: false
     code-block-height: 850px
     highlight-style: pygments
-    width: 1600   # default is 960
+    width: 1600   # default is 960fix
     height: 900  # default is 700
     transition: none
     code-line-numbers: true

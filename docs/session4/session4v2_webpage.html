@@ -421,11 +421,11 @@ Instead of having a separate results object, like in R, you would retrieve your 
 </li>
 </ul>
 <p><span style="font-size: .8em;">👉 To Get the class of an object, use:</span></p>
-<div id="3b45dc9e" class="cell" data-execution_count="1">
+<div id="aac0b0d2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">type</span>(<span class="bu">object</span>) <span class="co"># Returns the type of the object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span style="font-size: .8em;">👉 To check if an object is an instance of a particular class, use:</span></p>
-<div id="2979b305" class="cell" data-execution_count="2">
+<div id="13aeba4b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">isinstance</span>(<span class="bu">object</span>, <span class="kw">class</span>)  <span class="co"># Returns True if `object` is an instance of `class`.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
@@ -442,7 +442,7 @@ Knowing what class an object belongs to helps us understand what methods and att
 <p>Classes are defined using the <code>class</code> keyword, and their structure is specified using an <code>__init__()</code> method for initialization.</p>
 <div class="fragment">
 <p>For example, we can define a class called <code>Dog</code> and give it attributes that store data about a given dog and methods that represent behaviors an object of the <code>Dog</code> class can perform. We can also edit the <a href="https://docs.python.org/3/reference/datamodel.html#special-method-names"><strong>special</strong> or <strong>“dunder”</strong> methods</a> (short for double underscore) that define how objects behave in certain contexts.</p>
-<div id="e7dd9434" class="cell" data-execution_count="3">
+<div id="c32b7a0c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">class</span> Dog: <span class="co">## begin class definition</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, breed): <span class="co">## define init method</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>        <span class="va">self</span>.name <span class="op">=</span> name <span class="co">## add attributes</span></span>
@@ -462,7 +462,7 @@ Knowing what class an object belongs to helps us understand what methods and att
 <section id="creating-a-dog" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-dog">Creating a dog</h2>
 <p>Creating an instance of the <code>Dog</code> class lets us model a particular dog:</p>
-<div id="32d8456e" class="cell" data-output-location="fragment" data-execution_count="4">
+<div id="4356a762" class="cell" data-output-location="fragment" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>buddy <span class="op">=</span> Dog(<span class="st">"Buddy"</span>, <span class="st">"Golden Retriever"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(<span class="ss">f"Buddy is an object of class </span><span class="sc">{</span><span class="bu">type</span>(buddy)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -477,7 +477,7 @@ We set the value of the attributes [<code>name</code> and <code>breed</code>], w
 We can use any methods defined in the Dog class on <code>buddy</code>
 </li>
 </ul>
-<div id="20dac349" class="cell" data-output-location="fragment" data-execution_count="5">
+<div id="ebf63da5" class="cell" data-output-location="fragment" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">## if we want to see what kind of dog our dog is</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="co">## we can call buddy's attributes</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="bu">print</span>(<span class="ss">f"Our dog </span><span class="sc">{</span>buddy<span class="sc">.</span>name<span class="sc">}</span><span class="ss"> is a </span><span class="sc">{</span>buddy<span class="sc">.</span>breed<span class="sc">}</span><span class="ss">."</span>)</span>
@@ -501,7 +501,7 @@ Buddy says woof!</code></pre>
 <h2 class="anchored" data-anchor-id="derived-child-classes">Derived (Child) Classes</h2>
 <p>Derived/child classes build on base classes using the principle of inheritence. <br></p>
 <p>Now that we have a <code>Dog</code> class, we can build on it to create a specialized <code>GuardDog</code> class.</p>
-<div id="29429399" class="cell" data-execution_count="6">
+<div id="3bb43c4f" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">class</span> GuardDog(Dog):  <span class="co"># GuardDog inherits from Dog</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, breed, training_level): <span class="co">## in addition to name and breed, we can </span></span>
 <span id="cb9-3"><a href="#cb9-3"></a>        <span class="co"># define a training level. </span></span>
@@ -526,7 +526,7 @@ Buddy says woof!</code></pre>
 <hr>
 <p>Now that we have a dog (rex), we can call on any of the methods/attributes introduced in the <code>Dog</code> class as well as the new <code>GuardDog</code> class.</p>
 <p>Using methods from the base class:</p>
-<div id="805a9282" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="7">
+<div id="573f3e1e" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">print</span>(rex.speak())</span>
 <span id="cb10-2"><a href="#cb10-2"></a>rex</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -538,7 +538,7 @@ Buddy says woof!</code></pre>
 </div>
 <p><br></p>
 <p>Using a method from the child class:</p>
-<div id="092adf4f" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="8">
+<div id="7dcd887c" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>rex<span class="sc">.</span>name<span class="sc">}</span><span class="ss">'s training level is </span><span class="sc">{</span>rex<span class="sc">.</span>training_level<span class="sc">}</span><span class="ss">."</span>)</span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="bu">print</span>(rex.guard()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -551,18 +551,34 @@ Rex needs more training before guarding.</code></pre>
 <hr>
 <p>Unlike standalone functions, methods in Python often update objects in-place—meaning they modify the object itself rather than returning a new one.</p>
 <p>We can use the <code>.train()</code> method to increase rex’s training level.</p>
-<div id="a2275e8e" class="cell" data-output-location="fragment" data-execution_count="9">
+<div id="0da9512e" class="cell" data-output-location="fragment" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">print</span>(rex.train())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Training Rex. Rex's training level is now 6</code></pre>
 </div>
 </div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Be Careful!!!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Calling rex.train() within a print statement still updates rex’s training level. If we were to do this instead:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>rex.train()</span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="bu">print</span>(rex.train())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>it would train rex twice!</p>
+</div>
+</div>
 <p>. . .</p>
 <p><br></p>
 <p>Now if we check,</p>
-<div id="6341dda3" class="cell" data-output-location="fragment" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>rex<span class="sc">.</span>name<span class="sc">}</span><span class="ss">'s training level is </span><span class="sc">{</span>rex<span class="sc">.</span>training_level<span class="sc">}</span><span class="ss">."</span>)</span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="bu">print</span>(rex.guard()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e6491482" class="cell" data-output-location="fragment" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>rex<span class="sc">.</span>name<span class="sc">}</span><span class="ss">'s training level is </span><span class="sc">{</span>rex<span class="sc">.</span>training_level<span class="sc">}</span><span class="ss">."</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="bu">print</span>(rex.guard()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rex's training level is 6.
 Rex is guarding the house!</code></pre>
@@ -584,48 +600,48 @@ Rex is guarding the house!</code></pre>
 </div>
 <hr>
 <p>When creating a mixin class, we let the other base classes carry most of the initialization</p>
-<div id="accbdcd6" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">class</span> TrickMixin: <span class="co">## mixin that will let us teach a dog tricks</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
-<span id="cb19-3"><a href="#cb19-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(<span class="op">*</span>args, <span class="op">**</span>kwargs)  <span class="co"># Ensures proper initialization in multi inheritance</span></span>
-<span id="cb19-4"><a href="#cb19-4"></a>        <span class="va">self</span>.tricks <span class="op">=</span> []  <span class="co"># Add attribute to store tricks</span></span>
-<span id="cb19-5"><a href="#cb19-5"></a></span>
-<span id="cb19-6"><a href="#cb19-6"></a><span class="co">## add trick methods</span></span>
-<span id="cb19-7"><a href="#cb19-7"></a>    <span class="kw">def</span> learn_trick(<span class="va">self</span>, trick):</span>
-<span id="cb19-8"><a href="#cb19-8"></a>        <span class="co">"""Teaches the dog a new trick."""</span></span>
-<span id="cb19-9"><a href="#cb19-9"></a>        <span class="cf">if</span> trick <span class="kw">not</span> <span class="kw">in</span> <span class="va">self</span>.tricks:</span>
-<span id="cb19-10"><a href="#cb19-10"></a>            <span class="va">self</span>.tricks.append(trick)</span>
-<span id="cb19-11"><a href="#cb19-11"></a>            <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> learned a new trick: </span><span class="sc">{</span>trick<span class="sc">}</span><span class="ss">!"</span></span>
-<span id="cb19-12"><a href="#cb19-12"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> already knows </span><span class="sc">{</span>trick<span class="sc">}</span><span class="ss">!"</span></span>
-<span id="cb19-13"><a href="#cb19-13"></a></span>
-<span id="cb19-14"><a href="#cb19-14"></a>    <span class="kw">def</span> perform_tricks(<span class="va">self</span>):</span>
-<span id="cb19-15"><a href="#cb19-15"></a>        <span class="co">"""Returns a list of tricks the dog knows."""</span></span>
-<span id="cb19-16"><a href="#cb19-16"></a>        <span class="cf">if</span> <span class="va">self</span>.tricks:</span>
-<span id="cb19-17"><a href="#cb19-17"></a>            <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> can perform: </span><span class="sc">{</span><span class="st">', '</span><span class="sc">.</span>join(<span class="va">self</span>.tricks)<span class="sc">}</span><span class="ss">."</span></span>
-<span id="cb19-18"><a href="#cb19-18"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> hasn't learned any tricks yet."</span></span>
-<span id="cb19-19"><a href="#cb19-19"></a></span>
-<span id="cb19-20"><a href="#cb19-20"></a><span class="co">## note: the TrickMixin class is not a standalone class!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4edcf711" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">class</span> TrickMixin: <span class="co">## mixin that will let us teach a dog tricks</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
+<span id="cb20-3"><a href="#cb20-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(<span class="op">*</span>args, <span class="op">**</span>kwargs)  <span class="co"># Ensures proper initialization in multi inheritance</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a>        <span class="va">self</span>.tricks <span class="op">=</span> []  <span class="co"># Add attribute to store tricks</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a></span>
+<span id="cb20-6"><a href="#cb20-6"></a><span class="co">## add trick methods</span></span>
+<span id="cb20-7"><a href="#cb20-7"></a>    <span class="kw">def</span> learn_trick(<span class="va">self</span>, trick):</span>
+<span id="cb20-8"><a href="#cb20-8"></a>        <span class="co">"""Teaches the dog a new trick."""</span></span>
+<span id="cb20-9"><a href="#cb20-9"></a>        <span class="cf">if</span> trick <span class="kw">not</span> <span class="kw">in</span> <span class="va">self</span>.tricks:</span>
+<span id="cb20-10"><a href="#cb20-10"></a>            <span class="va">self</span>.tricks.append(trick)</span>
+<span id="cb20-11"><a href="#cb20-11"></a>            <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> learned a new trick: </span><span class="sc">{</span>trick<span class="sc">}</span><span class="ss">!"</span></span>
+<span id="cb20-12"><a href="#cb20-12"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> already knows </span><span class="sc">{</span>trick<span class="sc">}</span><span class="ss">!"</span></span>
+<span id="cb20-13"><a href="#cb20-13"></a></span>
+<span id="cb20-14"><a href="#cb20-14"></a>    <span class="kw">def</span> perform_tricks(<span class="va">self</span>):</span>
+<span id="cb20-15"><a href="#cb20-15"></a>        <span class="co">"""Returns a list of tricks the dog knows."""</span></span>
+<span id="cb20-16"><a href="#cb20-16"></a>        <span class="cf">if</span> <span class="va">self</span>.tricks:</span>
+<span id="cb20-17"><a href="#cb20-17"></a>            <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> can perform: </span><span class="sc">{</span><span class="st">', '</span><span class="sc">.</span>join(<span class="va">self</span>.tricks)<span class="sc">}</span><span class="ss">."</span></span>
+<span id="cb20-18"><a href="#cb20-18"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> hasn't learned any tricks yet."</span></span>
+<span id="cb20-19"><a href="#cb20-19"></a></span>
+<span id="cb20-20"><a href="#cb20-20"></a><span class="co">## note: the TrickMixin class is not a standalone class!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 <p>By including both <code>Dog</code> and <code>TrickMixin</code> as base classes, we give objects of class <code>SmartDog</code> the ability to speak and learn tricks!</p>
-<div id="f8938718" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">class</span> SmartDog(Dog, TrickMixin):</span>
-<span id="cb20-2"><a href="#cb20-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, breed):</span>
-<span id="cb20-3"><a href="#cb20-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(name, breed)  <span class="co"># Initialize Dog class</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a>        TrickMixin.<span class="fu">__init__</span>(<span class="va">self</span>)  <span class="co"># Initialize TrickMixin separately</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a></span>
-<span id="cb20-6"><a href="#cb20-6"></a><span class="co"># a SmartDog object can use methods from both parent object `Dog` and mixin `TrickMixin`.</span></span>
-<span id="cb20-7"><a href="#cb20-7"></a>my_smart_dog <span class="op">=</span> SmartDog(<span class="st">"Buddy"</span>, <span class="st">"Border Collie"</span>)</span>
-<span id="cb20-8"><a href="#cb20-8"></a><span class="bu">print</span>(my_smart_dog.speak()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="939cc50c" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">class</span> SmartDog(Dog, TrickMixin):</span>
+<span id="cb21-2"><a href="#cb21-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, breed):</span>
+<span id="cb21-3"><a href="#cb21-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(name, breed)  <span class="co"># Initialize Dog class</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>        TrickMixin.<span class="fu">__init__</span>(<span class="va">self</span>)  <span class="co"># Initialize TrickMixin separately</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a></span>
+<span id="cb21-6"><a href="#cb21-6"></a><span class="co"># a SmartDog object can use methods from both parent object `Dog` and mixin `TrickMixin`.</span></span>
+<span id="cb21-7"><a href="#cb21-7"></a>my_smart_dog <span class="op">=</span> SmartDog(<span class="st">"Buddy"</span>, <span class="st">"Border Collie"</span>)</span>
+<span id="cb21-8"><a href="#cb21-8"></a><span class="bu">print</span>(my_smart_dog.speak()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Buddy says woof!</code></pre>
 </div>
 </div>
 <p><br></p>
-<div id="8cca4a8a" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="bu">print</span>(my_smart_dog.learn_trick(<span class="st">"Sit"</span>))  </span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="bu">print</span>(my_smart_dog.learn_trick(<span class="st">"Roll Over"</span>)) </span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="bu">print</span>(my_smart_dog.learn_trick(<span class="st">"Sit"</span>))  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5b7438b0" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="bu">print</span>(my_smart_dog.learn_trick(<span class="st">"Sit"</span>))  </span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="bu">print</span>(my_smart_dog.learn_trick(<span class="st">"Roll Over"</span>)) </span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="bu">print</span>(my_smart_dog.learn_trick(<span class="st">"Sit"</span>))  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Buddy learned a new trick: Sit!
 Buddy learned a new trick: Roll Over!
@@ -633,8 +649,8 @@ Buddy already knows Sit!</code></pre>
 </div>
 </div>
 <p><br></p>
-<div id="a24566b2" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="bu">print</span>(my_smart_dog.perform_tricks()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b8816cb6" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="bu">print</span>(my_smart_dog.perform_tricks()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Buddy can perform: Sit, Roll Over.</code></pre>
 </div>
@@ -656,32 +672,32 @@ Python’s duck typing makes our lives a lot easier, and is one of the main bene
 </ul>
 <p>We can demonstrate this by defining two new base classes that are different than <code>Dog</code> but also have a <code>speak()</code> method.</p>
 <p>. . .</p>
-<div id="6f34984f" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">class</span> Human:</span>
-<span id="cb26-2"><a href="#cb26-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>
-<span id="cb26-3"><a href="#cb26-3"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
-<span id="cb26-4"><a href="#cb26-4"></a></span>
-<span id="cb26-5"><a href="#cb26-5"></a>    <span class="kw">def</span> speak(<span class="va">self</span>):</span>
-<span id="cb26-6"><a href="#cb26-6"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> says hello!"</span></span>
-<span id="cb26-7"><a href="#cb26-7"></a></span>
-<span id="cb26-8"><a href="#cb26-8"></a><span class="kw">class</span> Parrot:</span>
-<span id="cb26-9"><a href="#cb26-9"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>
-<span id="cb26-10"><a href="#cb26-10"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
-<span id="cb26-11"><a href="#cb26-11"></a></span>
-<span id="cb26-12"><a href="#cb26-12"></a>    <span class="kw">def</span> speak(<span class="va">self</span>):</span>
-<span id="cb26-13"><a href="#cb26-13"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> says squawk!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1de2e125" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">class</span> Human:</span>
+<span id="cb27-2"><a href="#cb27-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>
+<span id="cb27-3"><a href="#cb27-3"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb27-4"><a href="#cb27-4"></a></span>
+<span id="cb27-5"><a href="#cb27-5"></a>    <span class="kw">def</span> speak(<span class="va">self</span>):</span>
+<span id="cb27-6"><a href="#cb27-6"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> says hello!"</span></span>
+<span id="cb27-7"><a href="#cb27-7"></a></span>
+<span id="cb27-8"><a href="#cb27-8"></a><span class="kw">class</span> Parrot:</span>
+<span id="cb27-9"><a href="#cb27-9"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>
+<span id="cb27-10"><a href="#cb27-10"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb27-11"><a href="#cb27-11"></a></span>
+<span id="cb27-12"><a href="#cb27-12"></a>    <span class="kw">def</span> speak(<span class="va">self</span>):</span>
+<span id="cb27-13"><a href="#cb27-13"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> says squawk!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="duck-typing-in-action" class="level2">
 <h2 class="anchored" data-anchor-id="duck-typing-in-action">Duck Typing in Action</h2>
 <p>Even though <code>Dog</code>, <code>Human</code> and <code>Parrot</code> are entirely different classes…</p>
-<div id="880eae8c" class="cell" data-output-location="fragment" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">def</span> call_speaker(obj):</span>
-<span id="cb27-2"><a href="#cb27-2"></a>    <span class="bu">print</span>(obj.speak())</span>
-<span id="cb27-3"><a href="#cb27-3"></a></span>
-<span id="cb27-4"><a href="#cb27-4"></a>call_speaker(Dog(<span class="st">"Fido"</span>, <span class="st">"Labrador"</span>))</span>
-<span id="cb27-5"><a href="#cb27-5"></a>call_speaker(Human(<span class="st">"Alice"</span>))</span>
-<span id="cb27-6"><a href="#cb27-6"></a>call_speaker(Parrot(<span class="st">"Polly"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e559f920" class="cell" data-output-location="fragment" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">def</span> call_speaker(obj):</span>
+<span id="cb28-2"><a href="#cb28-2"></a>    <span class="bu">print</span>(obj.speak())</span>
+<span id="cb28-3"><a href="#cb28-3"></a></span>
+<span id="cb28-4"><a href="#cb28-4"></a>call_speaker(Dog(<span class="st">"Fido"</span>, <span class="st">"Labrador"</span>))</span>
+<span id="cb28-5"><a href="#cb28-5"></a>call_speaker(Human(<span class="st">"Alice"</span>))</span>
+<span id="cb28-6"><a href="#cb28-6"></a>call_speaker(Parrot(<span class="st">"Polly"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Fido says woof!
 Alice says hello!
@@ -707,15 +723,15 @@ That model has attributes (parameters, coefficients) and methods (like <code>.fi
 </li>
 </ul>
 <p>For example <code>LogisticRegression</code> is a model class that inherits from <code>SparseCoefMixin</code> and <code>BaseEstimator</code>.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">class</span> LogisticRegression(LinearClassifierMixin, SparseCoefMixin, BaseEstimator):</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="kw">class</span> LogisticRegression(LinearClassifierMixin, SparseCoefMixin, BaseEstimator):</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><span style="top-padding: .35em;">To perform logistic regression, we create an instance of the <code>LogisticRegression</code> class.</span></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="co">## Example: </span></span>
-<span id="cb30-2"><a href="#cb30-2"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
-<span id="cb30-3"><a href="#cb30-3"></a></span>
-<span id="cb30-4"><a href="#cb30-4"></a>model <span class="op">=</span> LogisticRegression()  <span class="co"># Creating an instance of the LogisticRegression class</span></span>
-<span id="cb30-5"><a href="#cb30-5"></a>model.fit(X_train, y_train)   <span class="co"># Calling a method to train the model</span></span>
-<span id="cb30-6"><a href="#cb30-6"></a>predictions <span class="op">=</span> model.predict(X_test)  <span class="co"># Calling a method to make predictions</span></span>
-<span id="cb30-7"><a href="#cb30-7"></a>coefs <span class="op">=</span> model.coef_ <span class="co"># Access model coefficients using attribute</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="co">## Example: </span></span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
+<span id="cb31-3"><a href="#cb31-3"></a></span>
+<span id="cb31-4"><a href="#cb31-4"></a>model <span class="op">=</span> LogisticRegression()  <span class="co"># Creating an instance of the LogisticRegression class</span></span>
+<span id="cb31-5"><a href="#cb31-5"></a>model.fit(X_train, y_train)   <span class="co"># Calling a method to train the model</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a>predictions <span class="op">=</span> model.predict(X_test)  <span class="co"># Calling a method to make predictions</span></span>
+<span id="cb31-7"><a href="#cb31-7"></a>coefs <span class="op">=</span> model.coef_ <span class="co"># Access model coefficients using attribute</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="key-benefits-of-oop-in-machine-learning" class="level2">
 <h2 class="anchored" data-anchor-id="key-benefits-of-oop-in-machine-learning"><strong>Key Benefits of OOP in Machine Learning</strong></h2>
@@ -807,49 +823,49 @@ Now that you understand <strong>classes</strong> and <strong>data structures</st
 </section>
 <section id="import-libraries-1" class="level2">
 <h2 class="anchored" data-anchor-id="import-libraries-1">Import Libraries</h2>
-<div id="8d192052" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="co">## imports</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb31-3"><a href="#cb31-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb31-4"><a href="#cb31-4"></a></span>
-<span id="cb31-5"><a href="#cb31-5"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb31-6"><a href="#cb31-6"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb31-7"><a href="#cb31-7"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb31-8"><a href="#cb31-8"></a></span>
-<span id="cb31-9"><a href="#cb31-9"></a><span class="im">from</span> great_tables <span class="im">import</span> GT</span>
-<span id="cb31-10"><a href="#cb31-10"></a></span>
-<span id="cb31-11"><a href="#cb31-11"></a><span class="co">## sklearn imports</span></span>
-<span id="cb31-12"><a href="#cb31-12"></a></span>
-<span id="cb31-13"><a href="#cb31-13"></a><span class="co">## import classes</span></span>
-<span id="cb31-14"><a href="#cb31-14"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler </span>
-<span id="cb31-15"><a href="#cb31-15"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
-<span id="cb31-16"><a href="#cb31-16"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
-<span id="cb31-17"><a href="#cb31-17"></a></span>
-<span id="cb31-18"><a href="#cb31-18"></a><span class="co">## import functions</span></span>
-<span id="cb31-19"><a href="#cb31-19"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb31-20"><a href="#cb31-20"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, classification_report, adjusted_rand_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="84cdd40a" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="co">## imports</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb32-4"><a href="#cb32-4"></a></span>
+<span id="cb32-5"><a href="#cb32-5"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb32-6"><a href="#cb32-6"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb32-7"><a href="#cb32-7"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb32-8"><a href="#cb32-8"></a></span>
+<span id="cb32-9"><a href="#cb32-9"></a><span class="im">from</span> great_tables <span class="im">import</span> GT</span>
+<span id="cb32-10"><a href="#cb32-10"></a></span>
+<span id="cb32-11"><a href="#cb32-11"></a><span class="co">## sklearn imports</span></span>
+<span id="cb32-12"><a href="#cb32-12"></a></span>
+<span id="cb32-13"><a href="#cb32-13"></a><span class="co">## import classes</span></span>
+<span id="cb32-14"><a href="#cb32-14"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler </span>
+<span id="cb32-15"><a href="#cb32-15"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
+<span id="cb32-16"><a href="#cb32-16"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb32-17"><a href="#cb32-17"></a></span>
+<span id="cb32-18"><a href="#cb32-18"></a><span class="co">## import functions</span></span>
+<span id="cb32-19"><a href="#cb32-19"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb32-20"><a href="#cb32-20"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, classification_report, adjusted_rand_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-preparation" class="level2">
 <h2 class="anchored" data-anchor-id="data-preparation">Data Preparation</h2>
-<div id="ce3551c8" class="cell" data-output-location="fragment" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Load the Penguins dataset</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>).dropna()</span>
-<span id="cb32-3"><a href="#cb32-3"></a></span>
-<span id="cb32-4"><a href="#cb32-4"></a><span class="co"># Make a summary table for the penguins dataset, grouping by species. </span></span>
-<span id="cb32-5"><a href="#cb32-5"></a>summary_table <span class="op">=</span> penguins.groupby(<span class="st">"species"</span>).agg({</span>
-<span id="cb32-6"><a href="#cb32-6"></a>    <span class="st">"bill_length_mm"</span>: [<span class="st">"mean"</span>, <span class="st">"std"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>],</span>
-<span id="cb32-7"><a href="#cb32-7"></a>    <span class="st">"bill_depth_mm"</span>: [<span class="st">"mean"</span>, <span class="st">"std"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>],</span>
-<span id="cb32-8"><a href="#cb32-8"></a>    <span class="st">"sex"</span>: <span class="kw">lambda</span> x: x.value_counts().to_dict()  <span class="co"># Count of males and females</span></span>
-<span id="cb32-9"><a href="#cb32-9"></a>})</span>
-<span id="cb32-10"><a href="#cb32-10"></a></span>
-<span id="cb32-11"><a href="#cb32-11"></a><span class="co"># Round numeric values to 1 decimal place (excluding the 'sex' column)</span></span>
-<span id="cb32-12"><a href="#cb32-12"></a><span class="cf">for</span> col <span class="kw">in</span> summary_table.columns:</span>
-<span id="cb32-13"><a href="#cb32-13"></a>    <span class="cf">if</span> summary_table[col].dtype <span class="kw">in</span> [<span class="bu">float</span>, <span class="bu">int</span>]:</span>
-<span id="cb32-14"><a href="#cb32-14"></a>        summary_table[col] <span class="op">=</span> summary_table[col].<span class="bu">round</span>(<span class="dv">1</span>)</span>
-<span id="cb32-15"><a href="#cb32-15"></a></span>
-<span id="cb32-16"><a href="#cb32-16"></a><span class="co"># Display the result</span></span>
-<span id="cb32-17"><a href="#cb32-17"></a>display(summary_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cc30e696" class="cell" data-output-location="fragment" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Load the Penguins dataset</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>).dropna()</span>
+<span id="cb33-3"><a href="#cb33-3"></a></span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="co"># Make a summary table for the penguins dataset, grouping by species. </span></span>
+<span id="cb33-5"><a href="#cb33-5"></a>summary_table <span class="op">=</span> penguins.groupby(<span class="st">"species"</span>).agg({</span>
+<span id="cb33-6"><a href="#cb33-6"></a>    <span class="st">"bill_length_mm"</span>: [<span class="st">"mean"</span>, <span class="st">"std"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>],</span>
+<span id="cb33-7"><a href="#cb33-7"></a>    <span class="st">"bill_depth_mm"</span>: [<span class="st">"mean"</span>, <span class="st">"std"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>],</span>
+<span id="cb33-8"><a href="#cb33-8"></a>    <span class="st">"sex"</span>: <span class="kw">lambda</span> x: x.value_counts().to_dict()  <span class="co"># Count of males and females</span></span>
+<span id="cb33-9"><a href="#cb33-9"></a>})</span>
+<span id="cb33-10"><a href="#cb33-10"></a></span>
+<span id="cb33-11"><a href="#cb33-11"></a><span class="co"># Round numeric values to 1 decimal place (excluding the 'sex' column)</span></span>
+<span id="cb33-12"><a href="#cb33-12"></a><span class="cf">for</span> col <span class="kw">in</span> summary_table.columns:</span>
+<span id="cb33-13"><a href="#cb33-13"></a>    <span class="cf">if</span> summary_table[col].dtype <span class="kw">in</span> [<span class="bu">float</span>, <span class="bu">int</span>]:</span>
+<span id="cb33-14"><a href="#cb33-14"></a>        summary_table[col] <span class="op">=</span> summary_table[col].<span class="bu">round</span>(<span class="dv">1</span>)</span>
+<span id="cb33-15"><a href="#cb33-15"></a></span>
+<span id="cb33-16"><a href="#cb33-16"></a><span class="co"># Display the result</span></span>
+<span id="cb33-17"><a href="#cb33-17"></a>display(summary_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -976,13 +992,13 @@ Harder to customize than plotnine plots
 <section id="scatterplot-with-plotnine" class="level2">
 <h2 class="anchored" data-anchor-id="scatterplot-with-plotnine">Scatterplot with plotnine</h2>
 <p>To take a look at the distribution of our species by bill length and bill depth before clustering…</p>
-<div id="ff8c90a9" class="cell" data-fig-dpi="600" data-output-location="fragment" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>plot1 <span class="op">=</span> (ggplot(penguins, aes(x<span class="op">=</span><span class="st">"bill_length_mm"</span>, y<span class="op">=</span><span class="st">"bill_depth_mm"</span>, color<span class="op">=</span><span class="st">"species"</span>))</span>
-<span id="cb33-2"><a href="#cb33-2"></a> <span class="op">+</span> geom_point()</span>
-<span id="cb33-3"><a href="#cb33-3"></a> <span class="op">+</span> ggtitle(<span class="st">"Penguin Species"</span>)</span>
-<span id="cb33-4"><a href="#cb33-4"></a> <span class="op">+</span> theme_bw())</span>
-<span id="cb33-5"><a href="#cb33-5"></a></span>
-<span id="cb33-6"><a href="#cb33-6"></a>display(plot1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3410a7db" class="cell" data-fig-dpi="600" data-output-location="fragment" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>plot1 <span class="op">=</span> (ggplot(penguins, aes(x<span class="op">=</span><span class="st">"bill_length_mm"</span>, y<span class="op">=</span><span class="st">"bill_depth_mm"</span>, color<span class="op">=</span><span class="st">"species"</span>))</span>
+<span id="cb34-2"><a href="#cb34-2"></a> <span class="op">+</span> geom_point()</span>
+<span id="cb34-3"><a href="#cb34-3"></a> <span class="op">+</span> ggtitle(<span class="st">"Penguin Species"</span>)</span>
+<span id="cb34-4"><a href="#cb34-4"></a> <span class="op">+</span> theme_bw())</span>
+<span id="cb34-5"><a href="#cb34-5"></a></span>
+<span id="cb34-6"><a href="#cb34-6"></a>display(plot1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -995,28 +1011,29 @@ Harder to customize than plotnine plots
 <section id="scatterplot-with-seaborn" class="level2">
 <h2 class="anchored" data-anchor-id="scatterplot-with-seaborn">Scatterplot with seaborn</h2>
 <p>We can make a similar plot in seaborn. This time, let’s include sex by setting the point style</p>
-<div id="9fbc9217" class="cell" data-output-location="slide" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Create the figure and axes obects</span></span>
-<span id="cb34-2"><a href="#cb34-2"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
-<span id="cb34-3"><a href="#cb34-3"></a></span>
-<span id="cb34-4"><a href="#cb34-4"></a><span class="co"># Create a plot </span></span>
-<span id="cb34-5"><a href="#cb34-5"></a>sns.scatterplot(</span>
-<span id="cb34-6"><a href="#cb34-6"></a>    data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"bill_length_mm"</span>, y<span class="op">=</span><span class="st">"bill_depth_mm"</span>,</span>
-<span id="cb34-7"><a href="#cb34-7"></a>    hue<span class="op">=</span><span class="st">"species"</span>, <span class="co">## hue = fill</span></span>
-<span id="cb34-8"><a href="#cb34-8"></a>    style<span class="op">=</span><span class="st">"sex"</span>,  <span class="co">## style = style of dots</span></span>
-<span id="cb34-9"><a href="#cb34-9"></a>    palette<span class="op">=</span><span class="st">"Set2"</span>, <span class="co">## sets color pallet</span></span>
-<span id="cb34-10"><a href="#cb34-10"></a>    edgecolor<span class="op">=</span><span class="st">"black"</span>, s<span class="op">=</span><span class="dv">300</span>, <span class="co">## line color and point size </span></span>
-<span id="cb34-11"><a href="#cb34-11"></a>    ax<span class="op">=</span>ax              <span class="co">## Draw plot on ax      </span></span>
-<span id="cb34-12"><a href="#cb34-12"></a>)</span>
-<span id="cb34-13"><a href="#cb34-13"></a></span>
-<span id="cb34-14"><a href="#cb34-14"></a><span class="co"># Use methods on ax to set title, labels</span></span>
-<span id="cb34-15"><a href="#cb34-15"></a>ax.set_title(<span class="st">"Penguin Bill Length vs Depth by Species"</span>)</span>
-<span id="cb34-16"><a href="#cb34-16"></a>ax.set_xlabel(<span class="st">"Bill Length (mm)"</span>)</span>
-<span id="cb34-17"><a href="#cb34-17"></a>ax.set_ylabel(<span class="st">"Bill Depth (mm)"</span>)</span>
-<span id="cb34-18"><a href="#cb34-18"></a>ax.legend(title<span class="op">=</span><span class="st">"Species"</span>)</span>
-<span id="cb34-19"><a href="#cb34-19"></a></span>
-<span id="cb34-20"><a href="#cb34-20"></a><span class="co"># Plot the figure</span></span>
-<span id="cb34-21"><a href="#cb34-21"></a>fig.tight_layout() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a63924ed" class="cell" data-output-location="slide" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Create the figure and axes obects</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb35-3"><a href="#cb35-3"></a></span>
+<span id="cb35-4"><a href="#cb35-4"></a><span class="co"># Create a plot </span></span>
+<span id="cb35-5"><a href="#cb35-5"></a>sns.scatterplot(</span>
+<span id="cb35-6"><a href="#cb35-6"></a>    data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">"bill_length_mm"</span>, y<span class="op">=</span><span class="st">"bill_depth_mm"</span>,</span>
+<span id="cb35-7"><a href="#cb35-7"></a>    hue<span class="op">=</span><span class="st">"species"</span>, <span class="co">## hue = fill</span></span>
+<span id="cb35-8"><a href="#cb35-8"></a>    style<span class="op">=</span><span class="st">"sex"</span>,  <span class="co">## style = style of dots</span></span>
+<span id="cb35-9"><a href="#cb35-9"></a>    palette<span class="op">=</span><span class="st">"Set2"</span>, <span class="co">## sets color pallet</span></span>
+<span id="cb35-10"><a href="#cb35-10"></a>    edgecolor<span class="op">=</span><span class="st">"black"</span>, s<span class="op">=</span><span class="dv">300</span>, <span class="co">## line color and point size </span></span>
+<span id="cb35-11"><a href="#cb35-11"></a>    ax<span class="op">=</span>ax              <span class="co">## Draw plot on ax      </span></span>
+<span id="cb35-12"><a href="#cb35-12"></a>)</span>
+<span id="cb35-13"><a href="#cb35-13"></a></span>
+<span id="cb35-14"><a href="#cb35-14"></a><span class="co"># Use methods on ax to set title, labels</span></span>
+<span id="cb35-15"><a href="#cb35-15"></a>ax.set_title(<span class="st">"Penguin Bill Length vs Depth by Species"</span>)</span>
+<span id="cb35-16"><a href="#cb35-16"></a>ax.set_xlabel(<span class="st">"Bill Length (mm)"</span>)</span>
+<span id="cb35-17"><a href="#cb35-17"></a>ax.set_ylabel(<span class="st">"Bill Depth (mm)"</span>)</span>
+<span id="cb35-18"><a href="#cb35-18"></a>ax.legend(title<span class="op">=</span><span class="st">"Species"</span>)</span>
+<span id="cb35-19"><a href="#cb35-19"></a></span>
+<span id="cb35-20"><a href="#cb35-20"></a><span class="co"># Plot the figure</span></span>
+<span id="cb35-21"><a href="#cb35-21"></a>fig.tight_layout() </span>
+<span id="cb35-22"><a href="#cb35-22"></a><span class="co">#fig.show() -&gt; if not in interactive</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1029,7 +1046,7 @@ Harder to customize than plotnine plots
 <section id="scaling-the-data---understanding-the-standard-scaler-class" class="level2">
 <h2 class="anchored" data-anchor-id="scaling-the-data---understanding-the-standard-scaler-class">Scaling the data - Understanding the Standard Scaler class</h2>
 <p>For our clustering to work well, the predictors should be on the same scale. To achieve this, we use an instance of the <code>StandardScaler</code> class.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="kw">class</span> sklearn.preprocessing.StandardScaler(<span class="op">*</span>, copy<span class="op">=</span><span class="va">True</span>, with_mean<span class="op">=</span><span class="va">True</span>, with_std<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">class</span> sklearn.preprocessing.StandardScaler(<span class="op">*</span>, copy<span class="op">=</span><span class="va">True</span>, with_mean<span class="op">=</span><span class="va">True</span>, with_std<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>. . .</p>
 <p><strong>Parameters</strong> are supplied by user<br>
 - <em>copy</em>, <em>with_mean</em>, <em>with_std</em> <br></p>
@@ -1046,64 +1063,64 @@ Harder to customize than plotnine plots
 </section>
 <section id="scaling-data" class="level2">
 <h2 class="anchored" data-anchor-id="scaling-data">Scaling Data</h2>
-<div id="a20e8a18" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Selecting features for clustering -&gt; let's just use bill length and bill depth.</span></span>
-<span id="cb36-2"><a href="#cb36-2"></a>X <span class="op">=</span> penguins[[<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>]]</span>
-<span id="cb36-3"><a href="#cb36-3"></a>y <span class="op">=</span> penguins[<span class="st">"species"</span>]</span>
-<span id="cb36-4"><a href="#cb36-4"></a></span>
-<span id="cb36-5"><a href="#cb36-5"></a><span class="co"># Standardizing the features for better clustering performance</span></span>
-<span id="cb36-6"><a href="#cb36-6"></a>scaler <span class="op">=</span> StandardScaler() <span class="co">## create instance of StandardScaler</span></span>
-<span id="cb36-7"><a href="#cb36-7"></a>X_scaled <span class="op">=</span> scaler.fit_transform(X) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="550f662d" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Selecting features for clustering -&gt; let's just use bill length and bill depth.</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a>X <span class="op">=</span> penguins[[<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>]]</span>
+<span id="cb37-3"><a href="#cb37-3"></a>y <span class="op">=</span> penguins[<span class="st">"species"</span>]</span>
+<span id="cb37-4"><a href="#cb37-4"></a></span>
+<span id="cb37-5"><a href="#cb37-5"></a><span class="co"># Standardizing the features for better clustering performance</span></span>
+<span id="cb37-6"><a href="#cb37-6"></a>scaler <span class="op">=</span> StandardScaler() <span class="co">## create instance of StandardScaler</span></span>
+<span id="cb37-7"><a href="#cb37-7"></a>X_scaled <span class="op">=</span> scaler.fit_transform(X) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div id="17cc4f9d" class="cell" data-execution_count="22">
+<div id="979c04b8" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display" data-execution_count="20">
-<div id="qnvrodxwpw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="dfchojacll" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#qnvrodxwpw table {
+#dfchojacll table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#qnvrodxwpw thead, tbody, tfoot, tr, td, th { border-style: none; }
+#dfchojacll thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#qnvrodxwpw p { margin: 0; padding: 0; }
- #qnvrodxwpw .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #qnvrodxwpw .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #qnvrodxwpw .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #qnvrodxwpw .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #qnvrodxwpw .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #qnvrodxwpw .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #qnvrodxwpw .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #qnvrodxwpw .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #qnvrodxwpw .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #qnvrodxwpw .gt_column_spanner_outer:first-child { padding-left: 0; }
- #qnvrodxwpw .gt_column_spanner_outer:last-child { padding-right: 0; }
- #qnvrodxwpw .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #qnvrodxwpw .gt_spanner_row { border-bottom-style: hidden; }
- #qnvrodxwpw .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #qnvrodxwpw .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #qnvrodxwpw .gt_from_md> :first-child { margin-top: 0; }
- #qnvrodxwpw .gt_from_md> :last-child { margin-bottom: 0; }
- #qnvrodxwpw .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #qnvrodxwpw .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #qnvrodxwpw .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #qnvrodxwpw .gt_row_group_first td { border-top-width: 2px; }
- #qnvrodxwpw .gt_row_group_first th { border-top-width: 2px; }
- #qnvrodxwpw .gt_striped { background-color: rgba(128,128,128,0.05); }
- #qnvrodxwpw .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #qnvrodxwpw .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #qnvrodxwpw .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #qnvrodxwpw .gt_left { text-align: left; }
- #qnvrodxwpw .gt_center { text-align: center; }
- #qnvrodxwpw .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #qnvrodxwpw .gt_font_normal { font-weight: normal; }
- #qnvrodxwpw .gt_font_bold { font-weight: bold; }
- #qnvrodxwpw .gt_font_italic { font-style: italic; }
- #qnvrodxwpw .gt_super { font-size: 65%; }
- #qnvrodxwpw .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #qnvrodxwpw .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#dfchojacll p { margin: 0; padding: 0; }
+ #dfchojacll .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #dfchojacll .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #dfchojacll .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #dfchojacll .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #dfchojacll .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #dfchojacll .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #dfchojacll .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #dfchojacll .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #dfchojacll .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #dfchojacll .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #dfchojacll .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #dfchojacll .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #dfchojacll .gt_spanner_row { border-bottom-style: hidden; }
+ #dfchojacll .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #dfchojacll .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #dfchojacll .gt_from_md> :first-child { margin-top: 0; }
+ #dfchojacll .gt_from_md> :last-child { margin-bottom: 0; }
+ #dfchojacll .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #dfchojacll .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #dfchojacll .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #dfchojacll .gt_row_group_first td { border-top-width: 2px; }
+ #dfchojacll .gt_row_group_first th { border-top-width: 2px; }
+ #dfchojacll .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #dfchojacll .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #dfchojacll .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #dfchojacll .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #dfchojacll .gt_left { text-align: left; }
+ #dfchojacll .gt_center { text-align: center; }
+ #dfchojacll .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #dfchojacll .gt_font_normal { font-weight: normal; }
+ #dfchojacll .gt_font_bold { font-weight: bold; }
+ #dfchojacll .gt_font_italic { font-style: italic; }
+ #dfchojacll .gt_super { font-size: 65%; }
+ #dfchojacll .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #dfchojacll .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -1118,10 +1135,10 @@ Harder to customize than plotnine plots
 <th colspan="2" id="Scaled" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Scaled</span></th>
 </tr>
 <tr class="header gt_col_headings">
-<th id="Original Mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Original Mean</th>
-<th id="Original Std" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Original Std</th>
-<th id="Scaled Mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Scaled Mean</th>
-<th id="Scaled Std" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Scaled Std</th>
+<th id="Bill Length" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Bill Length</th>
+<th id="Bill Depth" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Bill Depth</th>
+<th id="Bill Length" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Bill Length</th>
+<th id="Bill Depth" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Bill Depth</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
@@ -1147,37 +1164,38 @@ Harder to customize than plotnine plots
         
 </div>
 </div>
-<div id="3ac6af68" class="cell" data-execution_count="23">
+<div id="d7813b85" class="cell" data-execution_count="23">
 <details class="code-fold">
 <summary>Show table code</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="co">## Make X_scaled a pandas df</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a>X_scaled_df <span class="op">=</span> pd.DataFrame(X_scaled, columns<span class="op">=</span>X.columns)</span>
-<span id="cb37-3"><a href="#cb37-3"></a></span>
-<span id="cb37-4"><a href="#cb37-4"></a><span class="co"># Compute summary statistics and round to 2 sig figs</span></span>
-<span id="cb37-5"><a href="#cb37-5"></a>original_stats <span class="op">=</span> X.agg([<span class="st">"mean"</span>, <span class="st">"std"</span>])</span>
-<span id="cb37-6"><a href="#cb37-6"></a>scaled_stats <span class="op">=</span> X_scaled_df.agg([<span class="st">"mean"</span>, <span class="st">"std"</span>])</span>
-<span id="cb37-7"><a href="#cb37-7"></a></span>
-<span id="cb37-8"><a href="#cb37-8"></a><span class="co"># Combine into a single table with renamed columns</span></span>
-<span id="cb37-9"><a href="#cb37-9"></a>summary_table <span class="op">=</span> pd.concat([original_stats, scaled_stats], axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb37-10"><a href="#cb37-10"></a>summary_table.columns <span class="op">=</span> [<span class="st">"Original Mean"</span>, <span class="st">"Original Std"</span>, <span class="st">"Scaled Mean"</span>, <span class="st">"Scaled Std"</span>]</span>
-<span id="cb37-11"><a href="#cb37-11"></a>summary_table.index.name <span class="op">=</span> <span class="st">"Feature"</span></span>
-<span id="cb37-12"><a href="#cb37-12"></a></span>
-<span id="cb37-13"><a href="#cb37-13"></a><span class="co"># Display nicely with great_tables</span></span>
-<span id="cb37-14"><a href="#cb37-14"></a>(</span>
-<span id="cb37-15"><a href="#cb37-15"></a>    GT(summary_table.reset_index()).tab_header(<span class="st">"Original vs Scaled Features"</span>)</span>
-<span id="cb37-16"><a href="#cb37-16"></a>    .fmt_number(n_sigfig <span class="op">=</span> <span class="dv">2</span>)</span>
-<span id="cb37-17"><a href="#cb37-17"></a>    .tab_spanner(label<span class="op">=</span><span class="st">"Original"</span>, columns<span class="op">=</span>[<span class="st">"Original Mean"</span>, <span class="st">"Original Std"</span>])</span>
-<span id="cb37-18"><a href="#cb37-18"></a>    .tab_spanner(label<span class="op">=</span><span class="st">"Scaled"</span>, columns<span class="op">=</span>[<span class="st">"Scaled Mean"</span>, <span class="st">"Scaled Std"</span>])</span>
-<span id="cb37-19"><a href="#cb37-19"></a>    .tab_options(table_font_size <span class="op">=</span> <span class="dv">20</span>)</span>
-<span id="cb37-20"><a href="#cb37-20"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="co">## Make X_scaled a pandas df</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a>X_scaled_df <span class="op">=</span> pd.DataFrame(X_scaled, columns<span class="op">=</span>X.columns)</span>
+<span id="cb38-3"><a href="#cb38-3"></a></span>
+<span id="cb38-4"><a href="#cb38-4"></a><span class="co"># Compute summary statistics and round to 2 sig figs</span></span>
+<span id="cb38-5"><a href="#cb38-5"></a>original_stats <span class="op">=</span> X.agg([<span class="st">"mean"</span>, <span class="st">"std"</span>])</span>
+<span id="cb38-6"><a href="#cb38-6"></a>scaled_stats <span class="op">=</span> X_scaled_df.agg([<span class="st">"mean"</span>, <span class="st">"std"</span>])</span>
+<span id="cb38-7"><a href="#cb38-7"></a></span>
+<span id="cb38-8"><a href="#cb38-8"></a><span class="co"># Combine into a single table with renamed columns</span></span>
+<span id="cb38-9"><a href="#cb38-9"></a>summary_table <span class="op">=</span> pd.concat([original_stats, scaled_stats], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb38-10"><a href="#cb38-10"></a>summary_table.columns <span class="op">=</span> [<span class="st">"Bill_Length_o"</span>, <span class="st">"Bill_Depth_o"</span>, <span class="st">"Bill_Length_s"</span>, <span class="st">"Bill_Depth_s"</span>]</span>
+<span id="cb38-11"><a href="#cb38-11"></a>summary_table.index.name <span class="op">=</span> <span class="st">"Feature"</span></span>
+<span id="cb38-12"><a href="#cb38-12"></a></span>
+<span id="cb38-13"><a href="#cb38-13"></a><span class="co"># Display nicely with great_tables</span></span>
+<span id="cb38-14"><a href="#cb38-14"></a>(</span>
+<span id="cb38-15"><a href="#cb38-15"></a>    GT(summary_table.reset_index()).tab_header(<span class="st">"Original vs Scaled Features"</span>)</span>
+<span id="cb38-16"><a href="#cb38-16"></a>    .fmt_number(columns <span class="op">=</span>  [<span class="st">"Bill_Length_o"</span>, <span class="st">"Bill_Depth_o"</span>, <span class="st">"Bill_Length_s"</span>, <span class="st">"Bill_Depth_s"</span>], decimals<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb38-17"><a href="#cb38-17"></a>    .tab_spanner(label<span class="op">=</span><span class="st">"Original"</span>, columns<span class="op">=</span>[<span class="st">"Bill_Length_o"</span>, <span class="st">"Bill_Depth_o"</span>])</span>
+<span id="cb38-18"><a href="#cb38-18"></a>    .tab_spanner(label<span class="op">=</span><span class="st">"Scaled"</span>, columns<span class="op">=</span>[<span class="st">"Bill_Length_s"</span>, <span class="st">"Bill_Depth_s"</span>])</span>
+<span id="cb38-19"><a href="#cb38-19"></a>    .cols_label(Bill_Length_o <span class="op">=</span> <span class="st">"Bill Length"</span>, Bill_Depth_o <span class="op">=</span> <span class="st">"Bill Depth"</span>, Bill_Length_s <span class="op">=</span> <span class="st">"Bill Length"</span>, Bill_Depth_s <span class="op">=</span> <span class="st">"Bill Depth"</span>)</span>
+<span id="cb38-20"><a href="#cb38-20"></a>    .tab_options(table_font_size <span class="op">=</span> <span class="dv">16</span>)</span>
+<span id="cb38-21"><a href="#cb38-21"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
 </section>
 <section id="understanding-the-kmeans-model-class" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-kmeans-model-class">Understanding the KMeans model class</h2>
-<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="kw">class</span> sklearn.cluster.KMeans(n_clusters<span class="op">=</span><span class="dv">8</span>, <span class="op">*</span>, init<span class="op">=</span><span class="st">'k-means++'</span>, n_init<span class="op">=</span><span class="st">'auto'</span>, max_iter<span class="op">=</span><span class="dv">300</span>, </span>
-<span id="cb38-2"><a href="#cb38-2"></a>tol<span class="op">=</span><span class="fl">0.0001</span>, verbose<span class="op">=</span><span class="dv">0</span>, random_state<span class="op">=</span><span class="va">None</span>, copy_x<span class="op">=</span><span class="va">True</span>, algorithm<span class="op">=</span><span class="st">'lloyd'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="kw">class</span> sklearn.cluster.KMeans(n_clusters<span class="op">=</span><span class="dv">8</span>, <span class="op">*</span>, init<span class="op">=</span><span class="st">'k-means++'</span>, n_init<span class="op">=</span><span class="st">'auto'</span>, max_iter<span class="op">=</span><span class="dv">300</span>, </span>
+<span id="cb39-2"><a href="#cb39-2"></a>tol<span class="op">=</span><span class="fl">0.0001</span>, verbose<span class="op">=</span><span class="dv">0</span>, random_state<span class="op">=</span><span class="va">None</span>, copy_x<span class="op">=</span><span class="va">True</span>, algorithm<span class="op">=</span><span class="st">'lloyd'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Parameters</strong>: Set by user at time of instantiation<br>
 - n_clusters, max_iter, algorithm <br></p>
 <p><strong>Attributes</strong>: Store object data<br>
@@ -1190,10 +1208,10 @@ Harder to customize than plotnine plots
 <hr>
 <section id="create-model" class="level3">
 <h3 class="anchored" data-anchor-id="create-model">Create model</h3>
-<div id="b5166099" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="co">## Choosing 3 clusters b/c we have 3 species</span></span>
-<span id="cb39-2"><a href="#cb39-2"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">3</span>, random_state<span class="op">=</span><span class="dv">42</span>) <span class="co">## make an instance of the K means class</span></span>
-<span id="cb39-3"><a href="#cb39-3"></a>kmeans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="25333dd7" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="co">## Choosing 3 clusters b/c we have 3 species</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">3</span>, random_state<span class="op">=</span><span class="dv">42</span>) <span class="co">## make an instance of the K means class</span></span>
+<span id="cb40-3"><a href="#cb40-3"></a>kmeans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
@@ -1606,15 +1624,15 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="fit-model-to-data" class="level3">
 <h3 class="anchored" data-anchor-id="fit-model-to-data">Fit model to data</h3>
-<div id="b1b268f8" class="cell" data-output-location="fragment" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="co">## the fit</span></span>
-<span id="cb40-2"><a href="#cb40-2"></a>penguins[<span class="st">"kmeans_cluster"</span>] <span class="op">=</span> kmeans.fit_predict(X_scaled)</span>
-<span id="cb40-3"><a href="#cb40-3"></a></span>
-<span id="cb40-4"><a href="#cb40-4"></a><span class="co">## now that we fit the model, we should have cluster centers</span></span>
-<span id="cb40-5"><a href="#cb40-5"></a><span class="bu">print</span>(<span class="st">"Coordinates of cluster centers:"</span>, kmeans.cluster_centers_)</span>
-<span id="cb40-6"><a href="#cb40-6"></a></span>
-<span id="cb40-7"><a href="#cb40-7"></a><span class="co">## shows that model is fitted</span></span>
-<span id="cb40-8"><a href="#cb40-8"></a>kmeans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1af0d05b" class="cell" data-output-location="fragment" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="co">## the fit</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a>penguins[<span class="st">"kmeans_cluster"</span>] <span class="op">=</span> kmeans.fit_predict(X_scaled)</span>
+<span id="cb41-3"><a href="#cb41-3"></a></span>
+<span id="cb41-4"><a href="#cb41-4"></a><span class="co">## now that we fit the model, we should have cluster centers</span></span>
+<span id="cb41-5"><a href="#cb41-5"></a><span class="bu">print</span>(<span class="st">"Coordinates of cluster centers:"</span>, kmeans.cluster_centers_)</span>
+<span id="cb41-6"><a href="#cb41-6"></a></span>
+<span id="cb41-7"><a href="#cb41-7"></a><span class="co">## shows that model is fitted</span></span>
+<span id="cb41-8"><a href="#cb41-8"></a>kmeans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Coordinates of cluster centers: [[-0.95023997  0.55393493]
  [ 0.58644397 -1.09805504]
@@ -2034,10 +2052,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <h2 class="anchored" data-anchor-id="use-function-to-calculate-ari">Use function to calculate ARI</h2>
 <p>To check how good our model is, we can use one of the functions included in the sklearn library.</p>
 <p>The <code>adjusted_rand_score()</code> function evaluates how well the cluster groupings agree with the species groupings while adjusting for chance.</p>
-<div id="3437e940" class="cell" data-output-location="fragment" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># Calculate clustering performance using Adjusted Rand Index (ARI)</span></span>
-<span id="cb42-2"><a href="#cb42-2"></a>kmeans_ari <span class="op">=</span> adjusted_rand_score(penguins[<span class="st">'species'</span>], penguins[<span class="st">"kmeans_cluster"</span>])</span>
-<span id="cb42-3"><a href="#cb42-3"></a><span class="bu">print</span>(<span class="ss">f"k-Means Adjusted Rand Index: </span><span class="sc">{</span>kmeans_ari<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d59d7db9" class="cell" data-output-location="fragment" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># Calculate clustering performance using Adjusted Rand Index (ARI)</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a>kmeans_ari <span class="op">=</span> adjusted_rand_score(penguins[<span class="st">'species'</span>], penguins[<span class="st">"kmeans_cluster"</span>])</span>
+<span id="cb43-3"><a href="#cb43-3"></a><span class="bu">print</span>(<span class="ss">f"k-Means Adjusted Rand Index: </span><span class="sc">{</span>kmeans_ari<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>k-Means Adjusted Rand Index: 0.82</code></pre>
 </div>
@@ -2050,53 +2068,54 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <li>If we want to add sex as a variable to see if that is why our clusters don’t agree with our species, we can use a scatterplot</li>
 <li>Using seaborn and matplotlib, we can easily put both of these plots on the same figure. <br></li>
 </ul>
-<div id="dc919bff" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Count occurrences of each species-cluster-sex combination</span></span>
-<span id="cb44-2"><a href="#cb44-2"></a><span class="co"># (.size gives the count as index, use reset_index to get count column.)</span></span>
-<span id="cb44-3"><a href="#cb44-3"></a>scatter_data <span class="op">=</span> (penguins.groupby([<span class="st">"species"</span>, <span class="st">"kmeans_cluster"</span>, <span class="st">"sex"</span>])</span>
-<span id="cb44-4"><a href="#cb44-4"></a>                .size()</span>
-<span id="cb44-5"><a href="#cb44-5"></a>                .reset_index(name<span class="op">=</span><span class="st">"count"</span>))</span>
-<span id="cb44-6"><a href="#cb44-6"></a>species_order <span class="op">=</span> <span class="bu">list</span>(scatter_data[<span class="st">'species'</span>].unique()) <span class="co">## defining this for later</span></span>
-<span id="cb44-7"><a href="#cb44-7"></a></span>
-<span id="cb44-8"><a href="#cb44-8"></a><span class="co"># Create a mapping to add horizontal jitter for each sex for scatterplot</span></span>
-<span id="cb44-9"><a href="#cb44-9"></a>sex_jitter <span class="op">=</span> {<span class="st">'Male'</span>: <span class="op">-</span><span class="fl">0.1</span>, <span class="st">'Female'</span>: <span class="fl">0.1</span>}</span>
-<span id="cb44-10"><a href="#cb44-10"></a>scatter_data[<span class="st">'x_jittered'</span>] <span class="op">=</span> scatter_data.<span class="bu">apply</span>(</span>
-<span id="cb44-11"><a href="#cb44-11"></a>    <span class="kw">lambda</span> row: scatter_data[<span class="st">'species'</span>].unique().tolist().index(row[<span class="st">'species'</span>]) <span class="op">+</span></span>
-<span id="cb44-12"><a href="#cb44-12"></a>     sex_jitter.get(row[<span class="st">'sex'</span>], <span class="dv">0</span>),</span>
-<span id="cb44-13"><a href="#cb44-13"></a>    axis<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb44-14"><a href="#cb44-14"></a>)</span>
-<span id="cb44-15"><a href="#cb44-15"></a></span>
-<span id="cb44-16"><a href="#cb44-16"></a>heatmap_data <span class="op">=</span> scatter_data.pivot_table(index<span class="op">=</span><span class="st">"kmeans_cluster"</span>, columns<span class="op">=</span><span class="st">"species"</span>, </span>
-<span id="cb44-17"><a href="#cb44-17"></a>values<span class="op">=</span><span class="st">"count"</span>, aggfunc<span class="op">=</span><span class="st">"sum"</span>, fill_value<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d41e6a92" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># Count occurrences of each species-cluster-sex combination</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a><span class="co"># (.size gives the count as index, use reset_index to get count column.)</span></span>
+<span id="cb45-3"><a href="#cb45-3"></a>scatter_data <span class="op">=</span> (penguins.groupby([<span class="st">"species"</span>, <span class="st">"kmeans_cluster"</span>, <span class="st">"sex"</span>])</span>
+<span id="cb45-4"><a href="#cb45-4"></a>                .size()</span>
+<span id="cb45-5"><a href="#cb45-5"></a>                .reset_index(name<span class="op">=</span><span class="st">"count"</span>))</span>
+<span id="cb45-6"><a href="#cb45-6"></a>species_order <span class="op">=</span> <span class="bu">list</span>(scatter_data[<span class="st">'species'</span>].unique()) <span class="co">## defining this for later</span></span>
+<span id="cb45-7"><a href="#cb45-7"></a></span>
+<span id="cb45-8"><a href="#cb45-8"></a><span class="co"># Create a mapping to add horizontal jitter for each sex for scatterplot</span></span>
+<span id="cb45-9"><a href="#cb45-9"></a>sex_jitter <span class="op">=</span> {<span class="st">'Male'</span>: <span class="op">-</span><span class="fl">0.1</span>, <span class="st">'Female'</span>: <span class="fl">0.1</span>}</span>
+<span id="cb45-10"><a href="#cb45-10"></a>scatter_data[<span class="st">'x_jittered'</span>] <span class="op">=</span> scatter_data.<span class="bu">apply</span>(</span>
+<span id="cb45-11"><a href="#cb45-11"></a>    <span class="kw">lambda</span> row: scatter_data[<span class="st">'species'</span>].unique().tolist().index(row[<span class="st">'species'</span>]) <span class="op">+</span></span>
+<span id="cb45-12"><a href="#cb45-12"></a>     sex_jitter.get(row[<span class="st">'sex'</span>], <span class="dv">0</span>),</span>
+<span id="cb45-13"><a href="#cb45-13"></a>    axis<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb45-14"><a href="#cb45-14"></a>)</span>
+<span id="cb45-15"><a href="#cb45-15"></a></span>
+<span id="cb45-16"><a href="#cb45-16"></a>heatmap_data <span class="op">=</span> scatter_data.pivot_table(index<span class="op">=</span><span class="st">"kmeans_cluster"</span>, columns<span class="op">=</span><span class="st">"species"</span>, </span>
+<span id="cb45-17"><a href="#cb45-17"></a>values<span class="op">=</span><span class="st">"count"</span>, aggfunc<span class="op">=</span><span class="st">"sum"</span>, fill_value<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="creating-plots" class="level2">
 <h2 class="anchored" data-anchor-id="creating-plots">Creating Plots</h2>
-<div id="102e48b2" class="cell" data-output-location="slide" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># Prepare the figure with 2 subplots; the axes object will contain both plots</span></span>
-<span id="cb45-2"><a href="#cb45-2"></a>fig2, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">7</span>)) <span class="co">## 1 row 2 columns</span></span>
-<span id="cb45-3"><a href="#cb45-3"></a></span>
-<span id="cb45-4"><a href="#cb45-4"></a><span class="co"># Plot heatmap on the first axis</span></span>
-<span id="cb45-5"><a href="#cb45-5"></a>sns.heatmap(data <span class="op">=</span> heatmap_data, cmap<span class="op">=</span><span class="st">"Blues"</span>, linewidths<span class="op">=</span><span class="fl">0.5</span>, linecolor<span class="op">=</span><span class="st">'white'</span>, annot<span class="op">=</span><span class="va">True</span>, </span>
-<span id="cb45-6"><a href="#cb45-6"></a>fmt<span class="op">=</span><span class="st">'d'</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
-<span id="cb45-7"><a href="#cb45-7"></a>axes[<span class="dv">0</span>].set_title(<span class="st">"Heatmap of KMeans Clustering by Species"</span>)</span>
-<span id="cb45-8"><a href="#cb45-8"></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">"Species"</span>)</span>
-<span id="cb45-9"><a href="#cb45-9"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">"KMeans Cluster"</span>)</span>
-<span id="cb45-10"><a href="#cb45-10"></a></span>
-<span id="cb45-11"><a href="#cb45-11"></a><span class="co"># Scatterplot with jitter</span></span>
-<span id="cb45-12"><a href="#cb45-12"></a>sns.scatterplot(data<span class="op">=</span>scatter_data, x<span class="op">=</span><span class="st">"x_jittered"</span>, y<span class="op">=</span><span class="st">"kmeans_cluster"</span>,</span>
-<span id="cb45-13"><a href="#cb45-13"></a>    hue<span class="op">=</span><span class="st">"species"</span>, style<span class="op">=</span><span class="st">"sex"</span>, size<span class="op">=</span><span class="st">"count"</span>, sizes<span class="op">=</span>(<span class="dv">100</span>, <span class="dv">500</span>),</span>
-<span id="cb45-14"><a href="#cb45-14"></a>    alpha<span class="op">=</span><span class="fl">0.8</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>], legend<span class="op">=</span><span class="st">"brief"</span>)</span>
-<span id="cb45-15"><a href="#cb45-15"></a>axes[<span class="dv">1</span>].set_xticks(<span class="bu">range</span>(<span class="bu">len</span>(species_order)))</span>
-<span id="cb45-16"><a href="#cb45-16"></a>axes[<span class="dv">1</span>].set_xticklabels(species_order)</span>
-<span id="cb45-17"><a href="#cb45-17"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"Cluster Assignment by Species and Sex (Jittered)"</span>)</span>
-<span id="cb45-18"><a href="#cb45-18"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">"KMeans Cluster"</span>)</span>
-<span id="cb45-19"><a href="#cb45-19"></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">"Species"</span>)</span>
-<span id="cb45-20"><a href="#cb45-20"></a>axes[<span class="dv">1</span>].set_yticks([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>])</span>
-<span id="cb45-21"><a href="#cb45-21"></a>axes[<span class="dv">1</span>].legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="fl">0.5</span>), loc<span class="op">=</span><span class="st">'center left'</span>, borderaxespad<span class="op">=</span><span class="fl">0.0</span>, title<span class="op">=</span><span class="st">"Legend"</span>)</span>
-<span id="cb45-22"><a href="#cb45-22"></a></span>
-<span id="cb45-23"><a href="#cb45-23"></a>fig2.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6ccbbdce" class="cell" data-output-location="slide" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Prepare the figure with 2 subplots; the axes object will contain both plots</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a>fig2, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">7</span>)) <span class="co">## 1 row 2 columns</span></span>
+<span id="cb46-3"><a href="#cb46-3"></a></span>
+<span id="cb46-4"><a href="#cb46-4"></a><span class="co"># Plot heatmap on the first axis</span></span>
+<span id="cb46-5"><a href="#cb46-5"></a>sns.heatmap(data <span class="op">=</span> heatmap_data, cmap<span class="op">=</span><span class="st">"Blues"</span>, linewidths<span class="op">=</span><span class="fl">0.5</span>, linecolor<span class="op">=</span><span class="st">'white'</span>, annot<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb46-6"><a href="#cb46-6"></a>fmt<span class="op">=</span><span class="st">'d'</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
+<span id="cb46-7"><a href="#cb46-7"></a>axes[<span class="dv">0</span>].set_title(<span class="st">"Heatmap of KMeans Clustering by Species"</span>)</span>
+<span id="cb46-8"><a href="#cb46-8"></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">"Species"</span>)</span>
+<span id="cb46-9"><a href="#cb46-9"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">"KMeans Cluster"</span>)</span>
+<span id="cb46-10"><a href="#cb46-10"></a></span>
+<span id="cb46-11"><a href="#cb46-11"></a><span class="co"># Scatterplot with jitter</span></span>
+<span id="cb46-12"><a href="#cb46-12"></a>sns.scatterplot(data<span class="op">=</span>scatter_data, x<span class="op">=</span><span class="st">"x_jittered"</span>, y<span class="op">=</span><span class="st">"kmeans_cluster"</span>,</span>
+<span id="cb46-13"><a href="#cb46-13"></a>    hue<span class="op">=</span><span class="st">"species"</span>, style<span class="op">=</span><span class="st">"sex"</span>, size<span class="op">=</span><span class="st">"count"</span>, sizes<span class="op">=</span>(<span class="dv">100</span>, <span class="dv">500</span>),</span>
+<span id="cb46-14"><a href="#cb46-14"></a>    alpha<span class="op">=</span><span class="fl">0.8</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>], legend<span class="op">=</span><span class="st">"brief"</span>)</span>
+<span id="cb46-15"><a href="#cb46-15"></a>axes[<span class="dv">1</span>].set_xticks(<span class="bu">range</span>(<span class="bu">len</span>(species_order)))</span>
+<span id="cb46-16"><a href="#cb46-16"></a>axes[<span class="dv">1</span>].set_xticklabels(species_order)</span>
+<span id="cb46-17"><a href="#cb46-17"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"Cluster Assignment by Species and Sex (Jittered)"</span>)</span>
+<span id="cb46-18"><a href="#cb46-18"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">"KMeans Cluster"</span>)</span>
+<span id="cb46-19"><a href="#cb46-19"></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">"Species"</span>)</span>
+<span id="cb46-20"><a href="#cb46-20"></a>axes[<span class="dv">1</span>].set_yticks([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>])</span>
+<span id="cb46-21"><a href="#cb46-21"></a>axes[<span class="dv">1</span>].legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="fl">0.5</span>), loc<span class="op">=</span><span class="st">'center left'</span>, borderaxespad<span class="op">=</span><span class="fl">0.0</span>, title<span class="op">=</span><span class="st">"Legend"</span>)</span>
+<span id="cb46-22"><a href="#cb46-22"></a></span>
+<span id="cb46-23"><a href="#cb46-23"></a>fig2.tight_layout()</span>
+<span id="cb46-24"><a href="#cb46-24"></a><span class="co">#fig2.show()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2111,9 +2130,9 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>For our KNN classification, the model is <strong>supervised</strong> (meaning it is dependent on the outcome ‘y’ data). This time, we need to split our data into a training and test set. <br></p>
 <p>. . .</p>
 <p>The <strong>function</strong> <code>train_test_split()</code> from scikit-learn is helpful here!</p>
-<div id="f90c088c" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Splitting dataset into training and testing sets (still using scaled X!)</span></span>
-<span id="cb46-2"><a href="#cb46-2"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X_scaled, y, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="268f429d" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># Splitting dataset into training and testing sets (still using scaled X!)</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X_scaled, y, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>. . .</p>
 <blockquote class="blockquote">
@@ -2122,8 +2141,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="understanding-kneighborsclassifier-class" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-kneighborsclassifier-class">Understanding KNeighborsClassifier class</h2>
-<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="kw">class</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">5</span>, <span class="op">*</span>, weights<span class="op">=</span><span class="st">'uniform'</span>, </span>
-<span id="cb47-2"><a href="#cb47-2"></a>algorithm<span class="op">=</span><span class="st">'auto'</span>, leaf_size<span class="op">=</span><span class="dv">30</span>, p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">'minkowski'</span>, metric_params<span class="op">=</span><span class="va">None</span>, n_jobs<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="kw">class</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">5</span>, <span class="op">*</span>, weights<span class="op">=</span><span class="st">'uniform'</span>, </span>
+<span id="cb48-2"><a href="#cb48-2"></a>algorithm<span class="op">=</span><span class="st">'auto'</span>, leaf_size<span class="op">=</span><span class="dv">30</span>, p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">'minkowski'</span>, metric_params<span class="op">=</span><span class="va">None</span>, n_jobs<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>. . .</p>
 <p><strong>Parameters</strong>: Set by user at time of instantiation<br>
 - n_neigbors, weights, algorithm, etc. <br></p>
@@ -2144,40 +2163,40 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <ul>
 <li>For a supervised model, y_train is included in <code>.fit()</code>!</li>
 </ul>
-<div id="bed60d18" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="co">## perform knn classification</span></span>
-<span id="cb48-2"><a href="#cb48-2"></a><span class="co"># Applying k-NN classification with 5 neighbors</span></span>
-<span id="cb48-3"><a href="#cb48-3"></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">5</span>) <span class="co">## make an instance of the KNeighborsClassifier class</span></span>
-<span id="cb48-4"><a href="#cb48-4"></a><span class="co"># and set the n_neighbors parameter to be 5. </span></span>
-<span id="cb48-5"><a href="#cb48-5"></a></span>
-<span id="cb48-6"><a href="#cb48-6"></a><span class="co"># Use the fit method to fit the model to the training data</span></span>
-<span id="cb48-7"><a href="#cb48-7"></a>knn.fit(X_train, y_train)</span>
-<span id="cb48-8"><a href="#cb48-8"></a>knn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f49d32bb" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a><span class="co">## perform knn classification</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="co"># Applying k-NN classification with 5 neighbors</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">5</span>) <span class="co">## make an instance of the KNeighborsClassifier class</span></span>
+<span id="cb49-4"><a href="#cb49-4"></a><span class="co"># and set the n_neighbors parameter to be 5. </span></span>
+<span id="cb49-5"><a href="#cb49-5"></a></span>
+<span id="cb49-6"><a href="#cb49-6"></a><span class="co"># Use the fit method to fit the model to the training data</span></span>
+<span id="cb49-7"><a href="#cb49-7"></a>knn.fit(X_train, y_train)</span>
+<span id="cb49-8"><a href="#cb49-8"></a>knn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="once-the-model-is-fit" class="level2">
 <h2 class="anchored" data-anchor-id="once-the-model-is-fit">Once the model is fit…</h2>
 <p>-We can look at its attributes (ex: <code>.classes_</code>) which gives the class labels as known to the classifier</p>
-<div id="f0e7659b" class="cell" data-output-location="fragment" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a><span class="bu">print</span>(knn.classes_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f778429e" class="cell" data-output-location="fragment" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="bu">print</span>(knn.classes_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 </div>
 </div>
 <p>. . .</p>
 <p>-And use fitted model to predict species for test data</p>
-<div id="053b6be3" class="cell" data-output-location="fragment" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Use the predict method on the test data to get the predictions for the test data</span></span>
-<span id="cb51-2"><a href="#cb51-2"></a>y_pred <span class="op">=</span> knn.predict(X_test)</span>
-<span id="cb51-3"><a href="#cb51-3"></a></span>
-<span id="cb51-4"><a href="#cb51-4"></a><span class="co"># Also can take a look at the prediction probabilities, </span></span>
-<span id="cb51-5"><a href="#cb51-5"></a><span class="co"># and use the .classes_ attribute to put the column labels in the right order</span></span>
-<span id="cb51-6"><a href="#cb51-6"></a>probs <span class="op">=</span> pd.DataFrame(</span>
-<span id="cb51-7"><a href="#cb51-7"></a>    knn.predict_proba(X_test),</span>
-<span id="cb51-8"><a href="#cb51-8"></a>    columns <span class="op">=</span> knn.classes_)</span>
-<span id="cb51-9"><a href="#cb51-9"></a>probs[<span class="st">'y_pred'</span>] <span class="op">=</span> y_pred</span>
-<span id="cb51-10"><a href="#cb51-10"></a></span>
-<span id="cb51-11"><a href="#cb51-11"></a><span class="bu">print</span>(<span class="st">"Predicted probabilities: </span><span class="ch">\n</span><span class="st">"</span>, probs.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="580179e8" class="cell" data-output-location="fragment" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Use the predict method on the test data to get the predictions for the test data</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a>y_pred <span class="op">=</span> knn.predict(X_test)</span>
+<span id="cb52-3"><a href="#cb52-3"></a></span>
+<span id="cb52-4"><a href="#cb52-4"></a><span class="co"># Also can take a look at the prediction probabilities, </span></span>
+<span id="cb52-5"><a href="#cb52-5"></a><span class="co"># and use the .classes_ attribute to put the column labels in the right order</span></span>
+<span id="cb52-6"><a href="#cb52-6"></a>probs <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb52-7"><a href="#cb52-7"></a>    knn.predict_proba(X_test),</span>
+<span id="cb52-8"><a href="#cb52-8"></a>    columns <span class="op">=</span> knn.classes_)</span>
+<span id="cb52-9"><a href="#cb52-9"></a>probs[<span class="st">'y_pred'</span>] <span class="op">=</span> y_pred</span>
+<span id="cb52-10"><a href="#cb52-10"></a></span>
+<span id="cb52-11"><a href="#cb52-11"></a><span class="bu">print</span>(<span class="st">"Predicted probabilities: </span><span class="ch">\n</span><span class="st">"</span>, probs.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Predicted probabilities: 
     Adelie  Chinstrap  Gentoo     y_pred
@@ -2195,22 +2214,22 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <li>Create dataframe of unscaled X_test, <code>bill_length_mm</code>, and <code>bill_depth_mm</code>.</li>
 <li>Add to it the actual and predicted species labels</li>
 </ul>
-<div id="066dda9a" class="cell" data-output-location="fragment" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a><span class="co">## First unscale the test data</span></span>
-<span id="cb53-2"><a href="#cb53-2"></a>X_test_unscaled <span class="op">=</span> scaler.inverse_transform(X_test)</span>
-<span id="cb53-3"><a href="#cb53-3"></a></span>
-<span id="cb53-4"><a href="#cb53-4"></a><span class="co">## create dataframe </span></span>
-<span id="cb53-5"><a href="#cb53-5"></a>penguins_test <span class="op">=</span> pd.DataFrame(</span>
-<span id="cb53-6"><a href="#cb53-6"></a>    X_test_unscaled,</span>
-<span id="cb53-7"><a href="#cb53-7"></a>    columns<span class="op">=</span>[<span class="st">'bill_length_mm'</span>, <span class="st">'bill_depth_mm'</span>]</span>
-<span id="cb53-8"><a href="#cb53-8"></a>)</span>
-<span id="cb53-9"><a href="#cb53-9"></a></span>
-<span id="cb53-10"><a href="#cb53-10"></a><span class="co">## add actual and predicted species </span></span>
-<span id="cb53-11"><a href="#cb53-11"></a>penguins_test[<span class="st">'y_actual'</span>] <span class="op">=</span> y_test.values</span>
-<span id="cb53-12"><a href="#cb53-12"></a>penguins_test[<span class="st">'y_pred'</span>] <span class="op">=</span> y_pred</span>
-<span id="cb53-13"><a href="#cb53-13"></a>penguins_test[<span class="st">'correct'</span>] <span class="op">=</span> penguins_test[<span class="st">'y_actual'</span>] <span class="op">==</span> penguins_test[<span class="st">'y_pred'</span>]</span>
-<span id="cb53-14"><a href="#cb53-14"></a></span>
-<span id="cb53-15"><a href="#cb53-15"></a><span class="bu">print</span>(<span class="st">"Results: </span><span class="ch">\n</span><span class="st">"</span>, penguins_test.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fb9d84ca" class="cell" data-output-location="fragment" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="co">## First unscale the test data</span></span>
+<span id="cb54-2"><a href="#cb54-2"></a>X_test_unscaled <span class="op">=</span> scaler.inverse_transform(X_test)</span>
+<span id="cb54-3"><a href="#cb54-3"></a></span>
+<span id="cb54-4"><a href="#cb54-4"></a><span class="co">## create dataframe </span></span>
+<span id="cb54-5"><a href="#cb54-5"></a>penguins_test <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb54-6"><a href="#cb54-6"></a>    X_test_unscaled,</span>
+<span id="cb54-7"><a href="#cb54-7"></a>    columns<span class="op">=</span>[<span class="st">'bill_length_mm'</span>, <span class="st">'bill_depth_mm'</span>]</span>
+<span id="cb54-8"><a href="#cb54-8"></a>)</span>
+<span id="cb54-9"><a href="#cb54-9"></a></span>
+<span id="cb54-10"><a href="#cb54-10"></a><span class="co">## add actual and predicted species </span></span>
+<span id="cb54-11"><a href="#cb54-11"></a>penguins_test[<span class="st">'y_actual'</span>] <span class="op">=</span> y_test.values</span>
+<span id="cb54-12"><a href="#cb54-12"></a>penguins_test[<span class="st">'y_pred'</span>] <span class="op">=</span> y_pred</span>
+<span id="cb54-13"><a href="#cb54-13"></a>penguins_test[<span class="st">'correct'</span>] <span class="op">=</span> penguins_test[<span class="st">'y_actual'</span>] <span class="op">==</span> penguins_test[<span class="st">'y_pred'</span>]</span>
+<span id="cb54-14"><a href="#cb54-14"></a></span>
+<span id="cb54-15"><a href="#cb54-15"></a><span class="bu">print</span>(<span class="st">"Results: </span><span class="ch">\n</span><span class="st">"</span>, penguins_test.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Results: 
     bill_length_mm  bill_depth_mm   y_actual     y_pred  correct
@@ -2225,16 +2244,16 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <section id="plotnine-scatterplot-for-k-nn-classification-of-test-data" class="level2">
 <h2 class="anchored" data-anchor-id="plotnine-scatterplot-for-k-nn-classification-of-test-data">Plotnine scatterplot for k-NN classification of test data</h2>
 <p>To see how well our model did at classifying the remaining penguins…</p>
-<div id="1385fdd8" class="cell" data-output-location="slide" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a><span class="co">## Build the plot</span></span>
-<span id="cb55-2"><a href="#cb55-2"></a>plot3 <span class="op">=</span> (ggplot(penguins_test, aes(x<span class="op">=</span><span class="st">"bill_length_mm"</span>, y<span class="op">=</span><span class="st">"bill_depth_mm"</span>, </span>
-<span id="cb55-3"><a href="#cb55-3"></a>color<span class="op">=</span><span class="st">"y_actual"</span>, fill <span class="op">=</span> <span class="st">'y_pred'</span>, shape <span class="op">=</span> <span class="st">'correct'</span>))</span>
-<span id="cb55-4"><a href="#cb55-4"></a> <span class="op">+</span> geom_point(size<span class="op">=</span><span class="dv">4</span>, stroke<span class="op">=</span><span class="fl">1.1</span>)  <span class="co"># Stroke controls outline thickness</span></span>
-<span id="cb55-5"><a href="#cb55-5"></a> <span class="op">+</span> scale_shape_manual(values<span class="op">=</span>{<span class="va">True</span>: <span class="st">'o'</span>, <span class="va">False</span>: <span class="st">'^'</span>})  <span class="co"># Circle and triangle</span></span>
-<span id="cb55-6"><a href="#cb55-6"></a> <span class="op">+</span> ggtitle(<span class="st">"k-NN Classification Results"</span>)</span>
-<span id="cb55-7"><a href="#cb55-7"></a> <span class="op">+</span> theme_bw())</span>
-<span id="cb55-8"><a href="#cb55-8"></a></span>
-<span id="cb55-9"><a href="#cb55-9"></a>display(plot3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5e6e22e7" class="cell" data-output-location="slide" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="co">## Build the plot</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>plot3 <span class="op">=</span> (ggplot(penguins_test, aes(x<span class="op">=</span><span class="st">"bill_length_mm"</span>, y<span class="op">=</span><span class="st">"bill_depth_mm"</span>, </span>
+<span id="cb56-3"><a href="#cb56-3"></a>color<span class="op">=</span><span class="st">"y_actual"</span>, fill <span class="op">=</span> <span class="st">'y_pred'</span>, shape <span class="op">=</span> <span class="st">'correct'</span>))</span>
+<span id="cb56-4"><a href="#cb56-4"></a> <span class="op">+</span> geom_point(size<span class="op">=</span><span class="dv">4</span>, stroke<span class="op">=</span><span class="fl">1.1</span>)  <span class="co"># Stroke controls outline thickness</span></span>
+<span id="cb56-5"><a href="#cb56-5"></a> <span class="op">+</span> scale_shape_manual(values<span class="op">=</span>{<span class="va">True</span>: <span class="st">'o'</span>, <span class="va">False</span>: <span class="st">'^'</span>})  <span class="co"># Circle and triangle</span></span>
+<span id="cb56-6"><a href="#cb56-6"></a> <span class="op">+</span> ggtitle(<span class="st">"k-NN Classification Results"</span>)</span>
+<span id="cb56-7"><a href="#cb56-7"></a> <span class="op">+</span> theme_bw())</span>
+<span id="cb56-8"><a href="#cb56-8"></a></span>
+<span id="cb56-9"><a href="#cb56-9"></a>display(plot3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2246,36 +2265,36 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="visualizing-decision-boundary-with-seaborn-and-matplotlib" class="level2">
 <h2 class="anchored" data-anchor-id="visualizing-decision-boundary-with-seaborn-and-matplotlib">Visualizing Decision Boundary with seaborn and matplotlib</h2>
-<div id="f3093f17" class="cell" data-output-location="slide" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> DecisionBoundaryDisplay</span>
-<span id="cb56-2"><a href="#cb56-2"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder</span>
-<span id="cb56-3"><a href="#cb56-3"></a></span>
-<span id="cb56-4"><a href="#cb56-4"></a><span class="co"># Create and fit label encoder for y (just makes y numeric because it makes the scatter plot happy)</span></span>
-<span id="cb56-5"><a href="#cb56-5"></a>label_encoder <span class="op">=</span> LabelEncoder()</span>
-<span id="cb56-6"><a href="#cb56-6"></a>y_encoded <span class="op">=</span> label_encoder.fit_transform(y)</span>
-<span id="cb56-7"><a href="#cb56-7"></a></span>
-<span id="cb56-8"><a href="#cb56-8"></a><span class="co"># Create the plot objects</span></span>
-<span id="cb56-9"><a href="#cb56-9"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
-<span id="cb56-10"><a href="#cb56-10"></a></span>
-<span id="cb56-11"><a href="#cb56-11"></a><span class="co"># Create display object</span></span>
-<span id="cb56-12"><a href="#cb56-12"></a>disp <span class="op">=</span> DecisionBoundaryDisplay.from_estimator(</span>
-<span id="cb56-13"><a href="#cb56-13"></a>    knn,</span>
-<span id="cb56-14"><a href="#cb56-14"></a>    X_test,</span>
-<span id="cb56-15"><a href="#cb56-15"></a>    response_method <span class="op">=</span> <span class="st">'predict'</span>,</span>
-<span id="cb56-16"><a href="#cb56-16"></a>    plot_method <span class="op">=</span> <span class="st">'pcolormesh'</span>,</span>
-<span id="cb56-17"><a href="#cb56-17"></a>    xlabel <span class="op">=</span> <span class="st">"bill_length_scaled"</span>,</span>
-<span id="cb56-18"><a href="#cb56-18"></a>    ylabel <span class="op">=</span> <span class="st">"bill_depth_scaled"</span>,</span>
-<span id="cb56-19"><a href="#cb56-19"></a>    shading <span class="op">=</span> <span class="st">'auto'</span>,</span>
-<span id="cb56-20"><a href="#cb56-20"></a>    alpha <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span id="cb56-21"><a href="#cb56-21"></a>    ax <span class="op">=</span> ax</span>
-<span id="cb56-22"><a href="#cb56-22"></a>)</span>
-<span id="cb56-23"><a href="#cb56-23"></a></span>
-<span id="cb56-24"><a href="#cb56-24"></a><span class="co"># Use method from display object to create scatter plot</span></span>
-<span id="cb56-25"><a href="#cb56-25"></a>scatter <span class="op">=</span> disp.ax_.scatter(X_scaled[:,<span class="dv">0</span>], X_scaled[:,<span class="dv">1</span>], c<span class="op">=</span>y_encoded, edgecolors <span class="op">=</span> <span class="st">'k'</span>)</span>
-<span id="cb56-26"><a href="#cb56-26"></a>disp.ax_.legend(scatter.legend_elements()[<span class="dv">0</span>], knn.classes_, loc <span class="op">=</span> <span class="st">'lower left'</span>, title <span class="op">=</span> <span class="st">'Species'</span>)</span>
-<span id="cb56-27"><a href="#cb56-27"></a>_ <span class="op">=</span> disp.ax_.set_title(<span class="st">"Penguin Classification"</span>)</span>
-<span id="cb56-28"><a href="#cb56-28"></a></span>
-<span id="cb56-29"><a href="#cb56-29"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4aab49ed" class="cell" data-output-location="slide" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> DecisionBoundaryDisplay</span>
+<span id="cb57-2"><a href="#cb57-2"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder</span>
+<span id="cb57-3"><a href="#cb57-3"></a></span>
+<span id="cb57-4"><a href="#cb57-4"></a><span class="co"># Create and fit label encoder for y (just makes y numeric because it makes the scatter plot happy)</span></span>
+<span id="cb57-5"><a href="#cb57-5"></a>label_encoder <span class="op">=</span> LabelEncoder()</span>
+<span id="cb57-6"><a href="#cb57-6"></a>y_encoded <span class="op">=</span> label_encoder.fit_transform(y)</span>
+<span id="cb57-7"><a href="#cb57-7"></a></span>
+<span id="cb57-8"><a href="#cb57-8"></a><span class="co"># Create the plot objects</span></span>
+<span id="cb57-9"><a href="#cb57-9"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
+<span id="cb57-10"><a href="#cb57-10"></a></span>
+<span id="cb57-11"><a href="#cb57-11"></a><span class="co"># Create display object</span></span>
+<span id="cb57-12"><a href="#cb57-12"></a>disp <span class="op">=</span> DecisionBoundaryDisplay.from_estimator(</span>
+<span id="cb57-13"><a href="#cb57-13"></a>    knn,</span>
+<span id="cb57-14"><a href="#cb57-14"></a>    X_test,</span>
+<span id="cb57-15"><a href="#cb57-15"></a>    response_method <span class="op">=</span> <span class="st">'predict'</span>,</span>
+<span id="cb57-16"><a href="#cb57-16"></a>    plot_method <span class="op">=</span> <span class="st">'pcolormesh'</span>,</span>
+<span id="cb57-17"><a href="#cb57-17"></a>    xlabel <span class="op">=</span> <span class="st">"bill_length_scaled"</span>,</span>
+<span id="cb57-18"><a href="#cb57-18"></a>    ylabel <span class="op">=</span> <span class="st">"bill_depth_scaled"</span>,</span>
+<span id="cb57-19"><a href="#cb57-19"></a>    shading <span class="op">=</span> <span class="st">'auto'</span>,</span>
+<span id="cb57-20"><a href="#cb57-20"></a>    alpha <span class="op">=</span> <span class="fl">0.5</span>,</span>
+<span id="cb57-21"><a href="#cb57-21"></a>    ax <span class="op">=</span> ax</span>
+<span id="cb57-22"><a href="#cb57-22"></a>)</span>
+<span id="cb57-23"><a href="#cb57-23"></a></span>
+<span id="cb57-24"><a href="#cb57-24"></a><span class="co"># Use method from display object to create scatter plot</span></span>
+<span id="cb57-25"><a href="#cb57-25"></a>scatter <span class="op">=</span> disp.ax_.scatter(X_scaled[:,<span class="dv">0</span>], X_scaled[:,<span class="dv">1</span>], c<span class="op">=</span>y_encoded, edgecolors <span class="op">=</span> <span class="st">'k'</span>)</span>
+<span id="cb57-26"><a href="#cb57-26"></a>disp.ax_.legend(scatter.legend_elements()[<span class="dv">0</span>], knn.classes_, loc <span class="op">=</span> <span class="st">'lower left'</span>, title <span class="op">=</span> <span class="st">'Species'</span>)</span>
+<span id="cb57-27"><a href="#cb57-27"></a>_ <span class="op">=</span> disp.ax_.set_title(<span class="st">"Penguin Classification"</span>)</span>
+<span id="cb57-28"><a href="#cb57-28"></a></span>
+<span id="cb57-29"><a href="#cb57-29"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2290,11 +2309,11 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>To check the performance of our KNN classifier, we can check the accuracy score and print a classification report.<br>
 - <code>accuracy_score</code> and <code>classification_report</code> are both functions!<br>
 - They are not unique to scikit-learn classes so it makes sense for them to be functions not methods</p>
-<div id="540a74af" class="cell" data-output-location="fragment" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="co">## eval knn performance</span></span>
-<span id="cb57-2"><a href="#cb57-2"></a>knn_accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
-<span id="cb57-3"><a href="#cb57-3"></a><span class="bu">print</span>(<span class="ss">f"k-NN Accuracy: </span><span class="sc">{</span>knn_accuracy<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb57-4"><a href="#cb57-4"></a><span class="bu">print</span>(<span class="st">"Classification Report: </span><span class="ch">\n</span><span class="st">"</span>, classification_report(y_test, y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b7856ae0" class="cell" data-output-location="fragment" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a><span class="co">## eval knn performance</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a>knn_accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
+<span id="cb58-3"><a href="#cb58-3"></a><span class="bu">print</span>(<span class="ss">f"k-NN Accuracy: </span><span class="sc">{</span>knn_accuracy<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb58-4"><a href="#cb58-4"></a><span class="bu">print</span>(<span class="st">"Classification Report: </span><span class="ch">\n</span><span class="st">"</span>, classification_report(y_test, y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>k-NN Accuracy: 0.94
 Classification Report: 
@@ -2313,64 +2332,64 @@ weighted avg       0.94      0.94      0.94       100
 </section>
 <section id="make-a-summary-table-of-metrics-for-both-models" class="level2">
 <h2 class="anchored" data-anchor-id="make-a-summary-table-of-metrics-for-both-models">Make a Summary Table of Metrics for Both Models</h2>
-<div id="93ee7bd3" class="cell" data-output-location="fragment" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>summary_table <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb59-2"><a href="#cb59-2"></a>    <span class="st">"Metric"</span>: [<span class="st">"k-Means Adjusted Rand Index"</span>, <span class="st">"k-NN Accuracy"</span>],</span>
-<span id="cb59-3"><a href="#cb59-3"></a>    <span class="st">"Value"</span>: [kmeans_ari, knn_accuracy]</span>
-<span id="cb59-4"><a href="#cb59-4"></a>})</span>
-<span id="cb59-5"><a href="#cb59-5"></a>(</span>
-<span id="cb59-6"><a href="#cb59-6"></a>    GT(summary_table)</span>
-<span id="cb59-7"><a href="#cb59-7"></a>    .tab_header(title <span class="op">=</span> <span class="st">"Model Results Summary"</span>)</span>
-<span id="cb59-8"><a href="#cb59-8"></a>    .fmt_number(columns <span class="op">=</span> <span class="st">"Value"</span>, n_sigfig <span class="op">=</span> <span class="dv">2</span>)</span>
-<span id="cb59-9"><a href="#cb59-9"></a>    .tab_options(table_font_size <span class="op">=</span> <span class="dv">20</span>)</span>
-<span id="cb59-10"><a href="#cb59-10"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="380407a0" class="cell" data-output-location="fragment" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>summary_table <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb60-2"><a href="#cb60-2"></a>    <span class="st">"Metric"</span>: [<span class="st">"k-Means Adjusted Rand Index"</span>, <span class="st">"k-NN Accuracy"</span>],</span>
+<span id="cb60-3"><a href="#cb60-3"></a>    <span class="st">"Value"</span>: [kmeans_ari, knn_accuracy]</span>
+<span id="cb60-4"><a href="#cb60-4"></a>})</span>
+<span id="cb60-5"><a href="#cb60-5"></a>(</span>
+<span id="cb60-6"><a href="#cb60-6"></a>    GT(summary_table)</span>
+<span id="cb60-7"><a href="#cb60-7"></a>    .tab_header(title <span class="op">=</span> <span class="st">"Model Results Summary"</span>)</span>
+<span id="cb60-8"><a href="#cb60-8"></a>    .fmt_number(columns <span class="op">=</span> <span class="st">"Value"</span>, n_sigfig <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb60-9"><a href="#cb60-9"></a>    .tab_options(table_font_size <span class="op">=</span> <span class="dv">20</span>)</span>
+<span id="cb60-10"><a href="#cb60-10"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
-<div id="ifssdywltb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="kffbvfyukq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#ifssdywltb table {
+#kffbvfyukq table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#ifssdywltb thead, tbody, tfoot, tr, td, th { border-style: none; }
+#kffbvfyukq thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#ifssdywltb p { margin: 0; padding: 0; }
- #ifssdywltb .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 20; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #ifssdywltb .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #ifssdywltb .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #ifssdywltb .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #ifssdywltb .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #ifssdywltb .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #ifssdywltb .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #ifssdywltb .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #ifssdywltb .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #ifssdywltb .gt_column_spanner_outer:first-child { padding-left: 0; }
- #ifssdywltb .gt_column_spanner_outer:last-child { padding-right: 0; }
- #ifssdywltb .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #ifssdywltb .gt_spanner_row { border-bottom-style: hidden; }
- #ifssdywltb .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #ifssdywltb .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #ifssdywltb .gt_from_md> :first-child { margin-top: 0; }
- #ifssdywltb .gt_from_md> :last-child { margin-bottom: 0; }
- #ifssdywltb .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #ifssdywltb .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #ifssdywltb .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #ifssdywltb .gt_row_group_first td { border-top-width: 2px; }
- #ifssdywltb .gt_row_group_first th { border-top-width: 2px; }
- #ifssdywltb .gt_striped { background-color: rgba(128,128,128,0.05); }
- #ifssdywltb .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #ifssdywltb .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #ifssdywltb .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #ifssdywltb .gt_left { text-align: left; }
- #ifssdywltb .gt_center { text-align: center; }
- #ifssdywltb .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #ifssdywltb .gt_font_normal { font-weight: normal; }
- #ifssdywltb .gt_font_bold { font-weight: bold; }
- #ifssdywltb .gt_font_italic { font-style: italic; }
- #ifssdywltb .gt_super { font-size: 65%; }
- #ifssdywltb .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #ifssdywltb .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#kffbvfyukq p { margin: 0; padding: 0; }
+ #kffbvfyukq .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 20; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #kffbvfyukq .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #kffbvfyukq .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #kffbvfyukq .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #kffbvfyukq .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #kffbvfyukq .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #kffbvfyukq .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #kffbvfyukq .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #kffbvfyukq .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #kffbvfyukq .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #kffbvfyukq .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #kffbvfyukq .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #kffbvfyukq .gt_spanner_row { border-bottom-style: hidden; }
+ #kffbvfyukq .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #kffbvfyukq .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #kffbvfyukq .gt_from_md> :first-child { margin-top: 0; }
+ #kffbvfyukq .gt_from_md> :last-child { margin-bottom: 0; }
+ #kffbvfyukq .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #kffbvfyukq .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #kffbvfyukq .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #kffbvfyukq .gt_row_group_first td { border-top-width: 2px; }
+ #kffbvfyukq .gt_row_group_first th { border-top-width: 2px; }
+ #kffbvfyukq .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #kffbvfyukq .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #kffbvfyukq .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #kffbvfyukq .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #kffbvfyukq .gt_left { text-align: left; }
+ #kffbvfyukq .gt_center { text-align: center; }
+ #kffbvfyukq .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #kffbvfyukq .gt_font_normal { font-weight: normal; }
+ #kffbvfyukq .gt_font_bold { font-weight: bold; }
+ #kffbvfyukq .gt_font_italic { font-style: italic; }
+ #kffbvfyukq .gt_super { font-size: 65%; }
+ #kffbvfyukq .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #kffbvfyukq .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
