@@ -932,7 +932,7 @@ To plot our bill length and depth with plotnine, we can pretty much use ggplot s
 
 We can make a similar plot in seaborn. This time, let's include sex by setting the point style
 ```{python}
-#| code-line-numbers: "1-2|4-12|14-18|20-21"
+#| code-line-numbers: "1-2|4-12|14-18|20-22"
 #| output-location: slide
 # Create the figure and axes obects
 fig, ax = plt.subplots(figsize=(10, 8))
@@ -955,6 +955,7 @@ ax.legend(title="Species")
 
 # Plot the figure
 fig.tight_layout() 
+#fig.show() -> if not in interactive
 ```
 
 <aside class="notes">
@@ -962,7 +963,7 @@ fig.tight_layout()
 If we want to do the same thing in seaborn, we can use sns.scatterplot() directly (which doesn't save the figure to a variable), 
 or we can create figure and axis objects first and then draw the plot on the created axis. We then use methods on the axis object to set the titles and labels. 
 
-To display the figure, we can use the .tight_layout() method. 
+Because we are working in an interactive notebook, we don't have to explicitly use plt.plot() to display the figure. 
 
 </aside>
 
@@ -1238,7 +1239,7 @@ After the transformations we performed, this is what our scatter data and heatma
 ## Creating Plots 
 
 ```{python}
-#| code-line-numbers: "1-2|4-9|11-23"
+#| code-line-numbers: "1-2|4-9|11-24"
 #| output-location: slide
 # Prepare the figure with 2 subplots; the axes object will contain both plots
 fig2, axes = plt.subplots(1, 2, figsize=(16, 7)) ## 1 row 2 columns
@@ -1263,6 +1264,7 @@ axes[1].set_yticks([0, 1, 2])
 axes[1].legend(bbox_to_anchor=(1.05, 0.5), loc='center left', borderaxespad=0.0, title="Legend")
 
 fig2.tight_layout()
+#fig2.show()
 ```
 
 <aside class="notes">
@@ -1273,8 +1275,6 @@ If we want to plot the heatmap on the first 'ax', we can set ax=axes[0]. Here, w
 
 **-adv-** For our scatterplot, we need to set x and y explicitly, using the x_jittered column so our points don't overlap. 
 To make things clean here, we can set the xticks using the species_order we defined previously and put our legend to the left of the plot.
-
-finally, to display the completed figure, we use fig2.tight_layout()
 
 Note: bbox_to_anchor -> x coord, y coord in terms of plot size. Aka a little more than 1 plot to the left and half a plot up. 
 
@@ -1485,7 +1485,7 @@ scatter = disp.ax_.scatter(X_scaled[:,0], X_scaled[:,1], c=y_encoded, edgecolors
 disp.ax_.legend(scatter.legend_elements()[0], knn.classes_, loc = 'lower left', title = 'Species')
 _ = disp.ax_.set_title("Penguin Classification")
 
-plt.show()
+fig.show()
 ```
 
 <aside class="notes">
@@ -1493,7 +1493,7 @@ To visualize the decision boundary of the modelm we can use another sklearn clas
 which creates a display object that has matplotlib-style plotting methods. 
 We assign our axis in the creation of our display object and use the attached .ax_. methods to create the scatter plot and legend as well as set the title. 
 
-Instead of using fig.tight_layout() we can use plt.show() since the plot we want to display is the current queued plot. 
+
 
 </aside>
 
