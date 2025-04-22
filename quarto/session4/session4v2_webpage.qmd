@@ -323,6 +323,17 @@ We can use the `.train()` method to increase rex's training level.
 print(rex.train())
 ```
 
+:::{.callout-important}  
+## Be Careful!!!
+
+Calling rex.train() within a print statement still updates rex's training level. If we were to do this instead:
+```{.python}
+rex.train()
+print(rex.train())
+```
+ it would train rex twice!
+:::
+
 . . . 
 
 <br>
@@ -743,6 +754,7 @@ ax.legend(title="Species")
 
 # Plot the figure
 fig.tight_layout() 
+#fig.show() -> if not in interactive
 ```
 
 
@@ -798,15 +810,16 @@ scaled_stats = X_scaled_df.agg(["mean", "std"])
 
 # Combine into a single table with renamed columns
 summary_table = pd.concat([original_stats, scaled_stats], axis=1)
-summary_table.columns = ["Original Mean", "Original Std", "Scaled Mean", "Scaled Std"]
+summary_table.columns = ["Bill_Length_o", "Bill_Depth_o", "Bill_Length_s", "Bill_Depth_s"]
 summary_table.index.name = "Feature"
 
 # Display nicely with great_tables
 (
     GT(summary_table.reset_index()).tab_header("Original vs Scaled Features")
-    .fmt_number(columns =  ["Original Mean", "Original Std", "Scaled Mean", "Scaled Std"], decimals=0)
-    .tab_spanner(label="Original", columns=["Original Mean", "Original Std"])
-    .tab_spanner(label="Scaled", columns=["Scaled Mean", "Scaled Std"])
+    .fmt_number(columns =  ["Bill_Length_o", "Bill_Depth_o", "Bill_Length_s", "Bill_Depth_s"], decimals=0)
+    .tab_spanner(label="Original", columns=["Bill_Length_o", "Bill_Depth_o"])
+    .tab_spanner(label="Scaled", columns=["Bill_Length_s", "Bill_Depth_s"])
+    .cols_label(Bill_Length_o = "Bill Length", Bill_Depth_o = "Bill Depth", Bill_Length_s = "Bill Length", Bill_Depth_s = "Bill Depth")
     .tab_options(table_font_size = 16)
 )
 ```
@@ -824,16 +837,17 @@ scaled_stats = X_scaled_df.agg(["mean", "std"])
 
 # Combine into a single table with renamed columns
 summary_table = pd.concat([original_stats, scaled_stats], axis=1)
-summary_table.columns = ["Original Mean", "Original Std", "Scaled Mean", "Scaled Std"]
+summary_table.columns = ["Bill_Length_o", "Bill_Depth_o", "Bill_Length_s", "Bill_Depth_s"]
 summary_table.index.name = "Feature"
 
 # Display nicely with great_tables
 (
     GT(summary_table.reset_index()).tab_header("Original vs Scaled Features")
-    .fmt_number(n_sigfig = 2)
-    .tab_spanner(label="Original", columns=["Original Mean", "Original Std"])
-    .tab_spanner(label="Scaled", columns=["Scaled Mean", "Scaled Std"])
-    .tab_options(table_font_size = 20)
+    .fmt_number(columns =  ["Bill_Length_o", "Bill_Depth_o", "Bill_Length_s", "Bill_Depth_s"], decimals=0)
+    .tab_spanner(label="Original", columns=["Bill_Length_o", "Bill_Depth_o"])
+    .tab_spanner(label="Scaled", columns=["Bill_Length_s", "Bill_Depth_s"])
+    .cols_label(Bill_Length_o = "Bill Length", Bill_Depth_o = "Bill Depth", Bill_Length_s = "Bill Length", Bill_Depth_s = "Bill Depth")
+    .tab_options(table_font_size = 16)
 )
 ```
 :::
@@ -967,6 +981,7 @@ axes[1].set_yticks([0, 1, 2])
 axes[1].legend(bbox_to_anchor=(1.05, 0.5), loc='center left', borderaxespad=0.0, title="Legend")
 
 fig2.tight_layout()
+#fig2.show()
 ```
 
 ## Project 2: KNN classification
@@ -1134,7 +1149,7 @@ scatter = disp.ax_.scatter(X_scaled[:,0], X_scaled[:,1], c=y_encoded, edgecolors
 disp.ax_.legend(scatter.legend_elements()[0], knn.classes_, loc = 'lower left', title = 'Species')
 _ = disp.ax_.set_title("Penguin Classification")
 
-plt.show()
+fig.show()
 ```
 
 ## Evaluate KNN performance
