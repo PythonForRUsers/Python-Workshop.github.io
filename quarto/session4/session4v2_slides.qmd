@@ -1588,7 +1588,7 @@ Using the great_tables package, we can make a nice little summary table of our r
 
 ## 'Homework'
 
-<dif class="clean-text">
+<div class="clean-text">
 The homework for this session can be found at "H:\Biostatistics\PythonWorkshop\Homework Exercises\session4_homework_blank.ipynb" <br>
 Please copy the file! Do not modify the file on the H drive!  
   
