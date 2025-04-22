@@ -576,10 +576,8 @@ Python's duck typing makes our lives a lot easier, and is one of the main benefi
 <ul>
     <li><b>Inheritence</b> - objects inherit methods from base classes</li>
     <li><b>Repurposing old code</b> - methods by the same name work the same for different model types</li>
-    <li><b>Not necessary to check types before using methods</b> - methods are assumed to work on the object they're attached to</li>
+    <li><b>Use methods without checking types</b> - methods are assumed to work on the object they're attached to</li>
 </ul>
-
-
 </div>  
 
 We can demonstrate duck typing by defining two new base classes that are different than `Dog` but also have a `speak()` method.
