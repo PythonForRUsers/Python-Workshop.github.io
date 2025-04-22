@@ -1493,7 +1493,7 @@ To visualize the decision boundary of the modelm we can use another sklearn clas
 which creates a display object that has matplotlib-style plotting methods. 
 We assign our axis in the creation of our display object and use the attached .ax_. methods to create the scatter plot and legend as well as set the title. 
 
-
+Because we're using this display object, we have to explicitly call fig.show() here to display the figure. 
 
 </aside>
 
@@ -1515,6 +1515,12 @@ print(f"k-NN Accuracy: {knn_accuracy:.2f}")
 print("Classification Report: \n", classification_report(y_test, y_pred))
 ```
 
+<aside class="notes">
+
+Finally, we can use the 'accuracy_score' and classification_report functions to check the performance of our classifier. 
+
+</aside>
+
 ## Make a Summary Table of Metrics for Both Models
 
 ```{python}
@@ -1530,6 +1536,12 @@ summary_table = pd.DataFrame({
     .tab_options(table_font_size = 20)
 )
 ```
+
+<aside class="notes">
+
+Using the great_tables package, we can make a nice little summary table of our results from both mini-projects. 
+
+</aside>
 
 
 ## Key Takeaways from This Session
