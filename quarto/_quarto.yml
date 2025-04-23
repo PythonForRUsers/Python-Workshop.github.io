@@ -2,6 +2,7 @@ project:
   type: website
   output-dir: ../docs
   render:
+    always-create-output-dir: true
     - "*.qmd"
     - "!FollowAlong/*.qmd"
     - "!ignore*.qmd"
