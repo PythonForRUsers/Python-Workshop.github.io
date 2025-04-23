@@ -10,9 +10,14 @@ format:
         highlight-style: pygments
         width: 1600   # default is 960
         height: 900  # default is 700
-        transition: none
         code-line-numbers: true
+        code-highlight: true
         self-contained: true
+        output: session4v2_slides.html
+    html:
+      output: session4v2_webpage.html
+      code-copy: true
+      self-contained: true
 execute:
   freeze: auto
   eval: true
