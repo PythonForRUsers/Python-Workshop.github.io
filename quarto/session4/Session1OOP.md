@@ -35,7 +35,7 @@ One of the biggest differences between R and Python is **how they structure code
 
 In R, you can use vectors, data frames, and functions without thinking much about objects and classes. In Python, however, **everything is an object!** Even basic data structures (lists, dictionaries, etc.) are instances of classes.  
 
-For example, in Python, a `LogisticRegression` from `scikit-learn` is a class. When we create a logistic regression model, we are making an **instance** of that class, which has specific properties and methods.  
+For example, in Python, `LogisticRegression` from `scikit-learn` is a class. When we create a logistic regression model, we are making an **instance** of that class, which has specific properties and methods.  
 
 ### **Library Management & Function Namespacing**  
 - **R** allows functions from different packages to be used without specifying which package they come from (`library(dplyr)`).  
@@ -106,7 +106,7 @@ The goal for these workshops is to build familiarity with python and give the to
 
 # 2. Differences between R and Python
 
-One of the main differences between python and R is that python is more object oriented (although R is also technically object oriented). This means that, instead of using functions as the main unit of code, python uses classes. Classes are blueprints for creating objects, where objects are instances of classes that contain specific data. As part of the 'blueprint', classes contain methods (functions that can act on objects of that class) and attributes (variables belonging to objects of that class). While classes and objects exist in R (every vector you make is an instance of the class `vector`!), it is possible to do a lot of programming in R without ever having to worry about them. This is not the case in python!
+One of the main differences between python and R is that python is more object oriented (although R is also technically object oriented ** add a link **). This means that, instead of using functions as the main unit of code, python uses classes. Classes are blueprints for creating objects, where objects are instances of classes that contain specific data. As part of the 'blueprint', classes contain methods (functions that can act on objects of that class) and attributes (variables belonging to objects of that class). While classes and objects exist in R (every vector you make is an instance of the class `vector`!), it is possible to do a lot of programming in R without ever having to worry about them. This is not the case in python!
 
 Similar to R, Python allows us to install libraries containing useful functions that are not available in the base installation. Unlike R, however, python functions are installed via the command line! Python is also more careful than R about keeping functions attached to the libraries they come from, and functions that are designed to act on specific objects (like a dataframe) tend to be written as methods (functions definined in the class blueprint) rather than standalone functions. For example, when you want to use the string substitution function `sub` from the `re` library in python, you call the function as `re.sub()` rather than just `sub`. This is similar to calling `stringr::sub()` in R. This might seem annoying, but it serves to help avoid conflicts between libraries. 
 

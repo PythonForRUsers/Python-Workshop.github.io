@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -67,14 +67,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-6c63763c1ae9bd01aad4ba4dab843f5b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-da61f9a05e9cefe097d79e8430a73dd4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7806622614b3f4bc4ce32d87c51e298b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-58ff7c1e86871af9236ed0c2b4f5efeb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,10 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -120,6 +118,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Intro to Python Workshops</span>
     </a>
@@ -424,11 +424,11 @@ Instead of having a separate results object, like in R, you would retrieve your 
 </ul>
 <p><span style="font-size: .8em;">👉 To Get the class of an object, use:</span></p>
 <div id="aac0b0d2" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">type</span>(<span class="bu">object</span>) <span class="co"># Returns the type of the object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">type</span>(<span class="bu">object</span>) <span class="co"># Returns the type of the object</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span style="font-size: .8em;">👉 To check if an object is an instance of a particular class, use:</span></p>
 <div id="13aeba4b" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">isinstance</span>(<span class="bu">object</span>, <span class="kw">class</span>)  <span class="co"># Returns True if `object` is an instance of `class`.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">isinstance</span>(<span class="bu">object</span>, <span class="kw">class</span>)  <span class="co"># Returns True if `object` is an instance of `class`.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><br></p>
 <p style="color: #007acc; font-weight: 600;">
@@ -445,7 +445,7 @@ Knowing what class an object belongs to helps us understand what methods and att
 <div class="fragment">
 <p>For example, we can define a class called <code>Dog</code> and give it attributes that store data about a given dog and methods that represent behaviors an object of the <code>Dog</code> class can perform. We can also edit the <a href="https://docs.python.org/3/reference/datamodel.html#special-method-names"><strong>special</strong> or <strong>“dunder”</strong> methods</a> (short for double underscore) that define how objects behave in certain contexts.</p>
 <div id="c32b7a0c" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">class</span> Dog: <span class="co">## begin class definition</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">class</span> Dog: <span class="co">## begin class definition</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, breed): <span class="co">## define init method</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>        <span class="va">self</span>.name <span class="op">=</span> name <span class="co">## add attributes</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a>        <span class="va">self</span>.breed <span class="op">=</span> breed</span>
@@ -457,7 +457,7 @@ Knowing what class an object belongs to helps us understand what methods and att
 <span id="cb3-10"><a href="#cb3-10"></a>        <span class="cf">return</span> <span class="ss">f"Our dog </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss">"</span></span>
 <span id="cb3-11"><a href="#cb3-11"></a></span>
 <span id="cb3-12"><a href="#cb3-12"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>): <span class="co"># add representation to display when dog is called in console</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a>        <span class="cf">return</span> <span class="ss">f"Dog(name=</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">!r}</span><span class="ss">, breed=</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>breed<span class="sc">!r}</span><span class="ss">)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-13"><a href="#cb3-13"></a>        <span class="cf">return</span> <span class="ss">f"Dog(name=</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">!r}</span><span class="ss">, breed=</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>breed<span class="sc">!r}</span><span class="ss">)"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -465,8 +465,8 @@ Knowing what class an object belongs to helps us understand what methods and att
 <h2 class="anchored" data-anchor-id="creating-a-dog">Creating a dog</h2>
 <p>Creating an instance of the <code>Dog</code> class lets us model a particular dog:</p>
 <div id="4356a762" class="cell" data-output-location="fragment" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>buddy <span class="op">=</span> Dog(<span class="st">"Buddy"</span>, <span class="st">"Golden Retriever"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(<span class="ss">f"Buddy is an object of class </span><span class="sc">{</span><span class="bu">type</span>(buddy)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>buddy <span class="op">=</span> Dog(<span class="st">"Buddy"</span>, <span class="st">"Golden Retriever"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(<span class="ss">f"Buddy is an object of class </span><span class="sc">{</span><span class="bu">type</span>(buddy)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Buddy is an object of class &lt;class '__main__.Dog'&gt;</code></pre>
 </div>
@@ -480,7 +480,7 @@ We can use any methods defined in the Dog class on <code>buddy</code>
 </li>
 </ul>
 <div id="ebf63da5" class="cell" data-output-location="fragment" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">## if we want to see what kind of dog our dog is</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">## if we want to see what kind of dog our dog is</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="co">## we can call buddy's attributes</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="bu">print</span>(<span class="ss">f"Our dog </span><span class="sc">{</span>buddy<span class="sc">.</span>name<span class="sc">}</span><span class="ss"> is a </span><span class="sc">{</span>buddy<span class="sc">.</span>breed<span class="sc">}</span><span class="ss">."</span>)</span>
 <span id="cb6-4"><a href="#cb6-4"></a></span>
@@ -488,7 +488,7 @@ We can use any methods defined in the Dog class on <code>buddy</code>
 <span id="cb6-6"><a href="#cb6-6"></a><span class="bu">print</span>(buddy.speak())  </span>
 <span id="cb6-7"><a href="#cb6-7"></a></span>
 <span id="cb6-8"><a href="#cb6-8"></a><span class="co">## including special methods</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a>buddy <span class="co">## displays what was in the __repr__() method</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-9"><a href="#cb6-9"></a>buddy <span class="co">## displays what was in the __repr__() method</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Our dog Buddy is a Golden Retriever.
 Buddy says woof!</code></pre>
@@ -504,7 +504,7 @@ Buddy says woof!</code></pre>
 <p>Derived/child classes build on base classes using the principle of inheritence. <br></p>
 <p>Now that we have a <code>Dog</code> class, we can build on it to create a specialized <code>GuardDog</code> class.</p>
 <div id="3bb43c4f" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">class</span> GuardDog(Dog):  <span class="co"># GuardDog inherits from Dog</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">class</span> GuardDog(Dog):  <span class="co"># GuardDog inherits from Dog</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, breed, training_level): <span class="co">## in addition to name and breed, we can </span></span>
 <span id="cb9-3"><a href="#cb9-3"></a>        <span class="co"># define a training level. </span></span>
 <span id="cb9-4"><a href="#cb9-4"></a>        <span class="co"># Call the parent (Dog) class's __init__ method</span></span>
@@ -523,14 +523,14 @@ Buddy says woof!</code></pre>
 <span id="cb9-17"><a href="#cb9-17"></a>        <span class="cf">return</span> <span class="ss">f"Training </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss">. </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss">'s training level is now </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>training_level<span class="sc">}</span><span class="ss">"</span></span>
 <span id="cb9-18"><a href="#cb9-18"></a></span>
 <span id="cb9-19"><a href="#cb9-19"></a><span class="co"># Creating an instance of GuardDog</span></span>
-<span id="cb9-20"><a href="#cb9-20"></a>rex <span class="op">=</span> GuardDog(<span class="st">"Rex"</span>, <span class="st">"German Shepherd"</span>, training_level<span class="op">=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-20"><a href="#cb9-20"></a>rex <span class="op">=</span> GuardDog(<span class="st">"Rex"</span>, <span class="st">"German Shepherd"</span>, training_level<span class="op">=</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <hr>
 <p>Now that we have a dog (rex), we can call on any of the methods/attributes introduced in the <code>Dog</code> class as well as the new <code>GuardDog</code> class.</p>
 <p>Using methods from the base class:</p>
 <div id="573f3e1e" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">print</span>(rex.speak())</span>
-<span id="cb10-2"><a href="#cb10-2"></a>rex</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">print</span>(rex.speak())</span>
+<span id="cb10-2"><a href="#cb10-2"></a>rex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rex says woof!</code></pre>
 </div>
@@ -541,8 +541,8 @@ Buddy says woof!</code></pre>
 <p><br></p>
 <p>Using a method from the child class:</p>
 <div id="7dcd887c" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>rex<span class="sc">.</span>name<span class="sc">}</span><span class="ss">'s training level is </span><span class="sc">{</span>rex<span class="sc">.</span>training_level<span class="sc">}</span><span class="ss">."</span>)</span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="bu">print</span>(rex.guard()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>rex<span class="sc">.</span>name<span class="sc">}</span><span class="ss">'s training level is </span><span class="sc">{</span>rex<span class="sc">.</span>training_level<span class="sc">}</span><span class="ss">."</span>)</span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="bu">print</span>(rex.guard()) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rex's training level is 5.
 Rex needs more training before guarding.</code></pre>
@@ -554,7 +554,7 @@ Rex needs more training before guarding.</code></pre>
 <p>Unlike standalone functions, methods in Python often update objects in-place—meaning they modify the object itself rather than returning a new one.</p>
 <p>We can use the <code>.train()</code> method to increase rex’s training level.</p>
 <div id="0da9512e" class="cell" data-output-location="fragment" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">print</span>(rex.train())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">print</span>(rex.train())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Training Rex. Rex's training level is now 6</code></pre>
 </div>
@@ -565,13 +565,13 @@ Rex needs more training before guarding.</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Be Careful!!!
+<span class="screen-reader-only">Important</span>Be Careful!!!
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Calling rex.train() within a print statement still updates rex’s training level. If we were to do this instead:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>rex.train()</span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="bu">print</span>(rex.train())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>rex.train()</span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="bu">print</span>(rex.train())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>it would train rex twice!</p>
 </div>
 </div>
@@ -579,8 +579,8 @@ Be Careful!!!
 <p><br></p>
 <p>Now if we check,</p>
 <div id="e6491482" class="cell" data-output-location="fragment" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>rex<span class="sc">.</span>name<span class="sc">}</span><span class="ss">'s training level is </span><span class="sc">{</span>rex<span class="sc">.</span>training_level<span class="sc">}</span><span class="ss">."</span>)</span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="bu">print</span>(rex.guard()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>rex<span class="sc">.</span>name<span class="sc">}</span><span class="ss">'s training level is </span><span class="sc">{</span>rex<span class="sc">.</span>training_level<span class="sc">}</span><span class="ss">."</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="bu">print</span>(rex.guard()) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rex's training level is 6.
 Rex is guarding the house!</code></pre>
@@ -603,7 +603,7 @@ Rex is guarding the house!</code></pre>
 <hr>
 <p>When creating a mixin class, we let the other base classes carry most of the initialization</p>
 <div id="4edcf711" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">class</span> TrickMixin: <span class="co">## mixin that will let us teach a dog tricks</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">class</span> TrickMixin: <span class="co">## mixin that will let us teach a dog tricks</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
 <span id="cb20-3"><a href="#cb20-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(<span class="op">*</span>args, <span class="op">**</span>kwargs)  <span class="co"># Ensures proper initialization in multi inheritance</span></span>
 <span id="cb20-4"><a href="#cb20-4"></a>        <span class="va">self</span>.tricks <span class="op">=</span> []  <span class="co"># Add attribute to store tricks</span></span>
@@ -622,28 +622,28 @@ Rex is guarding the house!</code></pre>
 <span id="cb20-17"><a href="#cb20-17"></a>            <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> can perform: </span><span class="sc">{</span><span class="st">', '</span><span class="sc">.</span>join(<span class="va">self</span>.tricks)<span class="sc">}</span><span class="ss">."</span></span>
 <span id="cb20-18"><a href="#cb20-18"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> hasn't learned any tricks yet."</span></span>
 <span id="cb20-19"><a href="#cb20-19"></a></span>
-<span id="cb20-20"><a href="#cb20-20"></a><span class="co">## note: the TrickMixin class is not a standalone class!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-20"><a href="#cb20-20"></a><span class="co">## note: the TrickMixin class is not a standalone class!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <hr>
 <p>By including both <code>Dog</code> and <code>TrickMixin</code> as base classes, we give objects of class <code>SmartDog</code> the ability to speak and learn tricks!</p>
 <div id="939cc50c" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">class</span> SmartDog(Dog, TrickMixin):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">class</span> SmartDog(Dog, TrickMixin):</span>
 <span id="cb21-2"><a href="#cb21-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, breed):</span>
 <span id="cb21-3"><a href="#cb21-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(name, breed)  <span class="co"># Initialize Dog class</span></span>
 <span id="cb21-4"><a href="#cb21-4"></a>        TrickMixin.<span class="fu">__init__</span>(<span class="va">self</span>)  <span class="co"># Initialize TrickMixin separately</span></span>
 <span id="cb21-5"><a href="#cb21-5"></a></span>
 <span id="cb21-6"><a href="#cb21-6"></a><span class="co"># a SmartDog object can use methods from both parent object `Dog` and mixin `TrickMixin`.</span></span>
 <span id="cb21-7"><a href="#cb21-7"></a>my_smart_dog <span class="op">=</span> SmartDog(<span class="st">"Buddy"</span>, <span class="st">"Border Collie"</span>)</span>
-<span id="cb21-8"><a href="#cb21-8"></a><span class="bu">print</span>(my_smart_dog.speak()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-8"><a href="#cb21-8"></a><span class="bu">print</span>(my_smart_dog.speak()) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Buddy says woof!</code></pre>
 </div>
 </div>
 <p><br></p>
 <div id="5b7438b0" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="bu">print</span>(my_smart_dog.learn_trick(<span class="st">"Sit"</span>))  </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="bu">print</span>(my_smart_dog.learn_trick(<span class="st">"Sit"</span>))  </span>
 <span id="cb23-2"><a href="#cb23-2"></a><span class="bu">print</span>(my_smart_dog.learn_trick(<span class="st">"Roll Over"</span>)) </span>
-<span id="cb23-3"><a href="#cb23-3"></a><span class="bu">print</span>(my_smart_dog.learn_trick(<span class="st">"Sit"</span>))  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="bu">print</span>(my_smart_dog.learn_trick(<span class="st">"Sit"</span>))  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Buddy learned a new trick: Sit!
 Buddy learned a new trick: Roll Over!
@@ -652,7 +652,7 @@ Buddy already knows Sit!</code></pre>
 </div>
 <p><br></p>
 <div id="b8816cb6" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="bu">print</span>(my_smart_dog.perform_tricks()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="bu">print</span>(my_smart_dog.perform_tricks()) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Buddy can perform: Sit, Roll Over.</code></pre>
 </div>
@@ -675,7 +675,7 @@ Python’s duck typing makes our lives a lot easier, and is one of the main bene
 <p>We can demonstrate this by defining two new base classes that are different than <code>Dog</code> but also have a <code>speak()</code> method.</p>
 <p>. . .</p>
 <div id="1de2e125" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">class</span> Human:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">class</span> Human:</span>
 <span id="cb27-2"><a href="#cb27-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>
 <span id="cb27-3"><a href="#cb27-3"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
 <span id="cb27-4"><a href="#cb27-4"></a></span>
@@ -687,19 +687,19 @@ Python’s duck typing makes our lives a lot easier, and is one of the main bene
 <span id="cb27-10"><a href="#cb27-10"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
 <span id="cb27-11"><a href="#cb27-11"></a></span>
 <span id="cb27-12"><a href="#cb27-12"></a>    <span class="kw">def</span> speak(<span class="va">self</span>):</span>
-<span id="cb27-13"><a href="#cb27-13"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> says squawk!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-13"><a href="#cb27-13"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> says squawk!"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="duck-typing-in-action" class="level2">
 <h2 class="anchored" data-anchor-id="duck-typing-in-action">Duck Typing in Action</h2>
 <p>Even though <code>Dog</code>, <code>Human</code> and <code>Parrot</code> are entirely different classes…</p>
 <div id="e559f920" class="cell" data-output-location="fragment" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">def</span> call_speaker(obj):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">def</span> call_speaker(obj):</span>
 <span id="cb28-2"><a href="#cb28-2"></a>    <span class="bu">print</span>(obj.speak())</span>
 <span id="cb28-3"><a href="#cb28-3"></a></span>
 <span id="cb28-4"><a href="#cb28-4"></a>call_speaker(Dog(<span class="st">"Fido"</span>, <span class="st">"Labrador"</span>))</span>
 <span id="cb28-5"><a href="#cb28-5"></a>call_speaker(Human(<span class="st">"Alice"</span>))</span>
-<span id="cb28-6"><a href="#cb28-6"></a>call_speaker(Parrot(<span class="st">"Polly"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-6"><a href="#cb28-6"></a>call_speaker(Parrot(<span class="st">"Polly"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Fido says woof!
 Alice says hello!
@@ -725,15 +725,15 @@ That model has attributes (parameters, coefficients) and methods (like <code>.fi
 </li>
 </ul>
 <p>For example <code>LogisticRegression</code> is a model class that inherits from <code>SparseCoefMixin</code> and <code>BaseEstimator</code>.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="kw">class</span> LogisticRegression(LinearClassifierMixin, SparseCoefMixin, BaseEstimator):</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="kw">class</span> LogisticRegression(LinearClassifierMixin, SparseCoefMixin, BaseEstimator):</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><span style="top-padding: .35em;">To perform logistic regression, we create an instance of the <code>LogisticRegression</code> class.</span></p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="co">## Example: </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="co">## Example: </span></span>
 <span id="cb31-2"><a href="#cb31-2"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
 <span id="cb31-3"><a href="#cb31-3"></a></span>
 <span id="cb31-4"><a href="#cb31-4"></a>model <span class="op">=</span> LogisticRegression()  <span class="co"># Creating an instance of the LogisticRegression class</span></span>
 <span id="cb31-5"><a href="#cb31-5"></a>model.fit(X_train, y_train)   <span class="co"># Calling a method to train the model</span></span>
 <span id="cb31-6"><a href="#cb31-6"></a>predictions <span class="op">=</span> model.predict(X_test)  <span class="co"># Calling a method to make predictions</span></span>
-<span id="cb31-7"><a href="#cb31-7"></a>coefs <span class="op">=</span> model.coef_ <span class="co"># Access model coefficients using attribute</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-7"><a href="#cb31-7"></a>coefs <span class="op">=</span> model.coef_ <span class="co"># Access model coefficients using attribute</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="key-benefits-of-oop-in-machine-learning" class="level2">
 <h2 class="anchored" data-anchor-id="key-benefits-of-oop-in-machine-learning"><strong>Key Benefits of OOP in Machine Learning</strong></h2>
@@ -826,7 +826,7 @@ Now that you understand <strong>classes</strong> and <strong>data structures</st
 <section id="import-libraries-1" class="level2">
 <h2 class="anchored" data-anchor-id="import-libraries-1">Import Libraries</h2>
 <div id="84cdd40a" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="co">## imports</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="co">## imports</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb32-3"><a href="#cb32-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb32-4"><a href="#cb32-4"></a></span>
@@ -845,13 +845,13 @@ Now that you understand <strong>classes</strong> and <strong>data structures</st
 <span id="cb32-17"><a href="#cb32-17"></a></span>
 <span id="cb32-18"><a href="#cb32-18"></a><span class="co">## import functions</span></span>
 <span id="cb32-19"><a href="#cb32-19"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb32-20"><a href="#cb32-20"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, classification_report, adjusted_rand_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-20"><a href="#cb32-20"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, classification_report, adjusted_rand_score</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="data-preparation" class="level2">
 <h2 class="anchored" data-anchor-id="data-preparation">Data Preparation</h2>
 <div id="cc30e696" class="cell" data-output-location="fragment" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Load the Penguins dataset</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Load the Penguins dataset</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>).dropna()</span>
 <span id="cb33-3"><a href="#cb33-3"></a></span>
 <span id="cb33-4"><a href="#cb33-4"></a><span class="co"># Make a summary table for the penguins dataset, grouping by species. </span></span>
@@ -867,12 +867,12 @@ Now that you understand <strong>classes</strong> and <strong>data structures</st
 <span id="cb33-14"><a href="#cb33-14"></a>        summary_table[col] <span class="op">=</span> summary_table[col].<span class="bu">round</span>(<span class="dv">1</span>)</span>
 <span id="cb33-15"><a href="#cb33-15"></a></span>
 <span id="cb33-16"><a href="#cb33-16"></a><span class="co"># Display the result</span></span>
-<span id="cb33-17"><a href="#cb33-17"></a>display(summary_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-17"><a href="#cb33-17"></a>display(summary_table)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -907,7 +907,7 @@ Now that you understand <strong>classes</strong> and <strong>data structures</st
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Adelie</td>
+<th data-quarto-table-cell-role="th">Adelie</th>
 <td>38.8</td>
 <td>2.7</td>
 <td>32.1</td>
@@ -919,7 +919,7 @@ Now that you understand <strong>classes</strong> and <strong>data structures</st
 <td>{'Male': 73, 'Female': 73}</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Chinstrap</td>
+<th data-quarto-table-cell-role="th">Chinstrap</th>
 <td>48.8</td>
 <td>3.3</td>
 <td>40.9</td>
@@ -931,7 +931,7 @@ Now that you understand <strong>classes</strong> and <strong>data structures</st
 <td>{'Female': 34, 'Male': 34}</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Gentoo</td>
+<th data-quarto-table-cell-role="th">Gentoo</th>
 <td>47.6</td>
 <td>3.1</td>
 <td>40.9</td>
@@ -995,12 +995,12 @@ Harder to customize than plotnine plots
 <h2 class="anchored" data-anchor-id="scatterplot-with-plotnine">Scatterplot with plotnine</h2>
 <p>To take a look at the distribution of our species by bill length and bill depth before clustering…</p>
 <div id="3410a7db" class="cell" data-fig-dpi="600" data-output-location="fragment" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>plot1 <span class="op">=</span> (ggplot(penguins, aes(x<span class="op">=</span><span class="st">"bill_length_mm"</span>, y<span class="op">=</span><span class="st">"bill_depth_mm"</span>, color<span class="op">=</span><span class="st">"species"</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>plot1 <span class="op">=</span> (ggplot(penguins, aes(x<span class="op">=</span><span class="st">"bill_length_mm"</span>, y<span class="op">=</span><span class="st">"bill_depth_mm"</span>, color<span class="op">=</span><span class="st">"species"</span>))</span>
 <span id="cb34-2"><a href="#cb34-2"></a> <span class="op">+</span> geom_point()</span>
 <span id="cb34-3"><a href="#cb34-3"></a> <span class="op">+</span> ggtitle(<span class="st">"Penguin Species"</span>)</span>
 <span id="cb34-4"><a href="#cb34-4"></a> <span class="op">+</span> theme_bw())</span>
 <span id="cb34-5"><a href="#cb34-5"></a></span>
-<span id="cb34-6"><a href="#cb34-6"></a>display(plot1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-6"><a href="#cb34-6"></a>display(plot1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1014,7 +1014,7 @@ Harder to customize than plotnine plots
 <h2 class="anchored" data-anchor-id="scatterplot-with-seaborn">Scatterplot with seaborn</h2>
 <p>We can make a similar plot in seaborn. This time, let’s include sex by setting the point style</p>
 <div id="a63924ed" class="cell" data-output-location="slide" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Create the figure and axes obects</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Create the figure and axes obects</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
 <span id="cb35-3"><a href="#cb35-3"></a></span>
 <span id="cb35-4"><a href="#cb35-4"></a><span class="co"># Create a plot </span></span>
@@ -1035,7 +1035,7 @@ Harder to customize than plotnine plots
 <span id="cb35-19"><a href="#cb35-19"></a></span>
 <span id="cb35-20"><a href="#cb35-20"></a><span class="co"># Plot the figure</span></span>
 <span id="cb35-21"><a href="#cb35-21"></a>fig.tight_layout() </span>
-<span id="cb35-22"><a href="#cb35-22"></a><span class="co">#fig.show() -&gt; if not in interactive</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-22"><a href="#cb35-22"></a><span class="co">#fig.show() -&gt; if not in interactive</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1048,7 +1048,7 @@ Harder to customize than plotnine plots
 <section id="scaling-the-data---understanding-the-standard-scaler-class" class="level2">
 <h2 class="anchored" data-anchor-id="scaling-the-data---understanding-the-standard-scaler-class">Scaling the data - Understanding the Standard Scaler class</h2>
 <p>For our clustering to work well, the predictors should be on the same scale. To achieve this, we use an instance of the <code>StandardScaler</code> class.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">class</span> sklearn.preprocessing.StandardScaler(<span class="op">*</span>, copy<span class="op">=</span><span class="va">True</span>, with_mean<span class="op">=</span><span class="va">True</span>, with_std<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">class</span> sklearn.preprocessing.StandardScaler(<span class="op">*</span>, copy<span class="op">=</span><span class="va">True</span>, with_mean<span class="op">=</span><span class="va">True</span>, with_std<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>. . .</p>
 <p><strong>Parameters</strong> are supplied by user<br>
 - <em>copy</em>, <em>with_mean</em>, <em>with_std</em> <br></p>
@@ -1066,13 +1066,13 @@ Harder to customize than plotnine plots
 <section id="scaling-data" class="level2">
 <h2 class="anchored" data-anchor-id="scaling-data">Scaling Data</h2>
 <div id="550f662d" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Selecting features for clustering -&gt; let's just use bill length and bill depth.</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Selecting features for clustering -&gt; let's just use bill length and bill depth.</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a>X <span class="op">=</span> penguins[[<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>]]</span>
 <span id="cb37-3"><a href="#cb37-3"></a>y <span class="op">=</span> penguins[<span class="st">"species"</span>]</span>
 <span id="cb37-4"><a href="#cb37-4"></a></span>
 <span id="cb37-5"><a href="#cb37-5"></a><span class="co"># Standardizing the features for better clustering performance</span></span>
 <span id="cb37-6"><a href="#cb37-6"></a>scaler <span class="op">=</span> StandardScaler() <span class="co">## create instance of StandardScaler</span></span>
-<span id="cb37-7"><a href="#cb37-7"></a>X_scaled <span class="op">=</span> scaler.fit_transform(X) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-7"><a href="#cb37-7"></a>X_scaled <span class="op">=</span> scaler.fit_transform(X) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <div id="979c04b8" class="cell" data-execution_count="22">
@@ -1126,10 +1126,10 @@ Harder to customize than plotnine plots
  
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<th colspan="5" class="gt_heading gt_title gt_font_normal">Original vs Scaled Features</th>
+<td colspan="5" class="gt_heading gt_title gt_font_normal">Original vs Scaled Features</td>
 </tr>
 <tr class="gt_col_headings gt_spanner_row even">
 <th rowspan="2" id="Feature" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Feature</th>
@@ -1168,7 +1168,7 @@ Harder to customize than plotnine plots
 <div id="d7813b85" class="cell" data-execution_count="23">
 <details class="code-fold">
 <summary>Show table code</summary>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="co">## Make X_scaled a pandas df</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="co">## Make X_scaled a pandas df</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a>X_scaled_df <span class="op">=</span> pd.DataFrame(X_scaled, columns<span class="op">=</span>X.columns)</span>
 <span id="cb38-3"><a href="#cb38-3"></a></span>
 <span id="cb38-4"><a href="#cb38-4"></a><span class="co"># Compute summary statistics and round to 2 sig figs</span></span>
@@ -1188,15 +1188,15 @@ Harder to customize than plotnine plots
 <span id="cb38-18"><a href="#cb38-18"></a>    .tab_spanner(label<span class="op">=</span><span class="st">"Scaled"</span>, columns<span class="op">=</span>[<span class="st">"Bill_Length_s"</span>, <span class="st">"Bill_Depth_s"</span>])</span>
 <span id="cb38-19"><a href="#cb38-19"></a>    .cols_label(Bill_Length_o <span class="op">=</span> <span class="st">"Bill Length"</span>, Bill_Depth_o <span class="op">=</span> <span class="st">"Bill Depth"</span>, Bill_Length_s <span class="op">=</span> <span class="st">"Bill Length"</span>, Bill_Depth_s <span class="op">=</span> <span class="st">"Bill Depth"</span>)</span>
 <span id="cb38-20"><a href="#cb38-20"></a>    .tab_options(table_font_size <span class="op">=</span> <span class="dv">16</span>)</span>
-<span id="cb38-21"><a href="#cb38-21"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-21"><a href="#cb38-21"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
 </section>
 <section id="understanding-the-kmeans-model-class" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-kmeans-model-class">Understanding the KMeans model class</h2>
-<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="kw">class</span> sklearn.cluster.KMeans(n_clusters<span class="op">=</span><span class="dv">8</span>, <span class="op">*</span>, init<span class="op">=</span><span class="st">'k-means++'</span>, n_init<span class="op">=</span><span class="st">'auto'</span>, max_iter<span class="op">=</span><span class="dv">300</span>, </span>
-<span id="cb39-2"><a href="#cb39-2"></a>tol<span class="op">=</span><span class="fl">0.0001</span>, verbose<span class="op">=</span><span class="dv">0</span>, random_state<span class="op">=</span><span class="va">None</span>, copy_x<span class="op">=</span><span class="va">True</span>, algorithm<span class="op">=</span><span class="st">'lloyd'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="kw">class</span> sklearn.cluster.KMeans(n_clusters<span class="op">=</span><span class="dv">8</span>, <span class="op">*</span>, init<span class="op">=</span><span class="st">'k-means++'</span>, n_init<span class="op">=</span><span class="st">'auto'</span>, max_iter<span class="op">=</span><span class="dv">300</span>, </span>
+<span id="cb39-2"><a href="#cb39-2"></a>tol<span class="op">=</span><span class="fl">0.0001</span>, verbose<span class="op">=</span><span class="dv">0</span>, random_state<span class="op">=</span><span class="va">None</span>, copy_x<span class="op">=</span><span class="va">True</span>, algorithm<span class="op">=</span><span class="st">'lloyd'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Parameters</strong>: Set by user at time of instantiation<br>
 - n_clusters, max_iter, algorithm <br></p>
 <p><strong>Attributes</strong>: Store object data<br>
@@ -1210,9 +1210,9 @@ Harder to customize than plotnine plots
 <section id="create-model" class="level3">
 <h3 class="anchored" data-anchor-id="create-model">Create model</h3>
 <div id="25333dd7" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="co">## Choosing 3 clusters b/c we have 3 species</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="co">## Choosing 3 clusters b/c we have 3 species</span></span>
 <span id="cb40-2"><a href="#cb40-2"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">3</span>, random_state<span class="op">=</span><span class="dv">42</span>) <span class="co">## make an instance of the K means class</span></span>
-<span id="cb40-3"><a href="#cb40-3"></a>kmeans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb40-3"><a href="#cb40-3"></a>kmeans</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
@@ -1626,14 +1626,14 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <section id="fit-model-to-data" class="level3">
 <h3 class="anchored" data-anchor-id="fit-model-to-data">Fit model to data</h3>
 <div id="1af0d05b" class="cell" data-output-location="fragment" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="co">## the fit</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="co">## the fit</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a>penguins[<span class="st">"kmeans_cluster"</span>] <span class="op">=</span> kmeans.fit_predict(X_scaled)</span>
 <span id="cb41-3"><a href="#cb41-3"></a></span>
 <span id="cb41-4"><a href="#cb41-4"></a><span class="co">## now that we fit the model, we should have cluster centers</span></span>
 <span id="cb41-5"><a href="#cb41-5"></a><span class="bu">print</span>(<span class="st">"Coordinates of cluster centers:"</span>, kmeans.cluster_centers_)</span>
 <span id="cb41-6"><a href="#cb41-6"></a></span>
 <span id="cb41-7"><a href="#cb41-7"></a><span class="co">## shows that model is fitted</span></span>
-<span id="cb41-8"><a href="#cb41-8"></a>kmeans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb41-8"><a href="#cb41-8"></a>kmeans</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Coordinates of cluster centers: [[-0.95023997  0.55393493]
  [ 0.58644397 -1.09805504]
@@ -2054,9 +2054,9 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>To check how good our model is, we can use one of the functions included in the sklearn library.</p>
 <p>The <code>adjusted_rand_score()</code> function evaluates how well the cluster groupings agree with the species groupings while adjusting for chance.</p>
 <div id="d59d7db9" class="cell" data-output-location="fragment" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># Calculate clustering performance using Adjusted Rand Index (ARI)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># Calculate clustering performance using Adjusted Rand Index (ARI)</span></span>
 <span id="cb43-2"><a href="#cb43-2"></a>kmeans_ari <span class="op">=</span> adjusted_rand_score(penguins[<span class="st">'species'</span>], penguins[<span class="st">"kmeans_cluster"</span>])</span>
-<span id="cb43-3"><a href="#cb43-3"></a><span class="bu">print</span>(<span class="ss">f"k-Means Adjusted Rand Index: </span><span class="sc">{</span>kmeans_ari<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb43-3"><a href="#cb43-3"></a><span class="bu">print</span>(<span class="ss">f"k-Means Adjusted Rand Index: </span><span class="sc">{</span>kmeans_ari<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>k-Means Adjusted Rand Index: 0.82</code></pre>
 </div>
@@ -2070,7 +2070,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <li>Using seaborn and matplotlib, we can easily put both of these plots on the same figure. <br></li>
 </ul>
 <div id="d41e6a92" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># Count occurrences of each species-cluster-sex combination</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># Count occurrences of each species-cluster-sex combination</span></span>
 <span id="cb45-2"><a href="#cb45-2"></a><span class="co"># (.size gives the count as index, use reset_index to get count column.)</span></span>
 <span id="cb45-3"><a href="#cb45-3"></a>scatter_data <span class="op">=</span> (penguins.groupby([<span class="st">"species"</span>, <span class="st">"kmeans_cluster"</span>, <span class="st">"sex"</span>])</span>
 <span id="cb45-4"><a href="#cb45-4"></a>                .size()</span>
@@ -2086,14 +2086,14 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb45-14"><a href="#cb45-14"></a>)</span>
 <span id="cb45-15"><a href="#cb45-15"></a></span>
 <span id="cb45-16"><a href="#cb45-16"></a>heatmap_data <span class="op">=</span> scatter_data.pivot_table(index<span class="op">=</span><span class="st">"kmeans_cluster"</span>, columns<span class="op">=</span><span class="st">"species"</span>, </span>
-<span id="cb45-17"><a href="#cb45-17"></a>values<span class="op">=</span><span class="st">"count"</span>, aggfunc<span class="op">=</span><span class="st">"sum"</span>, fill_value<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb45-17"><a href="#cb45-17"></a>values<span class="op">=</span><span class="st">"count"</span>, aggfunc<span class="op">=</span><span class="st">"sum"</span>, fill_value<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
 <section id="creating-plots" class="level2">
 <h2 class="anchored" data-anchor-id="creating-plots">Creating Plots</h2>
 <div id="6ccbbdce" class="cell" data-output-location="slide" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Prepare the figure with 2 subplots; the axes object will contain both plots</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Prepare the figure with 2 subplots; the axes object will contain both plots</span></span>
 <span id="cb46-2"><a href="#cb46-2"></a>fig2, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">7</span>)) <span class="co">## 1 row 2 columns</span></span>
 <span id="cb46-3"><a href="#cb46-3"></a></span>
 <span id="cb46-4"><a href="#cb46-4"></a><span class="co"># Plot heatmap on the first axis</span></span>
@@ -2116,7 +2116,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb46-21"><a href="#cb46-21"></a>axes[<span class="dv">1</span>].legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="fl">0.5</span>), loc<span class="op">=</span><span class="st">'center left'</span>, borderaxespad<span class="op">=</span><span class="fl">0.0</span>, title<span class="op">=</span><span class="st">"Legend"</span>)</span>
 <span id="cb46-22"><a href="#cb46-22"></a></span>
 <span id="cb46-23"><a href="#cb46-23"></a>fig2.tight_layout()</span>
-<span id="cb46-24"><a href="#cb46-24"></a><span class="co">#fig2.show()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb46-24"><a href="#cb46-24"></a><span class="co">#fig2.show()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2132,8 +2132,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>. . .</p>
 <p>The <strong>function</strong> <code>train_test_split()</code> from scikit-learn is helpful here!</p>
 <div id="268f429d" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># Splitting dataset into training and testing sets (still using scaled X!)</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X_scaled, y, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># Splitting dataset into training and testing sets (still using scaled X!)</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X_scaled, y, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>. . .</p>
 <blockquote class="blockquote">
@@ -2142,8 +2142,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="understanding-kneighborsclassifier-class" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-kneighborsclassifier-class">Understanding KNeighborsClassifier class</h2>
-<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="kw">class</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">5</span>, <span class="op">*</span>, weights<span class="op">=</span><span class="st">'uniform'</span>, </span>
-<span id="cb48-2"><a href="#cb48-2"></a>algorithm<span class="op">=</span><span class="st">'auto'</span>, leaf_size<span class="op">=</span><span class="dv">30</span>, p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">'minkowski'</span>, metric_params<span class="op">=</span><span class="va">None</span>, n_jobs<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="kw">class</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">5</span>, <span class="op">*</span>, weights<span class="op">=</span><span class="st">'uniform'</span>, </span>
+<span id="cb48-2"><a href="#cb48-2"></a>algorithm<span class="op">=</span><span class="st">'auto'</span>, leaf_size<span class="op">=</span><span class="dv">30</span>, p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">'minkowski'</span>, metric_params<span class="op">=</span><span class="va">None</span>, n_jobs<span class="op">=</span><span class="va">None</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>. . .</p>
 <p><strong>Parameters</strong>: Set by user at time of instantiation<br>
 - n_neigbors, weights, algorithm, etc. <br></p>
@@ -2165,21 +2165,21 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <li>For a supervised model, y_train is included in <code>.fit()</code>!</li>
 </ul>
 <div id="f49d32bb" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a><span class="co">## perform knn classification</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a><span class="co">## perform knn classification</span></span>
 <span id="cb49-2"><a href="#cb49-2"></a><span class="co"># Applying k-NN classification with 5 neighbors</span></span>
 <span id="cb49-3"><a href="#cb49-3"></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">5</span>) <span class="co">## make an instance of the KNeighborsClassifier class</span></span>
 <span id="cb49-4"><a href="#cb49-4"></a><span class="co"># and set the n_neighbors parameter to be 5. </span></span>
 <span id="cb49-5"><a href="#cb49-5"></a></span>
 <span id="cb49-6"><a href="#cb49-6"></a><span class="co"># Use the fit method to fit the model to the training data</span></span>
 <span id="cb49-7"><a href="#cb49-7"></a>knn.fit(X_train, y_train)</span>
-<span id="cb49-8"><a href="#cb49-8"></a>knn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb49-8"><a href="#cb49-8"></a>knn</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="once-the-model-is-fit" class="level2">
 <h2 class="anchored" data-anchor-id="once-the-model-is-fit">Once the model is fit…</h2>
 <p>-We can look at its attributes (ex: <code>.classes_</code>) which gives the class labels as known to the classifier</p>
 <div id="f778429e" class="cell" data-output-location="fragment" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="bu">print</span>(knn.classes_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="bu">print</span>(knn.classes_)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 </div>
@@ -2187,7 +2187,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>. . .</p>
 <p>-And use fitted model to predict species for test data</p>
 <div id="580179e8" class="cell" data-output-location="fragment" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Use the predict method on the test data to get the predictions for the test data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Use the predict method on the test data to get the predictions for the test data</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a>y_pred <span class="op">=</span> knn.predict(X_test)</span>
 <span id="cb52-3"><a href="#cb52-3"></a></span>
 <span id="cb52-4"><a href="#cb52-4"></a><span class="co"># Also can take a look at the prediction probabilities, </span></span>
@@ -2197,7 +2197,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb52-8"><a href="#cb52-8"></a>    columns <span class="op">=</span> knn.classes_)</span>
 <span id="cb52-9"><a href="#cb52-9"></a>probs[<span class="st">'y_pred'</span>] <span class="op">=</span> y_pred</span>
 <span id="cb52-10"><a href="#cb52-10"></a></span>
-<span id="cb52-11"><a href="#cb52-11"></a><span class="bu">print</span>(<span class="st">"Predicted probabilities: </span><span class="ch">\n</span><span class="st">"</span>, probs.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb52-11"><a href="#cb52-11"></a><span class="bu">print</span>(<span class="st">"Predicted probabilities: </span><span class="ch">\n</span><span class="st">"</span>, probs.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Predicted probabilities: 
     Adelie  Chinstrap  Gentoo     y_pred
@@ -2216,7 +2216,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <li>Add to it the actual and predicted species labels</li>
 </ul>
 <div id="fb9d84ca" class="cell" data-output-location="fragment" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="co">## First unscale the test data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="co">## First unscale the test data</span></span>
 <span id="cb54-2"><a href="#cb54-2"></a>X_test_unscaled <span class="op">=</span> scaler.inverse_transform(X_test)</span>
 <span id="cb54-3"><a href="#cb54-3"></a></span>
 <span id="cb54-4"><a href="#cb54-4"></a><span class="co">## create dataframe </span></span>
@@ -2230,7 +2230,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb54-12"><a href="#cb54-12"></a>penguins_test[<span class="st">'y_pred'</span>] <span class="op">=</span> y_pred</span>
 <span id="cb54-13"><a href="#cb54-13"></a>penguins_test[<span class="st">'correct'</span>] <span class="op">=</span> penguins_test[<span class="st">'y_actual'</span>] <span class="op">==</span> penguins_test[<span class="st">'y_pred'</span>]</span>
 <span id="cb54-14"><a href="#cb54-14"></a></span>
-<span id="cb54-15"><a href="#cb54-15"></a><span class="bu">print</span>(<span class="st">"Results: </span><span class="ch">\n</span><span class="st">"</span>, penguins_test.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb54-15"><a href="#cb54-15"></a><span class="bu">print</span>(<span class="st">"Results: </span><span class="ch">\n</span><span class="st">"</span>, penguins_test.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Results: 
     bill_length_mm  bill_depth_mm   y_actual     y_pred  correct
@@ -2246,7 +2246,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <h2 class="anchored" data-anchor-id="plotnine-scatterplot-for-k-nn-classification-of-test-data">Plotnine scatterplot for k-NN classification of test data</h2>
 <p>To see how well our model did at classifying the remaining penguins…</p>
 <div id="5e6e22e7" class="cell" data-output-location="slide" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="co">## Build the plot</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="co">## Build the plot</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a>plot3 <span class="op">=</span> (ggplot(penguins_test, aes(x<span class="op">=</span><span class="st">"bill_length_mm"</span>, y<span class="op">=</span><span class="st">"bill_depth_mm"</span>, </span>
 <span id="cb56-3"><a href="#cb56-3"></a>color<span class="op">=</span><span class="st">"y_actual"</span>, fill <span class="op">=</span> <span class="st">'y_pred'</span>, shape <span class="op">=</span> <span class="st">'correct'</span>))</span>
 <span id="cb56-4"><a href="#cb56-4"></a> <span class="op">+</span> geom_point(size<span class="op">=</span><span class="dv">4</span>, stroke<span class="op">=</span><span class="fl">1.1</span>)  <span class="co"># Stroke controls outline thickness</span></span>
@@ -2254,7 +2254,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb56-6"><a href="#cb56-6"></a> <span class="op">+</span> ggtitle(<span class="st">"k-NN Classification Results"</span>)</span>
 <span id="cb56-7"><a href="#cb56-7"></a> <span class="op">+</span> theme_bw())</span>
 <span id="cb56-8"><a href="#cb56-8"></a></span>
-<span id="cb56-9"><a href="#cb56-9"></a>display(plot3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb56-9"><a href="#cb56-9"></a>display(plot3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2267,7 +2267,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <section id="visualizing-decision-boundary-with-seaborn-and-matplotlib" class="level2">
 <h2 class="anchored" data-anchor-id="visualizing-decision-boundary-with-seaborn-and-matplotlib">Visualizing Decision Boundary with seaborn and matplotlib</h2>
 <div id="4aab49ed" class="cell" data-output-location="slide" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> DecisionBoundaryDisplay</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> DecisionBoundaryDisplay</span>
 <span id="cb57-2"><a href="#cb57-2"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder</span>
 <span id="cb57-3"><a href="#cb57-3"></a></span>
 <span id="cb57-4"><a href="#cb57-4"></a><span class="co"># Create and fit label encoder for y (just makes y numeric because it makes the scatter plot happy)</span></span>
@@ -2295,7 +2295,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb57-26"><a href="#cb57-26"></a>disp.ax_.legend(scatter.legend_elements()[<span class="dv">0</span>], knn.classes_, loc <span class="op">=</span> <span class="st">'lower left'</span>, title <span class="op">=</span> <span class="st">'Species'</span>)</span>
 <span id="cb57-27"><a href="#cb57-27"></a>_ <span class="op">=</span> disp.ax_.set_title(<span class="st">"Penguin Classification"</span>)</span>
 <span id="cb57-28"><a href="#cb57-28"></a></span>
-<span id="cb57-29"><a href="#cb57-29"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb57-29"><a href="#cb57-29"></a>fig.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2311,10 +2311,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 - <code>accuracy_score</code> and <code>classification_report</code> are both functions!<br>
 - They are not unique to scikit-learn classes so it makes sense for them to be functions not methods</p>
 <div id="b7856ae0" class="cell" data-output-location="fragment" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a><span class="co">## eval knn performance</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a><span class="co">## eval knn performance</span></span>
 <span id="cb58-2"><a href="#cb58-2"></a>knn_accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
 <span id="cb58-3"><a href="#cb58-3"></a><span class="bu">print</span>(<span class="ss">f"k-NN Accuracy: </span><span class="sc">{</span>knn_accuracy<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb58-4"><a href="#cb58-4"></a><span class="bu">print</span>(<span class="st">"Classification Report: </span><span class="ch">\n</span><span class="st">"</span>, classification_report(y_test, y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb58-4"><a href="#cb58-4"></a><span class="bu">print</span>(<span class="st">"Classification Report: </span><span class="ch">\n</span><span class="st">"</span>, classification_report(y_test, y_pred))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>k-NN Accuracy: 0.94
 Classification Report: 
@@ -2334,7 +2334,7 @@ weighted avg       0.94      0.94      0.94       100
 <section id="make-a-summary-table-of-metrics-for-both-models" class="level2">
 <h2 class="anchored" data-anchor-id="make-a-summary-table-of-metrics-for-both-models">Make a Summary Table of Metrics for Both Models</h2>
 <div id="380407a0" class="cell" data-output-location="fragment" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>summary_table <span class="op">=</span> pd.DataFrame({</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>summary_table <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb60-2"><a href="#cb60-2"></a>    <span class="st">"Metric"</span>: [<span class="st">"k-Means Adjusted Rand Index"</span>, <span class="st">"k-NN Accuracy"</span>],</span>
 <span id="cb60-3"><a href="#cb60-3"></a>    <span class="st">"Value"</span>: [kmeans_ari, knn_accuracy]</span>
 <span id="cb60-4"><a href="#cb60-4"></a>})</span>
@@ -2343,7 +2343,7 @@ weighted avg       0.94      0.94      0.94       100
 <span id="cb60-7"><a href="#cb60-7"></a>    .tab_header(title <span class="op">=</span> <span class="st">"Model Results Summary"</span>)</span>
 <span id="cb60-8"><a href="#cb60-8"></a>    .fmt_number(columns <span class="op">=</span> <span class="st">"Value"</span>, n_sigfig <span class="op">=</span> <span class="dv">2</span>)</span>
 <span id="cb60-9"><a href="#cb60-9"></a>    .tab_options(table_font_size <span class="op">=</span> <span class="dv">20</span>)</span>
-<span id="cb60-10"><a href="#cb60-10"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb60-10"><a href="#cb60-10"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <div id="kffbvfyukq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
@@ -2394,10 +2394,10 @@ weighted avg       0.94      0.94      0.94       100
  
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_heading header">
-<th colspan="2" class="gt_heading gt_title gt_font_normal">Model Results Summary</th>
+<td colspan="2" class="gt_heading gt_title gt_font_normal">Model Results Summary</td>
 </tr>
 <tr class="gt_col_headings even">
 <th id="Metric" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Metric</th>
@@ -2522,13 +2522,14 @@ Python packages use <strong>common methods</strong> that make it easy to change 
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

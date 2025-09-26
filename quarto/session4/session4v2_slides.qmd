@@ -25,7 +25,7 @@ execute:
 
 <div class="clean-text">
 
-In this session, we'll explore how Python's object-oriented nature affects our modeling workflows. <br>
+In this session, we'll explore how Python's **object-oriented nature** affects our modeling workflows. <br>
 
 <strong style="font-size: 1.15em">Topics:</strong>  
 <ul>
@@ -41,7 +41,7 @@ In this session, we'll explore how Python's object-oriented nature affects our m
 </div>
 
   <aside class="notes">
-    This is the last session of the intro to python workshops. There will be a brief 'homework' that covers the topics in this session. I do not anticipate having much time left over at the end of this session so if you have any questions about that please feel free to reach out to us via teams!
+    This is the last session of the intro to python workshops. There will be a brief 'homework' that covers the topics in this session. I do not anticipate having much time left over at the end of this session, so if you have any questions about that please feel free to reach out to us via teams!
   </aside>
 
 # Introduction 
@@ -98,7 +98,7 @@ In the first session, we talked briefly about functional vs object-oriented prog
 >  <span style="color: #007acc"><strong>Functional programming:</strong></span> focuses on functions as the primary unit of code <br>
 >  <span style="color: #007acc"><strong>Object-oriented programming:</strong></span> uses objects with attached attributes(data) and methods(behaviors) <br>
 
-- R leans heavily on the functional paradigm — you pass data into functions and get back results, in most cases without altering the original data. Functions and pipes (%>%) dominate most workflows.
+- R leans heavily on the functional paradigm — you pass data into functions and get back results, in most cases **without** altering the original data. In R, we also use pipes (|>, %>%) to chain functions together.
 
 - In Python, <span style="color: #007acc"><strong>everything is an object</strong></span>, even basic things like lists, strings, and dataframes. A lot of 'functions' are instead written as object-associated methods. Some of these methods modify the objects in-place by altering their attributes. <span style="color: #007acc; font-weight:bold">Understanding how this works is key to using Python effectively!</span>
 
@@ -117,13 +117,13 @@ In python, we use objects. Everything is an object (lists, strings, dataframes, 
 ## Modeling in Python 
 <div class="small-clean-text">
 <span style="color: #007acc"><strong>Python absolutely uses **functions**—just like R!</strong></span>
-They're helpful for **data transformation**, **wrangling**, and **automation tasks** like looping and parallelization. <br>
+They're helpful for **data transformation**, **wrangling**, and **automation tasks**, like looping and parallelization. <br>
 
 But when it comes to **modeling**, libraries are designed around **classes**: blueprints for creating objects that store data (**attributes**) and define behaviors (**methods**).  <br>
 
-  - `scikit-learn` is great for getting started—everything follows a simple, consistent OOP interface. Its API is also consistant with other modeling packages, like [xgboost](https://xgboost.readthedocs.io/en/release_3.0.0/) and [scvi-tools](https://docs.scvi-tools.org/en/stable/index.html).
+  - `scikit-learn` is great for getting started— everything follows a simple, consistent OOP interface. Its API is also consistant with other modeling packages, like [xgboost](https://xgboost.readthedocs.io/en/release_3.0.0/) and [scvi-tools](https://docs.scvi-tools.org/en/stable/index.html).
   - [<u>`scikit-survival`</u>](https://scikit-survival.readthedocs.io/en/stable/) is built on top of `scikit-learn`. [https://scikit-survival.readthedocs.io/en/stable/user_guide/00-introduction.html](https://scikit-survival.readthedocs.io/en/stable/user_guide/00-introduction.html) is a good tutorial for it.
-  - `PyTorch` and `TensorFlow` are essential if you go deeper into neural networks or custom models—you’ll define your **own model classes** with attributes and methods, but the basic structure is similar to `scikit-learn`.  
+  - `PyTorch` and `TensorFlow` are essential if you go deeper into neural networks or custom models— you’ll define your **own model classes** with attributes and methods, but the basic structure is similar to `scikit-learn`.  
   - [<u>`statsmodels`</u>](https://www.statsmodels.org/stable/gettingstarted.html) is an alternative to `scikit-learn` for statistical analyses and has R-like syntax and outputs. It's a bit more complex than `scikit-learn` and a bit less consistant with other packages in the python ecosystem. *[https://wesmckinney.com/book/modeling](https://wesmckinney.com/book/modeling) is a good tutorial for statsmodels.*
 
 > 💡 To work effectively in Python, especially for tasks involving modeling or model training, <span style="color: #007acc"><strong>it helps to think in terms of objects and classes, not just functions.</strong></span>   
@@ -164,7 +164,7 @@ This makes model behavior <strong>consistent</strong> between model classes and 
 </div>
 
   <aside class="notes">
-So why is OOP so important for python modeling? First, models in python are instances of classes that have attahced methods like fit, predict and score. The internal model details like coefficients or layers are stored as attributes. 
+So why is OOP so important for python modeling? First, models in python are instances of classes that have attached methods like fit, predict and score. The internal model details like coefficients or layers are stored as attributes. 
 
 Definining models as instances of classes is useful because it makes model behavior consistant between model classes (due to inheritance which i'll explain more about shortly) and even libraries. It also simplifies creating/using pre-trained models because the model architecture and learned weights are bundled into a single object that can be loaded. Expected built-in methods are also included in this bundle. 
 
