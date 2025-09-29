@@ -1,0 +1,67 @@
+color:
+  palette:
+    msk-blue:         "#007CBA"
+    msk-navy:         "#002569"
+    msk-orange:       "#DF4602"
+    medium-blue:      "#40B4E5"
+    medium-orange:    "#F29934"
+    light-blue:       "#8FC7E8"
+    light-orange:     "#F6C65B"
+    dark-blue:        "#006098"
+    dark-orange:      "#942E01"
+    dark-violet:      "#83276B"
+    dark-green:       "#4C8B2B"
+    dark-magenta:     "#E92076"
+    dark-turquoise:   "#006C68"
+    dark-gray:        "#9E9E98"
+    dark-yellow:      "#FFC20E"
+    light-violet:     "#B687B8"
+    light-green:      "#A6CE39"
+    light-magenta:    "#EFB3CB"
+    light-turquoise:  "#009490"
+    light-gray:       "#D5D4C7"
+    light-yellow:     "#FFE100"
+    extra-light-blue: "#D6EAF6"
+    extra-light-orange: "#FBEAC3"
+    cb-blue1:         "#3F9CCB"
+    cb-blue2:         "#7FBDDC"
+    cb-orange1:       "#E77441"
+    cb-orange2:       "#EFA280"
+    cb-violet1:       "#A25D90"
+    cb-violet2:       "#C193B4"
+    cb-gray1:         "#B6B6B1"
+    cb-gray2:         "#CECECB"
+    white:            "#FFFFFF"
+
+  background: white
+  foreground: msk-navy
+  primary: msk-blue
+  secondary: msk-orange
+  success: dark-green
+  warning: dark-yellow
+  danger: msk-orange
+
+
+
+typography:
+  fonts:
+    - family: "Arial"
+      source: google
+    - family: "IBM Plex Mono"
+      source: google
+  base: "Arial"
+  headings: "Arial"
+  monospace: "IBM Plex Mono"
+  monospace-inline:
+    color: msk-navy
+    background-color: light-blue
+
+defaults:
+  bootstrap:
+    defaults:
+      link-decoration: underline
+      navbar-fg: "#FFFFFF"
+      navbar-bg: "#002569"
+      code-bg: "#D5D4C7"
+
+

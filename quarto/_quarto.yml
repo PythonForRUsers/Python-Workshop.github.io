@@ -16,6 +16,11 @@ resources:
 
 website:
   title: "Intro to Python Workshops"
+  announcement: 
+    icon: info-circle
+    dismissable: true
+    content: "**WIP** - This website is currently undergoing some updates. Content is subject to change."
+    position: below-navbar
   navbar:
     left:
       - href: index.qmd
@@ -48,7 +53,9 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      - brand
+      - cosmo
     css: styles.css
     toc: true
     code-copy: true

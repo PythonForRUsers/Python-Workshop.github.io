@@ -25,7 +25,7 @@ execute:
 
 <div class="clean-text">
 
-In this session, we'll cover object-oriented programming, and how it can be used in our modeling and analysis workflows. <br>
+In this session, we'll cover object-oriented programming and how it applies to our modeling and analysis workflows. <br>
 
 <strong style="font-size: 1.15em">Topics:</strong>  
 <ul>
@@ -114,7 +114,7 @@ In python, we use objects. Everything is an object (lists, strings, dataframes, 
   </aside>
 
 
-## How OOP in Python affects modeling
+## OOP in Python Modeling
 <div class="small-clean-text">
 <span style="color: #007acc"><strong>Python absolutely uses **functions**—just like R!</strong></span>
 They're helpful for **data transformation**, **wrangling**, and **automation tasks**, like looping and parallelization. <br>
@@ -176,11 +176,11 @@ Additionally, instead of having a separate results object like in R, you can ret
 ## **Key OOP Principles (Recap)**
 
 <div class="smaller-clean-text">
-In OOP, code is structured around **objects** (as opposed to functions). This paradigm builds off the following principles: 
+The OOP paradigm builds off the following principles: 
 
 ::: {.fragment}
 1. **Encapsulation**: Bundling data and methods together in a single unit.  
-   - A `StandardScaler` object stores mean and variance data and has `.fit()` and `.transform()` methods
+   - A `StandardScaler` object stores *mean* and *variance* data and has `.fit()` and `.transform()` methods
 :::
 
 ::: {.fragment}
@@ -257,6 +257,7 @@ Knowing what class an object belongs to can help us understand what methods and 
 </aside>
 
 # Example: Creating a Class
+
 
 ## Base Classes 
 <div class="clean-text">
