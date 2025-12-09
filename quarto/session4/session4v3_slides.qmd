@@ -90,15 +90,11 @@ There are packages like rpy2 (for python) and reticulate (for R) that make it po
   </aside>
 
 ## Programming Styles: R vs Python
-<div class="clean-text">
-<br>
-In the first session, we talked briefly about functional vs object-oriented programming:   
-<br>
 
 >  <span style="color: #007acc"><strong>Functional programming:</strong></span> focuses on functions as the primary unit of code <br>
 >  <span style="color: #007acc"><strong>Object-oriented programming:</strong></span> uses objects with attached attributes(data) and methods(behaviors) <br>
 
-- R leans heavily on the functional paradigm — you pass data into functions and get back results, in most cases **without** altering the original data. In R, we also use pipes (|>, %>%) to chain functions together.
+- R leans heavily on the functional paradigm — you pass data into functions and get back results, in most cases **without** altering the original data. In R, we also use pipes (|>, %>%) to chain functions together. 
 
 - In Python, <span style="color: #007acc"><strong>everything is an object</strong></span>, even basic things like lists, strings, and dataframes. A lot of 'functions' are instead written as object-associated methods. Some of these methods modify the objects in-place by altering their attributes. <span style="color: #007acc; font-weight:bold">Understanding how this works is key to using Python effectively!</span>
 
@@ -111,32 +107,6 @@ In the first session we briefly mentioned functional vs object-oriented programm
 When we're programming in R, we typically use (and sometimes write) functions that we pass data into and get back results without altering the original data. Functions and pipes dominate most workflows. 
 
 In python, we use objects. Everything is an object (lists, strings, dataframes, etc) and a lot of 'functions' are written as object-associated methods. Some of these methods modify the objects in place by altering their attributes instead of returning a new object. Understanding this is key to using python effectively. 
-  </aside>
-
-
-## OOP in Python Modeling
-<div class="small-clean-text">
-<span style="color: #007acc"><strong>Python absolutely uses **functions**—just like R!</strong></span>
-They're helpful for **data transformation**, **wrangling**, and **automation tasks**, like looping and parallelization. <br>
-
-But when it comes to **modeling**, libraries are designed around **classes**: blueprints for creating objects that store data (**attributes**) and define behaviors (**methods**).  <br>
-
-  - `scikit-learn` is great for getting started— everything follows a simple, consistent OOP interface. Its API is also consistant with other modeling packages, like [xgboost](https://xgboost.readthedocs.io/en/release_3.0.0/) and [scvi-tools](https://docs.scvi-tools.org/en/stable/index.html).
-  - [<u>`scikit-survival`</u>](https://scikit-survival.readthedocs.io/en/stable/) is built on top of `scikit-learn`. [https://scikit-survival.readthedocs.io/en/stable/user_guide/00-introduction.html](https://scikit-survival.readthedocs.io/en/stable/user_guide/00-introduction.html) is a good tutorial for it.
-  - `PyTorch` and `TensorFlow` are essential if you go deeper into neural networks or custom models— you’ll define your **own model classes** with attributes and methods, but the basic structure is similar to `scikit-learn`.  
-  - [<u>`statsmodels`</u>](https://www.statsmodels.org/stable/gettingstarted.html) is an alternative to `scikit-learn` for statistical analyses and has R-like syntax and outputs. It's a bit more complex than `scikit-learn` and a bit less consistant with other packages in the python ecosystem. *[https://wesmckinney.com/book/modeling](https://wesmckinney.com/book/modeling) is a good tutorial for statsmodels.*
-
-> 💡 To work effectively in Python, especially for tasks involving modeling or model training, <span style="color: #007acc"><strong>it helps to think of models as objects that have attributes representing things like weights and training state.</strong></span>   
-</div>
-
-  <aside class="notes">
-Even though python is more object focused, it still uses functions! They are particualrly helpful for things like data transformation, data wrangling and automation tasks like looping and parallelization. However, when it comes to modeling, libraries are designed around classes, which are like blueprints for creating objects that store data and define behaviors. 
-
-These are some of the most commonly used modeling libraries in python. For this session, we will focus on scikit-learn, which is relatively simple and follows a consistent interface. Its API (Application Programming Interface) is also consistant with other modeling packages like xgboost and scvi-tools. scikit-survival is built off of scikit-learn and therefore has a similar API. 
-
-Pytorch and tensorflow are more complex but essential for neural networks/deep learning models. With these packages, you define your own model classes, but the basic class structure is similar to sklearn. 
-
-Finally, there is statsmodels, which is an alternative to sklearn for statistical analyses. It has R-like syntax and outputs and is a bit more complicated to use than sklearn. Personally, if I wanted R-like outputs I'd use reticulate or just save my data and re-load in R, but statsmodels is available if needed. 
   </aside>
 
 
@@ -170,6 +140,29 @@ Definining models as instances of classes is useful because it makes model behav
 
 Additionally, instead of having a separate results object like in R, you can retrieve your results by either accessing an attribute or using a method attached to the model object itself. 
   </aside>
+
+## OOP in Python Modeling
+<div class="small-clean-text">
+
+  - `scikit-learn` is great for getting started— everything follows a simple, consistent OOP interface. Its API is also consistant with other modeling packages, like [xgboost](https://xgboost.readthedocs.io/en/release_3.0.0/) and [scvi-tools](https://docs.scvi-tools.org/en/stable/index.html).
+  - [<u>`scikit-survival`</u>](https://scikit-survival.readthedocs.io/en/stable/) is built on top of `scikit-learn`. [https://scikit-survival.readthedocs.io/en/stable/user_guide/00-introduction.html](https://scikit-survival.readthedocs.io/en/stable/user_guide/00-introduction.html) is a good tutorial for it.
+  - `PyTorch` and `TensorFlow` are essential if you go deeper into neural networks or custom models— you’ll define your **own model classes** with attributes and methods, but the basic structure is similar to `scikit-learn`.  
+  - [<u>`statsmodels`</u>](https://www.statsmodels.org/stable/gettingstarted.html) is an alternative to `scikit-learn` for statistical analyses and has R-like syntax and outputs. It's a bit more complex than `scikit-learn` and a bit less consistant with other packages in the python ecosystem. *[https://wesmckinney.com/book/modeling](https://wesmckinney.com/book/modeling) is a good tutorial for statsmodels.*
+
+> 💡 To work effectively in Python, especially for tasks involving modeling or model training, <span style="color: #007acc"><strong>it helps to think of models as objects that have attributes representing things like weights and training state.</strong></span>   
+</div>
+
+  <aside class="notes">
+Even though python is more object focused, it still uses functions! They are particualrly helpful for things like data transformation, data wrangling and automation tasks like looping and parallelization. However, when it comes to modeling, libraries are designed around classes, which are like blueprints for creating objects that store data and define behaviors. 
+
+These are some of the most commonly used modeling libraries in python. For this session, we will focus on scikit-learn, which is relatively simple and follows a consistent interface. Its API (Application Programming Interface) is also consistant with other modeling packages like xgboost and scvi-tools. scikit-survival is built off of scikit-learn and therefore has a similar API. 
+
+Pytorch and tensorflow are more complex but essential for neural networks/deep learning models. With these packages, you define your own model classes, but the basic class structure is similar to sklearn. 
+
+Finally, there is statsmodels, which is an alternative to sklearn for statistical analyses. It has R-like syntax and outputs and is a bit more complicated to use than sklearn. Personally, if I wanted R-like outputs I'd use reticulate or just save my data and re-load in R, but statsmodels is available if needed. 
+  </aside>
+
+
 
 # Part 1: Object-Oriented Programming {.smaller}
 

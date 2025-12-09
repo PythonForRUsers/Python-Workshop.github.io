@@ -38,6 +38,12 @@ website:
             href: session3/DataStructuresDemo_2.qmd
           - text: "Session 4: Object-Oriented Programming and Modeling Libraries"
             href: "session4/session4v2_webpage.html"
+      - text: "Extras"
+        menu: 
+          - text: "Using Venv for Python Virtual Environents"
+            href: "extra_tutorials/venvlikeconda.qmd"
+          - text: "Creating a Python Package"
+            href: "extra_tutorials/creatingsimplepackage.qmd"
       - text: "Discussion"
         href: https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/discussions
       - text: "Links"
