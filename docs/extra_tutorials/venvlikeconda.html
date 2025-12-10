@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Python Group">
 
-<title>Links – Intro to Python Workshops</title>
+<title>Using Venv for Virtual Environments – Intro to Python Workshops</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,28 +23,28 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bb790506c7131d5817f3caa621d4e62c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d66fba9444cccdf113e2358c14a0e98b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bb790506c7131d5817f3caa621d4e62c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6ee655821c8be1aab3272cb3d19f7cad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-a99d77235356dc14f1e257103ad9fb22.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-6ee655821c8be1aab3272cb3d19f7cad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb790506c7131d5817f3caa621d4e62c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d66fba9444cccdf113e2358c14a0e98b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb790506c7131d5817f3caa621d4e62c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6ee655821c8be1aab3272cb3d19f7cad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-a99d77235356dc14f1e257103ad9fb22.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-6ee655821c8be1aab3272cb3d19f7cad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -85,9 +84,9 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Intro to Python Workshops</span>
     </a>
   </div>
@@ -98,11 +97,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -111,23 +110,23 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
         <li>
-    <a class="dropdown-item" href="./sessions.html">
+    <a class="dropdown-item" href="../sessions.html">
  <span class="dropdown-text">All Sessions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./session1/session1.html">
+    <a class="dropdown-item" href="../session1/session1.html">
  <span class="dropdown-text">Session 1: Get Started with Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./session2/DataStructuresDemo.html">
+    <a class="dropdown-item" href="../session2/DataStructuresDemo.html">
  <span class="dropdown-text">Session 2: Intro to Python Data Structures</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./session3/DataStructuresDemo_2.html">
+    <a class="dropdown-item" href="../session3/DataStructuresDemo_2.html">
  <span class="dropdown-text">Session 3: Intro to Panda and great_tables</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./session4/session4v2_webpage.html">
+    <a class="dropdown-item" href="../session4/session4v2_webpage.html">
  <span class="dropdown-text">Session 4: Object-Oriented Programming and Modeling Libraries</span></a>
   </li>  
     </ul>
@@ -138,11 +137,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-extras">    
         <li>
-    <a class="dropdown-item" href="./extra_tutorials/venvlikeconda.html">
+    <a class="dropdown-item" href="../extra_tutorials/venvlikeconda.html">
  <span class="dropdown-text">Using Venv for Python Virtual Environents</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./extra_tutorials/creatingsimplepackage.html">
+    <a class="dropdown-item" href="../extra_tutorials/creatingsimplepackage.html">
  <span class="dropdown-text">Creating a Python Package</span></a>
   </li>  
     </ul>
@@ -157,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-links">    
         <li>
-    <a class="dropdown-item" href="./link.html">
+    <a class="dropdown-item" href="../link.html">
  <span class="dropdown-text">All Links</span></a>
   </li>  
         <li>
@@ -171,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./FAQ.html"> 
+    <a class="nav-link" href="../FAQ.html"> 
 <span class="menu-text">FAQ</span></a>
   </li>  
 </ul>
@@ -196,19 +195,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Links</h1>
+<h1 class="title">Using Venv for Virtual Environments</h1>
+<p class="subtitle lead">How to use Venv like Conda from our tutorials</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Python Group </p>
-          </div>
-  </div>
     
   
     
@@ -219,27 +213,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Links for downloading and installing mentioned software/files.</p>
-<a href="https://www.anaconda.com/download/success" class="link-block"> <img src="icons/anaconda_secondary_logo.svg" alt="Anaconda Download">
-<p>
-Install Anaconda
-</p>
-</a><p><a href="https://www.anaconda.com/download/success" class="link-block"></a></p>
-<a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml" class="link-block"> <img src="icons/yaml.png" alt="File">
-<p>
-Download environment YML file
-</p>
-</a><p><a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml" class="link-block"></a></p>
-<a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block"> <img src="icons/code.png" alt="File">
-<p>
-Download Follow Along File
-</p>
-</a><p><a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block"></a></p>
-<a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block"> <img src="icons/code.png" alt="File">
-<p>
-Download Dataset for Intro to Pandas
-</p>
-</a><p><a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" class="link-block"></a></p>
+<p>This tutorial shows how to:<br>
+1. Make a venv virtual environment (from terminal and in positron)<br>
+2. How to deactivate and activate virtual environment (from terminal and positron)<br>
+3. How to create a requirements.txt from virtual environment 4. How to use requirements.txt to set the packages/versions in a venv</p>
 
 
 

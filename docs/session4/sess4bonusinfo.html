@@ -37,10 +37,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-da61f9a05e9cefe097d79e8430a73dd4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-65a43af772d3fb4bc60159b54fcf2b03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-65a43af772d3fb4bc60159b54fcf2b03.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-65a43af772d3fb4bc60159b54fcf2b03.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-58ff7c1e86871af9236ed0c2b4f5efeb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-4fb50341a7e18eeb8588b7dc82bef6f2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-dd98a4de8e418e1283fcb14be270c3fa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-4fb50341a7e18eeb8588b7dc82bef6f2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -127,6 +131,21 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-extras" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Extras</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-extras">    
+        <li>
+    <a class="dropdown-item" href="../extra_tutorials/venvlikeconda.html">
+ <span class="dropdown-text">Using Venv for Python Virtual Environents</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../extra_tutorials/creatingsimplepackage.html">
+ <span class="dropdown-text">Creating a Python Package</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/discussions"> 
 <span class="menu-text">Discussion</span></a>
@@ -160,6 +179,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <div id="quarto-announcement" data-announcement-id="86de73d55cf0a76b1f69b72e195f935c" class="alert alert-primary hidden"><i class="bi bi-info-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p><strong>WIP</strong> - This website is currently undergoing some updates. Content is subject to change.</p>
+</div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
@@ -170,7 +192,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#knn-vs-k-means-supervised-vs-unsupervised-learning" id="toc-knn-vs-k-means-supervised-vs-unsupervised-learning" class="nav-link active" data-scroll-target="#knn-vs-k-means-supervised-vs-unsupervised-learning">KNN vs K-Means: Supervised vs Unsupervised Learning</a>
+  <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#is-r-object-oriented" id="toc-is-r-object-oriented" class="nav-link" data-scroll-target="#is-r-object-oriented">Is R object-oriented?</a></li>
+  <li><a href="#knn-vs-k-means-supervised-vs-unsupervised-learning" id="toc-knn-vs-k-means-supervised-vs-unsupervised-learning" class="nav-link" data-scroll-target="#knn-vs-k-means-supervised-vs-unsupervised-learning">KNN vs K-Means: Supervised vs Unsupervised Learning</a>
   <ul class="collapse">
   <li><a href="#k-nearest-neighbors-knn" id="toc-k-nearest-neighbors-knn" class="nav-link" data-scroll-target="#k-nearest-neighbors-knn">K-Nearest Neighbors (KNN)</a></li>
   <li><a href="#k-means-clustering" id="toc-k-means-clustering" class="nav-link" data-scroll-target="#k-means-clustering">K-Means Clustering</a></li>
@@ -206,6 +230,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>This document contains extra information for session 4. It is an optional read but may help clarify some things.</p>
+</section>
+<section id="is-r-object-oriented" class="level2">
+<h2 class="anchored" data-anchor-id="is-r-object-oriented">Is R object-oriented?</h2>
+<p>Yes! - with caveats. Both R and Python use objects and R does have a way of adding methods. However, the way that most people use R is closer to the <em>functional</em> programming paradigm. For example, if we want to group a dataframe in R, we use the group_by function, which takes the dataframe as an argument. In Python, however, we use the .group_by method, which is part of the dataframe object rather than being external.</p>
+</section>
 <section id="knn-vs-k-means-supervised-vs-unsupervised-learning" class="level2">
 <h2 class="anchored" data-anchor-id="knn-vs-k-means-supervised-vs-unsupervised-learning">KNN vs K-Means: Supervised vs Unsupervised Learning</h2>
 <p>We will be using <code>sci-kit learn</code> implementations of both of these algorithms during the session 4 tutorial.</p>

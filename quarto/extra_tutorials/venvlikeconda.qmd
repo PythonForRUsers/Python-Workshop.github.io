@@ -1,0 +1,10 @@
+---
+title: "Using Venv for Virtual Environments"
+subtitle: "How to use Venv like Conda from our tutorials"
+---
+
+This tutorial shows how to:  
+1. Make a venv virtual environment (from terminal and in positron)  
+2. How to deactivate and activate virtual environment (from terminal and positron)  
+3. How to create a requirements.txt from virtual environment
+4. How to use requirements.txt to set the packages/versions in a venv 
