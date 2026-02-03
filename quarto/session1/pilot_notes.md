@@ -13,6 +13,20 @@ We need to keep everyone on track and not get distracted ourselves. (Use sticky 
 No it won't. R studio pretty much isolates itself. You can check what environment R studio is running on with the R Studio Terminal (and just use conda deactivate to get out of an environment if it is activated).
 
 
+# External Workshop updates (2026)
+
+1. Replace VS Code with Positron (can use materials from Dani's positron workshop)
+2. Replace Conda with (or add?) `venv`
+
+
+# Post-session 1 updates (2025)
+
+1. Add note on installing conda virtual env on VDI - could be slow
+2. Add note to explicitly explain where conda envs are installed by default
+3. Add note on how to create cell chunks in VS Code (P.S. shortcuts - maybe FAQ)
+4. Note: Add restart vs code after installing extensions to the tutorial page
+
+
 # Updates 2025
 
 1. Utilize the previous Session 1: Python installation tutorial as a pre-session handout:
@@ -33,11 +47,3 @@ No it won't. R studio pretty much isolates itself. You can check what environmen
     ├── data/
     └── notebooks/
     ```
-
-
-# Post-session 1 updates (2025)
-
-1. Add note on installing conda virtual env on VDI - could be slow
-2. Add note to explicitly explain where conda envs are installed by default
-3. Add note on how to create cell chunks in VS Code (P.S. shortcuts - maybe FAQ)
-4. Note: Add restart vs code after installing extensions to the tutorial page

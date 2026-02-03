@@ -4,7 +4,7 @@ author: "Python Group"
 date: "2025-04-14"
 format: 
   revealjs:
-    theme: [default, slideshowv2.scss]
+    theme: sess1_slideshow.scss
     code-copy: true
     self-contained: true
     smaller: false
