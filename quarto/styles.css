@@ -215,3 +215,12 @@ summary:hover {
     color: var(--hover);
     /* Darken the color on hover */
 }
+
+/* In-line code styling */
+:not(pre) > code {
+  background: none;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  color: #DF4602;
+}
