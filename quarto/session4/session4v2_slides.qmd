@@ -1,6 +1,6 @@
 ---
 title: '**Session 4 – Object-Oriented Programming and Modeling Libraries**'
-jupyter: python3
+jupyter: python310
 format: 
     revealjs:
         theme: [default, slideshowv2.scss]
