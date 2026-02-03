@@ -182,3 +182,6 @@ quarto/session3/ignore/*
 
 ignore_*
 quarto/session4/blank.txt
+
+
+.venv/*
