@@ -37,7 +37,7 @@ website:
           - text: "Session 3: Intro to Pandas and great_tables"
             href: session3/DataStructuresDemo_2.qmd
           - text: "Session 4: Object-Oriented Programming and Modeling Libraries"
-            href: "session4/session4v2_webpage.html"
+            href: "session4/session4v3_webpage.html"
       - text: "Extras"
         menu: 
           - text: "Using Venv for Python Virtual Environents"

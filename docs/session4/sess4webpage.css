@@ -1,0 +1,12 @@
+/* Make the RIGHT margin sidebar wider (desktop only) */
+@media (min-width: 992px) {
+  :root {
+    --quarto-margin-sidebar-width: 380px; /* default is smaller; increase as desired */
+  }
+}
+
+@media (min-width: 992px) {
+  #quarto-margin-sidebar .notes {
+    max-width: none;
+  }
+}

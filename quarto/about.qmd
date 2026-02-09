@@ -3,4 +3,4 @@ title: "About"
 author: "Python Group"
 ---
 
-About this site
+This workshop series is geared toward R and SAS users who are interested in exploring Python–a powerful, versatile programming language that excels in many areas such as machine learning, large-scale data processing, and broader data science applications. 
