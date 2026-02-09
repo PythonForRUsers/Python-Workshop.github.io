@@ -6,13 +6,12 @@ format:
         theme: [default, slideshowv2.scss]
         code-copy: true   
         smaller: false
-        code-block-height: 850px
+        code-block-height: 750px
         highlight-style: pygments
-        width: 1600   # default is 960
-        height: 900  # default is 700
+        width: 1600  # default is 960
+        height: 950  # default is 700
         transition: none
         code-line-numbers: true
-        self-contained: true
 execute:
   freeze: auto
   eval: true
@@ -51,7 +50,7 @@ In this session, we'll cover object-oriented programming and how it applies to m
 
 ## Why Python *Feels* Different from R 🐍
 
-<div class="clean-text">
+<div class="small-clean-text">
 
 ::: columns
 ::: column
@@ -59,17 +58,13 @@ In this session, we'll cover object-oriented programming and how it applies to m
 #### R: Built by Statisticians
 
 * Designed for **statistical analysis**
-* Workflows are primarily **functional**
-* You:
-
+* Workflows are primarily **functional**:
   * pass data into functions
   * get back results (usually without modifying the original object)
-* Pipes (`|>`, `%>%`) are central to chaining operations
+* Pipes (`|>`, `%>%`) chain operations
 * Excels at:
 
-  * clean model outputs and tables
-  * concise statistical syntax
-  * high-quality visualizations
+  * clean model outputs, tables and high-quality visualizations
 
 :::
 
@@ -77,106 +72,124 @@ In this session, we'll cover object-oriented programming and how it applies to m
 
 #### Python: General-Purpose Language
 
-* Designed for **many domains**, not just statistics
-* Leans heavily on **object-oriented programming**
-* In Python, <strong style="color:#007acc">everything is an object</strong>:
+* Designed for **many domains**, not just statistics  
+* Leans heavily on **object-oriented programming**:  
+    * Some methods **modify objects in-place**, rather than returning new ones  
+* Methods chaining (.fit().predict())  
+* Excels at:   
 
-  * lists, strings, dataframes, models
-* Many things that look like functions in R are **methods attached to objects**
-* Some methods **modify objects in-place**, rather than returning new ones
-* Excels at:
-
-  * machine learning & deep learning (scikit-learn, PyTorch)
-  * image, genomic, and single-cell analysis
-  * software, automation, and tooling
+  * machine learning & deep learning (scikit-learn, PyTorch)  
+  * image, genomic, and single-cell analysis  
+  * software, automation, and tooling  
 
 :::
 :::
 
-Python’s broader ecosystem and flexibility make it the go-to language in areas like **AI, bioinformatics, data engineering, and computational biology**.
+</div>
+
+<div class="small-clean-text">
 
 > 💡 You’ve already been using this style in Sessions 2 and 3 — creating objects (lists, DataFrames) and calling methods like `.append()` or `.sort_values()`.
-> Understanding this object-oriented mindset is **key** to using Python effectively.
-
 > **Note:** Tools like `reticulate` and `rpy2` allow R and Python to coexist in the same project, but that’s beyond the scope of this course.
 
 </div>
 
 
-## Why OOP Matters for Python Modeling
+##  Core OOP Principles in Python 
 
 <div class="clean-text">
+
+**Classes and objects**
+
+* An **object** (instance) has attributes (data) and methods (behaviors)
+* A **class** is a blueprint for **objects**
+* Use `type(obj)` and `isinstance(obj, Class)` to inspect objects in code   
+
+Python’s object-oriented design builds on a few key principles of how objects behave:
+
+::: fragment
+
+1. **Encapsulation** — Data and behaviors live together  
+
+   * *Attributes* store data, *methods* define behaviors  
+
+:::
+
+::: fragment
+
+2. **Inheritance** — New classes reuse existing functionality  
+
+   * Classes can inherit attributes and methods from parent classes.  
+   * Avoids re-writing shared logic
+
+:::
+
+::: fragment
+
+3. **Abstraction** — Same interface hides complexity  
+
+   * Interact with what things do, not how they work.
+
+:::
+
+::: fragment
+
+4. **Polymorphism (Duck Typing)** — Different objects with the same methods can be used interchangeably  
+ 
+   * This makes it easy to switch between models with minimal code adjustment 
+
+:::
+
+</div>
+
+<aside class="notes">
+Before we talk about Object-Oriented programming, let's first define classes and objects. An object is a self-contained unit in code that holds data (attributes) and functions (methods) that work on that data.
+</aside>
+
+## Why OOP Matters for Python Modeling
 
 In Python modeling frameworks:
 
-* Models are **instances of classes**
-* You call methods like `.fit()`, `.predict()`, `.score()`
-* Learned parameters (coefficients, weights, layers) are stored as **attributes**
+* Models are **objects (class instances)**   
+* They have **methods** like `.fit()`, `.predict()`, `.score()`  
+* Learned parameters (coefficients, weights, layers) live in **attributes**
 
-This makes model behavior **consistent** between model classes and across libraries. It also **simplifies** saving, loading, and reusing models: both the architecture and learned state live in one object with an expected interface.
-
-> Instead of having a separate results object (as in R), you often access results via attributes or methods on the model object itself.
-
-</div>
-
-<aside class="notes">
-In Python, most modeling libraries treat models as objects — not as standalone functions that return a results object like in R.
-That means when you create a model, you’re instantiating an object that bundles together both the code that defines the model and all of the data that the model learns during training.
-
-For example, you’ll see methods like .fit(), .predict(), and .score() attached directly to the model object itself. After training, internal details like coefficients or learned weights live in attributes like .coef_ or .classes_.
-
-This leads to a consistent interface across many different model types and libraries. It also means you can save or reload a trained model – architecture and learned state are wrapped in one place.
-
-This design is very different from R’s traditional pattern where a modeling function returns a separate results object. In Python, the model object is both the interface and the container for results.
-</aside>
-
-
-
-## OOP in Practice: Consistent Interfaces
-
-<div class="clean-text">
-
-Many python modeling packages follow a **predictable OOP API pattern**:
-
-* `.fit(X, y)` — train the model
-* `.predict(X)` — generate predictions
-* `.score(X, y)` — compute accuracy/metric
-* Attributes like `.classes_`, `.coef_`, `.feature_importances_` store learned model state
-
-This consistency makes it easy to **swap models** with minimal code changes.
+This consistent object-oriented API makes it easy to swap models with minimal code changes.
 
 **Examples of Python modeling libraries:**
 
-* `scikit-learn` — general machine learning (classification, regression)
-* `xgboost` — gradient boosting models
-* `scikit-survival` — survival models built on sklearn
-* `statsmodels` — statistical models with R-like outputs
-* `scvi-tools` — single-cell VAE models
-* `PyTorch` / `TensorFlow` — neural network frameworks where you define your own model classes
+* `scikit-learn` — general ML (classification, regression)    
+* `xgboost` — gradient boosting   
+* `scikit-survival` — survival models using sklearn API  
+* `statsmodels` — statistical models with R-like outputs  
+* `scvi-tools` — single-cell models  
+* `PyTorch` / `TensorFlow` — deep learning frameworks
 
-> 💡 To work effectively in Python modeling, think of models as objects whose methods *do work* and whose attributes *store* what the model has learned.
-
-</div>
+> Understanding classes is ESPECIALLY important for using PyTorch and TensorFlow!
 
 <aside class="notes">
-Because Python models follow this object-oriented pattern, you get a predictable set of methods across very different modeling libraries. Almost all classifiers or regressors have .fit(), .predict(), and often .score().
+* In Python, modeling libraries make models **objects** rather than simple functions.  
+* Models combine both the *code that defines how predictions are made* and the *data the model has learned during training*.    
+* After `.fit()`, attributes like `.coef_`, `.classes_`, or learned weights in a neural network store the fitted state directly on the model object.    
 
-Attributes like .classes_, .coef_, and .feature_importances_ hold learned data, and you access them directly on the model instance after training. This consistency makes it easy to change models without changing much code.
+**Consistent interface across libraries**  
 
-Let’s look at some common libraries you might encounter:
+* The methods `.fit()`, `.predict()`, and `.score()` behave similarly across many model types, even though the internals differ.  
+* This consistency reduces cognitive load and lets you **swap models** (e.g., from logistic regression to random forest) without changing your workflow.  
+  
+**Library examples**  
+  
+* `scikit-learn`: classic ML models with a predictable API.  
+* `xgboost`: gradient boosting with same pattern for `.fit()`/`.predict()`.  
+* `scikit-survival`: survival analysis models built on sklearn conventions.  
+* `statsmodels`: statistical modeling with output more like R; still object-oriented but less uniform.  
+* `scvi-tools`: variational inference models for single-cell data.  
+* `PyTorch` and `TensorFlow`: neural network tools where you define your *own* model classes, but they follow the same idea — methods and attributes attached to objects.  
 
-scikit-learn, which we’ll focus on today, provides this consistent API for many classic machine learning models.
+**Key takeaway**  
 
-xgboost uses the same pattern for gradient boosted trees.
-
-scikit-survival extends this to survival analysis.
-
-statsmodels provides statistical models with a syntax closer to R, but many still follow an object-oriented structure.
-
-For deep learning, frameworks like PyTorch and TensorFlow require you to define your own model classes, but the basic idea – objects with methods and attributes – is the same.
-
-This list is here so you can explore these packages on your own later.
-
+* Think of a model as **a container of behavior (methods) and state (attributes)**.  
+* This object-oriented pattern underlies many Python modeling workflows and makes advanced use (like wrapping PyTorch models to act like sklearn models) intuitive.  
 </aside>
 
 ## Bonus: Python Modeling Libraries — Tutorials & Docs
@@ -200,63 +213,28 @@ This list is here so you can explore these packages on your own later.
 These are some links to tutorials for the packages I mentioned. 
 </aside>
 
-##  Core OOP Principles in Python Modeling
 
-<div class="clean-text">
 
-Python’s object-oriented design builds on a few key principles:
+# OOP In Practice: Creating Classes
 
-1. **Encapsulation** — Data and behaviors live together
+- To really understand how object-oriented programming works, let's create some simple classes and see how they behave. 
+- While the following examples are really simple, they showcase the same concepts used when designing the kinds of Python libraries you'll be using
+- If you work with PyTorch or TensorFlow you will likely be making model classes yourself
 
-   * e.g., a `StandardScaler` stores means/variances and has `.fit()`/`.transform()`
-
-2. **Inheritance** — New classes reuse existing functionality
-
-   * e.g., many sklearn models share base classes like `BaseEstimator`
-
-3. **Abstraction** — Same interface hides complexity
-
-   * e.g., calling `.fit()` looks the same regardless of model internals
-
-4. **Polymorphism (Duck Typing)** — Different objects with the same methods can be used interchangeably
-
-   * e.g., any classifier with `.fit()` and `.predict()` can be used in a pipeline
-
-**Classes and objects**
-
-* A **class** is a blueprint for objects
-* An **object** (instance) has attributes (data) and methods (behaviors)
-* Use `type(obj)` and `isinstance(obj, Class)` to inspect objects in code
-
-</div>
-
-<aside class="notes">
-Now that we see why modeling frameworks use objects, let’s connect that to some core object-oriented principles in Python. These aren’t unique to modeling, but they help explain why everything feels this way in Python.
-
-First is encapsulation — bundling data and behavior together. A StandardScaler, for instance, stores feature means and variances and has .fit() and .transform() methods.
-
-Second is inheritance. Many sklearn models reuse code from base classes like BaseEstimator. This lets new models inherit common behavior without rewriting everything.
-
-Third is abstraction. From the outside, calling .fit() looks the same whether you’re working with a random forest or a neural network. The internal details are hidden behind a common interface.
-
-Finally, polymorphism, or duck typing in Python. If different objects implement the same method names, we can use them interchangeably. That’s why we can write code that works with any classifier that supports .fit() and .predict() — even if under the hood they do very different things.
-
-Briefly, what are classes and objects? A class is like a blueprint — for example, a model class defines what a model can do. An object is an instance of that blueprint, with its own stored data and methods. In code, you can inspect these using type() and isinstance().
-</aside>
-
-# Example: Creating a Class
+---
 
 
 ## Base Classes 
 <div class="clean-text">
 
-A **base class** (or parent class) serves as a template for creating objects. Other classes can inherit from it to reuse its properties and methods.
+A **base class** serves as a template for creating objects. Other classes can inherit from it to reuse its attributes and methods.
 
 Classes are defined using the `class` keyword, and their structure is specified using an `__init__()` method for initialization. 
 
 ::: {.fragment}
 
-For example, we can define a class called `Dog` and give it attributes that store data about a given dog and methods that represent behaviors an object of the `Dog` class can perform. We can also edit the [**special** or **"dunder"** methods](https://docs.python.org/3/reference/datamodel.html#special-method-names) (short for double underscore) that define how objects behave in certain contexts. 
+Define a `Dog` with attributes (data) and methods (behaviors).    
+ *  [**special** or **"dunder"** methods](https://docs.python.org/3/reference/datamodel.html#special-method-names) (short for double underscore) define how objects behave in certain contexts.   
 
 ```{python}
 #| code-line-numbers: "1-2|3,4|6-7|9-13"
@@ -280,7 +258,7 @@ class Dog: ## begin class definition
 <aside class="notes">
 A base class serves as a template for creating objects and other classes can inherit its attributes and methods. Classes are defined using the 'class' keyword and their structure is specified using an init method for initialization. 
 
-For example, we can create a class called Dog and give it attributes and methods. We can also edit special or dunder methods that define how objects of this class behave in certain contexts. 
+For example, we can define a class called `Dog` and give it attributes that store data about a given dog and methods that represent behaviors an object of the `Dog` class can perform. 
 
 First we will define our init method, which sets up the structure for objects of the dog class. The parameters here (name and breed) can be stored as attributes. The speak method here defines the speech behavior for the dog and returns a string, that changes based on the value stored in the 'name' attribute. 
 
@@ -299,8 +277,8 @@ buddy = Dog("Buddy", "Golden Retriever")
 print(f"Buddy is an object of class {type(buddy)}")
 ```
 <ul>
-    <li>We set the value of the attributes [`name` and `breed`], which are then stored as part of the `buddy` object </li>   
-    <li> We can use any methods defined in the Dog class on `buddy` </li>   
+    <li> Set value of attributes [`name` and `breed`] -> stored as part of `buddy` </li>   
+    <li> `buddy` can use any `Dog` class methods </li>   
 </ul>  
 
 ```{python}
@@ -333,7 +311,7 @@ Once we create buddy, we can use any attributes or methods defined in the dog cl
 ## Derived (Child) Classes  
 <div class="clean-text">
 
-Derived/child classes build on base classes using the principle of inheritence. <br>
+Derived/child classes build on base classes using the *principle of inheritence.* <br>
 
 Now that we have a `Dog` class, we can build on it to create a specialized `GuardDog` class. 
 
@@ -376,7 +354,7 @@ Let's make an instance of guarddog called rex and we can see how this works.
 
 ---
 
-Now that we have a dog (rex), we can call on any of the methods/attributes introduced in the `Dog` class as well as the new `GuardDog` class.
+`rex` has all of the methods/attributes introduced in the `Dog` class as well as the new `GuardDog` class.
 
 Using methods from the base class: 
 ```{python}
@@ -410,7 +388,7 @@ to successfully guard, a rex needs a training level greater than 5. Currently hi
 
 ---
 
-Unlike standalone functions, methods in Python often update objects in-place—meaning they modify the object itself rather than returning a new one.
+Unlike standalone functions, methods in Python often update objects **in-place**— meaning they *modify the object itself* rather than returning a new one.
 
 We can use the `.train()` method to increase rex's training level. 
 ```{python}
@@ -442,7 +420,7 @@ print(rex.guard())
 
 . . . 
 
-As with Rex, <span style="color: #007acc"><strong>child classes inherit all attributes (`.name` and `.breed`) and methods (`.speak()` `__repr__()`) from parent classes.</strong></span> They can also have new methods (`.train()`).
+As with Rex, <span style="color: #007acc"><strong>child classes inherit all attributes (`.name` and `.breed`) and methods (`.speak()` `__repr__()`) from parent classes.</strong></span> They can also have new methods (`.train()`) or re-define methods from the parent class. 
 
 <aside class='notes'>
 Unlike standalone functions, methods like train() update objects in-place instead of returning a new object. This allows us to increase rex's training level without storing rex to a new variable. 
@@ -611,7 +589,7 @@ Even though `Dog`, `Human` and `Parrot` are entirely different classes...
 ```{python}
 #| output-location: fragment
 def call_speaker(obj):
-    print(obj.speak())
+    print(obj.speak()) ## No object checking needed here!
 
 call_speaker(Dog("Fido", "Labrador"))
 call_speaker(Human("Alice"))
@@ -634,48 +612,12 @@ With duck typing, Python lets us <b><i>use methods</i></b> without breaking. It 
 
 <aside class="notes">
 
-Even though the three classes are different, we can still write a function that performs 'obj.speak()' and pass in any object with this method without having to worry about the object's class. 
+Even though the three classes are different, we can still write a function that performs 'obj.speak()' and pass in any object with this method without having to worry about the object's class. This will be true of future objects containing a speak method as well. If we used a function for 'speak' instead of a method, there would be no guarantee that `call_speaker` would work for a new object of a non-specified type. 
 
 </aside>
 
-## **Example: OOP in Machine Learning and Modeling**  
 
-<div class="clean-text">  
-
-Machine learning models in Python are implemented as **classes**.    
-<ul>
- <li>When you create a model, you’re **instantiating an object** of a predefined class (e.g., `LogisticRegression()`).</li>    
- <li>That model has attributes (parameters, coefficients) and methods (like `.fit()` and `.predict()`).</li>
-</ul> 
-
-For example `LogisticRegression` is a model class that inherits from `SparseCoefMixin` and `BaseEstimator`.
-
-```{.python}
-class LogisticRegression(LinearClassifierMixin, SparseCoefMixin, BaseEstimator):
-  
-```
-
-<span style="top-padding: .35em;">To perform logistic regression, we create an instance of the `LogisticRegression` class.</span>
-
-```{.python}
-## Example: 
-from sklearn.linear_model import LogisticRegression
-
-model = LogisticRegression()  # Creating an instance of the LogisticRegression class
-model.fit(X_train, y_train)   # Calling a method to train the model
-predictions = model.predict(X_test)  # Calling a method to make predictions
-coefs = model.coef_ # Access model coefficients using attribute
-``` 
-
-</div>
-
-<aside class="notes">
-
-Because models in python are defined by classes, when you create a model you are instantiating an object of a predefined class. When you fit a model and use it to make predictions, you are using methods! You can also access attributes like .coef_ to get coefficients. 
-
-</aside>
-
-## **Key Benefits of OOP in Machine Learning**  
+## **Recap: Key Benefits of OOP in Machine Learning**  
 <div class="clean-text">  
 
 1. **Encapsulation** – Models store parameters and methods inside a single object.  
@@ -742,8 +684,9 @@ All `scikit-learn` models are designed to have
 
 <aside class="notes">
 
-For the rest of this session, we'll be going through 2 mini projects to classify penguin species using bill length and bill depth using kmeans and knn models from scikit-learn. In terms of API, all sklearn models are designed to have common methods like fit and predict and have some attributes like .classes_ or .n_clusters_ that store information needed to specify the model. 
+For the rest of this session, we'll be going through 2 mini projects to classify penguin species using bill length and bill depth using kmeans from scikit-learn and a Neural Network built with PyTorch. In terms of API, all sklearn models are designed to have common methods like fit and predict and have some attributes like .classes_ or .n_clusters_ that store information needed to specify the model. 
 
+We'll follow a fairly typical analysis workflow including data visualization, pre-model preparation, model fitting and evaluation. 
 </aside>
 
 ## Import Libraries
@@ -790,7 +733,7 @@ A quick tip: for most python libraries, classes use CamelCase and functions use 
 ## Import Libraries
 
 ```{python}
-#| code-line-numbers: "|13-17|18-21"
+#| code-line-numbers: "|13-16, 25|18-20"
 ## imports
 import pandas as pd
 import numpy as np
@@ -801,7 +744,7 @@ import matplotlib.pyplot as plt
 
 from great_tables import GT
 
-## sklearn imports
+## sklearn & PyTorch imports
 
 ## import classes
 from sklearn.preprocessing import StandardScaler 
@@ -855,7 +798,7 @@ We can then make a quick summary table for the dataset using some of the methods
 
 <div class="small-clean-text"> 
 
-To do visualization, we can use either seaborn or plotnine. `plotnine` mirrors `ggplot2` syntax from R and is great for layered grammar-of-graphics plots, while `seaborn` is more convienient if you want to put multiple plots on the same figure. <br>
+For visualization: use either seaborn or plotnine. `plotnine` mirrors `ggplot2` syntax from R and is great for layered grammar-of-graphics plots, while `seaborn` is more convienient for multiple plots on the same figure. <br>
 
 
 ### Plotting with Plotnine vs Seaborn
@@ -1274,61 +1217,10 @@ Note: bbox_to_anchor -> x coord, y coord in terms of plot size. Aka a little mor
 
 ## Project 2: Neural Network Classifier
 
-<div class="clean-text"> 
 
-For our neural network classifier, the model is **supervised** (meaning it is dependent on the outcome 'y' data). This time, we need to split our data into a training and test set. <br> 
+### Building a PyTorch Model Class
 
-</div>
-
-. . . 
-
-The **function** `train_test_split()` from scikit-learn is helpful here! 
-
-```{python}
-# Splitting dataset into training and testing sets (still using scaled X!)
-X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=42)
-
-# Convert numpy arrays to torch tensors (for PyTorch)
-X_train_t = torch.tensor(X_train, dtype=torch.float32)
-X_test_t  = torch.tensor(X_test, dtype=torch.float32)
-
-# Encode species labels as integers
-from sklearn.preprocessing import LabelEncoder
-label_encoder = LabelEncoder()
-
-y_encoded = label_encoder.fit_transform(y)
-y_train_t = torch.tensor(y_encoded[y_train.index], dtype=torch.long)
-y_test_t  = torch.tensor(y_encoded[y_test.index], dtype=torch.long)
-```
-
-. . . 
-
->Unlike R functions, which return a single object (often a list when multiple outputs are needed), Python functions can return multiple values as a tuple—letting you unpack them directly into separate variables.
-
-<aside class="notes">
-Now we can move on to our KNN classification. Because this model is supervised, it is dependent on the species data. To have a meaningful model, we need to split our data into a training and test set, 
-which we can do using the function `train_test_split()`. We are still using the scaled X from before, but we want to reserve 30% of our data for testing. 
-
-We can assign the outputs directly to different variables. 
-
-(help(train_test_split) will show what the output order is)
-</aside>
-
-## Creating Data Loaders
-
-For large datasets, batching is necessary. 
-
-```{python}
-train_ds = TensorDataset(X_train_t, y_train_t)
-test_ds  = TensorDataset(X_test_t, y_test_t)
-
-train_loader = DataLoader(train_ds, batch_size=32, shuffle=True)
-test_loader  = DataLoader(test_ds, batch_size=32, shuffle=False)
-```
-
-## Building a PyTorch Model Class
-
-Because we are using PyTorch here, we need to build the classifier ourselves. 
+Unlike in scikit-learn, with PyTorch, we have to define the model architecture (layer size, order, etc) ourselves. We also define what happens during the forward pass (how input data flows through the network). This is a super simple example, but model architectures can get more complicated.  
 
 ```{python}
 class PenguinNet(nn.Module):
@@ -1347,41 +1239,21 @@ class PenguinNet(nn.Module):
 ```
 . . . 
 
-**Parameters**: Set by user at time of instantiation    
--number of hidden layers, number of classes  <br>
-
-**Attributes**: Store object data     
-- `classes_`: class labels known to the classifier  
-- `effective_metric_`: distance metric used  
-- `effective_metric_params_`: parameters for the metric function  
-- `n_features_in` and `feature_names_in_`: store info about features seen during fit    
-- `n_samples_fit_`: number of samples in fitted data  <br> 
-
-**Methods**: Define object behaviors      
-- `.fit(X, y)`: fit knn classifier from training dataset (X and y)  
-- `.predict(X)`: predict class labels for provided data X  
-- `.predict_proba(X)`: return probability estimates for test data X  
-- `.score(X, y)`: return mean accuracy on given test data X and labels y  
-
-<aside class="notes">
-The KNeighbors classifier class is similar to the kmeans class, with a notable difference. The fit method here requires both X and y. 
-Technically, the fit method in kmeans can accept a y value, it just won't use it. This is done to allow for interchangable models in pipelines. 
-
-The neighbors classifier also lacks the transform method because it doesn't create a 'space' like the kmeans cluster-distance space. 
-Instead, it has the .predict_proba method, which gives class probability estimates for input data. 
+This class doesn't have methods for `.fit()`, `.predict()` etc yet. To make our classifier have a similar interface to skearn, we will wrap this model in a 'Classifier' class that provides `.fit()`, `.predict()`, `.predict_proba()`, and `.score()`. 
 
 </aside>
 
 ## Make it an SKLearn-Style Classifier (add methods for consistant API)
 
-To turn PenguinNet into a scikit-learn-style classifier, we have to define the `.fit()` and `.predict()` methods ourselves. 
+To turn PenguinNet into a scikit-learn-style classifier, our wrapper class needs to: Initialize the PyTorch model, Convert the NumPy input into PyTorch tensors and Run the Training Loop. 
 
 ```{python}
+#| code-line-numbers: "1-24|26-76|78-91|93-105|107-115"
 class PenguinNetClassifier:
     """
     sklearn-style wrapper around a PyTorch neural network
     """
-
+    # Creates the Classifier with set attributes
     def __init__(
         self,
         hidden_units=16,
@@ -1390,40 +1262,41 @@ class PenguinNetClassifier:
         batch_size=32,
         random_state=42
     ):
-        # ----- user-set parameters -----
+        # --- User set attributes ---
         self.hidden_units = hidden_units
         self.lr = lr
         self.epochs = epochs
         self.batch_size = batch_size
         self.random_state = random_state
-
-        # ----- attributes set during fit -----
+        # --- Set during 'Fit' ---
         self.model_ = None
         self.classes_ = None
         self.n_features_in_ = None
         self.n_samples_fit_ = None
 
-    # --------------------------------------------------
     # FIT
-    # --------------------------------------------------
     def fit(self, X, y):
+        """Train the model on data X and labels y."""
+        # Set Random States
         torch.manual_seed(self.random_state)
         np.random.seed(self.random_state)
 
+        # Ensure NumPy Arrays
         X = np.asarray(X)
         y = np.asarray(y)
 
+        # Set Attributes
         self.n_features_in_ = X.shape[1]
         self.n_samples_fit_ = X.shape[0]
 
-        # Encode class labels
+        # Encode class labels as integers -> Model only understands ints
         self.classes_, y_encoded = np.unique(y, return_inverse=True)
 
-        # Convert to tensors
+        # Convert to tensors -> Needed for PyTorch
         X_t = torch.tensor(X, dtype=torch.float32)
         y_t = torch.tensor(y_encoded, dtype=torch.long)
 
-        # Dataset / loader
+        # Dataset / loader -> Classes! Feed data to model in batches
         dataset = torch.utils.data.TensorDataset(X_t, y_t)
         loader = torch.utils.data.DataLoader(
             dataset,
@@ -1431,16 +1304,17 @@ class PenguinNetClassifier:
             shuffle=True
         )
 
-        # Initialize model
+        # Initialize PenguinNet model
         self.model_ = PenguinNet(
             hidden_units=self.hidden_units,
             n_classes=len(self.classes_)
         )
 
+        # Initialize loss function and optimizer
         criterion = nn.CrossEntropyLoss()
         optimizer = optim.Adam(self.model_.parameters(), lr=self.lr)
 
-        # Training loop
+        # Training loop -> Fit model to the data
         self.model_.train()
         for epoch in range(self.epochs):
             for xb, yb in loader:
@@ -1452,25 +1326,24 @@ class PenguinNetClassifier:
 
         return self
 
-    # --------------------------------------------------
     # PREDICT
-    # --------------------------------------------------
     def predict(self, X):
+        """For new data X, predict class label."""
         self._check_is_fitted()
 
+        # Make new X also a tensor
         X = torch.tensor(np.asarray(X), dtype=torch.float32)
 
-        self.model_.eval()
+        self.model_.eval() # Set model to eval mode
         with torch.no_grad():
-            logits = self.model_(X)
-            preds = torch.argmax(logits, dim=1).numpy()
+            logits = self.model_(X) # Get logits from model
+            preds = torch.argmax(logits, dim=1).numpy() # Convert to predictions
 
         return self.classes_[preds]
 
-    # --------------------------------------------------
     # PREDICT_PROBA
-    # --------------------------------------------------
     def predict_proba(self, X):
+        """For new data X, predict probability of each label."""
         self._check_is_fitted()
 
         X = torch.tensor(np.asarray(X), dtype=torch.float32)
@@ -1482,43 +1355,71 @@ class PenguinNetClassifier:
 
         return probs
 
-    # --------------------------------------------------
     # SCORE
-    # --------------------------------------------------
     def score(self, X, y):
         y_pred = self.predict(X)
         return np.mean(y_pred == np.asarray(y))
 
-    # --------------------------------------------------
     # INTERNAL CHECK
-    # --------------------------------------------------
     def _check_is_fitted(self):
         if self.model_ is None:
             raise RuntimeError("This PenguinNetClassifier instance is not fitted yet.")
 
 ```
 
+
 <aside class="notes">
-To make an Sklearn-style classifier, we need to define the firt, score, predict methods ourselves. This is by design: Neural network arctitectures can be complex and have custom activation functions that would make it difficult to have pre-packaged methods. However, it is useful for us as programmers to create these methods and the wrapper Classifier class for our own use. 
+To make an Sklearn-style classifier, we need to define the fit, score, predict methods ourselves. This is by design: Neural network arctitectures can be complex and have custom activation functions that would make it difficult to have pre-packaged methods. 
+
+However, it is beneficial for us to design our Classifier wrapper to match the scikit-learn API, which will allow us to take advantage of Python's ducktyping later on. 
+
+
 
 </aside>
 
-## Making an instance of KNeighborsClassifier and fitting to training data
+
+## Preparing Training and Test Data
+
+<div class="clean-text"> 
+
+For our neural network classifier, the model is **supervised** (meaning it is trained using the outcome 'y' data). This time, we need to split our data into a training and test set. <br> 
+
+</div>
+
+. . . 
+
+The **function** `train_test_split()` from scikit-learn is helpful here! 
+
+```{python}
+# Splitting dataset into training and testing sets (still using scaled X!)
+X_train, X_test, y_train, y_test = train_test_split(
+    X_scaled, y,
+    test_size=0.3,
+    random_state=42,
+    stratify=y
+)
+```
+
+. . . 
+
+>Unlike R functions, which return a single object (often a list when multiple outputs are needed), Python functions can return multiple values as a tuple—letting you unpack them directly into separate variables.
+
+## Making an instance of PenguinNetClassifier and fitting to training data  
 - For a supervised model, y_train is included in `.fit()`!
 ```{python}
 #| output: true
-penguin_nn = PenguinNetClassifier(
+penguin_nn = PenguinNetClassifier( ## Create model object w/ desired architecture
     hidden_units=32,
     lr=0.01,
     epochs=300,
     batch_size=32
 )
 
-penguin_nn.fit(X_train, y_train)
+penguin_nn.fit(X_train, y_train) ## Trains the model on the provided test data 
 ```
 
 <aside class="notes">
-Fitting the knn model works the same as fitting the kmeans model, except we have to supply the 'y' values. 
+We took advantage of ducktyping to make our classfier use the same commands as the ones from scikit learn. 
 </aside>
 
 ## Once the model is fit...
@@ -1527,7 +1428,7 @@ Fitting the knn model works the same as fitting the kmeans model, except we have
 
 ```{python}
 #| output-location: fragment
-print(knn.classes_)
+print(penguin_nn.classes_)
 ```
 
 . . . 
@@ -1537,13 +1438,13 @@ print(knn.classes_)
 ```{python}
 #| output-location: fragment
 # Use the predict method on the test data to get the predictions for the test data
-y_pred = knn.predict(X_test)
+y_pred = penguin_nn.predict(X_test)
 
 # Also can take a look at the prediction probabilities, 
 # and use the .classes_ attribute to put the column labels in the right order
 probs = pd.DataFrame(
-    knn.predict_proba(X_test),
-    columns = knn.classes_)
+    penguin_nn.predict_proba(X_test),
+    columns = penguin_nn.classes_)
 probs['y_pred'] = y_pred
 
 print("Predicted probabilities: \n", probs.head())
@@ -1556,7 +1457,7 @@ We use the .predict method to get the predicted classes and the .predict proba m
 We can store both of these in a pandas dataframe, which we can use to make a scatterplot to compare the actual and predicted classes. 
 </aside>
 
-## Scatterplot for k-NN classification of test data
+## Scatterplot for PenguinNet classification of test data
 
 <div class="clean-text"> 
 
@@ -1590,7 +1491,7 @@ Line 13 here creates a boolean (true/false) column for agreement between the act
 
 </div>
 
-## Plotnine scatterplot for k-NN classification of test data
+## Plotnine scatterplot for PenguinNet classification of test data
 
 To see how well our model did at classifying the remaining penguins...
 
@@ -1601,7 +1502,7 @@ plot3 = (ggplot(penguins_test, aes(x="bill_length_mm", y="bill_depth_mm",
 color="y_actual", fill = 'y_pred', shape = 'correct'))
  + geom_point(size=4, stroke=1.1)  # Stroke controls outline thickness
  + scale_shape_manual(values={True: 'o', False: '^'})  # Circle and triangle
- + ggtitle("k-NN Classification Results")
+ + ggtitle("PenguinNet Classification Results")
  + theme_bw())
 
 display(plot3)
@@ -1614,42 +1515,58 @@ Now we can put all of this together into a plot. This plot is overely complicate
 ## Visualizing Decision Boundary with seaborn and matplotlib
 
 ```{python}
-#| code-line-numbers: "1-6|8-22|24-27|"
+#| code-line-numbers: "1-6|8-22|24-37|"
 #| output-location: slide
 from sklearn.inspection import DecisionBoundaryDisplay
 from sklearn.preprocessing import LabelEncoder
 
-# Create and fit label encoder for y (just makes y numeric because it makes the scatter plot happy)
+# Encode labels for plotting
 label_encoder = LabelEncoder()
 y_encoded = label_encoder.fit_transform(y)
 
-# Create the plot objects
+# Create plot objects
 fig, ax = plt.subplots(figsize=(12, 8))
 
-# Create display object
+# Plot decision boundary using the neural net classifier
 disp = DecisionBoundaryDisplay.from_estimator(
-    knn,
-    X_test,
-    response_method = 'predict',
-    plot_method = 'pcolormesh',
-    xlabel = "bill_length_scaled",
-    ylabel = "bill_depth_scaled",
-    shading = 'auto',
-    alpha = 0.5,
-    ax = ax
+    penguin_nn,             # use the neural network classifier (sklearn-style) 🦆
+    X_test,                 # must be 2-dimensional features
+    response_method='predict',
+    plot_method='pcolormesh',
+    xlabel="bill_length_scaled",
+    ylabel="bill_depth_scaled",
+    shading='auto',
+    alpha=0.5,
+    ax=ax
 )
 
-# Use method from display object to create scatter plot
-scatter = disp.ax_.scatter(X_scaled[:,0], X_scaled[:,1], c=y_encoded, edgecolors = 'k')
-disp.ax_.legend(scatter.legend_elements()[0], knn.classes_, loc = 'lower left', title = 'Species')
-_ = disp.ax_.set_title("Penguin Classification")
+# Overlay test points
+scatter = disp.ax_.scatter(
+    X_scaled[:, 0],
+    X_scaled[:, 1],
+    c=y_encoded,
+    edgecolors='k'
+)
 
+# Add legend using class labels from the classifier
+disp.ax_.legend(
+    scatter.legend_elements()[0],
+    penguin_nn.classes_,
+    loc='lower left',
+    title='Species'
+)
+
+disp.ax_.set_title("Penguin Neural Network Classification")
 fig.show()
+
 ```
 
 <aside class="notes">
 To visualize the decision boundary of the modelm we can use another sklearn class called DecisionBoundaryDisplay, 
 which creates a display object that has matplotlib-style plotting methods. 
+
+Because we designed our classifier to match sklearn API, we are able to use sklearn's DecisionBoundaryDisplay with our classifier without needing additional steps. 
+
 We assign our axis in the creation of our display object and use the attached .ax_. methods to create the scatter plot and legend as well as set the title. 
 
 Because we're using this display object, we have to explicitly call fig.show() here to display the figure. 
@@ -1657,10 +1574,10 @@ Because we're using this display object, we have to explicitly call fig.show() h
 </aside>
 
 
-## Evaluate KNN performance
+## Evaluate PenguinNet performance
 
 <div class="clean-text"> 
-To check the performance of our KNN classifier, we can check the accuracy score and print a classification report.  
+To check the performance of our PenguinNet classifier, we can check the accuracy score and print a classification report.  
 - `accuracy_score` and `classification_report` are both functions!  
 - They are not unique to scikit-learn classes so it makes sense for them to be functions not methods  
 
@@ -1668,9 +1585,9 @@ To check the performance of our KNN classifier, we can check the accuracy score 
 
 ```{python}
 #| output-location: fragment
-## eval knn performance
-knn_accuracy = accuracy_score(y_test, y_pred)
-print(f"k-NN Accuracy: {knn_accuracy:.2f}")
+# Evaluate neural network performance
+penguin_nn_accuracy = accuracy_score(y_test, y_pred)
+print(f"Neural Network Accuracy: {penguin_nn_accuracy:.2f}")
 print("Classification Report: \n", classification_report(y_test, y_pred))
 ```
 
@@ -1685,15 +1602,17 @@ Finally, we can use the 'accuracy_score' and classification_report functions to 
 ```{python}
 #| output-location: fragment
 summary_table = pd.DataFrame({
-    "Metric": ["k-Means Adjusted Rand Index", "k-NN Accuracy"],
-    "Value": [kmeans_ari, knn_accuracy]
+    "Metric": ["k-Means Adjusted Rand Index", "Neural Network Accuracy"],
+    "Value": [kmeans_ari, penguin_nn_accuracy]
 })
+
 (
     GT(summary_table)
-    .tab_header(title = "Model Results Summary")
-    .fmt_number(columns = "Value", n_sigfig = 2)
-    .tab_options(table_font_size = 20)
+    .tab_header(title="Model Results Summary")
+    .fmt_number(columns="Value", n_sigfig=2)
+    .tab_options(table_font_size=20)
 )
+
 ```
 
 <aside class="notes">
@@ -1715,54 +1634,10 @@ Using the great_tables package, we can make a nice little summary table of our r
   <li><strong>Duck Typing:</strong><br>
   If an object has a method, that method can be called regardless of the object type. Caveat being, make sure the arguments (if any) in the method are specified correctly for all objects!
   </li>
-    <li>Python packages use <strong>common methods</strong> that make it easy to change between model types without changing a lot of code. 
-  </li>
+    <li>Python packages use <strong>common methods</strong> that make it easy to change between model types without changing a lot of code. </li>
+    <li>We can do the same when we design our own model classes </li>
 </ul>
 </div>
 
-## Additional Insights
 
-<div class="clean-text" style="font-size: 1.0em; line-height: 1.4;">
-  <ul>
-    <li>
-      <strong>Predictable APIs enable seamless model switching:</strong><br>
-      Swapping models like <code>LogisticRegression</code> → <code>RandomForestClassifier</code> usually requires minimal code changes.
-    </li>
-    <li style="margin-top: .7em;">
-      <strong>scikit-learn prioritizes interoperability:</strong><br>
-      Its consistent class design integrates with tools like <code>Pipeline</code>, <code>GridSearchCV</code>, and <code>cross_val_score</code>.
-    </li>
-    <li style="margin-top: .7em;">
-      <strong>Class attributes improve model transparency:</strong><br>
-      Access attributes like <code>.coef_</code>, <code>.classes_</code>, and <code>.feature_importances_</code> for model interpretation and debugging.
-    </li>
-    <li style="margin-top: .7em;">
-      <strong>Custom classes are central to deep learning:</strong><br>
-      Frameworks like PyTorch and TensorFlow require you to define your own model classes by subclassing base models.
-    </li>
-    <li style="margin-top: .7em;">
-      <strong>Mixins support modular design:</strong><br>
-      Mixins (e.g., <code>ClassifierMixin</code>) let you add specific functionality without duplicating code.
-    </li>
-  </ul>
-</div>
 
-## 'Homework'
-
-<div class="clean-text">
-The homework for this session can be found at "H:\Biostatistics\PythonWorkshop\Homework Exercises\session4_homework_blank.ipynb" <br>
-Please copy the file! Do not modify the file on the H drive!  
-  
-Also on the H drive, under the 'Solutions' subfolder, are an html file and a jupyter notebook with sample solutions for the homework. 
-</div>
-
-## **Pre-Reading for This Session**  
-
-<div class="clean-text">
-
-- [Scikit-learn Documentation](https://scikit-learn.org/stable/user_guide.html)  
-- [Introduction to OOP in Python (Real Python)](https://realpython.com/python3-object-oriented-programming/)  
-- [Plotnine Reference](https://plotnine.org/reference/)
-- [Seaborn Reference](https://seaborn.pydata.org/tutorial/function_overview.html)
-
-</div>

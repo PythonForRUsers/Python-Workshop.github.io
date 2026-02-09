@@ -124,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Session 3: Intro to Panda and great_tables</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../session4/session4v2_webpage.html">
+    <a class="dropdown-item" href="../session4/session4v3_webpage.html">
  <span class="dropdown-text">Session 4: Object-Oriented Programming and Modeling Libraries</span></a>
   </li>  
     </ul>
@@ -190,11 +190,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#knn-vs-k-means-supervised-vs-unsupervised-learning" id="toc-knn-vs-k-means-supervised-vs-unsupervised-learning" class="nav-link active" data-scroll-target="#knn-vs-k-means-supervised-vs-unsupervised-learning">KNN vs K-Means: Supervised vs Unsupervised Learning</a>
+  <li><a href="#neural-network-classifier-vs-kmeans-supervised-vs-unsupervised-learning" id="toc-neural-network-classifier-vs-kmeans-supervised-vs-unsupervised-learning" class="nav-link active" data-scroll-target="#neural-network-classifier-vs-kmeans-supervised-vs-unsupervised-learning">Neural Network Classifier vs KMeans: Supervised vs Unsupervised Learning</a>
   <ul class="collapse">
-  <li><a href="#k-nearest-neighbors-knn" id="toc-k-nearest-neighbors-knn" class="nav-link" data-scroll-target="#k-nearest-neighbors-knn">K-Nearest Neighbors (KNN)</a></li>
+  <li><a href="#neural-network-classifiers" id="toc-neural-network-classifiers" class="nav-link" data-scroll-target="#neural-network-classifiers">Neural Network Classifiers</a></li>
   <li><a href="#k-means-clustering" id="toc-k-means-clustering" class="nav-link" data-scroll-target="#k-means-clustering">K-Means Clustering</a></li>
-  <li><a href="#key-differences" id="toc-key-differences" class="nav-link" data-scroll-target="#key-differences">Key Differences</a></li>
   </ul></li>
   <li><a href="#plotting-in-python" id="toc-plotting-in-python" class="nav-link" data-scroll-target="#plotting-in-python">Plotting in Python</a></li>
   <li><a href="#optional-reading" id="toc-optional-reading" class="nav-link" data-scroll-target="#optional-reading">Optional Reading</a>
@@ -226,19 +225,33 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="knn-vs-k-means-supervised-vs-unsupervised-learning" class="level2">
-<h2 class="anchored" data-anchor-id="knn-vs-k-means-supervised-vs-unsupervised-learning">KNN vs K-Means: Supervised vs Unsupervised Learning</h2>
-<p>We will be using <code>sci-kit learn</code> implementations of both of these algorithms during the session 4 tutorial.</p>
-<section id="k-nearest-neighbors-knn" class="level3">
-<h3 class="anchored" data-anchor-id="k-nearest-neighbors-knn">K-Nearest Neighbors (KNN)</h3>
-<p><strong>KNN</strong> is a <strong>supervised</strong> learning algorithm used for <strong>classification</strong> (and sometimes regression):</p>
+<p>This pre-read contains information on the models we’ll be using for the in-class examples on classifying penguin species. This information will not be covered during the class, so it is here for your reference.</p>
+<section id="neural-network-classifier-vs-kmeans-supervised-vs-unsupervised-learning" class="level2">
+<h2 class="anchored" data-anchor-id="neural-network-classifier-vs-kmeans-supervised-vs-unsupervised-learning">Neural Network Classifier vs KMeans: Supervised vs Unsupervised Learning</h2>
+<p>We will be using PyTorch for the Neural Network and Scikit-learn for the KMeans clustering.</p>
+<section id="neural-network-classifiers" class="level3">
+<h3 class="anchored" data-anchor-id="neural-network-classifiers">Neural Network Classifiers</h3>
+<p>A <strong>neural network classifier</strong> is a type of <strong>supervised learning model</strong> that learns to assign input examples to classes (like penguin species) by finding patterns in labeled training data.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><embed src="session4\NeuralNetworkArchitectureDiagram.pdf" class="img-fluid" style="width:80.0%" alt="Neural network diagram"></p>
+<figcaption>Neural Network Diagram</figcaption>
+</figure>
+</div>
 <ul>
-<li>You train the model on labeled data (i.e., you know the “answer” or class).</li>
-<li>When predicting a new sample, the model finds the <strong>k</strong> training samples closest to it (its “neighbors”) and uses them to assign a label.</li>
-<li>Closeness is usually based on <strong>Euclidean distance</strong>.</li>
+<li>Neural networks are inspired by biological brains: they consist of connected units called nodes (or sometimes ‘neurons’) organized in layers. Each node processes inputs and passes an output to the next layer.</li>
+<li>A simple network has an <strong>input layer</strong> (input features), one or more <strong>hidden layers</strong> (which transform and combine features), and an <strong>output layer</strong> (which produces scores for each class).</li>
+<li>Each connection between node has a <strong>weight</strong> that the network learns during training. The network uses these weights to decide how strongly to respond to different inputs.</li>
 </ul>
+<p>Training a neural network involves:</p>
+<ul>
+<li>Feeding the training data through the network (the <strong>forward pass</strong>),</li>
+<li>Comparing the predictions to the true labels using a <strong>loss function</strong>,</li>
+<li>Adjusting the weights to reduce the loss using techniques like <strong>backpropagation</strong> and gradient-based optimization.</li>
+</ul>
+<p>A neural network classifier learns a function that maps input features to output classes. Once trained, you give it a new example and it predicts the most likely class for that example using learned representations from many training examples.</p>
 <blockquote class="blockquote">
-<p>Example: Given a penguin with known bill length and depth, predict its species by looking at its 5 nearest neighbors in the training data.</p>
+<p>Example: Given a penguin’s bill length and bill depth, a trained neural network will produce a set of output scores for each species and select the species with the highest score as its prediction.</p>
 </blockquote>
 <hr>
 </section>
@@ -254,50 +267,6 @@ ul.task-list li input[type="checkbox"] {
 <p>Example: Given penguin data without species labels, group them into 3 clusters based on bill length and depth.</p>
 </blockquote>
 <hr>
-</section>
-<section id="key-differences" class="level3">
-<h3 class="anchored" data-anchor-id="key-differences">Key Differences</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 21%">
-<col style="width: 38%">
-<col style="width: 40%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Feature</th>
-<th>KNN</th>
-<th>K-Means</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Learning Type</td>
-<td>Supervised</td>
-<td>Unsupervised</td>
-</tr>
-<tr class="even">
-<td>Goal</td>
-<td>Classification (or Regression)</td>
-<td>Clustering</td>
-</tr>
-<tr class="odd">
-<td>Input Labels</td>
-<td>Required</td>
-<td>Not used</td>
-</tr>
-<tr class="even">
-<td>Output</td>
-<td>Predicted class</td>
-<td>Cluster assignment</td>
-</tr>
-<tr class="odd">
-<td>Model Type</td>
-<td>Lazy (no training phase)</td>
-<td>Iterative center updates</td>
-</tr>
-</tbody>
-</table>
 </section>
 </section>
 <section id="plotting-in-python" class="level2">

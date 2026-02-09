@@ -1,0 +1,1532 @@
+---
+title: '**Session 4 – Object-Oriented Programming and Modeling Libraries**'
+jupyter: python310
+format: 
+    html:
+        code-copy: true   
+        highlight-style: pygments
+        toc: false
+        css: sess4webpage.css
+execute:
+  freeze: auto
+  warning: false
+  error: false
+  eval: true
+  echo: true
+---
+
+
+## Session Overview
+
+<div class="clean-text">
+
+In this session, we'll cover object-oriented programming and how it applies to modeling and analysis workflows in Python. <br>
+
+<strong style="font-size: 1.15em">Topics:</strong>  
+<ul>
+  <li><strong>Intro to OOP</strong> and how it makes modeling in Python different from R</li>
+  <li><strong>Building and extending classes</strong> using inheritance and mixins</li>
+  <li><strong>Applying OOP to machine learning</strong> through demos with scikit-learn and PyTorch</li>
+  <ul>
+    <li>Creating and using models</li>
+    <li>Plotting data with `plotnine` and `seaborn`</li>
+  </ul>
+</ul>
+
+</div>
+
+
+# Introduction 
+
+
+
+## Why Python *Feels* Different from R 🐍
+
+<div class="small-clean-text">
+
+::: columns
+::: column
+
+#### R: Built by Statisticians
+
+* Designed for **statistical analysis**
+* Workflows are primarily **functional**:
+  * pass data into functions
+  * get back results (usually without modifying the original object)
+* Pipes (`|>`, `%>%`) chain operations
+* Excels at:
+
+  * clean model outputs, tables and high-quality visualizations
+
+:::
+
+::: column
+
+#### Python: General-Purpose Language
+
+* Designed for **many domains**, not just statistics  
+* Leans heavily on **object-oriented programming**:  
+    * Some methods **modify objects in-place**, rather than returning new ones  
+* Methods chaining (.fit().predict())  
+* Excels at:   
+
+  * machine learning & deep learning (scikit-learn, PyTorch)  
+  * image, genomic, and single-cell analysis  
+  * software, automation, and tooling  
+
+:::
+:::
+
+</div>
+
+<div class="small-clean-text">
+
+> 💡 You’ve already been using this style in Sessions 2 and 3 — creating objects (lists, DataFrames) and calling methods like `.append()` or `.sort_values()`.
+> **Note:** Tools like `reticulate` and `rpy2` allow R and Python to coexist in the same project, but that’s beyond the scope of this course.
+
+</div>
+
+
+##  Core OOP Principles in Python 
+
+<div class="clean-text">
+
+**Classes and objects**
+
+* An **object** (instance) has attributes (data) and methods (behaviors)
+* A **class** is a blueprint for **objects**
+* Use `type(obj)` and `isinstance(obj, Class)` to inspect objects in code   
+
+Python’s object-oriented design builds on a few key principles of how objects behave:
+
+::: fragment
+
+1. **Encapsulation** — Data and behaviors live together  
+
+   * *Attributes* store data, *methods* define behaviors  
+
+:::
+
+::: fragment
+
+2. **Inheritance** — New classes reuse existing functionality  
+
+   * Classes can inherit attributes and methods from parent classes.  
+   * Avoids re-writing shared logic
+
+:::
+
+::: fragment
+
+3. **Abstraction** — Same interface hides complexity  
+
+   * Interact with what things do, not how they work.
+
+:::
+
+::: fragment
+
+4. **Polymorphism (Duck Typing)** — Different objects with the same methods can be used interchangeably  
+ 
+   * This makes it easy to switch between models with minimal code adjustment 
+
+:::
+
+</div>
+
+
+
+## Why OOP Matters for Python Modeling
+
+In Python modeling frameworks:
+
+* Models are **objects (class instances)**   
+* They have **methods** like `.fit()`, `.predict()`, `.score()`  
+* Learned parameters (coefficients, weights, layers) live in **attributes**
+
+This consistent object-oriented API makes it easy to swap models with minimal code changes.
+
+**Examples of Python modeling libraries:**
+
+* `scikit-learn` — general ML (classification, regression)    
+* `xgboost` — gradient boosting   
+* `scikit-survival` — survival models using sklearn API  
+* `statsmodels` — statistical models with R-like outputs  
+* `scvi-tools` — single-cell models  
+* `PyTorch` / `TensorFlow` — deep learning frameworks
+
+> Understanding classes is ESPECIALLY important for using PyTorch and TensorFlow!
+
+
+
+## Bonus: Python Modeling Libraries — Tutorials & Docs
+
+* **scikit-learn (ML basics)** — official API & guide (general modeling)
+  [https://scikit-learn.org/stable/user_guide.html](https://scikit-learn.org/stable/user_guide.html)
+
+* **xgboost (gradient boosting)** — official documentation with examples/tutorials
+  [https://xgboost.readthedocs.io/](https://xgboost.readthedocs.io/) (look under *Tutorials*)
+* **scvi-tools (probabilistic single-cell modeling)** — user guide + tutorials
+  [https://docs.scvi-tools.org/en/stable/](https://docs.scvi-tools.org/en/stable/) (*Tutorials section*) 
+
+* **scikit-survival (survival analysis with sklearn API)** — user guide & intro notebook
+  [https://scikit-survival.readthedocs.io/en/stable/](https://scikit-survival.readthedocs.io/en/stable/) (*00-introduction* tutorial)
+
+* **statsmodels (statistical modeling & inference)** — getting started & examples
+  [https://www.statsmodels.org/stable/gettingstarted.html](https://www.statsmodels.org/stable/gettingstarted.html) 
+  *Also see:* [https://www.statsmodels.org/stable/examples/index.html](https://www.statsmodels.org/stable/examples/index.html) 
+
+<aside class="notes">
+These are some links to tutorials for the packages. 
+</aside>
+
+
+
+# OOP In Practice: Creating Classes
+
+- To really understand how object-oriented programming works, let's create some simple classes and see how they behave. 
+- While the following examples are really simple, they showcase the same concepts used when designing the kinds of Python libraries you'll be using
+- If you work with PyTorch or TensorFlow you will likely be making model classes yourself
+
+---
+
+
+## Base Classes 
+<div class="clean-text">
+
+A **base class** serves as a template for creating objects. Other classes can inherit from it to reuse its attributes and methods.
+
+Classes are defined using the `class` keyword, and their structure is specified using an `__init__()` method for initialization. 
+
+::: {.fragment}
+
+Define a `Dog` with attributes (data) and methods (behaviors).    
+ *  [**special** or **"dunder"** methods](https://docs.python.org/3/reference/datamodel.html#special-method-names) (short for double underscore) define how objects behave in certain contexts.   
+
+```{python}
+#| code-line-numbers: "1-2|3,4|6-7|9-13"
+class Dog: ## begin class definition
+    def __init__(self, name, breed): ## define init method
+        self.name = name ## add attributes
+        self.breed = breed
+
+    def speak(self): ## add methods
+        return f"{self.name} says woof!"
+
+    def __str__(self): # __str__(self) tells python what to display when an object is printed
+        return f"Our dog {self.name}"
+
+    def __repr__(self): # add representation to display when dog is called in console
+        return f"Dog(name={self.name!r}, breed={self.breed!r})"
+```
+:::
+</div>
+
+
+
+## Creating a dog
+<div class="clean-text">
+
+Creating an instance of the `Dog` class lets us model a particular dog:  
+
+```{python}
+#| output-location: fragment
+buddy = Dog("Buddy", "Golden Retriever")
+print(f"Buddy is an object of class {type(buddy)}")
+```
+<ul>
+    <li> Set value of attributes [`name` and `breed`] -> stored as part of `buddy` </li>   
+    <li> `buddy` can use any `Dog` class methods </li>   
+</ul>  
+
+```{python}
+#| output-location: fragment
+#| code-line-numbers: "1-3|5-6|8-9"
+## if we want to see what kind of dog our dog is
+## we can call buddy's attributes
+print(f"Our dog {buddy.name} is a {buddy.breed}.")
+
+## we can also call any Dog methods
+print(buddy.speak())  
+
+## including special methods
+buddy ## displays what was in the __repr__() method
+```
+
+ 
+<span style="color: #007acc"><strong>Note:</strong> For python methods, the `self` argument is assumed to be passed and therefore we do not put anything in the parentheses when calling `.speak()`. For attributes, we do not put () at all.</span>
+
+</div>
+
+<aside class="notes">
+If we want to model a particular dog, we create an instance of the dog class. The arguments we pass to `Dog` set the name and breed of the dog.
+
+If we want to prove that buddy is an object of class dog, we can use type(buddy).
+
+Once we create buddy, we can use any attributes or methods defined in the dog class. 
+</aside>
+
+## Derived (Child) Classes  
+<div class="clean-text">
+
+Derived/child classes build on base classes using the *principle of inheritence.* <br>
+
+Now that we have a `Dog` class, we can build on it to create a specialized `GuardDog` class. 
+
+```{python}
+#| code-line-numbers: "|1|2-7|"
+class GuardDog(Dog):  # GuardDog inherits from Dog
+    def __init__(self, name, breed, training_level): ## in addition to name and breed, we can 
+        # define a training level. 
+        # Call the parent (Dog) class's __init__ method
+        super().__init__(name, breed)
+        self.training_level = training_level  # New attribute for GuardDog that stores the 
+        # training level for the dog
+
+    def guard(self): ## checks if the training level is > 5 and if not says train more
+        if self.training_level > 5:
+            return f"{self.name} is guarding the house!"
+        else:
+            return f"{self.name} needs more training before guarding."
+    
+    def train(self): # modifies the training_level attribute to increase the dog's training level
+        self.training_level = self.training_level + 1
+        return f"Training {self.name}. {self.name}'s training level is now {self.training_level}"
+
+# Creating an instance of GuardDog
+rex = GuardDog("Rex", "German Shepherd", training_level= 5)
+```
+</div>
+
+
+---
+
+`rex` has all of the methods/attributes introduced in the `Dog` class as well as the new `GuardDog` class.
+
+Using methods from the base class: 
+```{python}
+#| slide-type: fragment
+#| output-location: fragment
+print(rex.speak())
+rex
+```
+
+. . . 
+
+<span style="font-size: 1.15em; color: #007acc"><strong>This is the power of inheritance</strong></span>—we don’t have to rewrite everything from scratch!
+
+. . . 
+
+Using a method from the child class: 
+```{python}
+#| slide-type: fragment
+#| output-location: fragment
+print(f"{rex.name}'s training level is {rex.training_level}.")
+print(rex.guard()) 
+```
+
+<aside class='notes'>
+
+Of course we can use the speak() and repr() methods that we defined for the dog class. We can also use the training method that we just defined. 
+
+To successfully guard, a rex needs a training level greater than 5. Currently his level is 5, so he needs more training before guarding.
+
+</aside>
+
+---
+
+Unlike standalone functions, methods in Python often update objects **in-place**— meaning they *modify the object itself* rather than returning a new one.
+
+We can use the `.train()` method to increase rex's training level. 
+```{python}
+#| output-location: fragment
+print(rex.train())
+```
+
+
+:::{.callout-important}  
+## Be Careful!!!
+
+Calling rex.train() within a print statement still updates rex's training level. If we were to do this instead:
+```{.python}
+rex.train()
+print(rex.train())
+```
+ it would train rex twice!
+:::
+
+. . . 
+
+Now if we check, 
+```{python}
+#| output-location: fragment
+print(f"{rex.name}'s training level is {rex.training_level}.")
+print(rex.guard()) 
+```
+
+
+. . . 
+
+As with Rex, <span style="color: #007acc"><strong>child classes inherit all attributes (`.name` and `.breed`) and methods (`.speak()` `__repr__()`) from parent classes.</strong></span> They can also have new methods (`.train()`) or re-define methods from the parent class. 
+
+<aside class='notes'>
+Unlike standalone functions, methods like train() update objects in-place instead of returning a new object. This allows us to increase rex's training level without storing rex to a new variable. 
+
+Please note that even though we're calling rex.train() within a print statement, it still updates rex's training level! 
+
+</aside>
+
+
+## Mixins
+<div class="clean-text">  
+
+A **mixin** is a special kind of class designed to add **functionality** to another class. Unlike base classes, mixins aren’t used alone.  
+
+:::{.fragment}
+
+For example, scikit-learn uses mixins like:  
+  - `sklearn.base.ClassifierMixin` (adds classifier-specific methods)  
+  - `sklearn.base.RegressorMixin` (adds regression-specific methods)  
+
+which it adds to the `BaseEstimator` class to add functionality. <br> <br>
+
+To finish up our dog example, we are going to define a mixin class that adds learning tricks to the base `Dog` class and use it to create a new class called `SmartDog`.
+:::
+</div>
+
+---
+
+When creating a mixin class, we let the other base classes carry most of the initialization
+
+```{python}
+#| code-line-numbers: "1-2,3|4|6-20"
+class TrickMixin: ## mixin that will let us teach a dog tricks
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)  # Ensures proper initialization in multi inheritance
+        self.tricks = []  # Add attribute to store tricks
+
+## add trick methods
+    def learn_trick(self, trick):
+        """Teaches the dog a new trick."""
+        if trick not in self.tricks:
+            self.tricks.append(trick)
+            return f"{self.name} learned a new trick: {trick}!"
+        return f"{self.name} already knows {trick}!"
+
+    def perform_tricks(self):
+        """Returns a list of tricks the dog knows."""
+        if self.tricks:
+            return f"{self.name} can perform: {', '.join(self.tricks)}."
+        return f"{self.name} hasn't learned any tricks yet."
+
+## note: the TrickMixin class is not a standalone class!
+```
+
+<aside class="notes">
+When we create a mixin class, we let the base class carry most of the initialization. 
+
+A mixin class can add both attributes and methods, and it can potentially work with multiple base classes. 
+</aside>
+
+---
+
+By including both `Dog` and `TrickMixin` as base classes, we give objects of class `SmartDog` the ability to speak and learn tricks! This is how libraries like `sklearn` turn a base estimator into a classifier/regressor without rewriting everything!
+
+```{python}
+#| slide-type: fragment
+#| output-location: fragment
+class SmartDog(Dog, TrickMixin):
+    def __init__(self, name, breed):
+        super().__init__(name, breed)  # Initialize Dog class
+        TrickMixin.__init__(self)  # Initialize TrickMixin separately
+
+# a SmartDog object can use methods from both parent object `Dog` and mixin `TrickMixin`.
+my_smart_dog = SmartDog("Buddy", "Border Collie")
+print(my_smart_dog.speak()) 
+```
+
+<br>
+
+```{python}
+#| slide-type: fragment
+#| output-location: fragment
+print(my_smart_dog.learn_trick("Sit"))  
+print(my_smart_dog.learn_trick("Roll Over")) 
+print(my_smart_dog.learn_trick("Sit"))  
+
+```
+<br>
+
+```{python}
+#| slide-type: fragment
+#| output-location: fragment
+print(my_smart_dog.perform_tricks()) 
+```
+
+<aside class="notes">
+
+By including both dog and trickmixin as base classes, we give smartdog objects the ability to 'speak' and learn tricks. **-adv through-**
+
+</aside>
+
+## Duck Typing 
+
+<div class="small-clean-text"> 
+
+>🦆 "If it quacks like a duck and walks like a duck, it's a duck." 🦆
+
+Python's duck typing makes our lives a lot easier, and is one of the main benefits of methods over functions:
+<ul>
+    <li><b>Inheritence</b> - objects inherit methods from base classes</li>
+    <li><b>Repurposing old code</b> - methods by the same name work the same for different model types</li>
+    <li><b>Use methods without checking types</b> - methods are assumed to work on the object they're attached to</li>
+</ul>
+</div>  
+
+We can demonstrate duck typing by defining two new base classes that are different than `Dog` but also have a `speak()` method.
+
+. . . 
+
+```{python}
+#| code-line-numbers: "|5-6,12-13"
+class Human:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        return f"{self.name} says hello!"
+
+class Parrot:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        return f"{self.name} says squawk!"
+
+```
+
+
+## Duck Typing in Action
+<div class="clean-text">  
+
+Even though `Dog`, `Human` and `Parrot` are entirely different classes...
+
+</div>
+
+```{python}
+#| output-location: fragment
+def call_speaker(obj):
+    print(obj.speak()) ## No object checking needed here!
+
+call_speaker(Dog("Fido", "Labrador"))
+call_speaker(Human("Alice"))
+call_speaker(Parrot("Polly"))
+```
+
+. . .  
+
+They all implement `.speak()`, so Python treats them the same!
+
+In the context of our work, this would allow us to make a pipeline using models from different libraries that have the same methods. 
+
+<span style="font-size: 1.2em; color: #007acc"><strong>While our dog example was very simple, this is the same way that model classes work in python!</strong></span> 
+
+:::{.callout-warning}  
+
+With duck typing, Python lets us <b><i>use methods</i></b> without breaking. It does not mean that any given method is correct to use in all cases, or that all similar objects will have the same methods.
+
+:::
+
+<aside class="notes">
+
+Even though the three classes are different, we can still write a function that performs 'obj.speak()' and pass in any object with this method without having to worry about the object's class. This will be true of future objects containing a speak method as well. If we used a function for 'speak' instead of a method, there would be no guarantee that `call_speaker` would work for a new object of a non-specified type. 
+
+</aside>
+
+
+## **Recap: Key Benefits of OOP in Machine Learning**  
+<div class="clean-text">  
+
+1. **Encapsulation** – Models store parameters and methods inside a single object.  
+2. **Inheritance** – New models can build on base models, reusing existing functionality.  
+3. **Abstraction**  – `.fit()` should work as expected, regardless of complexity of underlying implimentation.
+4. **Polymorphism (Duck Typing)** – Different models share the same method names (`.fit()`, `.predict()`), making them easy to use interchangeably, particularly in analysis pipelines. 
+
+Understanding **base classes** and **mixins** is especially important when working with deep learning frameworks like **PyTorch and TensorFlow**, which require us to create our own model classes.  
+
+</div>
+
+<aside class="notes">
+
+To recap: python's oject oriented nature has some notable benefits for modeling and machine learning. 
+
+</aside>
+
+# Part B - Demo Projects
+
+**Apply knowledge of OOP to modeling using scikit-learn and pytorch**
+
+---
+
+## 🐧 Mini Project: Classifying Penguins with scikit-learn and pytorch
+
+<div class="clean-text">  
+
+Now that you understand **classes** and **data structures** in Python, let’s apply that knowledge to classify **penguin species** using two features:  
+<ul>
+<li>`bill_length_mm`</li>  
+<li>`bill_depth_mm`</li>
+</ul> 
+
+
+We’ll explore:  
+
+<ul>
+<li> **Unsupervised learning** with **K-Means** clustering (model doesn't 'know' y)</li>
+<li>**Supervised learning** with a **Neural Network classifier** (model trained w/ y information)</li>
+</ul>
+
+All `scikit-learn` models are designed to have 
+
+::: columns
+::: column
+**Common Methods:**  
+<ul>
+<li>`.fit()` — Train the model </li>  
+<li>`.predict()` — Make predictions  </li>
+</ul>    
+
+:::
+::: column
+**Common Attributes:** 
+<ul>
+<li>`.classes_`, `.n_clusters_`, etc.</li>
+</ul>  
+
+:::
+:::
+> This is true of the scikit-survival package too! 
+
+</div>
+
+
+
+## Import Libraries
+<div class="clean-text">  
+
+<span style="font-size: 1.2em; color: #007acc"><strong>Before any analysis, we must import the necessary libraries.</strong></span>  
+
+For large libraries like **scikit-learn**, **PyTorch**, or **TensorFlow**, we usually do **not** import the entire package. Instead, we selectively import the **classes** and **functions** we need.
+
+::: columns
+::: column
+
+**Classes**  
+- `StandardScaler` — for feature scaling  
+- `KMeans` — for unsupervised clustering
+
+<br>
+
+> 🔤 **Naming Tip**:  
+> - `CamelCase` = **Classes**  
+> - `snake_case` = **Functions**
+
+:::
+::: column
+
+**Functions**  
+- `train_test_split()` — to split data into training and test sets  
+- `accuracy_score()` — to evaluate classification accuracy  
+- `classification_report()` — to print precision, recall, F1 (balance of precision and recall), Support (number of true instances per class)
+- `adjusted_rand_score()` — to evaluate clustering performance
+:::
+:::
+
+</div>
+
+
+## Import Libraries
+
+```{python}
+#| code-line-numbers: "|13-16, 25|18-20"
+## imports
+import pandas as pd
+import numpy as np
+
+from plotnine import *
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+from great_tables import GT
+
+## sklearn & PyTorch imports
+
+## import classes
+from sklearn.preprocessing import StandardScaler 
+from sklearn.cluster import KMeans
+
+## import functions
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, classification_report, adjusted_rand_score
+
+## Pytorch Imports
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import TensorDataset, DataLoader
+```  
+
+## Data Preparation 
+
+```{python}
+#| code-line-numbers: "1,2|4-11|13-16|18-19"
+#| output-location: fragment
+# Load the Penguins dataset
+penguins = sns.load_dataset("penguins").dropna()
+
+# Make a summary table for the penguins dataset, grouping by species. 
+summary_table = penguins.groupby("species").agg({
+    "bill_length_mm": ["mean", "std", "min", "max"],
+    "bill_depth_mm": ["mean", "std", "min", "max"],
+    "sex": lambda x: x.value_counts().to_dict()  # Count of males and females
+})
+
+# Round numeric values to 1 decimal place (excluding the 'sex' column)
+for col in summary_table.columns:
+    if summary_table[col].dtype in [float, int]:
+        summary_table[col] = summary_table[col].round(1)
+
+# Display the result
+display(summary_table)
+```
+
+
+
+## Data Visualization
+
+<div class="small-clean-text"> 
+
+For visualization: use either seaborn or plotnine. `plotnine` mirrors `ggplot2` syntax from R and is great for layered grammar-of-graphics plots, while `seaborn` is more convienient for multiple plots on the same figure. <br>
+
+
+### Plotting with Plotnine vs Seaborn
+
+::: columns
+::: column
+
+<span style="color: #007acc; font-weight: 600;">Plotnine (like ggplot2 in R)</span><br>
+The biggest differences between `plotnine` and `ggplot2` syntax are: 
+<ul> 
+<li> With `plotnine` the whole call is wrapped in `()` parentheses</li>  
+<li> Variables are called with strings (`""` are needed!) </li>
+<li> If you don't use `from plotnine import *`, you will need to import each individual function you plan to use!</li>
+</ul>
+
+:::
+
+::: column
+
+<span  style="color: #007acc; font-weight: 600;">Seaborn (base matplotlib + enhancements)</span><br>
+<ul>
+<li> Designed for **quick, polished plots** </li> 
+<li> Works well with **pandas DataFrames** or **NumPy arrays** </li> 
+<li> Integrates with `matplotlib` for customization </li> 
+<li> Good for things like **decision boundaries** or **heatmaps**</li> 
+<li> Harder to customize than plotnine plots </li> 
+</ul>
+
+:::
+:::
+
+</div>
+
+
+## Scatterplot with plotnine
+<div class="clean-text"> 
+
+To take a look at the distribution of our species by bill length and bill depth before clustering...
+</div>
+
+```{python}
+#| fig-dpi: 600
+#| output-location: fragment
+plot1 = (ggplot(penguins, aes(x="bill_length_mm", y="bill_depth_mm", color="species"))
+ + geom_point()
+ + ggtitle("Penguin Species")
+ + theme_bw())
+
+display(plot1)
+```
+
+
+## Scatterplot with seaborn
+
+We can make a similar plot in seaborn. This time, let's include sex by setting the point style
+```{python}
+#| code-line-numbers: "1-2|4-12|14-18|20-22"
+#| output-location: slide
+# Create the figure and axes obects
+fig, ax = plt.subplots(figsize=(10, 8))
+
+# Create a plot 
+sns.scatterplot(
+    data=penguins, x="bill_length_mm", y="bill_depth_mm",
+    hue="species", ## hue = fill
+    style="sex",  ## style = style of dots
+    palette="Set2", ## sets color pallet
+    edgecolor="black", s=300, ## line color and point size 
+    ax=ax              ## Draw plot on ax      
+)
+
+# Use methods on ax to set title, labels
+ax.set_title("Penguin Bill Length vs Depth by Species")
+ax.set_xlabel("Bill Length (mm)")
+ax.set_ylabel("Bill Depth (mm)")
+ax.legend(title="Species")
+
+# Plot the figure
+fig.tight_layout() 
+#fig.show() -> if not in interactive
+```
+
+
+
+## Scaling the data - Understanding the Standard Scaler class
+<div class="clean-text">  
+
+For our clustering to work well, the predictors should be on the same scale. To achieve this, we use an instance of the `StandardScaler` class. 
+
+```python
+class sklearn.preprocessing.StandardScaler(*, copy=True, with_mean=True, with_std=True)
+```
+</div>
+. . .   
+
+**Parameters** are supplied by user  
+- *copy*, *with_mean*, *with_std* <br>
+
+**Attributes** contain the `data` of the object  
+- `scale_`: scaling factor  
+- `mean_`: mean value for each feature  
+- `var_`: variance for each feature  
+- `n_features_in_`: number of features seen during fit  
+- `n_samples_seen`: number of samples processed for each feature <br>
+
+**Methods** describe the `behaviors` of the object and/or `modify` its attributes  
+- `fit(X)`: computes mean and std used for scaling and 'fits' scaler to data X  
+- `transform(X)`: performs standardization by centering and scaling X with fitted scaler  
+- `fit_transform(X)`: does both
+
+<aside class="notes">
+
+For our clustering to work well, we typically want to put all of the predictors on the same scale. We can do this using an instance of the StandardScaler class. 
+
+We supply the parameters that dictate the behavior of the scaler at instantiation. The new scaler object has attributes that contain the information the object needs to perform its functions, like the scaling factor, feature means and variances, etc. 
+
+It also has methods that can modify its attributes, like the fit method, which calculates the mean and variance used for scaling based on data X, and the tranform method which uses the calculated values to scale X. 
+
+For convenience there is also the fit_transform() method that does both to the same data. When we look at our model classes, we'll see that they also have fit methods. 
+
+</aside>
+
+## Scaling Data
+
+<div class="clean-text">  
+
+```{python}
+#| code-line-numbers: "|5-7"
+# Selecting features for clustering -> let's just use bill length and bill depth.
+X = penguins[["bill_length_mm", "bill_depth_mm"]]
+y = penguins["species"]
+
+# Standardizing the features for better clustering performance
+scaler = StandardScaler() ## create instance of StandardScaler
+X_scaled = scaler.fit_transform(X) 
+```
+:::{.fragment}
+
+```{python}
+#| echo: false
+X_scaled_df = pd.DataFrame(X_scaled, columns=X.columns)
+
+# Compute summary statistics and round to 2 sig figs
+original_stats = X.agg(["mean", "std"])
+scaled_stats = X_scaled_df.agg(["mean", "std"])
+
+# Combine into a single table with renamed columns
+summary_table = pd.concat([original_stats, scaled_stats], axis=1)
+summary_table.columns = ["Bill_Length_o", "Bill_Depth_o", "Bill_Length_s", "Bill_Depth_s"]
+summary_table.index.name = "Feature"
+
+# Display nicely with great_tables
+(
+    GT(summary_table.reset_index()).tab_header("Original vs Scaled Features")
+    .fmt_number(columns =  ["Bill_Length_o", "Bill_Depth_o", "Bill_Length_s", "Bill_Depth_s"], decimals=0)
+    .tab_spanner(label="Original", columns=["Bill_Length_o", "Bill_Depth_o"])
+    .tab_spanner(label="Scaled", columns=["Bill_Length_s", "Bill_Depth_s"])
+    .cols_label(Bill_Length_o = "Bill Length", Bill_Depth_o = "Bill Depth", Bill_Length_s = "Bill Length", Bill_Depth_s = "Bill Depth")
+    .tab_options(table_font_size = 16)
+)
+```
+```{python}
+#| echo: true
+#| eval: false
+#| code-fold: true
+#| code-summary: "Show table code"
+## Make X_scaled a pandas df
+X_scaled_df = pd.DataFrame(X_scaled, columns=X.columns)
+
+# Compute summary statistics and round to 2 sig figs
+original_stats = X.agg(["mean", "std"])
+scaled_stats = X_scaled_df.agg(["mean", "std"])
+
+# Combine into a single table with renamed columns
+summary_table = pd.concat([original_stats, scaled_stats], axis=1)
+summary_table.columns = ["Bill_Length_o", "Bill_Depth_o", "Bill_Length_s", "Bill_Depth_s"]
+summary_table.index.name = "Feature"
+
+# Display nicely with great_tables
+(
+    GT(summary_table.reset_index()).tab_header("Original vs Scaled Features")
+    .fmt_number(columns =  ["Bill_Length_o", "Bill_Depth_o", "Bill_Length_s", "Bill_Depth_s"], decimals=0)
+    .tab_spanner(label="Original", columns=["Bill_Length_o", "Bill_Depth_o"])
+    .tab_spanner(label="Scaled", columns=["Bill_Length_s", "Bill_Depth_s"])
+    .cols_label(Bill_Length_o = "Bill Length", Bill_Depth_o = "Bill Depth", Bill_Length_s = "Bill Length", Bill_Depth_s = "Bill Depth")
+    .tab_options(table_font_size = 16)
+)
+```
+:::
+
+</div>
+
+<aside class="notes">
+
+To keep things simple, we will just subset the penguins dataset and keep only bill length and depth for our X dataframe. For y, we'll grab the species as a pandas series. 
+
+The next step is to create the scaler object and use fit_transform to both fit the scaler to X and return the transformed X matrix. One of the nice things about using a scaler object rather than a function is that the object saves the scaling parameters so we can reuse them later. 
+
+This table here just shows how the mean and standard deviation change between the original and scaled features. It was made with great_tables and the code is included below. 
+</aside>
+
+## Understanding the KMeans model class
+<div class="clean-text"> 
+
+```python
+class sklearn.cluster.KMeans(n_clusters=8, *, init='k-means++', n_init='auto', max_iter=300, 
+tol=0.0001, verbose=0, random_state=None, copy_x=True, algorithm='lloyd')
+```
+
+**Parameters**: Set by user at time of instantiation  
+- n_clusters, max_iter, algorithm  <br>
+
+**Attributes**: Store object data    
+- `cluster_centers_`: stores coordinates of cluster centers  
+- `labels_`: stores labels of each point 
+- `n_iter_`: number of iterations run (will be changed during method run)  
+- `n_features_in` and `feature_names_in_`: store info about features seen during fit  <br>
+
+**Methods**: Define object behaviors      
+- `fit(X)`: fits model to data X
+- `predict(X)`: predicts closest cluster each sample in X belongs to  
+- `transform(X)`: transforms X to cluster-distance space  
+</div>
+
+<aside class="notes">
+
+Now that we have our scaled data, the next step is to create and fit the kmeans model. Like the standardScaler class earlier, we have parameters set by the user. This is where we would specify the number of clusters we want, etc. 
+
+There are also attributes that store information like the location of cluster centers and the cluster labels associated with each point. These attributes are set by the fit method and wont exist for a model that has not been fit yet.
+
+And we have the fit and tranasform methods like the scaler class. We also get a predict method that lets us predict cluster labels for any new input data in the same cluster-space. 
+
+</aside>
+
+---
+
+<div class="clean-text"> 
+
+### Create model
+
+```{python}
+## Choosing 3 clusters b/c we have 3 species
+kmeans = KMeans(n_clusters=3, random_state=42) ## make an instance of the K means class
+kmeans
+```
+<br>
+
+### Fit model to data
+
+```{python}
+#| output-location: fragment
+## the fit
+penguins["kmeans_cluster"] = kmeans.fit_predict(X_scaled)
+
+## now that we fit the model, we should have cluster centers
+print("Coordinates of cluster centers:", kmeans.cluster_centers_)
+
+## shows that model is fitted
+kmeans
+```
+</div>
+
+<aside class="notes">
+
+Now we create our model, setting the number of clusters to 3 because we have 3 species. One of the fun things about sklearn is that, the repr method gives us this cute little block representation of our model. It shows the parameters that we set during instantiation as well as the model status (the i icon) and link to the model documentation (the ? icon).
+For non-fitted models, the box is orange and, once we fit the model, the box will be blue!
+
+We can use the fit-predict method to fit the model to X_scaled and return the cluster labels, which we can store in the penguins dataframe as 'kmeans_cluster'.
+
+Now that the model has been fit, we can check out the cluster centers (remember that this is in scaled X space) and also look at our model representation again to see that it's turned blue. 
+
+</aside>
+
+## Use function to calculate ARI
+<div class="clean-text"> 
+
+To check how good our model is, we can use one of the functions included in the sklearn library.
+
+The `adjusted_rand_score()` function evaluates how well the cluster groupings agree with the species groupings while adjusting for chance. 
+
+```{python}
+#| output-location: fragment
+# Calculate clustering performance using Adjusted Rand Index (ARI)
+kmeans_ari = adjusted_rand_score(penguins['species'], penguins["kmeans_cluster"])
+print(f"k-Means Adjusted Rand Index: {kmeans_ari:.2f}")
+```
+</div>
+
+<aside class="notes">
+
+So far, we've mostly used methods in our analysis, but for things that are not model-specific, functions can be useful! We can use the adjusted_rand_score() function to evaluate how well the cluster groupings agree with the species groupings. 
+
+Since this function just needs the 'true' labels and the cluster labels, with no actual model information, it makes sense for it to be a function and not a method. 
+
+</aside>
+
+---
+
+### We can also use methods on our data structure to create new data
+
+<div class="clean-text"> 
+- We can use the `.groupby()` method to help us plot cluster agreement with species label as a heatmap
+- If we want to add sex as a variable to see if that is why our clusters don't agree with our species, we can use a scatterplot
+- Using seaborn and matplotlib, we can easily put both of these plots on the same figure. 
+<br>
+
+```{python}
+#| code-line-numbers: "1-6|8-14|16-17"
+# Count occurrences of each species-cluster-sex combination
+# (.size gives the count as index, use reset_index to get count column.)
+scatter_data = (penguins.groupby(["species", "kmeans_cluster", "sex"])
+                .size()
+                .reset_index(name="count"))
+species_order = list(scatter_data['species'].unique()) ## defining this for later
+
+# Create a mapping to add horizontal jitter for each sex for scatterplot
+sex_jitter = {'Male': -0.1, 'Female': 0.1}
+scatter_data['x_jittered'] = scatter_data.apply(
+    lambda row: scatter_data['species'].unique().tolist().index(row['species']) +
+     sex_jitter.get(row['sex'], 0),
+    axis=1
+)
+
+heatmap_data = scatter_data.pivot_table(index="kmeans_cluster", columns="species", 
+values="count", aggfunc="sum", fill_value=0)
+```
+</div>
+
+<aside class="notes">
+
+If we want to visualize the cluster agreement, we can group the data by species, cluster and sex and use the .size() method to get the number of penguins in each 'group'. This yields long-form data that is good for scatterplots. 
+
+As far as I know, there isn't an attached method for horizontal jitter for seaborn, so we can add the jitter manually to separate the 'male' and 'female' points slightly for our scatterplot. 
+
+Finally, we can use the .pivot_table method to generate the count data for the heatmap as wide-form data. 
+
+</aside>
+
+## Scatter data & Heatmap Data
+
+```{python}
+display(scatter_data.head(3))
+```
+
+```{python}
+display(heatmap_data)
+```
+
+<aside class="notes">
+After the transformations we performed, this is what our scatter data and heatmap data look like. 
+</aside>
+
+## Creating Plots 
+
+```{python}
+#| code-line-numbers: "1-2|4-9|11-24"
+#| output-location: slide
+# Prepare the figure with 2 subplots; the axes object will contain both plots
+fig2, axes = plt.subplots(1, 2, figsize=(16, 7)) ## 1 row 2 columns
+
+# Plot heatmap on the first axis
+sns.heatmap(data = heatmap_data, cmap="Blues", linewidths=0.5, linecolor='white', annot=True, 
+fmt='d', ax=axes[0]) ## fmt='d' = decimal (base10) integer, use fmt='f' for floats 
+axes[0].set_title("Heatmap of KMeans Clustering by Species")
+axes[0].set_xlabel("Species")
+axes[0].set_ylabel("KMeans Cluster")
+
+# Scatterplot with jitter
+sns.scatterplot(data=scatter_data, x="x_jittered", y="kmeans_cluster",
+    hue="species", style="sex", size="count", sizes=(100, 500),
+    alpha=0.8, ax=axes[1], legend="brief")
+axes[1].set_xticks(range(len(species_order)))
+axes[1].set_xticklabels(species_order)
+axes[1].set_title("Cluster Assignment by Species and Sex (Jittered)")
+axes[1].set_ylabel("KMeans Cluster")
+axes[1].set_xlabel("Species")
+axes[1].set_yticks([0, 1, 2])
+axes[1].legend(bbox_to_anchor=(1.05, 0.5), loc='center left', borderaxespad=0.0, title="Legend")
+
+fig2.tight_layout()
+#fig2.show()
+```
+
+<aside class="notes">
+Now we can create our plots on this new figure, fig2. Because we want to create more than 1 plot, we have additional arguments in plt.subplots. 1, 2 means 1 row 2 columns. 
+
+This time, our 'axis' is actually a 1d array of axis objects. If we had more than 1 row, it would be a 2d array (like a matrix). **-adv-** 
+If we want to plot the heatmap on the first 'ax', we can set ax=axes[0]. Here, we don't have to explicitly set X and Y, we can just pass the data into the heatmap function.
+
+**-adv-** For our scatterplot, we need to set x and y explicitly, using the x_jittered column so our points don't overlap. 
+To make things clean here, we can set the xticks using the species_order we defined previously and put our legend to the left of the plot.
+
+Note: bbox_to_anchor -> x coord, y coord in terms of plot size. Aka a little more than 1 plot to the left and half a plot up. 
+
+
+</aside>
+
+## Project 2: Neural Network Classifier
+
+
+### Building a PyTorch Model Class
+
+Unlike in scikit-learn, with PyTorch, we have to define the model architecture (layer size, order, etc) ourselves. We also define what happens during the forward pass (how input data flows through the network). This is a super simple example, but model architectures can get more complicated.  
+
+```{python}
+class PenguinNet(nn.Module):
+    def __init__(self, hidden_units=16, n_classes=3):
+        super().__init__()
+        self.network = nn.Sequential(
+            nn.Linear(2, hidden_units),
+            nn.ReLU(),
+            nn.Linear(hidden_units, hidden_units),
+            nn.ReLU(),
+            nn.Linear(hidden_units, n_classes)
+        )
+
+    def forward(self, x):
+        return self.network(x)
+```
+. . . 
+
+This class doesn't have methods for `.fit()`, `.predict()` etc yet. To make our classifier have a similar interface to skearn, we will wrap this model in a 'Classifier' class that provides `.fit()`, `.predict()`, `.predict_proba()`, and `.score()`. 
+
+</aside>
+
+## Make it an SKLearn-Style Classifier (add methods for consistant API)
+
+To turn PenguinNet into a scikit-learn-style classifier, our wrapper class needs to: Initialize the PyTorch model, Convert the NumPy input into PyTorch tensors and Run the Training Loop. 
+
+```{python}
+#| code-line-numbers: "1-24|26-76|78-91|93-105|107-115"
+class PenguinNetClassifier:
+    """
+    sklearn-style wrapper around a PyTorch neural network
+    """
+    # Creates the Classifier with set attributes
+    def __init__(
+        self,
+        hidden_units=16,
+        lr=0.01,
+        epochs=200,
+        batch_size=32,
+        random_state=42
+    ):
+        # --- User set attributes ---
+        self.hidden_units = hidden_units
+        self.lr = lr
+        self.epochs = epochs
+        self.batch_size = batch_size
+        self.random_state = random_state
+        # --- Set during 'Fit' ---
+        self.model_ = None
+        self.classes_ = None
+        self.n_features_in_ = None
+        self.n_samples_fit_ = None
+
+    # FIT
+    def fit(self, X, y):
+        """Train the model on data X and labels y."""
+        # Set Random States
+        torch.manual_seed(self.random_state)
+        np.random.seed(self.random_state)
+
+        # Ensure NumPy Arrays
+        X = np.asarray(X)
+        y = np.asarray(y)
+
+        # Set Attributes
+        self.n_features_in_ = X.shape[1]
+        self.n_samples_fit_ = X.shape[0]
+
+        # Encode class labels as integers -> Model only understands ints
+        self.classes_, y_encoded = np.unique(y, return_inverse=True)
+
+        # Convert to tensors -> Needed for PyTorch
+        X_t = torch.tensor(X, dtype=torch.float32)
+        y_t = torch.tensor(y_encoded, dtype=torch.long)
+
+        # Dataset / loader -> Classes! Feed data to model in batches
+        dataset = torch.utils.data.TensorDataset(X_t, y_t)
+        loader = torch.utils.data.DataLoader(
+            dataset,
+            batch_size=self.batch_size,
+            shuffle=True
+        )
+
+        # Initialize PenguinNet model
+        self.model_ = PenguinNet(
+            hidden_units=self.hidden_units,
+            n_classes=len(self.classes_)
+        )
+
+        # Initialize loss function and optimizer
+        criterion = nn.CrossEntropyLoss()
+        optimizer = optim.Adam(self.model_.parameters(), lr=self.lr)
+
+        # Training loop -> Fit model to the data
+        self.model_.train()
+        for epoch in range(self.epochs):
+            for xb, yb in loader:
+                optimizer.zero_grad()
+                logits = self.model_(xb)
+                loss = criterion(logits, yb)
+                loss.backward()
+                optimizer.step()
+
+        return self
+
+    # PREDICT
+    def predict(self, X):
+        """For new data X, predict class label."""
+        self._check_is_fitted()
+
+        # Make new X also a tensor
+        X = torch.tensor(np.asarray(X), dtype=torch.float32)
+
+        self.model_.eval() # Set model to eval mode
+        with torch.no_grad():
+            logits = self.model_(X) # Get logits from model
+            preds = torch.argmax(logits, dim=1).numpy() # Convert to predictions
+
+        return self.classes_[preds]
+
+    # PREDICT_PROBA
+    def predict_proba(self, X):
+        """For new data X, predict probability of each label."""
+        self._check_is_fitted()
+
+        X = torch.tensor(np.asarray(X), dtype=torch.float32)
+
+        self.model_.eval()
+        with torch.no_grad():
+            logits = self.model_(X)
+            probs = torch.softmax(logits, dim=1).numpy()
+
+        return probs
+
+    # SCORE
+    def score(self, X, y):
+        y_pred = self.predict(X)
+        return np.mean(y_pred == np.asarray(y))
+
+    # INTERNAL CHECK
+    def _check_is_fitted(self):
+        if self.model_ is None:
+            raise RuntimeError("This PenguinNetClassifier instance is not fitted yet.")
+
+```
+
+
+<aside class="notes">
+To make an Sklearn-style classifier, we need to define the fit, score, predict methods ourselves. This is by design: Neural network arctitectures can be complex and have custom activation functions that would make it difficult to have pre-packaged methods. 
+
+However, it is beneficial for us to design our Classifier wrapper to match the scikit-learn API, which will allow us to take advantage of Python's ducktyping later on. 
+
+
+
+</aside>
+
+
+## Preparing Training and Test Data
+
+<div class="clean-text"> 
+
+For our neural network classifier, the model is **supervised** (meaning it is trained using the outcome 'y' data). This time, we need to split our data into a training and test set. <br> 
+
+</div>
+
+. . . 
+
+The **function** `train_test_split()` from scikit-learn is helpful here! 
+
+```{python}
+# Splitting dataset into training and testing sets (still using scaled X!)
+X_train, X_test, y_train, y_test = train_test_split(
+    X_scaled, y,
+    test_size=0.3,
+    random_state=42,
+    stratify=y
+)
+```
+
+. . . 
+
+>Unlike R functions, which return a single object (often a list when multiple outputs are needed), Python functions can return multiple values as a tuple—letting you unpack them directly into separate variables.
+
+## Making an instance of PenguinNetClassifier and fitting to training data  
+- For a supervised model, y_train is included in `.fit()`!
+```{python}
+#| output: true
+penguin_nn = PenguinNetClassifier( ## Create model object w/ desired architecture
+    hidden_units=32,
+    lr=0.01,
+    epochs=300,
+    batch_size=32
+)
+
+penguin_nn.fit(X_train, y_train) ## Trains the model on the provided test data 
+```
+
+<aside class="notes">
+We took advantage of ducktyping to make our classfier use the same commands as the ones from scikit learn. 
+</aside>
+
+## Once the model is fit...
+
+-We can look at its attributes (ex: `.classes_`) which gives the class labels as known to the classifier
+
+```{python}
+#| output-location: fragment
+print(penguin_nn.classes_)
+```
+
+. . . 
+
+-And use fitted model to predict species for test data
+
+```{python}
+#| output-location: fragment
+# Use the predict method on the test data to get the predictions for the test data
+y_pred = penguin_nn.predict(X_test)
+
+# Also can take a look at the prediction probabilities, 
+# and use the .classes_ attribute to put the column labels in the right order
+probs = pd.DataFrame(
+    penguin_nn.predict_proba(X_test),
+    columns = penguin_nn.classes_)
+probs['y_pred'] = y_pred
+
+print("Predicted probabilities: \n", probs.head())
+```
+
+<aside class="notes">
+After fitting, we can see that the classifier has learned the labels from the dataset, and we are able to use it to predict species labels for the test data. 
+
+We use the .predict method to get the predicted classes and the .predict proba method to get the actual probabilities. 
+We can store both of these in a pandas dataframe, which we can use to make a scatterplot to compare the actual and predicted classes. 
+</aside>
+
+## Scatterplot for PenguinNet classification of test data
+
+<div class="clean-text"> 
+
+- Create dataframe of unscaled X_test, `bill_length_mm`, and `bill_depth_mm`.
+- Add to it the actual and predicted species labels
+
+```{python}
+#| output-location: fragment
+## First unscale the test data
+X_test_unscaled = scaler.inverse_transform(X_test)
+
+## create dataframe 
+penguins_test = pd.DataFrame(
+    X_test_unscaled,
+    columns=['bill_length_mm', 'bill_depth_mm']
+)
+
+## add actual and predicted species 
+penguins_test['y_actual'] = y_test.values
+penguins_test['y_pred'] = y_pred
+penguins_test['correct'] = penguins_test['y_actual'] == penguins_test['y_pred']
+
+print("Results: \n", penguins_test.head())
+```
+
+<aside class="notes">
+Using the scaler object we created previously, we can un-scale the test data and create a new dataframe that contains the unscaled predictors as well as the true and predicted species. 
+
+Line 13 here creates a boolean (true/false) column for agreement between the actual and predicted species. 
+</aside>
+
+</div>
+
+## Plotnine scatterplot for PenguinNet classification of test data
+
+To see how well our model did at classifying the remaining penguins...
+
+```{python}
+#| output-location: slide
+## Build the plot
+plot3 = (ggplot(penguins_test, aes(x="bill_length_mm", y="bill_depth_mm", 
+color="y_actual", fill = 'y_pred', shape = 'correct'))
+ + geom_point(size=4, stroke=1.1)  # Stroke controls outline thickness
+ + scale_shape_manual(values={True: 'o', False: '^'})  # Circle and triangle
+ + ggtitle("PenguinNet Classification Results")
+ + theme_bw())
+
+display(plot3)
+```
+
+<aside class="notes">
+Now we can put all of this together into a plot. This plot is overely complicated, but I wanted to use it to show some more of the plot options in plotnine. 
+</aside>
+
+## Visualizing Decision Boundary with seaborn and matplotlib
+
+```{python}
+#| code-line-numbers: "1-6|8-22|24-37|"
+#| output-location: slide
+from sklearn.inspection import DecisionBoundaryDisplay
+from sklearn.preprocessing import LabelEncoder
+
+# Encode labels for plotting
+label_encoder = LabelEncoder()
+y_encoded = label_encoder.fit_transform(y)
+
+# Create plot objects
+fig, ax = plt.subplots(figsize=(12, 8))
+
+# Plot decision boundary using the neural net classifier
+disp = DecisionBoundaryDisplay.from_estimator(
+    penguin_nn,             # use the neural network classifier (sklearn-style) 🦆
+    X_test,                 # must be 2-dimensional features
+    response_method='predict',
+    plot_method='pcolormesh',
+    xlabel="bill_length_scaled",
+    ylabel="bill_depth_scaled",
+    shading='auto',
+    alpha=0.5,
+    ax=ax
+)
+
+# Overlay test points
+scatter = disp.ax_.scatter(
+    X_scaled[:, 0],
+    X_scaled[:, 1],
+    c=y_encoded,
+    edgecolors='k'
+)
+
+# Add legend using class labels from the classifier
+disp.ax_.legend(
+    scatter.legend_elements()[0],
+    penguin_nn.classes_,
+    loc='lower left',
+    title='Species'
+)
+
+disp.ax_.set_title("Penguin Neural Network Classification")
+fig.show()
+
+```
+
+<aside class="notes">
+To visualize the decision boundary of the modelm we can use another sklearn class called DecisionBoundaryDisplay, 
+which creates a display object that has matplotlib-style plotting methods. 
+
+Because we designed our classifier to match sklearn API, we are able to use sklearn's DecisionBoundaryDisplay with our classifier without needing additional steps. 
+
+We assign our axis in the creation of our display object and use the attached .ax_. methods to create the scatter plot and legend as well as set the title. 
+
+Because we're using this display object, we have to explicitly call fig.show() here to display the figure. 
+
+</aside>
+
+
+## Evaluate PenguinNet performance
+
+<div class="clean-text"> 
+To check the performance of our PenguinNet classifier, we can check the accuracy score and print a classification report.  
+- `accuracy_score` and `classification_report` are both functions!  
+- They are not unique to scikit-learn classes so it makes sense for them to be functions not methods  
+
+</div> 
+
+```{python}
+#| output-location: fragment
+# Evaluate neural network performance
+penguin_nn_accuracy = accuracy_score(y_test, y_pred)
+print(f"Neural Network Accuracy: {penguin_nn_accuracy:.2f}")
+print("Classification Report: \n", classification_report(y_test, y_pred))
+```
+
+<aside class="notes">
+
+Finally, we can use the 'accuracy_score' and classification_report functions to check the performance of our classifier. 
+
+</aside>
+
+## Make a Summary Table of Metrics for Both Models
+
+```{python}
+#| output-location: fragment
+summary_table = pd.DataFrame({
+    "Metric": ["k-Means Adjusted Rand Index", "Neural Network Accuracy"],
+    "Value": [kmeans_ari, penguin_nn_accuracy]
+})
+
+(
+    GT(summary_table)
+    .tab_header(title="Model Results Summary")
+    .fmt_number(columns="Value", n_sigfig=2)
+    .tab_options(table_font_size=20)
+)
+
+```
+
+<aside class="notes">
+
+Using the great_tables package, we can make a nice little summary table of our results from both mini-projects. 
+
+</aside>
+
+
+## Key Takeaways from This Session
+
+<div class="clean-text"> 
+<p style="font-size: 1.25em"> 
+</p>
+<ul style="font-size: 1.1em; margin: 0 auto;">
+  <li><strong>Python workflows rely on object-oriented structures in addition to functions:</strong><br>
+   Understanding the OOP paradigm makes Python a lot easier!</li>
+  <li><strong>Everything is an object!</strong></li>
+  <li><strong>Duck Typing:</strong><br>
+  If an object has a method, that method can be called regardless of the object type. Caveat being, make sure the arguments (if any) in the method are specified correctly for all objects!
+  </li>
+    <li>Python packages use <strong>common methods</strong> that make it easy to change between model types without changing a lot of code. </li>
+    <li>We can do the same when we design our own model classes </li>
+</ul>
+</div>
+
+
+
