@@ -1640,4 +1640,6 @@ Using the great_tables package, we can make a nice little summary table of our r
 </div>
 
 
+## Return to website
 
+<a href="https://pythonforrusers.github.io/Python-Workshop.github.io/">Intro to Python Workshops</a>

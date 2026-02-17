@@ -1,312 +1,207 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Session 4 – Object-Oriented Programming and Modeling Libraries – Intro to Python Workshops</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-</style>
-
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
+<html lang="en"><head>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1d5e050edb13250d4f64432100cad504.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
 
-
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
-
-
-<link rel="stylesheet" href="../styles.css">
+  <title>Intro to Python Workshops – Session 4 – Object-Oriented Programming and Modeling Libraries</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-fa8f1c88573322435114df67fc616f7c.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
 
-<body class="nav-fixed">
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title"><strong>Session 4 – Object-Oriented Programming and Modeling Libraries</strong></h1>
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Intro to Python Workshops</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Tutorials</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
-        <li>
-    <a class="dropdown-item" href="../sessions.html">
- <span class="dropdown-text">All Sessions</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../session1/session1.html">
- <span class="dropdown-text">Session 1: Get Started with Python</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../session2/DataStructuresDemo.html">
- <span class="dropdown-text">Session 2: Intro to Python Data Structures</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../session3/DataStructuresDemo_2.html">
- <span class="dropdown-text">Session 3: Intro to Panda and great_tables</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../session4/session4v2_webpage.html">
- <span class="dropdown-text">Session 4: Object-Oriented Programming and Modeling Libraries</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-extras" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Extras</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-extras">    
-        <li>
-    <a class="dropdown-item" href="../extra_tutorials/venvlikeconda.html">
- <span class="dropdown-text">Using Venv for Python Virtual Environents</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../extra_tutorials/creatingsimplepackage.html">
- <span class="dropdown-text">Creating a Python Package</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/discussions"> 
-<span class="menu-text">Discussion</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-links" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Links</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-links">    
-        <li>
-    <a class="dropdown-item" href="../link.html">
- <span class="dropdown-text">All Links</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://www.anaconda.com/download/success">
- <span class="dropdown-text">Install Anaconda</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong">
- <span class="dropdown-text">Follow Along Files</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../FAQ.html"> 
-<span class="menu-text">FAQ</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
-  <div id="quarto-announcement" data-announcement-id="86de73d55cf0a76b1f69b72e195f935c" class="alert alert-primary hidden"><i class="bi bi-info-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
-<p><strong>WIP</strong> - This website is currently undergoing some updates. Content is subject to change.</p>
-</div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#session-overview" id="toc-session-overview" class="nav-link active" data-scroll-target="#session-overview">Session Overview</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#why-python" id="toc-why-python" class="nav-link" data-scroll-target="#why-python">Why Python? 🐍</a></li>
-  <li><a href="#programming-styles-r-vs-python" id="toc-programming-styles-r-vs-python" class="nav-link" data-scroll-target="#programming-styles-r-vs-python">Programming Styles: R vs Python</a></li>
-  <li><a href="#why-does-oop-matter-in-python-modeling" id="toc-why-does-oop-matter-in-python-modeling" class="nav-link" data-scroll-target="#why-does-oop-matter-in-python-modeling">Why Does OOP Matter in Python Modeling?</a></li>
-  <li><a href="#oop-in-python-modeling" id="toc-oop-in-python-modeling" class="nav-link" data-scroll-target="#oop-in-python-modeling">OOP in Python Modeling</a></li>
-  </ul></li>
-  <li><a href="#part-1-object-oriented-programming" id="toc-part-1-object-oriented-programming" class="nav-link" data-scroll-target="#part-1-object-oriented-programming">Part 1: Object-Oriented Programming</a>
-  <ul class="collapse">
-  <li><a href="#key-oop-principles-recap" id="toc-key-oop-principles-recap" class="nav-link" data-scroll-target="#key-oop-principles-recap"><strong>Key OOP Principles (Recap)</strong></a></li>
-  <li><a href="#classes-and-objects" id="toc-classes-and-objects" class="nav-link" data-scroll-target="#classes-and-objects"><strong>Classes and Objects</strong></a></li>
-  </ul></li>
-  <li><a href="#example-creating-a-class" id="toc-example-creating-a-class" class="nav-link" data-scroll-target="#example-creating-a-class">Example: Creating a Class</a>
-  <ul class="collapse">
-  <li><a href="#base-classes" id="toc-base-classes" class="nav-link" data-scroll-target="#base-classes">Base Classes</a></li>
-  <li><a href="#creating-a-dog" id="toc-creating-a-dog" class="nav-link" data-scroll-target="#creating-a-dog">Creating a dog</a></li>
-  <li><a href="#derived-child-classes" id="toc-derived-child-classes" class="nav-link" data-scroll-target="#derived-child-classes">Derived (Child) Classes</a></li>
-  <li><a href="#mixins" id="toc-mixins" class="nav-link" data-scroll-target="#mixins">Mixins</a></li>
-  <li><a href="#duck-typing" id="toc-duck-typing" class="nav-link" data-scroll-target="#duck-typing">Duck Typing</a></li>
-  <li><a href="#duck-typing-in-action" id="toc-duck-typing-in-action" class="nav-link" data-scroll-target="#duck-typing-in-action">Duck Typing in Action</a></li>
-  <li><a href="#example-oop-in-machine-learning-and-modeling" id="toc-example-oop-in-machine-learning-and-modeling" class="nav-link" data-scroll-target="#example-oop-in-machine-learning-and-modeling"><strong>Example: OOP in Machine Learning and Modeling</strong></a></li>
-  <li><a href="#key-benefits-of-oop-in-machine-learning" id="toc-key-benefits-of-oop-in-machine-learning" class="nav-link" data-scroll-target="#key-benefits-of-oop-in-machine-learning"><strong>Key Benefits of OOP in Machine Learning</strong></a></li>
-  </ul></li>
-  <li><a href="#part-b---demo-projects" id="toc-part-b---demo-projects" class="nav-link" data-scroll-target="#part-b---demo-projects">Part B - Demo Projects</a>
-  <ul class="collapse">
-  <li><a href="#mini-project-classifying-penguins-with-scikit-learn" id="toc-mini-project-classifying-penguins-with-scikit-learn" class="nav-link" data-scroll-target="#mini-project-classifying-penguins-with-scikit-learn">🐧 Mini Project: Classifying Penguins with scikit-learn</a></li>
-  <li><a href="#import-libraries" id="toc-import-libraries" class="nav-link" data-scroll-target="#import-libraries">Import Libraries</a></li>
-  <li><a href="#import-libraries-1" id="toc-import-libraries-1" class="nav-link" data-scroll-target="#import-libraries-1">Import Libraries</a></li>
-  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data Preparation</a></li>
-  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a></li>
-  <li><a href="#scatterplot-with-plotnine" id="toc-scatterplot-with-plotnine" class="nav-link" data-scroll-target="#scatterplot-with-plotnine">Scatterplot with plotnine</a></li>
-  <li><a href="#scatterplot-with-seaborn" id="toc-scatterplot-with-seaborn" class="nav-link" data-scroll-target="#scatterplot-with-seaborn">Scatterplot with seaborn</a></li>
-  <li><a href="#scaling-the-data---understanding-the-standard-scaler-class" id="toc-scaling-the-data---understanding-the-standard-scaler-class" class="nav-link" data-scroll-target="#scaling-the-data---understanding-the-standard-scaler-class">Scaling the data - Understanding the Standard Scaler class</a></li>
-  <li><a href="#scaling-data" id="toc-scaling-data" class="nav-link" data-scroll-target="#scaling-data">Scaling Data</a></li>
-  <li><a href="#understanding-the-kmeans-model-class" id="toc-understanding-the-kmeans-model-class" class="nav-link" data-scroll-target="#understanding-the-kmeans-model-class">Understanding the KMeans model class</a></li>
-  <li><a href="#use-function-to-calculate-ari" id="toc-use-function-to-calculate-ari" class="nav-link" data-scroll-target="#use-function-to-calculate-ari">Use function to calculate ARI</a>
-  <ul class="collapse">
-  <li><a href="#we-can-also-use-methods-on-our-data-structure-to-create-new-data" id="toc-we-can-also-use-methods-on-our-data-structure-to-create-new-data" class="nav-link" data-scroll-target="#we-can-also-use-methods-on-our-data-structure-to-create-new-data">We can also use methods on our data structure to create new data</a></li>
-  </ul></li>
-  <li><a href="#scatter-data-heatmap-data" id="toc-scatter-data-heatmap-data" class="nav-link" data-scroll-target="#scatter-data-heatmap-data">Scatter data &amp; Heatmap Data</a></li>
-  <li><a href="#creating-plots" id="toc-creating-plots" class="nav-link" data-scroll-target="#creating-plots">Creating Plots</a></li>
-  <li><a href="#project-2-knn-classification" id="toc-project-2-knn-classification" class="nav-link" data-scroll-target="#project-2-knn-classification">Project 2: KNN classification</a></li>
-  <li><a href="#understanding-kneighborsclassifier-class" id="toc-understanding-kneighborsclassifier-class" class="nav-link" data-scroll-target="#understanding-kneighborsclassifier-class">Understanding KNeighborsClassifier class</a></li>
-  <li><a href="#making-an-instance-of-kneighborsclassifier-and-fitting-to-training-data" id="toc-making-an-instance-of-kneighborsclassifier-and-fitting-to-training-data" class="nav-link" data-scroll-target="#making-an-instance-of-kneighborsclassifier-and-fitting-to-training-data">Making an instance of KNeighborsClassifier and fitting to training data</a></li>
-  <li><a href="#once-the-model-is-fit" id="toc-once-the-model-is-fit" class="nav-link" data-scroll-target="#once-the-model-is-fit">Once the model is fit…</a></li>
-  <li><a href="#scatterplot-for-k-nn-classification-of-test-data" id="toc-scatterplot-for-k-nn-classification-of-test-data" class="nav-link" data-scroll-target="#scatterplot-for-k-nn-classification-of-test-data">Scatterplot for k-NN classification of test data</a></li>
-  <li><a href="#plotnine-scatterplot-for-k-nn-classification-of-test-data" id="toc-plotnine-scatterplot-for-k-nn-classification-of-test-data" class="nav-link" data-scroll-target="#plotnine-scatterplot-for-k-nn-classification-of-test-data">Plotnine scatterplot for k-NN classification of test data</a></li>
-  <li><a href="#visualizing-decision-boundary-with-seaborn-and-matplotlib" id="toc-visualizing-decision-boundary-with-seaborn-and-matplotlib" class="nav-link" data-scroll-target="#visualizing-decision-boundary-with-seaborn-and-matplotlib">Visualizing Decision Boundary with seaborn and matplotlib</a></li>
-  <li><a href="#evaluate-knn-performance" id="toc-evaluate-knn-performance" class="nav-link" data-scroll-target="#evaluate-knn-performance">Evaluate KNN performance</a></li>
-  <li><a href="#make-a-summary-table-of-metrics-for-both-models" id="toc-make-a-summary-table-of-metrics-for-both-models" class="nav-link" data-scroll-target="#make-a-summary-table-of-metrics-for-both-models">Make a Summary Table of Metrics for Both Models</a></li>
-  <li><a href="#key-takeaways-from-this-session" id="toc-key-takeaways-from-this-session" class="nav-link" data-scroll-target="#key-takeaways-from-this-session">Key Takeaways from This Session</a></li>
-  <li><a href="#additional-insights" id="toc-additional-insights" class="nav-link" data-scroll-target="#additional-insights">Additional Insights</a></li>
-  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">‘Homework’</a></li>
-  <li><a href="#pre-reading-for-this-session" id="toc-pre-reading-for-this-session" class="nav-link" data-scroll-target="#pre-reading-for-this-session"><strong>Pre-Reading for This Session</strong></a></li>
-  </ul></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="session4v3_slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
-    </div>
-<!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><strong>Session 4 – Object-Oriented Programming and Modeling Libraries</strong></h1>
+<div class="quarto-title-authors">
 </div>
 
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="session-overview" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="session-overview">Session Overview</h2>
+</section>
+<section id="session-overview" class="slide level2">
+<h2>Session Overview</h2>
 <div class="clean-text">
 <p>In this session, we’ll cover object-oriented programming and how it applies to modeling and analysis workflows in Python. <br></p>
 <strong style="font-size: 1.15em">Topics:</strong><br>
@@ -333,9 +228,20 @@ Plotting data with <code>plotnine</code> and <code>seaborn</code>
 </div>
 <aside class="notes">
 This is the last session of the intro to python workshops. There will be a brief ‘homework’ that covers the topics in this session. I do not anticipate having much time left over at the end of this session, so if you have any questions about that please feel free to reach out to us via teams!
-</aside>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="introduction" class="level1 page-columns page-full">
+<section>
+<section id="introduction" class="title-slide slide level1 center">
 <h1>Introduction</h1>
 
 </section>
@@ -358,10 +264,8 @@ This is the last session of the intro to python workshops. There will be a brief
 <li>clean model outputs, tables and high-quality visualizations</li>
 </ul></li>
 </ul>
-</section>
 </div><div class="column">
-<section id="python-general-purpose-language" class="level4">
-<h4 class="anchored" data-anchor-id="python-general-purpose-language">Python: General-Purpose Language</h4>
+<h4 id="python-general-purpose-language">Python: General-Purpose Language</h4>
 <ul>
 <li><p>Designed for <strong>many domains</strong>, not just statistics<br>
 </p></li>
@@ -555,18 +459,15 @@ These are some links to tutorials for the packages I mentioned.
 <li>If you work with PyTorch or TensorFlow you will likely be making model classes yourself</li>
 </ul>
 </section>
-</section>
-<section id="example-creating-a-class" class="level1 page-columns page-full">
-<h1>Example: Creating a Class</h1>
-<section id="base-classes" class="level2 page-columns page-full">
-<h2 data-anchor-id="base-classes">Base Classes</h2>
+<section id="base-classes" class="slide level2">
+<h2>Base Classes</h2>
 <div class="clean-text">
 <p>A <strong>base class</strong> serves as a template for creating objects. Other classes can inherit from it to reuse its attributes and methods.</p>
 <p>Classes are defined using the <code>class</code> keyword, and their structure is specified using an <code>__init__()</code> method for initialization.</p>
 <div class="fragment">
 <p>Define a <code>Dog</code> with attributes (data) and methods (behaviors).<br>
 * <a href="https://docs.python.org/3/reference/datamodel.html#special-method-names"><strong>special</strong> or <strong>“dunder”</strong> methods</a> (short for double underscore) define how objects behave in certain contexts.</p>
-<div id="3350f3b0" class="cell" data-execution_count="1">
+<div id="9c268deb" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" data-code-line-numbers="1-2|3,4|6-7|9-13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="kw">class</span> Dog: <span class="co">## begin class definition</span></span>
 <span id="cb1-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, breed): <span class="co">## define init method</span></span>
 <span id="cb1-3"><a></a>        <span class="va">self</span>.name <span class="op">=</span> name <span class="co">## add attributes</span></span>
@@ -600,11 +501,11 @@ These are some links to tutorials for the packages I mentioned.
           display:block!important;
       }</style></aside>
 </section>
-<section id="creating-a-dog" class="level2 page-columns page-full">
-<h2 data-anchor-id="creating-a-dog">Creating a dog</h2>
+<section id="creating-a-dog" class="slide level2">
+<h2>Creating a dog</h2>
 <div class="clean-text">
 <p>Creating an instance of the <code>Dog</code> class lets us model a particular dog:</p>
-<div id="aa4a856e" class="cell" data-execution_count="2">
+<div id="0a48d8b3" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>buddy <span class="op">=</span> Dog(<span class="st">"Buddy"</span>, <span class="st">"Golden Retriever"</span>)</span>
 <span id="cb2-2"><a></a><span class="bu">print</span>(<span class="ss">f"Buddy is an object of class </span><span class="sc">{</span><span class="bu">type</span>(buddy)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -621,7 +522,7 @@ Set value of attributes [<code>name</code> and <code>breed</code>] -&gt; stored 
 <code>buddy</code> can use any <code>Dog</code> class methods
 </li>
 </ul>
-<div id="dd0d740f" class="cell" data-execution_count="3">
+<div id="7bbfaa76" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" data-code-line-numbers="1-3|5-6|8-9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="co">## if we want to see what kind of dog our dog is</span></span>
 <span id="cb4-2"><a></a><span class="co">## we can call buddy's attributes</span></span>
 <span id="cb4-3"><a></a><span class="bu">print</span>(<span class="ss">f"Our dog </span><span class="sc">{</span>buddy<span class="sc">.</span>name<span class="sc">}</span><span class="ss"> is a </span><span class="sc">{</span>buddy<span class="sc">.</span>breed<span class="sc">}</span><span class="ss">."</span>)</span>
@@ -659,12 +560,12 @@ Once we create buddy, we can use any attributes or methods defined in the dog cl
           display:block!important;
       }</style></aside>
 </section>
-<section id="derived-child-classes" class="level2 page-columns page-full">
-<h2 data-anchor-id="derived-child-classes">Derived (Child) Classes</h2>
+<section id="derived-child-classes" class="slide level2">
+<h2>Derived (Child) Classes</h2>
 <div class="clean-text">
 <p>Derived/child classes build on base classes using the <em>principle of inheritence.</em> <br></p>
 <p>Now that we have a <code>Dog</code> class, we can build on it to create a specialized <code>GuardDog</code> class.</p>
-<div id="ba9bbad9" class="cell" data-execution_count="4">
+<div id="3a57a7c7" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|1|2-7|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="kw">class</span> GuardDog(Dog):  <span class="co"># GuardDog inherits from Dog</span></span>
 <span id="cb7-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, breed, training_level): <span class="co">## in addition to name and breed, we can </span></span>
 <span id="cb7-3"><a></a>        <span class="co"># define a training level. </span></span>
@@ -709,7 +610,7 @@ Let’s make an instance of guarddog called rex and we can see how this works.
 
 <p><code>rex</code> has all of the methods/attributes introduced in the <code>Dog</code> class as well as the new <code>GuardDog</code> class.</p>
 <p>Using methods from the base class:</p>
-<div id="39d43f76" class="cell" data-slide-type="fragment" data-execution_count="5">
+<div id="c6dd6203" class="cell" data-slide-type="fragment" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="bu">print</span>(rex.speak())</span>
 <span id="cb8-2"><a></a>rex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -721,11 +622,12 @@ Let’s make an instance of guarddog called rex and we can see how this works.
 <pre><code>Dog(name='Rex', breed='German Shepherd')</code></pre>
 </div>
 </div>
-<p>. . .</p>
+<div class="fragment">
 <p><span style="font-size: 1.15em; color: #007acc"><strong>This is the power of inheritance</strong></span>—we don’t have to rewrite everything from scratch!</p>
-<p>. . .</p>
+</div>
+<div class="fragment">
 <p>Using a method from the child class:</p>
-<div id="83f08f4d" class="cell" data-slide-type="fragment" data-execution_count="6">
+<div id="ccd91a72" class="cell" data-slide-type="fragment" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>rex<span class="sc">.</span>name<span class="sc">}</span><span class="ss">'s training level is </span><span class="sc">{</span>rex<span class="sc">.</span>training_level<span class="sc">}</span><span class="ss">."</span>)</span>
 <span id="cb11-2"><a></a><span class="bu">print</span>(rex.guard()) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -755,7 +657,7 @@ Rex needs more training before guarding.</code></pre>
 
 <p>Unlike standalone functions, methods in Python often update objects <strong>in-place</strong>— meaning they <em>modify the object itself</em> rather than returning a new one.</p>
 <p>We can use the <code>.train()</code> method to increase rex’s training level.</p>
-<div id="504722b2" class="cell" data-execution_count="7">
+<div id="f38b511d" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="bu">print</span>(rex.train())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-execution_count="7">
@@ -763,25 +665,25 @@ Rex needs more training before guarding.</code></pre>
 <pre><code>Training Rex. Rex's training level is now 6</code></pre>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Be Careful!!!
+<p><strong>Be Careful!!!</strong></p>
 </div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="callout-content">
 <p>Calling rex.train() within a print statement still updates rex’s training level. If we were to do this instead:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>rex.train()</span>
 <span id="cb15-2"><a></a><span class="bu">print</span>(rex.train())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>it would train rex twice!</p>
 </div>
 </div>
-<p>. . .</p>
+</div>
+<div class="fragment">
 <p>Now if we check,</p>
-<div id="69fe9998" class="cell" data-execution_count="8">
+<div id="ac890156" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>rex<span class="sc">.</span>name<span class="sc">}</span><span class="ss">'s training level is </span><span class="sc">{</span>rex<span class="sc">.</span>training_level<span class="sc">}</span><span class="ss">."</span>)</span>
 <span id="cb16-2"><a></a><span class="bu">print</span>(rex.guard()) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -812,8 +714,8 @@ Rex is guarding the house!</code></pre>
       }</style></aside>
 </div>
 </section>
-<section id="mixins" class="level2 page-columns page-full">
-<h2 data-anchor-id="mixins">Mixins</h2>
+<section id="mixins" class="slide level2">
+<h2>Mixins</h2>
 <div class="clean-text">
 <p>A <strong>mixin</strong> is a special kind of class designed to add <strong>functionality</strong> to another class. Unlike base classes, mixins aren’t used alone.</p>
 <div class="fragment">
@@ -842,7 +744,7 @@ Some examples of mixin classes are ClassifierMixin and RegressorMixin from sciki
 <section class="slide level2">
 
 <p>When creating a mixin class, we let the other base classes carry most of the initialization</p>
-<div id="f1ff3806" class="cell" data-execution_count="9">
+<div id="7baaa78e" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" data-code-line-numbers="1-2,3|4|6-20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a><span class="kw">class</span> TrickMixin: <span class="co">## mixin that will let us teach a dog tricks</span></span>
 <span id="cb18-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
 <span id="cb18-3"><a></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(<span class="op">*</span>args, <span class="op">**</span>kwargs)  <span class="co"># Ensures proper initialization in multi inheritance</span></span>
@@ -882,7 +784,7 @@ A mixin class can add both attributes <strong>adv</strong> and methods, and it c
 <section class="slide level2">
 
 <p>By including both <code>Dog</code> and <code>TrickMixin</code> as base classes, we give objects of class <code>SmartDog</code> the ability to speak and learn tricks! This is how libraries like <code>sklearn</code> turn a base estimator into a classifier/regressor without rewriting everything!</p>
-<div id="fc4c3743" class="cell" data-slide-type="fragment" data-execution_count="10">
+<div id="f757166c" class="cell" data-slide-type="fragment" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="kw">class</span> SmartDog(Dog, TrickMixin):</span>
 <span id="cb19-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, breed):</span>
 <span id="cb19-3"><a></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(name, breed)  <span class="co"># Initialize Dog class</span></span>
@@ -898,7 +800,7 @@ A mixin class can add both attributes <strong>adv</strong> and methods, and it c
 </div>
 </div>
 <p><br></p>
-<div id="47138830" class="cell" data-slide-type="fragment" data-execution_count="11">
+<div id="4e61c9f2" class="cell" data-slide-type="fragment" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a><span class="bu">print</span>(my_smart_dog.learn_trick(<span class="st">"Sit"</span>))  </span>
 <span id="cb21-2"><a></a><span class="bu">print</span>(my_smart_dog.learn_trick(<span class="st">"Roll Over"</span>)) </span>
 <span id="cb21-3"><a></a><span class="bu">print</span>(my_smart_dog.learn_trick(<span class="st">"Sit"</span>))  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -911,7 +813,7 @@ Buddy already knows Sit!</code></pre>
 </div>
 </div>
 <p><br></p>
-<div id="2f0b176b" class="cell" data-slide-type="fragment" data-execution_count="12">
+<div id="bd2e6b09" class="cell" data-slide-type="fragment" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a><span class="bu">print</span>(my_smart_dog.perform_tricks()) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-slide-type="fragment" data-execution_count="12">
@@ -933,10 +835,10 @@ Buddy already knows Sit!</code></pre>
           display:block!important;
       }</style></aside>
 </section>
-<section id="duck-typing" class="level2 page-columns page-full">
-<h2 data-anchor-id="duck-typing">Duck Typing</h2>
+<section id="duck-typing" class="slide level2">
+<h2>Duck Typing</h2>
 <div class="clean-text">
-<blockquote class="blockquote">
+<blockquote>
 <p>🦆 “If it quacks like a duck and walks like a duck, it’s a duck.” 🦆</p>
 </blockquote>
 Python’s duck typing makes our lives a lot easier, and is one of the main benefits of methods over functions:
@@ -954,7 +856,7 @@ Python’s duck typing makes our lives a lot easier, and is one of the main bene
 </div>
 <p>We can demonstrate duck typing by defining two new base classes that are different than <code>Dog</code> but also have a <code>speak()</code> method.</p>
 <div class="fragment">
-<div id="6161d271" class="cell" data-execution_count="13">
+<div id="158d23bc" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25" data-code-line-numbers="|5-6,12-13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a><span class="kw">class</span> Human:</span>
 <span id="cb25-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>
 <span id="cb25-3"><a></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
@@ -986,12 +888,12 @@ Python’s duck typing makes our lives a lot easier, and is one of the main bene
       }</style></aside>
 </div>
 </section>
-<section id="duck-typing-in-action" class="level2 page-columns page-full">
-<h2 data-anchor-id="duck-typing-in-action">Duck Typing in Action</h2>
+<section id="duck-typing-in-action" class="slide level2">
+<h2>Duck Typing in Action</h2>
 <div class="clean-text">
 <p>Even though <code>Dog</code>, <code>Human</code> and <code>Parrot</code> are entirely different classes…</p>
 </div>
-<div id="c644ca08" class="cell" data-execution_count="14">
+<div id="596a4342" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a><span class="kw">def</span> call_speaker(obj):</span>
 <span id="cb26-2"><a></a>    <span class="bu">print</span>(obj.speak()) <span class="co">## No object checking needed here!</span></span>
 <span id="cb26-3"><a></a></span>
@@ -1006,21 +908,21 @@ Alice says hello!
 Polly says squawk!</code></pre>
 </div>
 </div>
-<p>. . .</p>
+<div class="fragment">
 <p>They all implement <code>.speak()</code>, so Python treats them the same!</p>
 <p>In the context of our work, this would allow us to make a pipeline using models from different libraries that have the same methods.</p>
 <p><span style="font-size: 1.2em; color: #007acc"><strong>While our dog example was very simple, this is the same way that model classes work in python!</strong></span></p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Warning
+<p><strong>Warning</strong></p>
 </div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="callout-content">
 <p>With duck typing, Python lets us <b><i>use methods</i></b> without breaking. It does not mean that any given method is correct to use in all cases, or that all similar objects will have the same methods.</p>
+</div>
 </div>
 </div>
 <aside class="notes">
@@ -1112,9 +1014,8 @@ Now that you understand <strong>classes</strong> and <strong>data structures</st
 <code>.classes_</code>, <code>.n_clusters_</code>, etc.
 </li>
 </ul>
-</div>
-</div>
-<blockquote class="blockquote">
+</div></div>
+<blockquote>
 <p>This is true of the scikit-survival package too!</p>
 </blockquote>
 </div>
@@ -1133,8 +1034,8 @@ We’ll follow a fairly typical analysis workflow including data visualization, 
           display:block!important;
       }</style></aside>
 </section>
-<section id="import-libraries" class="level2 page-columns page-full">
-<h2 data-anchor-id="import-libraries">Import Libraries</h2>
+<section id="import-libraries" class="slide level2">
+<h2>Import Libraries</h2>
 <div class="clean-text">
 <p><span style="font-size: 1.2em; color: #007acc"><strong>Before any analysis, we must import the necessary libraries.</strong></span></p>
 <p>For large libraries like <strong>scikit-learn</strong>, <strong>PyTorch</strong>, or <strong>TensorFlow</strong>, we usually do <strong>not</strong> import the entire package. Instead, we selectively import the <strong>classes</strong> and <strong>functions</strong> we need.</p>
@@ -1144,7 +1045,7 @@ We’ll follow a fairly typical analysis workflow including data visualization, 
 - <code>StandardScaler</code> — for feature scaling<br>
 - <code>KMeans</code> — for unsupervised clustering</p>
 <p><br></p>
-<blockquote class="blockquote">
+<blockquote>
 <p>🔤 <strong>Naming Tip</strong>:<br>
 - <code>CamelCase</code> = <strong>Classes</strong><br>
 - <code>snake_case</code> = <strong>Functions</strong></p>
@@ -1154,8 +1055,7 @@ We’ll follow a fairly typical analysis workflow including data visualization, 
 - <code>train_test_split()</code> — to split data into training and test sets<br>
 - <code>accuracy_score()</code> — to evaluate classification accuracy<br>
 - <code>classification_report()</code> — to print precision, recall, F1 (balance of precision and recall), Support (number of true instances per class) - <code>adjusted_rand_score()</code> — to evaluate clustering performance</p>
-</div>
-</div>
+</div></div>
 </div>
 <aside class="notes">
 <p>Our first step is always to import any necessary libraries - but in this case, we will import specific classes and functions we plan to use. For our classes, we’ll need standardscaler as well as our two model classes. We’ll also import some useful functions for splitting our dataset into training/test sets and computing classification scores.</p>
@@ -1174,7 +1074,7 @@ We’ll follow a fairly typical analysis workflow including data visualization, 
 </section>
 <section id="import-libraries-1" class="slide level2">
 <h2>Import Libraries</h2>
-<div id="115c108a" class="cell" data-execution_count="15">
+<div id="17f1e161" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" data-code-line-numbers="|13-16, 25|18-20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a><span class="co">## imports</span></span>
 <span id="cb28-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb28-3"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1204,7 +1104,7 @@ We’ll follow a fairly typical analysis workflow including data visualization, 
 </section>
 <section id="data-preparation" class="slide level2">
 <h2>Data Preparation</h2>
-<div id="124b5e25" class="cell" data-execution_count="16">
+<div id="f0acc2a1" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29" data-code-line-numbers="1,2|4-11|13-16|18-19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a><span class="co"># Load the Penguins dataset</span></span>
 <span id="cb29-2"><a></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>).dropna()</span>
 <span id="cb29-3"><a></a></span>
@@ -1244,8 +1144,7 @@ We’ll follow a fairly typical analysis workflow including data visualization, 
     }
 </style>
 
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1253,7 +1152,7 @@ We’ll follow a fairly typical analysis workflow including data visualization, 
 <th colspan="4" data-quarto-table-cell-role="th" data-halign="left">bill_depth_mm</th>
 <th data-quarto-table-cell-role="th">sex</th>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">mean</th>
 <th data-quarto-table-cell-role="th">std</th>
@@ -1280,7 +1179,7 @@ We’ll follow a fairly typical analysis workflow including data visualization, 
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Adelie</td>
+<th data-quarto-table-cell-role="th">Adelie</th>
 <td>38.8</td>
 <td>2.7</td>
 <td>32.1</td>
@@ -1292,7 +1191,7 @@ We’ll follow a fairly typical analysis workflow including data visualization, 
 <td>{'Male': 73, 'Female': 73}</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Chinstrap</td>
+<th data-quarto-table-cell-role="th">Chinstrap</th>
 <td>48.8</td>
 <td>3.3</td>
 <td>40.9</td>
@@ -1304,7 +1203,7 @@ We’ll follow a fairly typical analysis workflow including data visualization, 
 <td>{'Female': 34, 'Male': 34}</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Gentoo</td>
+<th data-quarto-table-cell-role="th">Gentoo</th>
 <td>47.6</td>
 <td>3.1</td>
 <td>40.9</td>
@@ -1336,8 +1235,8 @@ We’ll follow a fairly typical analysis workflow including data visualization, 
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-visualization" class="level2 page-columns page-full">
-<h2 data-anchor-id="data-visualization">Data Visualization</h2>
+<section id="data-visualization" class="slide level2">
+<h2>Data Visualization</h2>
 <div class="small-clean-text">
 <p>For visualization: use either seaborn or plotnine. <code>plotnine</code> mirrors <code>ggplot2</code> syntax from R and is great for layered grammar-of-graphics plots, while <code>seaborn</code> is more convienient for multiple plots on the same figure. <br></p>
 <h3 id="plotting-with-plotnine-vs-seaborn">Plotting with Plotnine vs Seaborn</h3>
@@ -1374,9 +1273,7 @@ Good for things like <strong>decision boundaries</strong> or <strong>heatmaps</s
 Harder to customize than plotnine plots
 </li>
 </ul>
-</div>
-</div>
-</section>
+</div></div>
 </div>
 <aside class="notes">
 <p>To visually check out our data, we can use either plotnine (which is designed to work like ggplot) or seaborn (base matplotlib + enhancements). For single plots, plotnine can be more convenient but seaborn has better support for putting multiple plots on the same figure.</p>
@@ -1392,12 +1289,12 @@ Harder to customize than plotnine plots
           display:block!important;
       }</style></aside>
 </section>
-<section id="scatterplot-with-plotnine" class="level2 page-columns page-full">
-<h2 data-anchor-id="scatterplot-with-plotnine">Scatterplot with plotnine</h2>
+<section id="scatterplot-with-plotnine" class="slide level2">
+<h2>Scatterplot with plotnine</h2>
 <div class="clean-text">
 <p>To take a look at the distribution of our species by bill length and bill depth before clustering…</p>
 </div>
-<div id="6bddb503" class="cell" data-fig-dpi="600" data-execution_count="17">
+<div id="cfe3ccac" class="cell" data-fig-dpi="600" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>plot1 <span class="op">=</span> (ggplot(penguins, aes(x<span class="op">=</span><span class="st">"bill_length_mm"</span>, y<span class="op">=</span><span class="st">"bill_depth_mm"</span>, color<span class="op">=</span><span class="st">"species"</span>))</span>
 <span id="cb30-2"><a></a> <span class="op">+</span> geom_point()</span>
 <span id="cb30-3"><a></a> <span class="op">+</span> ggtitle(<span class="st">"Penguin Species"</span>)</span>
@@ -1409,7 +1306,7 @@ Harder to customize than plotnine plots
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="session4v3_slides_files/figure-html/cell-18-output-1.png" width="672" height="480"></p>
+<p><img data-src="session4v3_slides_files/figure-revealjs/cell-18-output-1.png" width="960" height="480"></p>
 </figure>
 </div>
 </div>
@@ -1428,10 +1325,10 @@ Harder to customize than plotnine plots
           display:block!important;
       }</style></aside>
 </section>
-<section id="scatterplot-with-seaborn" class="level2 page-columns page-full">
-<h2 data-anchor-id="scatterplot-with-seaborn">Scatterplot with seaborn</h2>
+<section id="scatterplot-with-seaborn" class="slide level2">
+<h2>Scatterplot with seaborn</h2>
 <p>We can make a similar plot in seaborn. This time, let’s include sex by setting the point style</p>
-<div id="c5290113" class="cell" data-execution_count="18">
+<div id="31255fec" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31" data-code-line-numbers="1-2|4-12|14-18|20-22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a><span class="co"># Create the figure and axes obects</span></span>
 <span id="cb31-2"><a></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
 <span id="cb31-3"><a></a></span>
@@ -1475,23 +1372,17 @@ Harder to customize than plotnine plots
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="session4v3_slides_files/figure-html/cell-19-output-1.png" width="950" height="758"></p>
+<p><img data-src="session4v3_slides_files/figure-revealjs/cell-19-output-1.png" width="950" height="758"></p>
 </figure>
 </div>
 </div>
-</div>
-<aside class="notes">
-<p>If we want to do the same thing in seaborn, we can use sns.scatterplot() directly (which doesn’t save the figure to a variable), or we can create figure and axis objects first and then draw the plot on the created axis. We then use methods on the axis object to set the titles and labels.</p>
-<p>Because we are working in an interactive notebook, we don’t have to explicitly use plt.plot() to display the figure.</p>
-</aside>
-</section>
-<section id="scaling-the-data---understanding-the-standard-scaler-class" class="level2 page-columns page-full">
-<h2 data-anchor-id="scaling-the-data---understanding-the-standard-scaler-class">Scaling the data - Understanding the Standard Scaler class</h2>
+</div></section><section id="scaling-the-data---understanding-the-standard-scaler-class" class="slide level2">
+<h2>Scaling the data - Understanding the Standard Scaler class</h2>
 <div class="clean-text">
 <p>For our clustering to work well, the predictors should be on the same scale. To achieve this, we use an instance of the <code>StandardScaler</code> class.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a><span class="kw">class</span> sklearn.preprocessing.StandardScaler(<span class="op">*</span>, copy<span class="op">=</span><span class="va">True</span>, with_mean<span class="op">=</span><span class="va">True</span>, with_std<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>. . .</p>
+<div class="fragment">
 <p><strong>Parameters</strong> are supplied by user<br>
 - <em>copy</em>, <em>with_mean</em>, <em>with_std</em> <br></p>
 <p><strong>Attributes</strong> contain the <code>data</code> of the object<br>
@@ -1522,10 +1413,10 @@ Harder to customize than plotnine plots
       }</style></aside>
 </div>
 </section>
-<section id="scaling-data" class="level2 page-columns page-full">
-<h2 data-anchor-id="scaling-data">Scaling Data</h2>
+<section id="scaling-data" class="slide level2">
+<h2>Scaling Data</h2>
 <div class="clean-text">
-<div id="597feee1" class="cell" data-execution_count="19">
+<div id="1d2645d3" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33" data-code-line-numbers="|5-7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a><span class="co"># Selecting features for clustering -&gt; let's just use bill length and bill depth.</span></span>
 <span id="cb33-2"><a></a>X <span class="op">=</span> penguins[[<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>]]</span>
 <span id="cb33-3"><a></a>y <span class="op">=</span> penguins[<span class="st">"species"</span>]</span>
@@ -1535,71 +1426,71 @@ Harder to customize than plotnine plots
 <span id="cb33-7"><a></a>X_scaled <span class="op">=</span> scaler.fit_transform(X) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
-<div id="aad5ffad" class="cell" data-execution_count="20">
+<div id="ba5a733b" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display" data-execution_count="20">
-<div id="qzbbemvfun" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="lbojdonpqd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#qzbbemvfun table {
+#lbojdonpqd table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#qzbbemvfun thead, tbody, tfoot, tr, td, th { border-style: none; }
+#lbojdonpqd thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#qzbbemvfun p { margin: 0; padding: 0; }
- #qzbbemvfun .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #qzbbemvfun .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #qzbbemvfun .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #qzbbemvfun .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #qzbbemvfun .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #qzbbemvfun .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #qzbbemvfun .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #qzbbemvfun .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #qzbbemvfun .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #qzbbemvfun .gt_column_spanner_outer:first-child { padding-left: 0; }
- #qzbbemvfun .gt_column_spanner_outer:last-child { padding-right: 0; }
- #qzbbemvfun .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #qzbbemvfun .gt_spanner_row { border-bottom-style: hidden; }
- #qzbbemvfun .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #qzbbemvfun .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #qzbbemvfun .gt_from_md> :first-child { margin-top: 0; }
- #qzbbemvfun .gt_from_md> :last-child { margin-bottom: 0; }
- #qzbbemvfun .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #qzbbemvfun .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #qzbbemvfun .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #qzbbemvfun .gt_row_group_first td { border-top-width: 2px; }
- #qzbbemvfun .gt_row_group_first th { border-top-width: 2px; }
- #qzbbemvfun .gt_striped { color: #333333; background-color: #F4F4F4; }
- #qzbbemvfun .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #qzbbemvfun .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
- #qzbbemvfun .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
- #qzbbemvfun .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
- #qzbbemvfun .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #qzbbemvfun .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #qzbbemvfun .gt_left { text-align: left; }
- #qzbbemvfun .gt_center { text-align: center; }
- #qzbbemvfun .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #qzbbemvfun .gt_font_normal { font-weight: normal; }
- #qzbbemvfun .gt_font_bold { font-weight: bold; }
- #qzbbemvfun .gt_font_italic { font-style: italic; }
- #qzbbemvfun .gt_super { font-size: 65%; }
- #qzbbemvfun .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #qzbbemvfun .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#lbojdonpqd p { margin: 0; padding: 0; }
+ #lbojdonpqd .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #lbojdonpqd .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #lbojdonpqd .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #lbojdonpqd .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #lbojdonpqd .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #lbojdonpqd .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #lbojdonpqd .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #lbojdonpqd .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #lbojdonpqd .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #lbojdonpqd .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #lbojdonpqd .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #lbojdonpqd .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #lbojdonpqd .gt_spanner_row { border-bottom-style: hidden; }
+ #lbojdonpqd .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #lbojdonpqd .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #lbojdonpqd .gt_from_md> :first-child { margin-top: 0; }
+ #lbojdonpqd .gt_from_md> :last-child { margin-bottom: 0; }
+ #lbojdonpqd .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #lbojdonpqd .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #lbojdonpqd .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #lbojdonpqd .gt_row_group_first td { border-top-width: 2px; }
+ #lbojdonpqd .gt_row_group_first th { border-top-width: 2px; }
+ #lbojdonpqd .gt_striped { color: #333333; background-color: #F4F4F4; }
+ #lbojdonpqd .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #lbojdonpqd .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #lbojdonpqd .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
+ #lbojdonpqd .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
+ #lbojdonpqd .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #lbojdonpqd .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #lbojdonpqd .gt_left { text-align: left; }
+ #lbojdonpqd .gt_center { text-align: center; }
+ #lbojdonpqd .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #lbojdonpqd .gt_font_normal { font-weight: normal; }
+ #lbojdonpqd .gt_font_bold { font-weight: bold; }
+ #lbojdonpqd .gt_font_italic { font-style: italic; }
+ #lbojdonpqd .gt_super { font-size: 65%; }
+ #lbojdonpqd .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #lbojdonpqd .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
 <thead>
-<tr class="header gt_heading">
-<th colspan="5" class="gt_heading gt_title gt_font_normal">Original vs Scaled Features</th>
+<tr class="gt_heading header">
+<td colspan="5" class="gt_heading gt_title gt_font_normal">Original vs Scaled Features</td>
 </tr>
-<tr class="odd gt_col_headings gt_spanner_row">
+<tr class="gt_col_headings gt_spanner_row even">
 <th rowspan="2" id="Feature" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Feature</th>
 <th colspan="2" id="Original" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Original</span></th>
 <th colspan="2" id="Scaled" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Scaled</span></th>
 </tr>
-<tr class="header gt_col_headings">
+<tr class="gt_col_headings header">
 <th id="Bill_Length_o" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Bill Length</th>
 <th id="Bill_Depth_o" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Bill Depth</th>
 <th id="Bill_Length_s" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Bill Length</th>
@@ -1626,10 +1517,9 @@ Harder to customize than plotnine plots
 
 
 </div>
-        
 </div>
 </div>
-<div id="fa0df77d" class="cell" data-execution_count="21">
+<div id="37ff8d3c" class="cell" data-execution_count="21">
 <details class="code-fold">
 <summary>Show table code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a><span class="co">## Make X_scaled a pandas df</span></span>
@@ -1673,8 +1563,8 @@ This table here just shows how the mean and standard deviation change between th
           display:block!important;
       }</style></aside>
 </section>
-<section id="understanding-the-kmeans-model-class" class="level2 page-columns page-full">
-<h2 data-anchor-id="understanding-the-kmeans-model-class">Understanding the KMeans model class</h2>
+<section id="understanding-the-kmeans-model-class" class="slide level2">
+<h2>Understanding the KMeans model class</h2>
 <div class="clean-text">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a></a><span class="kw">class</span> sklearn.cluster.KMeans(n_clusters<span class="op">=</span><span class="dv">8</span>, <span class="op">*</span>, init<span class="op">=</span><span class="st">'k-means++'</span>, n_init<span class="op">=</span><span class="st">'auto'</span>, max_iter<span class="op">=</span><span class="dv">300</span>, </span>
 <span id="cb35-2"><a></a>tol<span class="op">=</span><span class="fl">0.0001</span>, verbose<span class="op">=</span><span class="dv">0</span>, random_state<span class="op">=</span><span class="va">None</span>, copy_x<span class="op">=</span><span class="va">True</span>, algorithm<span class="op">=</span><span class="st">'lloyd'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1708,7 +1598,7 @@ This table here just shows how the mean and standard deviation change between th
 
 <div class="clean-text">
 <h3 id="create-model">Create model</h3>
-<div id="a2eea057" class="cell" data-execution_count="22">
+<div id="19e3ed32" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a><span class="co">## Choosing 3 clusters b/c we have 3 species</span></span>
 <span id="cb36-2"><a></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">3</span>, random_state<span class="op">=</span><span class="dv">42</span>) <span class="co">## make an instance of the K means class</span></span>
 <span id="cb36-3"><a></a>kmeans</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2122,7 +2012,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <p><br></p>
 <h3 id="fit-model-to-data">Fit model to data</h3>
-<div id="48494e39" class="cell" data-execution_count="23">
+<div id="452b61fb" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a></a><span class="co">## the fit</span></span>
 <span id="cb37-2"><a></a>penguins[<span class="st">"kmeans_cluster"</span>] <span class="op">=</span> kmeans.fit_predict(X_scaled)</span>
 <span id="cb37-3"><a></a></span>
@@ -2546,7 +2436,6 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KMeans(n_clusters=3, random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked=""><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;KMeans<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.cluster.KMeans.html">?<span>Documentation for KMeans</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>KMeans(n_clusters=3, random_state=42)</pre></div> </div></div></div></div>
 </div>
 </div>
-</section>
 </div>
 <aside class="notes">
 <p>Now we create our model, setting the number of clusters to 3 because we have 3 species. One of the fun things about sklearn is that, the repr method gives us this cute little block representation of our model. It shows the parameters that we set during instantiation as well as the model status (the i icon) and link to the model documentation (the ? icon). For non-fitted models, the box is orange and, once we fit the model, the box will be blue!</p>
@@ -2564,12 +2453,12 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
           display:block!important;
       }</style></aside>
 </section>
-<section id="use-function-to-calculate-ari" class="level2 page-columns page-full">
-<h2 data-anchor-id="use-function-to-calculate-ari">Use function to calculate ARI</h2>
+<section id="use-function-to-calculate-ari" class="slide level2">
+<h2>Use function to calculate ARI</h2>
 <div class="clean-text">
 <p>To check how good our model is, we can use one of the functions included in the sklearn library.</p>
 <p>The <code>adjusted_rand_score()</code> function evaluates how well the cluster groupings agree with the species groupings while adjusting for chance.</p>
-<div id="8d5d3dac" class="cell" data-execution_count="24">
+<div id="b6b6ffc4" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a><span class="co"># Calculate clustering performance using Adjusted Rand Index (ARI)</span></span>
 <span id="cb39-2"><a></a>kmeans_ari <span class="op">=</span> adjusted_rand_score(penguins[<span class="st">'species'</span>], penguins[<span class="st">"kmeans_cluster"</span>])</span>
 <span id="cb39-3"><a></a><span class="bu">print</span>(<span class="ss">f"k-Means Adjusted Rand Index: </span><span class="sc">{</span>kmeans_ari<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2604,7 +2493,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <li>If we want to add sex as a variable to see if that is why our clusters don’t agree with our species, we can use a scatterplot</li>
 <li>Using seaborn and matplotlib, we can easily put both of these plots on the same figure. <br></li>
 </ul>
-<div id="e8407645" class="cell" data-execution_count="25">
+<div id="8468e6af" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41" data-code-line-numbers="1-6|8-14|16-17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a><span class="co"># Count occurrences of each species-cluster-sex combination</span></span>
 <span id="cb41-2"><a></a><span class="co"># (.size gives the count as index, use reset_index to get count column.)</span></span>
 <span id="cb41-3"><a></a>scatter_data <span class="op">=</span> (penguins.groupby([<span class="st">"species"</span>, <span class="st">"kmeans_cluster"</span>, <span class="st">"sex"</span>])</span>
@@ -2642,7 +2531,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="scatter-data-heatmap-data" class="slide level2">
 <h2>Scatter data &amp; Heatmap Data</h2>
-<div id="229078d4" class="cell" data-execution_count="26">
+<div id="1d7b2df0" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>display(scatter_data.head(<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -2660,10 +2549,9 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     }
 </style>
 
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-border="1">
 <thead>
-<tr class="header">
+<tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">species</th>
 <th data-quarto-table-cell-role="th">kmeans_cluster</th>
@@ -2674,7 +2562,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
+<th data-quarto-table-cell-role="th">0</th>
 <td>Adelie</td>
 <td>0</td>
 <td>Female</td>
@@ -2682,7 +2570,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <td>0.1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
+<th data-quarto-table-cell-role="th">1</th>
 <td>Adelie</td>
 <td>0</td>
 <td>Male</td>
@@ -2690,7 +2578,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <td>-0.1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
+<th data-quarto-table-cell-role="th">2</th>
 <td>Adelie</td>
 <td>2</td>
 <td>Male</td>
@@ -2703,7 +2591,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 </div>
-<div id="335e9651" class="cell" data-execution_count="27">
+<div id="75e76cd8" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>display(heatmap_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -2721,16 +2609,15 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     }
 </style>
 
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top" data-border="1">
 <thead>
-<tr class="header">
+<tr class="header" style="text-align: right;">
 <th data-quarto-table-cell-role="th">species</th>
 <th data-quarto-table-cell-role="th">Adelie</th>
 <th data-quarto-table-cell-role="th">Chinstrap</th>
 <th data-quarto-table-cell-role="th">Gentoo</th>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th data-quarto-table-cell-role="th">kmeans_cluster</th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
@@ -2739,19 +2626,19 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
+<th data-quarto-table-cell-role="th">0</th>
 <td>142</td>
 <td>5</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
+<th data-quarto-table-cell-role="th">1</th>
 <td>0</td>
 <td>9</td>
 <td>112</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
+<th data-quarto-table-cell-role="th">2</th>
 <td>4</td>
 <td>54</td>
 <td>6</td>
@@ -2778,7 +2665,7 @@ After the transformations we performed, this is what our scatter data and heatma
 </section>
 <section id="creating-plots" class="slide level2">
 <h2>Creating Plots</h2>
-<div id="942ecd36" class="cell" data-execution_count="28">
+<div id="24ecffb5" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44" data-code-line-numbers="1-2|4-9|11-24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a><span class="co"># Prepare the figure with 2 subplots; the axes object will contain both plots</span></span>
 <span id="cb44-2"><a></a>fig2, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">7</span>)) <span class="co">## 1 row 2 columns</span></span>
 <span id="cb44-3"><a></a></span>
@@ -2804,6 +2691,7 @@ After the transformations we performed, this is what our scatter data and heatma
 <span id="cb44-23"><a></a>fig2.tight_layout()</span>
 <span id="cb44-24"><a></a><span class="co">#fig2.show()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+
 <aside class="notes">
 <p>Now we can create our plots on this new figure, fig2. Because we want to create more than 1 plot, we have additional arguments in plt.subplots. 1, 2 means 1 row 2 columns.</p>
 <p>This time, our ‘axis’ is actually a 1d array of axis objects. If we had more than 1 row, it would be a 2d array (like a matrix). <strong>-adv-</strong> If we want to plot the heatmap on the first ‘ax’, we can set ax=axes[0]. Here, we don’t have to explicitly set X and Y, we can just pass the data into the heatmap function.</p>
@@ -2825,7 +2713,7 @@ After the transformations we performed, this is what our scatter data and heatma
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="session4v3_slides_files/figure-html/cell-29-output-1.png" width="1531" height="662"></p>
+<p><img data-src="session4v3_slides_files/figure-revealjs/cell-29-output-1.png" width="1531" height="662"></p>
 </figure>
 </div>
 </div>
@@ -2833,7 +2721,7 @@ After the transformations we performed, this is what our scatter data and heatma
 <h2>Project 2: Neural Network Classifier</h2>
 <h3 id="building-a-pytorch-model-class">Building a PyTorch Model Class</h3>
 <p>Unlike in scikit-learn, with PyTorch, we have to define the model architecture (layer size, order, etc) ourselves. We also define what happens during the forward pass (how input data flows through the network). This is a super simple example, but model architectures can get more complicated.</p>
-<div id="6b5c0087" class="cell" data-execution_count="29">
+<div id="e861e8e6" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a><span class="kw">class</span> PenguinNet(nn.Module):</span>
 <span id="cb45-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, hidden_units<span class="op">=</span><span class="dv">16</span>, n_classes<span class="op">=</span><span class="dv">3</span>):</span>
 <span id="cb45-3"><a></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
@@ -2855,7 +2743,7 @@ After the transformations we performed, this is what our scatter data and heatma
 <section id="make-it-an-sklearn-style-classifier-add-methods-for-consistant-api" class="slide level2">
 <h2>Make it an SKLearn-Style Classifier (add methods for consistant API)</h2>
 <p>To turn PenguinNet into a scikit-learn-style classifier, our wrapper class needs to: Initialize the PyTorch model, Convert the NumPy input into PyTorch tensors and Run the Training Loop.</p>
-<div id="1d92346c" class="cell" data-execution_count="30">
+<div id="2931b8d4" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46" data-code-line-numbers="1-24|26-76|78-91|93-105|107-115"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a></a><span class="kw">class</span> PenguinNetClassifier:</span>
 <span id="cb46-2"><a></a>    <span class="co">"""</span></span>
 <span id="cb46-3"><a></a><span class="co">    sklearn-style wrapper around a PyTorch neural network</span></span>
@@ -2992,9 +2880,9 @@ After the transformations we performed, this is what our scatter data and heatma
 <div class="clean-text">
 <p>For our neural network classifier, the model is <strong>supervised</strong> (meaning it is trained using the outcome ‘y’ data). This time, we need to split our data into a training and test set. <br></p>
 </div>
-<p>. . .</p>
+<div class="fragment">
 <p>The <strong>function</strong> <code>train_test_split()</code> from scikit-learn is helpful here!</p>
-<div id="ca6a548b" class="cell" data-execution_count="31">
+<div id="1bde8151" class="cell" data-execution_count="31">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a><span class="co"># Splitting dataset into training and testing sets (still using scaled X!)</span></span>
 <span id="cb47-2"><a></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
 <span id="cb47-3"><a></a>    X_scaled, y,</span>
@@ -3003,8 +2891,9 @@ After the transformations we performed, this is what our scatter data and heatma
 <span id="cb47-6"><a></a>    stratify<span class="op">=</span>y</span>
 <span id="cb47-7"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>. . .</p>
-<blockquote class="blockquote">
+</div>
+<div class="fragment">
+<blockquote>
 <p>Unlike R functions, which return a single object (often a list when multiple outputs are needed), Python functions can return multiple values as a tuple—letting you unpack them directly into separate variables.</p>
 </blockquote>
 </div>
@@ -3014,7 +2903,7 @@ After the transformations we performed, this is what our scatter data and heatma
 <ul>
 <li>For a supervised model, y_train is included in <code>.fit()</code>!</li>
 </ul>
-<div id="60dea5f5" class="cell" data-execution_count="32">
+<div id="a22f1cf0" class="cell" data-execution_count="32">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a>penguin_nn <span class="op">=</span> PenguinNetClassifier( <span class="co">## Create model object w/ desired architecture</span></span>
 <span id="cb48-2"><a></a>    hidden_units<span class="op">=</span><span class="dv">32</span>,</span>
 <span id="cb48-3"><a></a>    lr<span class="op">=</span><span class="fl">0.01</span>,</span>
@@ -3024,7 +2913,7 @@ After the transformations we performed, this is what our scatter data and heatma
 <span id="cb48-7"><a></a></span>
 <span id="cb48-8"><a></a>penguin_nn.fit(X_train, y_train) <span class="co">## Trains the model on the provided test data </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
-<pre><code>&lt;__main__.PenguinNetClassifier at 0x2ab85ea2770&gt;</code></pre>
+<pre><code>&lt;__main__.PenguinNetClassifier at 0x11dad23dab0&gt;</code></pre>
 </div>
 </div>
 <aside class="notes">
@@ -3041,10 +2930,10 @@ We took advantage of ducktyping to make our classfier use the same commands as t
           display:block!important;
       }</style></aside>
 </section>
-<section id="once-the-model-is-fit" class="level2 page-columns page-full">
-<h2 data-anchor-id="once-the-model-is-fit">Once the model is fit…</h2>
+<section id="once-the-model-is-fit" class="slide level2">
+<h2>Once the model is fit…</h2>
 <p>-We can look at its attributes (ex: <code>.classes_</code>) which gives the class labels as known to the classifier</p>
-<div id="5b616174" class="cell" data-execution_count="33">
+<div id="4410bea3" class="cell" data-execution_count="33">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a><span class="bu">print</span>(penguin_nn.classes_)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-execution_count="33">
@@ -3052,9 +2941,9 @@ We took advantage of ducktyping to make our classfier use the same commands as t
 <pre><code>['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 </div>
 </div>
-<p>. . .</p>
+<div class="fragment">
 <p>-And use fitted model to predict species for test data</p>
-<div id="64a3ab0e" class="cell" data-execution_count="34">
+<div id="e7d3dd2d" class="cell" data-execution_count="34">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a></a><span class="co"># Use the predict method on the test data to get the predictions for the test data</span></span>
 <span id="cb52-2"><a></a>y_pred <span class="op">=</span> penguin_nn.predict(X_test)</span>
 <span id="cb52-3"><a></a></span>
@@ -3101,7 +2990,7 @@ We use the .predict method to get the predicted classes and the .predict proba m
 <li>Create dataframe of unscaled X_test, <code>bill_length_mm</code>, and <code>bill_depth_mm</code>.</li>
 <li>Add to it the actual and predicted species labels</li>
 </ul>
-<div id="f0b70f2f" class="cell" data-execution_count="35">
+<div id="3304a3de" class="cell" data-execution_count="35">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a></a><span class="co">## First unscale the test data</span></span>
 <span id="cb54-2"><a></a>X_test_unscaled <span class="op">=</span> scaler.inverse_transform(X_test)</span>
 <span id="cb54-3"><a></a></span>
@@ -3148,7 +3037,7 @@ Line 13 here creates a boolean (true/false) column for agreement between the act
 <section id="plotnine-scatterplot-for-penguinnet-classification-of-test-data" class="slide level2">
 <h2>Plotnine scatterplot for PenguinNet classification of test data</h2>
 <p>To see how well our model did at classifying the remaining penguins…</p>
-<div id="e879a1a2" class="cell" data-execution_count="36">
+<div id="258f22fa" class="cell" data-execution_count="36">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a></a><span class="co">## Build the plot</span></span>
 <span id="cb56-2"><a></a>plot3 <span class="op">=</span> (ggplot(penguins_test, aes(x<span class="op">=</span><span class="st">"bill_length_mm"</span>, y<span class="op">=</span><span class="st">"bill_depth_mm"</span>, </span>
 <span id="cb56-3"><a></a>color<span class="op">=</span><span class="st">"y_actual"</span>, fill <span class="op">=</span> <span class="st">'y_pred'</span>, shape <span class="op">=</span> <span class="st">'correct'</span>))</span>
@@ -3178,13 +3067,13 @@ Now we can put all of this together into a plot. This plot is overely complicate
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="session4v3_slides_files/figure-html/cell-37-output-1.png" width="672" height="480"></p>
+<p><img data-src="session4v3_slides_files/figure-revealjs/cell-37-output-1.png" width="960" height="480"></p>
 </figure>
 </div>
 </div>
 </div></section><section id="visualizing-decision-boundary-with-seaborn-and-matplotlib" class="slide level2">
 <h2>Visualizing Decision Boundary with seaborn and matplotlib</h2>
-<div id="67c47325" class="cell" data-execution_count="37">
+<div id="c407bdc8" class="cell" data-execution_count="37">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57" data-code-line-numbers="1-6|8-22|24-37|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> DecisionBoundaryDisplay</span>
 <span id="cb57-2"><a></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder</span>
 <span id="cb57-3"><a></a></span>
@@ -3227,6 +3116,7 @@ Now we can put all of this together into a plot. This plot is overely complicate
 <span id="cb57-40"><a></a>disp.ax_.set_title(<span class="st">"Penguin Neural Network Classification"</span>)</span>
 <span id="cb57-41"><a></a>fig.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+
 <aside class="notes">
 <p>To visualize the decision boundary of the modelm we can use another sklearn class called DecisionBoundaryDisplay, which creates a display object that has matplotlib-style plotting methods.</p>
 <p>Because we designed our classifier to match sklearn API, we are able to use sklearn’s DecisionBoundaryDisplay with our classifier without needing additional steps.</p>
@@ -3248,7 +3138,7 @@ Now we can put all of this together into a plot. This plot is overely complicate
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="session4v3_slides_files/figure-html/cell-38-output-1.png" width="959" height="671"></p>
+<p><img data-src="session4v3_slides_files/figure-revealjs/cell-38-output-1.png" width="959" height="671"></p>
 </figure>
 </div>
 </div>
@@ -3259,7 +3149,7 @@ Now we can put all of this together into a plot. This plot is overely complicate
 - <code>accuracy_score</code> and <code>classification_report</code> are both functions!<br>
 - They are not unique to scikit-learn classes so it makes sense for them to be functions not methods</p>
 </div>
-<div id="5bff8f7b" class="cell" data-execution_count="38">
+<div id="1134224c" class="cell" data-execution_count="38">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a></a><span class="co"># Evaluate neural network performance</span></span>
 <span id="cb58-2"><a></a>penguin_nn_accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
 <span id="cb58-3"><a></a><span class="bu">print</span>(<span class="ss">f"Neural Network Accuracy: </span><span class="sc">{</span>penguin_nn_accuracy<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
@@ -3297,7 +3187,7 @@ weighted avg       0.97      0.97      0.97       100
 </section>
 <section id="make-a-summary-table-of-metrics-for-both-models" class="slide level2">
 <h2>Make a Summary Table of Metrics for Both Models</h2>
-<div id="78577c09" class="cell" data-execution_count="39">
+<div id="89e33104" class="cell" data-execution_count="39">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a></a>summary_table <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb60-2"><a></a>    <span class="st">"Metric"</span>: [<span class="st">"k-Means Adjusted Rand Index"</span>, <span class="st">"Neural Network Accuracy"</span>],</span>
 <span id="cb60-3"><a></a>    <span class="st">"Value"</span>: [kmeans_ari, penguin_nn_accuracy]</span>
@@ -3312,64 +3202,64 @@ weighted avg       0.97      0.97      0.97       100
 </div>
 <div class="cell fragment" data-execution_count="39">
 <div class="cell-output cell-output-display" data-execution_count="38">
-<div id="mdydcbmjbr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="otxirgzwmt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#mdydcbmjbr table {
+#otxirgzwmt table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#mdydcbmjbr thead, tbody, tfoot, tr, td, th { border-style: none; }
+#otxirgzwmt thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#mdydcbmjbr p { margin: 0; padding: 0; }
- #mdydcbmjbr .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 20; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #mdydcbmjbr .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #mdydcbmjbr .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #mdydcbmjbr .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #mdydcbmjbr .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #mdydcbmjbr .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #mdydcbmjbr .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #mdydcbmjbr .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #mdydcbmjbr .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #mdydcbmjbr .gt_column_spanner_outer:first-child { padding-left: 0; }
- #mdydcbmjbr .gt_column_spanner_outer:last-child { padding-right: 0; }
- #mdydcbmjbr .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #mdydcbmjbr .gt_spanner_row { border-bottom-style: hidden; }
- #mdydcbmjbr .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #mdydcbmjbr .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #mdydcbmjbr .gt_from_md> :first-child { margin-top: 0; }
- #mdydcbmjbr .gt_from_md> :last-child { margin-bottom: 0; }
- #mdydcbmjbr .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #mdydcbmjbr .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #mdydcbmjbr .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #mdydcbmjbr .gt_row_group_first td { border-top-width: 2px; }
- #mdydcbmjbr .gt_row_group_first th { border-top-width: 2px; }
- #mdydcbmjbr .gt_striped { color: #333333; background-color: #F4F4F4; }
- #mdydcbmjbr .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #mdydcbmjbr .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
- #mdydcbmjbr .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
- #mdydcbmjbr .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
- #mdydcbmjbr .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #mdydcbmjbr .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #mdydcbmjbr .gt_left { text-align: left; }
- #mdydcbmjbr .gt_center { text-align: center; }
- #mdydcbmjbr .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #mdydcbmjbr .gt_font_normal { font-weight: normal; }
- #mdydcbmjbr .gt_font_bold { font-weight: bold; }
- #mdydcbmjbr .gt_font_italic { font-style: italic; }
- #mdydcbmjbr .gt_super { font-size: 65%; }
- #mdydcbmjbr .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #mdydcbmjbr .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#otxirgzwmt p { margin: 0; padding: 0; }
+ #otxirgzwmt .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 20; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #otxirgzwmt .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #otxirgzwmt .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #otxirgzwmt .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #otxirgzwmt .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #otxirgzwmt .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #otxirgzwmt .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #otxirgzwmt .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #otxirgzwmt .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #otxirgzwmt .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #otxirgzwmt .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #otxirgzwmt .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #otxirgzwmt .gt_spanner_row { border-bottom-style: hidden; }
+ #otxirgzwmt .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #otxirgzwmt .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #otxirgzwmt .gt_from_md> :first-child { margin-top: 0; }
+ #otxirgzwmt .gt_from_md> :last-child { margin-bottom: 0; }
+ #otxirgzwmt .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #otxirgzwmt .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #otxirgzwmt .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #otxirgzwmt .gt_row_group_first td { border-top-width: 2px; }
+ #otxirgzwmt .gt_row_group_first th { border-top-width: 2px; }
+ #otxirgzwmt .gt_striped { color: #333333; background-color: #F4F4F4; }
+ #otxirgzwmt .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #otxirgzwmt .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #otxirgzwmt .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
+ #otxirgzwmt .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
+ #otxirgzwmt .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #otxirgzwmt .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #otxirgzwmt .gt_left { text-align: left; }
+ #otxirgzwmt .gt_center { text-align: center; }
+ #otxirgzwmt .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #otxirgzwmt .gt_font_normal { font-weight: normal; }
+ #otxirgzwmt .gt_font_bold { font-weight: bold; }
+ #otxirgzwmt .gt_font_italic { font-style: italic; }
+ #otxirgzwmt .gt_super { font-size: 65%; }
+ #otxirgzwmt .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #otxirgzwmt .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
 <thead>
-<tr class="header gt_heading">
-<th colspan="2" class="gt_heading gt_title gt_font_normal">Model Results Summary</th>
+<tr class="gt_heading header">
+<td colspan="2" class="gt_heading gt_title gt_font_normal">Model Results Summary</td>
 </tr>
-<tr class="odd gt_col_headings">
+<tr class="gt_col_headings even">
 <th id="Metric" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Metric</th>
 <th id="Value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Value</th>
 </tr>
@@ -3388,7 +3278,6 @@ weighted avg       0.97      0.97      0.97       100
 
 
 </div>
-        
 </div>
 </div>
 <aside class="notes">
@@ -3405,8 +3294,8 @@ weighted avg       0.97      0.97      0.97       100
           display:block!important;
       }</style></aside>
 </section>
-<section id="key-takeaways-from-this-session" class="level2">
-<h2 data-anchor-id="key-takeaways-from-this-session">Key Takeaways from This Session</h2>
+<section id="key-takeaways-from-this-session" class="slide level2">
+<h2>Key Takeaways from This Session</h2>
 <div class="clean-text">
 <p style="font-size: 1.25em">
 </p>
@@ -3428,6 +3317,10 @@ We can do the same when we design our own model classes
 </li>
 </ul>
 </div>
+</section>
+<section id="return-to-website" class="slide level2">
+<h2>Return to website</h2>
+<p><a href="https://pythonforrusers.github.io/Python-Workshop.github.io/">Intro to Python Workshops</a></p>
 
 
 </section></section>
@@ -3454,6 +3347,7 @@ We can do the same when we design our own model classes
   <script src="../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
+  <script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
