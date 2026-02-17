@@ -16,7 +16,7 @@ format:
 
 # Helpful Resources
 <br>
-<span style="font-size: 1.2em">**Workshop website**: [Introduction to Python Workshops](https://github.mskcc.org/pages/Python-Workshop/Python-Workshop.github.io/)</span><br>
+<span style="font-size: 1.2em">**Workshop website**: [Introduction to Python Workshops](https://pythonforrusers.github.io/Python-Workshop.github.io/)</span><br>
    👉Find session handouts, assignments, and recordings<br>
    👉Ask questions (GitHub Discussion page)<br>
 <br>
