@@ -1,0 +1,13 @@
+jupyter
+ipykernel
+pyyaml
+numpy
+pandas
+great_tables
+plotnine
+seaborn
+scikit-learn
+statsmodels
+torch
+torchvision
+nbformat #optional

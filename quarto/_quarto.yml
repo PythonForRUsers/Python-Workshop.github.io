@@ -34,7 +34,7 @@ website:
             href: session1/PythonInstallation.qmd
           - text: "Session 2: Intro to Python Data Structures"
             href: session2/DataStructuresDemo.qmd
-          - text: "Session 3: Intro to Panda and great_tables"
+          - text: "Session 3: Intro to Pandas and great_tables"
             href: session3/DataStructuresDemo_2.qmd
           - text: "Session 4: Object-Oriented Programming and Modeling Libraries"
             href: "session4/session4v2_webpage.html"
@@ -45,15 +45,15 @@ website:
           - text: "Creating a Python Package"
             href: "extra_tutorials/creatingsimplepackage.qmd"
       - text: "Discussion"
-        href: https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/discussions
+        href: https://github.com/PythonForRUsers/Python-Workshop.github.io/discussions
       - text: "Links"
         menu:
           - text: "All Links"
             href: link.qmd
-          - text: "Install Anaconda"
-            href: https://www.anaconda.com/download/success
+          - text: "Install Positron"
+            href: https://positron.posit.co/download.html
           - text: "Follow Along Files"
-            href: https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/FollowAlong
+            href: https://github.com/PythonForRUsers/Python-Workshop.github.io/tree/main/FollowAlong
       - FAQ.qmd
       
 
