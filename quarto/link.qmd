@@ -44,3 +44,30 @@ Links for downloading and installing mentioned software/files:
     <img src="icons/code.png" alt="File">
     <p>Download Toy Dataset</p>
 </a>
+
+
+# Additional Resources for learning python
+
+## General Data Analysis
+
+<a href="https://wesmckinney.com/book/">Python for Data Analysis Open Edition</a> is a classic resource for data analysis (including data cleaning and data visualization). It's a great place to get started and also has a brief introduction to modeling libraries like <a href="https://www.statsmodels.org/stable/index.html">statsmodels</a> and <a href="https://scikit-learn.org/stable/">scikit-learn</a>. 
+
+
+## Machine Learning
+
+<a href="https://scikit-learn.org/stable/">Scikit-learn</a> has some good tutorials and examples for machine learning and modeling. 
+
+<a href="https://docs.pytorch.org/tutorials/beginner/basics/intro.html">PyTorch</a> also has an introductory tutorial and some other more in-depth tutorials including creating NLP models and visualizing models with TensorBoard. 
+
+For hyperparameter tuning, <a href="github.com/optuna/optuna">optuna</a> and <a href="optuna-dashboard.readthedocs.io/en/latest/">optuna-dashboard</a> are pretty easy to use and 
+
+
+## Using R and Python together
+
+<a href="https://rstudio.github.io/reticulate/">Reticulate</a> lets you run Python code from within R. <a href="https://rpy2.readthedocs.io/en/latest/">rpy2</a> lets you run R code from Python. If you install rpy2, you can use %%R to run R code in Jupyter notebooks with <a href="https://ipython.readthedocs.io/en/9.2.0/interactive/magics.html">Cell Magic commands</a>. 
+
+# Advanced resources
+
+## For working with large data
+
+<a href="docs.pola.rs/user-guide/getting-started/">Polars</a> is an alternative to Pandas for working with large data (like datasets larger than available RAM). Not everything that works with Pandas will automatically work with Polars, but current versions of Scikit-learn have added support for it. 
