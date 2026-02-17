@@ -81,7 +81,7 @@ All workshop materials, including pre-session handouts, coding demos, assignment
 
 -   <a href="session3/DataStructuresDemo_2.html">Session 3: Intro to Pandas </a>
 
--   <a href="session4/session4v2_webpage.html">Session 4: Object-Oriented Programming and Intro to ML Libraries - Extended tutorial</a> -->
+-   <a href="session4/session4v3_webpage.html">Session 4: Object-Oriented Programming and Intro to ML Libraries - Extended tutorial</a> -->
 
 
 <a href="https://www.python.org/downloads/" class = "link-block">
