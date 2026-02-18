@@ -12,19 +12,31 @@ execute:
   echo: true
 ---
 
-## KNN vs K-Means: Supervised vs Unsupervised Learning
+This pre-read contains information on the models we'll be using for the in-class examples on classifying penguin species. This information will not be covered during the class, so it is here for your reference.
 
-We will be using `sci-kit learn` implementations of both of these algorithms during the session 4 tutorial.
+## Neural Network Classifier vs KMeans: Supervised vs Unsupervised Learning
 
-### K-Nearest Neighbors (KNN)
+We will be using PyTorch for the Neural Network and Scikit-learn for the KMeans clustering.
 
-**KNN** is a **supervised** learning algorithm used for **classification** (and sometimes regression):
+### Neural Network Classifiers
 
-- You train the model on labeled data (i.e., you know the "answer" or class).
-- When predicting a new sample, the model finds the **k** training samples closest to it (its "neighbors") and uses them to assign a label.
-- Closeness is usually based on **Euclidean distance**.
+A **neural network classifier** is a type of **supervised learning model** that learns to assign input examples to classes (like penguin species) by finding patterns in labeled training data.
 
-> Example: Given a penguin with known bill length and depth, predict its species by looking at its 5 nearest neighbors in the training data.
+![Neural Network Diagram](icons/NeuralNetworkArchitectureDiagram.pdf){width=80% fig-alt="Neural network diagram"}
+
+* Neural networks are inspired by biological brains: they consist of connected units called nodes (or sometimes 'neurons') organized in layers. Each node processes inputs and passes an output to the next layer. 
+* A simple network has an **input layer** (input features), one or more **hidden layers** (which transform and combine features), and an **output layer** (which produces scores for each class). 
+* Each connection between node has a **weight** that the network learns during training. The network uses these weights to decide how strongly to respond to different inputs.
+
+Training a neural network involves:
+
+* Feeding the training data through the network (the **forward pass**),
+* Comparing the predictions to the true labels using a **loss function**,
+* Adjusting the weights to reduce the loss using techniques like **backpropagation** and gradient-based optimization.
+
+A neural network classifier learns a function that maps input features to output classes. Once trained, you give it a new example and it predicts the most likely class for that example using learned representations from many training examples.
+
+> Example: Given a penguin’s bill length and bill depth, a trained neural network will produce a set of output scores for each species and select the species with the highest score as its prediction.
 
 ---
 
@@ -39,17 +51,6 @@ We will be using `sci-kit learn` implementations of both of these algorithms dur
 > Example: Given penguin data without species labels, group them into 3 clusters based on bill length and depth.
 
 ---
-
-### Key Differences
-
-| Feature           | KNN                            | K-Means                          |
-|------------------|--------------------------------|----------------------------------|
-| Learning Type     | Supervised                    | Unsupervised                    |
-| Goal              | Classification (or Regression) | Clustering                      |
-| Input Labels      | Required                      | Not used                        |
-| Output            | Predicted class               | Cluster assignment              |
-| Model Type        | Lazy (no training phase)      | Iterative center updates        |
-
 
 ## Plotting in Python 
 

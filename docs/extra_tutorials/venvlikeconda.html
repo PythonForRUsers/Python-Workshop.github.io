@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -121,10 +156,10 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../session3/DataStructuresDemo_2.html">
- <span class="dropdown-text">Session 3: Intro to Panda and great_tables</span></a>
+ <span class="dropdown-text">Session 3: Intro to Pandas and great_tables</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../session4/session4v2_webpage.html">
+    <a class="dropdown-item" href="../session4/session4v3_webpage.html">
  <span class="dropdown-text">Session 4: Object-Oriented Programming and Modeling Libraries</span></a>
   </li>  
     </ul>
@@ -185,8 +220,44 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#managing-python-environments-with-venv" id="toc-managing-python-environments-with-venv" class="nav-link active" data-scroll-target="#managing-python-environments-with-venv">Managing Python Environments with <code>venv</code></a>
+  <ul class="collapse">
+  <li><a href="#why-virtual-environments" id="toc-why-virtual-environments" class="nav-link" data-scroll-target="#why-virtual-environments">Why Virtual Environments?</a></li>
+  </ul></li>
+  <li><a href="#create-a-virtual-environment" id="toc-create-a-virtual-environment" class="nav-link" data-scroll-target="#create-a-virtual-environment">1. Create a Virtual Environment</a>
+  <ul class="collapse">
+  <li><a href="#from-the-terminal" id="toc-from-the-terminal" class="nav-link" data-scroll-target="#from-the-terminal">From the Terminal</a>
+  <ul class="collapse">
+  <li><a href="#if-you-have-multiple-python-versions" id="toc-if-you-have-multiple-python-versions" class="nav-link" data-scroll-target="#if-you-have-multiple-python-versions">If you have multiple Python versions</a></li>
+  </ul></li>
+  <li><a href="#from-positron" id="toc-from-positron" class="nav-link" data-scroll-target="#from-positron">From Positron</a></li>
+  </ul></li>
+  <li><a href="#activate-and-deactivate-a-virtual-environment" id="toc-activate-and-deactivate-a-virtual-environment" class="nav-link" data-scroll-target="#activate-and-deactivate-a-virtual-environment">2. Activate and Deactivate a Virtual Environment</a>
+  <ul class="collapse">
+  <li><a href="#activate" id="toc-activate" class="nav-link" data-scroll-target="#activate">Activate</a>
+  <ul class="collapse">
+  <li><a href="#macos-linux" id="toc-macos-linux" class="nav-link" data-scroll-target="#macos-linux">macOS / Linux</a></li>
+  <li><a href="#windows-powershell" id="toc-windows-powershell" class="nav-link" data-scroll-target="#windows-powershell">Windows (PowerShell)</a></li>
+  <li><a href="#windows-command-prompt" id="toc-windows-command-prompt" class="nav-link" data-scroll-target="#windows-command-prompt">Windows (Command Prompt)</a></li>
+  <li><a href="#positron" id="toc-positron" class="nav-link" data-scroll-target="#positron">Positron</a></li>
+  </ul></li>
+  <li><a href="#deactivate" id="toc-deactivate" class="nav-link" data-scroll-target="#deactivate">Deactivate</a></li>
+  </ul></li>
+  <li><a href="#create-a-requirements.txt" id="toc-create-a-requirements.txt" class="nav-link" data-scroll-target="#create-a-requirements.txt">3. Create a <code>requirements.txt</code></a></li>
+  <li><a href="#recreate-an-environment-from-requirements.txt" id="toc-recreate-an-environment-from-requirements.txt" class="nav-link" data-scroll-target="#recreate-an-environment-from-requirements.txt">4. Recreate an Environment from <code>requirements.txt</code></a>
+  <ul class="collapse">
+  <li><a href="#step-1-create-a-new-virtual-environment" id="toc-step-1-create-a-new-virtual-environment" class="nav-link" data-scroll-target="#step-1-create-a-new-virtual-environment">Step 1: Create a new virtual environment</a></li>
+  <li><a href="#step-2-activate-it" id="toc-step-2-activate-it" class="nav-link" data-scroll-target="#step-2-activate-it">Step 2: Activate it</a></li>
+  <li><a href="#step-3-install-from-requirements" id="toc-step-3-install-from-requirements" class="nav-link" data-scroll-target="#step-3-install-from-requirements">Step 3: Install from requirements</a></li>
+  </ul></li>
+  <li><a href="#recommended-project-structure" id="toc-recommended-project-structure" class="nav-link" data-scroll-target="#recommended-project-structure">Recommended Project Structure</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -194,7 +265,6 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Using Venv for Virtual Environments</h1>
-<p class="subtitle lead">How to use Venv like Conda from our tutorials</p>
 </div>
 
 
@@ -211,12 +281,172 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This tutorial shows how to:<br>
-1. Make a venv virtual environment (from terminal and in positron)<br>
-2. How to deactivate and activate virtual environment (from terminal and positron)<br>
-3. How to create a requirements.txt from virtual environment 4. How to use requirements.txt to set the packages/versions in a venv</p>
+<p>This is a brief tutorial on how to use <code>venv</code> to create and manage python virtual environments.</p>
+<section id="managing-python-environments-with-venv" class="level1">
+<h1>Managing Python Environments with <code>venv</code></h1>
+<p>This tutorial covers how to:</p>
+<ol type="1">
+<li>Create a virtual environment (from terminal and Positron)</li>
+<li>Activate and deactivate it</li>
+<li>Create a <code>requirements.txt</code></li>
+<li>Recreate an environment from <code>requirements.txt</code></li>
+</ol>
+<hr>
+<section id="why-virtual-environments" class="level2">
+<h2 class="anchored" data-anchor-id="why-virtual-environments">Why Virtual Environments?</h2>
+<p>In R, each project can effectively have its own package library. In Python, we achieve this using <strong>virtual environments</strong>.</p>
+<p>A virtual environment:</p>
+<ul>
+<li>Is isolated from your system Python</li>
+<li>Has its own installed packages</li>
+<li>Prevents version conflicts across projects</li>
+</ul>
+<blockquote class="blockquote">
+<p>Virtual environments are particularly useful when working with smaller community- and single-maintainer packages which might rely on earlier versions of common libraries (numpy, pandas, etc).</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="create-a-virtual-environment" class="level1">
+<h1>1. Create a Virtual Environment</h1>
+<section id="from-the-terminal" class="level2">
+<h2 class="anchored" data-anchor-id="from-the-terminal">From the Terminal</h2>
+<p>Navigate to your project folder:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">cd</span> path/to/your/project</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Create a virtual environment:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">python</span> <span class="at">-m</span> venv .venv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This creates a folder called <code>.venv</code> inside your project.</p>
+<section id="if-you-have-multiple-python-versions" class="level3">
+<h3 class="anchored" data-anchor-id="if-you-have-multiple-python-versions">If you have multiple Python versions</h3>
+<p>You may need:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">python3.10</span> <span class="at">-m</span> venv .venv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>or on Windows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">py</span> <span class="at">-3.10</span> <span class="at">-m</span> venv .venv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="from-positron" class="level2">
+<h2 class="anchored" data-anchor-id="from-positron">From Positron</h2>
+<ol type="1">
+<li>Open your project.<br>
+</li>
+<li>Open the Terminal pane.<br>
+</li>
+<li>Run:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">python</span> <span class="at">-m</span> venv .venv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="4" type="1">
+<li><p>Select the interpreter:</p>
+<ul>
+<li>Command palette → “Python: Select Interpreter”<br>
+</li>
+<li>Choose the interpreter inside <code>.venv</code></li>
+</ul></li>
+</ol>
+<p>Positron will now use that environment for the project.</p>
+<p><strong>OR</strong></p>
+<ol type="1">
+<li><p>Open your project.<br>
+</p></li>
+<li><p>Open Command pane (ctrl+shift+p or cmd+shift+p)<br>
+</p></li>
+<li><p>Select <code>Python: Create Environment</code><br>
+</p></li>
+<li><p>Select <code>venv</code></p>
+<ul>
+<li>Positron will create a virtual environment <code>.venv</code> for you</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="activate-and-deactivate-a-virtual-environment" class="level1">
+<h1>2. Activate and Deactivate a Virtual Environment</h1>
+<section id="activate" class="level2">
+<h2 class="anchored" data-anchor-id="activate">Activate</h2>
+<section id="macos-linux" class="level3">
+<h3 class="anchored" data-anchor-id="macos-linux">macOS / Linux</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="bu">source</span> .venv/bin/activate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="windows-powershell" class="level3">
+<h3 class="anchored" data-anchor-id="windows-powershell">Windows (PowerShell)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1"></a><span class="op">.</span><span class="fu">venv</span>\Scripts\Activate<span class="op">.</span><span class="fu">ps1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="windows-command-prompt" class="level3">
+<h3 class="anchored" data-anchor-id="windows-command-prompt">Windows (Command Prompt)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource cmd number-lines code-with-copy"><code class="sourceCode dosbat"><span id="cb8-1"><a href="#cb8-1"></a>.venv\Scripts\activate.bat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>When activated, your terminal will show:</p>
+<pre><code>(.venv) $</code></pre>
+</section>
+<section id="positron" class="level3">
+<h3 class="anchored">Positron</h3>
+<p>Select the interpreter:</p>
+<ul>
+<li>Command palette → “Python: Select Interpreter”<br>
+</li>
+<li><h2 id="choose-the-interpreter-inside-.venv" class="anchored" data-anchor-id="positron">Choose the interpreter inside <code>.venv</code></h2></li>
+</ul>
+</section>
+</section>
+<section id="deactivate" class="level2">
+<h2 class="anchored" data-anchor-id="deactivate">Deactivate</h2>
+<p>From any system:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">deactivate</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This returns you to your global Python.</p>
+<hr>
+</section>
+</section>
+<section id="create-a-requirements.txt" class="level1">
+<h1>3. Create a <code>requirements.txt</code></h1>
+<p>After installing packages inside your virtual environment:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="ex">pip</span> install numpy pandas scikit-learn</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Freeze the environment:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="ex">pip</span> freeze <span class="op">&gt;</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This creates a file like:</p>
+<pre><code>numpy==1.26.4
+pandas==2.2.1
+scikit-learn==1.4.0</code></pre>
+<p>This captures exact versions — similar to <code>renv::snapshot()</code> in R.</p>
+<hr>
+</section>
+<section id="recreate-an-environment-from-requirements.txt" class="level1">
+<h1>4. Recreate an Environment from <code>requirements.txt</code></h1>
+<p>If you clone a repo and it has a requirements.txt file:</p>
+<section id="step-1-create-a-new-virtual-environment" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-create-a-new-virtual-environment">Step 1: Create a new virtual environment</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="ex">python</span> <span class="at">-m</span> venv .venv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="step-2-activate-it" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-activate-it">Step 2: Activate it</h2>
+<p>(macOS/Linux)</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">source</span> .venv/bin/activate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>(Windows PowerShell)</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb16-1"><a href="#cb16-1"></a><span class="op">.</span><span class="fu">venv</span>\Scripts\Activate<span class="op">.</span><span class="fu">ps1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="step-3-install-from-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-install-from-requirements">Step 3: Install from requirements</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This installs all specified packages and versions.</p>
+<p>Equivalent idea in R:</p>
+<ul>
+<li><code>renv::restore()</code> ≈ <code>pip install -r requirements.txt</code></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="recommended-project-structure" class="level1">
+<h1>Recommended Project Structure</h1>
+<pre><code>project/
+│
+├── .venv/
+├── requirements.txt
+├── analysis.py
+└── README.md</code></pre>
+<blockquote class="blockquote">
+<p>If using git, add <code>.venv/</code> to <code>.gitignore</code> so it is not committed!</p>
+</blockquote>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

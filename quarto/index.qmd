@@ -53,7 +53,7 @@ All workshop materials, including pre-session handouts, coding demos, assignment
 +-----------------------------------------------------------------------+----------+----------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
 | **Session 4:**                                                        | Tuesday  | **Part A:** Introduction to object-oriented programming (OOP)  | Pre-read: [PyTorch and Plotting Primer](session4/sess4preread.html)                                                                |
 |                                                                       | (3/31)   |                                                                |                                                                                                                                    |
-| **Object-Oriented Programming & Intro to ML Libraries** (Dani)        |          | -   Recap: classes, methods, and attributes                    | Session Slides [html](session4/session4v2_slides.html)                                                                             |
+| **Object-Oriented Programming & Intro to ML Libraries** (Dani)        |          | -   Recap: classes, methods, and attributes                    | Session Slides [html](session4/session4v3_slides.html)                                                                             |
 |                                                                       | 3-4:30 pm|                                                                |                                                                                                                                    |
 |                                                                       |          | -   Understanding classes (base, derived, mixins)              |                                                                                                                                    |
 |                                                                       |          |                                                                |                                                                                                                                    |
@@ -81,7 +81,7 @@ All workshop materials, including pre-session handouts, coding demos, assignment
 
 -   <a href="session3/DataStructuresDemo_2.html">Session 3: Intro to Pandas </a>
 
--   <a href="session4/session4v2_webpage.html">Session 4: Object-Oriented Programming and Intro to ML Libraries - Extended tutorial</a> -->
+-   <a href="session4/session4v3_webpage.html">Session 4: Object-Oriented Programming and Intro to ML Libraries - Extended tutorial</a> -->
 
 
 <a href="https://www.python.org/downloads/" class = "link-block">

@@ -1,10 +1,217 @@
 ---
 title: "Using Venv for Virtual Environments"
-subtitle: "How to use Venv like Conda from our tutorials"
 ---
 
-This tutorial shows how to:  
-1. Make a venv virtual environment (from terminal and in positron)  
-2. How to deactivate and activate virtual environment (from terminal and positron)  
-3. How to create a requirements.txt from virtual environment
-4. How to use requirements.txt to set the packages/versions in a venv 
+This is a brief tutorial on how to use `venv` to create and manage python virtual environments. 
+
+# Managing Python Environments with `venv`
+
+This tutorial covers how to:
+
+1. Create a virtual environment (from terminal and Positron)
+2. Activate and deactivate it
+3. Create a `requirements.txt`
+4. Recreate an environment from `requirements.txt`
+
+---
+
+## Why Virtual Environments?
+
+In R, each project can effectively have its own package library.
+In Python, we achieve this using **virtual environments**.
+
+A virtual environment:
+
+* Is isolated from your system Python
+* Has its own installed packages
+* Prevents version conflicts across projects
+
+>Virtual environments are particularly useful when working with smaller community- and single-maintainer packages which might rely on earlier versions of common libraries (numpy, pandas, etc).
+
+---
+
+# 1. Create a Virtual Environment
+
+## From the Terminal
+
+Navigate to your project folder:
+
+```bash
+cd path/to/your/project
+```
+
+Create a virtual environment:
+
+```bash
+python -m venv .venv
+```
+
+This creates a folder called `.venv` inside your project.
+
+### If you have multiple Python versions
+
+You may need:
+
+```bash
+python3.10 -m venv .venv
+```
+
+or on Windows:
+
+```bash
+py -3.10 -m venv .venv
+```
+
+---
+
+## From Positron
+
+1. Open your project.  
+2. Open the Terminal pane.  
+3. Run:  
+
+```bash
+python -m venv .venv
+```
+
+4. Select the interpreter:
+
+   * Command palette → “Python: Select Interpreter”  
+   * Choose the interpreter inside `.venv`  
+
+Positron will now use that environment for the project.  
+
+**OR**
+
+1. Open your project.   
+2. Open Command pane (ctrl+shift+p or cmd+shift+p)  
+3. Select `Python: Create Environment`  
+4. Select `venv`  
+    
+    * Positron will create a virtual environment `.venv` for you
+
+# 2. Activate and Deactivate a Virtual Environment
+
+## Activate
+
+### macOS / Linux
+
+```bash
+source .venv/bin/activate
+```
+
+### Windows (PowerShell)
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+### Windows (Command Prompt)
+
+```cmd
+.venv\Scripts\activate.bat
+```
+
+When activated, your terminal will show:
+
+```
+(.venv) $
+```
+
+### Positron
+
+Select the interpreter:  
+
+   * Command palette → “Python: Select Interpreter”    
+   * Choose the interpreter inside `.venv`    
+---
+
+## Deactivate
+
+From any system:
+
+```bash
+deactivate
+```
+
+This returns you to your global Python.
+
+---
+
+# 3. Create a `requirements.txt`
+
+After installing packages inside your virtual environment:
+
+```bash
+pip install numpy pandas scikit-learn
+```
+
+Freeze the environment:
+
+```bash
+pip freeze > requirements.txt
+```
+
+This creates a file like:
+
+```
+numpy==1.26.4
+pandas==2.2.1
+scikit-learn==1.4.0
+```
+
+This captures exact versions — similar to `renv::snapshot()` in R.
+
+---
+
+# 4. Recreate an Environment from `requirements.txt`
+
+If you clone a repo and it has a requirements.txt file:
+
+## Step 1: Create a new virtual environment
+
+```bash
+python -m venv .venv
+```
+
+## Step 2: Activate it
+
+(macOS/Linux)
+
+```bash
+source .venv/bin/activate
+```
+
+(Windows PowerShell)
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+## Step 3: Install from requirements
+
+```bash
+pip install -r requirements.txt
+```
+
+This installs all specified packages and versions.
+
+Equivalent idea in R:
+
+* `renv::restore()` ≈ `pip install -r requirements.txt`
+
+---
+
+# Recommended Project Structure
+
+```
+project/
+│
+├── .venv/
+├── requirements.txt
+├── analysis.py
+└── README.md
+```
+
+> If using git, add `.venv/` to `.gitignore` so it is not committed!
+

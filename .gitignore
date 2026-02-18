@@ -181,3 +181,7 @@ quarto/session3/ignore/ignore_DJV_NOTES_PythonMLDemo.tex
 quarto/session3/ignore/*
 
 ignore_*
+quarto/session4/blank.txt
+
+
+.venv/*

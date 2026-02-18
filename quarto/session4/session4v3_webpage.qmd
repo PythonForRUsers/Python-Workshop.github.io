@@ -2,24 +2,20 @@
 title: '**Session 4 – Object-Oriented Programming and Modeling Libraries**'
 jupyter: python310
 format: 
-    revealjs:
-        theme: [default, slideshowv2.scss]
+    html:
         code-copy: true   
-        smaller: false
-        code-block-height: 750px
         highlight-style: pygments
-        width: 1600  # default is 960
-        height: 950  # default is 700
-        transition: none
-        code-line-numbers: true
+        toc: false
+        css: sess4webpage.css
 execute:
   freeze: auto
-  eval: true
-  echo: true
   warning: false
   error: false
-
+  eval: true
+  echo: true
 ---
+
+<a href="session4/session4v3slides.html">slides link</a>
 
 ## Session Overview
 
@@ -40,9 +36,6 @@ In this session, we'll cover object-oriented programming and how it applies to m
 
 </div>
 
-  <aside class="notes">
-    This is the last session of the intro to python workshops. There will be a brief 'homework' that covers the topics in this session. I do not anticipate having much time left over at the end of this session, so if you have any questions about that please feel free to reach out to us via teams!
-  </aside>
 
 # Introduction 
 
@@ -142,9 +135,7 @@ Python’s object-oriented design builds on a few key principles of how objects 
 
 </div>
 
-<aside class="notes">
-Before we talk about Object-Oriented programming, let's first define classes and objects. An object is a self-contained unit in code that holds data (attributes) and functions (methods) that work on that data.
-</aside>
+
 
 ## Why OOP Matters for Python Modeling
 
@@ -167,30 +158,7 @@ This consistent object-oriented API makes it easy to swap models with minimal co
 
 > Understanding classes is ESPECIALLY important for using PyTorch and TensorFlow!
 
-<aside class="notes">
-* In Python, modeling libraries make models **objects** rather than simple functions.  
-* Models combine both the *code that defines how predictions are made* and the *data the model has learned during training*.    
-* After `.fit()`, attributes like `.coef_`, `.classes_`, or learned weights in a neural network store the fitted state directly on the model object.    
 
-**Consistent interface across libraries**  
-
-* The methods `.fit()`, `.predict()`, and `.score()` behave similarly across many model types, even though the internals differ.  
-* This consistency reduces cognitive load and lets you **swap models** (e.g., from logistic regression to random forest) without changing your workflow.  
-  
-**Library examples**  
-  
-* `scikit-learn`: classic ML models with a predictable API.  
-* `xgboost`: gradient boosting with same pattern for `.fit()`/`.predict()`.  
-* `scikit-survival`: survival analysis models built on sklearn conventions.  
-* `statsmodels`: statistical modeling with output more like R; still object-oriented but less uniform.  
-* `scvi-tools`: variational inference models for single-cell data.  
-* `PyTorch` and `TensorFlow`: neural network tools where you define your *own* model classes, but they follow the same idea — methods and attributes attached to objects.  
-
-**Key takeaway**  
-
-* Think of a model as **a container of behavior (methods) and state (attributes)**.  
-* This object-oriented pattern underlies many Python modeling workflows and makes advanced use (like wrapping PyTorch models to act like sklearn models) intuitive.  
-</aside>
 
 ## Bonus: Python Modeling Libraries — Tutorials & Docs
 
@@ -210,7 +178,7 @@ This consistent object-oriented API makes it easy to swap models with minimal co
   *Also see:* [https://www.statsmodels.org/stable/examples/index.html](https://www.statsmodels.org/stable/examples/index.html) 
 
 <aside class="notes">
-These are some links to tutorials for the packages I mentioned. 
+These are some links to tutorials for the packages. 
 </aside>
 
 
@@ -255,16 +223,7 @@ class Dog: ## begin class definition
 :::
 </div>
 
-<aside class="notes">
-A base class serves as a template for creating objects and other classes can inherit its attributes and methods. Classes are defined using the 'class' keyword and their structure is specified using an init method for initialization. 
 
-For example, we can define a class called `Dog` and give it attributes that store data about a given dog and methods that represent behaviors an object of the `Dog` class can perform. 
-
-First we will define our init method, which sets up the structure for objects of the dog class. The parameters here (name and breed) can be stored as attributes. The speak method here defines the speech behavior for the dog and returns a string, that changes based on the value stored in the 'name' attribute. 
-
-We can also define our str and repr methods which tell python what to do when an object is printed (str) or called in console (repr). These methods are useful for displaying information about objects at a glance. We will see an interesting example of a repr method later on. 
-
-</aside>
 
 ## Creating a dog
 <div class="clean-text">
@@ -340,17 +299,6 @@ rex = GuardDog("Rex", "German Shepherd", training_level= 5)
 ```
 </div>
 
-<aside class='notes'>
-Derived or child classes build on base classes using the principle of inheritence. This helps us build more specialized classes without having to start from scratch.
-
-If we want to make a new guardDog class, we can start by inheriting the attributes and methods of the dog class by putting 'Dog' in the parentheses here. 
-
-When we define our init method, we can first call the parent class's init method to assign the dog's name and breed. We can also add an additional attribute that stores the dog's training level. 
-
-Because of inheritence, guarddogs also have the speak method, but we can also give them new methods like guard and train. The guard method, like the speak method earlier, just returns a value. However, the train method actually modifies the training_level attribute of the object in-place. This means that, if we want to train a guarddog, we do not have to assign the trained dog to a new variable to preserve the trained state. 
-
-Let's make an instance of guarddog called rex and we can see how this works. 
-</aside>
 
 ---
 
@@ -380,9 +328,9 @@ print(rex.guard())
 
 <aside class='notes'>
 
-Of course we can use the speak() and repr() methods that we defined for the dog class. We can also use the training method that we just defined. **adv**
+Of course we can use the speak() and repr() methods that we defined for the dog class. We can also use the training method that we just defined. 
 
-to successfully guard, a rex needs a training level greater than 5. Currently his level is 5, so he needs more training before guarding.
+To successfully guard, a rex needs a training level greater than 5. Currently his level is 5, so he needs more training before guarding.
 
 </aside>
 
@@ -427,10 +375,6 @@ Unlike standalone functions, methods like train() update objects in-place instea
 
 Please note that even though we're calling rex.train() within a print statement, it still updates rex's training level! 
 
-After training rex once, we can see that his training level is sufficient to allow him to guard! **adv**
-
-as we saw with rex, child classes inherit all attributes and methods from their parent classes, but they can also have new ones. 
-
 </aside>
 
 
@@ -450,12 +394,6 @@ which it adds to the `BaseEstimator` class to add functionality. <br> <br>
 To finish up our dog example, we are going to define a mixin class that adds learning tricks to the base `Dog` class and use it to create a new class called `SmartDog`.
 :::
 </div>
-
-<aside class="notes">
-Mixins area special kind of class that take advantage of the inheritence property to add functionality to other classes without needing to re-define the initial class structure. Unlike base classes, mixins are not useful on their own. 
-
-Some examples of mixin classes are ClassifierMixin and RegressorMixin from scikit learn, which add functionality to the BaseEstimator class. To finish up our dog example, we are going to define a mixin class that adds learning tricks to the base `Dog` class and use it to create a new class called `SmartDog`. 
-</aside>
 
 ---
 
@@ -488,7 +426,7 @@ class TrickMixin: ## mixin that will let us teach a dog tricks
 <aside class="notes">
 When we create a mixin class, we let the base class carry most of the initialization. 
 
-A mixin class can add both attributes **adv** and methods, and it can potentially work with multiple base classes. 
+A mixin class can add both attributes and methods, and it can potentially work with multiple base classes. 
 </aside>
 
 ---
@@ -534,8 +472,7 @@ By including both dog and trickmixin as base classes, we give smartdog objects t
 
 ## Duck Typing 
 
-
-<div class="clean-text"> 
+<div class="small-clean-text"> 
 
 >🦆 "If it quacks like a duck and walks like a duck, it's a duck." 🦆
 
@@ -569,15 +506,6 @@ class Parrot:
 
 ```
 
-<aside class="notes">
-
-In my opinion python's ducktyping makes our lives a lot easier and is a good reason to use methods when possible. Duck typing makes it easy to repurpose old code with few changes - because methods by the same name work the same for different model types, even if the underlying method code is very different. Models from the same package likely share a base class, or at least can be expected to have a similar API. Duck typing also stops us from having to check object types before performing operations as methods are assumed to work on the object they're attached to. 
-
-We can demonstrate this by defining two new base classes that are different than dog but also have a speak method. **-adv-**
-
-The human and parrot class here both have a speak method and a name attribute like the dog class. 
-
-</aside>
 
 ## Duck Typing in Action
 <div class="clean-text">  
@@ -682,12 +610,7 @@ All `scikit-learn` models are designed to have
 
 </div>
 
-<aside class="notes">
 
-For the rest of this session, we'll be going through 2 mini projects to classify penguin species using bill length and bill depth using kmeans from scikit-learn and a Neural Network built with PyTorch. In terms of API, all sklearn models are designed to have common methods like fit and predict and have some attributes like .classes_ or .n_clusters_ that store information needed to specify the model. 
-
-We'll follow a fairly typical analysis workflow including data visualization, pre-model preparation, model fitting and evaluation. 
-</aside>
 
 ## Import Libraries
 <div class="clean-text">  
@@ -722,13 +645,6 @@ For large libraries like **scikit-learn**, **PyTorch**, or **TensorFlow**, we us
 
 </div>
 
-<aside class="notes">
-
-Our first step is always to import any necessary libraries - but in this case, we will import specific classes and functions we plan to use. For our classes, we'll need standardscaler as well as our two model classes. We'll also import some useful functions for splitting our dataset into training/test sets and computing classification scores. 
-
-A quick tip: for most python libraries, classes use CamelCase and functions use snake_case. 
-
-</aside>
 
 ## Import Libraries
 
@@ -786,13 +702,6 @@ display(summary_table)
 ```
 
 
-<aside class="notes">
-
-We're using the penguins dataset from the seaborn package, so we can use the load_dataset function to get that. We can also drop any na values with the .dropna() method. 
-
-We can then make a quick summary table for the dataset using some of the methods covered last session. 
-
-</aside>
 
 ## Data Visualization
 
@@ -832,12 +741,6 @@ The biggest differences between `plotnine` and `ggplot2` syntax are:
 
 </div>
 
-<aside class="notes">
-
-To visually check out our data, we can use either plotnine (which is designed to work like ggplot) or seaborn (base matplotlib + enhancements). 
-For single plots, plotnine can be more convenient but seaborn has better support for putting multiple plots on the same figure. 
-
-</aside>
 
 ## Scatterplot with plotnine
 <div class="clean-text"> 
@@ -856,11 +759,6 @@ plot1 = (ggplot(penguins, aes(x="bill_length_mm", y="bill_depth_mm", color="spec
 display(plot1)
 ```
 
-<aside class="notes">
-
-To plot our bill length and depth with plotnine, we can pretty much use ggplot syntax, but wrap the whole statement in parentheses. However, our variable names need to be entered as strings. 
-
-</aside>
 
 ## Scatterplot with seaborn
 
@@ -892,14 +790,6 @@ fig.tight_layout()
 #fig.show() -> if not in interactive
 ```
 
-<aside class="notes">
-
-If we want to do the same thing in seaborn, we can use sns.scatterplot() directly (which doesn't save the figure to a variable), 
-or we can create figure and axis objects first and then draw the plot on the created axis. We then use methods on the axis object to set the titles and labels. 
-
-Because we are working in an interactive notebook, we don't have to explicitly use plt.plot() to display the figure. 
-
-</aside>
 
 
 ## Scaling the data - Understanding the Standard Scaler class
@@ -1640,6 +1530,4 @@ Using the great_tables package, we can make a nice little summary table of our r
 </div>
 
 
-## Return to website
 
-<a href="https://pythonforrusers.github.io/Python-Workshop.github.io/">Intro to Python Workshops</a>
