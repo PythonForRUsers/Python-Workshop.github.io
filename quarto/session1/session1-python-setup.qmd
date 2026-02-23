@@ -1,38 +1,32 @@
 ---
-title: "Python Installation, Environments, and VS Code Setup"
+title: "Python Installation and Reproducible Workflow"
 author: "Python Group"
-date: "2025-04-14"
+date: "2026-02-24"
 format: 
-  revealjs:
-    theme: sess1_slideshow.scss
-    code-copy: true
-    self-contained: true
-    smaller: false
-    code-block-height: 850px
-    highlight-style: pygments
-    width: 1250   # default is 960
-    height: 960  # default is 700
+   revealjs:
+      theme: sess1_slideshow.scss
+      code-copy: true
+      self-contained: true
+      smaller: false
+      code-block-height: 850px
+      highlight-style: pygments
+      width: 1400   # default is 960
+      height: 960  # default is 700
+      scroll: true
 ---
 
-# Helpful Resources
-<br>
-<span style="font-size: 1.2em">**Workshop website**: [Introduction to Python Workshops](https://pythonforrusers.github.io/Python-Workshop.github.io/)</span><br>
-   👉Find session handouts, assignments, and recordings<br>
+# Website
+
+<span style="font-size: 1.2em">**Workshop website**: [https://pythonforrusers.github.io/Python-Workshop.github.io/](https://pythonforrusers.github.io/Python-Workshop.github.io/)</span><br>
+   👉Find session handouts, assignments, and extra tutorials<br>
    👉Ask questions (GitHub Discussion page)<br>
-<br>
-<span style="font-size: 1.2em"> **Books / Websites**: </span><br>
-The [Python for Data Analysis, 3ed](https://wesmckinney.com/book/) written by Wes McKinney is a helpful reference for Python beginners. The book focuses on data analysis and introduces relevant packages including NumPy, pandas (*author is one of the creators!*), statsmodels, and scikit-learn, etc. 
-<br><br>
-<span style="font-size: 1.2em">**Prerequisite**</span><br>
-   <li>MSK laptop/Remote Desktop</li>
-   <li>MSK Github Enterprise account</li>
-   <li>Programming experience and minimal command line skills</li>
+
 
 
 # Workshop Overview
 
 ::: {.fragment .callout-tip appearance="simple"}
-The **goal** of the workshop is to learn programming in Python using modern, reproducible tools and gain skills needed to integrated it into your own work.
+The **goal** of the workshop is to learn programming in Python using ***modern, reproducible*** tools that can be integrated into your own work.
 :::
 
 ::: columns 
@@ -41,9 +35,8 @@ The **goal** of the workshop is to learn programming in Python using modern, rep
 ::: {.fragment}
 **Session 1**
 
--  Python overview
-
--  Seting up a Python programming environment (conda, Jupyter Notebook, and VS Code IDE)
+-  Python vs. R.
+-  Seting up a Python programming ecosystem (`venv`, Positron IDE, GitHub, Jupyter Notebooks).
 :::
 :::
 
@@ -51,9 +44,8 @@ The **goal** of the workshop is to learn programming in Python using modern, rep
 :::{.fragment}
 **Session 2 and 3**
 
--  Python basics -- data structure, list comprehensive, and methods vs. functions.
-
--  `pandas`: data manipulation.
+-  Python basics -- data structure, list comprehensive, methods vs. functions.
+-  `pandas` and `great_tables` data manipulation.
 :::
 :::
 
@@ -61,39 +53,40 @@ The **goal** of the workshop is to learn programming in Python using modern, rep
 :::{.fragment}
 **Session 4**
 
--  Introduction to Object-oriented programming (OOP)
+-  Object-oriented programming (OOP).
+-  Machine learning models with `scikit-learn` and `pytorch`.
+-  `plotnine` and `seaborn` visualization.
+:::
+:::
 
--  Example machine learning project using `scikit-learn`.
 :::
-:::
-:::
+
+
 
 ## Session 1 Learning Goals {.center}
 In this session, we will familiarize with Python and essential tools for building reproducible Python projects. 
 <br><br>
 
-💡 **Python overview**: What is Python? How is it useful compared to R?<br>
-💡 **Conda**: `conda` for installing packages and creating reproducible Python virtual environments<br>
-💡 Familiarize with integrated development environments (**Visual Studio Code**) and interactive computing tools (**Jupyter Notebook**)<br>
-💡 **Python reproducible workflow**: Create a GitHub Python repository and work in Visual Studio Code within a project-specific conda environment
+💡 **Python overview**: What is Python? Python vs. R?<br>
+💡 **Virtual environments**: `venv` for creating reproducible virtual environments<br>
+💡 Integrated development environments **Positron** and interactive code editng tool **Jupyter Notebook**<br>
+💡 **Python reproducible workflow**: Integrate GitHub, virtual environments, and Positron IDE into your Python programming projects.
 
 
 # Introduction to Python
 
 ## What is Python?
-<br>
+<br><br>
 
-![](images/python-logo.png){.absolute top=0 right=10 width=280}
+![](images/python-logo.png){.absolute top=0 right=70 width=380}
 
-> Python is an open-source, high-level, interpreted, general-purpose programming language
-
-<span style="font-size: 1.2em">**Key Features**</span>
+> Python is an **open-source, high-level, interpreted, general-purpose** programming language
 
 :::{.incremental}
 -  **Easy to use**: Python syntax is designed to be readable and user-friendly
--  **General-purpose**: widely applied in data science, ML/AL, software development, automation, etc.
--  **Interpreted**: run code without compiling (unlike C/C++)
--  **Open-source**: free to use and supported by a mass user community, who contributes to many high-quality packages open to public
+-  **Interpreted**: run code line-by-line without compiling (unlike C/C++)
+-  **General-purpose**: widely used for data science, ML/AI, software development, etc.
+-  **Open-source**: free! Mass user community contributing to the package ecosystemm
 :::
 
 
@@ -106,55 +99,25 @@ Python and R differ in **programming philosophy**, **computational capacity**, a
     <tr><th>**Feature / Task**</th><th>**R**</th><th>**Python**</th></tr>
   </thead>
   <tbody>
-    <tr class="fragment"><td>**Programming style**</td><td>Function-oriented</td><td>Mostly object-oriented</td></tr>
-    <tr class="fragment"><td>**Scope of functionality**</td><td> Primarily for statistical computing and data analysis</td><td> General-purpose: ML & AI, software development, scripting, etc.</td></tr>
+    <tr class="fragment"><td>**Scope of functionality**</td><td> Primarily for statistical and data analysis</td><td> General-purpose: ML & AI, software development, scripting, etc.</td></tr>
+    <tr class="fragment"><td>**Programming style**</td><td>Function-oriented</td><td>Object-oriented</td></tr>
     <tr class="fragment"><td>**Computational power**</td><td>✅ Vectorized operations <br> ⚠️ Memory-intensive for large data and loops</td><td>✅ Faster loop performance <br> ✅ Strong GPU support <br> ✅ Efficient memory use</td></tr>
-    <tr class="fragment"><td>**Package ecosystem**</td><td>✅ Rich ecosystem of statistical tools <br>⚠️ Fewer ML/AI tools</td><td>☑️ Emerging statistical packages <br> ✅ Extensive ML/AI tools</td></tr>
+    <tr class="fragment"><td>**Package ecosystem**</td><td>✅Open source: CRAN, Bioconductor, GitHub <br> ✅ Rich ecosystem of statistical tools <br> ⚠️ Fewer ML/AI tools</td><td> ✅Open source: PyPI, GitHub <br> ☑️ Emerging statistical packages <br> ✅ Extensive ML/AI tools</td></tr>
     <tr class="fragment"><td></td><td></td><td></td></tr>
     <!-- <tr class="fragment"><td>**IDE/Computing tools**</td><td>RStudio, RMarkdown, Quarto</td><td>VS Code, JupyterLab, Jupyter Notebooks, Quarto</td></tr> -->
   </tbody>
 </table>
 
-<!-- ## Python: Object-Oriented Programming (OOP)
-<br>
-
-:::{.fragment}
-The Python language is designed around <strong>objects</strong>.
-
-Everything in Python is an object -- <span style="color:rgb(0, 107, 179)">**Strings / Lists / Data Frames / Models**.</span>
-:::
-:::{.fragment}
-Objects are instances of **classes**. A calss is a blueprint for creating individual objects.
-:::
-:::{.fragment}
-A class has lists of **attributes** (properties) and **methods** (behaviors) that are shared by all its objects.<br>
-:::
-:::{.fragment .center}
-<span style="font-size: 1.2em"><strong>Example:</strong></span>
-
-| **Class** |   **Attributes**       |     **Methods**      |
-|-----------|------------------------|----------------------|
-|   Dog🐶   | Breed / Weight / Color | Play / Eat / Sleep   |
-::: -->
-<!-- ::: {tbl-colwidths="[20, 40, 40]"}
-| **Feature / Task**                           | **R**                                                                                      | **Python**                                                                 |
-|----------------------------------------------|---------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
-| **Programming logic**                        | Function-oriented                                                                    | Mostly object-oriented              |
-| **General-purpose programming**              | ⚠️ Primarily for statistical computing and data analysis                                        | ✅ Strong - ML & AI, software development, scripting, etc.                 |
-| **Computational power**                      | ✅ Vectorized operations <br>  ⚠️ Memory-intensive for large data and loops | ✅ Faster loop performance <br> ✅ Strong GPU support <br> ✅ Efficient memory use |
-| **Package ecosystem**                     | ✅ Rich ecosystem of statistical tools <br> ⚠️ Fewer ML/AI tools | ☑️ Emerging statistical packages <br> ✅ Extensive ML/AI tools |
-| **IDE and computing tools**          | ✅ RStudio, RMarkdown, Quarto                                                          | ✅ VS Code, JupyterLab, Jupyter Notebooks, Quarto |
-::: -->
-
 
 ## Python Package Ecosystem
 
 :::{.fragment .fade-in-then-out .absolute top="200"}
-### Statistical analysis 
-While R is the go-to tool for statistical analysis, Python has caught up with many equivalent libraries and functions:
+### Statistical analysis & data wrangling
+While R is the go-to language for statistical analysis, Python has caught up with many equivalent pacakges that offers similar functionality and styles:
 
 -   `statsmodels` / `scipy.stats` provide **regression modeling** and **hypothesis testing**.
--   `scikit-survival` /`lifelines` support **survival analysis** and plotting.
+-   `scikit-survival` / `lifelines` support **survival analysis** and plotting.
+-   `polars` (~`dplyr` data cleaning) / `great_tables` (~`gt` tables) / `plotnine` (~`ggplot2` visualizations)
 :::
 
 :::{.fragment .fade-in-then-out .absolute top="200"}
@@ -176,280 +139,94 @@ Emerging bioinformatics packages that provide standard omics data preprocessing 
 -   `pysam` works with raw input files (e.g., BAM/SAM/VCF)
 :::
 
-## Essential Tools {.center}
-Let's familiarize with the essential software tools for Python programming and project building.
+
+
+## Get started: Essential Tools {.center}
+
+<span style="font-size: 1.2em">Make your python project **reproducible**! </span><br>
 
 :::{.fragment}
--   **Miniconda**: provides Python installation and `conda`, a powerful package and environment manager
+-   **pip**: Python package installer (comes with Python installation)
 :::
 :::{.fragment}
--   **Visual Studio Code**: a lightweight code editor that integrates programming + plots + terminal + git + ...
+-   **Positron**: a modern IDE developed by Posit designed for Python + R
 :::
 :::{.fragment}
--   **Jupyter Notebook**: an interactive computing tool that combines code execution + markdown + visualizations
+-   **Jupyter Notebook**: an interactive computing tool that combines code + markdown + visualizations + media
 :::
 :::{.fragment}
--   **Git (GitHub)**: for version control, collaboration, and publishing code
+-   **Git/GitHub**: version control, collaboration, and code sharing
 :::
 
 
-# Conda
+## Pip {.center}
 
-> Conda is a cross-platform, multi-language **command line interface (CLI)** for managing packages and environments.
+> Pip is **command line interface (CLI)** for managing Python packages. It installs packages from **Python Package Index (PyPI)** and other sources such as GitHub.
 
-<li>**Multi-language**: supports both Python and non-Python pacakges (e.g., R, C/C++)</li>
-<li>**Environment management**: creates virtual environments with specific Python versions and dependencies for reproducibility.</li>
+:::{.callout-note appearance="simple"}
+Since Python 3.4+, pip is automatically installed for:
 
+-  Python installations from [python.org](python.org)
+-  Python virtual environments
+:::
 
-## Miniconda vs. Anaconda 
-
-![](images/anaconda-vs-miniconda.jpg){width=270}
-
-You can install conda via both installers:
-   <li>**Miniconda** (minimal version)</li>
-   <li>**Anaconda Distribution** (full version)</li>
-<br>
-The Latter provides the [Anaconda Navigator](https://docs.anaconda.com/navigator/getting-started/) application which allows you to manage packages and environments without having to use the command line.
+<li>**Command line**: **Install, upgrade, and uninstall** packages through `pip <command>`</li>
+<li>**Virtual environments**: pip can be used within virtual environments created with `venv`</li>
 
 
-## Conda Virtual Environments {.center}
 
-<!-- :::{.callout-note appearance="simple"} -->
-Environments are **isolated**, **self-contained** workspace that includes its own **language interpreter** and **package dependencies**
-<!-- ::: -->
+## Virtual Environments {.center}
 
+> Environments are **isolated**, **self-contained** folders with their own **Python interpreter** and set of installed **packages**.
+
+::: columns
+
+::: {.column}
+<br><br>
 <span style="font-size: 1.2em">**Example**:</span> 
-   <li> **Global environment** (system): Miniconda installation of Python 3.12 + dependencies</li>
-   <li> **Virtual environment1**: Python 3.8 + dependencies</li>
-   <li> **Virtual environment2**: R 4.4.2 + dependencies</li>
+   <li> **Virtual environment 1**:<br> Python 3.8 + scikit-learn 1.3.2</li>
+   <li> **Virtual environment 2**:<br> Python 3.12 + scikit-learn 1.8.0 + torch</li>
 <br>
-<span style="color: #007acc">
-In this case, creating virtual environments allows these Python installations to operate fully **independently** and not interfere with each other.</span>
+
+<span style="color: #007acc">Creating virtual environments allows them to operate fully **independently** and not interfere with each other!</span>
+
+:::
+
+::: {.column}
+![](images/python-venv-sketch-1.png){width="550"}
+:::
+
+:::
 
 
 ## Why Use Virtual Environments?
-<br>
-You may find the flexibility of environments beneficial in many cases.
+
+:::{.fragment .fade-in-then-out .absolute top="100"}
+You may find the flexibility of environments helpful when you have multiple project with ***slightly*** different dependency requirements...
+
+![](images/python-venv-sketch.png){width="700" fig-align="center"}
+:::
+
+:::{.fragment .absolute top="100"}
 
 :::{.fragment .fade-in-then-semi-out}
--   **Avoid Conflicts.** Help resolve potential conflicts between different projects concerning conflicting dependencies. Changes made to one environment won't affect other projects that use different environments.
+-   **Avoid Conflicts.** Avoid potential conflicts between different projects' dependency requirements. Changes to one environment won't affect other projects that use different environments.
 :::
 :::{.fragment .fade-in-then-semi-out}
--   **Easy Management**. Reduce the risk of breaking system Python and globally installed packages. You can easily delete a virtual environment if issues occur and recreate it.
+-   **Easy Management**. Less concern about breaking things. You can easily delete a virtual environment if issues occur and recreate it.
 :::
 :::{.fragment .fade-in-then-semi-out}
 -   **Reproducibility.** Work as time capsules, allowing you to replicate the requirement of a project at later time points or on new machines.
 :::
 :::{.fragment .fade-in-then-semi-out}
--   **Sharing Environments**. Allow sharing the Python version and entire list of dependencies with other people through a copy of the `.yml` file.
+-   **Sharing Environments**. Easily share the Python version and list of dependencies with other people through a copy of the `requirements.txt` file.
 :::
 
-
-## Overview of `conda` commands {.center}
-
-Let's walk through some useful commands.
-<br><br>
-💡Open **Anaconda Prompt** (Windows) or **Terminal** (macOS) to execute commands 
-<!-- (https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf) -->
-
----
-
-### Installing Packages with Conda
-
-You can install, update, and remove packages from specific [**channels**](https://www.anaconda.com/docs/psm/cloud/channels) (pacakge inventories).
-<br><br>
-
-:::{.fragment .fade-in-then-out .absolute top="150"}
-To install packages from the **default** Anaconda channel:
-
-``` bash
-# Install a single package
-conda install scipy
-
-# Install a specific version of a package
-conda install scipy=0.15.0 
-
-# Install multiple packages
-conda install scipy=0.15.0 pandas matplotlib
-```
-:::{.callout-note appearance="simple"}
-When installing multiple packages, Conda resolves dependencies across them
-:::
-:::
-
-:::{.fragment .fade-in-then-out .absolute top="150"}
-To install packages located in another channel, (e.g., `conda-forge`):
-
-``` bash
-conda install conda-forge::pytorch 
-# or 
-conda install pytorch --channel conda-forge
-
-# Include multiple channels for package search
-conda install pytorch -c conda-forge -c bioconda
-```
-***Note**: you can use `-c` (shorthand) and `--channel` interchangeably.*
-:::
-<br>
-<!-- ❓What if  -->
----
-
-### Conda install vs. Pip install {.center}
-
-|                       | `conda install`     | `pip install`               |
-| --------------------- | ------------------- | --------------------------- |
-| Package types         | Python + non-Python | Python-only                 |
-| Package source        | Conda channels      | Python Package Index (PyPI) |
-| Dependency resolution | ✅ Comprehensive     | ⚠️ Limited, no cross-checks  |
-
-:::{.callout-important appearance="simple"}
-Conda cannot track packages installed by pip. Using `conda` and `pip` back-to-back can overwrite and potentially break existing packages.
-:::
-
-💡*Best practice*:
-<span style="color:rgb(204, 0, 0)">
-***When working in a conda environment, install everything with conda first, then use pip only when the package is not available in conda.***
-</span>
-
-:::{.callout-note appearance="simple"}
-Check out this [article](https://www.anaconda.com/blog/using-pip-in-a-conda-environment) for more information on using pip in a conda environment.
-:::
-
----
-
-### Updating and Removing Packages with Conda
-
-:::{.fragment .fade-in-then-semi-out}
-To update a package:
-
-``` bash
-conda update scipy
-```
-:::{.callout-note appearance="simple"}
-This automatically updates the package to the highest version supported by the current Python series. 
-
--  **Example**. Python 3.9 updates to the highest available in the 3.x series.
-:::
-:::
-
-:::{.fragment .fade-in-then-out}
-To remove a package:
-``` bash
-# To remove a package
-conda remove scipy 
-
-# To remove multiple packages at once
-conda remove scipy pandas matplotlib
-```
-:::
-
----
-
-### Creating an Environment with Conda
-
-You can **create, activate, update, export**, and **remove** virtual environments with `conda`.
-<br><br>
-
-:::{.fragment .fade-in-then-semi-out}
-To create a conda virtual environment
-```bash
-conda create --name myenv
-```
-***Note**: you can use `-n` (shorthand) and `--name` interchangeably.*
-:::
-<br>
-
-:::{.fragment .fade-in-then-semi-out}
-To create an environment with a specific Python version and install packages to it:
-```bash
-conda create -n myenv python=3.10
-conda activate myenv
-conda install jupyter ipykernel matplotlib -c conda-forge
-```
-or do it in one line:
-```bash
-conda create -n myenv python=3.10 jupyter ipykernel matplotlib -c conda-forge
-```
-:::
-
----
-
-### Creating an Environment with Conda (Conti.)
-
-:::{.fragment .fade-in-then-semi-out}
-To acitvate an environment:
-```bash
-conda activate myenv
-```
-:::
-:::{.fragment .fade-in-then-semi-out}
-To deactivate the current environment (**no need to specify the name**):
-```bash
-conda deactivate
-```
-:::
-:::{.fragment .callout-caution appearance="simple" .fade-in-then-semi-out}
-**Avoid activating on top of another virtual environment!**
-<br><span style="font-size: .8em">
-Always `conda deactivate` first before activating another one because environments can be **stacked**, which can potentially break both environments. 💡**Tip**: make sure you see `(base)` at the beginning of the terminal prompt when activating an environment.</span>
-
-:::
-:::{.fragment .fade-in-then-semi-out}
-To remove an environment entirely:
-```bash
-conda env remove -n myenv
-```
-:::
-:::{.fragment .fade-in-then-semi-out}
-You can look up the names and locations of all the environments on your computer with:
-```bash
-conda env lsit
-```
-:::
-
----
-
-### Creating Environments from YML Files
-
-Conda environments can be exported and shared as `.yml` files for reproducibility:
-
-:::{.fragment}
-Example generic `.yml`:
-```{.yaml code-line-numbers="1|2-3|4-7"} 
-name: python310
-channels:
-  - defaults
-dependencies:
-  - python=3.10
-  - pandas
-  - numpy
-```
-:::
-:::{.fragment}
-Another way to quickly export information about packages and their versions: 
-```bash
-conda activate myenv
-conda env export --no-builds > environment.yml
-```
-This will save an `environment.yml` file to your current working directory.<br>
-<span style="font-size:.8em">*Note: `--no-builds` removes build information from dependencies for simplicity.*</span>
-
-:::
-:::{.fragment}
-Now, you can ceate the environment with:
-```bash
-conda env create -f environment.yml
-conda activate python310
-```
-:::
-:::{.fragment}
-<span style="font-size: 0.9em">We will later create an environment for the workshops. 👉Downlaod [environment.yml](https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml)</span>
 :::
 
 
 # Integrated Development Environment
 
-<!-- <span style="font-size: 1.3em"><strong>What is an IDE?</strong></span> -->
 > An **Integrated Development Environment (IDE)** is a suite of tools contained in a software application, which typically includes:
 
 - A source code editor 
@@ -471,272 +248,636 @@ An IDE brings together everything you need to write and run code and manage proj
 
 ---
 
-## Visual Studio Code 
-
 :::{.fragment}
-![](images/vs-code-icon.png){.absolute top=5 right=20 width=110}
-<br>
-<span style="font-size: 1.2em">**Visual Studio Code (VS Code)**</span> is one of the most popular open-source code editors with many features.
+<span style="font-size: 1.5em">**Positron**</span><br><br>
 
--  Lightweight
--  Multi-language support for Python, R, C++, etc.
--  Integrated Git version control
--  Extensible features like Jupyter notebooks, Quarto, remote connection 
+![](images/positron-logo.png){.absolute top=0 right=50 width=150}
+
+Positron is a new IDE (*released 2025*) designed for **Python + R** with many great features:
+
+-  **Built-in Suuport for Python and R.** No extra extensions & easy transition from VS Code and RStudio  
+-  **RStudio-Style Layout.** Editor + Console + Plots/Variables/Help panes
+-  **Multi-Session Console.** Work in multiple languages/environments seamlessly at the same time
+-  **Integrated Git & Remote Connection.** Connection to GitHub + remote SSH sessions
 :::
 
-:::{.fragment}
-<span style="font-size: 1.2em">**Jupyter Notebook**</span>
+<br>
 
-![](images/jupyter-logo.png){.absolute top=435 right=20 width=130}
+:::{.fragment}
+<span style="font-size: 1.5em">**Jupyter Notebook**</span><br><br>
+
+![](images/jupyter-logo.png){.absolute top=435 right=50 width=160}
 
 Jupyter is an interactive computing tool that lets you combine executable code, Markdown text, and visual components in one file called a notebook (`.ipynb`).
 :::
 <br>
 
 :::{.fragment}
-<span style="color: #007acc">
-<strong>VS Code + Jupyter notebooks for Python = RStudio + RMarkdowns for R.</strong></span>
+
+<span style="color: #007acc, font-size: 1.2em"><strong>Positron + Jupyter notebooks for Python = RStudio + RMarkdowns for R.</strong></span>
 
 :::
 
 
-# Git (GitHub)
+# Git / GitHub
 
-![](images/git-log.png){.absolute top=10 right=150 width=150}
-![](images/github-logo.png){.absolute top=0 right=5 width=150}
+![](images/git-logo.png){.absolute top=10 right=220 width=200}
+![](images/github-logo.png){.absolute top=0 right=20 width=200}
 <br>
-<span style="color: #007acc">**Git**</span> is a version control system that tracks changes in code and project files over time.  
-<span style="color: #007acc">**GitHub**</span> is a cloud-based platform that hosts Git repositories for sharing and collaboration.
+<span style="color: #007acc">**Git**</span> is a version control system that tracks **local** code changes.<br>
+<span style="color: #007acc">**GitHub**</span> is a cloud-based platform built on Git for storing, sharing, and collaborating on code.
 
-:::{.callout-note appearance="minimal"}
-**Note**: Git and GitHub are not the same. Git is the software tool for version control and can be used without GitHub, while the latter provides the online hosting service.
-:::
+:::{.fragment}
+<span style="font-size: 1.2em">**Why use Git/GitHub?**</span>
 
-<span style="font-size: 1.2em">**Why use Git for projects?**</span>
-
+:::{.incremental}
 - **Track and commit changes** to files in a repository
 - **Revert or compare** previous versions when something breaks
 - **Branching** allows teamwork in parallel without overwriting each other’s work
 - **Backup** your research projects in a centralized location
 - **Sharing** code for publication purposes 
+:::
+:::
 
-Git works seamlessly with **VS Code** and **Jupyter Notebooks**
+
+# Let's Get Started!
 
 
+## Create a Reproducible Python Project {.center}
 
-# Python Reproducible Workflow
-<br>
-<span style="font-size: 1.2em">**Prerequisite**</span><br>
-   <li>Install [Conda (Miniconda)](https://github.mskcc.org/pages/Python-Workshop/Python-Workshop.github.io/session1/session1.html#follow-along-install-miniconda-python-conda)</li>
-   <li>Install [VS Code](https://code.visualstudio.com/)</li>
-   <li>GitHub account (to practice using GitHub version control for projects)</li>
-   <li>(*optional*) Install [GitHub Desktop](https://desktop.github.com/download/)</li>
+:::{.incremental}
+- Install Tools:
+   - [Python](hhttps://pythonforrusers.github.io/Python-Workshop.github.io/session1/session1.html#follow-along-install-python) 
+   - [Positron IDE](https://positron.posit.co/download.html)
+   - [GitHub Desktop](https://desktop.github.com/download/) (create a [GitHub](https://github.com) account if haven't done so)
+- Create a new **GitHub repository** for your project
+- Open the project in **Positron IDE**
+- Set up virtual environment with `venv` 
+- Organize folder structure and create a **Jupyter notebook** (`.ipynb`) file
+- **Commit** changes and **push** to GitHub
+:::
+
+
+## ▶️Install Python 
+
+:::{.fragment .fade-in-then-out .absolute top=80}
+1.  Go to the official Python download site: [python.org/downloads/](https://www.python.org/downloads/)<br>
+
+   -  Select your computer's OS (Windows/macOS) from the **Downloads** dropdown menu.
+
+   -  💡Recommend **Python 3.12**, the most recent stable release.
+
+2.  Download the **64-bit installer** for your chosen Python version (*unless your Windows is 32-bit*).
+:::
+
+
+:::{.fragment .fade-in-then-out .absolute top=60}
+3.  **Run the installer** (`.exe` for Windows / `.pkg` for macOS).
+
+**For Windows**, when the “Install Python” window appears: 
+
+   - ☐ *Use admin privileges* **--Optional**
+   - ✅ *Add python to PATH* **--Recommended**
+   - ✅ Choose "Install Now" and keep the default installation location
+
+**For macOS:**
+
+::: columns
+::: {.column width="50%"}
+   -  Click through the installer prompts.
+   -  When finished, you will see the following pops up:
+   -  Click on the `.command` file. This will open a temporary **Terminal** shell window. Ensure that you see `[Process completed]` before closing the window.
+:::
+::: {.column width="50%"}
+![](images/python-install-mac-1.png){width="500"}
+:::
+:::
+:::
+
+:::{.fragment .fade-in-then-out .absolute top=60}
+4.  **Check installation**. Open **Terminal** (or PowerShell / Command Prompt on Windows) and type the following command:
+
+   - For Windows:
+
+``` bash
+python --version
+pip --version
+```
+   -  For macOS, you might need:
+
+``` bash
+python3 --version
+pip3 --version
+```
+
+✅ You should see something like `Python 3.12.10` and `pip 25.0.1`.
+
+
+:::{.callout-important appearance="simple"}
+If installations not found, it usually means **PATH** wasn't correctly updated or you have another Python version in PATH that interferes with the current installation.
+:::
+
+<span style="font-size: 1.2em"><strong>*Now, you can start coding in Python in the terminal!*</strong></span>
+
+:::
 
 ---
 
-:::{.incremental .absolute top=200}
--  <span style="color:rgb(0, 0, 0)">Create a GitHub repository and clone folder to the local computer</span>
--  <span style="color:rgb(0, 0, 0)">Organize the project directory with a clean structure</span>
--  <span style="color:rgb(0, 0, 0)">Create a project-specific conda virtual environment</span>
--  <span style="color:rgb(0, 0, 0)">Work in VS Code with corresponding Python environment</span>
+:::{.fragment .fade-in-then-semi-out}
+Try in the **Python interactive shell** by typing in the terminal:
+
+``` bash
+python    # Windows
+python3.x # macOS
+```
 :::
 
----
+:::{.fragment .fade-in-then-semi-out}
+And you will see something like:
 
-## Create a GitHub Project - Example
-
-:::{.fragment .fade-in-then-out .absolute top=60}
--  Create new repository from [GitHub](https://github.com) (public) or [GitHub Enterprise](https://github.mskcc.org) (MSK Secured)
--  Initialize with `README.md` and `.gitignore` (choose **Python** template)
+``` python
+Python 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36)
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
 :::
 
-:::{.fragment .fade-in-then-out .absolute top=60}
-Alternatively...
+:::{.fragment .fade-in-then-semi-out}
+Now, you can type Python commands directly. For example, importing a package: 
 
--  Go to practice repository: [https://github.mskcc.org/Python-Workshop/workshop_proj](https://github.mskcc.org/Python-Workshop/workshop_proj)
--  <span style="color: #007acc">**Fork**</span> the repo to create a copy on your GitHub account
-   ![](images/github-fork.png){height=600}
-
--  Now, you should have a forked copy of the repository on your own GitHub account (e.g. `username/workshop_proj`) 
-   <!-- ![](images/github-forked-repo.png) -->
+``` python
+>>> import statistics
+>>> data = [1, 2, 3, 4, 5]
+>>> statistics.mean(data) # should return the mean 3
+```
 :::
 
-:::{.fragment .fade-in-then-out .absolute top=60}
--  Now, clone the repository to your local computer by clicking 
-![](images/github-clone-button.png){.absolute top=0 right=200 width=150}
-![](images/github-clone.png){height=600}
+:::{.fragment .fade-in-then-semi-out}
+Exit the interactive console with: 
 
--  **Option 1 (CLI)**: Copy the **HTTPS URL** and clone with `git` command
-   ```bash
-   git clone https://github.mskcc.org/<username>/workshop_proj.git
-   ```
-
--  **Option 2 (GUI)**: Open in **GitHub Desktop** 
-<!-- ([https://desktop.github.com/download/](https://desktop.github.com/download/)) -->
+``` python
+>>> quit() # or exit()
+```
 :::
 
 
-## Organize the Project Directory 
+## Install Tools {.center}
+
+💡Before proceeding, ensure you have the following:
+
+-   **Positron**: [Download and install Positron](https://positron.posit.co/download.html)
+-   **GitHub Desktop**: [Download GitHub Desktop](https://desktop.github.com/download/)
+-   *(Optional) Git CLI*: [Install Git on your computer](https://git-scm.com/install/)
+
+::: {.callout-tip appearance="simple"}
+The `git` command line tool is an alternative to GitHub Desktop. If you are comfortable with commands in the terminal, `git` offers the same functionality and flexibility for managing your code versions.
+:::
 
 :::{.fragment}
-Organize the project with separate `data/` and `notebooks/` folders and `environment.yml` file to save virtual environment information.
-:::
-:::{.fragment}
--  Here is an example project structure.
-
-   ```text
-   workshop_proj/
-      ├── data/            # Raw & processed data folder
-      ├── notebooks/       # Jupyter notebooks and scripts
-      ├── environment.yml  # Conda environment YML file
-      ├── .gitignore       # Files that git should not track
-      └── README.md        # Project description 
-   ```
--  👉Downlaod workshop [environment.yml](https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml) file and add to the parent directory.
-:::
-:::{.fragment}
-<span style="color: #007acc">**Note**: If you do not use GitHub -- that is fine! You can skip the previous step of cloning from GitHub and directly create a local folder with subfolders and files.</span>
+<br><span style="font-size: 1.2em">⏳Take a second to install necessary tools -- ***Any questions?***</span>
 :::
 
 
-## Create a Project-Specific Conda Environment 
+## Create a GitHub Repository
+
+:::{.fragment .fade-in-then-out .absolute top=60}
+
+::: columns
+::: {.column width="65%"}
+1.  Go to GitHub: [https://github.com](https://github.com). **Sign in** or **create and account** if you haven't done so.
+2.  Click **"New repository"**. 
+:::
+::: {.column width="35%"}
+![](images/github-new-repo.png){width="400"}
+:::
+:::
+
+-  Type a name in the **"Repository name"** box (e.g., **`workshop-project`**)
+
+   ![](images/github-new-repo-1.png){width="100%"}
+:::
+
+:::{.fragment .fade-in-then-out .absolute top=60}
+-  Add `README.md` (optional) and `.gitignore` (choose **Python** template)
+
+   ![](images/github-new-repo-gitignore.png){width="900"}
+
+-  Click **"Create repository"**
 
 :::{.callout-tip appearance="simple"}
-**Note**: Ensure that **Miniconda** is installed. For MacOs, ensure `conda` is correctly initialized with `conda init` (see [installing Miniconda](https://github.mskcc.org/pages/Python-Workshop/Python-Workshop.github.io/session1/session1.html#follow-along-install-miniconda-python-conda))
+The `.gitignore` file tells Git which files/folders to ignore when making commits. **E.g.**, the environment folder (`.venv/`) that we will later create. This is a good practice to avoid pushing overly large files and/or sensitive data.
+:::
 :::
 
-:::{.incremental}
-1. Launch **Anaconda Prompt** (Windows) or **Terminal** (macOS).  
-2. Chagne directory to your project folder with `cd`
-3. Create the environment with:
-   ```bash
-   conda env create -f environment.yml
-   conda activate python-intro-env
+
+:::{.fragment .fade-in-then-out .absolute top=60}
+3. **Clone** the repository to your local computer by clicking 
+![](images/github-clone-button.png){.absolute top=5 right=250 width=150}
+
+
+   ![](images/github-clone.png){width=680 fig-align="center"}
+
+-  **Option 1 (CLI)**: Copy the **HTTPS URL** and clone with `git` command
+
+   ``` bash
+   cd <path-to-a-parent-folder>
+   git clone https://github.com/<username>/<workshop-project>.git
    ```
+
+-  👉**Option 2 (GUI)**: Open in **GitHub Desktop**. Choose the local path you want to clone to.
+
+   ![](images/github-desktop-clone.png){width="680" fig-align="center"}
+
 :::
 
 
-## Set up VS Code for Python & Jupyter
+## Create Repo Locally with `git` Commands
 
-:::{.incremental}
-1. Launch **VS Code**
-2. Open the **Extensions Marketplace** (`Ctrl+Shift+X` or `Cmd+Shift+X`)
-![](images/qs-python-ext-install.gif)
-3. Install the following extensions:
-   - ✅ **Python** (auto-, debugging, and interpreter selection)
-   - ✅ **Jupyter** (notebook interface and interactive execution)
-   -  ***Note**: You still need local installations of Python to enable the extension.*
+An alternative to the previous actions -- Using Git CLI.
+
+:::{.fragment .fade-in-then-semi-out}
+1.  Create a new project folder (e.g., `workshop-project`):
+
+``` bash
+mkdir workshop-project
+```
+
+Or navigate to an existing one:
+
+``` bash
+cd workshop-project
+```
+:::
+:::{.fragment .fade-in-then-semi-out}
+2.  Initialize a Git repository:
+
+``` bash
+git init
+```
+:::
+
+:::{.fragment .fade-in-then-semi-out}
+3.  Create a `.gitignore` file to avoid committing large and misc files. For example:
+
+    ``` text
+    # Environments
+    .venv/
+
+    # Python cache
+    __pycache__/
+
+    # Jupyter
+    .ipynb_checkpoints/
+
+    # macOS files
+    .DS_Store
+    ```
+:::
+:::{.fragment .fade-in-then-semi-out}
+4.  Make your first commit:
+
+    ``` bash
+    git add .
+    git commit -m "Initial commit"
+    ```
+:::
+
+:::{.fragment}
+:::{.callout-tip}
+## Connect folder to GitHub
+If you want to publish your project to GitHub, create a new **empty** repository on GitHub (without `.gitignore`), copy the repository URL, and run the following to connect and push changes:
+
+``` bash
+git remote add origin <YOUR_GITHUB_REPO_URL>
+git branch -M main
+git push -u origin main
+```
+:::
 :::
 
 
-## Work in Jupyter Notebooks in VS Code
+## Open Project in Positron 
+
+:::{.fade-in-then-out .absolute top=70}
+1.  Launch **Positron**.
+
+2.  Open your project folder:
+
+    -  From the Welcome page:
+
+        ![](images/positron-open-folder.png){width="900"}
+
+        **Or**
+
+    -   By selecting **File \> Open Folder** (`Ctrl+K / Ctrl+O`). 
+    -   Select you folder (`<workshop-project>`)
+:::
+
+
+
+## Create a Project-Specific Environment with `venv`
+
+:::{.callout-important appearance="simple"}
+**Note**: While Positron has built-in support for Python, you still need it installed locally. Ensure you have followed the previous steps to install **python** and **pip** .
+:::
 
 :::{.incremental}
-1. Open your project folder in VS Code:
-   -   Select **Open Folder...** from the VS Code Welcome page:
-      ![](images/vscode-welcome-page.png){width=1000}
+1. In your project folder, locate the **TERMINAL** panel at the bottom. 
+-  If not shown. Open the **Command Palette** (`Ctrl+Shift+P` or `Cmd+Shift+P`) and type **"Python: Create Terminal"**
 
-   -   Or by selecting **File \> Open Folder** (`Ctrl+K Ctrl+O`)
+2. Create a virtual environment with `python -m venv <env-name>`:
+
+-  Name it **".venv"**. Ensure you are using the right `python` command.
+
+:::{.fragment}
+```bash
+python -m venv .venv  # Windows
+python3 -m venv .venv # macOS
+```
+:::
+
+-  **NOTE:** If your system default Python is a different version, you may need to specify the correct version with:
+
+:::{.fragment}
+``` bash
+python3.x -m venv .venv # macOS/Linux
+py -3.x -m venv .venv   # Windows
+```
+:::
+
+-  This will create a `.venv/` folder inside the project directory.
+
+:::{.fragment}
+:::{.callout-important appearance="simple"}
+## Add **.venv** to `.gitignore`
+The `.venv/` folder is often large and specific to your computer. Therefore, it is generally recommended to add it to your `.gitignore` file and bypass Git tracking.<br>
+💡Instead, only commit the `requirements.txt` file--which lists all dependencies for the virtual environment. 
+:::
+:::
+
+3. **Activate** the venv:
+
+:::{.fragment}
+``` bash
+source .venv/bin/activate   # macOS/Linux
+.venv\Scripts\activate.bat  # Windows (Command Prompt)
+.venv\Scripts\Activate.ps1  # Windows (PowerShell)
+```
+:::
+
+-  When activated, your terminal will show:
+
+:::{.fragment}
+``` bash
+(.venv)
+```
+:::
+:::
+
+---
+
+::: incremental
+
+***Other useful commands:***
+
+   -  To deactivate the environment:
+
+::: fragment
+```bash
+deactivate
+```
+:::
+
+-  To remove an environment:
+
+   💡Since a venv is just a folder, you can delete it safely, either by deleting the `.venv/` folder or removing via terminal commands:
+
+::: fragment
+``` bash
+rm -rf .venv        # macOS/Linux
+rmdir /s /q .venv   # Windows
+```
+:::
+:::
+
+
+##  Install Packages to Venv with `pip` and `requirements.txt`
+
+:::{.fragment}
+Pip can be used to **install, upgrade**, and **uninstall** packages from a virtual environment.<br>Some useful `pip` (or `pip3` for macOS) commands include:
+
+``` bash
+pip install <package>
+pip install <package>==<version> 
+pip install --upgrade <package>
+pip uninstall <package>
+```
+:::
+
+::: fragment
+Packages can also be installed at once using a `requirements.txt` file:
+:::
+
+::: fragment
+Example:
+
+```text
+pandas
+numpy
+matplotlib
+scipy==1.14.0
+```
+:::
+::: fragment
+<span style="font-size: 0.9em">👉Download the `requirements.txt` file for this Python workshop series from GitHub repo: [https://github.com/PythonForRUsers/Python-Workshop.github.io/blob/main/Downloadable/requirements.txt](https://github.com/PythonForRUsers/Python-Workshop.github.io/blob/main/Downloadable/requirements.txt).</span> 
+:::
+
+::: fragment
+Now, **install** with the following command:
+
+``` bash
+pip install -r requirements.txt # or `pip3` for macOS
+```
+:::
+
+:::{.fragment}
+:::{.callout-warning appearance="simple"}
+## Avoid installing packages into the wrong environment!
+
+Before running `pip install`, always confirm your environment is activated (you should see (.venv) in your terminal prompt). If forgotten, `pip install` will install into your global Python which can cause conflicts.
+:::
+:::
+
+:::{.fragment}
+The requirement file can also be created from an existing environment with: 
+
+``` bash
+pip freeze > requirements.txt
+```
+This will save an `requirements.txt` file with a snapshot of all current installed packages (and exact versions) to your project directory.
+:::
+
+
+## Create a Jupyter Notebook (`.ipynb`)
+
+:::{.fragment .fade-in-then-out .absolute top=100}
+First, let's **organize** the folder.<br>
+Keep `requirements.txt` and `.gitignore` files in the parent directory and create separate folders for scripts, data files, etc.
+
+-  Eample project folder structure:
+
+```text
+workshop-project/
+   ├── data/            # Raw & processed data folder
+   ├── notebooks/       # Jupyter notebooks for data analysis
+   ├── requirements.txt  # Virtual environment txt file
+   ├── .gitignore       # Files that git should not track
+   └── README.md        # Project description 
+```
+:::
+
+:::{.incremental}
+1.  Create a `notebooks/` folder from the **Explorer** bar on the left side and create a new Jupyter Notebook file:
+
+::: fragment
+![](images/positron-create-folder-and-file.png){width="900"}
+:::
+
+2.  Select the right Python **kernel**:
+
+   -   Locate the **Select Kernel** button at the top-right of the notebook
+   -   Choose the kernel associated with your project venv (e.g., `Python 3.x .venv`)
+
+::: fragment
+   ![](images/positron-select-kernel.png){width="900"}
+:::
+:::
+::: fragment
+:::{.callout-note appearance="simple"}
+If you don't see the environment showing up:
+
+Make sure your venv has the dependencies installed:
+
+   ``` bash
+   pip install ipykernel jupyter
+   ```
+Then restart Positron or reload the window (`Ctrl+Shift+P` \> `Developer: Reload Window`).
+:::
+:::
+
+---
+
+### Create Code and Markdown Cells 
+
+:::{.incremental}
+-   Select `+ Code` or `+ Markdown` from the top of the notebook (or use keyboard shortcut `A` or `B`)
+
+-  **Markdown** cells allows add **texts, headings, links, images** -- everything that is not code to execute. Some examples are:
+
+::: fragment
+```{.yaml code-line-numbers="1-3|4|5|6-7|8-9|10"} 
+# Heading 1
+## Heading 2
+### Heading 3
+Regular text
+> quote
+**bold text** or __bold text__
+*italic text* or _italic text_
+* bullet 1
+* bullet 2
+`in line code`
+```
+:::
+
+-  This will result in:
+
+::: fragment
+![](images/positron-markdown-types.png){width="880"}
+:::
 :::
 
 ---
 
 :::{.incremental}
-2. Open the **Command Palette** (`Ctrl+Shift+P` or `Cmd+Shift+P`)
-3. Select **Python: Select Interpreter**
-4. Choose the interpreter associated with the conda environment we created: `Python 3.10.13 (python-intro-env)`
-   ![](images/vscode-py-interpreter.png)
+-   **Code** chunks are executable. 
 
-   -  If the environment does not appear, click **Enter interpreter path...**
+-  You can **import packages, assign variables**, and **execute functions** by clicking the **Run** icon to the lelft of the cell. The output will then be displayed below the code chunk.
 
-         -  **Windows**: `C:\Users\<username>\miniconda3\envs\myenv\python.exe`
-         -  **macOS**: `/Users/<username>/miniconda3/envs/myenv/bin/python`
+::: fragment
+![](images/positron-code-chunk.png){width="800"}
 :::
 
----
+-  Now, try run the following in a notebook cell:
 
-:::{.incremental}
-5. Create a Jupyter Notebook with **Create: New Jupyter Notebook** from the Command Palette (`Ctrl+Shift+P`) or by creating a new `.ipynb` file from the left hand side Explorer panel
-   ![](images/vscode-create-ipynb1.png)
-
-6. Select a Python interpreter by clicking click **Select Kernel** in the upper right corner 
-   ![](images/vscode-select-kernel.png)
-7. Choose the appropriate conda environment: `python-intro-env (Python 3.10.13)`
-:::
-
----
-
-:::{.incremental}
-8. Now, create **cells** with desired cell types--`Python` (default); `Markdown`; ...
-   ![](images/vscode-select-celltype.png){width=900}
-
-9. Test kernel selection with:
    ```python
    import sys
    print(sys.executable)
    ```
-   This should return the local path to the Python executable associated with your conda environment.
-   
-   Try import packages installed to our environment:
-   ```python
-   import pandas
-   import sklearn
-   import great_tables
-   ```
-   <!-- ![](images/vscode-code-chunk.png){width=900} -->
 
-:::
-:::{.fragment}
-You are all set with getting started to code in Python 👏
+-  This should return the path of the python.exe executable in your `.venv/` folder.
 :::
 
+## Commit and Push Changes to GitHub
 
-# 🔥Tips: <br> Reproducibility & Environments
-
----
-
-:::{.fragment .incremental}
-***Q: Can I create virtual environments inside project folders rather then the default?***
-
-   -  Yes, you *can* create the environment elsewhere than the default location (e.g., `~/miniconda3/envs`)
-
-   -  You would specify the pathway when creating the environment: 
-      
-      ```bash
-      conda env create --prefix </path/to/your/proj/env>
-      ```
-
-   -  **Cons**: Might lead to slower performance and permission issues (e.g., saving to H Drive) 
+::: fragment
+1. Open **GitHub Desktop**
+   -  Go to your `<workshop-project>` repository
 :::
 
----
+::: fragment
+2. **Review changes** from the left **Changes** tab
+   -  You should see:
+      -  ✅`requirements.txt`
+      -  ✅`notebooks\<sess1-demo>.ipynb`
+      -  ❌`.venv\` ***--should be included in `.gitignore` and not be commited!***
 
-:::{.fragment .incremental}
-
-***Q: Can I create one env per project? Would too many envs be a problem?***
-
--  Yes, it is ***recommended*** that you create project-specific environments!
--  An environment normally takes ~200MB - 1GB. If you are low on disk space, too many active ones might be an issue.
--  **Solution**: Clean up unused environments from finished projects.
-   -  When a project is finished, export environment information and remove it from disk:
-      ```bash
-      conda env export --no-builds > environment.yml
-      conda env remove -n <old-env-name>
-      ```
-   -  This saves a snapshot of the project denpendencies for reproducibility! 
+   - ***NOTE:*** If you added `.gitignore` when creating the repo, it would be included in the previous (initial) commit.
 :::
+
+::: fragment
+4. Add a **Commit** message and 
+   - Add a summary message, e.g. **“Add requirements and notebook folder”**
+   - Click **Commit to main**
+
+   ![](images/github-commit.png)
+:::
+
+::: fragment
+5. **Push to GitHub**. Click **Push origin**
+
+![](images/github-desktop-push.png)
+:::
+
+
+## You are all set! 👏 {.center}
+
+You now have a Python project for the Workshop sessions with a `.gitignore` file, **Git** version control, a local project-specific **virtual environment**, and a working notebook folder inside the Positron workspace. 
+
 
 # Takeaways
 
 :::{.incremental}
--  Python is built around **objects** with associated attributes and functions. This modular setup allows high extensibility of Python programs to new features.
--  Conda virtual environments help **isolate** Python versions across projects and automatically **resolve dependency conflicts** within each environment.
--  Use Git/GitHub for **version control, project back up, code sharing**, and **collaboration**.
--  VS Code allows integration of Jupyter notebooks, conda virtual environments, and automatic Git file tracking. 
+-  Python is a **general-purpose**, **object-oriented** language with associated attributes and functions. This modular setup allows high extensibility of Python programs to new features.
+-  Virtual environments help **isolate** Python versions and dependencies across projects and helps avoid conflicts and ensure project **reproducibility**.
+-  Use Git/GitHub for **tracking changes, version control, code sharing**, and **collaboration**.
+-  Positron or other IDEs to contain everything. 
 :::
 <br>
 
 :::{.fragment}
 <span style="color: #006acc; font-size:1.4em">**Questions?**</span> 
 
+![](images/penguin-jump.gif){width="350" fig-align="center"}
 :::
+
+# 🔥Helpful Resources
+
+<span style="font-size: 1.2em"> **Books / Websites**: </span><br><br>
+   ***[Python for Data Analysis, 3ed](https://wesmckinney.com/book/)*** by Wes McKinney (one of the creators of `pandas`!)<br>
+   **[Git and GitHub learning resources](https://docs.github.com/en/get-started/start-your-journey/git-and-github-learning-resources#using-git)** by GitHub Docs with links to free online courses and tutorials.<br>
+   **[Official Positron Guide](https://positron.posit.co/welcome.html)** by Posit PBC.<br>
+   ***[Your first Python project in Positron](https://posit.co/blog/first-python-project-in-positron/).*** for creating new projects and virtual environments using the Positron GUI.<br>
+   [***Python Rgonomics***](https://emilyriederer.netlify.app/post/py-rgo-2025/) by Emily Riederer -- Python counterparts of R packages (*we will cover some like `great_tables` and `plotnine` in later sessions. Stay tuned!*)
+
+
+# Thank you!

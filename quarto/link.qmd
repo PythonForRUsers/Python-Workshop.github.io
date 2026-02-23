@@ -12,17 +12,15 @@ format:
 output-dir: docs/ 
 ---
 
-Links for downloading and installing mentioned software/files:
+# Downloads & Installations for the Workshop
 
 <a href="https://www.python.org/downloads/" class = "link-block">
     <img src="icons/python.png" alt="Python Download" width="100">
-    <p>Install Python (❗recommend version 3.8+)</p>
-</a>
+    <p>Install Python (❗recommend 3.10+)</p>
 
 <a href="https://positron.posit.co/" class = "link-block"> 
     <img src="icons/Positron.png" alt="Positron Download" width="100">
     <p>Install Positron</p>
-</a>
 
 <!-- <a href="https://www.anaconda.com/download/success" class="link-block">
     <img src="icons/anaconda_secondary_logo.svg" alt="Anaconda Download">
@@ -52,6 +50,15 @@ Links for downloading and installing mentioned software/files:
 
 <a href="https://wesmckinney.com/book/">Python for Data Analysis Open Edition</a> is a classic resource for data analysis (including data cleaning and data visualization). It's a great place to get started and also has a brief introduction to modeling libraries like <a href="https://www.statsmodels.org/stable/index.html">statsmodels</a> and <a href="https://scikit-learn.org/stable/">scikit-learn</a>. 
 
+[*Python Rgonomics*](https://emilyriederer.netlify.app/post/py-rgo-2025/). An in-depth article on using tools in Python that are genuinely “Pythonic” while being consistent with the workflow and style of the best R has to offer (*we will cover some like `great_tables` and `plotnine` in later sessions. Stay tuned!*). 
+
+## Data Science Tools
+
+[**Official Positron Guide**](https://positron.posit.co/welcome.html). An all-Encompassing wikipedia of the Positron IDE with all tutorials you might need to get started with and learn more about the IDE. Some relevant guides
+
+[***A Quick Tour of Positron***](https://posit.co/blog/a-quick-tour-of-positron/). To quickly learn how to navigate the Positron IDE.
+
+[**Git and GitHub learning resources**](https://docs.github.com/en/get-started/start-your-journey/git-and-github-learning-resources#using-git) by GitHub Docs with links to free online courses and tutorials.
 
 ## Machine Learning
 
