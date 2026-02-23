@@ -50,6 +50,8 @@ website:
         menu:
           - text: "All Links"
             href: link.qmd
+          - text: "Install Python"
+            href: "https://www.python.org/downloads/"
           - text: "Install Positron"
             href: https://positron.posit.co/download.html
           - text: "Follow Along Files"

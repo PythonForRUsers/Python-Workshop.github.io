@@ -834,6 +834,8 @@ You now have a Python project with a `.gitignore` file, **Git** version control,
 
 * [***Python Rgonomics***](https://emilyriederer.netlify.app/post/py-rgo-2025/). An in-depth article on using tools in Python that are genuinely “Pythonic” while being consistent with the workflow and style of the best R has to offer (*we will cover some like `great_tables` and `plotnine` in later sessions. Stay tuned!*). 
 
+* [**Git and GitHub learning resources**](https://docs.github.com/en/get-started/start-your-journey/git-and-github-learning-resources#using-git) by GitHub Docs with links to free online courses and tutorials.
+
 * [**Official Positron Guide**](https://positron.posit.co/welcome.html). An all-Encompassing wikipedia of the Positron IDE with all tutorials you might need to get started with and learn more about the IDE. Some relevant guides: 
 
     *  [Git Version Control in Positron](https://positron.posit.co/git.html)

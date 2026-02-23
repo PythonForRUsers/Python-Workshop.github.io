@@ -634,14 +634,14 @@
     "href": "link.html",
     "title": "Links",
     "section": "",
-    "text": "Links for downloading and installing mentioned software/files:"
+    "text": "Install Python (❗recommend 3.10+)\n\n \n\nInstall Positron\n\n\n \n\nDownload environment txt file\n\n\n \n\nDownload Follow Along File\n\n\n \n\nDownload Toy Dataset"
   },
   {
     "objectID": "link.html#general-data-analysis",
     "href": "link.html#general-data-analysis",
     "title": "Links",
     "section": "General Data Analysis",
-    "text": "General Data Analysis\nPython for Data Analysis Open Edition is a classic resource for data analysis (including data cleaning and data visualization). It’s a great place to get started and also has a brief introduction to modeling libraries like statsmodels and scikit-learn."
+    "text": "General Data Analysis\nPython for Data Analysis Open Edition is a classic resource for data analysis (including data cleaning and data visualization). It’s a great place to get started and also has a brief introduction to modeling libraries like statsmodels and scikit-learn.\nPython Rgonomics. An in-depth article on using tools in Python that are genuinely “Pythonic” while being consistent with the workflow and style of the best R has to offer (we will cover some like great_tables and plotnine in later sessions. Stay tuned!)."
   },
   {
     "objectID": "link.html#machine-learning",
@@ -795,14 +795,14 @@
     "href": "index.html#quick-installation-downloads",
     "title": "Introduction to Python Workshops",
     "section": "🔗Quick Installation & Downloads",
-    "text": "🔗Quick Installation & Downloads\n\n \n\nInstall Python (❗recommend version 3.8+)\n\n \n\nInstall Positron\n\n\n \n\nDownload environment.txt file\n\n\n \n\nDownload Follow Along File\n\n\n \n\nDownload Toy Dataset"
+    "text": "🔗Quick Installation & Downloads\n\n \n\nInstall Python (❗recommend 3.10+)\n\n \n\nInstall Positron\n\n\n \n\nDownload requirements.txt file\n\n\n \n\nDownload Follow Along File\n\n\n \n\nDownload Toy Dataset"
   },
   {
     "objectID": "index.html#useful-external-tutorials",
     "href": "index.html#useful-external-tutorials",
     "title": "Introduction to Python Workshops",
     "section": "Useful External Tutorials",
-    "text": "Useful External Tutorials\n\nCreate and use virtual environments with venv\nPython for Data Analysis, 3rd Edition, by Wes McKinnery\nObject-Oriented Programming (OOP) in Python"
+    "text": "Useful External Tutorials\n\nPython for Data Analysis, 3rd Edition, by Wes McKinnery\nCreate and use virtual environments with venv\nObject-Oriented Programming (OOP) in Python"
   },
   {
     "objectID": "session1/session1.html",
@@ -1510,5 +1510,12 @@
     "title": "Intro to Python",
     "section": "Positron",
     "text": "Positron\n\n\nPositron is a modern IDE developed by Posit–the same developer as RStudio–and is built on VS Code’s open source code (Code - OSS). It inherited many great features from both RStudio and VS Code, making it a powerful tool for data science workflows across Python and R.\n\n\nBuilt-in Suuport for Python and R. Positron inherits VS Code’s support for multiple programming languages. But unlike VS Code, it treats R and Python as primary coding languages and provides out-of-the-box support for Python and R without the need to install any extensions.\nRStudio-Style Layout. Positron has a similar layout design as RStudio (Editor, Console, Plots/ Variables/Help panes), but with additional features like the file Explorer side bar, search button, Git source control, remote connection, etc., allowing for more data science specific functions.\nLanguage Switch via Multi-Session Console. Positron allows working in multiple console sessions with different languages/environments at the same time. You can run R or Python code line-by-line or in chunks interactively in each console, while quickly switching between for a seamless analytical workflow.\nIntegrated Git Control & Remote Connection. Similar to VS Code, Positron integrates Git and remote connection. This allows version control of projects like tracking changes, managing branches, and resolving conflicts within the IDE. Positron also supports Remmote SSH connection to work on projects on the cluster."
+  },
+  {
+    "objectID": "link.html#data-science-tools",
+    "href": "link.html#data-science-tools",
+    "title": "Links",
+    "section": "Data Science Tools",
+    "text": "Data Science Tools\nOfficial Positron Guide. An all-Encompassing wikipedia of the Positron IDE with all tutorials you might need to get started with and learn more about the IDE. Some relevant guides\nA Quick Tour of Positron. To quickly learn how to navigate the Positron IDE.\nGit and GitHub learning resources by GitHub Docs with links to free online courses and tutorials."
   }
 ]
