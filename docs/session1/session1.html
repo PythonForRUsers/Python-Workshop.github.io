@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,9 +22,8 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -35,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -66,21 +65,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8a0808be5b7c0f3678666e7f6e600685.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-67650cef2faaa92fde7fcefafa0d397f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1ada4b71205b83437260c507578f0088.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-67650cef2faaa92fde7fcefafa0d397f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -114,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="session1_styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -228,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#workshop-at-a-glance" id="toc-workshop-at-a-glance" class="nav-link active" data-scroll-target="#workshop-at-a-glance">🔎Workshop at a Glance:</a></li>
-  <li><a href="#what-youll-need-for-the-workshop" id="toc-what-youll-need-for-the-workshop" class="nav-link" data-scroll-target="#what-youll-need-for-the-workshop">❗What You’ll Need for the Workshop</a></li>
+  <li><a href="#what-to-prepare-for-the-workshop" id="toc-what-to-prepare-for-the-workshop" class="nav-link" data-scroll-target="#what-to-prepare-for-the-workshop">❗What to Prepare for the Workshop</a></li>
   <li><a href="#about-this-guide" id="toc-about-this-guide" class="nav-link" data-scroll-target="#about-this-guide">📖 About this Guide</a></li>
   <li><a href="#introduction-to-python" id="toc-introduction-to-python" class="nav-link" data-scroll-target="#introduction-to-python">1. Introduction to Python</a>
   <ul class="collapse">
@@ -238,31 +231,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#python-vs.-r-differences" id="toc-python-vs.-r-differences" class="nav-link" data-scroll-target="#python-vs.-r-differences">Python vs.&nbsp;R: Differences</a></li>
   <li><a href="#essential-tools-for-python-programming" id="toc-essential-tools-for-python-programming" class="nav-link" data-scroll-target="#essential-tools-for-python-programming">Essential Tools for Python Programming</a></li>
   </ul></li>
-  <li><a href="#python-installation-and-setup" id="toc-python-installation-and-setup" class="nav-link" data-scroll-target="#python-installation-and-setup">2. Python Installation and Setup</a>
+  <li><a href="#python-installation" id="toc-python-installation" class="nav-link" data-scroll-target="#python-installation">2. Python Installation</a>
   <ul class="collapse">
-  <li><a href="#follow-along-install-miniconda-python-conda" id="toc-follow-along-install-miniconda-python-conda" class="nav-link" data-scroll-target="#follow-along-install-miniconda-python-conda">▶️Follow-Along: Install Miniconda (Python + conda)</a></li>
+  <li><a href="#follow-along-install-python" id="toc-follow-along-install-python" class="nav-link" data-scroll-target="#follow-along-install-python">▶️Follow-Along: Install Python</a></li>
   </ul></li>
-  <li><a href="#virtual-environment-package-management-with-conda" id="toc-virtual-environment-package-management-with-conda" class="nav-link" data-scroll-target="#virtual-environment-package-management-with-conda">3. Virtual Environment &amp; Package Management with Conda</a>
+  <li><a href="#virtual-environment-package-management-with-pip" id="toc-virtual-environment-package-management-with-pip" class="nav-link" data-scroll-target="#virtual-environment-package-management-with-pip">3. Virtual Environment &amp; Package Management with Pip</a>
   <ul class="collapse">
-  <li><a href="#what-is-conda" id="toc-what-is-conda" class="nav-link" data-scroll-target="#what-is-conda">What is Conda?</a></li>
-  <li><a href="#conda-for-managing-packages" id="toc-conda-for-managing-packages" class="nav-link" data-scroll-target="#conda-for-managing-packages">Conda for Managing Packages</a></li>
+  <li><a href="#what-is-pip" id="toc-what-is-pip" class="nav-link" data-scroll-target="#what-is-pip">What is Pip?</a></li>
+  <li><a href="#pip-for-managing-packages" id="toc-pip-for-managing-packages" class="nav-link" data-scroll-target="#pip-for-managing-packages">Pip for Managing Packages</a></li>
   <li><a href="#what-is-a-virtual-environment" id="toc-what-is-a-virtual-environment" class="nav-link" data-scroll-target="#what-is-a-virtual-environment">What is a Virtual Environment?</a></li>
   <li><a href="#why-use-virtual-environments" id="toc-why-use-virtual-environments" class="nav-link" data-scroll-target="#why-use-virtual-environments">Why Use Virtual Environments?</a></li>
-  <li><a href="#follow-along-create-a-conda-virtual-environment" id="toc-follow-along-create-a-conda-virtual-environment" class="nav-link" data-scroll-target="#follow-along-create-a-conda-virtual-environment">▶️Follow-Along: Create a Conda Virtual Environment</a>
+  <li><a href="#follow-along-create-a-virtual-environment-with-venv" id="toc-follow-along-create-a-virtual-environment-with-venv" class="nav-link" data-scroll-target="#follow-along-create-a-virtual-environment-with-venv">▶️Follow-Along: Create a Virtual Environment with <code>venv</code></a>
   <ul class="collapse">
-  <li><a href="#create-env-yml-file" id="toc-create-env-yml-file" class="nav-link" data-scroll-target="#create-env-yml-file">👉Create an Environment from an <code>environment.yml</code> File</a></li>
+  <li><a href="#create-env-txt-file" id="toc-create-env-txt-file" class="nav-link" data-scroll-target="#create-env-txt-file">👉Create an Environment from a <code>requirements.txt</code> File</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#integrated-development-environment" id="toc-integrated-development-environment" class="nav-link" data-scroll-target="#integrated-development-environment">4. Integrated Development Environment</a>
   <ul class="collapse">
-  <li><a href="#visual-studio-code-1" id="toc-visual-studio-code-1" class="nav-link" data-scroll-target="#visual-studio-code-1">Visual Studio Code</a></li>
-  <li><a href="#follow-along-set-up-jupyter-notebook-in-vs-code" id="toc-follow-along-set-up-jupyter-notebook-in-vs-code" class="nav-link" data-scroll-target="#follow-along-set-up-jupyter-notebook-in-vs-code">▶️Follow-Along<strong>:</strong> Set up Jupyter Notebook in VS Code</a>
-  <ul class="collapse">
-  <li><a href="#step-1-install-required-vs-code-extensions" id="toc-step-1-install-required-vs-code-extensions" class="nav-link" data-scroll-target="#step-1-install-required-vs-code-extensions">Step 1: Install Required VS Code Extensions</a></li>
-  <li><a href="#step-2-create-a-conda-virtual-environment" id="toc-step-2-create-a-conda-virtual-environment" class="nav-link" data-scroll-target="#step-2-create-a-conda-virtual-environment">Step 2: Create a Conda Virtual Environment</a></li>
-  <li><a href="#step-3-configure-the-environment-in-vs-code." id="toc-step-3-configure-the-environment-in-vs-code." class="nav-link" data-scroll-target="#step-3-configure-the-environment-in-vs-code.">Step 3: Configure the Environment in VS Code.</a></li>
-  <li><a href="#step-4-open-a-python-project-and-create-a-jupyter-notebook-file" id="toc-step-4-open-a-python-project-and-create-a-jupyter-notebook-file" class="nav-link" data-scroll-target="#step-4-open-a-python-project-and-create-a-jupyter-notebook-file">Step 4: Open a Python Project and Create a Jupyter Notebook File</a></li>
+  <li><a href="#positron-1" id="toc-positron-1" class="nav-link" data-scroll-target="#positron-1">Positron</a></li>
   </ul></li>
+  <li><a href="#follow-along-first-python-project-in-positron" id="toc-follow-along-first-python-project-in-positron" class="nav-link" data-scroll-target="#follow-along-first-python-project-in-positron">▶️Follow-Along: First Python Project in Positron</a>
+  <ul class="collapse">
+  <li><a href="#step-1-create-a-git-repository" id="toc-step-1-create-a-git-repository" class="nav-link" data-scroll-target="#step-1-create-a-git-repository">Step 1: Create a Git Repository</a></li>
+  <li><a href="#step-2-open-the-project-in-positron" id="toc-step-2-open-the-project-in-positron" class="nav-link" data-scroll-target="#step-2-open-the-project-in-positron">Step 2: Open the Project in Positron</a></li>
+  <li><a href="#step-3-create-virtual-environment-with-pip-and-venv" id="toc-step-3-create-virtual-environment-with-pip-and-venv" class="nav-link" data-scroll-target="#step-3-create-virtual-environment-with-pip-and-venv">Step 3: Create virtual environment with <code>pip</code> and <code>venv</code></a></li>
+  <li><a href="#step-4-create-a-jupyter-notebook-.ipynb-file" id="toc-step-4-create-a-jupyter-notebook-.ipynb-file" class="nav-link" data-scroll-target="#step-4-create-a-jupyter-notebook-.ipynb-file">Step 4: Create a Jupyter Notebook (<code>.ipynb</code>) File</a></li>
+  <li><a href="#extra" id="toc-extra" class="nav-link" data-scroll-target="#extra">💎Extra</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -297,19 +291,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="workshop-at-a-glance" class="level2">
 <h2 class="anchored" data-anchor-id="workshop-at-a-glance">🔎Workshop at a Glance:</h2>
-<p>The overall <strong>goal</strong> of the is to learn how to program in Python using modern, reproducible tools.</p>
+<p>The overall <strong>goal</strong> of the Workshop is to learn how to program in Python using modern, reproducible tools.</p>
 <ul>
-<li><p><strong>Session 1</strong> will help you set up a flexible, interactive, working environment for Python programming (Miniconda, VS Code IDE, Jupyter Notebook, etc.)</p></li>
-<li><p><strong>Session 2 and 3</strong> will focus on the Python basics such as data structure, list comprehensive, and functions. We will also learn data frame manipulations with <code>pandas</code>.</p></li>
-<li><p><strong>Session 4</strong> will introduce you to object-oriented programming (OOP) with examples from the machine learning library <code>scikit-learn</code>.</p></li>
+<li><p><strong>Session 1</strong> will introduce the essential tools for Python programming and reproducible workflow.</p></li>
+<li><p><strong>Session 2</strong> will focus on the fundamentals of Python coding, including data structure, syntax, list comprehensive, and functions.</p></li>
+<li><p><strong>Session 3</strong> will extend session 2 and showcase the basics of data wrangling and manipulation with the <code>pandas</code> library.</p></li>
+<li><p><strong>Session 4</strong> will introduce you to object-oriented programming (OOP) with example machine learning applications with the <code>scikit-learn</code> and <code>pytorch</code> libraries.</p></li>
 </ul>
 </section>
-<section id="what-youll-need-for-the-workshop" class="level2">
-<h2 class="anchored" data-anchor-id="what-youll-need-for-the-workshop">❗What You’ll Need for the Workshop</h2>
+<section id="what-to-prepare-for-the-workshop" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-prepare-for-the-workshop">❗What to Prepare for the Workshop</h2>
 <ul>
-<li><p><strong>Bring your laptop (Windows/MacOS)</strong></p></li>
-<li><p><strong>Basic GitHub knowledge &amp; MSK GitHub Enterprise account</strong>–The workshop website is hosted on MSK Enterprise GitHub, which might require you logging in with MSK credentials to access links/download files. Check out <a href="https://rconnect.mskcc.org/resource-guide/101-trainings.html">Biostatistics Resource Guide</a> for GitHub-related training.</p></li>
-<li><p><strong>Install Miniconda and Visual Studio Code before session 1 (see this guide)</strong></p>
+<li><p><strong>Bring your laptop (Windows/macOS)</strong></p></li>
+<li><p><strong>Install <a href="https://www.python.org/downloads/">Python</a> and the <a href="https://positron.posit.co/download.html">Positron IDE</a></strong></p></li>
+<li><p><strong>(<em>Optional</em>) Create a GitHub account &amp; <a href="https://desktop.github.com/download/">download GitHub Desktop</a></strong></p></li>
+</ul>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -320,30 +316,30 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>When following the installation instructions in this article, we recommend that you install software on your MSK laptop or workstation. Downloading/installing software files on VDI is extremely slow and might not install at all if the software is too large.</p>
+<p>The <code>PyTorch</code> package requires <strong><em>Python 3.10+</em></strong>. If unsure about the version, we recommend installing <strong>Python 3.12</strong> as it is the most current secure and stable release.</p>
 </div>
-</div></li>
-</ul>
+</div>
 </section>
 <section id="about-this-guide" class="level2">
 <h2 class="anchored" data-anchor-id="about-this-guide">📖 About this Guide</h2>
-<p>This handout is a reading for the first session of the Introduction to Python workshop. It serves as a follow-along guide to help you install Python, set up essential tools like Miniconda and VS Code, and prepare for coding in Python for the upcoming sessions.</p>
-<p>Along the way, we will also discuss some important questions–<strong><em>What makes Python useful? Why would we, as biostatisticians, want to learn it?</em></strong> You will get an overview of the key features of Python, what it can do in relation to biostatistics/bioinformatics research, and how it compared to R. In the upcoming sessions, we will dive deeper into some of Python’s features and functions through hands-on programming practices.</p>
+<p>This tutorial page accompanies the first session of the Introduction to Python workshop. It serves as a introduction to the Python coding ecosystem and a follow-along guide to help you set up the essential tools like Positron, virtual environment, as a preparation for the upcoming sessions.</p>
+<p>In the first part of the giude, we will start with some key questions–<strong><em>What is the difference between coding in R vs.&nbsp;Python? How can we, as biostatisticians, apply it to our work?</em></strong> You will get an overview of the key features of Python, how it compares to R, and what packages are available for biostatistics/bioinformatics research.</p>
+<p>In the second part, we will take the first step toward coding in Python. We will follow step-by-step guides to install Python to the computer, create virtual environments with <code>venv</code>, and set up a GitHub project using Jupyter notebook in the Positron IDE.</p>
+<p>After this tutorial, you will be prepared for building reproducible Python data science projects.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>📝Learning objectives of the article
+📝Learning objectives of the guide
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This handout walks you through installing the necessary tools and setting up your Python environment. Please follow each step before the first workshop session.</p>
 <p><strong>💡Aim 1</strong>: know key features of Python and its applications.</p>
-<p><strong>💡Aim 2</strong>: know what Miniconda is and the steps to install Python through it.</p>
-<p><strong>💡Aim 3</strong>: know what Python virtual environments are and how to create them with conda.</p>
-<p><strong>💡Aim 4</strong>: know what integrated development environments (IDE) are and steps to set up an interactive Python coding environment in Visual Studio Code.</p>
+<p><strong>💡Aim 2</strong>: know what virtual environments are and how to create them with <code>venv</code>.</p>
+<p><strong>💡Aim 3</strong>: know key features of Jupyter notebook and the integrated development environment (IDE) Positron.</p>
+<p><strong>💡Aim 4</strong>: know steps of building reproducible Python project with <code>venv</code> in Positron.</p>
 </div>
 </div>
 </section>
@@ -362,12 +358,12 @@ Important
 <h2 class="anchored" data-anchor-id="what-can-python-do">What can Python do?</h2>
 <p>Just like R, Python is an open source and versatile programming language that allows users to perform a wide range of data analysis and computational tasks. While R is particularly useful in statistical analysis and visualizations, Python has been used in many distinct areas, such as:</p>
 <ul>
-<li><p>Machine Learning and Deep learning</p></li>
-<li><p>Web Development</p></li>
-<li><p>Scripting &amp; Automation</p></li>
-<li><p>Cloud Computing</p></li>
-<li><p>Game Development</p></li>
-<li><p>Cybersecurity</p></li>
+<li>Machine Learning and Deep learning</li>
+<li>Web Development</li>
+<li>Scripting &amp; Automation</li>
+<li>Cloud Computing</li>
+<li>Game Development</li>
+<li>Cybersecurity</li>
 </ul>
 </section>
 <section id="why-learn-pythonas-biostatisticians" class="level2">
@@ -398,7 +394,8 @@ Important
 </section>
 <section id="python-vs.-r-differences" class="level2">
 <h2 class="anchored" data-anchor-id="python-vs.-r-differences">Python vs.&nbsp;R: Differences</h2>
-<p>While both programming languages are popular for data analysis and computation, Python and R differ in their underlying code structure, the scope of functionality, and the extensibility of tasks they can perform. Here is a non-exhaustive summary of some key differences:</p>
+<p>While both programming languages are popular for data analysis and computation, Python and R differ in their underlying code structure, the scope of functionality, and the extensibility of tasks they can perform. While R is developed by statisticians mainly for data analysis, Python is a general programming language developed by computer scientists for much more general purposes.</p>
+<p>Here is a non-exhaustive summary of some key differences:</p>
 <div data-tbl-colwidths="[15, 30, 30]">
 <table class="caption-top table">
 <colgroup>
@@ -415,14 +412,14 @@ Important
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Programming logic</strong></td>
-<td>Mostly function-oriented</td>
-<td>Function and object-oriented – structured around <strong>classes</strong></td>
+<td><strong>General-purpose</strong></td>
+<td>⚠️ Less ideal – designed for data analysis</td>
+<td>✅ Strong – data science, ML/AI, software development, scripting, etc.</td>
 </tr>
 <tr class="even">
-<td><strong>General-purpose programming</strong></td>
-<td>⚠️ Less ideal – designed mainly for working with data</td>
-<td>✅ Strong – ML &amp; AI, software development, scripting, etc.</td>
+<td><strong>Programming logic</strong></td>
+<td>Function-oriented - <em>everything</em> is a “function”</td>
+<td>oject-oriented – structured around <strong>classes</strong></td>
 </tr>
 <tr class="odd">
 <td><strong>Computational power</strong></td>
@@ -435,7 +432,7 @@ Important
 <td>☑️ Improving on statistical packages (statsmodels, lifelines) <br> ✅ Best for ML/DL (scikit-learn, pytorch, keras) <br> ✅ Established packages specialized in processing large omics datasets (scanpy, scvi-tools)</td>
 </tr>
 <tr class="odd">
-<td><strong>IDE &amp; Reproducible environments (notebooks etc.)</strong></td>
+<td><strong>IDE &amp; Tools</strong></td>
 <td>✅ RStudio <br> ✅ RMarkdown, Quarto</td>
 <td>✅ Visual Studio Code, JupyterLab, PyCharm, Spyder, etc. <br> ✅ Jupyter Notebooks, Quarto</td>
 </tr>
@@ -445,191 +442,220 @@ Important
 </section>
 <section id="essential-tools-for-python-programming" class="level2">
 <h2 class="anchored" data-anchor-id="essential-tools-for-python-programming">Essential Tools for Python Programming</h2>
-<p>To get the most out of Python–especially for data science and reproducible research–it’s important to set up an integrated, flexible programming environment.</p>
+<p>To get the most out of Python –- especially for data science -– it’s important to set up an integrated, flexible, and reproducible programming environment.</p>
 <p>Here is a list of tools we recommend using:</p>
 <ul>
-<li><strong>Conda</strong>: a powerful package and environment manager for Python.</li>
-<li><strong>Visual Studio Code</strong>: a lightweight code editor that integrates programming + plots + terminal + etc.</li>
+<li><strong>pip</strong>: an installer for Python packages that comes with modern versions of Python installation.</li>
+<li><strong>Positron</strong>: a code editor for both R and Python coding that integrates features from Rstudio + VS Code.</li>
 <li><strong>Jupyter Notebook</strong>: an interactive computing tool that combines code execution, text documentation, and visualizations.</li>
-<li><strong>Git (GitHub)</strong>: for version control, collaboration, and publishing code.</li>
+<li><strong>Git/GitHub</strong>: version control, collaboration, and code sharing.</li>
 </ul>
-<section id="conda-via-miniconda" class="level4">
-<h4 class="anchored" data-anchor-id="conda-via-miniconda"><strong>Conda (via Miniconda)</strong></h4>
-<p>Conda is a package manager, much like CRAN + Bioconductor, and can be utilized across languages (Python, R, C/C++ etc.). It also simplifies Python environment management, similar to <code>renv</code> in R but more powerful and flexible, ensuring dependency isolation without cluttering the global system.</p>
-<p>Conda can be installed via either Miniconda (lightweight version) or the Anaconda Distribution (full version). We will use the former for the purpose of this workshop series.</p>
+<!-- #### **Conda (via Miniconda)**
+
+Conda is a package manager, much like CRAN + Bioconductor, and can be utilized across languages (Python, R, C/C++ etc.).
+It also simplifies Python environment management, similar to `renv` in R but more powerful and flexible, ensuring dependency isolation without cluttering the global system.
+
+Conda can be installed via either Miniconda (lightweight version) or the Anaconda Distribution (full version).
+We will use the former for the purpose of this workshop series. -->
+<section id="pip" class="level4">
+<h4 class="anchored" data-anchor-id="pip"><strong>Pip</strong></h4>
+<p>Pip is a popular tool for installing and managing Python packages. It accompanies Python installations by default since Python 3.4+.</p>
+<p>Pip provides a <strong>command-line interface (CLI)</strong> to intsall, upgrade, and uninstall packages from the Python Package Index (PyPI) and other sources like GitHub repositories. Pip can also be utilized for creating <strong>virtual environments</strong>–similar to <code>renv</code> in R but far more flexible, ensuring dependency isolation and project reproducibility.</p>
+<!-- It is generally recommended that you only use `conda install` within a conda environment, as anything installed via pip won't be recognized by conda and vice versa. Using the two interchangeably might overwrite or break packages and mess up the environment.
+
+**What if the Python package is unavailable through conda?**
+
+The best practice is to ***install everything with conda first, then use pip only when the package is not available in conda.***
+
+Check out this [blog](https://www.anaconda.com/blog/using-pip-in-a-conda-environment) for more information on using pip in a conda environment. -->
+<!-- #### **Visual Studio Code**
+
+Akin to RStudio, Visual Studio Code (often called VS Code) is an IDE for multi-language coding (Python, R, Java, etc.).
+It has many features integrated within it, including interactive coding via Jupyter Notebook or Quarto, version control with Git, and built-in terminal and debugging tools. -->
 </section>
-<section id="visual-studio-code" class="level4">
-<h4 class="anchored" data-anchor-id="visual-studio-code"><strong>Visual Studio Code</strong></h4>
-<p>Akin to RStudio, Visual Studio Code (often called VS Code) is an IDE for multi-language coding (Python, R, Java, etc.). It has many features integrated within it, including interactive coding via Jupyter Notebook or Quarto, version control with Git, and built-in terminal and debugging tools.</p>
-<p>Next, we will walk through installing and setting up these tools.</p>
+<section id="positron" class="level4">
+<h4 class="anchored" data-anchor-id="positron"><strong>Positron</strong></h4>
+<p><strong>Positron</strong> is an open-source IDE for multi-language coding (Python, R, etc.) with numerous integrated data science and developer features, including:</p>
+<ul>
+<li>Multi-pane display: live coding + console + variables/help/plot panel</li>
+<li>Interactive coding via Jupyter Notebook and Quarto</li>
+<li>Support for remote hosts connection</li>
+<li>Built-in version control with Git/GitHub</li>
+</ul>
+</section>
+<section id="jupyter-notebook" class="level4">
+<h4 class="anchored" data-anchor-id="jupyter-notebook"><strong>Jupyter Notebook</strong></h4>
+<p><strong>Jupyter Notebook</strong> is a code editing application that offers interactive interface to edit code, visualize output, and include texts/graphics. It is a highly flexible tool for explorative analysis and presenting/sharing your code. As mentioned above, it is integrated into IDEs such as Positron, where you can deploy the feature by creating files with the Notebook extension, <code>.ipynb</code>.</p>
+</section>
+<section id="gitgithub" class="level4">
+<h4 class="anchored" data-anchor-id="gitgithub"><strong>Git/GitHub</strong></h4>
+<p><strong>Git</strong> is a version control system that tracks <strong>local</strong> changes in files. It is particularly useful when you collaborate with others on the same files at the same time.</p>
+<p><strong>GitHub</strong> is a cloud-based platform built on Git, where you can store, share, and collaborate with others on your work. Specifically, GitHub allows you to:</p>
+<ul>
+<li><strong>Track and commit changes</strong> to files in a repository</li>
+<li><strong>Revert or compare</strong> previous versions when something breaks</li>
+<li><strong>Branching</strong> allows teamwork in parallel without overwriting each other’s work</li>
+<li><strong>Backup</strong> your research projects in a centralized location</li>
+<li><strong>Sharing</strong> code for publication purposes</li>
+</ul>
 </section>
 </section>
 </section>
-<section id="python-installation-and-setup" class="level1">
-<h1>2. Python Installation and Setup</h1>
-<p>There are many ways to do install Python locally. For the purpose of the workshop, we recommend one way of installation via <a href="https://www.anaconda.com/docs/getting-started/miniconda/main"><strong>Miniconda</strong></a> that works universally across Windows and MacOS platforms.</p>
-<p>Miniconda comes with Python, the conda package manager, and a minimal number of libraries. It is a minimal version of the <a href="https://www.anaconda.com/docs/getting-started/anaconda/main">Anaconda Distribution</a>, an open-source distribution of Python designed for scientific computing, data science, machine learning, and AI development. Miniconda is relatively lightweight compared to Anaconda, which adds on top of the Miniconda distribution the Anaconda Navigator graphical user interface (GUI) and over 300 pre-downloaded libraries.</p>
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="images/anaconda-explained.png" class="img-fluid figure-img" width="420"></p>
-<figcaption>Difference between conda, miniconda, and Anaconda</figcaption>
-</figure>
-</div>
-<p>While Anaconda can be an alternative for people who do not want to use command line tools for managing packages, in this workshop, we will use Miniconda for better efficiency in the installation process.</p>
+<section id="python-installation" class="level1">
+<h1>2. Python Installation</h1>
+<p>In this guide, we will install Python through the official python.org website. This is a lightweight, straightforward method that applies to all computer operating systems (OS). However, there are many existing package management software tools that support Python installation:</p>
 <table class="caption-top table">
-<caption>Anaconda vs.&nbsp;Miniconda</caption>
-<colgroup>
-<col style="width: 26%">
-<col style="width: 40%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Feature</th>
-<th>Anaconda</th>
-<th>Miniconda</th>
+<th>Installer</th>
+<th>Windows</th>
+<th>macOS</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Size</td>
-<td>⚠️~3-4 GB (slow to download)</td>
-<td>✅~400 MB (lightweight)</td>
+<td><strong><a href="https://www.anaconda.com/">Miniconda / Anaconda</a></strong></td>
+<td>✅</td>
+<td>✅</td>
 </tr>
 <tr class="even">
-<td>What is included?</td>
-<td>conda, Python (latest version), 300+ popular packages, Anaconda Navigator</td>
-<td>conda, Python (latest version), essential packages only</td>
+<td><strong><a href="https://brew.sh/">Homebrew</a></strong></td>
+<td>✅</td>
+<td>❌</td>
 </tr>
 <tr class="odd">
-<td>User-friendly?</td>
-<td>✅GUI available (Anaconda Navigator)</td>
-<td>⚠️command-line only — <code>conda</code></td>
+<td><strong><a href="https://pixi.prefix.dev/latest/">Pixi</a></strong></td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td><strong><a href="https://docs.astral.sh/uv/">uv</a></strong></td>
+<td>✅</td>
+<td>✅</td>
 </tr>
 </tbody>
 </table>
-<section id="follow-along-install-miniconda-python-conda" class="level2">
-<h2 class="anchored" data-anchor-id="follow-along-install-miniconda-python-conda">▶️Follow-Along: Install Miniconda (Python + conda)</h2>
-<p>Let’s walk through steps to install <strong>Minconda</strong>.</p>
+<p>Each offers unique set of features, including but not limited to:</p>
+<ul>
+<li><em>multi-language package installation</em></li>
+<li><em>script execution</em></li>
+<li><em>virtual environment management</em></li>
+<li><em>package development</em></li>
+</ul>
+<p>Some, such as <strong>Pixi</strong> and <strong>uv</strong>, are very recent releases, yet proving to be powerful and flexible tools. Feel free to check out and explore the features.</p>
+<!-- via [**Miniconda**](https://www.anaconda.com/docs/getting-started/miniconda/main) that works universally across Windows and MacOS platforms. -->
+<!-- Miniconda comes with Python, the conda package manager, and a minimal number of libraries.
+It is a minimal version of the [Anaconda Distribution](https://www.anaconda.com/docs/getting-started/anaconda/main), an open-source distribution of Python designed for scientific computing, data science, machine learning, and AI development.
+Miniconda is relatively lightweight compared to Anaconda, which adds on top of the Miniconda distribution the Anaconda Navigator graphical user interface (GUI) and over 300 pre-downloaded libraries. -->
+<!-- ![Difference between conda, miniconda, and Anaconda](images/anaconda-explained.png){fig-align="left" width="420"} -->
+<!-- While Anaconda can be an alternative for people who do not want to use command line tools for managing packages, in this workshop, we will use Miniconda for better efficiency in the installation process.
+
+| Feature | Anaconda | Miniconda |
+|-------------------|-----------------------------|------------------------|
+| Size | ⚠️\~3-4 GB (slow to download) | ✅\~400 MB (lightweight) |
+| What is included? | conda, Python (latest version), 300+ popular packages, Anaconda Navigator | conda, Python (latest version), essential packages only |
+| User-friendly? | ✅GUI available (Anaconda Navigator) | ⚠️command-line only — `conda` |
+
+: Anaconda vs. Miniconda -->
+<section id="follow-along-install-python" class="level2">
+<h2 class="anchored" data-anchor-id="follow-along-install-python">▶️Follow-Along: Install Python</h2>
+<p>Let’s walk through steps to install <strong>Python</strong>.</p>
 <ol type="1">
-<li><p>For the latest Miniconda installers for Python 3.12, navigate to the <a href="https://www.anaconda.com/download/success#miniconda">Anaconda website</a>.</p></li>
-<li><p>Download the <strong>64-bit graphical installer</strong> according to your system (Windows or MacOS):</p>
-<p><em>Note: Make sure you are downloading from the <strong>Miniconda Installers</strong> section, not Anaconda!</em></p>
+<li><p>Go to the <a href="https://www.python.org/downloads/">official Python website</a> page (python.org/downloads/). Select your computer’s OS (Windows/macOS) from the <strong>Downloads</strong> dropdown menu.</p>
+<p>Recommend <strong>Python 3.12</strong>, the most recent stable release.</p></li>
+<li><p>Download the <strong>64-bit installer</strong> for your desired Python version (<em>unless your Windows has 32-bit OS</em>).</p>
+<!-- *Alternatively, check out the [Quick command line installation guide](https://www.anaconda.com/docs/getting-started/miniconda/install#quickstart-install-instructions) to install Miniconda through command line interface.* --></li>
+<li><p><strong>Run the installer</strong> (<code>.exe</code> for Windows / <code>.pkg</code> for macOS).</p>
+<p><strong>For Windows</strong>, when the “Install Python” window appears:</p>
 <ul>
-<li>Alternatively, check out the <a href="https://www.anaconda.com/docs/getting-started/miniconda/install#quickstart-install-instructions">Quick command line installation guide</a> to install Miniconda through command line interface.</li>
-</ul></li>
-<li><p>Run the installer (<code>.exe</code> for Windows / <code>.pkg</code> for MacOS)</p>
-<ul>
-<li><p>select <code>Just Me</code> for installation type – recommended; doesn’t require admin rights.</p>
-<p><img src="images/anaconda-install-1.png" class="img-fluid" width="500"></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Installing for current user only
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You don’t need to install for all users most of the time. This option requires admin privileges which you might not have on your MSK laptop.</p>
-</div>
-</div></li>
-<li><p>Keep the default for installation location. E.g.,</p>
-<ul>
-<li>Windows: <code>C:\Users\&lt;user_name&gt;\AppData\Local\miniconda3</code></li>
-<li>MacOS: <code>/Users/yourname/miniconda3</code></li>
-</ul></li>
-<li><p>Customize the advanced installation options:</p>
-<ul>
-<li>❌ <em>Add Miniconda to my PATH environment variable</em> – <strong>NOT</strong> recommended</li>
-<li>✅ <em>Register Miniconda3 as my default Python 3.12</em></li>
+<li><p><label><input type="checkbox"><em>Use admin privileges</em> <strong>–Optional</strong></label></p></li>
+<li><p>✅ <em>Add python to PATH</em> <strong>–Recommended</strong>. It makes Python and pip work from any terminal without extra setup.</p></li>
+<li><p>✅Choose “Install Now” and keep the default installation location. E.g., <code>C:\Users\&lt;user_name&gt;\AppData\Local\Programs\Python\</code></p></li>
 </ul>
-<p><img src="images/miniconda-install.png" class="img-fluid"></p></li>
-</ul>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Do not add Miniconda to PATH⚠️
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>It is recommended that you do not add Miniconda to system’s PATH environment variable, as it might lead to conflicts with your other Python installations or accidentally break software using the system Python.</p>
-<p>Instead, you could later run <code>conda init</code> in <strong>Anaconda Prompt</strong> to configure the terminal shells (like PowerShell or Command Prompt) to recognize the <code>conda</code> command.</p>
-</div>
-</div></li>
-<li><p>Complete installation. This might take a few minutes to complete.</p></li>
-<li><p>Check installation–verify that Python and Conda are successfully installed.</p>
+<!-- ::: callout-warning
+## Do not add Miniconda to PATH⚠️
+
+It is recommended that you do not add Miniconda to system's PATH environment variable, as it might lead to conflicts with your other Python installations or accidentally break software using the system Python.
+
+Instead, you could later run `conda init` in **Anaconda Prompt** to configure the terminal shells (like PowerShell or Command Prompt) to recognize the `conda` command.
+::: -->
+<p><strong>For macOS</strong>,</p>
 <ul>
-<li><p>Windows:</p>
-<ul>
-<li><p>Open the Start Menu and run <strong>Anaconda Prompt</strong>.</p></li>
-<li><p>Type the following command.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> <span class="at">--version</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>You should see the current versions of your Python and Conda being returned–such as <code>conda 24.9.2</code> and <code>Python 3.12.4</code> (the exact numbers might differ). This means that Miniconda is properly installed and initialized.</p></li>
+<li><p>Click through the installer prompts. It typically installs to fixed locations and enables <code>python</code> and <code>pip</code> (or <code>python3.x</code> and <code>pip3</code> for macOS) commands in terminal without needing to manually edit PATH.</p></li>
+<li><p>When finished, you will see the following shows up:</p>
+<p><img src="images/python-install-mac-1.png" class="img-fluid" width="400"></p></li>
+<li><p>Click on the <code>.command</code> file. This will open a temporary <strong>Terminal</strong> shell window. Ensure that you see <code>[Process completed]</code> before closing the window.</p></li>
 </ul></li>
-<li><p>MacOS:</p>
+<li><p><strong>Check installation</strong>. Verify in Terminal that Python is successfully installed.</p>
 <ul>
-<li><p>Open <strong>Terminal</strong>. Configure your shell to make the <code>conda</code> command available.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/miniconda3/bin/activate</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> init zsh <span class="co"># or conda init bash if you are using bash</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>Then <strong>restart your Terminal</strong> and type:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> <span class="at">--version</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>You should see the current versions of your Python and Conda being returned, which means everything has been correctly installed.</p></li>
-</ul></li>
+<li><p>Open <strong>Terminal</strong> (or PowerShell / Command Prompt on Windows) and type the following command:</p>
+<p>For Windows:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">--version</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For macOS, you might need:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">--version</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>You should see the version of your Python and pip returned. E.g., <code>Python 3.12.10</code> and <code>pip 25.0.1</code>–the exact numbers depend on specific versions installed.</p></li>
+<li><p>If Python is not found, it usually means PATH wasn’t correctly updated or you have another Python version in PATH that interferes with the current installation.</p></li>
 </ul></li>
 </ol>
+<p><strong><em>Now, you can start coding in Python in the terminal!</em></strong></p>
+<p>Try it out by opening the <strong>Python interactive shell</strong> in the terminal by typing:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And you will see something like:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Python <span class="fl">3.12.10</span> (tags<span class="op">/</span>v3<span class="fl">.12.10</span>:<span class="dv">0</span><span class="er">cc8128</span>, Apr  <span class="dv">8</span> <span class="dv">2025</span>, <span class="dv">12</span>:<span class="dv">21</span>:<span class="dv">36</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>Type <span class="st">"help"</span>, <span class="st">"copyright"</span>, <span class="st">"credits"</span> <span class="kw">or</span> <span class="st">"license"</span> <span class="cf">for</span> more information.</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now, you can type Python commands directly. For example, importing a package:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> statistics</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> data <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> statistics.mean(data) <span class="co"># should return the mean 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Exit the interactive console with:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> quit() <span class="co"># or exit()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="virtual-environment-package-management-with-conda" class="level1">
-<h1>3. Virtual Environment &amp; Package Management with Conda</h1>
-<section id="what-is-conda" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-conda">What is Conda?</h2>
-<p>Conda is a cross-platform command line tool for managing packages and environment via the <code>conda</code> <strong>command line interface (CLI)</strong>. It can handle both Python and non-Python dependencies (R, C, system binaries, etc.), making it particularly powerful.</p>
-<p>You can install conda via installers such as Miniconda or the Anaconda Distribution.</p>
+<section id="virtual-environment-package-management-with-pip" class="level1">
+<h1>3. Virtual Environment &amp; Package Management with Pip</h1>
+<section id="what-is-pip" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-pip">What is Pip?</h2>
+<p><strong>Pip</strong> is the most widely used package installer and manager for Python (and Python-exclusive; see below on pip vs.&nbsp;Conda). You can use it to install packages from the default <a href="https://pypi.org/">PyPI</a>, an open-source repository of published software for Python users, as well as other indexes.</p>
+<p>Pip provides a command-line interface to help install packages in the terminal. Pip comes bundled with Python installaitons by default in most modern Python releases since Python 3.4+. It works in multiple computer OS including Windows, macOS, and Linux.</p>
 </section>
-<section id="conda-for-managing-packages" class="level2">
-<h2 class="anchored" data-anchor-id="conda-for-managing-packages">Conda for Managing Packages</h2>
-<p>Conda installs packages from <a href="https://www.anaconda.com/docs/psm/cloud/channels"><strong>channels</strong></a>(repositories), such as the default Anaconda channel or community-maintained channels like <code>conda-forge</code>.</p>
-<p>To install packages from the default Anaconda repository:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install a single package</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install scipy</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install a specific version of a package</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install scipy=0.15.0 </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install multiple packages</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install scipy=0.15.0 pandas matplotlib</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If the package is located in another channel, such as <code>conda-forge</code>, you can manually specify the channel when installing the package. For example:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install conda-forge::pytorch </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or </span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install pytorch <span class="at">--channel</span> conda-forge</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>To update a package:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update scipy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><em>Note that this automatically updates the package to the highest version supported by the current Python series. For example, Python 3.9 updates to the highest available in the 3.x series.</em></p>
-<p>To remove a package (or multiple packages at once):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove scipy pandas matplotlib</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="conda-vs.-pip" class="level4">
-<h4 class="anchored" data-anchor-id="conda-vs.-pip"><strong>Conda vs.&nbsp;Pip</strong></h4>
-<p>If a Python package is not available through any conda channel, consider using the pip package manager:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="pip-for-managing-packages" class="level2">
+<h2 class="anchored" data-anchor-id="pip-for-managing-packages">Pip for Managing Packages</h2>
+<p>Most Python packages are installed from <strong>PyPI</strong> using <code>pip install</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install a single package</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install scipy</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install a specific version of a package</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install scipy==1.14.0 </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install multiple packages</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install scipy==1.14.0 pandas matplotlib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Sometimes a package is not available on PyPI, or if you want to install a package directly from <strong>GitHub</strong>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install git+https://github.com/pypa/sampleproject.git</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or a specific branch/commit:</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install git+https://github.com/pypa/sampleproject.git@main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To <strong>upgrade</strong> a package:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--upgrade</span> scipy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Note that this automatically upgrades the package to the highest version available from the PyPI supported by the current Python series. For example, Python 3.12 updates to the highest available in the 3.x series.</em></p>
+<p>To <strong>uninstall</strong> a package (or multiple packages at once):</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> uninstall scipy pandas matplotlib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="pip-vs.-conda" class="level4">
+<h4 class="anchored" data-anchor-id="pip-vs.-conda"><strong>Pip vs.&nbsp;Conda</strong></h4>
+<p><strong>Pip</strong> installs and manages Python packages from PyPI (and other Python package sources).</p>
+<p><strong>Conda</strong> is a broader tool for managing packages and environments that can handle both Python and non-Python dependencies (e.g., R packages, C++, system binaries, etc.). It comes with installers such as Miniconda or the Anaconda Distribution.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Difference Between <code>conda install</code> and <code>pip install</code>
+Difference Between conda and pip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Long story short: <em><strong>Pip installs Python libraries only,</strong> while <strong>conda can install both Python and non-Python packages</strong> (e.g., R, C/C++, system binaries)<strong>.</strong></em></p>
-<p>It is generally recommended that you only use <code>conda install</code> within a conda environment, as anything installed via pip won’t be recognized by conda and vice versa. Using the two interchangeably might overwrite or break packages and mess up the environment.</p>
+<p>They both share similar syntax (e.g., <code>conda install</code> and <code>pip install</code>) and can <strong><em>sometimes</em></strong> be used together; Although there are caveats–it is generally recommended that you only use <code>conda install</code> within a conda environment, as anything installed via pip won’t be recognized by conda and vice versa. Using the two interchangeably might overwrite or break packages and mess up the environment.</p>
 <p><strong>What if the Python package is unavailable through conda?</strong></p>
 <p>The best practice is to <strong><em>install everything with conda first, then use pip only when the package is not available in conda.</em></strong></p>
 <p>Check out this <a href="https://www.anaconda.com/blog/using-pip-in-a-conda-environment">blog</a> for more information on using pip in a conda environment.</p>
@@ -639,34 +665,36 @@ Important
 </section>
 <section id="what-is-a-virtual-environment" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-virtual-environment">What is a Virtual Environment?</h2>
-<p>A <strong>virtual environment</strong> is an isolated, self-contained workspace that includes its own <strong>language interpreter</strong> and <strong>package dependencies</strong>. Each environment operates independently, ensuring that projects are isolated from one another and from the system’s global setup.</p>
-<p>In the previous section, we installed Python 3.12 via Miniconda and set it as the default (global) Python. However, you might need a different version of Python–say, Python 3.8–or a different set of packages for a particular project. In this case, creating a virtual environment allows you to maintain a completely separate Python setup, including its own Python version and <code>/site-packages</code> folder.</p>
-<p>You can create as many environments as needed — ideal for managing multiple projects with different requirements.</p>
+<p>A <strong>virtual environment</strong> is an isolated, self-contained workspace that includes its own <strong>Python interpreter</strong> and <strong>package dependencies</strong>. Each environment operates independently, ensuring that projects are isolated from one another and from the system’s global setup.</p>
+<p>In the previous section, we installed Python 3.12 locally to our computer.</p>
+<p>However, you might need a different Python version (e.g., Python 3.10) or a different set of packages for a particular project. In this case, creating a <strong>virtual environment</strong> allows you to maintain a completely separate Python setup, including its own Python version and the <code>/site-packages</code> folder.</p>
+<p>You can create as many environments as needed—ideal for managing multiple projects with different requirements.</p>
 </section>
 <section id="why-use-virtual-environments" class="level2">
 <h2 class="anchored" data-anchor-id="why-use-virtual-environments">Why Use Virtual Environments?</h2>
 <p>You may find the flexibility of environments beneficial in many cases.</p>
 <ul>
-<li><strong>Avoid Conflicts.</strong> Creating virtual environments can help resolve potential conflicts between different projects that might require different Python version or conflicting dependencies. Changes made to one environment won’t affect other projects that use different environments.</li>
-<li><strong>Easy Management</strong>. When your work is temporary or that you simply want to experiment things without having to worry about breaking things, you can work within a virtual environment and later delete it when needed.</li>
-<li><strong>Sharing Environment</strong>. You can share your Python environment and whole list of dependencies with other people through a copy of the <code>.yml</code> file.</li>
-<li><strong>Reproducibility.</strong> They work as time capsules, allowing you to come back to an older project at any time later by recreating the virtual environment.</li>
+<li><strong>Avoid Conflicts.</strong> Virtual environments help prevent potential conflicts between projects that require different package versions. Changes made to one environment won’t affect other projects.</li>
+<li><strong>Easy Management</strong>. When you want to experiment without having to worry about breaking your global Python, work inside a virtual environment and delete it later if needed.</li>
+<li><strong>Sharing Environment</strong>. You can share your environment dependencies with others using a <code>requirements.txt</code> file.</li>
+<li><strong>Reproducibility.</strong> They work as time capsules, allowing you to return to an older project at any time later by recreating the environment.</li>
 </ul>
 </section>
-<section id="follow-along-create-a-conda-virtual-environment" class="level2">
-<h2 class="anchored" data-anchor-id="follow-along-create-a-conda-virtual-environment">▶️Follow-Along: Create a Conda Virtual Environment</h2>
-<p>Using <code>conda</code>, we can <strong>create, activate, update, export,</strong> and <strong>remove</strong> virtual environments, each with its own Python version and set of packages. Let’s practice creating a virtual environment and installing packages into it using the command line.</p>
+<section id="follow-along-create-a-virtual-environment-with-venv" class="level2">
+<h2 class="anchored" data-anchor-id="follow-along-create-a-virtual-environment-with-venv">▶️Follow-Along: Create a Virtual Environment with <code>venv</code></h2>
+<p>Using <code>venv</code>, we can <strong>create, activate, export,</strong> and <strong>remove</strong> virtual environments.</p>
+<p>Let’s create a virtual environment and install packages into it using the <code>pip</code> command-line tool.</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>📌Prerequisite
+📌Prerequisite
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Be sure you have installed Miniconda by following the previous <a href="#follow-along-install-miniconda-python-conda">tutorial</a> to access the <code>conda</code> command line interface.</p>
+<p>Be sure you have installed Python by following the previous <a href="#follow-along-install-miniconda-python-conda">tutorial</a> so you have access to the <code>python</code> (or <code>py</code>) and <code>pip</code> commands.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -679,67 +707,62 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The <a href="https://www.anaconda.com/docs/tools/anaconda-navigator/main">Anaconda Navigator</a> is an alternative to creating conda environments without the terminal skills. However, for users comfortable using the command line tool, we recommend the <code>conda</code> approach for better speed, control, and stability,</p>
+<p><code>conda</code> is an alternative to creating virtual environments across operating systems and programming languages. However, for this workshop, we use pip + venv because it works out-of-the-box with standard Python installations.</p>
 </div>
 </div>
 <ol type="1">
-<li><p>Open <strong>Anaconda Prompt</strong> (Windows) or <strong>Terminal</strong> (MacOS)</p></li>
-<li><p>Create the virtual environment. Replace <code>&lt;env-name&gt;</code> with the name you want to give your environment.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">--name</span> <span class="op">&lt;</span>env-name<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><em>Note: you can use <code>-n</code> (shorthand) and <code>--name</code> interchangeably.</em></p></li>
-<li><p>To create an environment with a specific Python version:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> <span class="op">&lt;</span>env-name<span class="op">&gt;</span> python=3.10</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>To create an environment with a specific package(s):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> <span class="op">&lt;</span>env-name<span class="op">&gt;</span> python=3.10 scipy pandas matplotlib</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>or install packages later with separate commands:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> <span class="op">&lt;</span>env-name<span class="op">&gt;</span> python=3.10</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-n</span> <span class="op">&lt;</span>env-name<span class="op">&gt;</span> scipy pandas matplotlib</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>You can also install packages from channels other than the <code>defaults</code> (your can pass multiple channels for the package search):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-n</span> <span class="op">&lt;</span>env-name<span class="op">&gt;</span> scipy <span class="at">--channel</span> conda-forge <span class="at">--channel</span> bioconda</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>or explicitly specify the channel from which you want the package to be installed:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">conda</span> install <span class="at">-n</span> <span class="op">&lt;</span>env-name<span class="op">&gt;</span> conda-forge::scipy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>Now, activate your environment.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate <span class="op">&lt;</span>env-name<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>You can verify that your installation was successful by looking up the list of all current environments on your computer.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The default location for the installed conda environments (except for the base conda environment) is <code>..\miniconda3\envs\&lt;env-name&gt;</code></p></li>
-<li><p>Deactivate the conda environment.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<li><p>Open Open <strong>PowerShell / Command Prompt</strong> (Windows) or <strong>Terminal</strong> (macOS/Linux)</p></li>
+<li><p>Navigate to your project folder (or create one):</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /path/to/your/project</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Create the virtual environment. This creates a folder called <code>.venv</code> inside your project folder.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> venv .venv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Note: naming it .venv is a common convention and works well with IDE auto-detection. But you may replace it with the name you desire.</em></p></li>
+<li><p>To create an environment with a specific Python version (<em>You will need the version installed to your computer</em>):</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3.10</span> <span class="at">-m</span> venv .venv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or on Windows:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">py</span> <span class="at">-3.10</span> <span class="at">-m</span> venv .venv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>To activate the environment in the terminal:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate   <span class="co"># macOS/Linux</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">.venv\Scripts\activate.bat</span>  <span class="co"># Windows (Command Prompt)</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ex">.venv\Scripts\Activate.ps1</span>  <span class="co"># Windows (PowerShell)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When activated, your terminal will show:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">.venv</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Avoid activating on top of another virtual environment!
+Avoid installing packages into the wrong environment!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Always <code>conda deactivate</code> first before activating another one because environments can be <strong>stacked</strong>. This can lead to chaos in the packages in both environments.</p>
-<p>💡<strong>Tip</strong>: make sure you see <code>(base)</code> at the beginning of the terminal prompt when you are about to activate an environment.</p>
+<p>Always confirm your environment is activated (you should see (.venv) in your terminal prompt) before installing packages. If you forget to activate, <code>pip install</code> will install into your global Python instead.</p>
 </div>
-</div></li>
-<li><p>Removing an environment.</p>
-<ul>
-<li><p>Remove by environment name:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env remove <span class="at">-n</span> <span class="op">&lt;</span>env-name<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>Remove by environment folder path:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env remove <span class="at">--prefix</span> <span class="op">&lt;</span>/path/to/your/env<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-</ul></li>
+</div>
+<ol start="5" type="1">
+<li><p>Verify that you are using the correct Python interpreter:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>To install package(s) inside the environment from PyPI:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install scipy pandas matplotlib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Deactivate the environment:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">deactivate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Removing an environment:</p>
+<p>Since a venv is just a folder, you can delete it safely, either by deleting the <code>.venv/</code> folder or removing via terminal:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> .venv        <span class="co"># macOS/Linux</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rmdir</span> /s /q .venv   <span class="co"># Windows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
-<section id="create-env-yml-file" class="level3">
-<h3 class="anchored" data-anchor-id="create-env-yml-file">👉Create an Environment from an <code>environment.yml</code> File</h3>
+<section id="create-env-txt-file" class="level3">
+<h3 class="anchored" data-anchor-id="create-env-txt-file">👉Create an Environment from a <code>requirements.txt</code> File</h3>
 <ol type="1">
-<li><p>You can also create a virtual environment from a <code>.yml</code> configuration file.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Example: An environment file contains information about the environment name, channels, and dependencies:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">name:</span> python310</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">channels:</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> defaults</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="ex">dependencies:</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> python=3.10</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> pandas</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> numpy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<li><p>You can also use a <code>requirements.txt</code> file to install all dependencies to a virtual environment at once:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Example <code>requirements.txt</code>:</p>
+<pre class="text"><code>pandas
+numpy
+matplotlib
+scipy==1.14.0</code></pre>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -750,18 +773,19 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Download the <code>.yml</code> file for this Python workshop series <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml">here</a>. This file includes the Python version and required channels and dependencies for completing the workshop sessions.</p>
+<p>Download the <code>requirements.txt</code> file for this Python workshop series <a href="https://github.com/PythonForRUsers/Python-Workshop.github.io/blob/main/Downloadable/environment.txt">here</a>. It includes the necessary packages for completing the Workshop sessions.</p>
 </div>
 </div></li>
-<li><p>Then activate the new environment:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate python310</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This way, we can skip the cumbersome steps to set up an environment from scratch and easily recreate an environment shared by others or share our environment settings with others.</p></li>
+<li><p>To snapshot your current environment (exact installed versions):</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> freeze <span class="op">&gt;</span> requirements.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then you or others can later recreate the same environment with:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 <table class="caption-top table">
-<caption>Summary: A list of useful conda commands for managing environments.</caption>
+<caption>List of <code>pip + venv</code> commands for managing environments and dependencies.</caption>
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 53%">
+<col style="width: 46%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -772,27 +796,39 @@ Note
 <tbody>
 <tr class="odd">
 <td>Create an environment</td>
-<td><code>conda create --name &lt;env-name&gt;</code></td>
+<td><code>python -m venv .venv</code></td>
 </tr>
 <tr class="even">
-<td>List all environments</td>
-<td><code>conda env list</code></td>
+<td>Activate environment (Mac/Linux)</td>
+<td><code>source .venv/bin/activate</code></td>
 </tr>
 <tr class="odd">
-<td>Remove an environment</td>
-<td><code>conda remove --name &lt;env-name&gt; --all</code></td>
+<td>Activate environment (Windows PowerShell)</td>
+<td><code>.venv\Scripts\Activate.ps1</code></td>
 </tr>
 <tr class="even">
-<td>List packages in current environment</td>
-<td><code>conda list</code></td>
+<td>Activate environment (Windows Command Prompt)</td>
+<td><code>.venv\Scripts\activate.bat</code></td>
 </tr>
 <tr class="odd">
-<td>Export environment to <code>.yml</code></td>
-<td><code>conda env export &gt; environment.yml</code></td>
+<td>Deactivate environment</td>
+<td><code>deactivate</code></td>
 </tr>
 <tr class="even">
-<td>Recreate environment from <code>.yml</code> file</td>
-<td><code>conda env create -f environment.yml</code></td>
+<td>Install packages</td>
+<td><code>pip install &lt;package&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Install from requirements file</td>
+<td><code>pip install -r requirements.txt</code></td>
+</tr>
+<tr class="even">
+<td>List installed packages</td>
+<td><code>pip list</code></td>
+</tr>
+<tr class="odd">
+<td>Snapshot exact versions</td>
+<td><code>pip freeze &gt; requirements.txt</code></td>
 </tr>
 </tbody>
 </table>
@@ -823,403 +859,636 @@ Note
 </thead>
 <tbody>
 <tr class="odd">
+<td><strong>Positron</strong></td>
+<td>Modern IDE for Python + R with strong Quarto and notebook support</td>
+</tr>
+<tr class="even">
 <td><strong>VS Code</strong></td>
 <td>Lightweight, powerful IDE (extensible with Python &amp; Jupyter extensions)</td>
 </tr>
-<tr class="even">
-<td><strong>JupyterLab</strong></td>
-<td>Interactive notebooks for analysis &amp; reports</td>
-</tr>
 <tr class="odd">
-<td><strong>Spyder</strong></td>
-<td>RStudio-like interface, good for scientific Python</td>
-</tr>
-<tr class="even">
 <td><strong>PyCharm</strong></td>
 <td>Full-featured Python IDE (more for software dev)</td>
 </tr>
+<tr class="even">
+<td><strong>Spyder</strong></td>
+<td>RStudio-like interface, good for scientific Python</td>
+</tr>
+<tr class="odd">
+<td><strong>JupyterLab</strong></td>
+<td>Interactive notebooks for analysis &amp; reports</td>
+</tr>
 </tbody>
 </table>
-<p>We will use the VS Code IDE for the workshop series.</p>
-<section id="visual-studio-code-1" class="level2">
-<h2 class="anchored" data-anchor-id="visual-studio-code-1">Visual Studio Code</h2>
-<p><img src="images/vs-code-icon.png" class="img-fluid" width="100"></p>
+<p>We will use the <strong>Positron</strong> IDE for the workshop series.</p>
+<section id="positron-1" class="level2">
+<h2 class="anchored" data-anchor-id="positron-1">Positron</h2>
+<p><img src="images/Positron-logo.png" class="img-fluid" width="100"></p>
 <blockquote class="blockquote">
-<p><strong>Visual Studio Code (VS Code)</strong> is one of the most popular open-source code editors with many features.</p>
+<p><strong>Positron</strong> is a modern IDE developed by Posit–the same developer as <strong>RStudio</strong>–and is built on <strong>VS Code</strong>’s open source code (<a href="https://github.com/Microsoft/vscode">Code - OSS</a>). It inherited many great features from both RStudio and VS Code, making it a powerful tool for data science workflows across <strong>Python and R</strong>.</p>
 </blockquote>
 <ul>
-<li><strong>Multi-Language Programming.</strong> VS Code supports multiple programming languages including Python, R, C/C++, JavaScript, etc.</li>
-<li><strong>Integrated Git Source Control.</strong> VS Code automatically recognizes and uses the computer’s Git installation. You can easily track changes, stage, and commit changes to your working branch.</li>
-<li><strong>Variety of Project Development Support</strong>. You can add extra features such as language packs, debugging tools, Git/Github features, and remote server connector by installing extensions from the Extension Marketplace.</li>
+<li><p><strong>Built-in Suuport for Python and R.</strong> Positron inherits VS Code’s support for multiple programming languages. But <em>unlike VS Code</em>, it treats R and Python as primary coding languages and provides out-of-the-box support for Python and R without the need to install any extensions.</p></li>
+<li><p><strong>RStudio-Style Layout.</strong> Positron has a similar layout design as RStudio (Editor, Console, Plots/ Variables/Help panes), but with additional features like the file Explorer side bar, search button, Git source control, remote connection, etc., allowing for more data science specific functions.</p></li>
+<li><p><strong>Language Switch via Multi-Session Console.</strong> Positron allows working in multiple console sessions with different languages/environments at the same time. You can run R or Python code line-by-line or in chunks interactively in each console, while quickly switching between for a seamless analytical workflow.</p></li>
+<li><p><strong>Integrated Git Control &amp; Remote Connection.</strong> Similar to VS Code, Positron integrates Git and remote connection. This allows version control of projects like tracking changes, managing branches, and resolving conflicts within the IDE. Positron also supports Remmote SSH connection to work on projects on the cluster.</p></li>
 </ul>
 </section>
-<section id="follow-along-set-up-jupyter-notebook-in-vs-code" class="level2">
-<h2 class="anchored" data-anchor-id="follow-along-set-up-jupyter-notebook-in-vs-code">▶️Follow-Along<strong>:</strong> Set up Jupyter Notebook in VS Code</h2>
-<p>We’ll now walk through setting up your Python coding environment in VS Code with full support for virtual environments and Jupyter notebooks.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+</section>
+<section id="follow-along-first-python-project-in-positron" class="level1">
+<h1>▶️Follow-Along: First Python Project in Positron</h1>
+<p>We’ll now walk through setting up your Python porject in Positron, using <code>venv</code> (covered about) as well as usefull tools like Git/GitHub and Jupyter Notebook:</p>
+<ul>
+<li>Create a <strong>Git repository</strong> for your project</li>
+<li>Open the project in Positron</li>
+<li>Set up virtual environment with <code>venv</code></li>
+<li>Create a <strong>Jupyter notebook</strong> (<code>.ipynb</code>) file</li>
+</ul>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>💡Prerequisites
+💡Prerequisites
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Ensure you have the following:</p>
+<p>Ensure you have installed the following:</p>
 <ul>
-<li><strong>Miniconda</strong>: see <a href="#follow-along-install-miniconda-python-conda">▶️Follow-Along: Install Miniconda (Python + conda)</a></li>
-<li><strong>VS Code</strong>: <a href="https://code.visualstudio.com/download">Download and install VS Code</a></li>
+<li><strong>Python (3.10+ recommended)</strong>: <a href="#follow-along-install-python">▶️Follow-Along: Install Python)</a></li>
+<li><strong>Positron</strong>: <a href="https://positron.posit.co/download.html">Download and install Positron</a></li>
+<li><strong>GitHub Desktop</strong>: <a href="https://desktop.github.com/download/">Download GitHub Desktop</a></li>
+<li><strong>(Optional) Git CLI</strong>: <a href="https://git-scm.com/install/">Install Git on your computer</a></li>
 </ul>
 </div>
 </div>
-<section id="step-1-install-required-vs-code-extensions" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-install-required-vs-code-extensions">Step 1: Install Required VS Code Extensions</h3>
+<!-- ### Step 1: Install Required VS Code Extensions
+
+1.  Launch VS Code.
+
+2.  Open the **Extensions** panel from the left toolbar (or `Ctrl+Shift+X` on Windows/ `Cmd+Shift+X` on Mac).
+
+    ![](images/qs-python-ext-install.gif)
+
+3.  Install the following extensions:
+
+    -   **Python**: To support Python language, debugging, documentations, etc.
+    -   **Jupyter**: To support rendering Python documents from Jupyter Notebooks or Quarto files.
+
+    ::: callout-important
+    You still need to install Python (Miniconda) to your computer for these extensions to fully function.
+    ::: -->
+<section id="step-1-create-a-git-repository" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-create-a-git-repository">Step 1: Create a Git Repository</h3>
+<section id="create-on-github" class="level4">
+<h4 class="anchored" data-anchor-id="create-on-github"><strong>Create on GitHub</strong></h4>
 <ol type="1">
-<li><p>Launch VS Code.</p></li>
-<li><p>Open the <strong>Extensions</strong> panel from the left toolbar (or <code>Ctrl+Shift+X</code> on Windows/ <code>Cmd+Shift+X</code> on Mac).</p>
-<p><img src="images/qs-python-ext-install.gif" class="img-fluid"></p></li>
-<li><p>Install the following extensions:</p>
+<li><p>Go to <a href="https://github.com">GitHub</a>. <strong>Sign in</strong> or <strong>create and account</strong> if you haven’t done so.</p></li>
+<li><p>Create a new repository.</p>
 <ul>
-<li><strong>Python</strong>: To support Python language, debugging, documentations, etc.</li>
-<li><strong>Jupyter</strong>: To support rendering Python documents from Jupyter Notebooks or Quarto files.</li>
-</ul>
-<div class="callout callout-style-default callout-important callout-titled">
+<li><p>In the upper corner of the GitHub webpage, select <code>+</code>, and click <strong>New repository</strong>.</p></li>
+<li><p>Type a name in the <strong>“Repository name”</strong> box (e.g., <strong><code>workshop-project</code></strong>). Optionally add a short description in the <strong>“Description”</strong> box.</p>
+<p><img src="images/github-new-repo-1.png" class="img-fluid" width="600"></p></li>
+<li><p>Add a <code>README.md</code> file for a longer description of that will be displayed on the repository <code>&lt;&gt;Code</code> page.</p></li>
+<li><p>Add a <code>.gitignore</code> file (choose <strong>Python</strong>) to tell Git which files/folders to ignore when making commits. E.g., the Python template by defualt ignores environment files <code>.venv</code>/<code>.env</code>/etc.</p>
+<p><img src="images/github-new-repo.png" class="img-fluid" width="600"></p></li>
+<li><p>Click <strong>“Create repository”</strong></p></li>
+</ul></li>
+<li><p>Clone repository to your local computer by clicking <img src="images/github-clone-button.png" class="absolute img-fluid" data-top="0" data-right="200" width="100"></p>
+<p><img src="images/github-clone-2026.png" class="img-fluid" width="500"></p>
+<ul>
+<li><p><strong>Option 1 (CLI)</strong>: Copy the <strong>HTTPS URL</strong> and clone with <code>git</code> command</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="op">&lt;</span>path-to-workshop-project<span class="op">&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/<span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>workshop-project<span class="op">&gt;</span>.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Option 2 (GUI)</strong>: Open in <strong>GitHub Desktop</strong>. Enter or choose the local path of the repository you want to clone to.</p>
+<p><img src="images/github-desktop-clone.png" class="img-fluid" width="400"></p></li>
+</ul></li>
+</ol>
+</section>
+<section id="create-locally-with-git-git-commands" class="level4">
+<h4 class="anchored" data-anchor-id="create-locally-with-git-git-commands">Create locally with Git (<code>git</code>) commands</h4>
+<p>The above actions can also be accomplished through the Git command line interface (CLI).</p>
+<ol type="1">
+<li><p>Create a new project folder (e.g., <code>workshop-project</code>):</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> workshop-project</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Or navigate to an existing one:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> workshop-project</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Initialize a Git repository:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Create a <code>.gitignore</code> file to avoid committing large and misc files. For example:</p>
+<pre class="text"><code># Environments
+.venv/
+
+# Python cache
+__pycache__/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS files
+.DS_Store</code></pre></li>
+<li><p>Make your first commit:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initial commit"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Connect folder to GitHub
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You still need to install Python (Miniconda) to your computer for these extensions to fully function.</p>
+<p>If you want to publish your project to GitHub, create a new <strong>empty</strong> repository on GitHub (without <code>.gitignore</code>), copy the repository URL, and run the following to connect and push changes:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin <span class="op">&lt;</span>YOUR_GITHUB_REPO_URL<span class="op">&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-M</span> main</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div></li>
+</div>
+</section>
+</section>
+<section id="step-2-open-the-project-in-positron" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-open-the-project-in-positron">Step 2: Open the Project in Positron</h3>
+<ol type="1">
+<li><p>Launch Positron.</p></li>
+<li><p>Open your project folder:</p>
+<ul>
+<li><p>Open from the Welcome page:</p>
+<p><img src="images/positron-open-folder.png" class="img-fluid" width="770"></p>
+<p><strong>Or</strong></p></li>
+<li><p>By selecting <strong>File &gt; Open Folder</strong> (<code>Ctrl+K / Ctrl+O</code>).</p></li>
+<li><p>Select you folder (<code>&lt;workshop-project&gt;</code>)</p></li>
+</ul></li>
 </ol>
 </section>
-<section id="step-2-create-a-conda-virtual-environment" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-create-a-conda-virtual-environment">Step 2: Create a Conda Virtual Environment</h3>
-<p>You can create an environment in one step using the shared <a href="https://github.mskcc.org/Python-Workshop/Python-Workshop.github.io/tree/main/Downloadable/environment.yml">environment.yml</a> file.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If you want to create your own environment or use existing ones, install these necessary packages to allow your Python to work with Jupyter Notebooks in VS Code:</p>
-<ul>
-<li>jupyter</li>
-<li>ipykernel</li>
-<li>pyyaml</li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install jupyter ipykernel pyyaml <span class="at">-c</span> conda-forge</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="step-3-configure-the-environment-in-vs-code." class="level3">
-<h3 class="anchored" data-anchor-id="step-3-configure-the-environment-in-vs-code.">Step 3: Configure the Environment in VS Code.</h3>
+<section id="step-3-create-virtual-environment-with-pip-and-venv" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-create-virtual-environment-with-pip-and-venv">Step 3: Create virtual environment with <code>pip</code> and <code>venv</code></h3>
+<p>In your project folder, locate the <strong>TERMINAL</strong> panel at the bottom.</p>
 <ol type="1">
-<li><p>Open the <strong>Command Palette</strong> (<code>Ctrl+Shift+P</code> on Windows / <code>Cmd+Shift+X</code> on Mac).</p></li>
-<li><p>Search for and select “<strong>Python: Select Interpreter</strong>”.</p></li>
-<li><p>Choose your conda environment (e.g., <code>python-intro-env</code>).</p>
-<ul>
-<li><p>If it doesn’t pop up, click <strong>Enter interpreter path…</strong></p></li>
-<li><p>Manually enter the path to your conda virtual environment Python executable:</p>
-<ul>
-<li><p>Windows: <code>C:\Users\&lt;username&gt;\AppData\Local\miniconda3\envs\&lt;env-name&gt;\python.exe</code></p></li>
-<li><p>macOS: <code>Users/&lt;username&gt;/miniconda/envs/&lt;env-name&gt;/python</code></p></li>
-</ul></li>
-</ul>
-<div id="find-python-path" class="callout callout-style-default callout-note no-icon callout-titled">
+<li><p>Create a virtual environment named <code>.venv</code>. This will create a <code>.venv/</code> folder inside the project directory:</p>
+<pre><code>python -m venv .venv  # Windows
+python3 -m venv .venv # macOS</code></pre>
+<p>If your system default Python is a different version, you can specify with the following:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3.12</span> <span class="at">-m</span> venv .venv <span class="co"># macOS/Linux</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="ex">py</span> <span class="at">-3.12</span> <span class="at">-m</span> venv .venv   <span class="co"># Windows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>🔎Find your conda Python executable path
+Do NOT commit <code>.venv/</code>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>To search for the conda Python interpreter location on your computer, open the <strong>Anaconda Prompt</strong> or <strong>terminal</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate <span class="op">&lt;</span>env-name<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then, locate your Python executable by typing the following:</p>
+<p>Your <code>.venv/</code> folder can be large and is specific to your computer. Therefore, it is generally recommended to add <em>.venv</em> to your <code>.gitignore</code> file.</p>
+<p>Instead, only commit <code>requirements.txt</code> so you can recreate the environment.</p>
+</div>
+</div></li>
+<li><p>Activate the venv:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows (PowerShell):</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">.</span><span class="dt">\.</span>venv<span class="dt">\S</span>cripts<span class="dt">\A</span>ctivate.ps1</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows (Command Prompt):</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="bu">.</span><span class="dt">\.</span>venv<span class="dt">\S</span>cripts<span class="dt">\a</span>ctivate.bat</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># macOS/Linux:</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Install Python packages to the environment.</p>
+<p>👉<strong>Recommend:</strong> install from a <a href="https://github.com/PythonForRUsers/Python-Workshop.github.io/blob/main/Downloadable/environment.txt"><code>requirement.txt</code></a> file. This allows you to install all required packages for the Workshop series in one step.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<!-- ### Step 4: Configure the Environment in Positron
+
+1.  Open the **Command Palette** (`Ctrl+Shift+P` on Windows / `Cmd+Shift+X` on Mac).
+
+2.  Search for and select "**Python: Select Interpreter**".
+
+3.  Choose your conda environment (e.g., `python-intro-env`).
+
+    -   If it doesn't pop up, click **Enter interpreter path...**
+
+    -   Manually enter the path to your conda virtual environment Python executable:
+
+        -   Windows: `C:\Users\<username>\AppData\Local\miniconda3\envs\<env-name>\python.exe`
+
+        -   macOS: `Users/<username>/miniconda/envs/<env-name>/python`
+
+    ::: {#find-python-path .callout-note icon="false"}
+    ## 🔎Find your conda Python executable path
+
+    To search for the conda Python interpreter location on your computer, open the **Anaconda Prompt** or **terminal**:
+
+    ``` bash
+    conda activate <env-name>
+    ```
+
+    Then, locate your Python executable by typing the following:
+
+    -   Windows: `where python`
+    -   macOS: `which python`
+    ::: -->
+</section>
+<section id="step-4-create-a-jupyter-notebook-.ipynb-file" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-create-a-jupyter-notebook-.ipynb-file">Step 4: Create a Jupyter Notebook (<code>.ipynb</code>) File</h3>
+<ol type="1">
+<li>It’s always a good practice to keep your project folder organized! Put your <code>requirements.txt</code> and <code>.gitignore</code> files under the parent directory and create separate folders for scripts/notebooks, data files, and others.</li>
+</ol>
 <ul>
-<li>Windows: <code>where python</code></li>
-<li>macOS: <code>which python</code></li>
+<li><p>Here is an example project repository structure:</p>
+<pre class="text"><code>workshop-project/
+   ├── data/            # Raw &amp; processed data folder
+   ├── notebooks/       # Jupyter notebooks for data analysis
+   ├── requirements.txt  # Virtual environment txt file
+   ├── .gitignore       # Files that git should not track
+   └── README.md        # Project description </code></pre></li>
+</ul>
+<ol start="2" type="1">
+<li><p>Create a <code>notebooks/</code> folder from the <strong>Explorer</strong> side bar and create a new Jupyter Notebook file:</p>
+<ul>
+<li><strong>File &gt; New File</strong></li>
+<li>Select <strong>Jupyter Notebook</strong> (<code>.ipynb</code>).</li>
+</ul></li>
+<li><p>Select the correct Python <strong>kernel</strong>:</p>
+<ul>
+<li>In the notebook, locate the <strong>Select Kernel</strong> button (usually near the top-right)</li>
+<li>Choose the kernel associated with your project venv (e.g., <code>Python 3.x .venv</code>)</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you don’t see the environment showing up:</p>
+<ul>
+<li><p>Make sure your venv has the dependencies installed:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install ipykernel jupyter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then restart Positron or reload the window (<code>Ctrl+Shift+P</code> &gt; <code>Reload Window</code>).</p></li>
+<li><p>If all packages are installed but the issue persists, manually specify the Python path. E.g., <code>.venv.\Scripts\python.exe</code></p></li>
 </ul>
 </div>
 </div></li>
+<li><p>Create <strong>Code</strong> and <strong>Markdown</strong> chunks</p></li>
 </ol>
+<ul>
+<li><p>Select <code>+ Code</code> or <code>+ Markdown</code> from the top of the notebook page to create an executable Python code chunk or a text chunk, respectively</p></li>
+<li><p>Alternatively, use keyboard shortcut <code>A</code> (create chunk above) or <code>B</code> (create chunk below) to quickly create new chunks.</p></li>
+<li><p><strong>Markdown</strong> chunks are where you can add texts, headings, links, images – everything that is not code to execute. For example,</p>
+<pre class="text"><code># Heading 1
+## Heading 2
+### Heading 3
+
+Regular text
+
+&gt; quote
+
+**bold text** or __bold text__
+*italic text* or _italic text_
+
+1. First item in list
+2. Second item in list
+
+* bullet 1
+* bullet 2
+
+`in line code`</code></pre></li>
+</ul>
+<p>These will result in:</p>
+<p><img src="images/positron-markdown-types.png" class="img-fluid" style="width:100.0%"></p>
+<!-- ![](images/positron-markdown-chunk.png) -->
+<ul>
+<li><p><strong>Code</strong> chunks are executable. If you have specified the kernel for the notebook, the language interpreter of the code chunk will automatically match the notebook.</p></li>
+<li><p>You can then <strong>import packages, assign variables</strong>, and <strong>execute functions</strong> by clicking the <strong>Run</strong> icon to the lelft of the cell. The output will then be displayed below the code chunk.</p></li>
+<li><p>Or, for convenience, use the keyboard shortcut <code>Ctrl+Enter</code> to run the current chunk. <code>Shift+Enter</code> runs the code cell and creates a new cell immediately below the current one.</p></li>
+<li><p>You can also run multiple code chunks at once using the <strong>Run All</strong> button at the top of the notebook, or by selecting the <strong>Run all above</strong> and <strong>Run all below</strong> buttons on the top-right of the current cell.</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Project setup using Positron GUI
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>see more on creating new projects and virtual environments using the Positron GUI in this blog–<a href="https://posit.co/blog/first-python-project-in-positron/"><strong><em>Your first Python project in Positron</em></strong></a>.</p>
+</div>
+</div>
+<p>🎊<strong>Congrats! You are all set!</strong></p>
+<p>You now have a Python project with a <code>.gitignore</code> file, <strong>Git</strong> version control, a local project-specific <strong>virtual environment</strong>, and a working notebook folder for the Workshop sessions.</p>
 </section>
-<section id="step-4-open-a-python-project-and-create-a-jupyter-notebook-file" class="level3">
-<h3 class="anchored" data-anchor-id="step-4-open-a-python-project-and-create-a-jupyter-notebook-file">Step 4: Open a Python Project and Create a Jupyter Notebook File</h3>
-<ol type="1">
-<li><p>If you have an existing Python project you wish to work on in VS Code, you may open the project folder in VS Code.</p>
+<section id="extra" class="level2">
+<h2 class="anchored" data-anchor-id="extra">💎Extra</h2>
 <ul>
-<li><p>Open from the VS Code Welcome page:</p>
-<p><img src="images/vs code-welcome-page.png" class="img-fluid" width="774"></p></li>
-<li><p>Or by selecting <strong>File &gt; Open Folder</strong> (<code>Ctrl+K Ctrl+O</code>)</p></li>
-</ul></li>
-<li><p>To create a new Jupyter Notebook file, go to <strong><code>File &gt; New File</code></strong> and select Jupyter Notebook (<code>.ipynb</code>).</p></li>
-<li><p>Select the correct <strong>kernel</strong> (conda environment):</p>
+<li><p><a href="https://emilyriederer.netlify.app/post/py-rgo-2025/"><strong><em>Python Rgonomics</em></strong></a>. An in-depth article on using tools in Python that are genuinely “Pythonic” while being consistent with the workflow and style of the best R has to offer (<em>we will cover some like <code>great_tables</code> and <code>plotnine</code> in later sessions. Stay tuned!</em>).</p></li>
+<li><p><a href="https://positron.posit.co/welcome.html"><strong>Official Positron Guide</strong></a>. An all-Encompassing wikipedia of the Positron IDE with all tutorials you might need to get started with and learn more about the IDE. Some relevant guides:</p>
 <ul>
-<li><p>In the top-right corner of the notebook, you will see a <strong>Select Kernel</strong> button</p></li>
-<li><p>Choose the kernel that matches your conda environment (e.g., <code>python-intro-env (Python 3.10.0)</code>)</p></li>
+<li><a href="https://positron.posit.co/git.html">Git Version Control in Positron</a></li>
+<li><a href="https://positron.posit.co/remote-ssh.html">Remote SSH in Positron</a></li>
 </ul></li>
-<li><p>If you don’t see the environment showing up:</p>
-<ul>
-<li><p>Make sure your conda env has the dependencies installed:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install ipykernel jupyter pyyaml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then restart VS Code or reload the window (<code>Ctrl+Shift+P</code> &gt; <code>Reload Window</code>).</p></li>
-<li><p>If all packages are installed but the issue persists, manually specify the Python path (see <a href="#find-your-conda-python-executable-path">🔎Find your conda Python executable path</a>)</p></li>
-</ul></li>
-</ol>
-<p>You are all set!</p>
+<li><p><a href="https://posit.co/blog/a-quick-tour-of-positron/"><strong><em>A Quick Tour of Positron</em></strong></a>. To quickly learn how to navigate the Positron IDE.</p></li>
+</ul>
+<table class="caption-top table">
+<caption>Useful Positron Extensions</caption>
+<colgroup>
+<col style="width: 37%">
+<col style="width: 62%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Extension</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Positron R Package Manager</strong></td>
+<td>Mimics the package pane in RStudio</td>
+</tr>
+<tr class="even">
+<td><strong>Positron Python Package Manager</strong></td>
+<td>Like R package manager, but for Python</td>
+</tr>
+<tr class="odd">
+<td><strong>Project Manager</strong></td>
+<td>View favorited and/or all projects within a “GitHub” folder</td>
+</tr>
+<tr class="even">
+<td><strong>Quarto</strong></td>
+<td>Quarto extension for Positron</td>
+</tr>
+<tr class="odd">
+<td><strong>Shiny</strong></td>
+<td>Develop and run Shiny apps in Positron</td>
+</tr>
+<tr class="even">
+<td><strong>VSCode-pdf</strong></td>
+<td>Allows you to view PDF files</td>
+</tr>
+<tr class="odd">
+<td><strong>Rainbow-csv</strong></td>
+<td>View and Highlight CSV files</td>
+</tr>
+<tr class="even">
+<td><strong>Catppuccin Icons for VSCode</strong></td>
+<td>Makes file icons cute!</td>
+</tr>
+</tbody>
+</table>
 
 
-</section>
 </section>
 </section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
     }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
     }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
     }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1227,161 +1496,185 @@ Important
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 </div> <!-- /content -->
 
 

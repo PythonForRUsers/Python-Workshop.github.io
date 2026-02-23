@@ -1,6 +1,8 @@
+# jupyter
 jupyter
 ipykernel
-pyyaml
+
+# core
 numpy
 pandas
 great_tables
@@ -10,4 +12,7 @@ scikit-learn
 statsmodels
 torch
 torchvision
-nbformat #optional
+
+# optional
+pyyaml
+nbformat
