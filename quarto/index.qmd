@@ -23,7 +23,7 @@ All workshop materials, including pre-session handouts, coding demos, assignment
 
 # Workshop Information
 
-**Time and Location:** **TBD**
+**Time and Location:** Tuesdays (2/24, 3/3, 3/10, 3/31) | 3:00 – 4:30pm | 708 Broadway, Room 801
 
 **Contact and Office Hours**:
 
@@ -86,7 +86,7 @@ All workshop materials, including pre-session handouts, coding demos, assignment
 
 <a href="https://www.python.org/downloads/" class = "link-block">
     <img src="icons/python.png" alt="Python Download" width="100">
-    <p>Install Python (❗recommend version 3.8+)</p>
+    <p>Install Python (❗recommend 3.10+)</p>
 
 
 <a href="https://positron.posit.co/" class = "link-block"> 
@@ -97,9 +97,9 @@ All workshop materials, including pre-session handouts, coding demos, assignment
 
 <p>Install Miniconda</p> -->
 
-<a href="https://github.com/PythonForRUsers/Python-Workshop.github.io/blob/main/Downloadable/environment.txt" class="link-block">
+<a href="https://github.com/PythonForRUsers/Python-Workshop.github.io/blob/main/Downloadable/requirements.txt" class="link-block">
     <img src="icons/yaml.png" alt="File">
-    <p>Download environment.txt file </p>
+    <p>Download requirements.txt file </p>
 </a>
 
  <a href="https://github.com/PythonForRUsers/Python-Workshop.github.io/tree/main/FollowAlong" class="link-block">
@@ -116,8 +116,8 @@ All workshop materials, including pre-session handouts, coding demos, assignment
 
 ## Useful External Tutorials
 
--   <a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#create-and-use-virtual-environments">Create and use virtual environments with **venv**</a>
-
 -   <a href="https://wesmckinney.com/book/">Python for Data Analysis, 3rd Edition, by Wes McKinnery</a>
+
+-   <a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#create-and-use-virtual-environments">Create and use virtual environments with **venv**</a>
 
 -   <a href="https://realpython.com/python3-object-oriented-programming/">Object-Oriented Programming (OOP) in Python</a>

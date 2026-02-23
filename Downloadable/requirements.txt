@@ -1,0 +1,18 @@
+# jupyter
+jupyter
+ipykernel
+
+# core
+numpy
+pandas
+great_tables
+plotnine
+seaborn
+scikit-learn
+statsmodels
+torch
+torchvision
+
+# optional
+pyyaml
+nbformat
