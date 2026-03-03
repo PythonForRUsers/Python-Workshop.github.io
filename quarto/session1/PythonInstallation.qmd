@@ -543,7 +543,7 @@ We will use the **Positron** IDE for the workshop series.
 
 > **Positron** is a modern IDE developed by Posit--the same developer as **RStudio**--and is built on **VS Code**'s open source code ([Code - OSS](https://github.com/Microsoft/vscode)). It inherited many great features from both RStudio and VS Code, making it a powerful tool for data science workflows across **Python and R**.
 
--   **Built-in Suuport for Python and R.** Positron inherits VS Code's support for multiple programming languages. But *unlike VS Code*, it treats R and Python as primary coding languages and provides out-of-the-box support for Python and R without the need to install any extensions. 
+-   **Built-in Suport for Python and R.** Positron inherits VS Code's support for multiple programming languages. But *unlike VS Code*, it treats R and Python as primary coding languages and provides out-of-the-box support for Python and R without the need to install any extensions. 
 
 -   **RStudio-Style Layout.** Positron has a similar layout design as RStudio (Editor, Console, Plots/
 Variables/Help panes), but with additional features like the file Explorer side bar, search button, Git source control, remote connection, etc., allowing for more data science specific functions. 
