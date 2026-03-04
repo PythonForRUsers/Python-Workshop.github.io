@@ -1,7 +1,7 @@
 ---
 title: "Python Installation and Reproducible Workflow"
 author: "Python Group"
-date: "2026-02-24"
+date: "2026-03-03"
 format: 
    revealjs:
       theme: sess1_slideshow.scss
@@ -86,7 +86,7 @@ In this session, we will familiarize with Python and essential tools for buildin
 -  **Easy to use**: Python syntax is designed to be readable and user-friendly
 -  **Interpreted**: run code line-by-line without compiling (unlike C/C++)
 -  **General-purpose**: widely used for data science, ML/AI, software development, etc.
--  **Open-source**: free! Mass user community contributing to the package ecosystemm
+-  **Open-source**: free! Mass user community contributing to the package ecosystem
 :::
 
 
@@ -255,7 +255,7 @@ An IDE brings together everything you need to write and run code and manage proj
 
 Positron is a new IDE (*released 2025*) designed for **Python + R** with many great features:
 
--  **Built-in Suuport for Python and R.** No extra extensions & easy transition from VS Code and RStudio  
+-  **Built-in Suport for Python and R.** No extra extensions & easy transition from VS Code and RStudio  
 -  **RStudio-Style Layout.** Editor + Console + Plots/Variables/Help panes
 -  **Multi-Session Console.** Work in multiple languages/environments seamlessly at the same time
 -  **Integrated Git & Remote Connection.** Connection to GitHub + remote SSH sessions

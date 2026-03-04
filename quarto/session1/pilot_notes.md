@@ -1,25 +1,21 @@
-# Notes from session 1
-
-Session went well! We can streamline it though. 
-
-## Some notes: 
-
-1. we should probably skip talking about R and stuff and get right to the tutorial. I think the more we talk before we actually install things the more questions there will be. 
-2. Might be worth downloading everything first and then talking through the intro. It can take a while for things to download!
-
-We need to keep everyone on track and not get distracted ourselves. (Use sticky note method: everyone puts sticky note when they are done with step, move on when ~90% of people have doen step.)
-
-## On the question of "Will this break my R?"
-No it won't. R studio pretty much isolates itself. You can check what environment R studio is running on with the R Studio Terminal (and just use conda deactivate to get out of an environment if it is activated).
+# Notes on Workshop Updataes
 
 
-# External Workshop updates (2026)
+# 2026
+
+## External Workshop updates (2026)
 
 1. Replace VS Code with Positron (can use materials from Dani's positron workshop)
-2. Replace Conda with (or add?) `venv`
+2. Replace Conda with `venv` in main session; 
+3. Move conda install to extra tutorial. More: Add remote connection & optuna
+4. Update FAQ
 
 
-# Post-session 1 updates (2025)
+
+# 2025 Workhop
+
+
+## Post session updates
 
 1. Add note on installing conda virtual env on VDI - could be slow
 2. Add note to explicitly explain where conda envs are installed by default
@@ -27,7 +23,7 @@ No it won't. R studio pretty much isolates itself. You can check what environmen
 4. Note: Add restart vs code after installing extensions to the tutorial page
 
 
-# Updates 2025
+## Updates
 
 1. Utilize the previous Session 1: Python installation tutorial as a pre-session handout:
     * Just like any package documentation, the very first thing is code/links for installating software
@@ -47,3 +43,18 @@ No it won't. R studio pretty much isolates itself. You can check what environmen
     ├── data/
     └── notebooks/
     ```
+
+
+# First Pilot Session
+
+Session went well! We can streamline it though. 
+
+## Some notes: 
+
+1. we should probably skip talking about R and stuff and get right to the tutorial. I think the more we talk before we actually install things the more questions there will be. 
+2. Might be worth downloading everything first and then talking through the intro. It can take a while for things to download!
+
+We need to keep everyone on track and not get distracted ourselves. (Use sticky note method: everyone puts sticky note when they are done with step, move on when ~90% of people have doen step.)
+
+## On the question of "Will this break my R?"
+No it won't. R studio pretty much isolates itself. You can check what environment R studio is running on with the R Studio Terminal (and just use conda deactivate to get out of an environment if it is activated).

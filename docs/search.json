@@ -527,30 +527,30 @@
   {
     "objectID": "session1/session1-python-setup.html#session-1-learning-goals",
     "href": "session1/session1-python-setup.html#session-1-learning-goals",
-    "title": "Python Installation, Environments, and VS Code Setup",
+    "title": "Python Installation and Reproducible Workflow",
     "section": "Session 1 Learning Goals",
-    "text": "Session 1 Learning Goals\nIn this session, we will familiarize with Python and essential tools for building reproducible Python projects. \n💡 Python overview: What is Python? How is it useful compared to R? 💡 Conda: conda for installing packages and creating reproducible Python virtual environments 💡 Familiarize with integrated development environments (Visual Studio Code) and interactive computing tools (Jupyter Notebook) 💡 Python reproducible workflow: Create a GitHub Python repository and work in Visual Studio Code within a project-specific conda environment"
+    "text": "Session 1 Learning Goals\nIn this session, we will familiarize with Python and essential tools for building reproducible Python projects. \n💡 Python overview: What is Python? Python vs. R? 💡 Virtual environments: venv for creating reproducible virtual environments 💡 Integrated development environments Positron and interactive code editng tool Jupyter Notebook 💡 Python reproducible workflow: Integrate GitHub, virtual environments, and Positron IDE into your Python programming projects."
   },
   {
     "objectID": "session1/session1-python-setup.html#what-is-python",
     "href": "session1/session1-python-setup.html#what-is-python",
-    "title": "Python Installation, Environments, and VS Code Setup",
+    "title": "Python Installation and Reproducible Workflow",
     "section": "What is Python?",
-    "text": "What is Python?\n\n\n\nPython is an open-source, high-level, interpreted, general-purpose programming language\n\nKey Features\n\nEasy to use: Python syntax is designed to be readable and user-friendly\nGeneral-purpose: widely applied in data science, ML/AL, software development, automation, etc.\nInterpreted: run code without compiling (unlike C/C++)\nOpen-source: free to use and supported by a mass user community, who contributes to many high-quality packages open to public"
+    "text": "What is Python?\n\n\n\nPython is an open-source, high-level, interpreted, general-purpose programming language\n\n\n\nEasy to use: Python syntax is designed to be readable and user-friendly\nInterpreted: run code line-by-line without compiling (unlike C/C++)\nGeneral-purpose: widely used for data science, ML/AI, software development, etc.\nOpen-source: free! Mass user community contributing to the package ecosystem"
   },
   {
     "objectID": "session1/session1-python-setup.html#python-vs.-r",
     "href": "session1/session1-python-setup.html#python-vs.-r",
-    "title": "Python Installation, Environments, and VS Code Setup",
+    "title": "Python Installation and Reproducible Workflow",
     "section": "Python vs. R",
-    "text": "Python vs. R\nPython and R differ in programming philosophy, computational capacity, and extensibility.\n\n\n\n\nFeature / Task\n\n\nR\n\n\nPython\n\n\n\n\n\n\nProgramming style\n\n\nFunction-oriented\n\n\nMostly object-oriented\n\n\n\n\nScope of functionality\n\n\nPrimarily for statistical computing and data analysis\n\n\nGeneral-purpose: ML & AI, software development, scripting, etc.\n\n\n\n\nComputational power\n\n\n✅ Vectorized operations  ⚠️ Memory-intensive for large data and loops\n\n\n✅ Faster loop performance  ✅ Strong GPU support  ✅ Efficient memory use\n\n\n\n\nPackage ecosystem\n\n\n✅ Rich ecosystem of statistical tools ⚠️ Fewer ML/AI tools\n\n\n☑️ Emerging statistical packages  ✅ Extensive ML/AI tools"
+    "text": "Python vs. R\nPython and R differ in programming philosophy, computational capacity, and extensibility.\n\n\n\n\nFeature / Task\n\n\nR\n\n\nPython\n\n\n\n\n\n\nScope of functionality\n\n\nPrimarily for statistical and data analysis\n\n\nGeneral-purpose: ML & AI, software development, scripting, etc.\n\n\n\n\nProgramming style\n\n\nFunction-oriented\n\n\nObject-oriented\n\n\n\n\nComputational power\n\n\n✅ Vectorized operations  ⚠️ Memory-intensive for large data and loops\n\n\n✅ Faster loop performance  ✅ Strong GPU support  ✅ Efficient memory use\n\n\n\n\nPackage ecosystem\n\n\n✅Open source: CRAN, Bioconductor, GitHub  ✅ Rich ecosystem of statistical tools  ⚠️ Fewer ML/AI tools\n\n\n✅Open source: PyPI, GitHub  ☑️ Emerging statistical packages  ✅ Extensive ML/AI tools"
   },
   {
     "objectID": "session1/session1-python-setup.html#python-package-ecosystem",
     "href": "session1/session1-python-setup.html#python-package-ecosystem",
-    "title": "Python Installation, Environments, and VS Code Setup",
+    "title": "Python Installation and Reproducible Workflow",
     "section": "Python Package Ecosystem",
-    "text": "Python Package Ecosystem\n\nStatistical analysis\nWhile R is the go-to tool for statistical analysis, Python has caught up with many equivalent libraries and functions:\n\nstatsmodels / scipy.stats provide regression modeling and hypothesis testing.\nscikit-survival /lifelines support survival analysis and plotting.\n\n\n\nML/DL ecosystem\nPython dominates in machine learning and AI development:\n\nscikit-learn is a comprehensive machine learning library that supports supervised regression and classification (e.g., random forests, gradient boosting) and unsupervised clustering (e.g., K-means) analyses\nTensorFlow / PyTorch are deep learning libraries widely used for computer vision and natural language processing (NLP).\noptuna / Ray can be integrated into ML/DL workflows for easy and efficient model training, hyperparameter tuning, fine-tuning, etc.\n\n\n\nOmics data analysis\nEmerging bioinformatics packages that provide standard omics data preprocessing and analysis pipeliness:\n\nscanpy, anndata are libraries for single-cell RNA-seq data loading, preprocessing, and analysis\nBiopython is a set of tools for biological computation that performs file parsering, sequence analysis, clustering algorithms, etc.\npysam works with raw input files (e.g., BAM/SAM/VCF)"
+    "text": "Python Package Ecosystem\n\n\nStatistical analysis & data wrangling\nWhile R is the go-to language for statistical analysis, Python has caught up with many equivalent pacakges that offers similar functionality and styles:\n\nstatsmodels / scipy.stats provide regression modeling and hypothesis testing.\nscikit-survival / lifelines support survival analysis and plotting.\npolars (~dplyr data cleaning) / great_tables (~gt tables) / plotnine (~ggplot2 visualizations)\n\n\n\n\nML/DL ecosystem\nPython dominates in machine learning and AI development:\n\nscikit-learn is a comprehensive machine learning library that supports supervised regression and classification (e.g., random forests, gradient boosting) and unsupervised clustering (e.g., K-means) analyses\nTensorFlow / PyTorch are deep learning libraries widely used for computer vision and natural language processing (NLP).\noptuna / Ray can be integrated into ML/DL workflows for easy and efficient model training, hyperparameter tuning, fine-tuning, etc.\n\n\n\n\nOmics data analysis\nEmerging bioinformatics packages that provide standard omics data preprocessing and analysis pipeliness:\n\nscanpy, anndata are libraries for single-cell RNA-seq data loading, preprocessing, and analysis\nBiopython is a set of tools for biological computation that performs file parsering, sequence analysis, clustering algorithms, etc.\npysam works with raw input files (e.g., BAM/SAM/VCF)"
   },
   {
     "objectID": "session1/session1-python-setup.html#essential-tools",
@@ -576,9 +576,9 @@
   {
     "objectID": "session1/session1-python-setup.html#why-use-virtual-environments",
     "href": "session1/session1-python-setup.html#why-use-virtual-environments",
-    "title": "Python Installation, Environments, and VS Code Setup",
+    "title": "Python Installation and Reproducible Workflow",
     "section": "Why Use Virtual Environments?",
-    "text": "Why Use Virtual Environments?\n You may find the flexibility of environments beneficial in many cases.\n\n\nAvoid Conflicts. Help resolve potential conflicts between different projects concerning conflicting dependencies. Changes made to one environment won’t affect other projects that use different environments.\n\n\n\n\nEasy Management. Reduce the risk of breaking system Python and globally installed packages. You can easily delete a virtual environment if issues occur and recreate it.\n\n\n\n\nReproducibility. Work as time capsules, allowing you to replicate the requirement of a project at later time points or on new machines.\n\n\n\n\nSharing Environments. Allow sharing the Python version and entire list of dependencies with other people through a copy of the .yml file."
+    "text": "Why Use Virtual Environments?\n\nYou may find the flexibility of environments helpful when you have multiple project with slightly different dependency requirements…\n\n\n\n\n\n\n\n\n\nAvoid Conflicts. Avoid potential conflicts between different projects’ dependency requirements. Changes to one environment won’t affect other projects that use different environments.\n\n\n\n\nEasy Management. Less concern about breaking things. You can easily delete a virtual environment if issues occur and recreate it.\n\n\n\n\nReproducibility. Work as time capsules, allowing you to replicate the requirement of a project at later time points or on new machines.\n\n\n\n\nSharing Environments. Easily share the Python version and list of dependencies with other people through a copy of the requirements.txt file."
   },
   {
     "objectID": "session1/session1-python-setup.html#overview-of-conda-commands",
@@ -1509,7 +1509,7 @@
     "href": "session1/session1.html#positron-1",
     "title": "Intro to Python",
     "section": "Positron",
-    "text": "Positron\n\n\nPositron is a modern IDE developed by Posit–the same developer as RStudio–and is built on VS Code’s open source code (Code - OSS). It inherited many great features from both RStudio and VS Code, making it a powerful tool for data science workflows across Python and R.\n\n\nBuilt-in Suuport for Python and R. Positron inherits VS Code’s support for multiple programming languages. But unlike VS Code, it treats R and Python as primary coding languages and provides out-of-the-box support for Python and R without the need to install any extensions.\nRStudio-Style Layout. Positron has a similar layout design as RStudio (Editor, Console, Plots/ Variables/Help panes), but with additional features like the file Explorer side bar, search button, Git source control, remote connection, etc., allowing for more data science specific functions.\nLanguage Switch via Multi-Session Console. Positron allows working in multiple console sessions with different languages/environments at the same time. You can run R or Python code line-by-line or in chunks interactively in each console, while quickly switching between for a seamless analytical workflow.\nIntegrated Git Control & Remote Connection. Similar to VS Code, Positron integrates Git and remote connection. This allows version control of projects like tracking changes, managing branches, and resolving conflicts within the IDE. Positron also supports Remmote SSH connection to work on projects on the cluster."
+    "text": "Positron\n\n\nPositron is a modern IDE developed by Posit–the same developer as RStudio–and is built on VS Code’s open source code (Code - OSS). It inherited many great features from both RStudio and VS Code, making it a powerful tool for data science workflows across Python and R.\n\n\nBuilt-in Suport for Python and R. Positron inherits VS Code’s support for multiple programming languages. But unlike VS Code, it treats R and Python as primary coding languages and provides out-of-the-box support for Python and R without the need to install any extensions.\nRStudio-Style Layout. Positron has a similar layout design as RStudio (Editor, Console, Plots/ Variables/Help panes), but with additional features like the file Explorer side bar, search button, Git source control, remote connection, etc., allowing for more data science specific functions.\nLanguage Switch via Multi-Session Console. Positron allows working in multiple console sessions with different languages/environments at the same time. You can run R or Python code line-by-line or in chunks interactively in each console, while quickly switching between for a seamless analytical workflow.\nIntegrated Git Control & Remote Connection. Similar to VS Code, Positron integrates Git and remote connection. This allows version control of projects like tracking changes, managing branches, and resolving conflicts within the IDE. Positron also supports Remmote SSH connection to work on projects on the cluster."
   },
   {
     "objectID": "link.html#data-science-tools",
@@ -1517,5 +1517,103 @@
     "title": "Links",
     "section": "Data Science Tools",
     "text": "Data Science Tools\nOfficial Positron Guide. An all-Encompassing wikipedia of the Positron IDE with all tutorials you might need to get started with and learn more about the IDE. Some relevant guides\nA Quick Tour of Positron. To quickly learn how to navigate the Positron IDE.\nGit and GitHub learning resources by GitHub Docs with links to free online courses and tutorials."
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#get-started-essential-tools",
+    "href": "session1/session1-python-setup.html#get-started-essential-tools",
+    "title": "Python Installation and Reproducible Workflow",
+    "section": "Get started: Essential Tools",
+    "text": "Get started: Essential Tools\nMake your python project reproducible! \n\n\npip: Python package installer (comes with Python installation)\n\n\n\n\nPositron: a modern IDE developed by Posit designed for Python + R\n\n\n\n\nJupyter Notebook: an interactive computing tool that combines code + markdown + visualizations + media\n\n\n\n\nGit/GitHub: version control, collaboration, and code sharing"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#pip",
+    "href": "session1/session1-python-setup.html#pip",
+    "title": "Python Installation and Reproducible Workflow",
+    "section": "Pip",
+    "text": "Pip\n\nPip is command line interface (CLI) for managing Python packages. It installs packages from Python Package Index (PyPI) and other sources such as GitHub.\n\n\n\n\n\n\n\nSince Python 3.4+, pip is automatically installed for:\n\nPython installations from python.org\nPython virtual environments\n\n\n\n\n\nCommand line: Install, upgrade, and uninstall packages through pip &lt;command&gt;\n\n\nVirtual environments: pip can be used within virtual environments created with venv"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#virtual-environments",
+    "href": "session1/session1-python-setup.html#virtual-environments",
+    "title": "Python Installation and Reproducible Workflow",
+    "section": "Virtual Environments",
+    "text": "Virtual Environments\n\nEnvironments are isolated, self-contained folders with their own Python interpreter and set of installed packages.\n\n\n\n Example:\n\nVirtual environment 1: Python 3.8 + scikit-learn 1.3.2\n\n\nVirtual environment 2: Python 3.12 + scikit-learn 1.8.0 + torch\n\n\nCreating virtual environments allows them to operate fully independently and not interfere with each other!"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#create-a-reproducible-python-project",
+    "href": "session1/session1-python-setup.html#create-a-reproducible-python-project",
+    "title": "Python Installation and Reproducible Workflow",
+    "section": "Create a Reproducible Python Project",
+    "text": "Create a Reproducible Python Project\n\n\nInstall Tools:\n\nPython\nPositron IDE\nGitHub Desktop (create a GitHub account if haven’t done so)\n\nCreate a new GitHub repository for your project\nOpen the project in Positron IDE\nSet up virtual environment with venv\nOrganize folder structure and create a Jupyter notebook (.ipynb) file\nCommit changes and push to GitHub"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#install-python",
+    "href": "session1/session1-python-setup.html#install-python",
+    "title": "Python Installation and Reproducible Workflow",
+    "section": "▶️Install Python",
+    "text": "▶️Install Python\n\n\nGo to the official Python download site: python.org/downloads/\n\n\nSelect your computer’s OS (Windows/macOS) from the Downloads dropdown menu.\n💡Recommend Python 3.12, the most recent stable release.\n\n\nDownload the 64-bit installer for your chosen Python version (unless your Windows is 32-bit).\n\n\n\n\nRun the installer (.exe for Windows / .pkg for macOS).\n\nFor Windows, when the “Install Python” window appears:\n\nUse admin privileges –Optional\n✅ Add python to PATH –Recommended\n✅ Choose “Install Now” and keep the default installation location\n\nFor macOS:\n\n\n\nClick through the installer prompts.\nWhen finished, you will see the following pops up:\nClick on the .command file. This will open a temporary Terminal shell window. Ensure that you see [Process completed] before closing the window.\n\n\n\n\n\n\n\nCheck installation. Open Terminal (or PowerShell / Command Prompt on Windows) and type the following command:\n\n\nFor Windows:\n\npython --version\npip --version\n\nFor macOS, you might need:\n\npython3 --version\npip3 --version\n✅ You should see something like Python 3.12.10 and pip 25.0.1.\n\n\n\n\n\n\nIf installations not found, it usually means PATH wasn’t correctly updated or you have another Python version in PATH that interferes with the current installation.\n\n\n\nNow, you can start coding in Python in the terminal!"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#install-tools",
+    "href": "session1/session1-python-setup.html#install-tools",
+    "title": "Python Installation and Reproducible Workflow",
+    "section": "Install Tools",
+    "text": "Install Tools\n💡Before proceeding, ensure you have the following:\n\nPositron: Download and install Positron\nGitHub Desktop: Download GitHub Desktop\n(Optional) Git CLI: Install Git on your computer\n\n\n\n\n\n\n\nThe git command line tool is an alternative to GitHub Desktop. If you are comfortable with commands in the terminal, git offers the same functionality and flexibility for managing your code versions.\n\n\n\n\n⏳Take a second to install necessary tools – Any questions?"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#create-a-github-repository",
+    "href": "session1/session1-python-setup.html#create-a-github-repository",
+    "title": "Python Installation and Reproducible Workflow",
+    "section": "Create a GitHub Repository",
+    "text": "Create a GitHub Repository\n\n\n\n\nGo to GitHub: https://github.com. Sign in or create and account if you haven’t done so.\nClick “New repository”.\n\n\n\n\n\nType a name in the “Repository name” box (e.g., workshop-project)\n\n\n\n\n\nAdd README.md (optional) and .gitignore (choose Python template)\n\nClick “Create repository”\n\n\n\n\n\n\n\nThe .gitignore file tells Git which files/folders to ignore when making commits. E.g., the environment folder (.venv/) that we will later create. This is a good practice to avoid pushing overly large files and/or sensitive data.\n\n\n\n\n\n\nClone the repository to your local computer by clicking \n\n\n\n\n\n\n\nOption 1 (CLI): Copy the HTTPS URL and clone with git command\ncd &lt;path-to-a-parent-folder&gt;\ngit clone https://github.com/&lt;username&gt;/&lt;workshop-project&gt;.git\n👉Option 2 (GUI): Open in GitHub Desktop. Choose the local path you want to clone to."
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#create-repo-locally-with-git-commands",
+    "href": "session1/session1-python-setup.html#create-repo-locally-with-git-commands",
+    "title": "Python Installation and Reproducible Workflow",
+    "section": "Create Repo Locally with git Commands",
+    "text": "Create Repo Locally with git Commands\nAn alternative to the previous actions – Using Git CLI.\n\n\nCreate a new project folder (e.g., workshop-project):\n\nmkdir workshop-project\nOr navigate to an existing one:\ncd workshop-project\n\n\n\nInitialize a Git repository:\n\ngit init\n\n\n\nCreate a .gitignore file to avoid committing large and misc files. For example:\n# Environments\n.venv/\n\n# Python cache\n__pycache__/\n\n# Jupyter\n.ipynb_checkpoints/\n\n# macOS files\n.DS_Store\n\n\n\n\nMake your first commit:\ngit add .\ngit commit -m \"Initial commit\"\n\n\n\n\n\n\n\n\n\nConnect folder to GitHub\n\n\nIf you want to publish your project to GitHub, create a new empty repository on GitHub (without .gitignore), copy the repository URL, and run the following to connect and push changes:\ngit remote add origin &lt;YOUR_GITHUB_REPO_URL&gt;\ngit branch -M main\ngit push -u origin main"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#open-project-in-positron",
+    "href": "session1/session1-python-setup.html#open-project-in-positron",
+    "title": "Python Installation and Reproducible Workflow",
+    "section": "Open Project in Positron",
+    "text": "Open Project in Positron\n\n\nLaunch Positron.\nOpen your project folder:\n\nFrom the Welcome page:\n\nOr\nBy selecting File &gt; Open Folder (Ctrl+K / Ctrl+O).\nSelect you folder (&lt;workshop-project&gt;)"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#create-a-project-specific-environment-with-venv",
+    "href": "session1/session1-python-setup.html#create-a-project-specific-environment-with-venv",
+    "title": "Python Installation and Reproducible Workflow",
+    "section": "Create a Project-Specific Environment with venv",
+    "text": "Create a Project-Specific Environment with venv\n\n\n\n\n\n\nNote: While Positron has built-in support for Python, you still need it installed locally. Ensure you have followed the previous steps to install python and pip .\n\n\n\n\n\nIn your project folder, locate the TERMINAL panel at the bottom.\n\n\nIf not shown. Open the Command Palette (Ctrl+Shift+P or Cmd+Shift+P) and type “Python: Create Terminal”\n\n\nCreate a virtual environment with python -m venv &lt;env-name&gt;:\n\n\nName it “.venv”. Ensure you are using the right python command.\n\n\npython -m venv .venv  # Windows\npython3 -m venv .venv # macOS\n\n\nNOTE: If your system default Python is a different version, you may need to specify the correct version with:\n\n\npython3.x -m venv .venv # macOS/Linux\npy -3.x -m venv .venv   # Windows\n\n\nThis will create a .venv/ folder inside the project directory.\n\n\n\n\n\n\n\n\nAdd .venv to .gitignore\n\n\nThe .venv/ folder is often large and specific to your computer. Therefore, it is generally recommended to add it to your .gitignore file and bypass Git tracking. 💡Instead, only commit the requirements.txt file–which lists all dependencies for the virtual environment.\n\n\n\n\n\nActivate the venv:\n\n\nsource .venv/bin/activate   # macOS/Linux\n.venv\\Scripts\\activate.bat  # Windows (Command Prompt)\n.venv\\Scripts\\Activate.ps1  # Windows (PowerShell)\n\n\nWhen activated, your terminal will show:\n\n\n(.venv)"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#install-packages-to-venv-with-pip-and-requirements.txt",
+    "href": "session1/session1-python-setup.html#install-packages-to-venv-with-pip-and-requirements.txt",
+    "title": "Python Installation and Reproducible Workflow",
+    "section": "Install Packages to Venv with pip and requirements.txt",
+    "text": "Install Packages to Venv with pip and requirements.txt\n\nPip can be used to install, upgrade, and uninstall packages from a virtual environment.Some useful pip (or pip3 for macOS) commands include:\npip install &lt;package&gt;\npip install &lt;package&gt;==&lt;version&gt; \npip install --upgrade &lt;package&gt;\npip uninstall &lt;package&gt;\n\n\nPackages can also be installed at once using a requirements.txt file:\n\n\nExample:\npandas\nnumpy\nmatplotlib\nscipy==1.14.0\n\n\n👉Download the requirements.txt file for this Python workshop series from GitHub repo: https://github.com/PythonForRUsers/Python-Workshop.github.io/blob/main/Downloadable/requirements.txt.\n\n\nNow, install with the following command:\npip install -r requirements.txt # or `pip3` for macOS\n\n\n\n\n\n\n\n\nAvoid installing packages into the wrong environment!\n\n\nBefore running pip install, always confirm your environment is activated (you should see (.venv) in your terminal prompt). If forgotten, pip install will install into your global Python which can cause conflicts.\n\n\n\n\n\nThe requirement file can also be created from an existing environment with:\npip freeze &gt; requirements.txt\nThis will save an requirements.txt file with a snapshot of all current installed packages (and exact versions) to your project directory."
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#create-a-jupyter-notebook-.ipynb",
+    "href": "session1/session1-python-setup.html#create-a-jupyter-notebook-.ipynb",
+    "title": "Python Installation and Reproducible Workflow",
+    "section": "Create a Jupyter Notebook (.ipynb)",
+    "text": "Create a Jupyter Notebook (.ipynb)\n\nFirst, let’s organize the folder. Keep requirements.txt and .gitignore files in the parent directory and create separate folders for scripts, data files, etc.\n\nEample project folder structure:\n\nworkshop-project/\n   ├── data/            # Raw & processed data folder\n   ├── notebooks/       # Jupyter notebooks for data analysis\n   ├── requirements.txt  # Virtual environment txt file\n   ├── .gitignore       # Files that git should not track\n   └── README.md        # Project description \n\n\n\nCreate a notebooks/ folder from the Explorer bar on the left side and create a new Jupyter Notebook file:\n\n\n\n\n\nSelect the right Python kernel:\n\n\nLocate the Select Kernel button at the top-right of the notebook\nChoose the kernel associated with your project venv (e.g., Python 3.x .venv)\n\n\n\n\n\n\n\n\n\n\n\n\nIf you don’t see the environment showing up:\nMake sure your venv has the dependencies installed:\npip install ipykernel jupyter\nThen restart Positron or reload the window (Ctrl+Shift+P &gt; Developer: Reload Window)."
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#commit-and-push-changes-to-github",
+    "href": "session1/session1-python-setup.html#commit-and-push-changes-to-github",
+    "title": "Python Installation and Reproducible Workflow",
+    "section": "Commit and Push Changes to GitHub",
+    "text": "Commit and Push Changes to GitHub\n\n\nOpen GitHub Desktop\n\nGo to your &lt;workshop-project&gt; repository\n\n\n\n\n\nReview changes from the left Changes tab\n\nYou should see:\n\n✅requirements.txt\n✅notebooks\\&lt;sess1-demo&gt;.ipynb\n❌.venv\\ –should be included in .gitignore and not be commited!\n\nNOTE: If you added .gitignore when creating the repo, it would be included in the previous (initial) commit.\n\n\n\n\n\nAdd a Commit message and\n\nAdd a summary message, e.g. “Add requirements and notebook folder”\nClick Commit to main\n\n\n\n\n\n\nPush to GitHub. Click Push origin"
+  },
+  {
+    "objectID": "session1/session1-python-setup.html#you-are-all-set",
+    "href": "session1/session1-python-setup.html#you-are-all-set",
+    "title": "Python Installation and Reproducible Workflow",
+    "section": "You are all set! 👏",
+    "text": "You are all set! 👏\nYou now have a Python project for the Workshop sessions with a .gitignore file, Git version control, a local project-specific virtual environment, and a working notebook folder inside the Positron workspace."
   }
 ]
