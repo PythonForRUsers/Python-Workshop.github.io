@@ -22,7 +22,7 @@ We will be using PyTorch for the Neural Network and Scikit-learn for the KMeans 
 
 A **neural network classifier** is a type of **supervised learning model** that learns to assign input examples to classes (like penguin species) by finding patterns in labeled training data.
 
-![Neural Network Diagram](icons/NeuralNetworkArchitectureDiagram.png){width=80% fig-alt="Neural network diagram"}
+![Neural Network Diagram](NeuralNetworkArchitectureDiagram.png){width=80% fig-alt="Neural network diagram"}
 
 * Neural networks are inspired by biological brains: they consist of connected units called nodes (or sometimes 'neurons') organized in layers. Each node processes inputs and passes an output to the next layer. 
 * A simple network has an **input layer** (input features), one or more **hidden layers** (which transform and combine features), and an **output layer** (which produces scores for each class). 
