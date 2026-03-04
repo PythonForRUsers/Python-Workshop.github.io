@@ -1,6 +1,6 @@
 ---
 title: '**Session 4 – Object-Oriented Programming and Modeling Libraries**'
-jupyter: python310
+jupyter: python3
 format: 
     html:
         code-copy: true   
@@ -1135,11 +1135,22 @@ This class doesn't have methods for `.fit()`, `.predict()` etc yet. To make our 
 
 ## Make it an SKLearn-Style Classifier (add methods for consistant API)
 
-To turn PenguinNet into a scikit-learn-style classifier, our wrapper class needs to: Initialize the PyTorch model, Convert the NumPy input into PyTorch tensors and Run the Training Loop. 
+To turn PenguinNet into a scikit-learn-style classifier, our wrapper class needs to:   
+* Initialize the PyTorch model   
+* Convert the NumPy input into PyTorch tensors  
+* Run the Training Loop
+
+**We can use the BaseEstimator and ClassifierMixin classes from sklearn to help!**
+
+```{python}
+from sklearn.base import BaseEstimator, ClassifierMixin 
+```
+
+## Make it an SKLearn-Style Classifier (add methods for consistant API)
 
 ```{python}
 #| code-line-numbers: "1-24|26-76|78-91|93-105|107-115"
-class PenguinNetClassifier:
+class PenguinNetClassifier(ClassifierMixin, BaseEstimator):
     """
     sklearn-style wrapper around a PyTorch neural network
     """
@@ -1213,7 +1224,7 @@ class PenguinNetClassifier:
                 loss = criterion(logits, yb)
                 loss.backward()
                 optimizer.step()
-
+        self.is_fitted_ = True 
         return self
 
     # PREDICT
@@ -1245,11 +1256,6 @@ class PenguinNetClassifier:
 
         return probs
 
-    # SCORE
-    def score(self, X, y):
-        y_pred = self.predict(X)
-        return np.mean(y_pred == np.asarray(y))
-
     # INTERNAL CHECK
     def _check_is_fitted(self):
         if self.model_ is None:
@@ -1261,10 +1267,7 @@ class PenguinNetClassifier:
 <aside class="notes">
 To make an Sklearn-style classifier, we need to define the fit, score, predict methods ourselves. This is by design: Neural network arctitectures can be complex and have custom activation functions that would make it difficult to have pre-packaged methods. 
 
-However, it is beneficial for us to design our Classifier wrapper to match the scikit-learn API, which will allow us to take advantage of Python's ducktyping later on. 
-
-
-
+However, it is beneficial for us to design our Classifier wrapper to match the scikit-learn API, which will allow us to take advantage of Python's ducktyping later on. We also inherit from sklearns BaseEstimator and ClassifierMixin to provide our classifer with the sklearn `score` method
 </aside>
 
 
