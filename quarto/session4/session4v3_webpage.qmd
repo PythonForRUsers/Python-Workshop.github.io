@@ -15,7 +15,7 @@ execute:
   echo: true
 ---
 
-<a href="session4/session4v3slides.html">slides link</a>
+<a href="session4v3slides.html">slides link</a>
 
 ## Session Overview
 
@@ -38,7 +38,6 @@ In this session, we'll cover object-oriented programming and how it applies to m
 
 
 # Introduction 
-
 
 
 ## Why Python *Feels* Different from R 🐍
