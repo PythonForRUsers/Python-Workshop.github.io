@@ -28,6 +28,7 @@ $linkColorHover: #a0c5fa;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   transform: translateZ(0);
+  backface-visibility: hidden;
   padding-top: 0 !important;
   margin-top: 0 !important;
 }
