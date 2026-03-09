@@ -4,7 +4,7 @@ jupyter: python3
 format:
   revealjs:
     theme: [default, custom.scss]
-    background-color: lavenderblush
+    background-color: white
     incremental: true
     code-copy: true
     smaller: true
@@ -19,7 +19,7 @@ execute:
   echo: true
 ---
 
-## Links {.scrollable background-color="lavenderblush"}
+## Links {.scrollable}
 
 <a href="https://docs.python.org/3/tutorial/datastructures.html" class="link-block">
     <img src="../icons/csv.png" alt="Dataset">
@@ -30,7 +30,15 @@ execute:
     <p>Cancer Dataset</p>
 </a>
 
-## Topic 1: Lists {.scrollable background-color="lavenderblush"}
+## Overview {#overview .scrollable}
+
+- [Lists](#lists)
+- [Sets](#sets)
+- [Strings](#strings)
+- [Dictionaries](#dicts)
+- [Functions vs. Methods](#functs)
+
+## Lists {#lists .scrollable}
 
 
 The most important thing about lists
@@ -50,7 +58,7 @@ We will learn how to do things such as:
 - Append to a list
 
 
-## Lists {.scrollable background-color="lavenderblush"}
+## Lists {.scrollable}
 
 - To create a list:
 
@@ -76,7 +84,7 @@ len(my_list)
 
 
 
-## Lists (continued) {.scrollable background-color="lavenderblush"}
+## Lists (continued) {.scrollable}
 
 - In Python, lists are objects like all other data types, and the class for lists is named 'list' with a lowercase 'L'. 
 
@@ -103,7 +111,7 @@ print(second_range_list)
 
 
 
-## Accessing Python list elements {.scrollable background-color="lavenderblush"}
+## Accessing Python list elements {.scrollable}
 
 To access an individual list element, you need to know its position. Since python starts counting at 0, the first element is in position 0, and the second element is in position 1. You can also access nested elements within a list, or access the list in reverse.
 
@@ -133,7 +141,7 @@ print(example_1, example_2, example_3)
 
 
 
-## Mutability of lists {.scrollable background-color="lavenderblush"}
+## Mutability of lists {.scrollable}
 
 Since lists are mutable objects, we can directly change their elements.
 
@@ -151,7 +159,7 @@ print(some_list)
 
 
 
-## Appending an element to a list {.scrollable background-color="lavenderblush"}
+## Appending an element to a list {.scrollable}
 
 When calling append on a list, we append an object to the end of the list:
 
@@ -169,7 +177,7 @@ print(my_list)
 
 
 
-## Combining lists {.scrollable background-color="lavenderblush"}
+## Combining lists {.scrollable}
 
 We can combine lists with the "+" operator. This keeps the original lists intact
 
@@ -207,7 +215,7 @@ print(list_1)
 
 
 
-## .pop() method {.scrollable background-color="lavenderblush"}
+## .pop() method {.scrollable}
 
 The .pop() method removes and returns the last item by default unless you give it an index argument. If you're familiar with stacks, this method as well as .append() can be used to create one!
 
@@ -225,7 +233,7 @@ print(element_1, element_2)
 ```
 
 
-## Deleting items by index {.scrollable background-color="lavenderblush"}
+## Deleting items by index {.scrollable}
 
 del removes an item without returning anything. In fact, you can delete any object, including the entire list, using del:
 
@@ -240,7 +248,7 @@ print(list_1)
 ```
 
 
-## Deleting items by value {.scrollable background-color="lavenderblush"}
+## Deleting items by value {.scrollable}
 
 The .remove() method deletes a specific value from the list. This method will remove the first occurrence of the given object in a list. 
 
@@ -257,7 +265,7 @@ print(list_1)
 ```
 
 
-## Lists vs. sets, and deleting duplicates from a list {.scrollable background-color="lavenderblush"}
+## Lists vs. sets, and deleting duplicates from a list {#sets .scrollable}
 
 The difference between a list and a set:
 
@@ -287,7 +295,7 @@ print (list_2)
 
 
 
-## Sorting a list {.scrollable background-color="lavenderblush"}
+## Sorting a list {.scrollable}
 
 There are two ways to sort a list in Python
 
@@ -345,7 +353,7 @@ except TypeError:
 ```
 
 
-## List comprehension {.scrollable background-color="lavenderblush"}
+## List comprehension {.scrollable}
  
 List comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list (or other object)
 
@@ -396,7 +404,7 @@ print(patrick_list)
 
 
 
-## Shorter syntax with list comprehension {.scrollable background-color="lavenderblush"}
+## Shorter syntax with list comprehension {.scrollable}
 
 ```{python}
 #| class: fragment
@@ -432,7 +440,7 @@ print(patrick_list)
 ```
 
 
-## Topic 2: Tuples {.scrollable background-color="lavenderblush"}
+## Tuples {.scrollable}
 
 - A tuple is similar to a list, but with one key difference. Tuples are immutable. This means that once you create a tuple, you cannot modify its elements. 
 
@@ -459,7 +467,7 @@ print("Last element:", my_tuple[-1])
 ```
 
 
-## Mutability of Tuples {.scrollable background-color="lavenderblush"}
+## Mutability of Tuples {.scrollable}
 
 
 Tuples are immutable, so you can’t modify their elements. Attempting to change a tuple will result in an error.
@@ -476,7 +484,7 @@ except TypeError:
 
 ```
 
-## Functions and Tuples {.scrollable background-color="lavenderblush"}
+## Functions and Tuples {.scrollable}
 
 
 Functions can return multiple values as a tuple. This is useful for returning multiple results in a single function call.
@@ -503,7 +511,7 @@ print("Max:", max_val)
 ```
 
 
-## Topic 3: Strings {.scrollable background-color="lavenderblush"}
+## Strings {#strings .scrollable}
 
 You can use single or double quotes to define a string (but keep it consistent!)
 
@@ -533,7 +541,7 @@ print(multi_line_string)
 ```
 
 
-## String Operations {.scrollable background-color="lavenderblush"}
+## String Operations {.scrollable}
  
 You can find the length of a string using the len() funtion, just like with lists.
 
@@ -547,7 +555,7 @@ print(len(my_string))
 ```
 . . . 
 
-## Accessing characters in a string {.scrollable background-color="lavenderblush"}
+## Accessing characters in a string {.scrollable}
 
 Strings are indexed like lists, with the first character having index 0. You can access individual characters using their index.
 
@@ -571,7 +579,7 @@ print(first_char, last_char, substring)
 ```
 
 
-## Mutability of Strings {.scrollable background-color="lavenderblush"}
+## Mutability of Strings {.scrollable}
 
 Strings are immutable!
 
@@ -589,7 +597,7 @@ except TypeError:
 
 ```
 
-## Concatenating Strings {.scrollable background-color="lavenderblush"}
+## Concatenating Strings {.scrollable}
 
 You can concatenate (combine) strings using the + operator:
 
@@ -604,7 +612,7 @@ print(combined_string)
 
 ```
 
-## String methods {.scrollable background-color="lavenderblush"}
+## String methods {.scrollable}
 
 Python provides many built-in methods for manipulating strings. Some common ones are:
 
@@ -686,7 +694,7 @@ print(my_string)
 ```
 
 
-## f-strings (Python 3.6+) {.scrollable background-color="lavenderblush"}
+## f-strings (Python 3.6+) {.scrollable}
 
 You can insert variables directly into strings using f-strings.
 
@@ -695,7 +703,7 @@ You can insert variables directly into strings using f-strings.
 #| output-location: fragment
 
 name = "Patrick"
-age = 30
+age = 31
 formatted_string = f"My name is {name} and I am {age} years old."
 print(formatted_string)
 
@@ -714,7 +722,7 @@ print(vowels)
 ```
 
 
-## String Slicing {.scrollable background-color="lavenderblush"}
+## String Slicing {.scrollable}
 
 We will slice a string using different combinations of start, end, and step to extract different parts of the string.
 ```{python}
@@ -770,7 +778,7 @@ print(f"Substring 5 (11:6:-1): {substring_5}")
 ```
 
 
-## Topic 4: Dictionaries {.scrollable background-color="lavenderblush"}
+## Dictionaries {#dicts .scrollable}
 
 
 - A dictionary is a collection in Python that stores data as key-value pairs. 
@@ -797,7 +805,7 @@ print(my_dictionary)
 ```
 
 
-## Dictionary Operations {.scrollable background-color="lavenderblush"}
+## Dictionary Operations {.scrollable}
 
 Accessing dictionary values
 
@@ -817,7 +825,7 @@ print(my_dictionary.get('gender', 'Not specified'))  # Providing a default value
 
 
 
-## Adding and updating dictionary items {.scrollable background-color="lavenderblush"}
+## Adding and updating dictionary items {.scrollable}
 
 Dictionaries are mutable, so you can add new items or update existing ones using assignment.
 
@@ -834,7 +842,7 @@ print(my_dictionary)
 
 
 
-## Dictionary Methods {.scrollable background-color="lavenderblush"}
+## Dictionary Methods {.scrollable}
 
 Python dictionaries have several useful methods for managing data:
 
@@ -863,7 +871,7 @@ print(my_dictionary.items())
 
 
 
-## Python Dictionaries for Cancer Research Data {.scrollable background-color="lavenderblush"}
+## Python Dictionaries for Cancer Research Data {.scrollable}
 
 In cancer research, dictionaries can be used to store patient data, genetic mutations, and statistical results as key-value pairs. This allows for easy lookup, organization, and analysis of data.
 
@@ -908,7 +916,7 @@ print(f"Updated stage for P003: {patient_data['P003']['stage']}")
 ```
 
 
-## Adding and Removing Data {.scrollable background-color="lavenderblush"}
+## Adding and Removing Data {.scrollable}
 
 New patient data can be added using assignment, and pop() or del can remove a patient’s data.
 ```{python}
@@ -932,7 +940,7 @@ print("Removed patient:", removed_patient)
 
 
 
-## Dictionary Methods {.scrollable background-color="lavenderblush"}
+## Dictionary Methods {.scrollable}
 
 Dictionaries allow you to retrieve keys, values, or entire key-value pairs. Here’s how to use these methods to get an overview of the data.
 
@@ -963,7 +971,7 @@ for patient_id, details in patient_data.items():
 ```
 
 
-## Topic 5: Functions vs Methods in Python {.scrollable background-color="lavenderblush"}
+## Functions vs Methods in Python {#functs .scrollable}
 
 What’s the difference?
 
@@ -976,7 +984,7 @@ What’s the difference?
 
 
 
-## Function Example {.scrollable background-color="lavenderblush"}
+## Function Example {.scrollable}
 
 ```{python}
 #| class: fragment
@@ -997,7 +1005,7 @@ print(len(words))  # 3
 ```
 
 
-## Method Example {.scrollable background-color="lavenderblush"}
+## Method Example {.scrollable}
 
 ```{python}
 #| class: fragment
@@ -1020,7 +1028,7 @@ print(colors)  # ['red', 'blue', 'green']
 ```
 
 
-## Behind the Scenes {.scrollable background-color="lavenderblush"}
+## Behind the Scenes {.scrollable}
 
 ```{python}
 #| class: fragment
@@ -1044,6 +1052,8 @@ Both work — but "str.upper()" is a method being called directly from the class
 
 
 
-## You Try! {.scrollable background-color="lavenderblush"}
+## You Try! {.scrollable}
 
 Navigate to the follow-along file and try the practice problems!
+
+https://github.com/PythonForRUsers/Python-Workshop.github.io/tree/main/FollowAlong

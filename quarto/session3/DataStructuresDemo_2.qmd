@@ -4,7 +4,7 @@ jupyter: python3
 format:
   revealjs:
     theme: [default, custom.scss]
-    background-color: lavenderblush
+    background-color: white
     incremental: true
     code-copy: true
     smaller: true
@@ -31,7 +31,7 @@ execute:
 </a>
 
 
-## Topic 5: What Is Pandas? {.scrollable background-color="lavenderblush"}
+## What Is Pandas? {.scrollable}
 
 Pandas is a powerful open-source data analysis and manipulation library in Python. It provides data structures, primarily the DataFrame and Series, which are optimized for handling and analyzing large datasets efficiently.
 
@@ -62,7 +62,7 @@ Data Analysis:
 
 
 
-## Creating folders for project housekeeping {.scrollable background-color="lavenderblush"}
+## Creating folders for project housekeeping {.scrollable}
 
 ```{python}
 #| class: fragment
@@ -127,7 +127,7 @@ cancer_data.head()
 
 ```
 
-## Viewing Basic Information {.scrollable background-color="lavenderblush"}
+## Viewing Basic Information {.scrollable}
 
 - Checking the Dataset’s Shape
 
@@ -181,7 +181,7 @@ print("Column Names:", cancer_data.columns.tolist())
 ```
 
 
-## Summary Statistics {.scrollable background-color="lavenderblush"}
+## Summary Statistics {.scrollable}
 
 . . .
 
@@ -232,7 +232,7 @@ print(grouped_radius_mean)
 ```
 
 
-## Renaming Columns {.scrollable background-color="lavenderblush"}
+## Renaming Columns {.scrollable}
 
 To make column names more readable or consistent, you can use rename() to change specific names. Here’s how to rename columns like radius_mean to Radius Mean.
 
@@ -255,7 +255,7 @@ print("\nUpdated Column Names:", cancer_data.columns.tolist())
 
 ```
 
-## Missing values in Python {.scrollable background-color="lavenderblush"}
+## Missing values in Python {.scrollable}
 
 
 Missing values are common in data analysis. Python provides multiple ways to represent missing values, including `None`, `np.nan`, and `pd.NA`. Understanding their behavior is crucial for data cleaning, processing, and analysis.
@@ -291,7 +291,7 @@ print(x==x)
 
 
 
-## Missing Values in NumPy: `np.nan` {.scrollable background-color="lavenderblush"}
+## Missing Values in NumPy: `np.nan` {.scrollable}
 
 - `np.nan` represents missing values in numerical computations.
 - `np.nan` is a floating-point value (`float64`).
@@ -317,7 +317,7 @@ print(x == x)  # Output: False
 
 
 
-## Missing Values in Pandas: `pd.NA` {.scrollable background-color="lavenderblush"}
+## Missing Values in Pandas: `pd.NA` {.scrollable}
 
 - `pd.NA` is Pandas' missing value representation, introduced in Pandas 1.0.
 - Works with nullable data types (`Int64`, `Float64`, `boolean`, `string`).
@@ -356,7 +356,7 @@ print(x==x)
 
 
 
-## Comparing `None`, `np.nan`, and `pd.NA` {.scrollable background-color="lavenderblush"}
+## Comparing `None`, `np.nan`, and `pd.NA` {.scrollable}
 
 | Feature               | `None`              | `np.nan`                  | `pd.NA`                  |
 |-----------------------|---------------------|---------------------------|--------------------------|
@@ -368,7 +368,7 @@ print(x==x)
 
 ---
 
-## Handling Missing Values in Pandas {.scrollable background-color="lavenderblush"}
+## Handling Missing Values in Pandas {.scrollable}
 
 
 
@@ -415,7 +415,7 @@ print(df["A"].dtype)
 
 
 
-## Dropping Missing Values {.scrollable background-color="lavenderblush"}
+## Dropping Missing Values {.scrollable}
 
 ```{python}
 #| class: fragment
@@ -426,14 +426,14 @@ print(df["A"])
 ```
 
 
-## Best Practices {.scrollable background-color="lavenderblush"}
+## Best Practices {.scrollable}
 
 - Use `None` for general Python objects.  
 - Use `np.nan` for numerical missing values in NumPy.  
 - Use `pd.NA` for missing values in Pandas with nullable data types.  
 - Always use `isna()` or `isnull()` when working with missing data in Pandas.
 
-## Other Pandas Nullable Data Types {.scrollable background-color="lavenderblush"}
+## Other Pandas Nullable Data Types {.scrollable}
 
 | Pandas Nullable Data Type | Description                              | Typical Usage                      |
 |---------------------------|------------------------------------------|------------------------------------|
@@ -447,7 +447,7 @@ print(df["A"])
 
 
 
-## More on missing values {.scrollable background-color="lavenderblush"}
+## More on missing values {.scrollable}
 
 To find missing values, you can use isnull() with sum() to calculate the total number of missing values in each column.
 ```{python}
@@ -482,7 +482,7 @@ print("\nColumns after dropping 'Unnamed: 32':", cancer_data.columns.tolist())
 ```
 
 
-## Column Selection {.scrollable background-color="lavenderblush"}
+## Column Selection {.scrollable}
 
 Selecting specific columns is essential for focusing on particular aspects of the dataset. Here are some examples of both single and multiple column selections.
 ```{python}
@@ -512,7 +512,7 @@ print("Selected Columns:\n", selected_columns.head())
 ```
 
 
-## Row Selection {.scrollable background-color="lavenderblush"}
+## Row Selection {.scrollable}
 Selecting rows based on labels or positions is helpful for inspecting specific data points or subsets.
 
 . . .
@@ -552,7 +552,7 @@ print("Selected Rows with iloc:\n", selected_rows_position)
 
 ```
 
-## Filtering {.scrollable background-color="lavenderblush"}
+## Filtering {.scrollable}
 
 Filtering enables you to create subsets of data that match specific conditions. For example, we can filter by diagnosis to analyze only malignant (M) or benign (B) cases.
 ```{python}
@@ -584,7 +584,7 @@ print("Large Malignant Cases (Radius Mean > 15):\n", large_malignant_cases.head(
 ```
 
 
-## Adding and Modifying Columns {.scrollable background-color="lavenderblush"}
+## Adding and Modifying Columns {.scrollable}
 
 
 You can create new columns in a DataFrame based on calculations using existing columns. For example, we can calculate the area_ratio by dividing area_worst by area_mean.
@@ -628,7 +628,7 @@ print("Updated Radius Mean at index 0:", updated_value)
 
 . . .
 
-## Sorting by Columns {.scrollable background-color="lavenderblush"}
+## Sorting by Columns {.scrollable}
 
 You can sort a dataset by columns. Here’s how to sort by diagnosis first and then by area_mean in ascending order.
 ```{python}
@@ -643,7 +643,7 @@ print("Data sorted by Diagnosis and Area Mean:\n", sorted_by_diagnosis_area[['di
 ```
 
 
-## Reordering Columns to Move a Column to the End {.scrollable background-color="lavenderblush"}
+## Reordering Columns to Move a Column to the End {.scrollable}
 
 You might also want to move a specific column to the end of the DataFrame, such as moving area_ratio to the last position.
 ```{python}
@@ -663,7 +663,7 @@ print("Data with 'area_ratio' at the end:\n", cancer_data_with_area_ratio_last.h
 
 
 
-## Method Chaining in Pandas {.scrollable background-color="lavenderblush"}
+## Method Chaining in Pandas {.scrollable}
 
 
 In Pandas, you can chain multiple methods together to create a pipeline.
@@ -717,7 +717,7 @@ Why?
 - `.strip()` is a string method that works on single strings.
 - `.str` is the accessor that tells pandas: “apply this string method to each element in the Series.”
 
-## Rule of Thumb: {.scrollable background-color="lavenderblush"}
+## Rule of Thumb: {.scrollable}
 
 | You have...         | Use...                  | Why?                                   |
 |---------------------|-------------------------|----------------------------------------|
@@ -727,7 +727,7 @@ Why?
 ---
 
 
-## Applying Functions in Pandas {.scrollable background-color="lavenderblush"}
+## Applying Functions in Pandas {.scrollable}
 
 Applying Functions to Columns
 
@@ -784,7 +784,7 @@ print("Diagnosis Codes:\n", cancer_data[['diagnosis', 'diagnosis_code']].head())
 ```
 
 
-## Applying Multiple Conditions with apply() {.scrollable background-color="lavenderblush"}
+## Applying Multiple Conditions with apply() {.scrollable}
 
 You can also use apply() with a lambda function for more complex, multi-condition classifications.
 
@@ -825,7 +825,7 @@ print("Risk Levels:\n", cancer_data[['diagnosis', 'area_mean', 'risk_level']].he
 
 
 
-## To export a Pandas dataframe to CSV or XLSX {.scrollable background-color="lavenderblush"}
+## To export a Pandas dataframe to CSV or XLSX {.scrollable}
 ```{python}
 
 # Export to CSV
@@ -848,7 +848,7 @@ df.to_excel('/path/to/directory/example.xlsx', index=False)
 
 
 
-## great_tables for table generation {.scrollable background-color="lavenderblush"}
+## great_tables for table generation {.scrollable}
 
 You can use the `great_tables` Python module from the great-tables package to explore and display data from a dataset in a clean and interactive format.
 
@@ -858,7 +858,7 @@ We’ll load the data, summarize it, and then build styled tables using `great_t
 
 ---
 
-## Load and Inspect the Data {.scrollable background-color="lavenderblush"}
+## Load and Inspect the Data {.scrollable}
 
 ```{python}
 #| class: fragment
@@ -877,7 +877,7 @@ df.shape, df.head()
 
 
 
-## Preview of dataset using great_tables {.scrollable background-color="lavenderblush"}
+## Preview of dataset using great_tables {.scrollable}
 ```{python}
 #| class: fragment
 #| output-location: fragment
@@ -892,7 +892,7 @@ GT(preview_df).tab_header(
 ).fmt_number(columns=["radius_mean", "texture_mean", "area_mean"], decimals=2)
 ``` 
 
-## Enhance the Table with Styling {.scrollable background-color="lavenderblush"}
+## Enhance the Table with Styling {.scrollable}
 
 Let's add conditional formatting to highlight larger tumor areas.
 
@@ -910,7 +910,7 @@ GT(preview_df).tab_header(
 ```
 
 
-## Group Statistics by Diagnosis {.scrollable background-color="lavenderblush"}
+## Group Statistics by Diagnosis {.scrollable}
 
 Let’s summarize average values by diagnosis group (malignant vs. benign).
 
@@ -925,6 +925,8 @@ GT(summary_df).tab_header(
 ).fmt_number(columns=["radius_mean", "texture_mean", "area_mean"], decimals=2)
 ```
 
-## You Try! {.scrollable background-color="lavenderblush"}
+## You Try! {.scrollable}
 
 Navigate to the follow-along file and try the practice problems!
+
+https://github.com/PythonForRUsers/Python-Workshop.github.io/tree/main/FollowAlong
