@@ -1,6 +1,7 @@
 ---
 title: '**Session 4 – Object-Oriented Programming and Modeling Libraries**'
-jupyter: python310
+jupyter: python3
+lightbox: auto
 format: 
     revealjs:
         theme: [default, slideshowv2.scss]
@@ -41,11 +42,10 @@ In this session, we'll cover object-oriented programming and how it applies to m
 </div>
 
   <aside class="notes">
-    This is the last session of the intro to python workshops. There will be a brief 'homework' that covers the topics in this session. I do not anticipate having much time left over at the end of this session, so if you have any questions about that please feel free to reach out to us via teams!
+    This is the last session of the intro to python workshops. There will be a brief 'homework' that covers the topics in this session.  We may not have time to finish it in class, but there is a solutions guide on our github repo. 
   </aside>
 
 # Introduction 
-
 
 
 ## Why Python *Feels* Different from R 🐍
@@ -53,18 +53,13 @@ In this session, we'll cover object-oriented programming and how it applies to m
 <div class="small-clean-text">
 
 ::: columns
+
+::: fragment
 ::: column
 
 #### R: Built by Statisticians
 
-* Designed for **statistical analysis**
-* Workflows are primarily **functional**:
-  * pass data into functions
-  * get back results (usually without modifying the original object)
-* Pipes (`|>`, `%>%`) chain operations
-* Excels at:
-
-  * clean model outputs, tables and high-quality visualizations
+* Designed for **statistical analysis**  
 
 :::
 
@@ -73,16 +68,59 @@ In this session, we'll cover object-oriented programming and how it applies to m
 #### Python: General-Purpose Language
 
 * Designed for **many domains**, not just statistics  
-* Leans heavily on **object-oriented programming**:  
-    * Some methods **modify objects in-place**, rather than returning new ones  
-* Methods chaining (.fit().predict())  
-* Excels at:   
 
-  * machine learning & deep learning (scikit-learn, PyTorch)  
-  * image, genomic, and single-cell analysis  
+:::
+:::
+
+::: fragment
+::: column
+
+* Workflows are primarily **functional**:  
+  * pass data into functions    
+  * get back results (usually without modifying the original object)  
+
+:::
+
+::: column
+
+* Leans heavily on **object-oriented programming**:  
+  * Some methods **modify objects in-place**, rather than returning new ones
+
+:::
+:::
+
+::: fragment
+::: column
+
+* Pipes (`|>`, `%>%`) chain operations
+
+:::
+
+::: column
+
+* Method chaining (`.fit().predict()`)
+
+:::
+:::
+
+::: fragment
+::: column
+
+* Excels at:  
+  * clean model outputs, tables and high-quality visualizations
+
+:::
+
+::: column
+
+* Excels at:  
+  * machine learning & deep learning (scikit-learn, PyTorch)    
+  * image, genomic, and single-cell analysis    
   * software, automation, and tooling  
 
 :::
+:::
+
 :::
 
 </div>
@@ -94,18 +132,38 @@ In this session, we'll cover object-oriented programming and how it applies to m
 
 </div>
 
+<aside class="notes">
+As Yufei mentioned in session 1, R and Python have different flavors of coding. R was fundamentally designed for statistics while Python is a more general-purpose language. 
+</aside>
 
-##  Core OOP Principles in Python 
+##  Core OOP Principles in Python - Objects, classes and methods
 
 <div class="clean-text">
 
 **Classes and objects**
 
+<div class = "fragment">
 * An **object** (instance) has attributes (data) and methods (behaviors)
-* A **class** is a blueprint for **objects**
-* Use `type(obj)` and `isinstance(obj, Class)` to inspect objects in code   
+</div>
+<div class = "fragment">
+* A **class** is a blueprint for **objects**   
+    * The class defines what attributes and methods an object will have
+</div>
+<div class = "fragment">
+* Use `type(obj)` and `isinstance(obj, Class)` to check the class of an object
+</div>
+</div>
+
+<aside class="notes">
+Before we talk about Object-Oriented programming, let's first define classes and objects. An object is a self-contained unit in code that holds data (attributes) and behaviors (methods) that work on that data. In code, methods are like functions that are attached to an object. Classes are blueprints for objects that define the attributes and methods available for an object of that class. We can check the class of an object using type or isinstance. 
+</aside>
+
+## Core OOP Principles in Python - OOP Paradigm
+
+<div class="clean-text">
 
 Python’s object-oriented design builds on a few key principles of how objects behave:
+
 
 ::: fragment
 
@@ -136,26 +194,27 @@ Python’s object-oriented design builds on a few key principles of how objects 
 
 4. **Polymorphism (Duck Typing)** — Different objects with the same methods can be used interchangeably  
  
-   * This makes it easy to switch between models with minimal code adjustment 
+   * This makes it easy to switch between models with minimal code adjustment (assuming similar api)
 
 :::
 
 </div>
 
-<aside class="notes">
-Before we talk about Object-Oriented programming, let's first define classes and objects. An object is a self-contained unit in code that holds data (attributes) and functions (methods) that work on that data.
-</aside>
+
 
 ## Why OOP Matters for Python Modeling
-
+<div class="clean-text">
 In Python modeling frameworks:
 
+<div class="fragment">
 * Models are **objects (class instances)**   
 * They have **methods** like `.fit()`, `.predict()`, `.score()`  
 * Learned parameters (coefficients, weights, layers) live in **attributes**
-
+</div>
+<div class="fragment">
 This consistent object-oriented API makes it easy to swap models with minimal code changes.
-
+</div>
+<div class="fragment">
 **Examples of Python modeling libraries:**
 
 * `scikit-learn` — general ML (classification, regression)    
@@ -164,8 +223,12 @@ This consistent object-oriented API makes it easy to swap models with minimal co
 * `statsmodels` — statistical models with R-like outputs  
 * `scvi-tools` — single-cell models  
 * `PyTorch` / `TensorFlow` — deep learning frameworks
+</div>
+<div class="fragment">
 
 > Understanding classes is ESPECIALLY important for using PyTorch and TensorFlow!
+</div>
+</div>
 
 <aside class="notes">
 * In Python, modeling libraries make models **objects** rather than simple functions.  
@@ -193,7 +256,7 @@ This consistent object-oriented API makes it easy to swap models with minimal co
 </aside>
 
 ## Bonus: Python Modeling Libraries — Tutorials & Docs
-
+<div class="clean-text">
 * **scikit-learn (ML basics)** — official API & guide (general modeling)
   [https://scikit-learn.org/stable/user_guide.html](https://scikit-learn.org/stable/user_guide.html)
 
@@ -208,7 +271,7 @@ This consistent object-oriented API makes it easy to swap models with minimal co
 * **statsmodels (statistical modeling & inference)** — getting started & examples
   [https://www.statsmodels.org/stable/gettingstarted.html](https://www.statsmodels.org/stable/gettingstarted.html) 
   *Also see:* [https://www.statsmodels.org/stable/examples/index.html](https://www.statsmodels.org/stable/examples/index.html) 
-
+</div>
 <aside class="notes">
 These are some links to tutorials for the packages I mentioned. 
 </aside>
@@ -217,9 +280,11 @@ These are some links to tutorials for the packages I mentioned.
 
 # OOP In Practice: Creating Classes
 
+<aside class = "notes">
 - To really understand how object-oriented programming works, let's create some simple classes and see how they behave. 
 - While the following examples are really simple, they showcase the same concepts used when designing the kinds of Python libraries you'll be using
 - If you work with PyTorch or TensorFlow you will likely be making model classes yourself
+</aside>
 
 ---
 
@@ -231,7 +296,7 @@ A **base class** serves as a template for creating objects. Other classes can in
 
 Classes are defined using the `class` keyword, and their structure is specified using an `__init__()` method for initialization. 
 
-::: {.fragment}
+<div class="fragment">
 
 Define a `Dog` with attributes (data) and methods (behaviors).    
  *  [**special** or **"dunder"** methods](https://docs.python.org/3/reference/datamodel.html#special-method-names) (short for double underscore) define how objects behave in certain contexts.   
@@ -252,7 +317,8 @@ class Dog: ## begin class definition
     def __repr__(self): # add representation to display when dog is called in console
         return f"Dog(name={self.name!r}, breed={self.breed!r})"
 ```
-:::
+
+</div>
 </div>
 
 <aside class="notes">
@@ -268,7 +334,7 @@ We can also define our str and repr methods which tell python what to do when an
 
 ## Creating a dog
 <div class="clean-text">
-
+<div class="fragment">
 Creating an instance of the `Dog` class lets us model a particular dog:  
 
 ```{python}
@@ -276,10 +342,15 @@ Creating an instance of the `Dog` class lets us model a particular dog:
 buddy = Dog("Buddy", "Golden Retriever")
 print(f"Buddy is an object of class {type(buddy)}")
 ```
+</div>
+<div class="fragment">
 <ul>
     <li> Set value of attributes [`name` and `breed`] -> stored as part of `buddy` </li>   
     <li> `buddy` can use any `Dog` class methods </li>   
 </ul>  
+</div>
+
+<div class="fragment">
 
 ```{python}
 #| output-location: fragment
@@ -295,9 +366,11 @@ print(buddy.speak())
 buddy ## displays what was in the __repr__() method
 ```
 
+</div>
+ <div class="fragment">
  
 <span style="color: #007acc"><strong>Note:</strong> For python methods, the `self` argument is assumed to be passed and therefore we do not put anything in the parentheses when calling `.speak()`. For attributes, we do not put () at all.</span>
-
+</div>
 </div>
 
 <aside class="notes">
@@ -391,11 +464,16 @@ to successfully guard, a rex needs a training level greater than 5. Currently hi
 Unlike standalone functions, methods in Python often update objects **in-place**— meaning they *modify the object itself* rather than returning a new one.
 
 We can use the `.train()` method to increase rex's training level. 
+<div class="fragment">
+
 ```{python}
 #| output-location: fragment
 print(rex.train())
 ```
 
+</div>
+
+<div class="fragment">
 
 :::{.callout-important}  
 ## Be Careful!!!
@@ -408,7 +486,9 @@ print(rex.train())
  it would train rex twice!
 :::
 
-. . . 
+</div>
+
+<div class="fragment">
 
 Now if we check, 
 ```{python}
@@ -417,10 +497,13 @@ print(f"{rex.name}'s training level is {rex.training_level}.")
 print(rex.guard()) 
 ```
 
+</div>
 
-. . . 
+<div class="fragment">
 
 As with Rex, <span style="color: #007acc"><strong>child classes inherit all attributes (`.name` and `.breed`) and methods (`.speak()` `__repr__()`) from parent classes.</strong></span> They can also have new methods (`.train()`) or re-define methods from the parent class. 
+
+</div>
 
 <aside class='notes'>
 Unlike standalone functions, methods like train() update objects in-place instead of returning a new object. This allows us to increase rex's training level without storing rex to a new variable. 
@@ -439,7 +522,7 @@ as we saw with rex, child classes inherit all attributes and methods from their 
 
 A **mixin** is a special kind of class designed to add **functionality** to another class. Unlike base classes, mixins aren’t used alone.  
 
-:::{.fragment}
+<div class="fragment">
 
 For example, scikit-learn uses mixins like:  
   - `sklearn.base.ClassifierMixin` (adds classifier-specific methods)  
@@ -448,7 +531,8 @@ For example, scikit-learn uses mixins like:
 which it adds to the `BaseEstimator` class to add functionality. <br> <br>
 
 To finish up our dog example, we are going to define a mixin class that adds learning tricks to the base `Dog` class and use it to create a new class called `SmartDog`.
-:::
+</div>
+
 </div>
 
 <aside class="notes">
@@ -509,6 +593,7 @@ print(my_smart_dog.speak())
 ```
 
 <br>
+<div class="fragment">
 
 ```{python}
 #| slide-type: fragment
@@ -518,7 +603,9 @@ print(my_smart_dog.learn_trick("Roll Over"))
 print(my_smart_dog.learn_trick("Sit"))  
 
 ```
+</div>
 <br>
+<div class="fragment">
 
 ```{python}
 #| slide-type: fragment
@@ -526,6 +613,7 @@ print(my_smart_dog.learn_trick("Sit"))
 print(my_smart_dog.perform_tricks()) 
 ```
 
+</div>
 <aside class="notes">
 
 By including both dog and trickmixin as base classes, we give smartdog objects the ability to 'speak' and learn tricks. **-adv through-**
@@ -534,8 +622,7 @@ By including both dog and trickmixin as base classes, we give smartdog objects t
 
 ## Duck Typing 
 
-
-<div class="clean-text"> 
+<div class="small-clean-text"> 
 
 >🦆 "If it quacks like a duck and walks like a duck, it's a duck." 🦆
 
@@ -545,11 +632,11 @@ Python's duck typing makes our lives a lot easier, and is one of the main benefi
     <li><b>Repurposing old code</b> - methods by the same name work the same for different model types</li>
     <li><b>Use methods without checking types</b> - methods are assumed to work on the object they're attached to</li>
 </ul>
+
+We can demonstrate duck typing by defining two new base classes that are different than `Dog` but also have a `speak()` method.  
 </div>  
 
-We can demonstrate duck typing by defining two new base classes that are different than `Dog` but also have a `speak()` method.
-
-. . . 
+<div class="fragment">
 
 ```{python}
 #| code-line-numbers: "|5-6,12-13"
@@ -568,6 +655,7 @@ class Parrot:
         return f"{self.name} says squawk!"
 
 ```
+</div>
 
 <aside class="notes">
 
@@ -596,11 +684,9 @@ call_speaker(Human("Alice"))
 call_speaker(Parrot("Polly"))
 ```
 
-. . .  
+<div class="fragment">
 
 They all implement `.speak()`, so Python treats them the same!
-
-In the context of our work, this would allow us to make a pipeline using models from different libraries that have the same methods. 
 
 <span style="font-size: 1.2em; color: #007acc"><strong>While our dog example was very simple, this is the same way that model classes work in python!</strong></span> 
 
@@ -609,6 +695,8 @@ In the context of our work, this would allow us to make a pipeline using models 
 With duck typing, Python lets us <b><i>use methods</i></b> without breaking. It does not mean that any given method is correct to use in all cases, or that all similar objects will have the same methods.
 
 :::
+
+</div>
 
 <aside class="notes">
 
@@ -620,12 +708,16 @@ Even though the three classes are different, we can still write a function that 
 ## **Recap: Key Benefits of OOP in Machine Learning**  
 <div class="clean-text">  
 
+<div class="fragment">
+
 1. **Encapsulation** – Models store parameters and methods inside a single object.  
 2. **Inheritance** – New models can build on base models, reusing existing functionality.  
 3. **Abstraction**  – `.fit()` should work as expected, regardless of complexity of underlying implimentation.
 4. **Polymorphism (Duck Typing)** – Different models share the same method names (`.fit()`, `.predict()`), making them easy to use interchangeably, particularly in analysis pipelines. 
 
 Understanding **base classes** and **mixins** is especially important when working with deep learning frameworks like **PyTorch and TensorFlow**, which require us to create our own model classes.  
+
+</div>
 
 </div>
 
@@ -651,6 +743,7 @@ Now that you understand **classes** and **data structures** in Python, let’s a
 <li>`bill_depth_mm`</li>
 </ul> 
 
+<div class="fragment">
 
 We’ll explore:  
 
@@ -658,6 +751,10 @@ We’ll explore:
 <li> **Unsupervised learning** with **K-Means** clustering (model doesn't 'know' y)</li>
 <li>**Supervised learning** with a **Neural Network classifier** (model trained w/ y information)</li>
 </ul>
+
+</div>
+
+<div class="fragment">
 
 All `scikit-learn` models are designed to have 
 
@@ -682,6 +779,8 @@ All `scikit-learn` models are designed to have
 
 </div>
 
+</div>
+
 <aside class="notes">
 
 For the rest of this session, we'll be going through 2 mini projects to classify penguin species using bill length and bill depth using kmeans from scikit-learn and a Neural Network built with PyTorch. In terms of API, all sklearn models are designed to have common methods like fit and predict and have some attributes like .classes_ or .n_clusters_ that store information needed to specify the model. 
@@ -695,6 +794,7 @@ We'll follow a fairly typical analysis workflow including data visualization, pr
 <span style="font-size: 1.2em; color: #007acc"><strong>Before any analysis, we must import the necessary libraries.</strong></span>  
 
 For large libraries like **scikit-learn**, **PyTorch**, or **TensorFlow**, we usually do **not** import the entire package. Instead, we selectively import the **classes** and **functions** we need.
+<div class="fragment">
 
 ::: columns
 ::: column
@@ -719,6 +819,8 @@ For large libraries like **scikit-learn**, **PyTorch**, or **TensorFlow**, we us
 - `adjusted_rand_score()` — to evaluate clustering performance
 :::
 :::
+
+</div>
 
 </div>
 
@@ -911,7 +1013,10 @@ For our clustering to work well, the predictors should be on the same scale. To 
 class sklearn.preprocessing.StandardScaler(*, copy=True, with_mean=True, with_std=True)
 ```
 </div>
-. . .   
+
+<div class="fragment">
+
+<div class="clean-text"> 
 
 **Parameters** are supplied by user  
 - *copy*, *with_mean*, *with_std* <br>
@@ -927,6 +1032,9 @@ class sklearn.preprocessing.StandardScaler(*, copy=True, with_mean=True, with_st
 - `fit(X)`: computes mean and std used for scaling and 'fits' scaler to data X  
 - `transform(X)`: performs standardization by centering and scaling X with fitted scaler  
 - `fit_transform(X)`: does both
+
+</div>
+</div>
 
 <aside class="notes">
 
@@ -954,7 +1062,8 @@ y = penguins["species"]
 scaler = StandardScaler() ## create instance of StandardScaler
 X_scaled = scaler.fit_transform(X) 
 ```
-:::{.fragment}
+
+<div class="fragment">
 
 ```{python}
 #| echo: false
@@ -1006,7 +1115,8 @@ summary_table.index.name = "Feature"
     .tab_options(table_font_size = 16)
 )
 ```
-:::
+
+</div>
 
 </div>
 
@@ -1065,6 +1175,8 @@ kmeans
 ```
 <br>
 
+<div class="fragment">
+
 ### Fit model to data
 
 ```{python}
@@ -1078,6 +1190,8 @@ print("Coordinates of cluster centers:", kmeans.cluster_centers_)
 ## shows that model is fitted
 kmeans
 ```
+
+</div>
 </div>
 
 <aside class="notes">
@@ -1221,6 +1335,7 @@ Note: bbox_to_anchor -> x coord, y coord in terms of plot size. Aka a little mor
 ### Building a PyTorch Model Class
 
 Unlike in scikit-learn, with PyTorch, we have to define the model architecture (layer size, order, etc) ourselves. We also define what happens during the forward pass (how input data flows through the network). This is a super simple example, but model architectures can get more complicated.  
+<div class="fragment">
 
 ```{python}
 class PenguinNet(nn.Module):
@@ -1237,19 +1352,41 @@ class PenguinNet(nn.Module):
     def forward(self, x):
         return self.network(x)
 ```
-. . . 
+
+</div>
+
+<div class="fragment">
 
 This class doesn't have methods for `.fit()`, `.predict()` etc yet. To make our classifier have a similar interface to skearn, we will wrap this model in a 'Classifier' class that provides `.fit()`, `.predict()`, `.predict_proba()`, and `.score()`. 
 
-</aside>
+</div>
 
 ## Make it an SKLearn-Style Classifier (add methods for consistant API)
+<div class="clean-text">  
+To turn PenguinNet into a scikit-learn-style classifier, our wrapper class needs to:     
+ * Initialize the PyTorch model     
+ * Convert the NumPy input into PyTorch tensors    
+ * Run the Training Loop  
+</div> 
 
-To turn PenguinNet into a scikit-learn-style classifier, our wrapper class needs to: Initialize the PyTorch model, Convert the NumPy input into PyTorch tensors and Run the Training Loop. 
+<div class="fragment">
+<div class="clean-text">
+
+**We can use the BaseEstimator and ClassifierMixin classes from sklearn to help!**
+
+</div>
+
+```{python}
+from sklearn.base import BaseEstimator, ClassifierMixin 
+```
+
+</div>
+
+## Make it an SKLearn-Style Classifier (add methods for consistant API) 
 
 ```{python}
 #| code-line-numbers: "1-24|26-76|78-91|93-105|107-115"
-class PenguinNetClassifier:
+class PenguinNetClassifier(ClassifierMixin, BaseEstimator):
     """
     sklearn-style wrapper around a PyTorch neural network
     """
@@ -1323,7 +1460,7 @@ class PenguinNetClassifier:
                 loss = criterion(logits, yb)
                 loss.backward()
                 optimizer.step()
-
+        self.is_fitted_ = True
         return self
 
     # PREDICT
@@ -1355,11 +1492,6 @@ class PenguinNetClassifier:
 
         return probs
 
-    # SCORE
-    def score(self, X, y):
-        y_pred = self.predict(X)
-        return np.mean(y_pred == np.asarray(y))
-
     # INTERNAL CHECK
     def _check_is_fitted(self):
         if self.model_ is None:
@@ -1373,8 +1505,6 @@ To make an Sklearn-style classifier, we need to define the fit, score, predict m
 
 However, it is beneficial for us to design our Classifier wrapper to match the scikit-learn API, which will allow us to take advantage of Python's ducktyping later on. 
 
-
-
 </aside>
 
 
@@ -1386,7 +1516,7 @@ For our neural network classifier, the model is **supervised** (meaning it is tr
 
 </div>
 
-. . . 
+<div class="fragment">
 
 The **function** `train_test_split()` from scikit-learn is helpful here! 
 
@@ -1400,12 +1530,18 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 ```
 
-. . . 
+</div>
+
+<div class="fragment">
 
 >Unlike R functions, which return a single object (often a list when multiple outputs are needed), Python functions can return multiple values as a tuple—letting you unpack them directly into separate variables.
 
+</div>
+
 ## Making an instance of PenguinNetClassifier and fitting to training data  
-- For a supervised model, y_train is included in `.fit()`!
+
+> For a supervised model, y_train is included in `.fit()`!
+
 ```{python}
 #| output: true
 penguin_nn = PenguinNetClassifier( ## Create model object w/ desired architecture
@@ -1424,16 +1560,22 @@ We took advantage of ducktyping to make our classfier use the same commands as t
 
 ## Once the model is fit...
 
--We can look at its attributes (ex: `.classes_`) which gives the class labels as known to the classifier
+<div class="clean-text">
+
+- We can look at its attributes (ex: `.classes_`) which gives the class labels as known to the classifier
+
+</div>
 
 ```{python}
 #| output-location: fragment
 print(penguin_nn.classes_)
 ```
 
-. . . 
+<div class="fragment">
 
--And use fitted model to predict species for test data
+<div class="clean-text">
+
+- And use fitted model to predict species for test data
 
 ```{python}
 #| output-location: fragment
@@ -1449,6 +1591,9 @@ probs['y_pred'] = y_pred
 
 print("Predicted probabilities: \n", probs.head())
 ```
+
+</div>
+</div>
 
 <aside class="notes">
 After fitting, we can see that the classifier has learned the labels from the dataset, and we are able to use it to predict species labels for the test data. 
@@ -1483,17 +1628,22 @@ penguins_test['correct'] = penguins_test['y_actual'] == penguins_test['y_pred']
 print("Results: \n", penguins_test.head())
 ```
 
+</div>
+
 <aside class="notes">
 Using the scaler object we created previously, we can un-scale the test data and create a new dataframe that contains the unscaled predictors as well as the true and predicted species. 
 
 Line 13 here creates a boolean (true/false) column for agreement between the actual and predicted species. 
 </aside>
 
-</div>
+
 
 ## Plotnine scatterplot for PenguinNet classification of test data
 
+<div class="clean-text">
+
 To see how well our model did at classifying the remaining penguins...
+
 
 ```{python}
 #| output-location: slide
@@ -1507,6 +1657,8 @@ color="y_actual", fill = 'y_pred', shape = 'correct'))
 
 display(plot3)
 ```
+
+</div>
 
 <aside class="notes">
 Now we can put all of this together into a plot. This plot is overely complicated, but I wanted to use it to show some more of the plot options in plotnine. 
