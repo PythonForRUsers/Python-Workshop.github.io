@@ -150,9 +150,9 @@ pre,
 
 /* Style for the entire details block */
 details {
-    background-color: var(--tipbg);
+    /* background-color: var(--tipbg); */
     /* Light background for the details block */
-    border: 1px solid var(--tipbg);
+    border: 2px solid var(--tipbg);
     /* Optional border */
     padding: 10px;
     /* Padding inside the details block */
@@ -223,4 +223,31 @@ summary:hover {
   padding: 0;
   border-radius: 0;
   color: #007CBA;
+}
+
+.tooltip-term {
+  position: relative;
+  border-bottom: 1px dotted #555;
+  cursor: help;
+}
+
+.tooltip-term .tooltip-text {
+  visibility: hidden;
+  width: 220px;
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  padding: 6px 8px;
+  border-radius: 4px;
+
+  position: absolute;
+  z-index: 1;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.85em;
+}
+
+.tooltip-term:hover .tooltip-text {
+  visibility: visible;
 }

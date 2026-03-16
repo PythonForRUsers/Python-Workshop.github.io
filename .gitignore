@@ -185,3 +185,4 @@ quarto/session4/blank.txt
 
 
 .venv/*
+/.luarc.json
