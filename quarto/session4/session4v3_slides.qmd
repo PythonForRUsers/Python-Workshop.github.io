@@ -33,10 +33,10 @@ In this session, we'll cover object-oriented programming and how it applies to m
   <li><strong>Intro to OOP</strong> and how it makes modeling in Python different from R</li>
   <li><strong>Building and extending classes</strong> using inheritance and mixins</li>
   <li><strong>Applying OOP to machine learning</strong> through demos with scikit-learn and PyTorch</li>
-  <ul>
+  <li><ul>
     <li>Creating and using models</li>
     <li>Plotting data with `plotnine` and `seaborn`</li>
-  </ul>
+  </ul></li>
 </ul>
 
 </div>
@@ -47,90 +47,64 @@ In this session, we'll cover object-oriented programming and how it applies to m
 
 # Introduction 
 
-
 ## Why Python *Feels* Different from R 🐍
 
-<div class="small-clean-text">
+::: {.small-clean-text}
 
 ::: columns
 
-::: fragment
 ::: column
-
 #### R: Built by Statisticians
-
-* Designed for **statistical analysis**  
-
+::: {.fragment}
+* Designed for **statistical analysis**
 :::
 
-::: column
-
-#### Python: General-Purpose Language
-
-* Designed for **many domains**, not just statistics  
-
-:::
+::: {.fragment}
+* Workflows are primarily **functional**
+  * pass data into functions
+  * get back results (usually without modifying the original object)
 :::
 
-::: fragment
-::: column
-
-* Workflows are primarily **functional**:  
-  * pass data into functions    
-  * get back results (usually without modifying the original object)  
-
-:::
-
-::: column
-
-* Leans heavily on **object-oriented programming**:  
-  * Some methods **modify objects in-place**, rather than returning new ones
-
-:::
-:::
-
-::: fragment
-::: column
-
+::: {.fragment}
 * Pipes (`|>`, `%>%`) chain operations
-
 :::
 
-::: column
-
-* Method chaining (`.fit().predict()`)
-
-:::
-:::
-
-::: fragment
-::: column
-
-* Excels at:  
+::: {.fragment}
+* Excels at:
   * clean model outputs, tables and high-quality visualizations
-
+:::
 :::
 
 ::: column
+#### Python: General-Purpose Language
+::: {.fragment}
+* Designed for **many domains**, not just statistics
+:::
 
-* Excels at:  
-  * machine learning & deep learning (scikit-learn, PyTorch)    
-  * image, genomic, and single-cell analysis    
-  * software, automation, and tooling  
+::: {.fragment}
+* Leans heavily on **object-oriented programming**
+  * Some methods **modify objects in-place**
+:::
 
+::: {.fragment}
+* Method chaining (`.fit().predict()`)
+:::
+
+::: {.fragment}
+* Excels at:
+  * machine learning & deep learning (scikit-learn, PyTorch)
+  * image, genomic, and single-cell analysis
+  * software, automation, and tooling
 :::
 :::
 
 :::
+:::
 
-</div>
+::: {.small-clean-text}
+> 💡 You’ve already been using this style in Sessions 2 and 3 — creating objects and calling methods like `.append()` or `.sort_values()`.
+:::
 
-<div class="small-clean-text">
-
-> 💡 You’ve already been using this style in Sessions 2 and 3 — creating objects (lists, DataFrames) and calling methods like `.append()` or `.sort_values()`.
-> **Note:** Tools like `reticulate` and `rpy2` allow R and Python to coexist in the same project, but that’s beyond the scope of this course.
-
-</div>
 
 <aside class="notes">
 As Yufei mentioned in session 1, R and Python have different flavors of coding. R was fundamentally designed for statistics while Python is a more general-purpose language. 
