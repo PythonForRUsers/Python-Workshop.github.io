@@ -1,24 +1,26 @@
 ---
 title: "Session 3: Intro to Pandas and great_tables"
 jupyter: python3
+
 format:
-  revealjs:
-    theme: [default, custom.scss]
-    background-color: white
-    incremental: true
+  html:
+    output-file: "Session_3.html"
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    theme: default
+    css: custom.scss
     code-copy: true
-    smaller: true
-    code-block-height: 750px
-    highlight-style: pygments
-    width: 1400
-    height: 800
+    code-overflow: wrap
+    link-external-icon: false
+    link-external-newwindow: true
     self-contained: true
+
 execute:
   freeze: auto
   eval: true
   echo: true
 ---
-
 
 ## Links
 
@@ -31,59 +33,48 @@ execute:
 </a>
 
 
-
 ## What Is Pandas? 🐼 {.scrollable}
 
-:::{.fragment}
 Pandas is a powerful open-source data analysis and manipulation library in Python. It provides data structures, primarily the DataFrame and Series, which are optimized for handling and analyzing large datasets efficiently.
-:::
 
-:::{.fragment}
+
 ### Data Structures:
-:::
+
 - Series: A one-dimensional labeled array, suitable for handling single columns or rows of data.
 
 - DataFrame: A two-dimensional table with labeled axes (rows and columns), much like a spreadsheet or SQL table, allowing you to work with data in rows and columns simultaneously.
 
-:::{.fragment}
+
 ### Data Manipulation:
-:::
+
 - Pandas has functions for merging, reshaping, and aggregating datasets, which helps streamline data cleaning and preparation.
 
 - It can handle missing data, making it easy to filter or fill gaps in datasets.
 
-:::{.fragment}
+
 ### Data Analysis:
-:::
+
 - Pandas provides extensive functionality for descriptive statistics, grouping data, and handling time series.
 
 - Integrates well with other libraries, making it easy to move data between libraries like NumPy for numerical computations and Matplotlib or Seaborn for visualization.
 
 ## Activate Python Environment and Download Cancer Dataset
 
-:::{.fragment}
+
 ``` bash
 source .venv/bin/activate   # macOS/Linux
 .venv\Scripts\activate.bat  # Windows (Command Prompt)
 .venv\Scripts\Activate.ps1  # Windows (PowerShell)
 
 ```
-:::
+
+
+
+### Cancer Dataset is located here 👇
 
 <br>
 
-:::{.fragment}
-### Cancer Dataset is located here:
-:::
-
-<br>
-
-:::{.fragment}
-
-👉 [Cancer Dataset](https://github.com/PythonForRUsers/Python-Workshop.github.io/tree/main/FollowAlong)
-
-:::
-
+[Cancer Dataset](https://github.com/PythonForRUsers/Python-Workshop.github.io/tree/main/FollowAlong)
 
 ## Loading the Dataset{.scrollable}
 ```{python}
@@ -106,13 +97,9 @@ cancer_data.head()
 
 ## Viewing Basic Information {.scrollable}
 
-:::{.fragment}
 ### Checking the Dataset’s Shape
-:::
 
-:::{.fragment}
 .shape returns a tuple with (number of rows, number of columns), which provides a basic overview of the dataset size.
-:::
 
 ```{python}
 #| class: fragment
@@ -122,14 +109,9 @@ print("Dataset Shape:", cancer_data.shape)
 
 ```
 
-:::{.fragment}
 ### Summarizing Column Information
-:::
 
-:::{.fragment}
 .info() lists all columns, their data types, and counts of non-null values, helping identify any columns that may have missing data.
-:::
-
 ```{python}
 #| class: fragment
 #| output-location: fragment
@@ -139,14 +121,10 @@ cancer_data.info()
 ```
 
 
-:::{.fragment}
+
 ### Viewing Column Names
-:::
 
-:::{.fragment}
 .columns lists column headers, while .tolist() converts it into a standard Python list for easier viewing.
-:::
-
 ```{python}
 #| class: fragment
 #| output-location: fragment
@@ -160,39 +138,22 @@ print("Column Names:", cancer_data.columns.tolist())
 
 ## Summary Statistics {.scrollable}
 
-:::{.fragment}
 .describe() generates essential statistics (mean, std, min, max, percentiles) for numeric columns, useful for identifying data distributions.
-:::
-
-:::{.fragment}
-Note: Sometimes you want to exclude certain columns from this (such as patient IDs)
-:::
 ```{python}
 #| class: fragment
 #| output-location: fragment
 # Generate summary statistics for numeric columns
-cancer_data.drop(columns=['id']).describe()
+cancer_data.describe()
+
+
 
 
 ```
 
 
-:::{.fragment}
-This doesn't actually change cancer_data in memory
-::: 
+### Using value_counts() on a Single Column
 
-```{python}
-#| class: fragment
-#| output-location: fragment
-cancer_data.head()
-```
-
-
-## Using value_counts() on a Single Column {.scrollable}
-
-:::{.fragment}
 This method is straightforward if you want to check the frequency distribution of one specific categorical column. Returns a pandas series object
-:::
 ```{python}
 #| class: fragment
 #| output-location: fragment
@@ -204,26 +165,17 @@ print("Diagnosis Counts:\n", diagnosis_counts)
 
 ```
 
-:::{.fragment}
+
 ### Grouping by Categorical Variable 
-:::
 
-:::{.fragment}
 To see summary statistics grouped by a categorical variable in pandas, you can use the groupby() method along with describe() or specific aggregation functions like mean(), sum(), etc.
-:::
-
-
 ```{python}
 #| class: fragment
 #| output-location: fragment
 # Group by 'diagnosis' and get summary statistics for each group
 grouped_summary = cancer_data.groupby('diagnosis').mean()
 print(grouped_summary)
-```
 
-```{python}
-#| class: fragment
-#| output-location: fragment
 
 #Group by 'diagnosis' and get summary statistics for only one variable
 grouped_radius_mean = cancer_data.groupby('diagnosis')['radius_mean'].mean()
@@ -235,9 +187,7 @@ print(grouped_radius_mean)
 
 ## Renaming Columns {.scrollable}
 
-:::{.fragment}
 To make column names more readable or consistent, you can use rename() to change specific names. Here’s how to rename columns like radius_mean to Radius Mean.
-:::
 
 ```{python}
 #| class: fragment
@@ -262,10 +212,7 @@ print("\nUpdated Column Names:", cancer_data.columns.tolist())
 
 ## Column Selection {.scrollable}
 
-:::{.fragment}
 Selecting specific columns is essential for focusing on particular aspects of the dataset. Here are some examples of both single and multiple column selections.
-:::
-
 ```{python}
 #| class: fragment
 #| output-location: fragment
@@ -278,10 +225,8 @@ print("Diagnosis Column:\n", diagnosis_column.head())
 ```
 
 
-:::{.fragment}
-### Alternatively, you can select multiple columns.
-:::
 
+### Alternatively, you can select multiple columns.
 ```{python}
 #| class: fragment
 #| output-location: fragment
@@ -297,9 +242,8 @@ print("Selected Columns:\n", selected_columns.head())
 
 ## Row Selection and Column Selection with loc and iloc {.scrollable}
 
-:::{.fragment}
+
 ### Selecting rows based on labels (loc)
-:::
 
 - loc allows selection based on labels (e.g., column names or index labels) and is particularly useful for data subsets.
 - loc uses row labels, so it is endpoint-inclusive.
@@ -315,9 +259,7 @@ print("Selected Rows with loc:\n", selected_rows_labels)
 
 ```
 
-:::{.fragment}
 ### Integer-Based Indexing with iloc
-:::
 
 - iloc allows selection based purely on integer positions, making it convenient for slicing and position-based operations.
 - iloc uses row positions, making it endpoint-exclusive (similar to Python slicing)
@@ -335,9 +277,7 @@ print("Selected Rows with iloc:\n", selected_rows_position)
 
 ## Filtering {.scrollable}
 
-:::{.fragment}
 Filtering enables you to create subsets of data that match specific conditions. For example, we can filter by diagnosis to analyze only malignant (M) or benign (B) cases.
-:::
 ```{python}
 #| class: fragment
 #| output-location: fragment
@@ -351,12 +291,10 @@ print("Malignant Cases:\n", malignant_cases.head(20))
 ```
 
 
-:::{.fragment}
+
 You can also filter based on multiple conditions, such as finding rows where the diagnosis is "M" and radius_mean is greater than 15.
 
 Note: You can't use 'and' python operator here, because 'and' is a keyword for Python's boolean operations, which work with single True or False values, not arrays or Series.
-
-:::
 ```{python}
 #| class: fragment
 #| output-location: fragment
@@ -371,10 +309,8 @@ print("Large Malignant Cases (Radius Mean > 15):\n", large_malignant_cases.head(
 
 ## Adding and Modifying Columns {.scrollable}
 
-:::{.fragment}
-You can create new columns in a DataFrame based on calculations using existing columns. For example, we can calculate the area_ratio by dividing area_worst by area_mean.
-:::
 
+You can create new columns in a DataFrame based on calculations using existing columns. For example, we can calculate the area_ratio by dividing area_worst by area_mean.
 ```{python}
 #| class: fragment
 #| output-location: fragment
@@ -391,10 +327,7 @@ print("New Column 'area_ratio':\n", cancer_data[['area_worst', 'area_mean', 'are
 
 ## Changing a Value Using .at
 
-:::{.fragment}
 Suppose you have a DataFrame and want to update the value in the radius_mean column for a particular index.
-:::
-
 ```{python}
 #| class: fragment
 #| output-location: fragment
@@ -418,10 +351,7 @@ print("Updated Radius Mean at index 0:", updated_value)
 
 ## Sorting by Columns {.scrollable}
 
-:::{.fragment}
 You can sort a dataset by columns. Here’s how to sort by diagnosis first and then by area_mean in ascending order.
-:::
-
 ```{python}
 #| class: fragment
 #| output-location: fragment
@@ -436,10 +366,7 @@ print("Data sorted by Diagnosis and Area Mean:\n", sorted_by_diagnosis_area[['di
 
 ## Reordering Columns to Move a Column to the End {.scrollable}
 
-:::{.fragment}
 You might also want to move a specific column to the end of the DataFrame, such as moving area_ratio to the last position.
-:::
-
 ```{python}
 #| class: fragment
 #| output-location: fragment
@@ -458,10 +385,7 @@ print("Data with 'area_ratio' at the end:\n", cancer_data_with_area_ratio_last.h
 
 ## Method Chaining in Pandas {.scrollable}
 
-:::{.fragment}
 In Pandas, you can chain multiple methods together to create a pipeline.
-:::
-
 ```{python}
 
 #| class: fragment
@@ -488,9 +412,8 @@ print(clean_df)
 ```
 
 
-:::{.fragment}
+
 ### Why `.str.strip()` and not just `.strip()`?
-:::
 
 ```{python}
 #| class: fragment
@@ -506,14 +429,14 @@ except AttributeError:
 
 ```
 
-:::{.fragment}
+
 Why?
 - `df["name"]` is a Series — not a string.
 - `.strip()` is a string method that works on single strings.
 - `.str` is the accessor that tells pandas: “apply this string method to each element in the Series.”
-:::
 
-## Rule of Thumb: {.scrollable}
+
+### Rule of Thumb: {.scrollable}
 
 | You have...         | Use...                  | Why?                                   |
 |---------------------|-------------------------|----------------------------------------|
@@ -525,20 +448,13 @@ Why?
 
 ## Applying Functions in Pandas {.scrollable}
 
-:::{.fragment}
 ### Applying Functions to Columns
-:::
 
-:::{.fragment}
 The .apply() method in pandas lets you apply a custom function to each element in a Series (column) or DataFrame. Here’s how to use it to categorize tumors based on area_mean.
-:::
 
-:::{.fragment}
 Example: Categorizing Tumors by Size
 
 Let’s create a custom function to categorize tumors as "Small", "Medium", or "Large" based on area_mean.
-:::
-
 ```{python}
 #| class: fragment
 #| output-location: fragment
@@ -563,12 +479,9 @@ print("Tumor Size Categories:\n", cancer_data[['area_mean', 'tumor_size_category
 
 
 
-## Using Lambda Functions for Quick Transformations
+### Using Lambda Functions for Quick Transformations
 
-:::{.fragment}
 Lambda functions are useful for simple, one-line operations. For example, we can use a lambda function to convert diagnosis into numerical codes (0 for Benign, 1 for Malignant).
-:::
-
 ```{python}
 #| class: fragment
 #| output-location: fragment
@@ -584,12 +497,10 @@ print("Diagnosis Codes:\n", cancer_data[['diagnosis', 'diagnosis_code']].head())
 
 ## Applying Multiple Conditions with .apply() {.scrollable}
 
-:::{.fragment}
 You can also use .apply() with a lambda function for more complex, multi-condition classifications.
 
 Example: Adding a Column with Risk Levels
 Suppose we want to create a new column, risk_level, based on both diagnosis and area_mean:
-:::
 
 - "High Risk" for Malignant tumors with area_mean above 1000.
 - "Moderate Risk" for Malignant tumors with area_mean below 1000.
@@ -645,13 +556,12 @@ df.to_excel('/path/to/directory/example.xlsx', index=False)
 
 ## Missing values in Python {.scrollable}
 
-:::{.fragment}
-Missing values are common in data analysis. Python provides multiple ways to represent missing values, including `None`, `np.nan`, and `pd.NA`. Understanding their behavior is crucial for data cleaning, processing, and analysis.
-:::
 
-:::{.fragment}
-### Missing Values in Python: `None`
-:::
+Missing values are common in data analysis. Python provides multiple ways to represent missing values, including `None`, `np.nan`, and `pd.NA`. Understanding their behavior is crucial for data cleaning, processing, and analysis.
+
+
+
+Missing Values in Python: `None`
 
 - **Definition**: `None` is a built-in Python object representing "no value."
 - **Use Cases**: Works with general Python objects but does **not** support mathematical operations.
@@ -665,9 +575,8 @@ if x is None:  # Best practice
 ```
 
 
-:::{.fragment}
+
 **Issue with `None` in arithmetic**:
-:::
 
 ```{python}
 #| class: fragment
@@ -696,9 +605,7 @@ if np.isnan(x):  # Correct way to check for np.nan
     print("x is missing")
 ```
 
-:::{.fragment}
-### Behavior in Math Operations
-:::
+Behavior in Math Operations
 
 ```{python}
 #| class: fragment
@@ -715,10 +622,8 @@ print(x == x)  # Output: False
 - Works with nullable data types (`Int64`, `Float64`, `boolean`, `string`).
 - Avoids automatic type conversion (e.g., integers remain integers).
 
-:::{.fragment}
-### Behavior in Math Operations
-:::
 
+Behavior in Math Operations
 ```{python}
 #| class: fragment
 #| output-location: fragment
@@ -727,12 +632,12 @@ x = pd.NA
 print(x+1)
 ```
 
-:::{.fragment}
-### Checking for missingness
-:::
+
 ```{python}
 #| class: fragment
 #| output-location: fragment
+#Checking for missingness 
+
 
 x = pd.NA
 if pd.isna(x):  # Correct way
@@ -801,12 +706,12 @@ for x in df.iloc[:, 0]:
 
 
 
-## Filling Missing Values {.scrollable}
+### Filling Missing Values
 
 ```{python}
 #| class: fragment
 #| output-location: fragment
-df["A"]=df["A"].fillna(pd.NA).astype('Int64')  # Replaces missing values with pd.NA, and then changes the column type to 'Int64, pandas' nullable Int datatype.
+df["A"]=df["A"].fillna(pd.NA).astype('Int64')  # Replaces missing values with pd.NA, and then changes the column type to 'FLoat64, pandas' nullable float datatype.
 for value in df.iloc[:,0]:
         print(value)
         print(type(value))
@@ -819,9 +724,10 @@ print(df["A"].dtype)
 
 ## Why does casting the column as int64 fail with missing values? {.scrollable}
 
-:::{.fragment}
+
 ### The Problem
-:::
+
+
 
 ```{python}
 
@@ -836,9 +742,8 @@ except ValueError as e:
 ```
 
 
-:::{.fragment}
+
 ### The Fix
-:::
 
 ```{python}
 #| class: fragment
@@ -848,10 +753,10 @@ df["A"] = df["A"].astype("Int64")
 for x in df.iloc[:,0]:
     print(x, ":", type(x))
 ```
-
-:::{.fragment}
-### float64 works, but not int64, with a caveat
 :::
+
+
+### float64 works, but not int64, with a caveat
 ```{python}
 #| class: fragment
 #| output-location: fragment
@@ -861,7 +766,7 @@ df["A"] = df["A"].astype("float64")
 for x in df.iloc[:,0]:
     print(x, ":", type(x))
 ```
-
+:::
 
 
 
@@ -907,9 +812,8 @@ print(df["A"].dtype)
 
 ## More on missing values {.scrollable}
 
-:::{.fragment}
+
 To drop missing values, you can use .dropna()
-:::
 
 ```{python}
 #| class: fragment
@@ -921,9 +825,8 @@ print(df["A"])
 
 ```
 
-:::{.fragment}
+
 To find missing values, you can use isnull() with sum() to calculate the total number of missing values in each column.
-:::
 
 ```{python}
 #| class: fragment
@@ -935,13 +838,10 @@ print(missing_values)
 ```
 
 
-:::{.fragment}
-### Dropping Columns with Excessive Missing Data
-:::
 
-:::{.fragment}
+### Dropping Columns with Excessive Missing Data
+
 Since Unnamed: 32 has no data, it can be dropped from the DataFrame using .drop().
-:::
 
 ```{python}
 #| class: fragment
@@ -962,12 +862,10 @@ print("\nColumns after dropping 'Unnamed: 32':", cancer_data.columns.tolist())
 
 ## great_tables for table generation {.scrollable}
 
-:::{.fragment}
 You can use the `great_tables` Python module from the great-tables package to explore and display data from a dataset in a clean and interactive format.
-:::
-:::{.fragment}
+
 We’ll load the data, summarize it, and then build styled tables using `great_tables`.
-:::
+
 ---
 
 ## Load and Inspect the Data {.scrollable}
@@ -1006,9 +904,7 @@ GT(preview_df).tab_header(
 
 ## Enhance the Table with Styling {.scrollable}
 
-:::{.fragment}
 Let's add conditional formatting to highlight larger tumor areas.
-:::
 
 ```{python}
 #| class: fragment
@@ -1026,9 +922,7 @@ GT(preview_df).tab_header(
 
 ## Group Statistics by Diagnosis {.scrollable}
 
-:::{.fragment}
 Let’s summarize average values by diagnosis group (malignant vs. benign).
-:::
 
 ```{python}
 #| class: fragment
@@ -1041,17 +935,11 @@ GT(summary_df).tab_header(
 ).fmt_number(columns=["radius_mean", "texture_mean", "area_mean"], decimals=2)
 ```
 
-## You Try! {.scrollable}
 
-Navigate to the follow-along file and try the practice problems!
+### You try!
 
-<br>
-
-[Follow-along: https://github.com/PythonForRUsers/Python-Workshop.github.io/tree/main/FollowAlong](https://github.com/PythonForRUsers/Python-Workshop.github.io/tree/main/FollowAlong)
-
-
-## For next time: Session 4 Pre-read 📖:
+### Download the Session 3 follow-along link here 👇
 
 <br>
 
-[Pre-read: https://pythonforrusers.github.io/Python-Workshop.github.io/session4/sess4preread.html](https://pythonforrusers.github.io/Python-Workshop.github.io/session4/sess4preread.html)
+[Session 3 Follow-along](https://github.com/PythonForRUsers/Python-Workshop.github.io/tree/main/FollowAlong)
