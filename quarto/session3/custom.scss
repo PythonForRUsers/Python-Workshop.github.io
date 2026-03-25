@@ -43,13 +43,36 @@
   color: rgba(37, 37, 145);
 }
 
-.reveal .slides section {
-  -webkit-font-smoothing: subpixel-antialiased;
-  text-rendering: optimizeLegibility;
+/* ===== NEW: Header sizing ===== */
+/* ===== FORCE header sizing ===== */
+
+.reveal .slides h1 {
+  font-size: 2.5em !important;
 }
 
+.reveal .slides h2 {
+  font-size: 1.5em !important;
+}
 
-// General blur-fix and legibility
+.reveal .slides h3 {
+  font-size: 0.9em !important;
+}
+
+.reveal .slides h4 {
+  font-size: 0.8em !important;
+}
+
+.reveal .slides h5 {
+  font-size: 0.7em !important;
+}
+
+.reveal .slides h6 {
+  font-size: 0.6em !important;
+}
+
+/* ============================== */
+
+/* Improve text rendering */
 .reveal .slides section {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -59,7 +82,7 @@
   margin-top: 0 !important;
 }
 
-// Prevent blurry code blocks
+/* Prevent blurry code blocks */
 .reveal pre {
   backface-visibility: hidden;
   -webkit-transform: translate3d(0, 0, 0);
@@ -73,9 +96,7 @@
   transform: translate3d(0, 0, 0);
 }
 
-
-
-// Improve inline code appearance
+/* Improve inline code appearance */
 .reveal code:not(pre code) {
   font-size: 0.9em;
   background-color: #f2f2f2;

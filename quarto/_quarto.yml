@@ -35,7 +35,7 @@ website:
           - text: "Session 2: Intro to Python Data Structures"
             href: session2/DataStructuresDemo.qmd
           - text: "Session 3: Intro to Pandas and great_tables"
-            href: session3/DataStructuresDemo_2.qmd
+            href: session3/Session_3.qmd
           - text: "Session 4: Object-Oriented Programming and Modeling Libraries"
             href: "session4/session4v3_webpage.html"
       - text: "Extras"
