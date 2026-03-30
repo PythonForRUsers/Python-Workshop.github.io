@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -107,12 +107,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -254,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><a href="session4v3_slides.html">slides link</a></p>
+<p><a href="session4v3_slides_sc.html">slides link</a></p>
 <section id="session-overview" class="level2">
 <h2 class="anchored" data-anchor-id="session-overview">Session Overview</h2>
 <div class="clean-text">
@@ -442,7 +439,7 @@ These are some links to tutorials for the packages.
 <div class="fragment">
 <p>Define a <code>Dog</code> with attributes (data) and methods (behaviors).<br>
 * <a href="https://docs.python.org/3/reference/datamodel.html#special-method-names"><strong>special</strong> or <strong>“dunder”</strong> methods</a> (short for double underscore) define how objects behave in certain contexts.</p>
-<div id="e676755a" class="cell" data-execution_count="1">
+<div id="aaff3572" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">class</span> Dog: <span class="co">## begin class definition</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, breed): <span class="co">## define init method</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>        <span class="va">self</span>.name <span class="op">=</span> name <span class="co">## add attributes</span></span>
@@ -464,7 +461,7 @@ These are some links to tutorials for the packages.
 <h2 class="anchored" data-anchor-id="creating-a-dog">Creating a dog</h2>
 <div class="clean-text">
 <p>Creating an instance of the <code>Dog</code> class lets us model a particular dog:</p>
-<div id="2b8045a3" class="cell" data-output-location="fragment" data-execution_count="2">
+<div id="921b8f70" class="cell" data-output-location="fragment" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>buddy <span class="op">=</span> Dog(<span class="st">"Buddy"</span>, <span class="st">"Golden Retriever"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="bu">print</span>(<span class="ss">f"Buddy is an object of class </span><span class="sc">{</span><span class="bu">type</span>(buddy)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -479,7 +476,7 @@ Set value of attributes [<code>name</code> and <code>breed</code>] -&gt; stored 
 <code>buddy</code> can use any <code>Dog</code> class methods
 </li>
 </ul>
-<div id="9cc1caf2" class="cell" data-output-location="fragment" data-execution_count="3">
+<div id="a27a45fe" class="cell" data-output-location="fragment" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">## if we want to see what kind of dog our dog is</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="co">## we can call buddy's attributes</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="bu">print</span>(<span class="ss">f"Our dog </span><span class="sc">{</span>buddy<span class="sc">.</span>name<span class="sc">}</span><span class="ss"> is a </span><span class="sc">{</span>buddy<span class="sc">.</span>breed<span class="sc">}</span><span class="ss">."</span>)</span>
@@ -510,7 +507,7 @@ Once we create buddy, we can use any attributes or methods defined in the dog cl
 <div class="clean-text">
 <p>Derived/child classes build on base classes using the <em>principle of inheritence.</em> <br></p>
 <p>Now that we have a <code>Dog</code> class, we can build on it to create a specialized <code>GuardDog</code> class.</p>
-<div id="50c5eb9e" class="cell" data-execution_count="4">
+<div id="10369f92" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">class</span> GuardDog(Dog):  <span class="co"># GuardDog inherits from Dog</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, breed, training_level): <span class="co">## in addition to name and breed, we can </span></span>
 <span id="cb7-3"><a href="#cb7-3"></a>        <span class="co"># define a training level. </span></span>
@@ -536,7 +533,7 @@ Once we create buddy, we can use any attributes or methods defined in the dog cl
 <hr>
 <p><code>rex</code> has all of the methods/attributes introduced in the <code>Dog</code> class as well as the new <code>GuardDog</code> class.</p>
 <p>Using methods from the base class:</p>
-<div id="f8f27896" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="5">
+<div id="44f1253d" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">print</span>(rex.speak())</span>
 <span id="cb8-2"><a href="#cb8-2"></a>rex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -550,7 +547,7 @@ Once we create buddy, we can use any attributes or methods defined in the dog cl
 <p><span style="font-size: 1.15em; color: #007acc"><strong>This is the power of inheritance</strong></span>—we don’t have to rewrite everything from scratch!</p>
 <p>. . .</p>
 <p>Using a method from the child class:</p>
-<div id="223df685" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="6">
+<div id="90add738" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>rex<span class="sc">.</span>name<span class="sc">}</span><span class="ss">'s training level is </span><span class="sc">{</span>rex<span class="sc">.</span>training_level<span class="sc">}</span><span class="ss">."</span>)</span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="bu">print</span>(rex.guard()) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -565,7 +562,7 @@ Rex needs more training before guarding.</code></pre>
 <hr>
 <p>Unlike standalone functions, methods in Python often update objects <strong>in-place</strong>— meaning they <em>modify the object itself</em> rather than returning a new one.</p>
 <p>We can use the <code>.train()</code> method to increase rex’s training level.</p>
-<div id="46de06a4" class="cell" data-output-location="fragment" data-execution_count="7">
+<div id="b29a82da" class="cell" data-output-location="fragment" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="bu">print</span>(rex.train())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Training Rex. Rex's training level is now 6</code></pre>
@@ -589,7 +586,7 @@ Rex needs more training before guarding.</code></pre>
 </div>
 <p>. . .</p>
 <p>Now if we check,</p>
-<div id="2decfa03" class="cell" data-output-location="fragment" data-execution_count="8">
+<div id="9de7e4fc" class="cell" data-output-location="fragment" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>rex<span class="sc">.</span>name<span class="sc">}</span><span class="ss">'s training level is </span><span class="sc">{</span>rex<span class="sc">.</span>training_level<span class="sc">}</span><span class="ss">."</span>)</span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="bu">print</span>(rex.guard()) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -618,7 +615,7 @@ Rex is guarding the house!</code></pre>
 </div>
 <hr>
 <p>When creating a mixin class, we let the other base classes carry most of the initialization</p>
-<div id="2c9cb413" class="cell" data-execution_count="9">
+<div id="6cc40c90" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">class</span> TrickMixin: <span class="co">## mixin that will let us teach a dog tricks</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
 <span id="cb18-3"><a href="#cb18-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(<span class="op">*</span>args, <span class="op">**</span>kwargs)  <span class="co"># Ensures proper initialization in multi inheritance</span></span>
@@ -646,7 +643,7 @@ A mixin class can add both attributes and methods, and it can potentially work w
 </aside>
 <hr>
 <p>By including both <code>Dog</code> and <code>TrickMixin</code> as base classes, we give objects of class <code>SmartDog</code> the ability to speak and learn tricks! This is how libraries like <code>sklearn</code> turn a base estimator into a classifier/regressor without rewriting everything!</p>
-<div id="747edca6" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="10">
+<div id="4c12d47c" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">class</span> SmartDog(Dog, TrickMixin):</span>
 <span id="cb19-2"><a href="#cb19-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, breed):</span>
 <span id="cb19-3"><a href="#cb19-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(name, breed)  <span class="co"># Initialize Dog class</span></span>
@@ -660,7 +657,7 @@ A mixin class can add both attributes and methods, and it can potentially work w
 </div>
 </div>
 <p><br></p>
-<div id="3978558f" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="11">
+<div id="9b287f31" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="bu">print</span>(my_smart_dog.learn_trick(<span class="st">"Sit"</span>))  </span>
 <span id="cb21-2"><a href="#cb21-2"></a><span class="bu">print</span>(my_smart_dog.learn_trick(<span class="st">"Roll Over"</span>)) </span>
 <span id="cb21-3"><a href="#cb21-3"></a><span class="bu">print</span>(my_smart_dog.learn_trick(<span class="st">"Sit"</span>))  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -671,7 +668,7 @@ Buddy already knows Sit!</code></pre>
 </div>
 </div>
 <p><br></p>
-<div id="b5be99c4" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="12">
+<div id="3537d1bb" class="cell" data-output-location="fragment" data-slide-type="fragment" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="bu">print</span>(my_smart_dog.perform_tricks()) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Buddy can perform: Sit, Roll Over.</code></pre>
@@ -702,7 +699,7 @@ Python’s duck typing makes our lives a lot easier, and is one of the main bene
 </div>
 <p>We can demonstrate duck typing by defining two new base classes that are different than <code>Dog</code> but also have a <code>speak()</code> method.</p>
 <p>. . .</p>
-<div id="bd9e747a" class="cell" data-execution_count="13">
+<div id="edb768e7" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">class</span> Human:</span>
 <span id="cb25-2"><a href="#cb25-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>
 <span id="cb25-3"><a href="#cb25-3"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
@@ -723,7 +720,7 @@ Python’s duck typing makes our lives a lot easier, and is one of the main bene
 <div class="clean-text">
 <p>Even though <code>Dog</code>, <code>Human</code> and <code>Parrot</code> are entirely different classes…</p>
 </div>
-<div id="633b4112" class="cell" data-output-location="fragment" data-execution_count="14">
+<div id="38e90a29" class="cell" data-output-location="fragment" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">def</span> call_speaker(obj):</span>
 <span id="cb26-2"><a href="#cb26-2"></a>    <span class="bu">print</span>(obj.speak()) <span class="co">## No object checking needed here!</span></span>
 <span id="cb26-3"><a href="#cb26-3"></a></span>
@@ -855,7 +852,7 @@ Now that you understand <strong>classes</strong> and <strong>data structures</st
 </section>
 <section id="import-libraries-1" class="level2">
 <h2 class="anchored" data-anchor-id="import-libraries-1">Import Libraries</h2>
-<div id="b60fa0b1" class="cell" data-execution_count="15">
+<div id="0e2aadff" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="co">## imports</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb28-3"><a href="#cb28-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -885,7 +882,7 @@ Now that you understand <strong>classes</strong> and <strong>data structures</st
 </section>
 <section id="data-preparation" class="level2">
 <h2 class="anchored" data-anchor-id="data-preparation">Data Preparation</h2>
-<div id="c1a1ce4b" class="cell" data-output-location="fragment" data-execution_count="16">
+<div id="c637aaac" class="cell" data-output-location="fragment" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Load the Penguins dataset</span></span>
 <span id="cb29-2"><a href="#cb29-2"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>).dropna()</span>
 <span id="cb29-3"><a href="#cb29-3"></a></span>
@@ -1033,7 +1030,7 @@ Harder to customize than plotnine plots
 <div class="clean-text">
 <p>To take a look at the distribution of our species by bill length and bill depth before clustering…</p>
 </div>
-<div id="a0dbc112" class="cell" data-fig-dpi="600" data-output-location="fragment" data-execution_count="17">
+<div id="0abeb9d1" class="cell" data-fig-dpi="600" data-output-location="fragment" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>plot1 <span class="op">=</span> (ggplot(penguins, aes(x<span class="op">=</span><span class="st">"bill_length_mm"</span>, y<span class="op">=</span><span class="st">"bill_depth_mm"</span>, color<span class="op">=</span><span class="st">"species"</span>))</span>
 <span id="cb30-2"><a href="#cb30-2"></a> <span class="op">+</span> geom_point()</span>
 <span id="cb30-3"><a href="#cb30-3"></a> <span class="op">+</span> ggtitle(<span class="st">"Penguin Species"</span>)</span>
@@ -1052,7 +1049,7 @@ Harder to customize than plotnine plots
 <section id="scatterplot-with-seaborn" class="level2">
 <h2 class="anchored" data-anchor-id="scatterplot-with-seaborn">Scatterplot with seaborn</h2>
 <p>We can make a similar plot in seaborn. This time, let’s include sex by setting the point style</p>
-<div id="158d0fab" class="cell" data-output-location="slide" data-execution_count="18">
+<div id="c2963740" class="cell" data-output-location="slide" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Create the figure and axes obects</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
 <span id="cb31-3"><a href="#cb31-3"></a></span>
@@ -1078,7 +1075,7 @@ Harder to customize than plotnine plots
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="session4v3_webpage_files/figure-html/cell-19-output-1.png" width="949" height="756" class="figure-img"></p>
+<p><img src="session4v3_webpage_files/figure-html/cell-19-output-1.png" width="950" height="758" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1113,7 +1110,7 @@ Harder to customize than plotnine plots
 <section id="scaling-data" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="scaling-data">Scaling Data</h2>
 <div class="clean-text">
-<div id="d4ff8bdb" class="cell" data-execution_count="19">
+<div id="d286453d" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Selecting features for clustering -&gt; let's just use bill length and bill depth.</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a>X <span class="op">=</span> penguins[[<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>]]</span>
 <span id="cb33-3"><a href="#cb33-3"></a>y <span class="op">=</span> penguins[<span class="st">"species"</span>]</span>
@@ -1123,54 +1120,57 @@ Harder to customize than plotnine plots
 <span id="cb33-7"><a href="#cb33-7"></a>X_scaled <span class="op">=</span> scaler.fit_transform(X) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
-<div id="2b08217d" class="cell" data-execution_count="20">
+<div id="278b5351" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display" data-execution_count="20">
-<div id="qdappcphwp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="vdkmdqwlvt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#qdappcphwp table {
+#vdkmdqwlvt table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#qdappcphwp thead, tbody, tfoot, tr, td, th { border-style: none; }
+#vdkmdqwlvt thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#qdappcphwp p { margin: 0; padding: 0; }
- #qdappcphwp .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #qdappcphwp .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #qdappcphwp .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #qdappcphwp .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #qdappcphwp .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #qdappcphwp .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #qdappcphwp .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #qdappcphwp .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #qdappcphwp .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #qdappcphwp .gt_column_spanner_outer:first-child { padding-left: 0; }
- #qdappcphwp .gt_column_spanner_outer:last-child { padding-right: 0; }
- #qdappcphwp .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #qdappcphwp .gt_spanner_row { border-bottom-style: hidden; }
- #qdappcphwp .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #qdappcphwp .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #qdappcphwp .gt_from_md> :first-child { margin-top: 0; }
- #qdappcphwp .gt_from_md> :last-child { margin-bottom: 0; }
- #qdappcphwp .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #qdappcphwp .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #qdappcphwp .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #qdappcphwp .gt_row_group_first td { border-top-width: 2px; }
- #qdappcphwp .gt_row_group_first th { border-top-width: 2px; }
- #qdappcphwp .gt_striped { background-color: rgba(128,128,128,0.05); }
- #qdappcphwp .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #qdappcphwp .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #qdappcphwp .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #qdappcphwp .gt_left { text-align: left; }
- #qdappcphwp .gt_center { text-align: center; }
- #qdappcphwp .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #qdappcphwp .gt_font_normal { font-weight: normal; }
- #qdappcphwp .gt_font_bold { font-weight: bold; }
- #qdappcphwp .gt_font_italic { font-style: italic; }
- #qdappcphwp .gt_super { font-size: 65%; }
- #qdappcphwp .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #qdappcphwp .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#vdkmdqwlvt p { margin: 0; padding: 0; }
+ #vdkmdqwlvt .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #vdkmdqwlvt .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #vdkmdqwlvt .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #vdkmdqwlvt .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #vdkmdqwlvt .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #vdkmdqwlvt .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #vdkmdqwlvt .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #vdkmdqwlvt .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #vdkmdqwlvt .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #vdkmdqwlvt .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #vdkmdqwlvt .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #vdkmdqwlvt .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #vdkmdqwlvt .gt_spanner_row { border-bottom-style: hidden; }
+ #vdkmdqwlvt .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #vdkmdqwlvt .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #vdkmdqwlvt .gt_from_md> :first-child { margin-top: 0; }
+ #vdkmdqwlvt .gt_from_md> :last-child { margin-bottom: 0; }
+ #vdkmdqwlvt .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #vdkmdqwlvt .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #vdkmdqwlvt .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #vdkmdqwlvt .gt_row_group_first td { border-top-width: 2px; }
+ #vdkmdqwlvt .gt_row_group_first th { border-top-width: 2px; }
+ #vdkmdqwlvt .gt_striped { color: #333333; background-color: #F4F4F4; }
+ #vdkmdqwlvt .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #vdkmdqwlvt .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #vdkmdqwlvt .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
+ #vdkmdqwlvt .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
+ #vdkmdqwlvt .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #vdkmdqwlvt .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #vdkmdqwlvt .gt_left { text-align: left; }
+ #vdkmdqwlvt .gt_center { text-align: center; }
+ #vdkmdqwlvt .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #vdkmdqwlvt .gt_font_normal { font-weight: normal; }
+ #vdkmdqwlvt .gt_font_bold { font-weight: bold; }
+ #vdkmdqwlvt .gt_font_italic { font-style: italic; }
+ #vdkmdqwlvt .gt_super { font-size: 65%; }
+ #vdkmdqwlvt .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #vdkmdqwlvt .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -1180,7 +1180,7 @@ Harder to customize than plotnine plots
 <td colspan="5" class="gt_heading gt_title gt_font_normal">Original vs Scaled Features</td>
 </tr>
 <tr class="gt_col_headings gt_spanner_row even">
-<th rowspan="2" id="Feature" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Feature</th>
+<th rowspan="2" id="Feature" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Feature</th>
 <th colspan="2" id="Original" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Original</span></th>
 <th colspan="2" id="Scaled" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Scaled</span></th>
 </tr>
@@ -1193,14 +1193,14 @@ Harder to customize than plotnine plots
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left">mean</td>
+<td class="gt_row gt_center">mean</td>
 <td class="gt_row gt_right">44</td>
 <td class="gt_row gt_right">17</td>
 <td class="gt_row gt_right">0</td>
 <td class="gt_row gt_right">0</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left">std</td>
+<td class="gt_row gt_center">std</td>
 <td class="gt_row gt_right">5</td>
 <td class="gt_row gt_right">2</td>
 <td class="gt_row gt_right">1</td>
@@ -1213,7 +1213,7 @@ Harder to customize than plotnine plots
 </div>
 </div>
 </div>
-<div id="a2f06eb4" class="cell" data-execution_count="21">
+<div id="dbbd69f0" class="cell" data-execution_count="21">
 <details class="code-fold">
 <summary>Show table code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="co">## Make X_scaled a pandas df</span></span>
@@ -1271,14 +1271,15 @@ This table here just shows how the mean and standard deviation change between th
 <div class="clean-text">
 <section id="create-model" class="level3">
 <h3 class="anchored" data-anchor-id="create-model">Create model</h3>
-<div id="92a7fa25" class="cell" data-execution_count="22">
+<div id="a08da510" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="co">## Choosing 3 clusters b/c we have 3 species</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">3</span>, random_state<span class="op">=</span><span class="dv">42</span>) <span class="co">## make an instance of the K means class</span></span>
 <span id="cb36-3"><a href="#cb36-3"></a>kmeans</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: black;
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
   --sklearn-color-line: gray;
   /* Definition of color scheme for unfitted estimators */
   --sklearn-color-unfitted-level-0: #fff5e6;
@@ -1290,20 +1291,21 @@ This table here just shows how the mean and standard deviation change between th
   --sklearn-color-fitted-level-1: #d4ebff;
   --sklearn-color-fitted-level-2: #b3dbfd;
   --sklearn-color-fitted-level-3: cornflowerblue;
+}
 
+#sk-container-id-1.light {
   /* Specific color for light theme */
-  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
-  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
-  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-text-on-default-background: black;
+  --sklearn-color-background: white;
+  --sklearn-color-border-box: black;
   --sklearn-color-icon: #696969;
+}
 
-  @media (prefers-color-scheme: dark) {
-    /* Redefinition of color scheme for dark theme */
-    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
-    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-icon: #878787;
-  }
+#sk-container-id-1.dark {
+  --sklearn-color-text-on-default-background: white;
+  --sklearn-color-background: #111;
+  --sklearn-color-border-box: white;
+  --sklearn-color-icon: #878787;
 }
 
 #sk-container-id-1 {
@@ -1423,12 +1425,21 @@ clickable and can be expanded/collapsed.
 /* Toggleable label */
 #sk-container-id-1 label.sk-toggleable__label {
   cursor: pointer;
-  display: block;
+  display: flex;
   width: 100%;
   margin-bottom: 0;
   padding: 0.5em;
   box-sizing: border-box;
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+#sk-container-id-1 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
 }
 
 #sk-container-id-1 label.sk-toggleable__label-arrow:before {
@@ -1446,9 +1457,7 @@ clickable and can be expanded/collapsed.
 /* Toggleable content - dropdown */
 
 #sk-container-id-1 div.sk-toggleable__content {
-  max-height: 0;
-  max-width: 0;
-  overflow: hidden;
+  display: none;
   text-align: left;
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-0);
@@ -1474,9 +1483,9 @@ clickable and can be expanded/collapsed.
 
 #sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
   /* Expand drop-down */
-  max-height: 200px;
-  max-width: 100%;
-  overflow: auto;
+  display: block;
+  width: 100%;
+  overflow: visible;
 }
 
 #sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
@@ -1530,7 +1539,6 @@ clickable and can be expanded/collapsed.
 #sk-container-id-1 div.sk-label label {
   font-family: monospace;
   font-weight: bold;
-  display: inline-block;
   line-height: 1.2em;
 }
 
@@ -1576,23 +1584,25 @@ a:visited.sk-estimator-doc-link {
   font-size: smaller;
   line-height: 1em;
   font-family: monospace;
-  background-color: var(--sklearn-color-background);
+  background-color: var(--sklearn-color-unfitted-level-0);
   border-radius: 1em;
   height: 1em;
   width: 1em;
   text-decoration: none !important;
-  margin-left: 1ex;
+  margin-left: 0.5em;
+  text-align: center;
   /* unfitted */
-  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
-  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-3) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-3);
 }
 
 .sk-estimator-doc-link.fitted,
 a:link.sk-estimator-doc-link.fitted,
 a:visited.sk-estimator-doc-link.fitted {
   /* fitted */
-  border: var(--sklearn-color-fitted-level-1) 1pt solid;
-  color: var(--sklearn-color-fitted-level-1);
+  background-color: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3) 1pt solid;
+  color: var(--sklearn-color-fitted-level-3);
 }
 
 /* On hover */
@@ -1602,7 +1612,8 @@ div.sk-label-container:hover .sk-estimator-doc-link:hover,
 .sk-estimator-doc-link:hover {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-3);
-  color: var(--sklearn-color-background);
+  border: var(--sklearn-color-fitted-level-0) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-0);
   text-decoration: none;
 }
 
@@ -1612,7 +1623,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 .sk-estimator-doc-link.fitted:hover {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
-  color: var(--sklearn-color-background);
+  border: var(--sklearn-color-fitted-level-0) 1pt solid;
+  color: var(--sklearn-color-fitted-level-0);
   text-decoration: none;
 }
 
@@ -1652,7 +1664,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   font-size: 1rem;
   line-height: 1em;
   font-family: monospace;
-  background-color: var(--sklearn-color-background);
+  background-color: var(--sklearn-color-unfitted-level-0);
   border-radius: 1rem;
   height: 1rem;
   width: 1rem;
@@ -1664,6 +1676,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 
 #sk-container-id-1 a.estimator_doc_link.fitted {
   /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
   border: var(--sklearn-color-fitted-level-1) 1pt solid;
   color: var(--sklearn-color-fitted-level-1);
 }
@@ -1680,14 +1693,396 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KMeans(n_clusters=3, random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;&nbsp;KMeans<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.cluster.KMeans.html">?<span>Documentation for KMeans</span></a><span class="sk-estimator-doc-link ">i<span>Not fitted</span></span></label><div class="sk-toggleable__content "><pre>KMeans(n_clusters=3, random_state=42)</pre></div> </div></div></div></div>
+
+.estimator-table {
+    font-family: monospace;
+}
+
+.estimator-table summary {
+    padding: .5rem;
+    cursor: pointer;
+}
+
+.estimator-table summary::marker {
+    font-size: 0.7rem;
+}
+
+.estimator-table details[open] {
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    padding-bottom: 0.3rem;
+}
+
+.estimator-table .parameters-table {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0;
+}
+
+.estimator-table .parameters-table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.estimator-table .parameters-table tr:nth-child(even) {
+    background-color: #f6f6f6;
+}
+
+.estimator-table .parameters-table tr:hover {
+    background-color: #e0e0e0;
+}
+
+.estimator-table table td {
+    border: 1px solid rgba(106, 105, 104, 0.232);
+}
+
+/*
+    `table td`is set in notebook with right text-align.
+    We need to overwrite it.
+*/
+.estimator-table table td.param {
+    text-align: left;
+    position: relative;
+    padding: 0;
+}
+
+.user-set td {
+    color:rgb(255, 94, 0);
+    text-align: left !important;
+}
+
+.user-set td.value {
+    color:rgb(255, 94, 0);
+    background-color: transparent;
+}
+
+.default td {
+    color: black;
+    text-align: left !important;
+}
+
+.user-set td i,
+.default td i {
+    color: black;
+}
+
+/*
+    Styles for parameter documentation links
+    We need styling for visited so jupyter doesn't overwrite it
+*/
+a.param-doc-link,
+a.param-doc-link:link,
+a.param-doc-link:visited {
+    text-decoration: underline dashed;
+    text-underline-offset: .3em;
+    color: inherit;
+    display: block;
+    padding: .5em;
+}
+
+/* "hack" to make the entire area of the cell containing the link clickable */
+a.param-doc-link::before {
+    position: absolute;
+    content: "";
+    inset: 0;
+}
+
+.param-doc-description {
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    left: 0;
+    padding: .5ex;
+    margin-left: 1.5em;
+    color: var(--sklearn-color-text);
+    box-shadow: .3em .3em .4em #999;
+    width: max-content;
+    text-align: left;
+    max-height: 10em;
+    overflow-y: auto;
+
+    /* unfitted */
+    background: var(--sklearn-color-unfitted-level-0);
+    border: thin solid var(--sklearn-color-unfitted-level-3);
+}
+
+/* Fitted state for parameter tooltips */
+.fitted .param-doc-description {
+    /* fitted */
+    background: var(--sklearn-color-fitted-level-0);
+    border: thin solid var(--sklearn-color-fitted-level-3);
+}
+
+.param-doc-link:hover .param-doc-description {
+    display: block;
+}
+
+.copy-paste-icon {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTIwOCAwTDMzMi4xIDBjMTIuNyAwIDI0LjkgNS4xIDMzLjkgMTQuMWw2Ny45IDY3LjljOSA5IDE0LjEgMjEuMiAxNC4xIDMzLjlMNDQ4IDMzNmMwIDI2LjUtMjEuNSA0OC00OCA0OGwtMTkyIDBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4bDAtMjg4YzAtMjYuNSAyMS41LTQ4IDQ4LTQ4ek00OCAxMjhsODAgMCAwIDY0LTY0IDAgMCAyNTYgMTkyIDAgMC0zMiA2NCAwIDAgNDhjMCAyNi41LTIxLjUgNDgtNDggNDhMNDggNTEyYy0yNi41IDAtNDgtMjEuNS00OC00OEwwIDE3NmMwLTI2LjUgMjEuNS00OCA0OC00OHoiLz48L3N2Zz4=);
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: 0;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KMeans(n_clusters=3, random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>KMeans</div></div><div><a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html">?<span>Documentation for KMeans</span></a><span class="sk-estimator-doc-link ">i<span>Not fitted</span></span></div></label><div class="sk-toggleable__content " data-param-prefix="">
+        <div class="estimator-table">
+            <details>
+                <summary>Parameters</summary>
+                
+<table class="parameters-table caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<tbody>
+<tr class="user-set odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=n_clusters,-int%2C%20default%3D8" class="param-doc-link" rel="noreferrer" target="_blank">n_clusters <span class="param-doc-description">n_clusters: int, default=8<br>
+<br>
+The number of clusters to form as well as the number of<br>
+centroids to generate.<br>
+<br>
+For an example of how to choose an optimal value for `n_clusters` refer to<br>
+:ref:`sphx_glr_auto_examples_cluster_plot_kmeans_silhouette_analysis.py`.</span></a></td>
+<td class="value">3</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=init,-%7B%27k-means%2B%2B%27%2C%20%27random%27%7D%2C%20callable%20or%20array-like%20of%20shape%20%20%20%20%20%20%20%20%20%20%20%20%20%28n_clusters%2C%20n_features%29%2C%20default%3D%27k-means%2B%2B%27" class="param-doc-link" rel="noreferrer" target="_blank">init <span class="param-doc-description">init: {'k-means++', 'random'}, callable or array-like of shape (n_clusters, n_features), default='k-means++'<br>
+<br>
+Method for initialization:<br>
+<br>
+* 'k-means++' : selects initial cluster centroids using sampling based on an empirical probability distribution of the points' contribution to the overall inertia. This technique speeds up convergence. The algorithm implemented is "greedy k-means++". It differs from the vanilla k-means++ by making several trials at each sampling step and choosing the best centroid among them.<br>
+<br>
+* 'random': choose `n_clusters` observations (rows) at random from data for the initial centroids.<br>
+<br>
+* If an array is passed, it should be of shape (n_clusters, n_features) and gives the initial centers.<br>
+<br>
+* If a callable is passed, it should take arguments X, n_clusters and a random state and return an initialization.<br>
+<br>
+For an example of how to use the different `init` strategies, see<br>
+:ref:`sphx_glr_auto_examples_cluster_plot_kmeans_digits.py`.<br>
+<br>
+For an evaluation of the impact of initialization, see the example<br>
+:ref:`sphx_glr_auto_examples_cluster_plot_kmeans_stability_low_dim_dense.py`.</span></a></td>
+<td class="value">'k-means++'</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=n_init,-%27auto%27%20or%20int%2C%20default%3D%27auto%27" class="param-doc-link" rel="noreferrer" target="_blank">n_init <span class="param-doc-description">n_init: 'auto' or int, default='auto'<br>
+<br>
+Number of times the k-means algorithm is run with different centroid<br>
+seeds. The final results is the best output of `n_init` consecutive runs<br>
+in terms of inertia. Several runs are recommended for sparse<br>
+high-dimensional problems (see :ref:`kmeans_sparse_high_dim`).<br>
+<br>
+When `n_init='auto'`, the number of runs depends on the value of init:<br>
+10 if using `init='random'` or `init` is a callable;<br>
+1 if using `init='k-means++'` or `init` is an array-like.<br>
+<br>
+.. versionadded:: 1.2<br>
+Added 'auto' option for `n_init`.<br>
+<br>
+.. versionchanged:: 1.4<br>
+Default value for `n_init` changed to `'auto'`.</span></a></td>
+<td class="value">'auto'</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=max_iter,-int%2C%20default%3D300" class="param-doc-link" rel="noreferrer" target="_blank">max_iter <span class="param-doc-description">max_iter: int, default=300<br>
+<br>
+Maximum number of iterations of the k-means algorithm for a<br>
+single run.</span></a></td>
+<td class="value">300</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=tol,-float%2C%20default%3D1e-4" class="param-doc-link" rel="noreferrer" target="_blank">tol <span class="param-doc-description">tol: float, default=1e-4<br>
+<br>
+Relative tolerance with regards to Frobenius norm of the difference<br>
+in the cluster centers of two consecutive iterations to declare<br>
+convergence.</span></a></td>
+<td class="value">0.0001</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=verbose,-int%2C%20default%3D0" class="param-doc-link" rel="noreferrer" target="_blank">verbose <span class="param-doc-description">verbose: int, default=0<br>
+<br>
+Verbosity mode.</span></a></td>
+<td class="value">0</td>
+</tr>
+<tr class="user-set odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=random_state,-int%2C%20RandomState%20instance%20or%20None%2C%20default%3DNone" class="param-doc-link" rel="noreferrer" target="_blank">random_state <span class="param-doc-description">random_state: int, RandomState instance or None, default=None<br>
+<br>
+Determines random number generation for centroid initialization. Use<br>
+an int to make the randomness deterministic.<br>
+See :term:`Glossary <random_state>`.</random_state></span></a></td>
+<td class="value">42</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=copy_x,-bool%2C%20default%3DTrue" class="param-doc-link" rel="noreferrer" target="_blank">copy_x <span class="param-doc-description">copy_x: bool, default=True<br>
+<br>
+When pre-computing distances it is more numerically accurate to center<br>
+the data first. If copy_x is True (default), then the original data is<br>
+not modified. If False, the original data is modified, and put back<br>
+before the function returns, but small numerical differences may be<br>
+introduced by subtracting and then adding the data mean. Note that if<br>
+the original data is not C-contiguous, a copy will be made even if<br>
+copy_x is False. If the original data is sparse, but not in CSR format,<br>
+a copy will be made even if copy_x is False.</span></a></td>
+<td class="value">True</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=algorithm,-%7B%22lloyd%22%2C%20%22elkan%22%7D%2C%20default%3D%22lloyd%22" class="param-doc-link" rel="noreferrer" target="_blank">algorithm <span class="param-doc-description">algorithm: {"lloyd", "elkan"}, default="lloyd"<br>
+<br>
+K-means algorithm to use. The classical EM-style algorithm is `"lloyd"`.<br>
+The `"elkan"` variation can be more efficient on some datasets with<br>
+well-defined clusters, by using the triangle inequality. However it's<br>
+more memory intensive due to the allocation of an extra array of shape<br>
+`(n_samples, n_clusters)`.<br>
+<br>
+.. versionchanged:: 0.18<br>
+Added Elkan algorithm<br>
+<br>
+.. versionchanged:: 1.1<br>
+Renamed "full" to "lloyd", and deprecated "auto" and "full".<br>
+Changed "auto" to use "lloyd" instead of "elkan".</span></a></td>
+<td class="value">'lloyd'</td>
+</tr>
+</tbody>
+</table>
+
+            </details>
+        </div>
+    </div></div></div></div></div><script>function copyToClipboard(text, element) {
+    // Get the parameter prefix from the closest toggleable content
+    const toggleableContent = element.closest('.sk-toggleable__content');
+    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
+    const fullParamName = paramPrefix ? `${paramPrefix}${text}` : text;
+
+    const originalStyle = element.style;
+    const computedStyle = window.getComputedStyle(element);
+    const originalWidth = computedStyle.width;
+    const originalHTML = element.innerHTML.replace('Copied!', '');
+
+    navigator.clipboard.writeText(fullParamName)
+        .then(() => {
+            element.style.width = originalWidth;
+            element.style.color = 'green';
+            element.innerHTML = "Copied!";
+
+            setTimeout(() => {
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 2000);
+        })
+        .catch(err => {
+            console.error('Failed to copy:', err);
+            element.style.color = 'red';
+            element.innerHTML = "Failed!";
+            setTimeout(() => {
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 2000);
+        });
+    return false;
+}
+
+document.querySelectorAll('.copy-paste-icon').forEach(function(element) {
+    const toggleableContent = element.closest('.sk-toggleable__content');
+    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
+    const paramName = element.parentElement.nextElementSibling
+        .textContent.trim().split(' ')[0];
+    const fullParamName = paramPrefix ? `${paramPrefix}${paramName}` : paramName;
+
+    element.setAttribute('title', fullParamName);
+});
+
+
+/**
+ * Adapted from Skrub
+ * https://github.com/skrub-data/skrub/blob/403466d1d5d4dc76a7ef569b3f8228db59a31dc3/skrub/_reporting/_data/templates/report.js#L789
+ * @returns "light" or "dark"
+ */
+function detectTheme(element) {
+    const body = document.querySelector('body');
+
+    // Check VSCode theme
+    const themeKindAttr = body.getAttribute('data-vscode-theme-kind');
+    const themeNameAttr = body.getAttribute('data-vscode-theme-name');
+
+    if (themeKindAttr && themeNameAttr) {
+        const themeKind = themeKindAttr.toLowerCase();
+        const themeName = themeNameAttr.toLowerCase();
+
+        if (themeKind.includes("dark") || themeName.includes("dark")) {
+            return "dark";
+        }
+        if (themeKind.includes("light") || themeName.includes("light")) {
+            return "light";
+        }
+    }
+
+    // Check Jupyter theme
+    if (body.getAttribute('data-jp-theme-light') === 'false') {
+        return 'dark';
+    } else if (body.getAttribute('data-jp-theme-light') === 'true') {
+        return 'light';
+    }
+
+    // Guess based on a parent element's color
+    const color = window.getComputedStyle(element.parentNode, null).getPropertyValue('color');
+    const match = color.match(/^rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)\s*$/i);
+    if (match) {
+        const [r, g, b] = [
+            parseFloat(match[1]),
+            parseFloat(match[2]),
+            parseFloat(match[3])
+        ];
+
+        // https://en.wikipedia.org/wiki/HSL_and_HSV#Lightness
+        const luma = 0.299 * r + 0.587 * g + 0.114 * b;
+
+        if (luma > 180) {
+            // If the text is very bright we have a dark theme
+            return 'dark';
+        }
+        if (luma < 75) {
+            // If the text is very dark we have a light theme
+            return 'light';
+        }
+        // Otherwise fall back to the next heuristic.
+    }
+
+    // Fallback to system preference
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+
+function forceTheme(elementId) {
+    const estimatorElement = document.querySelector(`#${elementId}`);
+    if (estimatorElement === null) {
+        console.error(`Element with id ${elementId} not found.`);
+    } else {
+        const theme = detectTheme(estimatorElement);
+        estimatorElement.classList.add(theme);
+    }
+}
+
+forceTheme('sk-container-id-1');</script>
 </div>
 </div>
 <p><br></p>
 </section>
 <section id="fit-model-to-data" class="level3">
 <h3 class="anchored" data-anchor-id="fit-model-to-data">Fit model to data</h3>
-<div id="81c0a60d" class="cell" data-output-location="fragment" data-execution_count="23">
+<div id="f189718e" class="cell" data-output-location="fragment" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="co">## the fit</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a>penguins[<span class="st">"kmeans_cluster"</span>] <span class="op">=</span> kmeans.fit_predict(X_scaled)</span>
 <span id="cb37-3"><a href="#cb37-3"></a></span>
@@ -1704,7 +2099,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="cell-output cell-output-display" data-execution_count="22">
 <style>#sk-container-id-2 {
   /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: black;
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
   --sklearn-color-line: gray;
   /* Definition of color scheme for unfitted estimators */
   --sklearn-color-unfitted-level-0: #fff5e6;
@@ -1716,20 +2112,21 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   --sklearn-color-fitted-level-1: #d4ebff;
   --sklearn-color-fitted-level-2: #b3dbfd;
   --sklearn-color-fitted-level-3: cornflowerblue;
+}
 
+#sk-container-id-2.light {
   /* Specific color for light theme */
-  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
-  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
-  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-text-on-default-background: black;
+  --sklearn-color-background: white;
+  --sklearn-color-border-box: black;
   --sklearn-color-icon: #696969;
+}
 
-  @media (prefers-color-scheme: dark) {
-    /* Redefinition of color scheme for dark theme */
-    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
-    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-icon: #878787;
-  }
+#sk-container-id-2.dark {
+  --sklearn-color-text-on-default-background: white;
+  --sklearn-color-background: #111;
+  --sklearn-color-border-box: white;
+  --sklearn-color-icon: #878787;
 }
 
 #sk-container-id-2 {
@@ -1849,12 +2246,21 @@ clickable and can be expanded/collapsed.
 /* Toggleable label */
 #sk-container-id-2 label.sk-toggleable__label {
   cursor: pointer;
-  display: block;
+  display: flex;
   width: 100%;
   margin-bottom: 0;
   padding: 0.5em;
   box-sizing: border-box;
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+#sk-container-id-2 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
 }
 
 #sk-container-id-2 label.sk-toggleable__label-arrow:before {
@@ -1872,9 +2278,7 @@ clickable and can be expanded/collapsed.
 /* Toggleable content - dropdown */
 
 #sk-container-id-2 div.sk-toggleable__content {
-  max-height: 0;
-  max-width: 0;
-  overflow: hidden;
+  display: none;
   text-align: left;
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-0);
@@ -1900,9 +2304,9 @@ clickable and can be expanded/collapsed.
 
 #sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {
   /* Expand drop-down */
-  max-height: 200px;
-  max-width: 100%;
-  overflow: auto;
+  display: block;
+  width: 100%;
+  overflow: visible;
 }
 
 #sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
@@ -1956,7 +2360,6 @@ clickable and can be expanded/collapsed.
 #sk-container-id-2 div.sk-label label {
   font-family: monospace;
   font-weight: bold;
-  display: inline-block;
   line-height: 1.2em;
 }
 
@@ -2002,23 +2405,25 @@ a:visited.sk-estimator-doc-link {
   font-size: smaller;
   line-height: 1em;
   font-family: monospace;
-  background-color: var(--sklearn-color-background);
+  background-color: var(--sklearn-color-unfitted-level-0);
   border-radius: 1em;
   height: 1em;
   width: 1em;
   text-decoration: none !important;
-  margin-left: 1ex;
+  margin-left: 0.5em;
+  text-align: center;
   /* unfitted */
-  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
-  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-3) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-3);
 }
 
 .sk-estimator-doc-link.fitted,
 a:link.sk-estimator-doc-link.fitted,
 a:visited.sk-estimator-doc-link.fitted {
   /* fitted */
-  border: var(--sklearn-color-fitted-level-1) 1pt solid;
-  color: var(--sklearn-color-fitted-level-1);
+  background-color: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3) 1pt solid;
+  color: var(--sklearn-color-fitted-level-3);
 }
 
 /* On hover */
@@ -2028,7 +2433,8 @@ div.sk-label-container:hover .sk-estimator-doc-link:hover,
 .sk-estimator-doc-link:hover {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-3);
-  color: var(--sklearn-color-background);
+  border: var(--sklearn-color-fitted-level-0) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-0);
   text-decoration: none;
 }
 
@@ -2038,7 +2444,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 .sk-estimator-doc-link.fitted:hover {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
-  color: var(--sklearn-color-background);
+  border: var(--sklearn-color-fitted-level-0) 1pt solid;
+  color: var(--sklearn-color-fitted-level-0);
   text-decoration: none;
 }
 
@@ -2078,7 +2485,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   font-size: 1rem;
   line-height: 1em;
   font-family: monospace;
-  background-color: var(--sklearn-color-background);
+  background-color: var(--sklearn-color-unfitted-level-0);
   border-radius: 1rem;
   height: 1rem;
   width: 1rem;
@@ -2090,6 +2497,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 
 #sk-container-id-2 a.estimator_doc_link.fitted {
   /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
   border: var(--sklearn-color-fitted-level-1) 1pt solid;
   color: var(--sklearn-color-fitted-level-1);
 }
@@ -2106,7 +2514,389 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KMeans(n_clusters=3, random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked=""><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;KMeans<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.cluster.KMeans.html">?<span>Documentation for KMeans</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>KMeans(n_clusters=3, random_state=42)</pre></div> </div></div></div></div>
+
+.estimator-table {
+    font-family: monospace;
+}
+
+.estimator-table summary {
+    padding: .5rem;
+    cursor: pointer;
+}
+
+.estimator-table summary::marker {
+    font-size: 0.7rem;
+}
+
+.estimator-table details[open] {
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    padding-bottom: 0.3rem;
+}
+
+.estimator-table .parameters-table {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0;
+}
+
+.estimator-table .parameters-table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.estimator-table .parameters-table tr:nth-child(even) {
+    background-color: #f6f6f6;
+}
+
+.estimator-table .parameters-table tr:hover {
+    background-color: #e0e0e0;
+}
+
+.estimator-table table td {
+    border: 1px solid rgba(106, 105, 104, 0.232);
+}
+
+/*
+    `table td`is set in notebook with right text-align.
+    We need to overwrite it.
+*/
+.estimator-table table td.param {
+    text-align: left;
+    position: relative;
+    padding: 0;
+}
+
+.user-set td {
+    color:rgb(255, 94, 0);
+    text-align: left !important;
+}
+
+.user-set td.value {
+    color:rgb(255, 94, 0);
+    background-color: transparent;
+}
+
+.default td {
+    color: black;
+    text-align: left !important;
+}
+
+.user-set td i,
+.default td i {
+    color: black;
+}
+
+/*
+    Styles for parameter documentation links
+    We need styling for visited so jupyter doesn't overwrite it
+*/
+a.param-doc-link,
+a.param-doc-link:link,
+a.param-doc-link:visited {
+    text-decoration: underline dashed;
+    text-underline-offset: .3em;
+    color: inherit;
+    display: block;
+    padding: .5em;
+}
+
+/* "hack" to make the entire area of the cell containing the link clickable */
+a.param-doc-link::before {
+    position: absolute;
+    content: "";
+    inset: 0;
+}
+
+.param-doc-description {
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    left: 0;
+    padding: .5ex;
+    margin-left: 1.5em;
+    color: var(--sklearn-color-text);
+    box-shadow: .3em .3em .4em #999;
+    width: max-content;
+    text-align: left;
+    max-height: 10em;
+    overflow-y: auto;
+
+    /* unfitted */
+    background: var(--sklearn-color-unfitted-level-0);
+    border: thin solid var(--sklearn-color-unfitted-level-3);
+}
+
+/* Fitted state for parameter tooltips */
+.fitted .param-doc-description {
+    /* fitted */
+    background: var(--sklearn-color-fitted-level-0);
+    border: thin solid var(--sklearn-color-fitted-level-3);
+}
+
+.param-doc-link:hover .param-doc-description {
+    display: block;
+}
+
+.copy-paste-icon {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTIwOCAwTDMzMi4xIDBjMTIuNyAwIDI0LjkgNS4xIDMzLjkgMTQuMWw2Ny45IDY3LjljOSA5IDE0LjEgMjEuMiAxNC4xIDMzLjlMNDQ4IDMzNmMwIDI2LjUtMjEuNSA0OC00OCA0OGwtMTkyIDBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4bDAtMjg4YzAtMjYuNSAyMS41LTQ4IDQ4LTQ4ek00OCAxMjhsODAgMCAwIDY0LTY0IDAgMCAyNTYgMTkyIDAgMC0zMiA2NCAwIDAgNDhjMCAyNi41LTIxLjUgNDgtNDggNDhMNDggNTEyYy0yNi41IDAtNDgtMjEuNS00OC00OEwwIDE3NmMwLTI2LjUgMjEuNS00OCA0OC00OHoiLz48L3N2Zz4=);
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: 0;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KMeans(n_clusters=3, random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked=""><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>KMeans</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html">?<span>Documentation for KMeans</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
+        <div class="estimator-table">
+            <details>
+                <summary>Parameters</summary>
+                
+<table class="parameters-table caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<tbody>
+<tr class="user-set odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=n_clusters,-int%2C%20default%3D8" class="param-doc-link" rel="noreferrer" target="_blank">n_clusters <span class="param-doc-description">n_clusters: int, default=8<br>
+<br>
+The number of clusters to form as well as the number of<br>
+centroids to generate.<br>
+<br>
+For an example of how to choose an optimal value for `n_clusters` refer to<br>
+:ref:`sphx_glr_auto_examples_cluster_plot_kmeans_silhouette_analysis.py`.</span></a></td>
+<td class="value">3</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=init,-%7B%27k-means%2B%2B%27%2C%20%27random%27%7D%2C%20callable%20or%20array-like%20of%20shape%20%20%20%20%20%20%20%20%20%20%20%20%20%28n_clusters%2C%20n_features%29%2C%20default%3D%27k-means%2B%2B%27" class="param-doc-link" rel="noreferrer" target="_blank">init <span class="param-doc-description">init: {'k-means++', 'random'}, callable or array-like of shape (n_clusters, n_features), default='k-means++'<br>
+<br>
+Method for initialization:<br>
+<br>
+* 'k-means++' : selects initial cluster centroids using sampling based on an empirical probability distribution of the points' contribution to the overall inertia. This technique speeds up convergence. The algorithm implemented is "greedy k-means++". It differs from the vanilla k-means++ by making several trials at each sampling step and choosing the best centroid among them.<br>
+<br>
+* 'random': choose `n_clusters` observations (rows) at random from data for the initial centroids.<br>
+<br>
+* If an array is passed, it should be of shape (n_clusters, n_features) and gives the initial centers.<br>
+<br>
+* If a callable is passed, it should take arguments X, n_clusters and a random state and return an initialization.<br>
+<br>
+For an example of how to use the different `init` strategies, see<br>
+:ref:`sphx_glr_auto_examples_cluster_plot_kmeans_digits.py`.<br>
+<br>
+For an evaluation of the impact of initialization, see the example<br>
+:ref:`sphx_glr_auto_examples_cluster_plot_kmeans_stability_low_dim_dense.py`.</span></a></td>
+<td class="value">'k-means++'</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=n_init,-%27auto%27%20or%20int%2C%20default%3D%27auto%27" class="param-doc-link" rel="noreferrer" target="_blank">n_init <span class="param-doc-description">n_init: 'auto' or int, default='auto'<br>
+<br>
+Number of times the k-means algorithm is run with different centroid<br>
+seeds. The final results is the best output of `n_init` consecutive runs<br>
+in terms of inertia. Several runs are recommended for sparse<br>
+high-dimensional problems (see :ref:`kmeans_sparse_high_dim`).<br>
+<br>
+When `n_init='auto'`, the number of runs depends on the value of init:<br>
+10 if using `init='random'` or `init` is a callable;<br>
+1 if using `init='k-means++'` or `init` is an array-like.<br>
+<br>
+.. versionadded:: 1.2<br>
+Added 'auto' option for `n_init`.<br>
+<br>
+.. versionchanged:: 1.4<br>
+Default value for `n_init` changed to `'auto'`.</span></a></td>
+<td class="value">'auto'</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=max_iter,-int%2C%20default%3D300" class="param-doc-link" rel="noreferrer" target="_blank">max_iter <span class="param-doc-description">max_iter: int, default=300<br>
+<br>
+Maximum number of iterations of the k-means algorithm for a<br>
+single run.</span></a></td>
+<td class="value">300</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=tol,-float%2C%20default%3D1e-4" class="param-doc-link" rel="noreferrer" target="_blank">tol <span class="param-doc-description">tol: float, default=1e-4<br>
+<br>
+Relative tolerance with regards to Frobenius norm of the difference<br>
+in the cluster centers of two consecutive iterations to declare<br>
+convergence.</span></a></td>
+<td class="value">0.0001</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=verbose,-int%2C%20default%3D0" class="param-doc-link" rel="noreferrer" target="_blank">verbose <span class="param-doc-description">verbose: int, default=0<br>
+<br>
+Verbosity mode.</span></a></td>
+<td class="value">0</td>
+</tr>
+<tr class="user-set odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=random_state,-int%2C%20RandomState%20instance%20or%20None%2C%20default%3DNone" class="param-doc-link" rel="noreferrer" target="_blank">random_state <span class="param-doc-description">random_state: int, RandomState instance or None, default=None<br>
+<br>
+Determines random number generation for centroid initialization. Use<br>
+an int to make the randomness deterministic.<br>
+See :term:`Glossary <random_state>`.</random_state></span></a></td>
+<td class="value">42</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=copy_x,-bool%2C%20default%3DTrue" class="param-doc-link" rel="noreferrer" target="_blank">copy_x <span class="param-doc-description">copy_x: bool, default=True<br>
+<br>
+When pre-computing distances it is more numerically accurate to center<br>
+the data first. If copy_x is True (default), then the original data is<br>
+not modified. If False, the original data is modified, and put back<br>
+before the function returns, but small numerical differences may be<br>
+introduced by subtracting and then adding the data mean. Note that if<br>
+the original data is not C-contiguous, a copy will be made even if<br>
+copy_x is False. If the original data is sparse, but not in CSR format,<br>
+a copy will be made even if copy_x is False.</span></a></td>
+<td class="value">True</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.8/modules/generated/sklearn.cluster.KMeans.html#:~:text=algorithm,-%7B%22lloyd%22%2C%20%22elkan%22%7D%2C%20default%3D%22lloyd%22" class="param-doc-link" rel="noreferrer" target="_blank">algorithm <span class="param-doc-description">algorithm: {"lloyd", "elkan"}, default="lloyd"<br>
+<br>
+K-means algorithm to use. The classical EM-style algorithm is `"lloyd"`.<br>
+The `"elkan"` variation can be more efficient on some datasets with<br>
+well-defined clusters, by using the triangle inequality. However it's<br>
+more memory intensive due to the allocation of an extra array of shape<br>
+`(n_samples, n_clusters)`.<br>
+<br>
+.. versionchanged:: 0.18<br>
+Added Elkan algorithm<br>
+<br>
+.. versionchanged:: 1.1<br>
+Renamed "full" to "lloyd", and deprecated "auto" and "full".<br>
+Changed "auto" to use "lloyd" instead of "elkan".</span></a></td>
+<td class="value">'lloyd'</td>
+</tr>
+</tbody>
+</table>
+
+            </details>
+        </div>
+    </div></div></div></div></div><script>function copyToClipboard(text, element) {
+    // Get the parameter prefix from the closest toggleable content
+    const toggleableContent = element.closest('.sk-toggleable__content');
+    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
+    const fullParamName = paramPrefix ? `${paramPrefix}${text}` : text;
+
+    const originalStyle = element.style;
+    const computedStyle = window.getComputedStyle(element);
+    const originalWidth = computedStyle.width;
+    const originalHTML = element.innerHTML.replace('Copied!', '');
+
+    navigator.clipboard.writeText(fullParamName)
+        .then(() => {
+            element.style.width = originalWidth;
+            element.style.color = 'green';
+            element.innerHTML = "Copied!";
+
+            setTimeout(() => {
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 2000);
+        })
+        .catch(err => {
+            console.error('Failed to copy:', err);
+            element.style.color = 'red';
+            element.innerHTML = "Failed!";
+            setTimeout(() => {
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 2000);
+        });
+    return false;
+}
+
+document.querySelectorAll('.copy-paste-icon').forEach(function(element) {
+    const toggleableContent = element.closest('.sk-toggleable__content');
+    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
+    const paramName = element.parentElement.nextElementSibling
+        .textContent.trim().split(' ')[0];
+    const fullParamName = paramPrefix ? `${paramPrefix}${paramName}` : paramName;
+
+    element.setAttribute('title', fullParamName);
+});
+
+
+/**
+ * Adapted from Skrub
+ * https://github.com/skrub-data/skrub/blob/403466d1d5d4dc76a7ef569b3f8228db59a31dc3/skrub/_reporting/_data/templates/report.js#L789
+ * @returns "light" or "dark"
+ */
+function detectTheme(element) {
+    const body = document.querySelector('body');
+
+    // Check VSCode theme
+    const themeKindAttr = body.getAttribute('data-vscode-theme-kind');
+    const themeNameAttr = body.getAttribute('data-vscode-theme-name');
+
+    if (themeKindAttr && themeNameAttr) {
+        const themeKind = themeKindAttr.toLowerCase();
+        const themeName = themeNameAttr.toLowerCase();
+
+        if (themeKind.includes("dark") || themeName.includes("dark")) {
+            return "dark";
+        }
+        if (themeKind.includes("light") || themeName.includes("light")) {
+            return "light";
+        }
+    }
+
+    // Check Jupyter theme
+    if (body.getAttribute('data-jp-theme-light') === 'false') {
+        return 'dark';
+    } else if (body.getAttribute('data-jp-theme-light') === 'true') {
+        return 'light';
+    }
+
+    // Guess based on a parent element's color
+    const color = window.getComputedStyle(element.parentNode, null).getPropertyValue('color');
+    const match = color.match(/^rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)\s*$/i);
+    if (match) {
+        const [r, g, b] = [
+            parseFloat(match[1]),
+            parseFloat(match[2]),
+            parseFloat(match[3])
+        ];
+
+        // https://en.wikipedia.org/wiki/HSL_and_HSV#Lightness
+        const luma = 0.299 * r + 0.587 * g + 0.114 * b;
+
+        if (luma > 180) {
+            // If the text is very bright we have a dark theme
+            return 'dark';
+        }
+        if (luma < 75) {
+            // If the text is very dark we have a light theme
+            return 'light';
+        }
+        // Otherwise fall back to the next heuristic.
+    }
+
+    // Fallback to system preference
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+
+function forceTheme(elementId) {
+    const estimatorElement = document.querySelector(`#${elementId}`);
+    if (estimatorElement === null) {
+        console.error(`Element with id ${elementId} not found.`);
+    } else {
+        const theme = detectTheme(estimatorElement);
+        estimatorElement.classList.add(theme);
+    }
+}
+
+forceTheme('sk-container-id-2');</script>
 </div>
 </div>
 </section>
@@ -2122,7 +2912,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="clean-text">
 <p>To check how good our model is, we can use one of the functions included in the sklearn library.</p>
 <p>The <code>adjusted_rand_score()</code> function evaluates how well the cluster groupings agree with the species groupings while adjusting for chance.</p>
-<div id="253906ad" class="cell" data-output-location="fragment" data-execution_count="24">
+<div id="2c38644d" class="cell" data-output-location="fragment" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Calculate clustering performance using Adjusted Rand Index (ARI)</span></span>
 <span id="cb39-2"><a href="#cb39-2"></a>kmeans_ari <span class="op">=</span> adjusted_rand_score(penguins[<span class="st">'species'</span>], penguins[<span class="st">"kmeans_cluster"</span>])</span>
 <span id="cb39-3"><a href="#cb39-3"></a><span class="bu">print</span>(<span class="ss">f"k-Means Adjusted Rand Index: </span><span class="sc">{</span>kmeans_ari<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2144,7 +2934,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <li>If we want to add sex as a variable to see if that is why our clusters don’t agree with our species, we can use a scatterplot</li>
 <li>Using seaborn and matplotlib, we can easily put both of these plots on the same figure. <br></li>
 </ul>
-<div id="8f11f892" class="cell" data-execution_count="25">
+<div id="cb914f53" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Count occurrences of each species-cluster-sex combination</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a><span class="co"># (.size gives the count as index, use reset_index to get count column.)</span></span>
 <span id="cb41-3"><a href="#cb41-3"></a>scatter_data <span class="op">=</span> (penguins.groupby([<span class="st">"species"</span>, <span class="st">"kmeans_cluster"</span>, <span class="st">"sex"</span>])</span>
@@ -2173,7 +2963,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="scatter-data-heatmap-data" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="scatter-data-heatmap-data">Scatter data &amp; Heatmap Data</h2>
-<div id="b968fbc3" class="cell" data-execution_count="26">
+<div id="43f590d7" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>display(scatter_data.head(<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -2221,7 +3011,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 </div>
-<div id="37dddddb" class="cell" data-execution_count="27">
+<div id="0845fa38" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>display(heatmap_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -2273,7 +3063,7 @@ After the transformations we performed, this is what our scatter data and heatma
 </section>
 <section id="creating-plots" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="creating-plots">Creating Plots</h2>
-<div id="cf1d9f5b" class="cell" data-output-location="slide" data-execution_count="28">
+<div id="5748c090" class="cell" data-output-location="slide" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Prepare the figure with 2 subplots; the axes object will contain both plots</span></span>
 <span id="cb44-2"><a href="#cb44-2"></a>fig2, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">7</span>)) <span class="co">## 1 row 2 columns</span></span>
 <span id="cb44-3"><a href="#cb44-3"></a></span>
@@ -2301,7 +3091,7 @@ After the transformations we performed, this is what our scatter data and heatma
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="session4v3_webpage_files/figure-html/cell-29-output-1.png" width="1530" height="660" class="figure-img"></p>
+<p><img src="session4v3_webpage_files/figure-html/cell-29-output-1.png" width="1531" height="662" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2318,7 +3108,7 @@ After the transformations we performed, this is what our scatter data and heatma
 <section id="building-a-pytorch-model-class" class="level3">
 <h3 class="anchored" data-anchor-id="building-a-pytorch-model-class">Building a PyTorch Model Class</h3>
 <p>Unlike in scikit-learn, with PyTorch, we have to define the model architecture (layer size, order, etc) ourselves. We also define what happens during the forward pass (how input data flows through the network). This is a super simple example, but model architectures can get more complicated.</p>
-<div id="90e5b95f" class="cell" data-execution_count="29">
+<div id="abff325c" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="kw">class</span> PenguinNet(nn.Module):</span>
 <span id="cb45-2"><a href="#cb45-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, hidden_units<span class="op">=</span><span class="dv">16</span>, n_classes<span class="op">=</span><span class="dv">3</span>):</span>
 <span id="cb45-3"><a href="#cb45-3"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
@@ -2345,13 +3135,13 @@ After the transformations we performed, this is what our scatter data and heatma
 * Convert the NumPy input into PyTorch tensors<br>
 * Run the Training Loop</p>
 <p><strong>We can use the BaseEstimator and ClassifierMixin classes from sklearn to help!</strong></p>
-<div id="70a9e0db" class="cell" data-execution_count="30">
+<div id="632a61fb" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="im">from</span> sklearn.base <span class="im">import</span> BaseEstimator, ClassifierMixin </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="make-it-an-sklearn-style-classifier-add-methods-for-consistant-api-1" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="make-it-an-sklearn-style-classifier-add-methods-for-consistant-api-1">Make it an SKLearn-Style Classifier (add methods for consistant API)</h2>
-<div id="620906b5" class="cell" data-execution_count="31">
+<div id="1d5ee6bb" class="cell" data-execution_count="31">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="kw">class</span> PenguinNetClassifier(ClassifierMixin, BaseEstimator):</span>
 <span id="cb47-2"><a href="#cb47-2"></a>    <span class="co">"""</span></span>
 <span id="cb47-3"><a href="#cb47-3"></a><span class="co">    sklearn-style wrapper around a PyTorch neural network</span></span>
@@ -2475,7 +3265,7 @@ However, it is beneficial for us to design our Classifier wrapper to match the s
 </div>
 <p>. . .</p>
 <p>The <strong>function</strong> <code>train_test_split()</code> from scikit-learn is helpful here!</p>
-<div id="304399b4" class="cell" data-execution_count="32">
+<div id="eeb39d3b" class="cell" data-execution_count="32">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="co"># Splitting dataset into training and testing sets (still using scaled X!)</span></span>
 <span id="cb48-2"><a href="#cb48-2"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
 <span id="cb48-3"><a href="#cb48-3"></a>    X_scaled, y,</span>
@@ -2494,7 +3284,7 @@ However, it is beneficial for us to design our Classifier wrapper to match the s
 <ul>
 <li>For a supervised model, y_train is included in <code>.fit()</code>!</li>
 </ul>
-<div id="90289525" class="cell" data-execution_count="33">
+<div id="2d74b3c1" class="cell" data-execution_count="33">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>penguin_nn <span class="op">=</span> PenguinNetClassifier( <span class="co">## Create model object w/ desired architecture</span></span>
 <span id="cb49-2"><a href="#cb49-2"></a>    hidden_units<span class="op">=</span><span class="dv">32</span>,</span>
 <span id="cb49-3"><a href="#cb49-3"></a>    lr<span class="op">=</span><span class="fl">0.01</span>,</span>
@@ -2506,7 +3296,8 @@ However, it is beneficial for us to design our Classifier wrapper to match the s
 <div class="cell-output cell-output-display" data-execution_count="32">
 <style>#sk-container-id-3 {
   /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: black;
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
   --sklearn-color-line: gray;
   /* Definition of color scheme for unfitted estimators */
   --sklearn-color-unfitted-level-0: #fff5e6;
@@ -2518,20 +3309,21 @@ However, it is beneficial for us to design our Classifier wrapper to match the s
   --sklearn-color-fitted-level-1: #d4ebff;
   --sklearn-color-fitted-level-2: #b3dbfd;
   --sklearn-color-fitted-level-3: cornflowerblue;
+}
 
+#sk-container-id-3.light {
   /* Specific color for light theme */
-  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
-  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
-  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-text-on-default-background: black;
+  --sklearn-color-background: white;
+  --sklearn-color-border-box: black;
   --sklearn-color-icon: #696969;
+}
 
-  @media (prefers-color-scheme: dark) {
-    /* Redefinition of color scheme for dark theme */
-    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
-    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-icon: #878787;
-  }
+#sk-container-id-3.dark {
+  --sklearn-color-text-on-default-background: white;
+  --sklearn-color-background: #111;
+  --sklearn-color-border-box: white;
+  --sklearn-color-icon: #878787;
 }
 
 #sk-container-id-3 {
@@ -2651,12 +3443,21 @@ clickable and can be expanded/collapsed.
 /* Toggleable label */
 #sk-container-id-3 label.sk-toggleable__label {
   cursor: pointer;
-  display: block;
+  display: flex;
   width: 100%;
   margin-bottom: 0;
   padding: 0.5em;
   box-sizing: border-box;
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+#sk-container-id-3 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
 }
 
 #sk-container-id-3 label.sk-toggleable__label-arrow:before {
@@ -2674,9 +3475,7 @@ clickable and can be expanded/collapsed.
 /* Toggleable content - dropdown */
 
 #sk-container-id-3 div.sk-toggleable__content {
-  max-height: 0;
-  max-width: 0;
-  overflow: hidden;
+  display: none;
   text-align: left;
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-0);
@@ -2702,9 +3501,9 @@ clickable and can be expanded/collapsed.
 
 #sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {
   /* Expand drop-down */
-  max-height: 200px;
-  max-width: 100%;
-  overflow: auto;
+  display: block;
+  width: 100%;
+  overflow: visible;
 }
 
 #sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
@@ -2758,7 +3557,6 @@ clickable and can be expanded/collapsed.
 #sk-container-id-3 div.sk-label label {
   font-family: monospace;
   font-weight: bold;
-  display: inline-block;
   line-height: 1.2em;
 }
 
@@ -2804,23 +3602,25 @@ a:visited.sk-estimator-doc-link {
   font-size: smaller;
   line-height: 1em;
   font-family: monospace;
-  background-color: var(--sklearn-color-background);
+  background-color: var(--sklearn-color-unfitted-level-0);
   border-radius: 1em;
   height: 1em;
   width: 1em;
   text-decoration: none !important;
-  margin-left: 1ex;
+  margin-left: 0.5em;
+  text-align: center;
   /* unfitted */
-  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
-  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-3) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-3);
 }
 
 .sk-estimator-doc-link.fitted,
 a:link.sk-estimator-doc-link.fitted,
 a:visited.sk-estimator-doc-link.fitted {
   /* fitted */
-  border: var(--sklearn-color-fitted-level-1) 1pt solid;
-  color: var(--sklearn-color-fitted-level-1);
+  background-color: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3) 1pt solid;
+  color: var(--sklearn-color-fitted-level-3);
 }
 
 /* On hover */
@@ -2830,7 +3630,8 @@ div.sk-label-container:hover .sk-estimator-doc-link:hover,
 .sk-estimator-doc-link:hover {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-3);
-  color: var(--sklearn-color-background);
+  border: var(--sklearn-color-fitted-level-0) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-0);
   text-decoration: none;
 }
 
@@ -2840,7 +3641,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 .sk-estimator-doc-link.fitted:hover {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
-  color: var(--sklearn-color-background);
+  border: var(--sklearn-color-fitted-level-0) 1pt solid;
+  color: var(--sklearn-color-fitted-level-0);
   text-decoration: none;
 }
 
@@ -2880,7 +3682,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   font-size: 1rem;
   line-height: 1em;
   font-family: monospace;
-  background-color: var(--sklearn-color-background);
+  background-color: var(--sklearn-color-unfitted-level-0);
   border-radius: 1rem;
   height: 1rem;
   width: 1rem;
@@ -2892,6 +3694,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 
 #sk-container-id-3 a.estimator_doc_link.fitted {
   /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
   border: var(--sklearn-color-fitted-level-1) 1pt solid;
   color: var(--sklearn-color-fitted-level-1);
 }
@@ -2908,7 +3711,292 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>PenguinNetClassifier(epochs=300, hidden_units=32)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" checked=""><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;PenguinNetClassifier<span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>PenguinNetClassifier(epochs=300, hidden_units=32)</pre></div> </div></div></div></div>
+
+.estimator-table {
+    font-family: monospace;
+}
+
+.estimator-table summary {
+    padding: .5rem;
+    cursor: pointer;
+}
+
+.estimator-table summary::marker {
+    font-size: 0.7rem;
+}
+
+.estimator-table details[open] {
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    padding-bottom: 0.3rem;
+}
+
+.estimator-table .parameters-table {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0;
+}
+
+.estimator-table .parameters-table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.estimator-table .parameters-table tr:nth-child(even) {
+    background-color: #f6f6f6;
+}
+
+.estimator-table .parameters-table tr:hover {
+    background-color: #e0e0e0;
+}
+
+.estimator-table table td {
+    border: 1px solid rgba(106, 105, 104, 0.232);
+}
+
+/*
+    `table td`is set in notebook with right text-align.
+    We need to overwrite it.
+*/
+.estimator-table table td.param {
+    text-align: left;
+    position: relative;
+    padding: 0;
+}
+
+.user-set td {
+    color:rgb(255, 94, 0);
+    text-align: left !important;
+}
+
+.user-set td.value {
+    color:rgb(255, 94, 0);
+    background-color: transparent;
+}
+
+.default td {
+    color: black;
+    text-align: left !important;
+}
+
+.user-set td i,
+.default td i {
+    color: black;
+}
+
+/*
+    Styles for parameter documentation links
+    We need styling for visited so jupyter doesn't overwrite it
+*/
+a.param-doc-link,
+a.param-doc-link:link,
+a.param-doc-link:visited {
+    text-decoration: underline dashed;
+    text-underline-offset: .3em;
+    color: inherit;
+    display: block;
+    padding: .5em;
+}
+
+/* "hack" to make the entire area of the cell containing the link clickable */
+a.param-doc-link::before {
+    position: absolute;
+    content: "";
+    inset: 0;
+}
+
+.param-doc-description {
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    left: 0;
+    padding: .5ex;
+    margin-left: 1.5em;
+    color: var(--sklearn-color-text);
+    box-shadow: .3em .3em .4em #999;
+    width: max-content;
+    text-align: left;
+    max-height: 10em;
+    overflow-y: auto;
+
+    /* unfitted */
+    background: var(--sklearn-color-unfitted-level-0);
+    border: thin solid var(--sklearn-color-unfitted-level-3);
+}
+
+/* Fitted state for parameter tooltips */
+.fitted .param-doc-description {
+    /* fitted */
+    background: var(--sklearn-color-fitted-level-0);
+    border: thin solid var(--sklearn-color-fitted-level-3);
+}
+
+.param-doc-link:hover .param-doc-description {
+    display: block;
+}
+
+.copy-paste-icon {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTIwOCAwTDMzMi4xIDBjMTIuNyAwIDI0LjkgNS4xIDMzLjkgMTQuMWw2Ny45IDY3LjljOSA5IDE0LjEgMjEuMiAxNC4xIDMzLjlMNDQ4IDMzNmMwIDI2LjUtMjEuNSA0OC00OCA0OGwtMTkyIDBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4bDAtMjg4YzAtMjYuNSAyMS41LTQ4IDQ4LTQ4ek00OCAxMjhsODAgMCAwIDY0LTY0IDAgMCAyNTYgMTkyIDAgMC0zMiA2NCAwIDAgNDhjMCAyNi41LTIxLjUgNDgtNDggNDhMNDggNTEyYy0yNi41IDAtNDgtMjEuNS00OC00OEwwIDE3NmMwLTI2LjUgMjEuNS00OCA0OC00OHoiLz48L3N2Zz4=);
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: 0;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>PenguinNetClassifier(epochs=300, hidden_units=32)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" checked=""><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>PenguinNetClassifier</div></div><div><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
+        <div class="estimator-table">
+            <details>
+                <summary>Parameters</summary>
+                
+<table class="parameters-table caption-top table table-sm table-striped small">
+<tbody>
+<tr class="user-set odd">
+<td><em></em></td>
+<td class="param">hidden_units</td>
+<td class="value">32</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param">lr</td>
+<td class="value">0.01</td>
+</tr>
+<tr class="user-set odd">
+<td><em></em></td>
+<td class="param">epochs</td>
+<td class="value">300</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param">batch_size</td>
+<td class="value">32</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param">random_state</td>
+<td class="value">42</td>
+</tr>
+</tbody>
+</table>
+
+            </details>
+        </div>
+    </div></div></div></div></div><script>function copyToClipboard(text, element) {
+    // Get the parameter prefix from the closest toggleable content
+    const toggleableContent = element.closest('.sk-toggleable__content');
+    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
+    const fullParamName = paramPrefix ? `${paramPrefix}${text}` : text;
+
+    const originalStyle = element.style;
+    const computedStyle = window.getComputedStyle(element);
+    const originalWidth = computedStyle.width;
+    const originalHTML = element.innerHTML.replace('Copied!', '');
+
+    navigator.clipboard.writeText(fullParamName)
+        .then(() => {
+            element.style.width = originalWidth;
+            element.style.color = 'green';
+            element.innerHTML = "Copied!";
+
+            setTimeout(() => {
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 2000);
+        })
+        .catch(err => {
+            console.error('Failed to copy:', err);
+            element.style.color = 'red';
+            element.innerHTML = "Failed!";
+            setTimeout(() => {
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 2000);
+        });
+    return false;
+}
+
+document.querySelectorAll('.copy-paste-icon').forEach(function(element) {
+    const toggleableContent = element.closest('.sk-toggleable__content');
+    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
+    const paramName = element.parentElement.nextElementSibling
+        .textContent.trim().split(' ')[0];
+    const fullParamName = paramPrefix ? `${paramPrefix}${paramName}` : paramName;
+
+    element.setAttribute('title', fullParamName);
+});
+
+
+/**
+ * Adapted from Skrub
+ * https://github.com/skrub-data/skrub/blob/403466d1d5d4dc76a7ef569b3f8228db59a31dc3/skrub/_reporting/_data/templates/report.js#L789
+ * @returns "light" or "dark"
+ */
+function detectTheme(element) {
+    const body = document.querySelector('body');
+
+    // Check VSCode theme
+    const themeKindAttr = body.getAttribute('data-vscode-theme-kind');
+    const themeNameAttr = body.getAttribute('data-vscode-theme-name');
+
+    if (themeKindAttr && themeNameAttr) {
+        const themeKind = themeKindAttr.toLowerCase();
+        const themeName = themeNameAttr.toLowerCase();
+
+        if (themeKind.includes("dark") || themeName.includes("dark")) {
+            return "dark";
+        }
+        if (themeKind.includes("light") || themeName.includes("light")) {
+            return "light";
+        }
+    }
+
+    // Check Jupyter theme
+    if (body.getAttribute('data-jp-theme-light') === 'false') {
+        return 'dark';
+    } else if (body.getAttribute('data-jp-theme-light') === 'true') {
+        return 'light';
+    }
+
+    // Guess based on a parent element's color
+    const color = window.getComputedStyle(element.parentNode, null).getPropertyValue('color');
+    const match = color.match(/^rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)\s*$/i);
+    if (match) {
+        const [r, g, b] = [
+            parseFloat(match[1]),
+            parseFloat(match[2]),
+            parseFloat(match[3])
+        ];
+
+        // https://en.wikipedia.org/wiki/HSL_and_HSV#Lightness
+        const luma = 0.299 * r + 0.587 * g + 0.114 * b;
+
+        if (luma > 180) {
+            // If the text is very bright we have a dark theme
+            return 'dark';
+        }
+        if (luma < 75) {
+            // If the text is very dark we have a light theme
+            return 'light';
+        }
+        // Otherwise fall back to the next heuristic.
+    }
+
+    // Fallback to system preference
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+
+function forceTheme(elementId) {
+    const estimatorElement = document.querySelector(`#${elementId}`);
+    if (estimatorElement === null) {
+        console.error(`Element with id ${elementId} not found.`);
+    } else {
+        const theme = detectTheme(estimatorElement);
+        estimatorElement.classList.add(theme);
+    }
+}
+
+forceTheme('sk-container-id-3');</script>
 </div>
 </div>
 <aside class="notes">
@@ -2918,7 +4006,7 @@ We took advantage of ducktyping to make our classfier use the same commands as t
 <section id="once-the-model-is-fit" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="once-the-model-is-fit">Once the model is fit…</h2>
 <p>-We can look at its attributes (ex: <code>.classes_</code>) which gives the class labels as known to the classifier</p>
-<div id="00df4a40" class="cell" data-output-location="fragment" data-execution_count="34">
+<div id="f5a475a9" class="cell" data-output-location="fragment" data-execution_count="34">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="bu">print</span>(penguin_nn.classes_)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
@@ -2926,7 +4014,7 @@ We took advantage of ducktyping to make our classfier use the same commands as t
 </div>
 <p>. . .</p>
 <p>-And use fitted model to predict species for test data</p>
-<div id="6bc22134" class="cell" data-output-location="fragment" data-execution_count="35">
+<div id="b80f44df" class="cell" data-output-location="fragment" data-execution_count="35">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Use the predict method on the test data to get the predictions for the test data</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a>y_pred <span class="op">=</span> penguin_nn.predict(X_test)</span>
 <span id="cb52-3"><a href="#cb52-3"></a></span>
@@ -2960,7 +4048,7 @@ We use the .predict method to get the predicted classes and the .predict proba m
 <li>Create dataframe of unscaled X_test, <code>bill_length_mm</code>, and <code>bill_depth_mm</code>.</li>
 <li>Add to it the actual and predicted species labels</li>
 </ul>
-<div id="b1000373" class="cell" data-output-location="fragment" data-execution_count="36">
+<div id="4dea1332" class="cell" data-output-location="fragment" data-execution_count="36">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="co">## First unscale the test data</span></span>
 <span id="cb54-2"><a href="#cb54-2"></a>X_test_unscaled <span class="op">=</span> scaler.inverse_transform(X_test)</span>
 <span id="cb54-3"><a href="#cb54-3"></a></span>
@@ -2995,7 +4083,7 @@ Line 13 here creates a boolean (true/false) column for agreement between the act
 <section id="plotnine-scatterplot-for-penguinnet-classification-of-test-data" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="plotnine-scatterplot-for-penguinnet-classification-of-test-data">Plotnine scatterplot for PenguinNet classification of test data</h2>
 <p>To see how well our model did at classifying the remaining penguins…</p>
-<div id="fc4a961f" class="cell" data-output-location="slide" data-execution_count="37">
+<div id="dd473904" class="cell" data-output-location="slide" data-execution_count="37">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="co">## Build the plot</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a>plot3 <span class="op">=</span> (ggplot(penguins_test, aes(x<span class="op">=</span><span class="st">"bill_length_mm"</span>, y<span class="op">=</span><span class="st">"bill_depth_mm"</span>, </span>
 <span id="cb56-3"><a href="#cb56-3"></a>color<span class="op">=</span><span class="st">"y_actual"</span>, fill <span class="op">=</span> <span class="st">'y_pred'</span>, shape <span class="op">=</span> <span class="st">'correct'</span>))</span>
@@ -3019,7 +4107,7 @@ Now we can put all of this together into a plot. This plot is overely complicate
 </section>
 <section id="visualizing-decision-boundary-with-seaborn-and-matplotlib" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="visualizing-decision-boundary-with-seaborn-and-matplotlib">Visualizing Decision Boundary with seaborn and matplotlib</h2>
-<div id="28bde1c5" class="cell" data-output-location="slide" data-execution_count="38">
+<div id="4b6f5b9d" class="cell" data-output-location="slide" data-execution_count="38">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> DecisionBoundaryDisplay</span>
 <span id="cb57-2"><a href="#cb57-2"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder</span>
 <span id="cb57-3"><a href="#cb57-3"></a></span>
@@ -3083,7 +4171,7 @@ Now we can put all of this together into a plot. This plot is overely complicate
 - <code>accuracy_score</code> and <code>classification_report</code> are both functions!<br>
 - They are not unique to scikit-learn classes so it makes sense for them to be functions not methods</p>
 </div>
-<div id="9f6252c2" class="cell" data-output-location="fragment" data-execution_count="39">
+<div id="53aedd20" class="cell" data-output-location="fragment" data-execution_count="39">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># Evaluate neural network performance</span></span>
 <span id="cb58-2"><a href="#cb58-2"></a>penguin_nn_accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
 <span id="cb58-3"><a href="#cb58-3"></a><span class="bu">print</span>(<span class="ss">f"Neural Network Accuracy: </span><span class="sc">{</span>penguin_nn_accuracy<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
@@ -3109,7 +4197,7 @@ weighted avg       0.97      0.97      0.97       100
 </section>
 <section id="make-a-summary-table-of-metrics-for-both-models" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="make-a-summary-table-of-metrics-for-both-models">Make a Summary Table of Metrics for Both Models</h2>
-<div id="1a7944ec" class="cell" data-output-location="fragment" data-execution_count="40">
+<div id="b8ff5315" class="cell" data-output-location="fragment" data-execution_count="40">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>summary_table <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb60-2"><a href="#cb60-2"></a>    <span class="st">"Metric"</span>: [<span class="st">"k-Means Adjusted Rand Index"</span>, <span class="st">"Neural Network Accuracy"</span>],</span>
 <span id="cb60-3"><a href="#cb60-3"></a>    <span class="st">"Value"</span>: [kmeans_ari, penguin_nn_accuracy]</span>
@@ -3122,52 +4210,55 @@ weighted avg       0.97      0.97      0.97       100
 <span id="cb60-10"><a href="#cb60-10"></a>    .tab_options(table_font_size<span class="op">=</span><span class="dv">20</span>)</span>
 <span id="cb60-11"><a href="#cb60-11"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="39">
-<div id="bctgvqqzce" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="kdbymnltsj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#bctgvqqzce table {
+#kdbymnltsj table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#bctgvqqzce thead, tbody, tfoot, tr, td, th { border-style: none; }
+#kdbymnltsj thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#bctgvqqzce p { margin: 0; padding: 0; }
- #bctgvqqzce .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 20; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #bctgvqqzce .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #bctgvqqzce .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #bctgvqqzce .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #bctgvqqzce .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #bctgvqqzce .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #bctgvqqzce .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #bctgvqqzce .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #bctgvqqzce .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #bctgvqqzce .gt_column_spanner_outer:first-child { padding-left: 0; }
- #bctgvqqzce .gt_column_spanner_outer:last-child { padding-right: 0; }
- #bctgvqqzce .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #bctgvqqzce .gt_spanner_row { border-bottom-style: hidden; }
- #bctgvqqzce .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #bctgvqqzce .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #bctgvqqzce .gt_from_md> :first-child { margin-top: 0; }
- #bctgvqqzce .gt_from_md> :last-child { margin-bottom: 0; }
- #bctgvqqzce .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #bctgvqqzce .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #bctgvqqzce .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #bctgvqqzce .gt_row_group_first td { border-top-width: 2px; }
- #bctgvqqzce .gt_row_group_first th { border-top-width: 2px; }
- #bctgvqqzce .gt_striped { background-color: rgba(128,128,128,0.05); }
- #bctgvqqzce .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #bctgvqqzce .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #bctgvqqzce .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #bctgvqqzce .gt_left { text-align: left; }
- #bctgvqqzce .gt_center { text-align: center; }
- #bctgvqqzce .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #bctgvqqzce .gt_font_normal { font-weight: normal; }
- #bctgvqqzce .gt_font_bold { font-weight: bold; }
- #bctgvqqzce .gt_font_italic { font-style: italic; }
- #bctgvqqzce .gt_super { font-size: 65%; }
- #bctgvqqzce .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #bctgvqqzce .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#kdbymnltsj p { margin: 0; padding: 0; }
+ #kdbymnltsj .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 20; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #kdbymnltsj .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #kdbymnltsj .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #kdbymnltsj .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #kdbymnltsj .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #kdbymnltsj .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #kdbymnltsj .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #kdbymnltsj .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #kdbymnltsj .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #kdbymnltsj .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #kdbymnltsj .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #kdbymnltsj .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #kdbymnltsj .gt_spanner_row { border-bottom-style: hidden; }
+ #kdbymnltsj .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #kdbymnltsj .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #kdbymnltsj .gt_from_md> :first-child { margin-top: 0; }
+ #kdbymnltsj .gt_from_md> :last-child { margin-bottom: 0; }
+ #kdbymnltsj .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #kdbymnltsj .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #kdbymnltsj .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #kdbymnltsj .gt_row_group_first td { border-top-width: 2px; }
+ #kdbymnltsj .gt_row_group_first th { border-top-width: 2px; }
+ #kdbymnltsj .gt_striped { color: #333333; background-color: #F4F4F4; }
+ #kdbymnltsj .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #kdbymnltsj .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #kdbymnltsj .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
+ #kdbymnltsj .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
+ #kdbymnltsj .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #kdbymnltsj .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #kdbymnltsj .gt_left { text-align: left; }
+ #kdbymnltsj .gt_center { text-align: center; }
+ #kdbymnltsj .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #kdbymnltsj .gt_font_normal { font-weight: normal; }
+ #kdbymnltsj .gt_font_bold { font-weight: bold; }
+ #kdbymnltsj .gt_font_italic { font-style: italic; }
+ #kdbymnltsj .gt_super { font-size: 65%; }
+ #kdbymnltsj .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #kdbymnltsj .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -3177,17 +4268,17 @@ weighted avg       0.97      0.97      0.97       100
 <td colspan="2" class="gt_heading gt_title gt_font_normal">Model Results Summary</td>
 </tr>
 <tr class="gt_col_headings even">
-<th id="Metric" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Metric</th>
+<th id="Metric" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Metric</th>
 <th id="Value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Value</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left">k-Means Adjusted Rand Index</td>
+<td class="gt_row gt_center">k-Means Adjusted Rand Index</td>
 <td class="gt_row gt_right">0.82</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left">Neural Network Accuracy</td>
+<td class="gt_row gt_center">Neural Network Accuracy</td>
 <td class="gt_row gt_right">0.97</td>
 </tr>
 </tbody>

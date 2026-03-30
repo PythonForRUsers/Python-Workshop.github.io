@@ -13,6 +13,7 @@ format:
         height: 950  # default is 700
         transition: none
         code-line-numbers: true
+        embed-resources: true
 execute:
   freeze: auto
   eval: true
