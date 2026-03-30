@@ -22,16 +22,16 @@ $linkColorHover: #a0c5fa;
 
 /*-- scss:rules --*/
 
-// General blur-fix and legibility
-.reveal .slides section {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  padding-top: 0 !important;
-  margin-top: 0 !important;
-}
+// // General blur-fix and legibility
+// .reveal .slides section {
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   text-rendering: optimizeLegibility;
+//   transform: translateZ(0);
+//   backface-visibility: hidden;
+//   padding-top: 0 !important;
+//   margin-top: 0 !important;
+// }
 
 // Prevent blurry code blocks
 .reveal pre {
